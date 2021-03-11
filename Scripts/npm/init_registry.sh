@@ -5,6 +5,8 @@ killall node
 
 # Nuke all verdaccio packages
 rm -rf ~/.local/share/verdaccio/
+# And login stuff
+rm ~/.config/verdaccio/htpasswd
 
 # Start verdaccio
 output=$(mktemp "${TMPDIR:-/tmp/}$(basename 0).XXX")
@@ -27,4 +29,16 @@ echo
 echo "Server is running!"
 rm $output
 
+
+# Login to verdaccio
+# See: https://stackoverflow.com/questions/23460980/set-up-npm-credentials-over-npm-login-without-reading-input-from-interactively
+TOKEN=$(curl -s \
+  -H "Accept: application/json" \
+  -H "Content-Type:application/json" \
+  -X PUT --data '{"name": "admin", "password": "admin"}' \
+  http://localhost:4873/-/user/org.couchdb.user:admin 2>&1 | \
+  jq -r '.token'
+  )
+  
+npm set //localhost:4873/:_authToken $TOKEN
 
