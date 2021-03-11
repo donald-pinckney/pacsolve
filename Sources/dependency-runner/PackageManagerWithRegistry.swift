@@ -2,9 +2,8 @@ import Files
 
 protocol PackageManagerWithRegistry: PackageManager {
     func initRegistry()
+    
     func packageTemplateSubstitutions(package: Package, version: Version, dependencies: [(Package, VersionSpecifier)]) -> [String : String]
-    
-    
     func mainTemplateSubstitutions(dependencies: [(Package, VersionSpecifier)]) -> [String : String]
     
     func publish(package: Package, version: Version, pkgDir: String)
@@ -13,6 +12,8 @@ protocol PackageManagerWithRegistry: PackageManager {
 
 extension PackageManagerWithRegistry {
     func generate(inSourceDir: String, dependencies: Dependencies) -> SolveCommand {
+        initRegistry()
+        
         let pkgs = dependencies.allPackages()
         for pkg in pkgs {
             for v in pkg.versions {
@@ -24,7 +25,10 @@ extension PackageManagerWithRegistry {
         let mainPath = generateMain(inDir: inSourceDir, dependencies: dependencies.main_deps)
         
         for pkg in pkgs {
-            for v in pkg.versions {
+            // Should sort versions, otherwise verdaccio thinks
+            // the most recently submitted is the "latest" version.
+            let versions = pkg.versions.sorted(by: <)
+            for v in versions {
                 let pkgDir = "\(inSourceDir)\(pkg.name)/\(v.directoryName)/"
                 publish(package: pkg, version: v, pkgDir: pkgDir)
             }
@@ -62,7 +66,7 @@ extension PackageManagerWithRegistry {
         
         let destFolder = try! Folder(path: "\(destParentDir)\(version.directoryName)")
 
-//        print("Generating:\n\tPackage: \(destFolder.path)\n\tdependencies:\(dependencies)\n")
+        print("Generating:\n\tPackage: \(destFolder.path)\n\tdependencies:\(dependencies)\n")
 
         let substitutions = self.packageTemplateSubstitutions(package: package, version: version, dependencies: dependencies)
         
@@ -90,7 +94,7 @@ extension PackageManagerWithRegistry {
         
         let destFolder = try! Folder(path: "\(destParentDir)\(mainPkgName)")
 
-//        print("Generating:\n\tMain package: \(destFolder)\n\tdependencies:\(dependencies)\n")
+        print("Generating:\n\tMain package: \(destFolder)\n\tdependencies:\(dependencies)\n")
         
         let substitutions = mainTemplateSubstitutions(dependencies: dependencies)
         for f in destFolder.files.recursive {

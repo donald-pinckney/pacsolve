@@ -1,22 +1,30 @@
 struct Version : Equatable, Hashable, ExpressibleByStringLiteral {
-    let versionString : String
+    let major : Int
+    let minor : Int
+    let bug : Int
     
     init (stringLiteral value: String) {
-        self.versionString = value
+        let semverTerms: [Int] = value.split(separator: ".").map { Int.init($0)! }
+        major = semverTerms[0]
+        minor = semverTerms[1]
+        bug = semverTerms[2]
     }
     
     var directoryName : String {
         get {
-            versionString
+            semverName
         }
     }
     
     var semverName : String {
         get {
-            versionString
+            "\(major).\(minor).\(bug)"
         }
     }
     
+    static func <(lhs: Version, rhs: Version) -> Bool {
+        (lhs.major, lhs.minor, lhs.bug) < (rhs.major, rhs.minor, rhs.bug)
+    }
 }
 
 enum VersionSpecifier {

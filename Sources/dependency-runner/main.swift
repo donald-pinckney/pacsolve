@@ -1,3 +1,6 @@
+import Foundation
+
+
 let main = MainPackage()
 let a = Package(name: "A", versions: ["0.0.1", "0.0.2"])
 let b = Package(name: "B", versions: ["0.0.1", "0.0.2"])
@@ -15,5 +18,8 @@ let deps = dependencies(
     )
 )
     
-print(Pip().generate(dependencies: deps).solve())
+//print(Pip().generate(dependencies: deps).solve())
+//print(Npm().generate(dependencies: deps).solve())
+
+print(Npm().generate(dependencies: deps).solve())
 

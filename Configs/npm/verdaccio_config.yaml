@@ -1,0 +1,35 @@
+# path to a directory with all packages
+storage: ../../generated/npm/verdaccio/storage
+# path to a directory with plugins to include
+plugins: ../../generated/npm/verdaccio/plugins
+
+web:
+  title: Verdaccio
+  gravatar: false
+
+auth:
+  htpasswd:
+    file: ../../generated/npm/verdaccio/htpasswd
+
+packages:
+  '@*/*':
+    # scoped packages
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+    proxy: npmjs
+
+  '**':
+    access: $all
+    publish: $authenticated
+    unpublish: $authenticated
+
+server:
+  keepAliveTimeout: 60
+
+middlewares:
+  audit:
+    enabled: true
+
+logs:
+  - { type: stdout, format: pretty, level: http }

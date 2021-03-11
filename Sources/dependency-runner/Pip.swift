@@ -11,9 +11,6 @@ struct Pip : PackageManagerWithRegistry {
     }
     
     func initRegistry() {
-        if let genBinFolder = try? Folder(path: self.genBinPathDir) {
-            try! genBinFolder.delete()
-        }
         mkdir_p(path: self.genBinPathDir)
     }
     
@@ -61,15 +58,18 @@ struct Pip : PackageManagerWithRegistry {
     
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
         let solver = SolveCommand(directory: mainPath, command: """
-            export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/donaldpinckney/.local/bin"
             rm -rf env;
             python3 -m venv --upgrade-deps env;
             source env/bin/activate;
             pip3 install -q -r requirements.txt &&
             python3 main.py &&
             deactivate
-        """)
+        """, packageManager: self)
         
         return solver
+    }
+    
+    func cleanup() {
+
     }
 }

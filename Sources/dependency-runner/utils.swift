@@ -1,7 +1,19 @@
 import ShellOut
+import Foundation
 
 func mkdir_p(path: String) {
     try! shellOut(to: "mkdir", arguments: ["-p", path])
+}
+
+func cd(path: String) {
+    FileManager().changeCurrentDirectoryPath(path)
+}
+
+func changeToProjectRoot() {
+    let myPath = URL(fileURLWithPath: #filePath)
+
+    let projectRoot = myPath.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().path
+    FileManager().changeCurrentDirectoryPath(projectRoot)
 }
 
 extension Dependencies {

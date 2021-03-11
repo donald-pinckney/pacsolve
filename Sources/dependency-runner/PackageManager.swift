@@ -1,18 +1,22 @@
 import Files
 import ShellOut
+import Foundation
 
 protocol PackageManager {
     var name : String { get }
     func generate(inSourceDir: String, dependencies: Dependencies) -> SolveCommand
+    func cleanup()
 }
 
 
 extension PackageManager {
     func generate(dependencies: Dependencies) -> SolveCommand {
+        changeToProjectRoot()
+        
         print("Generating dependencies...")
         
-        if let genSourcesFolder = try? Folder(path: self.genSourcesPathDir) {
-            try! genSourcesFolder.delete()
+        if let genFolder = try? Folder(path: self.genPathDir) {
+            try! genFolder.delete()
         }
         mkdir_p(path: self.genSourcesPathDir)
         
@@ -37,6 +41,12 @@ extension PackageManager {
         }
     }
     
+    var genPathDir: String {
+        get {
+            "\(self.rootPathDir)generated/\(self.name)/"
+        }
+    }
+    
     var genSourcesPathDir: String {
         get {
             "\(self.rootPathDir)generated/\(self.name)/sources/"
@@ -45,8 +55,8 @@ extension PackageManager {
 }
 
 extension PackageManager {
-    func run(script: String, arguments: [String]) -> String {
-        try! shellOut(to: "Scripts/\(self.name)/\(script)", arguments: arguments)
+    @discardableResult func run(script: String, arguments: [String]) -> String {
+        return try! shellOut(to: "Scripts/\(self.name)/\(script)", arguments: arguments)
     }
 }
 

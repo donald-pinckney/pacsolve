@@ -3,14 +3,9 @@
 # Kill verdaccio server, in case it is still running
 killall node
 
-# Nuke all verdaccio packages
-rm -rf ~/.local/share/verdaccio/
-# And login stuff
-rm ~/.config/verdaccio/htpasswd
-
 # Start verdaccio
 output=$(mktemp "${TMPDIR:-/tmp/}$(basename 0).XXX")
-verdaccio &> $output &
+verdaccio --config Configs/npm/verdaccio_config.yaml &> $output &
 server_pid=$!
 echo "Server pid: $server_pid"
 echo "Output: $output"

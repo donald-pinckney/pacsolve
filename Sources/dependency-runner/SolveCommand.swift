@@ -18,7 +18,14 @@ struct SolveCommand {
     let directory: String
     let command: String
     
+    let packageManager: PackageManager
+//    let shutdownCommand: String?
+    
     func solve() -> SolveResult {
+        defer {
+            packageManager.cleanup()
+        }
+        
         print("Solving dependencies...\n")
         do {
             let output = try shellOut(to: command, at: directory)
