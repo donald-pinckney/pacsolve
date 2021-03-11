@@ -31,7 +31,8 @@ rm $output
 
 
 # Login to verdaccio
-# See: https://stackoverflow.com/questions/23460980/set-up-npm-credentials-over-npm-login-without-reading-input-from-interactively
+# See:
+# https://stackoverflow.com/questions/23460980/set-up-npm-credentials-over-npm-login-without-reading-input-from-interactively
 TOKEN=$(curl -s \
   -H "Accept: application/json" \
   -H "Content-Type:application/json" \
