@@ -7,7 +7,7 @@ protocol PackageManagerWithRegistry: PackageManager {
     
     func mainTemplateSubstitutions(dependencies: [(Package, VersionSpecifier)]) -> [String : String]
     
-    func publish(package: Package, version: Version, sourceDir: String)
+    func publish(package: Package, version: Version, pkgDir: String)
     func solveCommand(forMainPath: String) -> SolveCommand
 }
 
@@ -25,7 +25,8 @@ extension PackageManagerWithRegistry {
         
         for pkg in pkgs {
             for v in pkg.versions {
-                publish(package: pkg, version: v, sourceDir: inSourceDir)
+                let pkgDir = "\(inSourceDir)\(pkg.name)/\(v.directoryName)/"
+                publish(package: pkg, version: v, pkgDir: pkgDir)
             }
         }
         

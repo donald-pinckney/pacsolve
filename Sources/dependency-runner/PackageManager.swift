@@ -44,3 +44,9 @@ extension PackageManager {
     }
 }
 
+extension PackageManager {
+    func run(script: String, arguments: [String]) -> String {
+        try! shellOut(to: "Scripts/\(self.name)/\(script)", arguments: arguments)
+    }
+}
+
