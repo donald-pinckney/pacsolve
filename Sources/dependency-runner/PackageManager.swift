@@ -23,33 +23,27 @@ extension PackageManager {
         return generate(inSourceDir: self.genSourcesPathDir, dependencies: dependencies)
     }
     
-    var rootPathDir: String {
-        get {
-            "/Users/donaldpinckney/Research/packages/dependency-runner/"
-        }
-    }
-    
     var mainTemplateDir: Folder {
         get {
-            try! Folder(path: "\(self.rootPathDir)Templates/\(self.name)/main/")
+            try! Folder(path: "Templates/\(self.name)/main/")
         }
     }
     
     var packageTemplateDir: Folder {
         get {
-            try! Folder(path: "\(self.rootPathDir)Templates/\(self.name)/package/")
+            try! Folder(path: "Templates/\(self.name)/package/")
         }
     }
     
     var genPathDir: String {
         get {
-            "\(self.rootPathDir)generated/\(self.name)/"
+            "generated/\(self.name)/"
         }
     }
     
     var genSourcesPathDir: String {
         get {
-            "\(self.rootPathDir)generated/\(self.name)/sources/"
+            "generated/\(self.name)/sources/"
         }
     }
 }

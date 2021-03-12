@@ -6,7 +6,7 @@ struct Pip : PackageManagerWithRegistry {
     let name = "pip"
     var genBinPathDir: String {
         get {
-            "\(self.rootPathDir)generated/\(self.name)/bin/"
+            "generated/\(self.name)/bin/"
         }
     }
     
