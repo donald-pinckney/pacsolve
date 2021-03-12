@@ -7,6 +7,7 @@ def dep_tree(indent):
     $DEPENDENCY_TREE_CALLS
 
 def main():
+    print("TREE DUMP:")
     dep_tree(0)
     
 if __name__ == "__main__":

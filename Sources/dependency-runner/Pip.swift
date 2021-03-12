@@ -41,7 +41,6 @@ struct Pip : PackageManagerWithRegistry {
     
     func mainTemplateSubstitutions(dependencies: [(Package, VersionSpecifier)]) -> [String : String] {
         let substitutions = [
-            "$DIST_DIR" : self.genBinPathDir,
             "$DEPENDENCIES_LINE_SEP" : dependencies.map(self.formatDepenency).joined(separator: "\n"),
             "$DEPENDENCY_IMPORTS" : dependencies.map() { "import " + $0.0.name }.joined(separator: "\n"),
             "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.0.name).dep_tree(indent + 1)" }.joined(separator: "\n    ")

@@ -1,4 +1,4 @@
 --no-index
---find-links $DIST_DIR
+--find-links ../../bin/
 
 $DEPENDENCIES_LINE_SEP

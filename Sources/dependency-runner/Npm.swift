@@ -52,7 +52,7 @@ struct Npm : PackageManagerWithRegistry {
     
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
         let solver = SolveCommand(directory: mainPath, command: """
-            npm install --registry http://localhost:4873
+            npm install --silent --registry http://localhost:4873
             node main.js
         """, packageManager: self)
         

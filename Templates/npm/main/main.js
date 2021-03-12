@@ -8,4 +8,5 @@ function dep_tree(indent) {
     $DEPENDENCY_TREE_CALLS
 }
 
+console.log("TREE DUMP:")
 dep_tree(0);

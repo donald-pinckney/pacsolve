@@ -39,3 +39,15 @@ extension String {
         "'\(self)'"
     }
 }
+
+var _debug = false
+
+func debugLogging(on: Bool) {
+    _debug = on
+}
+
+func logDebug(_ x: String) {
+    if _debug {
+        print(x)
+    }
+}

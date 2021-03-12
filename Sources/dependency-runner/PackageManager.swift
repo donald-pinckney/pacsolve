@@ -1,6 +1,5 @@
 import Files
 import ShellOut
-import Foundation
 
 protocol PackageManager {
     var name : String { get }
@@ -13,7 +12,7 @@ extension PackageManager {
     func generate(dependencies: Dependencies) -> SolveCommand {
         changeToProjectRoot()
         
-        print("Generating dependencies...")
+        logDebug("Generating dependencies...")
         
         if let genFolder = try? Folder(path: self.genPathDir) {
             try! genFolder.delete()

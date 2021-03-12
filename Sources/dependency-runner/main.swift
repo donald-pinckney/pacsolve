@@ -1,4 +1,3 @@
-import Foundation
 
 
 let main = MainPackage()
@@ -17,9 +16,10 @@ let deps = dependencies(
         b == "0.0.1"
     )
 )
-    
-//print(Pip().generate(dependencies: deps).solve())
-//print(Npm().generate(dependencies: deps).solve())
 
+print("pip:")
+print(Pip().generate(dependencies: deps).solve())
+
+print("npm:")
 print(Npm().generate(dependencies: deps).solve())
 
