@@ -43,7 +43,7 @@ struct Npm : PackageManagerWithRegistry {
     }
     
     func publish(package: Package, version: Version, pkgDir: String) {
-        print("Building: \(pkgDir)")
+//        print("Publishing: \(pkgDir)")
         try! shellOut(to: """
             npm publish --registry http://localhost:4873
         """, at: pkgDir)

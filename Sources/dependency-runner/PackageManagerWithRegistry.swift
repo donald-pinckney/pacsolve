@@ -66,7 +66,7 @@ extension PackageManagerWithRegistry {
         
         let destFolder = try! Folder(path: "\(destParentDir)\(version.directoryName)")
 
-        print("Generating:\n\tPackage: \(destFolder.path)\n\tdependencies:\(dependencies)\n")
+//        print("Generating:\n\tPackage: \(destFolder.path)\n\tdependencies:\(dependencies)\n")
 
         let substitutions = self.packageTemplateSubstitutions(package: package, version: version, dependencies: dependencies)
         
@@ -94,7 +94,7 @@ extension PackageManagerWithRegistry {
         
         let destFolder = try! Folder(path: "\(destParentDir)\(mainPkgName)")
 
-        print("Generating:\n\tMain package: \(destFolder)\n\tdependencies:\(dependencies)\n")
+//        print("Generating:\n\tMain package: \(destFolder)\n\tdependencies:\(dependencies)\n")
         
         let substitutions = mainTemplateSubstitutions(dependencies: dependencies)
         for f in destFolder.files.recursive {

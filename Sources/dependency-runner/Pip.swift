@@ -50,7 +50,6 @@ struct Pip : PackageManagerWithRegistry {
     }
     
     func publish(package: Package, version: Version, pkgDir: String) {
-//        print("Building: \(pkgDir)")
         try! shellOut(to: "python3 setup.py bdist_wheel", at: pkgDir)
         try! shellOut(to: "cp \(pkgDir)dist/*.whl \(self.genBinPathDir)")
     }
