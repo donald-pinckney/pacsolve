@@ -7,7 +7,7 @@ echo "$PATH"
 
 # Start verdaccio
 output=$(mktemp "${TMPDIR:-/tmp/}$(basename 0).XXX")
-verdaccio --config Configs/npm/verdaccio_config.yaml &> $output &
+verdaccio --config Configs/yarn2/verdaccio_config.yaml &> $output &
 server_pid=$!
 echo "Server pid: $server_pid"
 echo "Output: $output"

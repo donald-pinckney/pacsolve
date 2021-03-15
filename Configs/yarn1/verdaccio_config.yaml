@@ -1,7 +1,7 @@
 # path to a directory with all packages
-storage: ../../generated/npm/verdaccio/storage
+storage: ../../generated/yarn1/verdaccio/storage
 # path to a directory with plugins to include
-plugins: ../../generated/npm/verdaccio/plugins
+plugins: ../../generated/yarn1/verdaccio/plugins
 
 web:
   title: Verdaccio
@@ -9,7 +9,7 @@ web:
 
 auth:
   htpasswd:
-    file: ../../generated/npm/verdaccio/htpasswd
+    file: ../../generated/yarn1/verdaccio/htpasswd
 
 packages:
   '@*/*':

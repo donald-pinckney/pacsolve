@@ -13,11 +13,13 @@ func changeToProjectRoot() {
     let myPath = URL(fileURLWithPath: #filePath)
 
     let projectRoot = myPath.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().path
-    FileManager().changeCurrentDirectoryPath(projectRoot)
+    cd(path: projectRoot)
 }
 
 extension Dependencies {
     func allPackages() -> [Package] {
+        // TODO: Stabilize the order of this set, since it might matter!
+        
         var pkgs: Set<Package> = Set()
         
         for (pkg, pkg_deps) in self.non_main_deps {
