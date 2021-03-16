@@ -97,11 +97,11 @@ extension PackageManagerWithRegistry {
 //        print("Generating:\n\tMain package: \(destFolder)\n\tdependencies:\(dependencies)\n")
         
         let substitutions = mainTemplateSubstitutions(dependencies: dependencies)
-        for f in destFolder.files.recursive {
+        for f in destFolder.files.recursive.includingHidden {
             rewriteTemplate(file: f, substitutions: substitutions)
         }
         
-        for f in destFolder.subfolders.recursive {
+        for f in destFolder.subfolders.recursive.includingHidden {
             rewriteTemplate(folder: f, substitutions: substitutions)
         }
         

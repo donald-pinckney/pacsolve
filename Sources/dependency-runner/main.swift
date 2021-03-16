@@ -15,14 +15,18 @@ let deps = dependencies(
     )
 )
 
-print("pip:")
-print(Pip().generate(dependencies: deps).solve())
+//print("pip:")
+//print(Pip().generate(dependencies: deps).solve())
+//
+//print("npm:")
+//print(Npm().generate(dependencies: deps).solve())
+//
+//print("yarn1:")
+//print(Yarn1().generate(dependencies: deps).solve())
+//
+//print("yarn2:")
+//print(Yarn2().generate(dependencies: deps).solve())
 
-print("npm:")
-print(Npm().generate(dependencies: deps).solve())
+print("cargo:")
+print(Cargo().generate(dependencies: deps).solve())
 
-print("yarn1:")
-print(Yarn1().generate(dependencies: deps).solve())
-
-print("yarn2:")
-print(Yarn2().generate(dependencies: deps).solve())

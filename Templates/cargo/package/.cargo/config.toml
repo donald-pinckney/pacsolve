@@ -1,0 +1,3 @@
+[registries]
+local = { index = "file://$REGISTRY_DIR" }
+

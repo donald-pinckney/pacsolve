@@ -9,11 +9,24 @@ func cd(path: String) {
     FileManager().changeCurrentDirectoryPath(path)
 }
 
-func changeToProjectRoot() {
+func projectRootDir() -> URL {
     let myPath = URL(fileURLWithPath: #filePath)
+    return myPath.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+}
 
-    let projectRoot = myPath.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().path
-    cd(path: projectRoot)
+func changeToProjectRoot() {
+    cd(path: projectRootDir().path)
+}
+
+func absolutePathRelativeToProjectRoot(forPath: String) -> String {
+    var p: String
+    if forPath.starts(with: "/") {
+        p = forPath
+        p.removeFirst()
+    } else {
+        p = forPath
+    }
+    return projectRootDir().path + "/" + p
 }
 
 extension Dependencies {
@@ -31,7 +44,7 @@ extension Dependencies {
             }
         }
         
-        return [Package](pkgs)
+        return [Package](pkgs).sorted { $0.name < $1.name }
     }
 }
 
