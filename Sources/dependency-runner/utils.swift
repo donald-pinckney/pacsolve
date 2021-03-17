@@ -1,5 +1,6 @@
 import ShellOut
 import Foundation
+import CryptoSwift
 
 func mkdir_p(path: String) {
     try! shellOut(to: "mkdir", arguments: ["-p", path])
@@ -65,4 +66,12 @@ func logDebug(_ x: String) {
     if _debug {
         print(x)
     }
+}
+
+func sha256(data: Data) -> String {
+    data.sha256().toHexString()
+}
+
+func sha256(file: String) throws -> String {
+    sha256(data: try Data(contentsOf: URL(fileURLWithPath: file)))
 }

@@ -1,12 +1,17 @@
 import Files
 
 protocol PackageManagerWithRegistry: PackageManager {
+    associatedtype PublishData
+    
     func initRegistry()
     
     func packageTemplateSubstitutions(package: Package, version: Version, dependencies: [(Package, VersionSpecifier)]) -> [String : String]
     func mainTemplateSubstitutions(dependencies: [(Package, VersionSpecifier)]) -> [String : String]
     
-    func publish(package: Package, version: Version, pkgDir: String)
+    func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) -> PublishData
+    
+    func finalizeRegistry(publishingData: [Package : [Version : PublishData]])
+    
     func solveCommand(forMainPath: String) -> SolveCommand
 }
 
@@ -24,15 +29,21 @@ extension PackageManagerWithRegistry {
         
         let mainPath = generateMain(inDir: inSourceDir, dependencies: dependencies.main_deps)
         
+        var pkgVersionPublishDataMap: [Package : [Version : PublishData]] = [:]
+        
         for pkg in pkgs {
             // Should sort versions, otherwise verdaccio thinks
             // the most recently submitted is the "latest" version.
             let versions = pkg.versions.sorted(by: <)
             for v in versions {
                 let pkgDir = "\(inSourceDir)\(pkg.name)/\(v.directoryName)/"
-                publish(package: pkg, version: v, pkgDir: pkgDir)
+                let deps = dependencies.non_main_deps[pkg]?[v] ?? []
+                let pubData = publish(package: pkg, version: v, pkgDir: pkgDir, dependencies: deps)
+                pkgVersionPublishDataMap[pkg, default: [:]][v] = pubData
             }
         }
+        
+        finalizeRegistry(publishingData: pkgVersionPublishDataMap)
         
         return solveCommand(forMainPath: mainPath)
     }

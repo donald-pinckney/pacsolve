@@ -1,20 +1,23 @@
 import Files
 import ShellOut
-
-struct CargoPackageVersionMetadata {
-    struct CargoPackageVersionMetadataDependency {
-        let name: String
-        let req: String
-    }
-    
-    let name: String
-    let vers: String
-    let deps: [CargoPackageVersionMetadataDependency]
-    let cksum: String
-}
-
+import Foundation
 
 struct Cargo : PackageManagerWithRegistry {
+    
+    struct PackageVersionMetadata: Encodable {
+        struct MetaDependency: Encodable {
+            let name: String
+            let req: String
+        }
+        
+        let name: String
+        let vers: String
+        let deps: [MetaDependency]
+        let cksum: String
+        let features: [String] = []
+        let yanked = false
+    }
+    
     let name = "cargo"
     
     var genRegistryPathDir: String {
@@ -46,7 +49,6 @@ struct Cargo : PackageManagerWithRegistry {
         let jsonContents = #"{"dl": "file://\#(self.absoluteGenRegistryDir)packages/{crate}-{version}.crate"}"#
         try! jsonContents.write(toFile: self.registryConfigPath, atomically: false, encoding: .utf8)
     }
-    
     
     
     
@@ -85,13 +87,65 @@ struct Cargo : PackageManagerWithRegistry {
         return substitutions
     }
     
-    func publish(package: Package, version: Version, pkgDir: String) {
+    func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) -> PackageVersionMetadata {
         print("Publishing: \(pkgDir)")
         
         try! shellOut(to: "cargo", arguments: ["package", "--allow-dirty", "--no-verify", "--offline"], at: pkgDir)
-        try! shellOut(to: "cp", arguments: ["\(pkgDir)target/package/*.crate", self.genRegistryPackagesPathDir])
+        let cratePath = "\(pkgDir)target/package/\(package.name)-\(version.semverName).crate"
+        try! shellOut(to: "cp", arguments: [cratePath, self.genRegistryPackagesPathDir])
+        
+        let cksum = try! sha256(file: cratePath)
+        
+        let depsMeta = dependencies.map { PackageVersionMetadata.MetaDependency(name: $0.0.name, req: versionSpecStr($0.1)) }
+        
+        return PackageVersionMetadata(name: package.name, vers: version.semverName, deps: depsMeta, cksum: cksum)
     }
     
+    
+    func appendMetaData(meta: PackageVersionMetadata, dirs: inout Set<String>, files: inout [String : [Data]]) {
+        let regRelativePath: String
+        if meta.name.count == 1 {
+            regRelativePath = "1/"
+        } else if meta.name.count == 2 {
+            regRelativePath = "2/"
+        } else if meta.name.count == 3 {
+            regRelativePath = "3/\(meta.name.first!)/"
+        } else {
+            let index0 = meta.name.startIndex
+            let index2 = meta.name.index(meta.name.startIndex, offsetBy: 2)
+            let index4 = meta.name.index(index2, offsetBy: 2)
+            regRelativePath = "\(meta.name[index0..<index2])/\(meta.name[index2..<index4])/"
+        }
+        
+        let dirPath = "\(self.genRegistryPathDir)\(regRelativePath)"
+        dirs.insert(dirPath)
+        
+        let jsonPath = "\(dirPath)\(meta.name)"
+        
+        let jsonData = try! JSONEncoder().encode(meta)
+        files[jsonPath, default: []].append(jsonData)
+    }
+    
+    func finalizeRegistry(publishingData: [Package : [Version : PackageVersionMetadata]]) {
+        var dirs: Set<String> = Set()
+        var files: [String : [Data]] = [:]
+        
+        for (_, versionMetas) in publishingData {
+            for version in versionMetas.keys.sorted(by: <) {
+                let meta = versionMetas[version]!
+                appendMetaData(meta: meta, dirs: &dirs, files: &files)
+            }
+        }
+        
+        for d in dirs {
+            mkdir_p(path: d)
+        }
+        
+        for (f, lines) in files {
+            let linesConcat = Data(lines.joined(separator: Character("\n").utf8))
+            try! linesConcat.write(to: URL(fileURLWithPath: f))
+        }
+    }
     
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
         let solver = SolveCommand(directory: mainPath, command: """
@@ -105,3 +159,6 @@ struct Cargo : PackageManagerWithRegistry {
         
     }
 }
+
+
+

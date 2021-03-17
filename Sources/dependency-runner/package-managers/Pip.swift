@@ -48,11 +48,12 @@ struct Pip : PackageManagerWithRegistry {
         return substitutions
     }
     
-    func publish(package: Package, version: Version, pkgDir: String) {
+    func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) {
         try! shellOut(to: "python3 setup.py bdist_wheel", at: pkgDir)
         try! shellOut(to: "cp \(pkgDir)dist/*.whl \(self.genBinPathDir)")
     }
     
+    func finalizeRegistry(publishingData: [Package : [Version : ()]]) {}
     
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
         let solver = SolveCommand(directory: mainPath, command: """

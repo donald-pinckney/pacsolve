@@ -42,14 +42,15 @@ struct Yarn1 : PackageManagerWithRegistry {
         return substitutions
     }
     
-    func publish(package: Package, version: Version, pkgDir: String) {
+    func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) {
 //        print("Publishing: \(pkgDir)")
         try! shellOut(to: """
             npm publish --registry http://localhost:4873
         """, at: pkgDir)
     }
     
-    
+    func finalizeRegistry(publishingData: [Package : [Version : ()]]) {}
+
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
         let solver = SolveCommand(directory: mainPath, command: """
             yarn install --silent --registry http://localhost:4873
