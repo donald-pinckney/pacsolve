@@ -1,6 +1,6 @@
 import ShellOut
 
-enum SolveResult : CustomStringConvertible {
+enum SolveResult : CustomStringConvertible, Equatable, Hashable {
     var description: String {
         get {
             switch self {
@@ -19,6 +19,9 @@ struct SolveCommand {
     let command: String
     
     let packageManager: PackageManager
+    
+    var postProcess: (String) -> String = { $0 }
+    
 //    let shutdownCommand: String?
     
     func solve() -> SolveResult {
@@ -31,7 +34,8 @@ struct SolveCommand {
             let output = try shellOut(to: command, at: directory)
             let marker = "TREE DUMP:\n"
             if let markerRange = output.range(of: marker) {
-                return .solveOk(String(output[markerRange.upperBound..<output.endIndex]))
+                let output = String(output[markerRange.upperBound..<output.endIndex])
+                return .solveOk(self.postProcess(output))
             } else {
                 return .solveError("")
             }

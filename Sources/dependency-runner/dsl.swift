@@ -90,6 +90,24 @@ struct Dependencies {
     static func empty() -> Dependencies {
         Dependencies(main_deps: [], non_main_deps: [:])
     }
+    
+    
+    func solveInAllPackageManagers() -> [SolveResult : [String]] {
+        let managers: [PackageManager] = [Pip(), Npm(), Yarn1(), Yarn2(), Cargo()]
+        
+        let outputAndName = managers.map { manager -> (SolveResult, String) in
+            print("Running \(manager.name)")
+            return (manager.generate(dependencies: self).solve(), manager.name)
+        }
+        
+        var resultGroups: [SolveResult : [String]] = [:]
+        
+        for (output, name) in outputAndName {
+            resultGroups[output, default: []].append(name)
+        }
+        
+        return resultGroups
+    }
 }
 
 func dependencies(_ all_deps : Dependencies...) -> Dependencies {

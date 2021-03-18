@@ -93,7 +93,7 @@ struct Cargo : PackageManagerWithRegistry {
     }
     
     func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) -> PackageVersionMetadata {
-        print("Publishing: \(pkgDir)")
+//        print("Publishing: \(pkgDir)")
         
 //        try! shellOut(to: "git init && git add . && git commit -m x", at: pkgDir)
 
@@ -156,11 +156,29 @@ struct Cargo : PackageManagerWithRegistry {
         try! shellOut(to: "git init && git add . && git commit -m x", at: self.genRegistryPathDir)
     }
     
+    func indentTreeLine(line: String) -> String {
+        if let commaIdx = line.firstIndex(of: ",") {
+            let after = line[line.index(after: commaIdx)..<line.endIndex]
+            let before = line[line.startIndex..<commaIdx]
+            if let indentSize = Int(before) {
+                return String(repeating: "  ", count: indentSize) + String(after)
+            } else {
+                return line
+            }
+        } else {
+            return line
+        }
+    }
+    
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
-        let solver = SolveCommand(directory: mainPath, command: """
+        var solver = SolveCommand(directory: mainPath, command: #"""
             echo "TREE DUMP:"
-            cargo tree --no-dedupe --prefix depth
-        """, packageManager: self)
+            cargo tree --no-dedupe --prefix depth --format ,{p} | sed 's/ (.*//g' | sed 's/__main_pkg__.*/__main_pkg__/g'
+        """#, packageManager: self)
+        
+        solver.postProcess = { str in
+            str.split(separator: "\n").map { self.indentTreeLine(line: String($0)) }.joined(separator: "\n")
+        }
         
         return solver
     }
