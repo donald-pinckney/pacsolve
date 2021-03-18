@@ -8,13 +8,18 @@ struct Cargo : PackageManagerWithRegistry {
         struct MetaDependency: Encodable {
             let name: String
             let req: String
+            let features: [String] = []
+            let optional = false
+            let default_features = true
+            let target: String? = nil
+            let kind = "normal"
         }
         
         let name: String
         let vers: String
         let deps: [MetaDependency]
         let cksum: String
-        let features: [String] = []
+        let features: [String : [String]] = [:]
         let yanked = false
     }
     
@@ -71,8 +76,8 @@ struct Cargo : PackageManagerWithRegistry {
             "$VERSION_STRING" : version.semverName,
             "$REGISTRY_DIR" : self.absoluteGenRegistryDir,
             "$DEPENDENCIES_TOML_FRAGMENT" : dependencies.map(self.formatDepenency).joined(separator: "\n"),
-            "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.0.name) = require('\($0.0.name)');" }.joined(separator: "\n"),
-            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.0.name).dep_tree(indent + 1);" }.joined(separator: "\n    ")
+            "$DEPENDENCY_IMPORTS" : dependencies.map() { "use \($0.0.name);" }.joined(separator: "\n"),
+            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.0.name)::dep_tree(indent + 1);" }.joined(separator: "\n    ")
         ]
         return substitutions
     }
@@ -81,8 +86,8 @@ struct Cargo : PackageManagerWithRegistry {
         let substitutions: [String : String] = [
             "$DEPENDENCIES_TOML_FRAGMENT" : dependencies.map(self.formatDepenency).joined(separator: "\n"),
             "$REGISTRY_DIR" : self.absoluteGenRegistryDir,
-            "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.0.name) = require('\($0.0.name)');" }.joined(separator: "\n"),
-            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.0.name).dep_tree(indent + 1);" }.joined(separator: "\n    ")
+            "$DEPENDENCY_IMPORTS" : dependencies.map() { "use \($0.0.name);" }.joined(separator: "\n"),
+            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.0.name)::dep_tree(indent + 1);" }.joined(separator: "\n    ")
         ]
         return substitutions
     }
@@ -90,7 +95,9 @@ struct Cargo : PackageManagerWithRegistry {
     func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) -> PackageVersionMetadata {
         print("Publishing: \(pkgDir)")
         
-        try! shellOut(to: "cargo", arguments: ["package", "--allow-dirty", "--no-verify", "--offline"], at: pkgDir)
+        try! shellOut(to: "git init && git add . && git commit -m x", at: pkgDir)
+
+        try! shellOut(to: "cargo", arguments: ["package", "--no-verify", "--offline"], at: pkgDir)
         let cratePath = "\(pkgDir)target/package/\(package.name)-\(version.semverName).crate"
         try! shellOut(to: "cp", arguments: [cratePath, self.genRegistryPackagesPathDir])
         
@@ -145,11 +152,14 @@ struct Cargo : PackageManagerWithRegistry {
             let linesConcat = Data(lines.joined(separator: Character("\n").utf8))
             try! linesConcat.write(to: URL(fileURLWithPath: f))
         }
+        
+        try! shellOut(to: "git init && git add . && git commit -m x", at: self.genRegistryPathDir)
     }
     
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
         let solver = SolveCommand(directory: mainPath, command: """
-            # cargo run
+            echo "TREE DUMP:"
+            cargo tree --no-dedupe
         """, packageManager: self)
         
         return solver

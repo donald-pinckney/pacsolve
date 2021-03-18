@@ -1,7 +1,12 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
+/*
+$DEPENDENCY_IMPORTS
+*/
+
+pub fn dep_tree(indent: usize) {
+    /*
+    let indent_str = "  ".repeat(indent);
+    println!("{}{} v{}", indent_str, "$NAME_STRING", "$VERSION_STRING");
+    
+    $DEPENDENCY_TREE_CALLS
+    */
 }
