@@ -95,9 +95,9 @@ struct Cargo : PackageManagerWithRegistry {
     func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) -> PackageVersionMetadata {
         print("Publishing: \(pkgDir)")
         
-        try! shellOut(to: "git init && git add . && git commit -m x", at: pkgDir)
+//        try! shellOut(to: "git init && git add . && git commit -m x", at: pkgDir)
 
-        try! shellOut(to: "cargo", arguments: ["package", "--no-verify", "--offline"], at: pkgDir)
+        try! shellOut(to: "cargo", arguments: ["package", "--no-verify", "--allow-dirty","--offline"], at: pkgDir)
         let cratePath = "\(pkgDir)target/package/\(package.name)-\(version.semverName).crate"
         try! shellOut(to: "cp", arguments: [cratePath, self.genRegistryPackagesPathDir])
         
@@ -159,7 +159,7 @@ struct Cargo : PackageManagerWithRegistry {
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
         let solver = SolveCommand(directory: mainPath, command: """
             echo "TREE DUMP:"
-            cargo tree --no-dedupe
+            cargo tree --no-dedupe --prefix depth
         """, packageManager: self)
         
         return solver
