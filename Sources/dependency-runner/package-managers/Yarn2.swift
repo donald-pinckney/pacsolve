@@ -52,6 +52,7 @@ struct Yarn2 : PackageManagerWithRegistry {
     
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
         let solver = SolveCommand(directory: mainPath, command: """
+            rm -rf ~/.yarn/berry/cache
             yarn set version berry
             yarn config set npmRegistryServer http://localhost:4873
             yarn config set unsafeHttpWhitelist localhost
@@ -60,6 +61,14 @@ struct Yarn2 : PackageManagerWithRegistry {
         """, packageManager: self)
         
         return solver
+    }
+    
+    func parseSingleTreeMainLine(line: Substring) -> (Int, String) {
+        cargoStyle_parseSingleTreeMainLine(line: line)
+    }
+    
+    func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
+        cargoStyle_parseSingleTreePackageLine(line: line)
     }
     
     func cleanup() {

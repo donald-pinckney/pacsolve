@@ -94,7 +94,7 @@ struct Dependencies {
     
     func solveInAllPackageManagers() -> [SolveResult : [String]] {
         let managers: [PackageManager] = [Pip(), Npm(), Yarn1(), Yarn2(), Cargo()]
-        
+
         let outputAndName = managers.map { manager -> (SolveResult, String) in
             print("Running \(manager.name)")
             return (manager.generate(dependencies: self).solve(), manager.name)

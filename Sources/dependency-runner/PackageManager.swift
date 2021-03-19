@@ -5,6 +5,10 @@ protocol PackageManager {
     var name : String { get }
     func generate(inSourceDir: String, dependencies: Dependencies) -> SolveCommand
     func cleanup()
+    
+    func parseSingleTreeMainLine(line: Substring) -> (Int, String)
+    
+    func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version)
 }
 
 

@@ -1,9 +1,8 @@
 $DEPENDENCY_IMPORTS
 
 def dep_tree(indent):
-    indent_str = "  "
-    print((indent * indent_str) + "__main_pkg__")
-    
+    print("{},__main_pkg__".format(indent))
+
     $DEPENDENCY_TREE_CALLS
 
 def main():

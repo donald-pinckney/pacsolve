@@ -17,7 +17,10 @@ let deps = dependencies(
     )
 )
 
+//print(Cargo().generate(dependencies: deps).solve())
+
 let resultGroups = deps.solveInAllPackageManagers()
+
 
 print()
 for (result, group) in resultGroups {

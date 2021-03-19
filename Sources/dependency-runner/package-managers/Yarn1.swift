@@ -60,6 +60,14 @@ struct Yarn1 : PackageManagerWithRegistry {
         return solver
     }
     
+    func parseSingleTreeMainLine(line: Substring) -> (Int, String) {
+        cargoStyle_parseSingleTreeMainLine(line: line)
+    }
+    
+    func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
+        cargoStyle_parseSingleTreePackageLine(line: line)
+    }
+    
     func cleanup() {
         run(script: "shutdown_registry.sh", arguments: [])
     }

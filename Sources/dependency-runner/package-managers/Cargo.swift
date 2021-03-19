@@ -156,31 +156,19 @@ struct Cargo : PackageManagerWithRegistry {
         try! shellOut(to: "git init && git add . && git commit -m x", at: self.genRegistryPathDir)
     }
     
-    func indentTreeLine(line: String) -> String {
-        if let commaIdx = line.firstIndex(of: ",") {
-            let after = line[line.index(after: commaIdx)..<line.endIndex]
-            let before = line[line.startIndex..<commaIdx]
-            if let indentSize = Int(before) {
-                return String(repeating: "  ", count: indentSize) + String(after)
-            } else {
-                return line
-            }
-        } else {
-            return line
-        }
+    func parseSingleTreeMainLine(line: Substring) -> (Int, String) {
+        cargoStyle_parseSingleTreeMainLine(line: line)
+    }
+    
+    func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
+        cargoStyle_parseSingleTreePackageLine(line: line)
     }
     
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
-        var solver = SolveCommand(directory: mainPath, command: #"""
+        SolveCommand(directory: mainPath, command: #"""
             echo "TREE DUMP:"
             cargo tree --no-dedupe --prefix depth --format ,{p} | sed 's/ (.*//g' | sed 's/__main_pkg__.*/__main_pkg__/g'
-        """#, packageManager: self)
-        
-        solver.postProcess = { str in
-            str.split(separator: "\n").map { self.indentTreeLine(line: String($0)) }.joined(separator: "\n")
-        }
-        
-        return solver
+        """#, packageManager: self)        
     }
     
     func cleanup() {
@@ -190,3 +178,27 @@ struct Cargo : PackageManagerWithRegistry {
 
 
 
+
+
+func cargoStyle_parseSingleTreeMainLine(line: Substring) -> (Int, String) {
+    let commaIdx = line.firstIndex(of: ",")!
+    let after = line[line.index(after: commaIdx)..<line.endIndex]
+    let before = line[line.startIndex..<commaIdx]
+    let indentSize = Int(before)!
+    
+    return (indentSize, String(after))
+}
+
+func cargoStyle_parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
+    let commaIdx = line.firstIndex(of: ",")!
+    let after = line[line.index(after: commaIdx)..<line.endIndex]
+    let before = line[line.startIndex..<commaIdx]
+    let indentSize = Int(before)!
+    
+    let vIdx = after.lastIndex(of: "v")!
+    
+    let versionStart = after.index(after: vIdx)
+    let nameEnd = after.index(before: vIdx)
+    
+    return (indentSize, String(after[after.startIndex..<nameEnd]), Version(stringLiteral: String(after[versionStart..<after.endIndex])))
+}
