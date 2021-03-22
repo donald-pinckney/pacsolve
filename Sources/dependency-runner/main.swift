@@ -19,7 +19,7 @@ let deps = dependencies(
 
 //print(Cargo().generate(dependencies: deps).solve())
 
-let resultGroups = deps.solveInAllPackageManagers()
+let resultGroups = deps.solveUsingAllPackageManagers()
 
 
 print()
