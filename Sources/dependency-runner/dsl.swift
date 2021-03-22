@@ -106,13 +106,15 @@ struct Dependencies {
         return resultGroups
     }
     
-    func solveUsingAllPackageManagers() -> [SolveResult : [String]] {
-        let managers: [PackageManager] = [Pip(), Npm(), Yarn1(), Yarn2(), Cargo()]
-        
-        return solve(usingPackageManagers: managers)
+    func solveUsingAllPackageManagers() -> [SolveResult : [String]] {        
+        return solve(usingPackageManagers: allPackageManagers())
     }
 }
 
 func dependencies(_ all_deps : Dependencies...) -> Dependencies {
     all_deps.reduce(.empty(), &&)
+}
+
+func allPackageManagers() -> [PackageManager] {
+    [Pip(), Npm(), Yarn1(), Yarn2(), Cargo()]
 }
