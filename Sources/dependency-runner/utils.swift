@@ -45,6 +45,10 @@ extension Dependencies {
             }
         }
         
+        for (pkg, _) in self.main_deps {
+            pkgs.insert(pkg)
+        }
+        
         return [Package](pkgs).sorted { $0.name < $1.name }
     }
 }

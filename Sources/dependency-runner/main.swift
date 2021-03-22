@@ -2,10 +2,25 @@ import Foundation
 
 
 func main() {
-    testVersionCrissCross()
+//    testVersionCrissCross()
+    testAnyVersionMax()
 }
 main()
 
+
+
+func testAnyVersionMax() {
+    let mainPkg = MainPackage()
+    let a = Package(name: "a", versions: ["0.0.1", "0.0.2"])
+
+    let deps = dependencies(
+        mainPkg.dependsOn(
+            a.any()
+        )
+    )
+    
+    runTest(dependencies: deps, usingPackageManagers: allPackageManagers())
+}
 
 
 func testVersionCrissCross() {
@@ -34,7 +49,7 @@ func testVersionCrissCross() {
 func runTest(dependencies: Dependencies, usingPackageManagers: [PackageManager], name: String = #function) {
     let resultGroups = dependencies.solveUsingAllPackageManagers()
 
-    print("Test \(name):")
+    print("Test \(name) results:")
     for (result, group) in resultGroups {
         print(group)
         print(result)
