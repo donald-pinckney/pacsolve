@@ -21,6 +21,18 @@ struct Pip : PackageManagerWithRegistry {
             return ""
         case .exactly(let v):
             return "==\(v.semverName)"
+        case .geq(let v):
+            return ">=\(v.semverName)"
+        case .gt(let v):
+            return ">\(v.semverName)"
+        case .leq(let v):
+            return "<=\(v.semverName)"
+        case .lt(let v):
+            return "<\(v.semverName)"
+        case .caret(let v):
+            return "^\(v.semverName)"
+        case .tilde(let v):
+            return "~\(v.semverName)"
         }
     }
     

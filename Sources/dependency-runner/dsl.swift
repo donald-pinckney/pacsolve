@@ -29,8 +29,41 @@ struct Version : Equatable, Hashable, ExpressibleByStringLiteral {
 
 enum VersionSpecifier {
     case exactly(Version)
+    case geq(Version)
+    case gt(Version)
+    case leq(Version)
+    case lt(Version)
+    case caret(Version)
+    case tilde(Version)
     case any
 }
+
+func ==(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+    lhs.exactly(rhs)
+}
+
+func >=(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+    lhs.geq(rhs)
+}
+
+func >(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+    lhs.gt(rhs)
+}
+
+func <=(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+    lhs.leq(rhs)
+}
+
+func <(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+    lhs.lt(rhs)
+}
+
+func ^(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+    lhs.caret(rhs)
+}
+
+
+
 
 struct Package : Equatable, Hashable {
     let name : String
@@ -40,12 +73,32 @@ struct Package : Equatable, Hashable {
         VersionedPackage(package: self, version: v)
     }
     
-    static func ==(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
-        lhs.exactly(rhs)
-    }
-    
     func exactly(_ v: Version) -> (Package, VersionSpecifier) {
         (self, VersionSpecifier.exactly(v))
+    }
+    
+    func geq(_ v: Version) -> (Package, VersionSpecifier) {
+        (self, VersionSpecifier.geq(v))
+    }
+    
+    func gt(_ v: Version) -> (Package, VersionSpecifier) {
+        (self, VersionSpecifier.gt(v))
+    }
+    
+    func leq(_ v: Version) -> (Package, VersionSpecifier) {
+        (self, VersionSpecifier.leq(v))
+    }
+    
+    func lt(_ v: Version) -> (Package, VersionSpecifier) {
+        (self, VersionSpecifier.lt(v))
+    }
+    
+    func caret(_ v: Version) -> (Package, VersionSpecifier) {
+        (self, VersionSpecifier.caret(v))
+    }
+    
+    func tilde(_ v: Version) -> (Package, VersionSpecifier) {
+        (self, VersionSpecifier.tilde(v))
     }
     
     func any() -> (Package, VersionSpecifier) {
