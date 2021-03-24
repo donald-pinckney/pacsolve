@@ -91,22 +91,22 @@ struct Dependencies {
         Dependencies(main_deps: [], non_main_deps: [:])
     }
     
-    func solve(usingPackageManagers managers: [PackageManager]) -> [SolveResult : [String]] {
+    func solve(usingPackageManagers managers: [PackageManager]) -> [SolveResult : Set<String>] {
         let outputAndName = managers.map { manager -> (SolveResult, String) in
-            print("Running \(manager.name)")
+//            print("Running \(manager.name)")
             return (manager.generate(dependencies: self).solve(), manager.name)
         }
         
-        var resultGroups: [SolveResult : [String]] = [:]
+        var resultGroups: [SolveResult : Set<String>] = [:]
         
         for (output, name) in outputAndName {
-            resultGroups[output, default: []].append(name)
+            resultGroups[output, default: []].insert(name)
         }
         
         return resultGroups
     }
     
-    func solveUsingAllPackageManagers() -> [SolveResult : [String]] {        
+    func solveUsingAllPackageManagers() -> [SolveResult : Set<String>] {
         return solve(usingPackageManagers: allPackageManagers())
     }
 }

@@ -62,7 +62,7 @@ struct Cargo : PackageManagerWithRegistry {
         case .any:
             return "*"
         case .exactly(let v):
-            return "\(v.semverName)"
+            return "= \(v.semverName)"
         }
     }
 

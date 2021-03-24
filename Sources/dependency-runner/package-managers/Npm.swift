@@ -12,7 +12,7 @@ struct Npm : PackageManagerWithRegistry {
     func versionSpecStr(_ vs: VersionSpecifier) -> String {
         switch vs {
         case .any:
-            return ""
+            return "*"
         case .exactly(let v):
             return "\(v.semverName)"
         }
