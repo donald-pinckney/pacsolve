@@ -10,6 +10,23 @@ func cd(path: String) {
     FileManager().changeCurrentDirectoryPath(path)
 }
 
+func cp(from: String, to: String) throws {
+    try shellOut(to: "cp", arguments: [from, to])
+}
+
+func cp_r(from: String, to: String) throws {
+    try shellOut(to: "cp", arguments: ["-R", from, to])
+}
+
+func cp_contents(from: String, to: String) throws {
+    try shellOut(to: "cp", arguments: ["-a", from + ".", to])
+}
+
+func mv(from: String, to: String) throws {
+    try shellOut(to: "mv", arguments: [from, to])
+}
+
+
 func projectRootDir() -> URL {
     let myPath = URL(fileURLWithPath: #filePath)
     return myPath.deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()

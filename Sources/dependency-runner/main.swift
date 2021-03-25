@@ -1,20 +1,48 @@
 import Foundation
-
+import Files
 
 func main() {
-    testTreeResolutionPrerelease()
-    testTreeResolution()
+//    let here = try! Folder(path: ".")
+//    for f in here.files.recursive.includingHidden {
+//        print(f.path)
+////        rewriteTemplate(file: f, substitutions: substitutions)
+//    }
     
-    testVersionCrissCrossPrerelease()
-    testVersionCrissCross()
+    testPipWorks()
     
-    testAnyVersionMax()
-    
-    testObviousSingleResolutionPrerelease()
-    testObviousSingleResolution()
+//    testTreeResolutionPrerelease()
+//    testTreeResolution()
+//
+//    testVersionCrissCrossPrerelease()
+//    testVersionCrissCross()
+//    
+//    testAnyVersionMax()
+//
+//    testObviousSingleResolutionPrerelease()
+//    testObviousSingleResolution()
 }
 main()
 
+func testPipWorks() {
+    let mainPkg = MainPackage()
+    let a = Package(name: "a", versions: ["0.0.1"])
+    let b = Package(name: "b", versions: ["0.0.1", "0.0.2"])
+
+    let deps = dependencies(
+        mainPkg.dependsOn(
+            a.any(),
+            b.any()
+        ),
+        a.version("0.0.1").dependsOn(
+            b == "0.0.1"
+        )
+    )
+    
+    let resultGroups = runTest(dependencies: deps, usingPackageManagers: [Pip()])
+    assert(resultGroups, hasPartitions: [
+        ["pip"]
+    ])
+}
 
 
 
@@ -191,7 +219,7 @@ func testObviousSingleResolution() {
 
 @discardableResult
 func runTest(dependencies: Dependencies, usingPackageManagers: [PackageManager], name: String = #function) -> [SolveResult : Set<String>] {
-    let resultGroups = dependencies.solveUsingAllPackageManagers()
+    let resultGroups = dependencies.solve(usingPackageManagers: usingPackageManagers)
 
     print("Test \(name) results:")
     for (result, group) in resultGroups {

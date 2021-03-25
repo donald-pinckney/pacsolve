@@ -1,4 +1,4 @@
-import Files
+//import Files
 import ShellOut
 
 protocol PackageManager {
@@ -18,23 +18,26 @@ extension PackageManager {
         
         logDebug("Generating dependencies...")
         
-        if let genFolder = try? Folder(path: self.genPathDir) {
-            try! genFolder.delete()
-        }
+        let _ = try? shellOut(to: "rm", arguments: ["-rf", self.genPathDir])
         mkdir_p(path: self.genSourcesPathDir)
         
         return generate(inSourceDir: self.genSourcesPathDir, dependencies: dependencies)
     }
     
-    var mainTemplateDir: Folder {
+    var mainTemplatePath: String {
         get {
-            try! Folder(path: "Templates/\(self.name)/main/")
+            "Templates/\(self.name)/main/"
         }
     }
     
-    var packageTemplateDir: Folder {
+    var packageTemplateDir: String {
         get {
-            try! Folder(path: "Templates/\(self.name)/package/")
+            "Templates/\(self.name)/package/"
+        }
+    }
+    var packageTemplateDir_name: String {
+        get {
+            "package"
         }
     }
     

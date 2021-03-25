@@ -1,4 +1,5 @@
 import Files
+//import Glibc
 
 protocol PackageManagerWithRegistry: PackageManager {
     associatedtype PublishData
@@ -66,27 +67,24 @@ extension PackageManagerWithRegistry {
     }
     
     func generate(inDir: String, package: Package, version: Version, dependencies: [(Package, VersionSpecifier)]) {
-        let destParentDir = "\(inDir)\(package.name)/"
-        mkdir_p(path: destParentDir)
-        let destParentFolder = try! Folder(path: destParentDir)
+        let destDir = "\(inDir)\(package.name)/\(version.directoryName)/"
+        mkdir_p(path: destDir)
+        try! cp_contents(from: self.packageTemplateDir, to: destDir)
         
-        try! self.packageTemplateDir.copy(to: destParentFolder)
-        
-        let tmpFolder = try! Folder(path: "\(destParentDir)\(self.packageTemplateDir.name)")
-        try! tmpFolder.rename(to: version.directoryName)
-        
-        let destFolder = try! Folder(path: "\(destParentDir)\(version.directoryName)")
-
 //        print("Generating:\n\tPackage: \(destFolder.path)\n\tdependencies:\(dependencies)\n")
 
         let substitutions = self.packageTemplateSubstitutions(package: package, version: version, dependencies: dependencies)
         
+        let destFolder = try! Folder(path: destDir)
         
-        for f in destFolder.files.recursive {
+        for f in destFolder.files.recursive.includingHidden {
+            print("Rewriting: \(f.path)")
+            
             rewriteTemplate(file: f, substitutions: substitutions)
         }
         
         for f in destFolder.subfolders.recursive {
+            print("Rewriting folder: \(f.path)")
             rewriteTemplate(folder: f, substitutions: substitutions)
         }
     }
@@ -94,28 +92,23 @@ extension PackageManagerWithRegistry {
     func generateMain(inDir: String, dependencies: [(Package, VersionSpecifier)]) -> String {
         let mainPkgName = "__main_pkg__"
         
-        let destParentDir = inDir
-        mkdir_p(path: destParentDir)
-        let destParentFolder = try! Folder(path: destParentDir)
-        
-        try! self.mainTemplateDir.copy(to: destParentFolder)
-        
-        let tmpFolder = try! Folder(path: "\(destParentDir)\(self.mainTemplateDir.name)")
-        try! tmpFolder.rename(to: mainPkgName)
-        
-        let destFolder = try! Folder(path: "\(destParentDir)\(mainPkgName)")
+        let destDir = "\(inDir)\(mainPkgName)/"
+        mkdir_p(path: destDir)
+        try! cp_contents(from: self.mainTemplatePath, to: destDir)
+
+        let destFolder = try! Folder(path: destDir)
 
 //        print("Generating:\n\tMain package: \(destFolder)\n\tdependencies:\(dependencies)\n")
-        
+
         let substitutions = mainTemplateSubstitutions(dependencies: dependencies)
         for f in destFolder.files.recursive.includingHidden {
             rewriteTemplate(file: f, substitutions: substitutions)
         }
-        
+
         for f in destFolder.subfolders.recursive.includingHidden {
             rewriteTemplate(folder: f, substitutions: substitutions)
         }
-        
-        return destFolder.path
+
+        return destDir
     }
 }
