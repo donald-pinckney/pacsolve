@@ -2,6 +2,7 @@
 
 # Kill verdaccio server, in case it is still running
 killall node
+killall Verdaccio
 
 echo "$PATH"
 

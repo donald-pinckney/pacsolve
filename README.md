@@ -9,6 +9,7 @@
     + `python3.9 -m pip install --upgrade distlib`
 - `node` (e.g. with [nvm](https://github.com/nvm-sh/nvm#installing-and-updating))
 - `yarn` (`npm install -g yarn`)
+- `verdaccio` (`npm install -g verdaccio`)
 - `cargo` (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`)
 - `swift` (follow the directions for Linux [here](https://swift.org/download/))
 
