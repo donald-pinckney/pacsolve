@@ -61,7 +61,7 @@ struct Pip : PackageManagerWithRegistry {
     }
     
     func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) {
-        try! shellOut(to: "python3 setup.py bdist_wheel", at: pkgDir)
+        try! shellOut(to: "python3.9 setup.py bdist_wheel", at: pkgDir)
         try! shellOut(to: "cp \(pkgDir)dist/*.whl \(self.genBinPathDir)")
     }
     
@@ -70,10 +70,10 @@ struct Pip : PackageManagerWithRegistry {
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
         let solver = SolveCommand(directory: mainPath, command: """
             rm -rf env;
-            python3 -m venv --upgrade-deps env;
+            python3.9 -m venv --upgrade-deps env;
             source env/bin/activate;
-            pip3 install -q -r requirements.txt &&
-            python3 main.py &&
+            pip install -q -r requirements.txt &&
+            python main.py &&
             deactivate
         """, packageManager: self)
         

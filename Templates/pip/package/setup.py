@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # Learn more: https://github.com/kennethreitz/setup.py
 
-# Run: python3 setup.py bdist_wheel
-
 from codecs import open
 import os
 
