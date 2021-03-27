@@ -5,7 +5,7 @@ struct Yarn2 : PackageManagerWithRegistry {
     let name = "yarn2"
     
     func initRegistry() {
-        run(script: "init_registry.sh", arguments: [])
+        runNoOutput(script: "init_registry.sh", arguments: [])
     }
     
     
@@ -84,6 +84,6 @@ struct Yarn2 : PackageManagerWithRegistry {
     }
     
     func cleanup() {
-        run(script: "shutdown_registry.sh", arguments: [])
+        runNoOutput(script: "shutdown_registry.sh", arguments: [])
     }
 }

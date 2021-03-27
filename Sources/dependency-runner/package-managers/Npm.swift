@@ -5,7 +5,7 @@ struct Npm : PackageManagerWithRegistry {
     let name = "npm"
     
     func initRegistry() {
-        run(script: "init_registry.sh", arguments: [])
+        runNoOutput(script: "init_registry.sh", arguments: [])
     }
     
     
@@ -81,6 +81,6 @@ struct Npm : PackageManagerWithRegistry {
     }
     
     func cleanup() {
-        run(script: "shutdown_registry.sh", arguments: [])
+        runNoOutput(script: "shutdown_registry.sh", arguments: [])
     }
 }

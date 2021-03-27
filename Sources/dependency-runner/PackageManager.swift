@@ -1,5 +1,6 @@
 //import Files
 import ShellOut
+import Foundation
 
 protocol PackageManager {
     var name : String { get }
@@ -55,8 +56,15 @@ extension PackageManager {
 }
 
 extension PackageManager {
-    @discardableResult func run(script: String, arguments: [String]) -> String {
-        return try! shellOut(to: "Scripts/\(self.name)/\(script)", arguments: arguments)
+    func runNoOutput(script: String, arguments: [String]) {
+        let p = Process()
+        p.launchPath = "Scripts/\(self.name)/\(script)"
+        p.arguments = arguments
+        p.standardInput = FileHandle.nullDevice
+        p.standardError = FileHandle.nullDevice
+        p.standardOutput = FileHandle.nullDevice
+        p.launch()
+        p.waitUntilExit()
     }
 }
 
