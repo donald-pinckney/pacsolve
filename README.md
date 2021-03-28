@@ -13,3 +13,4 @@
 - `cargo` (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`)
 - `swift` (follow the directions for Linux [here](https://swift.org/download/))
 
+Then run tests with `swift test`.
