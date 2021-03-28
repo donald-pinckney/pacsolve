@@ -1,7 +1,7 @@
 import XCTest
 
-import dependency_runnerTests
+import DependencyRunnerTests
 
 var tests = [XCTestCaseEntry]()
-tests += dependency_runnerTests.allTests()
+tests += DependencyRunnerTests.allTests()
 XCTMain(tests)

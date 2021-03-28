@@ -1,13 +1,17 @@
-struct Version : Equatable, Hashable, ExpressibleByStringLiteral {
+public struct Version : Equatable, Hashable, ExpressibleByStringLiteral {
     let major : Int
     let minor : Int
     let bug : Int
     
-    init (stringLiteral value: String) {
+    public init (major: Int, minor: Int, bug: Int) {
+        self.major = major
+        self.minor = minor
+        self.bug = bug
+    }
+    
+    public init (stringLiteral value: String) {
         let semverTerms: [Int] = value.split(separator: ".").map { Int.init($0)! }
-        major = semverTerms[0]
-        minor = semverTerms[1]
-        bug = semverTerms[2]
+        self.init(major: semverTerms[0], minor: semverTerms[1], bug: semverTerms[2])
     }
     
     var directoryName : String {
@@ -27,7 +31,7 @@ struct Version : Equatable, Hashable, ExpressibleByStringLiteral {
     }
 }
 
-enum VersionSpecifier {
+public enum VersionSpecifier {
     case exactly(Version)
     case geq(Version)
     case gt(Version)
@@ -38,92 +42,101 @@ enum VersionSpecifier {
     case any
 }
 
-func ==(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+public func ==(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
     lhs.exactly(rhs)
 }
 
-func >=(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+public func >=(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
     lhs.geq(rhs)
 }
 
-func >(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+public func >(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
     lhs.gt(rhs)
 }
 
-func <=(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+public func <=(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
     lhs.leq(rhs)
 }
 
-func <(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+public func <(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
     lhs.lt(rhs)
 }
 
-func ^(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
+public func ^(lhs: Package, rhs: Version) -> (Package, VersionSpecifier) {
     lhs.caret(rhs)
 }
 
 
 
 
-struct Package : Equatable, Hashable {
+public struct Package : Equatable, Hashable {
     let name : String
     let versions : [Version]
     
-    func version(_ v: Version) -> VersionedPackage {
+    public init(name: String, versions: [Version]) {
+        self.name = name
+        self.versions = versions
+    }
+    
+    public func version(_ v: Version) -> VersionedPackage {
         VersionedPackage(package: self, version: v)
     }
     
-    func exactly(_ v: Version) -> (Package, VersionSpecifier) {
+    public func exactly(_ v: Version) -> (Package, VersionSpecifier) {
         (self, VersionSpecifier.exactly(v))
     }
     
-    func geq(_ v: Version) -> (Package, VersionSpecifier) {
+    public func geq(_ v: Version) -> (Package, VersionSpecifier) {
         (self, VersionSpecifier.geq(v))
     }
     
-    func gt(_ v: Version) -> (Package, VersionSpecifier) {
+    public func gt(_ v: Version) -> (Package, VersionSpecifier) {
         (self, VersionSpecifier.gt(v))
     }
     
-    func leq(_ v: Version) -> (Package, VersionSpecifier) {
+    public func leq(_ v: Version) -> (Package, VersionSpecifier) {
         (self, VersionSpecifier.leq(v))
     }
     
-    func lt(_ v: Version) -> (Package, VersionSpecifier) {
+    public func lt(_ v: Version) -> (Package, VersionSpecifier) {
         (self, VersionSpecifier.lt(v))
     }
     
-    func caret(_ v: Version) -> (Package, VersionSpecifier) {
+    public func caret(_ v: Version) -> (Package, VersionSpecifier) {
         (self, VersionSpecifier.caret(v))
     }
     
-    func tilde(_ v: Version) -> (Package, VersionSpecifier) {
+    public func tilde(_ v: Version) -> (Package, VersionSpecifier) {
         (self, VersionSpecifier.tilde(v))
     }
     
-    func any() -> (Package, VersionSpecifier) {
+    public func any() -> (Package, VersionSpecifier) {
         (self, VersionSpecifier.any)
     }
 }
 
-struct MainPackage {
-    func dependsOn(_ deps: (Package, VersionSpecifier)...) -> Dependencies {
+public struct MainPackage {
+    public init() {
+        
+    }
+    
+    public func dependsOn(_ deps: (Package, VersionSpecifier)...) -> Dependencies {
         Dependencies(main_deps: deps, non_main_deps: [:])
     }
 }
 
 
 
-struct VersionedPackage {
+public struct VersionedPackage {
     let package: Package
     let version: Version
     
-    func dependsOn(_ deps: (Package, VersionSpecifier)...) -> Dependencies {
+    public func dependsOn(_ deps: (Package, VersionSpecifier)...) -> Dependencies {
         Dependencies(main_deps: [], non_main_deps: [package : [version : deps]])
     }
 }
 
-struct Dependencies {
+public struct Dependencies {
     let main_deps : [(Package, VersionSpecifier)]
     let non_main_deps: [Package : [Version : [(Package, VersionSpecifier)]]]
     
@@ -144,7 +157,7 @@ struct Dependencies {
         Dependencies(main_deps: [], non_main_deps: [:])
     }
     
-    func solve(usingPackageManagers managers: [PackageManager]) -> [SolveResult : Set<String>] {
+    public func solve(usingPackageManagers managers: [PackageManager]) -> [SolveResult : Set<String>] {
         let outputAndName = managers.map { manager -> (SolveResult, String) in
 //            print("Running \(manager.name)")
             return (manager.generate(dependencies: self).solve(), manager.name)
@@ -164,10 +177,10 @@ struct Dependencies {
     }
 }
 
-func dependencies(_ all_deps : Dependencies...) -> Dependencies {
+public func dependencies(_ all_deps : Dependencies...) -> Dependencies {
     all_deps.reduce(.empty(), &&)
 }
 
-func allPackageManagers() -> [PackageManager] {
+public func allPackageManagers() -> [PackageManager] {
     [Pip(), Npm(), Yarn1(), Yarn2(), Cargo()]
 }

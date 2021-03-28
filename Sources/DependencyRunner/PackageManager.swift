@@ -2,7 +2,7 @@
 import ShellOut
 import Foundation
 
-protocol PackageManager {
+public protocol PackageManager {
     var name : String { get }
     func generate(inSourceDir: String, dependencies: Dependencies) -> SolveCommand
     func cleanup()
@@ -56,15 +56,9 @@ extension PackageManager {
 }
 
 extension PackageManager {
-    func runNoOutput(script: String, arguments: [String]) {
-        let p = Process()
-        p.launchPath = "Scripts/\(self.name)/\(script)"
-        p.arguments = arguments
-        p.standardInput = FileHandle.nullDevice
-        p.standardError = FileHandle.nullDevice
-        p.standardOutput = FileHandle.nullDevice
-        p.launch()
-        p.waitUntilExit()
+    @discardableResult
+    func runNoOutput(script: String, arguments: [String]) -> String {
+        try! shellOut(to: "Scripts/\(self.name)/\(script)", arguments: arguments)
     }
 }
 

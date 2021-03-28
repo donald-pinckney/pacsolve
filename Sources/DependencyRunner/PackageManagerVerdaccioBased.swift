@@ -1,18 +1,20 @@
 import Files
 import ShellOut
 
-struct Yarn2 : PackageManagerWithRegistry {
-    let name = "yarn2"
-    
+protocol PackageManagerVerdaccioBased: PackageManagerWithRegistry {
+    var solveCommandString : String { get }
+}
+
+extension PackageManagerVerdaccioBased {
     func initRegistry() {
-        runNoOutput(script: "init_registry.sh", arguments: [])
+        startVerdaccio(name: name)
     }
     
     
     func versionSpecStr(_ vs: VersionSpecifier) -> String {
         switch vs {
         case .any:
-            return ""
+            return "*"
         case .exactly(let v):
             return "\(v.semverName)"
         case .geq(let v):
@@ -55,6 +57,7 @@ struct Yarn2 : PackageManagerWithRegistry {
     }
     
     func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) {
+//        print("Publishing: \(pkgDir)")
         try! shellOut(to: """
             npm publish --registry http://localhost:4873
         """, at: pkgDir)
@@ -63,27 +66,20 @@ struct Yarn2 : PackageManagerWithRegistry {
     func finalizeRegistry(publishingData: [Package : [Version : ()]]) {}
     
     func solveCommand(forMainPath mainPath: String) -> SolveCommand {
-        let solver = SolveCommand(directory: mainPath, command: """
-            rm -rf ~/.yarn/berry/cache
-            yarn set version berry
-            yarn config set npmRegistryServer http://localhost:4873
-            yarn config set unsafeHttpWhitelist localhost
-            yarn install --silent
-            yarn node main.js
-        """, packageManager: self)
+        let solver = SolveCommand(directory: mainPath, command: solveCommandString, packageManager: self)
         
         return solver
     }
     
-    func parseSingleTreeMainLine(line: Substring) -> (Int, String) {
+    public func parseSingleTreeMainLine(line: Substring) -> (Int, String) {
         cargoStyle_parseSingleTreeMainLine(line: line)
     }
     
-    func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
+    public func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
         cargoStyle_parseSingleTreePackageLine(line: line)
     }
     
-    func cleanup() {
-        runNoOutput(script: "shutdown_registry.sh", arguments: [])
+    public func cleanup() {
+        killVerdaccio()
     }
 }

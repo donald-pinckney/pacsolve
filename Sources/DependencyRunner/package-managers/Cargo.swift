@@ -2,8 +2,9 @@ import Files
 import ShellOut
 import Foundation
 
-struct Cargo : PackageManagerWithRegistry {
-    
+public struct Cargo : PackageManagerWithRegistry {
+    public init() {}
+
     struct PackageVersionMetadata: Encodable {
         struct MetaDependency: Encodable {
             let name: String
@@ -23,7 +24,7 @@ struct Cargo : PackageManagerWithRegistry {
         let yanked = false
     }
     
-    let name = "cargo"
+    public let name = "cargo"
     
     var genRegistryPathDir: String {
         get {
@@ -168,11 +169,11 @@ struct Cargo : PackageManagerWithRegistry {
         try! shellOut(to: "git init && git add . && git commit -m x", at: self.genRegistryPathDir)
     }
     
-    func parseSingleTreeMainLine(line: Substring) -> (Int, String) {
+    public func parseSingleTreeMainLine(line: Substring) -> (Int, String) {
         cargoStyle_parseSingleTreeMainLine(line: line)
     }
     
-    func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
+    public func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
         cargoStyle_parseSingleTreePackageLine(line: line)
     }
     
@@ -183,7 +184,7 @@ struct Cargo : PackageManagerWithRegistry {
         """#, packageManager: self)        
     }
     
-    func cleanup() {
+    public func cleanup() {
         
     }
 }

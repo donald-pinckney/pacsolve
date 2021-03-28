@@ -13,11 +13,11 @@ struct SolutionTreePackage: Equatable, Hashable {
     }
 }
 
-struct SolutionTreeMain: CustomStringConvertible, Equatable, Hashable {
+public struct SolutionTreeMain: CustomStringConvertible, Equatable, Hashable {
     let name: String
     let children: [SolutionTreePackage]
     
-    var description: String {
+    public var description: String {
         get {
             var lines: [String] = ["__main_pkg__"]
             

@@ -17,7 +17,7 @@ protocol PackageManagerWithRegistry: PackageManager {
 }
 
 extension PackageManagerWithRegistry {
-    func generate(inSourceDir: String, dependencies: Dependencies) -> SolveCommand {
+    public func generate(inSourceDir: String, dependencies: Dependencies) -> SolveCommand {
         initRegistry()
         
         let pkgs = dependencies.allPackages()
@@ -78,13 +78,10 @@ extension PackageManagerWithRegistry {
         let destFolder = try! Folder(path: destDir)
         
         for f in destFolder.files.recursive.includingHidden {
-            print("Rewriting: \(f.path)")
-            
             rewriteTemplate(file: f, substitutions: substitutions)
         }
         
         for f in destFolder.subfolders.recursive {
-            print("Rewriting folder: \(f.path)")
             rewriteTemplate(folder: f, substitutions: substitutions)
         }
     }

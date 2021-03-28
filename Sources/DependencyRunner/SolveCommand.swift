@@ -1,7 +1,7 @@
 import ShellOut
 
-enum SolveResult : CustomStringConvertible, Equatable, Hashable {
-    var description: String {
+public enum SolveResult : CustomStringConvertible, Hashable, Equatable {
+    public var description: String {
         get {
             switch self {
             case .solveOk(let str): return "\(str)\n"
@@ -14,14 +14,12 @@ enum SolveResult : CustomStringConvertible, Equatable, Hashable {
     case solveError(String)
 }
 
-struct SolveCommand {
+public struct SolveCommand {
     let directory: String
     let command: String
     
     let packageManager: PackageManager
-    
-    var postProcess: (String) -> String = { $0 }
-        
+            
     func solve() -> SolveResult {
         defer {
             packageManager.cleanup()
@@ -37,7 +35,7 @@ struct SolveCommand {
                 let tree = parseIntoNonempyTree(lines: lines)
                 return .solveOk(tree)
             } else {
-                return .solveError("")
+                return .solveError("Invalid tree dump: \(output)")
             }
         } catch {
             return .solveError("\(error)")
