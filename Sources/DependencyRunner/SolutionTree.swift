@@ -1,31 +1,19 @@
-
-struct SolutionTreePackage: Equatable, Hashable {
-    let name: String
+struct SolutionTree: CustomStringConvertible, Equatable, Hashable {
+    let package: Package
     let version: Version
-    let children: [SolutionTreePackage]
+    let children: [SolutionTree]
     
     func description(depth: Int, lines: inout [String]) {
         let indent = String(repeating: "  ", count: depth)
-        lines.append("\(indent)\(name) v\(version.semverName)")
+        lines.append("\(indent)\(package) v\(version.semverName)")
         for c in children {
             c.description(depth: depth + 1, lines: &lines)
         }
     }
-}
-
-public struct SolutionTreeMain: CustomStringConvertible, Equatable, Hashable {
-    let name: String
-    let children: [SolutionTreePackage]
     
-    public var description: String {
-        get {
-            var lines: [String] = ["__main_pkg__"]
-            
-            for c in children {
-                c.description(depth: 1, lines: &lines)
-            }
-            
-            return lines.joined(separator: "\n")
-        }
+    var description: String {
+        var lines: [String] = []
+        description(depth: 0, lines: &lines)
+        return lines.joined(separator: "\n")
     }
 }

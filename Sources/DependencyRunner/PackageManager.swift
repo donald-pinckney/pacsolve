@@ -2,19 +2,19 @@
 import ShellOut
 import Foundation
 
-public protocol PackageManager {
+protocol PackageManager {
     var name : String { get }
-    func generate(inSourceDir: String, dependencies: Dependencies) -> SolveCommand
+    func generate(inSourceDir: String, ecosystem: Ecosystem)
+    func generatedDirectoryFor(package: Package, version: Version) -> String
     func cleanup()
     
-    func parseSingleTreeMainLine(line: Substring) -> (Int, String)
-    
-    func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version)
+    func parseSingleTreePackageLine(line: Substring) -> (Int, Package, Version)
+    func solveCommand(package: Package, version: Version) -> String
 }
 
 
 extension PackageManager {
-    func generate(dependencies: Dependencies) -> SolveCommand {
+    func generate(ecosystem: Ecosystem) {
         changeToProjectRoot()
         
         logDebug("Generating dependencies...")
@@ -22,13 +22,7 @@ extension PackageManager {
         let _ = try? shellOut(to: "rm", arguments: ["-rf", self.genPathDir])
         mkdir_p(path: self.genSourcesPathDir)
         
-        return generate(inSourceDir: self.genSourcesPathDir, dependencies: dependencies)
-    }
-    
-    var mainTemplatePath: String {
-        get {
-            "Templates/\(self.name)/main/"
-        }
+        generate(inSourceDir: self.genSourcesPathDir, ecosystem: ecosystem)
     }
     
     var packageTemplateDir: String {

@@ -1,7 +1,10 @@
 import ShellOut
 
-public enum SolveResult : CustomStringConvertible, Hashable, Equatable {
-    public var description: String {
+enum SolveResult : CustomStringConvertible, Hashable, Equatable {
+    case solveOk(SolutionTree)
+    case solveError(String)
+    
+    var description: String {
         get {
             switch self {
             case .solveOk(let str): return "\(str)\n"
@@ -9,25 +12,19 @@ public enum SolveResult : CustomStringConvertible, Hashable, Equatable {
             }
         }
     }
-    
-    case solveOk(SolutionTreeMain)
-    case solveError(String)
 }
 
-public struct SolveCommand {
-    let directory: String
-    let command: String
-    
-    let packageManager: PackageManager
-            
-    func solve() -> SolveResult {
+extension PackageManager {
+    func solve(package: Package, version: Version) -> SolveResult {
         defer {
-            packageManager.cleanup()
+            cleanup()
         }
+        
+        let directory = generatedDirectoryFor(package: package, version: version)
         
         logDebug("Solving dependencies...\n")
         do {
-            let output = try shellOut(to: command, at: directory)
+            let output = try shellOut(to: solveCommand(package: package, version: version), at: directory)
             let marker = "TREE DUMP:\n"
             if let markerRange = output.range(of: marker) {
                 let output = output[markerRange.upperBound..<output.endIndex]
@@ -43,8 +40,8 @@ public struct SolveCommand {
     }
     
     
-    func parseIntoTreeNodes(lines: Array<Substring>.SubSequence, depth: Int) -> ([SolutionTreePackage], Array<Substring>.SubSequence)  {
-        var nodes: [SolutionTreePackage] = []
+    func parseIntoTreeNodes(lines: Array<Substring>.SubSequence, depth: Int) -> ([SolutionTree], Array<Substring>.SubSequence)  {
+        var nodes: [SolutionTree] = []
         var linesMut = lines
         
         while true {
@@ -53,7 +50,7 @@ public struct SolveCommand {
                 break
             }
             
-            let (headDepth, headName, headVersion) = packageManager.parseSingleTreePackageLine(line: head)
+            let (headDepth, package, headVersion) = parseSingleTreePackageLine(line: head)
             
             if headDepth < depth {
                 break
@@ -63,21 +60,21 @@ public struct SolveCommand {
             let (innerNodes, newLines) = parseIntoTreeNodes(lines: linesMut.dropFirst(), depth: depth + 1)
             linesMut = newLines
             
-            nodes.append(SolutionTreePackage(name: headName, version: headVersion, children: innerNodes))
+            nodes.append(SolutionTree(package: package, version: headVersion, children: innerNodes))
         }
         
         return (nodes, linesMut)
     }
     
-    func parseIntoNonempyTree(lines: [Substring]) -> SolutionTreeMain {
+    func parseIntoNonempyTree(lines: [Substring]) -> SolutionTree {
         precondition(lines.count >= 1)
         
-        let (headDepth, headName) = packageManager.parseSingleTreeMainLine(line: lines[0])
+        let (headDepth, package, version) = parseSingleTreePackageLine(line: lines[0])
         assert(headDepth == 0)
         
         let (children, newLines) = parseIntoTreeNodes(lines: lines.dropFirst(), depth: 1)
         assert(newLines.count == 0)
         
-        return SolutionTreeMain(name: headName, children: children)
+        return SolutionTree(package: package, version: version, children: children)
     }
 }

@@ -2,7 +2,6 @@ import Files
 import ShellOut
 
 protocol PackageManagerVerdaccioBased: PackageManagerWithRegistry {
-    var solveCommandString : String { get }
 }
 
 extension PackageManagerVerdaccioBased {
@@ -10,53 +9,48 @@ extension PackageManagerVerdaccioBased {
         startVerdaccio(name: name)
     }
     
+    func generatedDirectoryFor(package: Package, version: Version) -> String {
+        "\(genSourcesPathDir)\(package)/\(version.directoryName)/"
+    }
     
-    func versionSpecStr(_ vs: VersionSpecifier) -> String {
-        switch vs {
+    
+    func constraintStr(_ c: ConstraintExpr) -> String {
+        switch c {
         case .any:
             return "*"
         case .exactly(let v):
             return "\(v.semverName)"
-        case .geq(let v):
-            return ">=\(v.semverName)"
-        case .gt(let v):
-            return ">\(v.semverName)"
-        case .leq(let v):
-            return "<=\(v.semverName)"
-        case .lt(let v):
-            return "<\(v.semverName)"
-        case .caret(let v):
-            return "^\(v.semverName)"
-        case .tilde(let v):
-            return "~\(v.semverName)"
+//        case .geq(let v):
+//            return ">=\(v.semverName)"
+//        case .gt(let v):
+//            return ">\(v.semverName)"
+//        case .leq(let v):
+//            return "<=\(v.semverName)"
+//        case .lt(let v):
+//            return "<\(v.semverName)"
+//        case .caret(let v):
+//            return "^\(v.semverName)"
+//        case .tilde(let v):
+//            return "~\(v.semverName)"
         }
     }
     
-    func formatDepenency(dep: (Package, VersionSpecifier)) -> String {
-        "\"\(dep.0.name)\": \"\(self.versionSpecStr(dep.1))\""
+    func formatDepenency(dep: DependencyExpr) -> String {
+        "\"\(dep.packageToDependOn)\": \"\(self.constraintStr(dep.constraint))\""
     }
     
-    func packageTemplateSubstitutions(package: Package, version: Version, dependencies: [(Package, VersionSpecifier)]) -> [String : String] {
+    func packageTemplateSubstitutions(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String] {
         let substitutions: [String : String] = [
             "$NAME_STRING" : package.name,
             "$VERSION_STRING" : version.semverName,
             "$DEPENDENCIES_JSON_FRAGMENT" : dependencies.map(self.formatDepenency).joined(separator: ", \n"),
-            "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.0.name) = require('\($0.0.name)');" }.joined(separator: "\n"),
-            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.0.name).dep_tree(indent + 1);" }.joined(separator: "\n    ")
+            "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.packageToDependOn) = require('\($0.packageToDependOn)');" }.joined(separator: "\n"),
+            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn).dep_tree(indent + 1);" }.joined(separator: "\n    ")
         ]
         return substitutions
     }
     
-    func mainTemplateSubstitutions(dependencies: [(Package, VersionSpecifier)]) -> [String : String] {
-        let substitutions: [String : String] = [
-            "$DEPENDENCIES_JSON_FRAGMENT" : dependencies.map(self.formatDepenency).joined(separator: ", \n"),
-            "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.0.name) = require('\($0.0.name)');" }.joined(separator: "\n"),
-            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.0.name).dep_tree(indent + 1);" }.joined(separator: "\n    ")
-        ]
-        return substitutions
-    }
-    
-    func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) {
+    func publish(package: Package, version: Version, pkgDir: String, dependencies: [DependencyExpr]) {
 //        print("Publishing: \(pkgDir)")
         try! shellOut(to: """
             npm publish --registry http://localhost:4873
@@ -65,21 +59,12 @@ extension PackageManagerVerdaccioBased {
     
     func finalizeRegistry(publishingData: [Package : [Version : ()]]) {}
     
-    func solveCommand(forMainPath mainPath: String) -> SolveCommand {
-        let solver = SolveCommand(directory: mainPath, command: solveCommandString, packageManager: self)
-        
-        return solver
-    }
     
-    public func parseSingleTreeMainLine(line: Substring) -> (Int, String) {
-        cargoStyle_parseSingleTreeMainLine(line: line)
-    }
-    
-    public func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
+    func parseSingleTreePackageLine(line: Substring) -> (Int, Package, Version) {
         cargoStyle_parseSingleTreePackageLine(line: line)
     }
     
-    public func cleanup() {
+    func cleanup() {
         killVerdaccio()
     }
 }

@@ -1,52 +1,35 @@
 import Files
-//import Glibc
 
 protocol PackageManagerWithRegistry: PackageManager {
     associatedtype PublishData
     
     func initRegistry()
     
-    func packageTemplateSubstitutions(package: Package, version: Version, dependencies: [(Package, VersionSpecifier)]) -> [String : String]
-    func mainTemplateSubstitutions(dependencies: [(Package, VersionSpecifier)]) -> [String : String]
+    func packageTemplateSubstitutions(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String]
     
-    func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) -> PublishData
+    func publish(package: Package, version: Version, pkgDir: String, dependencies: [DependencyExpr]) -> PublishData
     
     func finalizeRegistry(publishingData: [Package : [Version : PublishData]])
-    
-    func solveCommand(forMainPath: String) -> SolveCommand
 }
 
 extension PackageManagerWithRegistry {
-    public func generate(inSourceDir: String, dependencies: Dependencies) -> SolveCommand {
+    func generate(inSourceDir: String, ecosystem: Ecosystem) {
         initRegistry()
         
-        let pkgs = dependencies.allPackages()
-        for pkg in pkgs {
-            for v in pkg.versions {
-                let deps = dependencies.non_main_deps[pkg]?[v] ?? []
-                generate(inDir: inSourceDir, package: pkg, version: v, dependencies: deps)
-            }
+        for node in ecosystem {
+            generate(inDir: inSourceDir, package: node.package, version: node.version, dependencies: node.dependencies)
         }
-        
-        let mainPath = generateMain(inDir: inSourceDir, dependencies: dependencies.main_deps)
-        
+
+                
         var pkgVersionPublishDataMap: [Package : [Version : PublishData]] = [:]
-        
-        for pkg in pkgs {
-            // Should sort versions, otherwise verdaccio thinks
-            // the most recently submitted is the "latest" version.
-            let versions = pkg.versions.sorted(by: <)
-            for v in versions {
-                let pkgDir = "\(inSourceDir)\(pkg.name)/\(v.directoryName)/"
-                let deps = dependencies.non_main_deps[pkg]?[v] ?? []
-                let pubData = publish(package: pkg, version: v, pkgDir: pkgDir, dependencies: deps)
-                pkgVersionPublishDataMap[pkg, default: [:]][v] = pubData
-            }
+                
+        for node in ecosystem {
+            let pkgDir = "\(inSourceDir)\(node.package)/\(node.version.directoryName)/"
+            let pubData = publish(package: node.package, version: node.version, pkgDir: pkgDir, dependencies: node.dependencies)
+            pkgVersionPublishDataMap[node.package, default: [:]][node.version] = pubData
         }
         
         finalizeRegistry(publishingData: pkgVersionPublishDataMap)
-        
-        return solveCommand(forMainPath: mainPath)
     }
     
     
@@ -66,8 +49,8 @@ extension PackageManagerWithRegistry {
         try! folder.rename(to: sub)
     }
     
-    func generate(inDir: String, package: Package, version: Version, dependencies: [(Package, VersionSpecifier)]) {
-        let destDir = "\(inDir)\(package.name)/\(version.directoryName)/"
+    func generate(inDir: String, package: Package, version: Version, dependencies: [DependencyExpr]) {
+        let destDir = "\(inDir)\(package)/\(version.directoryName)/"
         mkdir_p(path: destDir)
         try! cp_contents(from: self.packageTemplateDir, to: destDir)
         
@@ -84,28 +67,5 @@ extension PackageManagerWithRegistry {
         for f in destFolder.subfolders.recursive {
             rewriteTemplate(folder: f, substitutions: substitutions)
         }
-    }
-    
-    func generateMain(inDir: String, dependencies: [(Package, VersionSpecifier)]) -> String {
-        let mainPkgName = "__main_pkg__"
-        
-        let destDir = "\(inDir)\(mainPkgName)/"
-        mkdir_p(path: destDir)
-        try! cp_contents(from: self.mainTemplatePath, to: destDir)
-
-        let destFolder = try! Folder(path: destDir)
-
-//        print("Generating:\n\tMain package: \(destFolder)\n\tdependencies:\(dependencies)\n")
-
-        let substitutions = mainTemplateSubstitutions(dependencies: dependencies)
-        for f in destFolder.files.recursive.includingHidden {
-            rewriteTemplate(file: f, substitutions: substitutions)
-        }
-
-        for f in destFolder.subfolders.recursive.includingHidden {
-            rewriteTemplate(folder: f, substitutions: substitutions)
-        }
-
-        return destDir
     }
 }

@@ -2,8 +2,8 @@ import Files
 import ShellOut
 import Foundation
 
-public struct Cargo : PackageManagerWithRegistry {
-    public init() {}
+struct Cargo : PackageManagerWithRegistry {
+    init() {}
 
     struct PackageVersionMetadata: Encodable {
         struct MetaDependency: Encodable {
@@ -24,7 +24,7 @@ public struct Cargo : PackageManagerWithRegistry {
         let yanked = false
     }
     
-    public let name = "cargo"
+    let name = "cargo"
     
     var genRegistryPathDir: String {
         get {
@@ -50,6 +50,10 @@ public struct Cargo : PackageManagerWithRegistry {
         }
     }
     
+    func generatedDirectoryFor(package: Package, version: Version) -> String {
+        "\(genSourcesPathDir)\(package)/\(version.directoryName)/"
+    }
+    
     func initRegistry() {
         mkdir_p(path: self.genRegistryPackagesPathDir)
         let jsonContents = #"{"dl": "file://\#(self.absoluteGenRegistryDir)packages/{crate}-{version}.crate"}"#
@@ -58,65 +62,55 @@ public struct Cargo : PackageManagerWithRegistry {
     
     
     
-    func versionSpecStr(_ vs: VersionSpecifier) -> String {
-        switch vs {
+    func constraintStr(_ c: ConstraintExpr) -> String {
+        switch c {
         case .any:
             return "*"
         case .exactly(let v):
             return "= \(v.semverName)"
-        case .geq(let v):
-            return ">=\(v.semverName)"
-        case .gt(let v):
-            return ">\(v.semverName)"
-        case .leq(let v):
-            return "<=\(v.semverName)"
-        case .lt(let v):
-            return "<\(v.semverName)"
-        case .caret(let v):
-            return "^\(v.semverName)"
-        case .tilde(let v):
-            return "~\(v.semverName)"
+//        case .geq(let v):
+//            return ">=\(v.semverName)"
+//        case .gt(let v):
+//            return ">\(v.semverName)"
+//        case .leq(let v):
+//            return "<=\(v.semverName)"
+//        case .lt(let v):
+//            return "<\(v.semverName)"
+//        case .caret(let v):
+//            return "^\(v.semverName)"
+//        case .tilde(let v):
+//            return "~\(v.semverName)"
         }
     }
 
-    func formatDepenency(dep: (Package, VersionSpecifier)) -> String {
-        "\(dep.0.name) = { version = \"\(self.versionSpecStr(dep.1))\", registry = \"local\" }"
+    func formatDepenency(dep: DependencyExpr) -> String {
+        "\(dep.packageToDependOn) = { version = \"\(self.constraintStr(dep.constraint))\", registry = \"local\" }"
     }
     
-    func packageTemplateSubstitutions(package: Package, version: Version, dependencies: [(Package, VersionSpecifier)]) -> [String : String] {
+    func packageTemplateSubstitutions(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String] {
         let substitutions: [String : String] = [
             "$NAME_STRING" : package.name,
             "$VERSION_STRING" : version.semverName,
             "$REGISTRY_DIR" : self.absoluteGenRegistryDir,
             "$DEPENDENCIES_TOML_FRAGMENT" : dependencies.map(self.formatDepenency).joined(separator: "\n"),
-            "$DEPENDENCY_IMPORTS" : dependencies.map() { "use \($0.0.name);" }.joined(separator: "\n"),
-            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.0.name)::dep_tree(indent + 1);" }.joined(separator: "\n    ")
+            "$DEPENDENCY_IMPORTS" : dependencies.map() { "use \($0.packageToDependOn);" }.joined(separator: "\n"),
+            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn)::dep_tree(indent + 1);" }.joined(separator: "\n    ")
         ]
         return substitutions
     }
     
-    func mainTemplateSubstitutions(dependencies: [(Package, VersionSpecifier)]) -> [String : String] {
-        let substitutions: [String : String] = [
-            "$DEPENDENCIES_TOML_FRAGMENT" : dependencies.map(self.formatDepenency).joined(separator: "\n"),
-            "$REGISTRY_DIR" : self.absoluteGenRegistryDir,
-            "$DEPENDENCY_IMPORTS" : dependencies.map() { "use \($0.0.name);" }.joined(separator: "\n"),
-            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.0.name)::dep_tree(indent + 1);" }.joined(separator: "\n    ")
-        ]
-        return substitutions
-    }
-    
-    func publish(package: Package, version: Version, pkgDir: String, dependencies: [(Package, VersionSpecifier)]) -> PackageVersionMetadata {
+    func publish(package: Package, version: Version, pkgDir: String, dependencies: [DependencyExpr]) -> PackageVersionMetadata {
 //        print("Publishing: \(pkgDir)")
         
 //        try! shellOut(to: "git init && git add . && git commit -m x", at: pkgDir)
 
         try! shellOut(to: "cargo", arguments: ["package", "--no-verify", "--allow-dirty","--offline"], at: pkgDir)
-        let cratePath = "\(pkgDir)target/package/\(package.name)-\(version.semverName).crate"
+        let cratePath = "\(pkgDir)target/package/\(package)-\(version.semverName).crate"
         try! shellOut(to: "cp", arguments: [cratePath, self.genRegistryPackagesPathDir])
         
         let cksum = try! sha256(file: cratePath)
         
-        let depsMeta = dependencies.map { PackageVersionMetadata.MetaDependency(name: $0.0.name, req: versionSpecStr($0.1)) }
+        let depsMeta = dependencies.map { PackageVersionMetadata.MetaDependency(name: $0.packageToDependOn.name, req: constraintStr($0.constraint)) }
         
         return PackageVersionMetadata(name: package.name, vers: version.semverName, deps: depsMeta, cksum: cksum)
     }
@@ -169,40 +163,24 @@ public struct Cargo : PackageManagerWithRegistry {
         try! shellOut(to: "git init && git add . && git commit -m x", at: self.genRegistryPathDir)
     }
     
-    public func parseSingleTreeMainLine(line: Substring) -> (Int, String) {
-        cargoStyle_parseSingleTreeMainLine(line: line)
-    }
-    
-    public func parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
+    func parseSingleTreePackageLine(line: Substring) -> (Int, Package, Version) {
         cargoStyle_parseSingleTreePackageLine(line: line)
     }
     
-    func solveCommand(forMainPath mainPath: String) -> SolveCommand {
-        SolveCommand(directory: mainPath, command: #"""
+    func solveCommand(package: Package, version: Version) -> String {
+        #"""
             echo "TREE DUMP:"
-            cargo tree --no-dedupe --prefix depth --format ,{p} | sed 's/ (.*//g' | sed 's/__main_pkg__.*/__main_pkg__/g'
-        """#, packageManager: self)        
+            cargo tree --no-dedupe --prefix depth --format ,{p} | sed 's/ (.*//g'
+        """#        
     }
     
-    public func cleanup() {
+    func cleanup() {
         
     }
 }
 
 
-
-
-
-func cargoStyle_parseSingleTreeMainLine(line: Substring) -> (Int, String) {
-    let commaIdx = line.firstIndex(of: ",")!
-    let after = line[line.index(after: commaIdx)..<line.endIndex]
-    let before = line[line.startIndex..<commaIdx]
-    let indentSize = Int(before)!
-    
-    return (indentSize, String(after))
-}
-
-func cargoStyle_parseSingleTreePackageLine(line: Substring) -> (Int, String, Version) {
+func cargoStyle_parseSingleTreePackageLine(line: Substring) -> (Int, Package, Version) {
     let commaIdx = line.firstIndex(of: ",")!
     let after = line[line.index(after: commaIdx)..<line.endIndex]
     let before = line[line.startIndex..<commaIdx]
@@ -213,5 +191,5 @@ func cargoStyle_parseSingleTreePackageLine(line: Substring) -> (Int, String, Ver
     let versionStart = after.index(after: vIdx)
     let nameEnd = after.index(before: vIdx)
     
-    return (indentSize, String(after[after.startIndex..<nameEnd]), Version(stringLiteral: String(after[versionStart..<after.endIndex])))
+    return (indentSize, Package(stringLiteral: String(after[after.startIndex..<nameEnd])), Version(stringLiteral: String(after[versionStart..<after.endIndex])))
 }

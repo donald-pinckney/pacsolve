@@ -47,29 +47,6 @@ func absolutePathRelativeToProjectRoot(forPath: String) -> String {
     return projectRootDir().path + "/" + p
 }
 
-extension Dependencies {
-    func allPackages() -> [Package] {
-        // TODO: Stabilize the order of this set, since it might matter!
-        
-        var pkgs: Set<Package> = Set()
-        
-        for (pkg, pkg_deps) in self.non_main_deps {
-            pkgs.insert(pkg)
-            for (_, ds) in pkg_deps {
-                for (p, _) in ds {
-                    pkgs.insert(p)
-                }
-            }
-        }
-        
-        for (pkg, _) in self.main_deps {
-            pkgs.insert(pkg)
-        }
-        
-        return [Package](pkgs).sorted { $0.name < $1.name }
-    }
-}
-
 
 extension String {
     func quoted() -> String {

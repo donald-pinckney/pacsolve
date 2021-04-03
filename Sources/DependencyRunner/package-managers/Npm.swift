@@ -1,14 +1,15 @@
 import Files
 import ShellOut
 
-public struct Npm : PackageManagerVerdaccioBased {
-    public init() {}
-    public let name = "npm"
-
-    let solveCommandString =
-    """
-        npm install --silent --registry http://localhost:4873
-        node main.js
-    """
+struct Npm : PackageManagerVerdaccioBased {
+    init() {}
+    let name = "npm"
+    
+    func solveCommand(package: Package, version: Version) -> String {
+        """
+            npm install --silent --registry http://localhost:4873
+            node main.js
+        """
+    }
     
 }

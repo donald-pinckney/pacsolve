@@ -1,14 +1,15 @@
 import Files
 import ShellOut
 
-public struct Yarn1 : PackageManagerVerdaccioBased {
-    public init() {}
+struct Yarn1 : PackageManagerVerdaccioBased {
+    init() {}
 
-    public let name = "yarn1"
+    let name = "yarn1"
     
-    let solveCommandString =
-    """
-        yarn install --silent --registry http://localhost:4873
-        node main.js
-    """
+    func solveCommand(package: Package, version: Version) -> String {
+        """
+            yarn install --silent --registry http://localhost:4873
+            node main.js
+        """
+    }
 }
