@@ -3,7 +3,8 @@ import ShellOut
 import Foundation
 
 protocol PackageManager {
-    var name : String { get }
+    var uniqueName : String { get }
+    var templateName : String { get }
     func generate(inSourceDir: String, ecosystem: Ecosystem)
     func generatedDirectoryFor(package: Package, version: Version) -> String
     func cleanup()
@@ -14,6 +15,10 @@ protocol PackageManager {
 
 
 extension PackageManager {
+    var templateName: String {
+        uniqueName
+    }
+    
     func generate(ecosystem: Ecosystem) {
         changeToProjectRoot()
         
@@ -27,7 +32,7 @@ extension PackageManager {
     
     var packageTemplateDir: String {
         get {
-            "Templates/\(self.name)/package/"
+            "Templates/\(self.templateName)/package/"
         }
     }
     var packageTemplateDir_name: String {
@@ -38,21 +43,21 @@ extension PackageManager {
     
     var genPathDir: String {
         get {
-            "generated/\(self.name)/"
+            "generated/\(self.uniqueName)/"
         }
     }
     
     var genSourcesPathDir: String {
         get {
-            "generated/\(self.name)/sources/"
+            "generated/\(self.uniqueName)/sources/"
         }
     }
 }
 
-extension PackageManager {
-    @discardableResult
-    func runNoOutput(script: String, arguments: [String]) -> String {
-        try! shellOut(to: "Scripts/\(self.name)/\(script)", arguments: arguments)
-    }
-}
+//extension PackageManager {
+//    @discardableResult
+//    func runNoOutput(script: String, arguments: [String]) -> String {
+//        try! shellOut(to: "Scripts/\(self.name)/\(script)", arguments: arguments)
+//    }
+//}
 

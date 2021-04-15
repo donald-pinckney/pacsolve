@@ -24,17 +24,17 @@ struct Cargo : PackageManagerWithRegistry {
         let yanked = false
     }
     
-    let name = "cargo"
+    let uniqueName: String = "cargo"
     
     var genRegistryPathDir: String {
         get {
-            "generated/\(self.name)/registry/"
+            "generated/\(self.uniqueName)/registry/"
         }
     }
     
     var genRegistryPackagesPathDir: String {
         get {
-            "generated/\(self.name)/registry/packages/"
+            "generated/\(self.uniqueName)/registry/packages/"
         }
     }
     
@@ -46,7 +46,7 @@ struct Cargo : PackageManagerWithRegistry {
     
     var registryConfigPath: String {
         get {
-            "generated/\(self.name)/registry/config.json"
+            "generated/\(self.uniqueName)/registry/config.json"
         }
     }
     

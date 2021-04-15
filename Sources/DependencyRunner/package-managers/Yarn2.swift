@@ -4,7 +4,7 @@ import ShellOut
 struct Yarn2 : PackageManagerVerdaccioBased {
     init() {}
 
-    let name = "yarn2"
+    let uniqueName = "yarn2"
     
     func solveCommand(package: Package, version: Version) -> String {
         """
@@ -13,7 +13,7 @@ struct Yarn2 : PackageManagerVerdaccioBased {
             yarn config set npmRegistryServer http://localhost:4873
             yarn config set unsafeHttpWhitelist localhost
             yarn install --silent
-            yarn node main.js
+            yarn node index.js
         """
     }
 }

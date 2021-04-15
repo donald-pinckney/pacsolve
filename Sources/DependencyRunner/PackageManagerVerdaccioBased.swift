@@ -5,8 +5,10 @@ protocol PackageManagerVerdaccioBased: PackageManagerWithRegistry {
 }
 
 extension PackageManagerVerdaccioBased {
+    var templateName: String { "verdaccio-based" }
+    
     func initRegistry() {
-        startVerdaccio(name: name)
+        startVerdaccio(name: uniqueName)
     }
     
     func generatedDirectoryFor(package: Package, version: Version) -> String {

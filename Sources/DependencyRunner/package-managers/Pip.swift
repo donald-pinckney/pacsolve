@@ -5,10 +5,10 @@ import ShellOut
 struct Pip : PackageManagerWithRegistry {
     init() {}
     
-    let name = "pip"
+    let uniqueName = "pip"
     var genBinPathDir: String {
         get {
-            "generated/\(self.name)/bin/"
+            "generated/\(self.uniqueName)/bin/"
         }
     }
     

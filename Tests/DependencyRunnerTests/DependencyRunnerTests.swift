@@ -2,7 +2,11 @@ import XCTest
 import class Foundation.Bundle
 @testable import DependencyRunner
 
-final class DependencyRunnerTests: XCTestCase { 
+final class DependencyRunnerTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+    }
     
     let testEcosystem = Ecosystem([
         "m": [
@@ -21,99 +25,35 @@ final class DependencyRunnerTests: XCTestCase {
         let tree = assertOk(result: result)
         XCTAssertEqual(tree, correctResult)
     }
-    
-//
-//
-//
-//
-//    func testNpmWorks() {
-//        let mainPkg = MainPackage()
-//        let a = Package(name: "a", versions: ["0.0.1"])
-//        let b = Package(name: "b", versions: ["0.0.1", "0.0.2"])
-//
-//        let deps = dependencies(
-//            mainPkg.dependsOn(
-//                a.any(),
-//                b.any()
-//            ),
-//            a.version("0.0.1").dependsOn(
-//                b == "0.0.1"
-//            )
-//        )
-//
-//        let resultGroups = runTest(dependencies: deps, usingPackageManagers: [Npm()])
-//        assert(resultGroups, hasPartitions: [
-//            ["npm"]
-//        ])
-//    }
-//
-//    func testYarn1Works() {
-//        let mainPkg = MainPackage()
-//        let a = Package(name: "a", versions: ["0.0.1"])
-//        let b = Package(name: "b", versions: ["0.0.1", "0.0.2"])
-//
-//        let deps = dependencies(
-//            mainPkg.dependsOn(
-//                a.any(),
-//                b.any()
-//            ),
-//            a.version("0.0.1").dependsOn(
-//                b == "0.0.1"
-//            )
-//        )
-//
-//        let resultGroups = runTest(dependencies: deps, usingPackageManagers: [Yarn1()])
-//        assert(resultGroups, hasPartitions: [
-//            ["yarn1"]
-//        ])
-//    }
-//
-//    func testYarn2Works() {
-//        let mainPkg = MainPackage()
-//        let a = Package(name: "a", versions: ["0.0.1"])
-//        let b = Package(name: "b", versions: ["0.0.1", "0.0.2"])
-//
-//        let deps = dependencies(
-//            mainPkg.dependsOn(
-//                a.any(),
-//                b.any()
-//            ),
-//            a.version("0.0.1").dependsOn(
-//                b == "0.0.1"
-//            )
-//        )
-//
-//        let resultGroups = runTest(dependencies: deps, usingPackageManagers: [Yarn2()])
-//        assert(resultGroups, hasPartitions: [
-//            ["yarn2"]
-//        ])
-//    }
-//
-//    func testCargoWorks() {
-//        let mainPkg = MainPackage()
-//        let a = Package(name: "a", versions: ["0.0.1"])
-//        let b = Package(name: "b", versions: ["0.0.1", "0.0.2"])
-//
-//        let deps = dependencies(
-//            mainPkg.dependsOn(
-//                a.any(),
-//                b.any()
-//            ),
-//            a.version("0.0.1").dependsOn(
-//                b == "0.0.1"
-//            )
-//        )
-//
-//        let resultGroups = runTest(dependencies: deps, usingPackageManagers: [Cargo()])
-//        assert(resultGroups, hasPartitions: [
-//            ["cargo"]
-//        ])
-//    }
-//
-//
-//
-//
-//
+
+    func testNpmWorks() {
+        let result = Npm().solve(testEcosystem, forRootPackage: "m", version: "0.0.1")
+        let tree = assertOk(result: result)
+        XCTAssertEqual(tree, correctResult)
+    }
+
+    func testYarn1Works() {
+        let result = Yarn1().solve(testEcosystem, forRootPackage: "m", version: "0.0.1")
+        let tree = assertOk(result: result)
+        XCTAssertEqual(tree, correctResult)
+    }
+
+    func testYarn2Works() {
+        let result = Yarn2().solve(testEcosystem, forRootPackage: "m", version: "0.0.1")
+        let tree = assertOk(result: result)
+        XCTAssertEqual(tree, correctResult)
+    }
+
+    func testCargoWorks() {
+        let result = Cargo().solve(testEcosystem, forRootPackage: "m", version: "0.0.1")
+        let tree = assertOk(result: result)
+        XCTAssertEqual(tree, correctResult)
+    }
+
+
+
+
+
 //    func testTreeResolutionPrerelease() {
 //        let mainPkg = MainPackage()
 //        let a = Package(name: "a", versions: ["0.0.1"])
@@ -320,7 +260,6 @@ func assertOk(result: SolveResult, message: String = "", file: StaticString = #f
     switch result {
     case .solveError(let err):
         XCTFail("Solve error: \(err)\n\(message)")
-//        return nil
         fatalError() // unreachable
     case .solveOk(let tree): return tree
     }

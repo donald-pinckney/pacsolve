@@ -10,3 +10,7 @@ function dep_tree(indent) {
 
 exports.dep_tree = dep_tree
 
+if (require.main === module) {
+    console.log("TREE DUMP:")
+    dep_tree(0);
+}

@@ -3,12 +3,12 @@ import ShellOut
 
 struct Npm : PackageManagerVerdaccioBased {
     init() {}
-    let name = "npm"
+    let uniqueName = "npm"
     
     func solveCommand(package: Package, version: Version) -> String {
         """
             npm install --silent --registry http://localhost:4873
-            node main.js
+            node index.js
         """
     }
     
