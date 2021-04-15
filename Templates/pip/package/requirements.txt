@@ -1,4 +1,4 @@
 --no-index
---find-links ../../bin/
+--find-links ../../../bin/
 
 $DEPENDENCIES_LINE_SEP

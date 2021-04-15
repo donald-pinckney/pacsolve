@@ -4,35 +4,30 @@ import class Foundation.Bundle
 
 final class DependencyRunnerTests: XCTestCase { 
     
-//    func testPipWorks() {
-////        let mainPkg = MainPackage()
-////        let a = Package(name: "a", versions: ["0.0.1"])
-////        let b = Package(name: "b", versions: ["0.0.1", "0.0.2"])
-//
-//        let eco = Ecosystem(
-//            "a": [
-//                "0.0.1": [DependencyExpr()],
-//                ...
-//            ],
-//            "b": [
-//                ...
-//            ],
-//            "__main_pkg__": [
-//                "0.1.0": [
-//                    any("a") && any("b")
-//                ]
-//            ]
-//        )
-//
+    func testPipWorks() {
+        let eco = Ecosystem([
+            "m": [
+                "0.0.1": [DependencyExpr(packageToDependOn: "a", constraint: .any)],
+            ],
+            "a": [
+                "0.0.1": [],
+            ],
+        ])
+        
+        let result = Pip().solve(eco, forRootPackage: "m", version: "0.0.1")
+        let tree = assertOk(result: result)
+        XCTAssertEqual(tree, SolutionTree(package: "m", version: "0.0.1", children: [SolutionTree(package: "a", version: "0.0.1", children: [])]))
+        
 //        eco.solve(forPackage: "__main_pkg__", usingDependencyManagers: [Pip()])
-//
-//
-//
-////        let resultGroups = runTest(dependencies: deps, usingPackageManagers: [Pip()])
-////        assert(resultGroups, hasPartitions: [
-////            ["pip"]
-////        ])
-//    }
+
+
+
+//        let resultGroups = runTest(dependencies: deps, usingPackageManagers: [Pip()])
+//        assert(resultGroups, hasPartitions: [
+//            ["pip"]
+//        ])
+    }
+    
 //
 //
 //
@@ -325,4 +320,14 @@ final class DependencyRunnerTests: XCTestCase {
 func assert(_ resultGroups: [SolveResult : Set<String>], hasPartitions: Set<Set<String>>) {
     let givenPartitions = Set(resultGroups.values)
     assert(givenPartitions == hasPartitions)
+}
+
+func assertOk(result: SolveResult, message: String = "", file: StaticString = #filePath, line: UInt = #line) -> SolutionTree {
+    switch result {
+    case .solveError(let err):
+        XCTFail("Solve error: \(err)\n\(message)")
+//        return nil
+        fatalError() // unreachable
+    case .solveOk(let tree): return tree
+    }
 }

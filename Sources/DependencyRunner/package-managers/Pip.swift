@@ -51,6 +51,7 @@ struct Pip : PackageManagerWithRegistry {
             "$NAME_STRING" : package.name,
             "$VERSION_STRING" : version.semverName,
             "$DEPENDENCIES_COMMA_SEP" : dependencies.map(self.formatDepenency).map {$0.quoted()}.joined(separator: ", \n"),
+            "$DEPENDENCIES_LINE_SEP" : dependencies.map(self.formatDepenency).joined(separator: "\n"),
             "$DEPENDENCY_IMPORTS" : dependencies.map() { "import \($0.packageToDependOn)" }.joined(separator: "\n"),
             "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn).dep_tree(indent + 1)" }.joined(separator: "\n    ")
         ]
