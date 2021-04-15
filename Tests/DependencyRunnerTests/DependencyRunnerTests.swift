@@ -4,28 +4,22 @@ import class Foundation.Bundle
 
 final class DependencyRunnerTests: XCTestCase { 
     
+    let testEcosystem = Ecosystem([
+        "m": [
+            "0.0.1": [DependencyExpr(packageToDependOn: "a", constraint: .any)],
+        ],
+        "a": [
+            "0.0.1": [],
+        ],
+    ])
+    
+    let correctResult = SolutionTree(package: "m", version: "0.0.1", children: [SolutionTree(package: "a", version: "0.0.1", children: [])])
+    
+    
     func testPipWorks() {
-        let eco = Ecosystem([
-            "m": [
-                "0.0.1": [DependencyExpr(packageToDependOn: "a", constraint: .any)],
-            ],
-            "a": [
-                "0.0.1": [],
-            ],
-        ])
-        
-        let result = Pip().solve(eco, forRootPackage: "m", version: "0.0.1")
+        let result = Pip().solve(testEcosystem, forRootPackage: "m", version: "0.0.1")
         let tree = assertOk(result: result)
-        XCTAssertEqual(tree, SolutionTree(package: "m", version: "0.0.1", children: [SolutionTree(package: "a", version: "0.0.1", children: [])]))
-        
-//        eco.solve(forPackage: "__main_pkg__", usingDependencyManagers: [Pip()])
-
-
-
-//        let resultGroups = runTest(dependencies: deps, usingPackageManagers: [Pip()])
-//        assert(resultGroups, hasPartitions: [
-//            ["pip"]
-//        ])
+        XCTAssertEqual(tree, correctResult)
     }
     
 //
