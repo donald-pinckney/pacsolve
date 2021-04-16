@@ -19,7 +19,7 @@ func solveEcosystemWithAllPackageManagers(ecosystem: Ecosystem, forRootPackage r
         print(result)
         print()
     }
-    print("\n\n------------------------------------\n\n")
+    print("------------------------------------\n\n")
 
     return resultGroups
 }

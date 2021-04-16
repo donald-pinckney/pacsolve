@@ -4,4 +4,4 @@
 /*.xcodeproj
 xcuserdata/
 generated/
-
+.vagrant/
