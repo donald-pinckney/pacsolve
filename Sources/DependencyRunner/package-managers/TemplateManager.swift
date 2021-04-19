@@ -1,0 +1,54 @@
+import Foundation
+import Files
+
+protocol TemplateManagerDelegate : class {
+    func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String]
+}
+
+struct TemplateManager {
+    let templateName: String
+    weak var delegate: TemplateManagerDelegate? = nil
+    
+    private let fileManager = FileManager()
+    
+    func instantiatePackageTemplate(intoDirectory: String, package: Package, version: Version, dependencies: [DependencyExpr]) {
+        let templateDirPath = "Templates/\(templateName)/package/"
+        let currentDirURL = URL(fileURLWithPath: fileManager.currentDirectoryPath, isDirectory: true)
+        let templateDirURL = URL(fileURLWithPath: templateDirPath, isDirectory: true, relativeTo: currentDirURL)
+        
+        let destRootDirURL = URL(fileURLWithPath: intoDirectory, isDirectory: true, relativeTo: currentDirURL)
+        
+        let resourceKeys = Set<URLResourceKey>([.nameKey, .isDirectoryKey, .parentDirectoryURLKey])
+        let enu = fileManager.enumerator(at: templateDirURL, includingPropertiesForKeys: Array(resourceKeys))!
+        
+        
+        let substituting = self.delegate?.templateSubstitutionsFor(package: package, version: version, dependencies: dependencies) ?? [:]
+        
+        for case let itemURL as URL in enu {
+            let resourceValues = try! itemURL.resourceValues(forKeys: resourceKeys)
+            let isDirectory = resourceValues.isDirectory!
+            let parentURL = resourceValues.parentDirectory!
+            let name = resourceValues.name!
+            
+            let parentComponentsRelativeToTemplateRoot = parentURL.pathComponents[templateDirURL.pathComponents.count...]
+            
+            let destParentURL: URL = (parentComponentsRelativeToTemplateRoot).reduce(destRootDirURL) { $0.appendingPathComponent($1, isDirectory: true)  }
+            let destURL = destParentURL.appendingPathComponent(name, isDirectory: isDirectory)
+            
+            if isDirectory {
+                // This may fail because the directories may already exist,
+                // in the case of re-using a solve context
+                try? fileManager.createDirectory(at: destURL, withIntermediateDirectories: false)
+            } else {
+                let srcURL = parentURL.appendingPathComponent(name, isDirectory: false)
+                var contents = try! String(contentsOf: srcURL)
+                for (templateVar, templateSub) in substituting {
+                    contents = contents.replacingOccurrences(of: templateVar, with: templateSub)
+                }
+                try! contents.write(to: destURL, atomically: false, encoding: .utf8)
+            }
+        }
+    }
+}
+
+
