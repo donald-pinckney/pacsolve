@@ -22,16 +22,15 @@ final class PackageManagersWork: XCTestCase {
     }
 
     func testNpmWorks() {
-//        programToTest(packageManager: Npm())
+        programToTest(packageManager: Npm())
     }
 
     func testYarn1Works() {
-//        programToTest(packageManager: Yarn1())
-
+        programToTest(packageManager: Yarn1())
     }
 
     func testYarn2Works() {
-//        programToTest(packageManager: Yarn2())
+        programToTest(packageManager: Yarn2())
     }
 
     func testCargoWorks() {

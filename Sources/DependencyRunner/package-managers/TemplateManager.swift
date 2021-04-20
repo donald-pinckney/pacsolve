@@ -11,8 +11,8 @@ struct TemplateManager {
     
     private let fileManager = FileManager()
     
-    func instantiatePackageTemplate(intoDirectory: String, package: Package, version: Version, dependencies: [DependencyExpr]) {
-        let templateDirPath = "Templates/\(templateName)/package/"
+    func instantiateTemplate(name: String, intoDirectory: String, substitutions: [String : String]) {
+        let templateDirPath = "Templates/\(templateName)/\(name)/"
         let currentDirURL = URL(fileURLWithPath: fileManager.currentDirectoryPath, isDirectory: true)
         let templateDirURL = URL(fileURLWithPath: templateDirPath, isDirectory: true, relativeTo: currentDirURL)
         
@@ -20,9 +20,6 @@ struct TemplateManager {
         
         let resourceKeys = Set<URLResourceKey>([.nameKey, .isDirectoryKey, .parentDirectoryURLKey])
         let enu = fileManager.enumerator(at: templateDirURL, includingPropertiesForKeys: Array(resourceKeys))!
-        
-        
-        let substituting = self.delegate?.templateSubstitutionsFor(package: package, version: version, dependencies: dependencies) ?? [:]
         
         for case let itemURL as URL in enu {
             let resourceValues = try! itemURL.resourceValues(forKeys: resourceKeys)
@@ -42,12 +39,18 @@ struct TemplateManager {
             } else {
                 let srcURL = parentURL.appendingPathComponent(name, isDirectory: false)
                 var contents = try! String(contentsOf: srcURL)
-                for (templateVar, templateSub) in substituting {
+                for (templateVar, templateSub) in substitutions {
                     contents = contents.replacingOccurrences(of: templateVar, with: templateSub)
                 }
                 try! contents.write(to: destURL, atomically: false, encoding: .utf8)
             }
         }
+    }
+    
+    func instantiatePackageTemplate(intoDirectory: String, package: Package, version: Version, dependencies: [DependencyExpr]) {
+        let substituting = self.delegate?.templateSubstitutionsFor(package: package, version: version, dependencies: dependencies) ?? [:]
+        
+        instantiateTemplate(name: "package", intoDirectory: intoDirectory, substitutions: substituting)
     }
 }
 

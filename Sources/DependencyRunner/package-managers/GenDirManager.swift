@@ -7,7 +7,7 @@ class GenDirManager {
     var genBasePath: String { "generated/\(genName)/" }
     
     let fileManager = FileManager()
-    var didMakeRegistryDir = false
+    var createdUniqueDirs: Set<String> = Set()
     var freeContextName = 0
     
     init(baseName: String) {
@@ -28,13 +28,21 @@ class GenDirManager {
         return path
     }
     
-    func getRegistryDirectory() -> String {
-        let path = "\(genBasePath)registry/"
-        if !didMakeRegistryDir {
+    func getUniqueDirectory(name: String) -> String {
+        let path = "\(genBasePath)\(name)/"
+        if !createdUniqueDirs.contains(name) {
             try! fileManager.createDirectory(atPath: path, withIntermediateDirectories: true)
-            didMakeRegistryDir = true
+            createdUniqueDirs.insert(name)
         }
         return path
+    }
+    
+    func getRegistryDirectory() -> String {
+        return getUniqueDirectory(name: "registry")
+    }
+    
+    func getConfigsDirectory() -> String {
+        return getUniqueDirectory(name: "configs")
     }
     
     func newContextDirectory() -> String {

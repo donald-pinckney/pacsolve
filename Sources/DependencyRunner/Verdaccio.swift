@@ -8,7 +8,7 @@
 import Foundation
 import ShellOut
 
-func startVerdaccio(name: String) {
+func startVerdaccio(configPath: String) {
     killVerdaccio()
     
     // We have to trick newer versions of npm into thinking that it is logged into the verdaccio server
@@ -19,7 +19,7 @@ func startVerdaccio(name: String) {
     p.standardInput = FileHandle.nullDevice
     p.standardError = FileHandle.nullDevice
     p.standardOutput = FileHandle.nullDevice
-    p.arguments = [name]
+    p.arguments = [configPath]
     p.launch()
     sleep(2) // We sleep 2 seconds to give Verdaccio server time to startup.
     // TODO: replace this with reading the stdout to see when it says it is ready

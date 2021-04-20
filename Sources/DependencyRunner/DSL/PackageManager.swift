@@ -11,9 +11,7 @@ protocol PackageManager {
     func publish(package: Package, version: Version, dependencies: [DependencyExpr])
     func yank(package: Package, version: Version)
     
-    func makeSolveContext() -> TheSolveContext
-    
-    func shutdown()
+    func makeSolveContext() -> TheSolveContext    
 }
 
 
