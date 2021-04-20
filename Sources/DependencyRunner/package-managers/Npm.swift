@@ -12,7 +12,7 @@ private class NpmBasedPackageManager {
         self.solveCommand = solveCommand
         self.templateManager.delegate = self
         
-        let configDir = self.dirManager.getConfigsDirectory()
+        let configDir = self.dirManager.getConfigsDirectory().relative
         self.templateManager.instantiateTemplate(name: "configs", intoDirectory: configDir, substitutions: [:])
         startVerdaccio(configPath: configDir + "verdaccio_config.yaml")
     }

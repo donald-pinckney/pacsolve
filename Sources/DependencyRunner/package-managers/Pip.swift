@@ -14,7 +14,7 @@ extension Pip : PackageManager {
 
     private func buildToRegistry(inDirectory srcDir: String) {
         try! shellOut(to: "python3.9 setup.py bdist_wheel", at: srcDir)
-        try! shellOut(to: "cp \(srcDir)dist/*.whl \(self.dirManager.getRegistryDirectory())")
+        try! shellOut(to: "cp \(srcDir)dist/*.whl \(self.dirManager.getRegistryDirectory().relative)")
     }
         
     func publish(package: Package, version: Version, dependencies: [DependencyExpr]) {

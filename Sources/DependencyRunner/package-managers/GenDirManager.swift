@@ -5,6 +5,7 @@ class GenDirManager {
     
     let genName: String
     var genBasePath: String { "generated/\(genName)/" }
+    let wd: String
     
     let fileManager = FileManager()
     var createdUniqueDirs: Set<String> = Set()
@@ -16,6 +17,7 @@ class GenDirManager {
         genName = "\(baseName)-\(n)"
         
         Utils.cdToProjectRoot()
+        wd = fileManager.currentDirectoryPath
 
         let _ = try? fileManager.removeItem(atPath: genBasePath)
     }
@@ -28,20 +30,21 @@ class GenDirManager {
         return path
     }
     
-    func getUniqueDirectory(name: String) -> String {
+    func getUniqueDirectory(name: String) -> (relative: String, absolute: String) {
         let path = "\(genBasePath)\(name)/"
         if !createdUniqueDirs.contains(name) {
             try! fileManager.createDirectory(atPath: path, withIntermediateDirectories: true)
             createdUniqueDirs.insert(name)
         }
-        return path
+        let absolutePath = "\(self.wd)/\(path)"
+        return (relative: path, absolute: absolutePath)
     }
     
-    func getRegistryDirectory() -> String {
+    func getRegistryDirectory() -> (relative: String, absolute: String) {
         return getUniqueDirectory(name: "registry")
     }
     
-    func getConfigsDirectory() -> String {
+    func getConfigsDirectory() -> (relative: String, absolute: String) {
         return getUniqueDirectory(name: "configs")
     }
     
