@@ -10,7 +10,7 @@ class Pip {
 }
 
 extension Pip : PackageManager {
-    typealias TheSolveContext = PipSolveContext
+    var uniqueName: String { "pip" }
 
     private func buildToRegistry(inDirectory srcDir: String) {
         try! shellOut(to: "python3.9 setup.py bdist_wheel", at: srcDir)
@@ -29,7 +29,7 @@ extension Pip : PackageManager {
         fatalError("Unimplemented")
     }
     
-    func makeSolveContext() -> PipSolveContext {
+    func makeSolveContext() -> SolveContext {
         let contextDir = dirManager.newContextDirectory()
         
         let makeVenvCommand =
@@ -39,11 +39,16 @@ extension Pip : PackageManager {
         
         try! shellOut(to: makeVenvCommand, at: contextDir)
             
-        return PipSolveContext(contextDir: contextDir, templateManager: self.templateManager)
-    }    
+        let context = PipSolveContext(contextDir: contextDir, templateManager: self.templateManager)
+        
+        return context.solve
+    }
+    
+    func startup() {}
+    func shutdown() {}
 }
 
-class PipSolveContext : SolveContext {
+class PipSolveContext {
     let contextDir: String
     let templateManager: TemplateManager
     

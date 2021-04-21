@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "DependencyRunner",
     platforms: [
-        .macOS(.v10_15),
+        .macOS(.v10_12),
         .iOS(.v13),
         .watchOS(.v6),
         .tvOS(.v13),

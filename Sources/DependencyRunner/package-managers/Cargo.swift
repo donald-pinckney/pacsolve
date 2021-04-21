@@ -25,7 +25,7 @@ class Cargo {
 }
 
 extension Cargo : PackageManager {
-    typealias TheSolveContext = CargoSolveContext
+    var uniqueName: String { "cargo" }
 
     private func buildCrate(inDirectory srcDir: String, package: Package, version: Version, dependencies: [DependencyExpr]) -> (crateBytes: Data, crateFilename: String, metadata: CrateMetadata) {
 
@@ -95,14 +95,18 @@ extension Cargo : PackageManager {
         fatalError("Unimplemented")
     }
     
-    func makeSolveContext() -> CargoSolveContext {
+    func makeSolveContext() -> SolveContext {
         let contextDir = dirManager.newContextDirectory()
         
-        return CargoSolveContext(contextDir: contextDir, templateManager: self.templateManager)
+        let context = CargoSolveContext(contextDir: contextDir, templateManager: self.templateManager)
+        return context.solve
     }
+    
+    func startup() {}
+    func shutdown() {}
 }
 
-class CargoSolveContext : SolveContext {
+class CargoSolveContext {
     let contextDir: String
     let templateManager: TemplateManager
     

@@ -6,24 +6,30 @@ final class MaximizeVersionNumbers: XCTestCase {
         super.setUp()
         continueAfterFailure = false
     }
+    
+    func program_testAnyVersionMax(p: PackageManager) -> SolveResult {
+        p.publish(package: "a", version: "0.0.1", dependencies: [])
+        p.publish(package: "a", version: "0.0.2", dependencies: [])
+        p.publish(package: "a", version: "0.1.0", dependencies: [])
+        p.publish(package: "a", version: "0.1.1", dependencies: [])
+        p.publish(package: "a", version: "0.1.2", dependencies: [])
+        p.publish(package: "a", version: "1.0.0", dependencies: [])
+        p.publish(package: "a", version: "1.0.1", dependencies: [])
+        p.publish(package: "a", version: "2.0.0", dependencies: [])
+        p.publish(package: "a", version: "2.0.1", dependencies: [])
+        p.publish(package: "a", version: "2.1.0", dependencies: [])
+        
+        let ctx = p.makeSolveContext()
+        return ctx([DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    }
 
-//    func testAnyVersionMax() {
-//        let ecosystem = Ecosystem([
-//            "m": [
-//                "0.0.1": [DependencyExpr(packageToDependOn: "a", constraint: .any)],
-//            ],
-//            "a": [
-//                "0.0.1": [], "0.0.2": [], "0.1.0": [], "0.1.1": [], "0.1.2": [], "1.0.0": [], "1.0.1": [], "2.0.0": [], "2.0.1": [], "2.1.0": []
-//            ],
-//        ])
-//        
-//        let resultGroups = solveEcosystemWithAllPackageManagers(ecosystem: ecosystem, forRootPackage: "m", version: "0.0.1")
-//        assert(resultGroups, hasPartitions: [
-//            ["npm", "yarn1", "yarn2", "pip", "cargo"],
-//        ])
-//    }
+    func testAnyVersionMax() {
+        let resultGroups = runProgramWithAllPackageManagers(program: program_testAnyVersionMax)
+        let correctResult = SolveResult.solveOk(SolutionTree(children: [ResolvedPackage(package: "a", version: "2.1.0", children: [])]))
+        XCTAssertEqual(resultGroups[correctResult], ["npm", "yarn1", "yarn2", "pip", "cargo"])
+    }
 
     static var allTests: [(String, (MaximizeVersionNumbers) -> () -> ())] = [
-//        ("testAnyVersionMax", testAnyVersionMax),
+        ("testAnyVersionMax", testAnyVersionMax),
     ]
 }

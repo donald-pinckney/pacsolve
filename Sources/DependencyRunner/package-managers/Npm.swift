@@ -5,27 +5,25 @@ private class NpmBasedPackageManager {
     let lazyContextSetupCommand: String?
     let solveCommand: String
     var templateManager = TemplateManager(templateName: "npm")
+    let uniqueName: String
     
     init(uniqueName: String, lazyContextSetupCommand: String?, solveCommand: String) {
+        self.uniqueName = uniqueName
         self.dirManager = GenDirManager(baseName: uniqueName)
         self.lazyContextSetupCommand = lazyContextSetupCommand
         self.solveCommand = solveCommand
         self.templateManager.delegate = self
-        
-        let configDir = self.dirManager.getConfigsDirectory().relative
-        self.templateManager.instantiateTemplate(name: "configs", intoDirectory: configDir, substitutions: [:])
-        startVerdaccio(configPath: configDir + "verdaccio_config.yaml")
-    }
-    
-    deinit {
-        killVerdaccio()
     }
 }
 
 
 extension NpmBasedPackageManager : PackageManager {
-    typealias TheSolveContext = NpmSolveContext
-
+    func startup() {
+        let configDir = self.dirManager.getConfigsDirectory().relative
+        self.templateManager.instantiateTemplate(name: "configs", intoDirectory: configDir, substitutions: [:])
+        startVerdaccio(configPath: configDir + "verdaccio_config.yaml")
+    }
+    
     private func buildToRegistry(inDirectory srcDir: String) {
         let buildCommand =
         """
@@ -47,16 +45,20 @@ extension NpmBasedPackageManager : PackageManager {
         fatalError("Unimplemented")
     }
     
-    func makeSolveContext() -> NpmSolveContext {
+    func makeSolveContext() -> SolveContext {
         let contextDir = dirManager.newContextDirectory()
         
-        return NpmSolveContext(contextDir: contextDir, templateManager: self.templateManager, lazySetupCommand: self.lazyContextSetupCommand, solveCommand: self.solveCommand)
+        let context = NpmSolveContext(contextDir: contextDir, templateManager: self.templateManager, lazySetupCommand: self.lazyContextSetupCommand, solveCommand: self.solveCommand)
+        
+        return context.solve
     }
     
-    func shutdown() {}
+    func shutdown() {
+        killVerdaccio()
+    }
 }
 
-class NpmSolveContext : SolveContext {
+class NpmSolveContext {
     let contextDir: String
     let templateManager: TemplateManager
     let lazySetupCommand: String?
@@ -133,7 +135,7 @@ extension DependencyExpr {
 }
 
 
-func Npm() -> some PackageManager {
+func Npm() -> PackageManager {
     let solveCommand =
     """
         npm install --silent --registry http://localhost:4873
@@ -143,7 +145,7 @@ func Npm() -> some PackageManager {
     return NpmBasedPackageManager(uniqueName: "npm", lazyContextSetupCommand: nil, solveCommand: solveCommand)
 }
 
-func Yarn1() -> some PackageManager {
+func Yarn1() -> PackageManager {
     let solveCommand =
     """
         yarn install --silent --registry http://localhost:4873
@@ -153,7 +155,7 @@ func Yarn1() -> some PackageManager {
     return NpmBasedPackageManager(uniqueName: "yarn1", lazyContextSetupCommand: nil, solveCommand: solveCommand)
 }
 
-func Yarn2() -> some PackageManager {
+func Yarn2() -> PackageManager {
     let lazyContextSetupCommand =
     """
         rm -rf ~/.yarn/berry/cache
