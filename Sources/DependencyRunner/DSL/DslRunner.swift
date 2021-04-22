@@ -8,10 +8,12 @@ func dictionaryOfNils<K, V>(forKeys: [K]) -> [K : V?] {
 }
 
 extension EcosystemProgram {
-    func run(underPackageManager p: PackageManager) -> EcosystemStore {
+    func run(underPackageManager p: PackageManager) -> ([SolveResult], EcosystemStore) {
         p.startup()
 
         var contextResults: [ContextVar : SolveResult?] = Dictionary(uniqueKeysWithValues: self.declaredContexts.map { ($0, nil) })
+        
+        var allResults: [SolveResult] = []
         
         let contexts: [ContextVar : SolveContext] = Dictionary(uniqueKeysWithValues: self.declaredContexts.map { ($0, p.makeSolveContext()) })
         
@@ -24,11 +26,12 @@ extension EcosystemProgram {
             case let .solve(inContext: ctxVar, constraints: constraints):
                 let result = contexts[ctxVar]!(constraints)
                 contextResults[ctxVar] = result
+                allResults.append(result)
             }
         }
         
         p.shutdown()
         
-        return EcosystemStore(contextResults: contextResults)
+        return (allResults, EcosystemStore(contextResults: contextResults))
     }
 }

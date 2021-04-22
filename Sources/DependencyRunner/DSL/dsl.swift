@@ -23,6 +23,6 @@ enum EcosystemOp {
 }
 
 struct EcosystemProgram {
-    let declaredContexts: [ContextVar]
+    let declaredContexts: Set<ContextVar>
     let ops: [EcosystemOp]
 }
