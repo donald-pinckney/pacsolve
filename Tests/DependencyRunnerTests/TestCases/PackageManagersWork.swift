@@ -7,43 +7,40 @@ final class PackageManagersWork: XCTestCase {
         continueAfterFailure = false
     }
     
-    let aVersion1Result = SolveResult.solveOk(SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.1", children: [])]))
-    let aVersion2Result = SolveResult.solveOk(SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.2", children: [])]))
+    let programToTest = EcosystemProgram(declaredContexts: ["ctx1", "ctx2"], ops: [
+        .publish(package: "a", version: "0.0.1", dependencies: []),
+        .solve(inContext: "ctx1", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)]),
+        .publish(package: "a", version: "0.0.2", dependencies: []),
+        .solve(inContext: "ctx2", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)]),
+    ])
     
-    func programToTest(packageManager: PackageManager) {
-        packageManager.publish(package: "a", version: "0.0.1", dependencies: [])
+    func resultAssertions(_ results: [SolveResult]) {        
+        let aVersion1Result = SolveResult.solveOk(SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.1", children: [])]))
+        let aVersion2Result = SolveResult.solveOk(SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.2", children: [])]))
         
-        let ctx1 = packageManager.makeSolveContext()
-        let result1 = ctx1([DependencyExpr(packageToDependOn: "a", constraint: .any)])
-        
-        XCTAssertEqual(result1, aVersion1Result)
-
-        packageManager.publish(package: "a", version: "0.0.2", dependencies: [])
-        
-        let ctx2 = packageManager.makeSolveContext()
-
-        let result2 = ctx2([DependencyExpr(packageToDependOn: "a", constraint: .any)])
-        XCTAssertEqual(result2, aVersion2Result)        
+        XCTAssertEqual(results.count, 2)
+        XCTAssertEqual(results[0], aVersion1Result)
+        XCTAssertEqual(results[1], aVersion2Result)
     }
 
     func testPipWorks() {
-        runProgram(programToTest, underPackageManager: Pip())
+        resultAssertions(programToTest.run(underPackageManager: Pip()))
     }
 
     func testNpmWorks() {
-        runProgram(programToTest, underPackageManager: Npm())
+        resultAssertions(programToTest.run(underPackageManager: Npm()))
     }
 
     func testYarn1Works() {
-        runProgram(programToTest, underPackageManager: Yarn1())
+        resultAssertions(programToTest.run(underPackageManager: Yarn1()))
     }
 
     func testYarn2Works() {
-        runProgram(programToTest, underPackageManager: Yarn2())
+        resultAssertions(programToTest.run(underPackageManager: Yarn2()))
     }
 
     func testCargoWorks() {
-        runProgram(programToTest, underPackageManager: Cargo())
+        resultAssertions(programToTest.run(underPackageManager: Cargo()))
     }
 
 

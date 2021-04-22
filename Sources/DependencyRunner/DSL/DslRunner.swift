@@ -1,17 +1,17 @@
 
-struct EcosystemStore {
-    let contextResults: [ContextVar : SolveResult?]
-}
-
-func dictionaryOfNils<K, V>(forKeys: [K]) -> [K : V?] {
-    Dictionary(uniqueKeysWithValues: forKeys.map { ($0, nil) })
-}
+//struct EcosystemStore: Equatable, Hashable {
+//    let contextResults: [ContextVar : SolveResult?]
+//}
+//
+//func dictionaryOfNils<K, V>(forKeys: [K]) -> [K : V?] {
+//    Dictionary(uniqueKeysWithValues: forKeys.map { ($0, nil) })
+//}
 
 extension EcosystemProgram {
-    func run(underPackageManager p: PackageManager) -> ([SolveResult], EcosystemStore) {
+    func run(underPackageManager p: PackageManager) -> [SolveResult] {
         p.startup()
 
-        var contextResults: [ContextVar : SolveResult?] = Dictionary(uniqueKeysWithValues: self.declaredContexts.map { ($0, nil) })
+//        var contextResults: [ContextVar : SolveResult?] = Dictionary(uniqueKeysWithValues: self.declaredContexts.map { ($0, nil) })
         
         var allResults: [SolveResult] = []
         
@@ -25,13 +25,15 @@ extension EcosystemProgram {
                 p.yank(package: package, version: v)
             case let .solve(inContext: ctxVar, constraints: constraints):
                 let result = contexts[ctxVar]!(constraints)
-                contextResults[ctxVar] = result
+//                contextResults[ctxVar] = result
                 allResults.append(result)
             }
         }
         
         p.shutdown()
         
-        return (allResults, EcosystemStore(contextResults: contextResults))
+        return allResults
+        
+//        return ProgramResult(solveResults: allResults, ecosystemStore: EcosystemStore(contextResults: contextResults))
     }
 }
