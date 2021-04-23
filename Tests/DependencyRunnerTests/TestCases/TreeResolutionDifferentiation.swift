@@ -161,6 +161,9 @@ final class TreeResolutionDifferentiation: XCTestCase {
         
         XCTAssertEqual(resultGroups[npmStyleResult], ["npm", "yarn1", "yarn2"])
                 
+        // NOTE: This is really interesting! Cargo will choose one of the two crossChoice(1/2)
+        // based on the lexical ordering of the clobbered name of a vs. b.
+        // But it seems that pip will always choose crossChoice1. Not too sure, need to investigate more
         XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), ["pip", "cargo"])
     }
     
