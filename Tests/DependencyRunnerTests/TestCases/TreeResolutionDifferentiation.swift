@@ -116,7 +116,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         XCTAssertEqual(resultGroups[npmStyleResult], ["npm", "yarn1", "yarn2", "cargo"])
-        XCTAssertEqual((resultGroups[crossChoice1] ?? Set()).union(resultGroups[crossChoice2] ?? Set()), ["pip"])
+        XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), ["pip"])
 
     }
     
@@ -128,8 +128,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         .publish(package: "a", version: "1.0.2", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.1"))]),
         .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any), DependencyExpr(packageToDependOn: "b", constraint: .any)])
     ])
- 
-
+    
     func testVersionCrissCross() {
         let resultGroups = runProgramWithAllPackageManagers(program: program_testVersionCrissCross)
         
@@ -161,8 +160,8 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         XCTAssertEqual(resultGroups[npmStyleResult], ["npm", "yarn1", "yarn2"])
-        
-        XCTAssertEqual((resultGroups[crossChoice1] ?? Set()).union(resultGroups[crossChoice2] ?? Set()), ["pip", "cargo"])
+                
+        XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), ["pip", "cargo"])
     }
     
 
