@@ -19,10 +19,10 @@ enum SolveResult : CustomStringConvertible, Hashable, Equatable {
 }
 
 extension SolveResult {
-    func mapPackageNames(_ f: (Package) -> Package) -> SolveResult {
+    func mapOk(_ f: (SolutionTree) -> SolutionTree) -> SolveResult {
         switch self {
         case .solveError(_): return self
-        case .solveOk(let t): return .solveOk(t.mapPackageNames(f))
+        case .solveOk(let t): return .solveOk(f(t))
         }
     }
 }

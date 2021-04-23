@@ -17,9 +17,4 @@ struct Version : Equatable, Hashable, ExpressibleByStringLiteral, CustomStringCo
     var description: String {
         "\(major).\(minor).\(bug)"
     }
-    
-    static func <(lhs: Version, rhs: Version) -> Bool {
-        // Lexicographic ordering
-        (lhs.major, lhs.minor, lhs.bug) < (rhs.major, rhs.minor, rhs.bug)
-    }
 }

@@ -31,6 +31,10 @@ struct SolutionTree: CustomStringConvertible, Equatable, Hashable {
         children.map { $0.description }.joined(separator: "\n")
     }
     
+    init(children: [ResolvedPackage]) {
+        self.children = children.map { $0.normalizedOrder() }.sorted(by: <)
+    }
+    
     func mapPackageNames(_ f: (Package) -> Package) -> SolutionTree {
         SolutionTree(children: self.children.map { $0.mapPackageNames(f) })
     }
