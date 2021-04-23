@@ -8,9 +8,7 @@
 //}
 
 extension EcosystemProgram {
-    func run(underPackageManager p: PackageManager) -> [SolveResult] {
-        p.startup()
-
+    private func runOps(underPackageManager p: PackageManager) -> [SolveResult] {
 //        var contextResults: [ContextVar : SolveResult?] = Dictionary(uniqueKeysWithValues: self.declaredContexts.map { ($0, nil) })
         
         var allResults: [SolveResult] = []
@@ -30,10 +28,26 @@ extension EcosystemProgram {
             }
         }
         
-        p.shutdown()
         
         return allResults
         
 //        return ProgramResult(solveResults: allResults, ecosystemStore: EcosystemStore(contextResults: contextResults))
+        
+    }
+    func run(underPackageManager p: PackageManager) -> [SolveResult] {
+        let renamer = buildUniquePackageRenaming(self)
+        let transformedProg = self.mapPackageNames(renamer.encode)
+//        let transformedProg = self
+        
+        p.startup()
+        defer {
+            p.shutdown()
+        }
+        
+        let result = transformedProg.runOps(underPackageManager: p)
+        let decodedResult = result.map { $0.mapPackageNames(renamer.decode) }
+        
+        return decodedResult
+//        return result
     }
 }

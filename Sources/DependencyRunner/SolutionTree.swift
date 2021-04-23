@@ -18,10 +18,20 @@ struct ResolvedPackage: CustomStringConvertible, Equatable, Hashable {
     }
 }
 
+extension ResolvedPackage {
+    func mapPackageNames(_ f: (Package) -> Package) -> ResolvedPackage {
+        ResolvedPackage(package: f(self.package), version: self.version, children: self.children.map { $0.mapPackageNames(f) } )
+    }
+}
+
 struct SolutionTree: CustomStringConvertible, Equatable, Hashable {
     let children: [ResolvedPackage]
     
     var description: String {
         children.map { $0.description }.joined(separator: "\n")
+    }
+    
+    func mapPackageNames(_ f: (Package) -> Package) -> SolutionTree {
+        SolutionTree(children: self.children.map { $0.mapPackageNames(f) })
     }
 }

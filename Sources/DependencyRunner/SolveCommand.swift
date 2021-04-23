@@ -17,6 +17,17 @@ enum SolveResult : CustomStringConvertible, Hashable, Equatable {
         }
     }
 }
+
+extension SolveResult {
+    func mapPackageNames(_ f: (Package) -> Package) -> SolveResult {
+        switch self {
+        case .solveError(_): return self
+        case .solveOk(let t): return .solveOk(t.mapPackageNames(f))
+        }
+    }
+}
+
+
 //
 //extension PackageManager {
 //    func solve(package: Package, version: Version) -> SolveResult {
