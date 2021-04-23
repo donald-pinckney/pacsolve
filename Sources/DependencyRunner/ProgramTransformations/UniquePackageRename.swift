@@ -39,7 +39,7 @@ func buildUniquePackageRenaming(_ program: EcosystemProgram) -> (encode: (Packag
         var d = Data(bytes: &time, count: MemoryLayout<UInt64>.size)
         d.append(Data(bytes: &uniqueNamingCounter, count: MemoryLayout<UInt64>.size))
         uniqueNamingCounter += 1
-        var r = arc4random()
+        var r = UInt64.random(in: UInt64.min...UInt64.max)
         d.append(Data(bytes: &r, count: MemoryLayout<UInt32>.size))
         d.append(p.name.data(using: .utf8)!)
         let sha = d.sha256().toHexString()
