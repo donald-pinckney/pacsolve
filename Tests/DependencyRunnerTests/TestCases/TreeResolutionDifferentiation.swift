@@ -97,7 +97,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
             ]))
         ]
         
-        let pipStyleResult = [
+        let crossChoice1 = [
             SolveResult.solveOk(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.2", children: [
                     ResolvedPackage(package: "b", version: "0.0.1", children: [])
@@ -106,8 +106,18 @@ final class TreeResolutionDifferentiation: XCTestCase {
             ]))
         ]
         
+        let crossChoice2 = [
+            SolveResult.solveOk(SolutionTree(children: [
+                ResolvedPackage(package: "a", version: "0.0.1", children: [
+                    ResolvedPackage(package: "b", version: "0.0.2", children: [])
+                ]),
+                ResolvedPackage(package: "b", version: "0.0.2", children: [])
+            ]))
+        ]
+        
         XCTAssertEqual(resultGroups[npmStyleResult], ["npm", "yarn1", "yarn2", "cargo"])
-        XCTAssertEqual(resultGroups[pipStyleResult], ["pip"])
+        XCTAssertEqual((resultGroups[crossChoice1] ?? Set()).union(resultGroups[crossChoice2] ?? Set()), ["pip"])
+
     }
     
     
@@ -132,7 +142,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
             ]))
         ]
         
-        let pipStyleResult = [
+        let crossChoice1 = [
             SolveResult.solveOk(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.2", children: [
                     ResolvedPackage(package: "b", version: "1.0.1", children: [])
@@ -141,8 +151,18 @@ final class TreeResolutionDifferentiation: XCTestCase {
             ]))
         ]
         
+        let crossChoice2 = [
+            SolveResult.solveOk(SolutionTree(children: [
+                ResolvedPackage(package: "a", version: "1.0.1", children: [
+                    ResolvedPackage(package: "b", version: "1.0.2", children: [])
+                ]),
+                ResolvedPackage(package: "b", version: "1.0.2", children: [])
+            ]))
+        ]
+        
         XCTAssertEqual(resultGroups[npmStyleResult], ["npm", "yarn1", "yarn2"])
-        XCTAssertEqual(resultGroups[pipStyleResult], ["pip", "cargo"])
+        
+        XCTAssertEqual((resultGroups[crossChoice1] ?? Set()).union(resultGroups[crossChoice2] ?? Set()), ["pip", "cargo"])
     }
     
 
