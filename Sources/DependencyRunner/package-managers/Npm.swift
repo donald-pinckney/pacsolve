@@ -205,7 +205,7 @@ func NpmReal() -> PackageManager {
     
     return WaitForUpdateManager(
             wrapping: NpmBasedPackageManager(uniqueName: "npm-real", isReal: true, lazyContextSetupCommand: nil, solveCommand: solveCommand),
-            sleepTime: 20)
+            sleepTime: 60)
 }
 
 func Yarn1Real() -> PackageManager {
@@ -217,7 +217,7 @@ func Yarn1Real() -> PackageManager {
     
     return WaitForUpdateManager(
             wrapping: NpmBasedPackageManager(uniqueName: "yarn1-real", isReal: true, lazyContextSetupCommand: nil, solveCommand: solveCommand),
-            sleepTime: 20)
+            sleepTime: 60)
 }
 
 func Yarn2Real() -> PackageManager {
@@ -235,5 +235,5 @@ func Yarn2Real() -> PackageManager {
     
     return WaitForUpdateManager(
             wrapping: NpmBasedPackageManager(uniqueName: "yarn2-real", isReal: true, lazyContextSetupCommand: lazyContextSetupCommand, solveCommand: solveCommand),
-            sleepTime: 20)
+            sleepTime: 60)
 }
