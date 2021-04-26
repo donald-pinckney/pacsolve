@@ -2,7 +2,13 @@ import Foundation
 
 let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "ManagersWork": managersWork,
-    
+    "AnyVersionMax": program_anyVersionMax,
+    "ObviousSingleResolution": program_obviousSingleResolution,
+    "ObviousSingleResolutionPre": program_obviousSingleResolutionPre,
+    "CrissCross": program_CrissCross,
+    "CrissCrossPre": program_CrissCrossPre,
+    "TreeResolution": program_TreeResolution,
+    "TreeResolutionPre": program_TreeResolutionPre,
 ]
 
 let ALL_MANAGERS: [String : () -> PackageManager] = [

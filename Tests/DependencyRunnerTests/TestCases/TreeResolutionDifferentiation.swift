@@ -7,16 +7,11 @@ final class TreeResolutionDifferentiation: XCTestCase {
         continueAfterFailure = false
     }
     
-    let program_testTreeResolutionPrerelease = EcosystemProgram(declaredContexts: ["ctx"], ops: [
-        .publish(package: "b", version: "0.0.1", dependencies: []),
-        .publish(package: "b", version: "0.0.2", dependencies: []),
-        .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.1"))]),
-        .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any), DependencyExpr(packageToDependOn: "b", constraint: .any)])
-    ])
+    
     
 
     func testTreeResolutionPrerelease() {
-        let resultGroups = runProgramWithAllPackageManagers(program: program_testTreeResolutionPrerelease)
+        let resultGroups = runProgramWithAllPackageManagers(programName: "TreeResolutionPre")
         
         let npmStyleResult = [
             SolveResult.solveOk(SolutionTree(children: [
@@ -43,16 +38,11 @@ final class TreeResolutionDifferentiation: XCTestCase {
     
     
     
-    let program_testTreeResolution = EcosystemProgram(declaredContexts: ["ctx"], ops: [
-        .publish(package: "b", version: "1.0.1", dependencies: []),
-        .publish(package: "b", version: "1.0.2", dependencies: []),
-        .publish(package: "a", version: "1.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.1"))]),
-        .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any), DependencyExpr(packageToDependOn: "b", constraint: .any)])
-    ])
+    
 
     func testTreeResolution() {
-        let resultGroups = runProgramWithAllPackageManagers(program: program_testTreeResolution)
-        
+        let resultGroups = runProgramWithAllPackageManagers(programName: "TreeResolution")
+
         let npmStyleResult = [
             SolveResult.solveOk(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", children: [
@@ -76,18 +66,12 @@ final class TreeResolutionDifferentiation: XCTestCase {
         XCTAssertEqual(resultGroups[pipStyleResult], pipNames() + cargoNames())
     }
     
-    let program_testVersionCrissCrossPrerelease = EcosystemProgram(declaredContexts: ["ctx"], ops: [
-        .publish(package: "b", version: "0.0.1", dependencies: []),
-        .publish(package: "b", version: "0.0.2", dependencies: []),
-        .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.2"))]),
-        .publish(package: "a", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.1"))]),
-        .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any), DependencyExpr(packageToDependOn: "b", constraint: .any)])
-    ])
+    
  
 
     func testVersionCrissCrossPrerelease() {
-        let resultGroups = runProgramWithAllPackageManagers(program: program_testVersionCrissCrossPrerelease)
-        
+        let resultGroups = runProgramWithAllPackageManagers(programName: "CrissCrossPre")
+
         let npmStyleResult = [
             SolveResult.solveOk(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.2", children: [
@@ -121,17 +105,11 @@ final class TreeResolutionDifferentiation: XCTestCase {
     }
     
     
-    let program_testVersionCrissCross = EcosystemProgram(declaredContexts: ["ctx"], ops: [
-        .publish(package: "b", version: "1.0.1", dependencies: []),
-        .publish(package: "b", version: "1.0.2", dependencies: []),
-        .publish(package: "a", version: "1.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.2"))]),
-        .publish(package: "a", version: "1.0.2", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.1"))]),
-        .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any), DependencyExpr(packageToDependOn: "b", constraint: .any)])
-    ])
+    
     
     func testVersionCrissCross() {
-        let resultGroups = runProgramWithAllPackageManagers(program: program_testVersionCrissCross)
-        
+        let resultGroups = runProgramWithAllPackageManagers(programName: "CrissCross")
+
         let npmStyleResult = [
             SolveResult.solveOk(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.2", children: [
