@@ -2,37 +2,6 @@ import XCTest
 import Foundation
 @testable import DependencyRunner
 
-@discardableResult
-func runProgramWithAllPackageManagers(program: EcosystemProgram, funcName: String = #function) -> [[SolveResult] : Set<String>] {
-    let allLocalPackageManagers: [PackageManager] = [Pip(), Npm(), Yarn1(), Yarn2(), Cargo()]
-    let allRealPackageManagers: [PackageManager] = [PipReal(), NpmReal(), Yarn1Real(), Yarn2Real(), CargoReal()]
-    
-    let allPackageManagers: [PackageManager]
-    if shouldRunReal() {
-        allPackageManagers = allLocalPackageManagers + allRealPackageManagers
-    } else {
-        allPackageManagers = allLocalPackageManagers
-    }
-    
-    let resultGroups = allPackageManagers
-        .map { (program.run(underPackageManager: $0), $0.uniqueName) }
-        .reduce(into: [:]) { ( groups: inout [[SolveResult] : Set<String>], result_name) in
-            let (result, name) = result_name
-            groups[result, default: []].insert(name)
-        }
-
-
-    print("Test \(funcName) results:")
-    for (result, group) in resultGroups {
-        print(group)
-        print(result)
-        print()
-    }
-    print("------------------------------------\n\n")
-
-    return resultGroups
-}
-
 
 func assert<K>(_ resultGroups: [K : Set<String>], hasPartitions: Set<Set<String>>) {
     let givenPartitions = Set(resultGroups.values)
@@ -50,25 +19,20 @@ func assertOk(result: SolveResult, message: String = "", file: StaticString = #f
     }
 }
 
-extension Dictionary {
-    func keyMap<K>(unit: Value, monoidOp: (Value) -> (Value) -> Value, keyMap: (Key) -> K) -> [K : Value] {
-        var result: [K : Value] = [:]
-        
-        for (k, v) in self {
-            let newK = keyMap(k)
-            result[newK] = monoidOp(result[newK, default: unit])(v)
-        }
-        
-        return result
-    }
-}
+//extension Dictionary {
+//    func keyMap<K>(unit: Value, monoidOp: (Value) -> (Value) -> Value, keyMap: (Key) -> K) -> [K : Value] {
+//        var result: [K : Value] = [:]
+//
+//        for (k, v) in self {
+//            let newK = keyMap(k)
+//            result[newK] = monoidOp(result[newK, default: unit])(v)
+//        }
+//
+//        return result
+//    }
+//}
 
-func shouldRunReal() -> Bool {
-    guard let enableStr = ProcessInfo.processInfo.environment["ENABLE_REAL_REGISTRIES"] else {
-        return false
-    }
-    return enableStr.lowercased() == "true" || enableStr.lowercased() == "yes" || enableStr.lowercased() == "1"
-}
+
 
 func skipTestIfRealRegistriesNotEnabled(file: StaticString = #filePath, line: UInt = #line) throws {
     try XCTSkipUnless(shouldRunReal(), "Skipping running real registries. Enable using ENABLE_REAL_REGISTRIES=true ...", file: file, line: line)

@@ -26,3 +26,4 @@ struct EcosystemProgram {
     let declaredContexts: Set<ContextVar>
     let ops: [EcosystemOp]
 }
+

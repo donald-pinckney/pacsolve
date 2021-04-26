@@ -12,7 +12,8 @@ let package = Package(
         .tvOS(.v13),
     ],
     products: [
-        .library(name: "DependencyRunner", targets: ["DependencyRunner"])
+        .library(name: "DependencyRunner", targets: ["DependencyRunner"]),
+        .executable(name: "DependencyRunnerMain", targets: ["DependencyRunner"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
