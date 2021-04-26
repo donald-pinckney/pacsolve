@@ -1,5 +1,5 @@
 {
-  "name": "$NAME_STRING",
+  "name": "@wtcbkjbuzrbl/$NAME_STRING",
   "version": "$VERSION_STRING",
   "main": "index.js",
   "scripts": {

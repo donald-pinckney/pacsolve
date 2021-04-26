@@ -50,14 +50,3 @@ private extension Package {
         lhs.name < rhs.name
     }
 }
-
-//extension SolutionTree: Equatable, Hashable {
-//    static func ==(lhs: SolutionTree, rhs: SolutionTree) -> Bool {
-//        return lhs.normalizedOrder().children == rhs.normalizedOrder().children
-//    }
-//
-//    func hash(into hasher: inout Hasher) {
-//        let normalized = self.normalizedOrder()
-//        hasher.combine(normalized.children)
-//    }
-//}

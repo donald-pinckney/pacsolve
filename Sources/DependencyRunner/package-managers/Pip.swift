@@ -1,20 +1,28 @@
 import ShellOut
 
-class Pip {
-    let dirManager = GenDirManager(baseName: "pip")
-    var templateManager = TemplateManager(templateName: "pip")
+private class PipImpl {
+    let uniqueName: String
+    let isReal: Bool
+    let dirManager: GenDirManager
+    var templateManager: TemplateManager
     
-    init() {
+    init(uniqueName: String, isReal: Bool) {
+        self.uniqueName = uniqueName
+        self.isReal = isReal
+        self.dirManager = GenDirManager(baseName: uniqueName)
+        self.templateManager = TemplateManager(templateName: uniqueName)
         self.templateManager.delegate = self
     }
 }
 
-extension Pip : PackageManager {
-    var uniqueName: String { "pip" }
-
+extension PipImpl : PackageManager {
     private func buildToRegistry(inDirectory srcDir: String) {
         try! shellOut(to: "python3.9 setup.py bdist_wheel", at: srcDir)
-        try! shellOut(to: "cp \(srcDir)dist/*.whl \(self.dirManager.getRegistryDirectory().relative)")
+        if isReal {
+            try! shellOut(to: "twine upload --repository testpypi --username __token__ --password pypi-AgENdGVzdC5weXBpLm9yZwIkNDdlMjE3YTQtMDNmNy00NzQ5LWJlMmItYTQwYTQyYTQ3OTNlAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiAFgR8lbkJbvmFLagUxJ_OJeXEpZEcfAQXFjZSFMYzaag dist/*", at: srcDir)
+        } else {
+            try! shellOut(to: "cp \(srcDir)dist/*.whl \(self.dirManager.getRegistryDirectory().relative)")
+        }
     }
         
     func publish(package: Package, version: Version, dependencies: [DependencyExpr]) {
@@ -78,7 +86,7 @@ class PipSolveContext {
     }
 }
 
-extension Pip : TemplateManagerDelegate {
+extension PipImpl : TemplateManagerDelegate {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String] {
         [
             "$NAME_STRING" : package.name,
@@ -118,4 +126,13 @@ extension DependencyExpr {
     func pipFormat() -> String {
         "\(self.packageToDependOn)\(self.constraint.pipFormat())"
     }
+}
+
+
+func Pip() -> PackageManager {
+    PipImpl(uniqueName: "pip", isReal: false)
+}
+
+func PipReal() -> PackageManager {
+    WaitForUpdateManager(wrapping: PipImpl(uniqueName: "pip-real", isReal: true), sleepTime: 60)
 }

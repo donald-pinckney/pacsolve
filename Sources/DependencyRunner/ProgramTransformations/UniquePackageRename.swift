@@ -42,9 +42,10 @@ func buildUniquePackageRenaming(_ program: EcosystemProgram) -> (encode: (Packag
         var r = UInt64.random(in: UInt64.min...UInt64.max)
         d.append(Data(bytes: &r, count: MemoryLayout<UInt32>.size))
         d.append(p.name.data(using: .utf8)!)
-        let sha = d.sha256().toHexString()
+        let sha = "a" + d.sha224().toHexString()
         
-        let newP = Package(stringLiteral: "trvk\(sha)")
+        
+        let newP = Package(stringLiteral: sha)
         encodeMap[p] = newP
         assert(decodeMap[newP] == nil)
         decodeMap[newP] = p

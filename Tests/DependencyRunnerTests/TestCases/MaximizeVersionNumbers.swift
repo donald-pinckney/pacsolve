@@ -26,7 +26,7 @@ final class MaximizeVersionNumbers: XCTestCase {
         let correctResult = [
             SolveResult.solveOk(SolutionTree(children: [ResolvedPackage(package: "a", version: "2.1.0", children: [])]))
         ]
-        XCTAssertEqual(resultGroups[correctResult], ["npm", "yarn1", "yarn2", "pip", "cargo"])
+        XCTAssertEqual(resultGroups[correctResult], npmNames() + yarn1Names() + yarn2Names() + pipNames() + cargoNames())
     }
 
     static var allTests: [(String, (MaximizeVersionNumbers) -> () -> ())] = [

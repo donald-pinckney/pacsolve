@@ -42,7 +42,31 @@ final class PackageManagersWork: XCTestCase {
     func testCargoWorks() {
         resultAssertions(programToTest.run(underPackageManager: Cargo()))
     }
+    
+    func testPipRealWorks() throws {
+        try skipTestIfRealRegistriesNotEnabled()
+        resultAssertions(programToTest.run(underPackageManager: PipReal()))
+    }
 
+    func testNpmRealWorks() throws {
+        try skipTestIfRealRegistriesNotEnabled()
+        resultAssertions(programToTest.run(underPackageManager: NpmReal()))
+    }
+    
+    func testYarn1RealWorks() throws {
+        try skipTestIfRealRegistriesNotEnabled()
+        resultAssertions(programToTest.run(underPackageManager: Yarn1Real()))
+    }
+    
+    func testYarn2RealWorks() throws {
+        try skipTestIfRealRegistriesNotEnabled()
+        resultAssertions(programToTest.run(underPackageManager: Yarn2Real()))
+    }
+    
+    func testCargoRealWorks() throws {
+        try skipTestIfRealRegistriesNotEnabled()
+        resultAssertions(programToTest.run(underPackageManager: CargoReal()))
+    }
 
     static var allTests: [(String, (PackageManagersWork) -> () -> ())] = [
         ("testPipWorks", testPipWorks),

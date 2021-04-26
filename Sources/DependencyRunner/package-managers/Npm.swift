@@ -4,12 +4,15 @@ private class NpmBasedPackageManager {
     let dirManager: GenDirManager
     let lazyContextSetupCommand: String?
     let solveCommand: String
-    var templateManager = TemplateManager(templateName: "npm")
+    var templateManager: TemplateManager
     let uniqueName: String
+    let isReal: Bool
     
-    init(uniqueName: String, lazyContextSetupCommand: String?, solveCommand: String) {
+    init(uniqueName: String, isReal: Bool, lazyContextSetupCommand: String?, solveCommand: String) {
         self.uniqueName = uniqueName
+        self.isReal = isReal
         self.dirManager = GenDirManager(baseName: uniqueName)
+        self.templateManager = TemplateManager(templateName: isReal ? "npm-real" : "npm")
         self.lazyContextSetupCommand = lazyContextSetupCommand
         self.solveCommand = solveCommand
         self.templateManager.delegate = self
@@ -19,16 +22,27 @@ private class NpmBasedPackageManager {
 
 extension NpmBasedPackageManager : PackageManager {
     func startup() {
-        let configDir = self.dirManager.getConfigsDirectory().relative
-        self.templateManager.instantiateTemplate(name: "configs", intoDirectory: configDir, substitutions: [:])
-        startVerdaccio(configPath: configDir + "verdaccio_config.yaml")
+        if !isReal {
+            let configDir = self.dirManager.getConfigsDirectory().relative
+            self.templateManager.instantiateTemplate(name: "configs", intoDirectory: configDir, substitutions: [:])
+            startVerdaccio(configPath: configDir + "verdaccio_config.yaml")
+        }
     }
     
     private func buildToRegistry(inDirectory srcDir: String) {
-        let buildCommand =
-        """
-            npm publish --registry http://localhost:4873
-        """
+        let buildCommand: String
+        if isReal {
+            // TODO: BUG: we should actually poll npm to check when the package publish has propagated.
+            buildCommand =
+            """
+                npm publish --access public
+            """
+        } else {
+            buildCommand =
+            """
+                npm publish --registry http://localhost:4873
+            """
+        }
         
         try! shellOut(to: buildCommand, at: srcDir)
     }
@@ -54,7 +68,9 @@ extension NpmBasedPackageManager : PackageManager {
     }
     
     func shutdown() {
-        killVerdaccio()
+        if !isReal {
+            killVerdaccio()
+        }
     }
 }
 
@@ -95,11 +111,12 @@ class NpmSolveContext {
 
 extension NpmBasedPackageManager : TemplateManagerDelegate {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String] {
-        [
+        let scopeStr = isReal ? "@wtcbkjbuzrbl/" : ""
+        return [
             "$NAME_STRING" : package.name,
             "$VERSION_STRING" : version.description,
-            "$DEPENDENCIES_JSON_FRAGMENT" : dependencies.map { $0.npmFormat() }.joined(separator: ", \n"),
-            "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.packageToDependOn) = require('\($0.packageToDependOn)');" }.joined(separator: "\n"),
+            "$DEPENDENCIES_JSON_FRAGMENT" : dependencies.map { $0.npmFormat(isReal: isReal) }.joined(separator: ", \n"),
+            "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.packageToDependOn) = require('\(scopeStr)\($0.packageToDependOn)');" }.joined(separator: "\n"),
             "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn).dep_tree(indent + 1);" }.joined(separator: "\n    ")
         ]
     }
@@ -129,8 +146,13 @@ extension ConstraintExpr {
 }
 
 extension DependencyExpr {
-    func npmFormat() -> String {
-        "\"\(self.packageToDependOn)\": \"\(self.constraint.npmFormat())\""
+    func npmFormat(isReal: Bool) -> String {
+        if isReal {
+            return "\"@wtcbkjbuzrbl/\(self.packageToDependOn)\": \"\(self.constraint.npmFormat())\""
+        } else {
+            return "\"\(self.packageToDependOn)\": \"\(self.constraint.npmFormat())\""
+
+        }
     }
 }
 
@@ -142,7 +164,7 @@ func Npm() -> PackageManager {
         node index.js
     """
     
-    return NpmBasedPackageManager(uniqueName: "npm", lazyContextSetupCommand: nil, solveCommand: solveCommand)
+    return NpmBasedPackageManager(uniqueName: "npm", isReal: false, lazyContextSetupCommand: nil, solveCommand: solveCommand)
 }
 
 func Yarn1() -> PackageManager {
@@ -152,7 +174,7 @@ func Yarn1() -> PackageManager {
         node index.js
     """
     
-    return NpmBasedPackageManager(uniqueName: "yarn1", lazyContextSetupCommand: nil, solveCommand: solveCommand)
+    return NpmBasedPackageManager(uniqueName: "yarn1", isReal: false, lazyContextSetupCommand: nil, solveCommand: solveCommand)
 }
 
 func Yarn2() -> PackageManager {
@@ -170,5 +192,48 @@ func Yarn2() -> PackageManager {
         yarn node index.js
     """
     
-    return NpmBasedPackageManager(uniqueName: "yarn2", lazyContextSetupCommand: lazyContextSetupCommand, solveCommand: solveCommand)
+    return NpmBasedPackageManager(uniqueName: "yarn2", isReal: false, lazyContextSetupCommand: lazyContextSetupCommand, solveCommand: solveCommand)
+}
+
+
+func NpmReal() -> PackageManager {
+    let solveCommand =
+    """
+        npm install --silent
+        node index.js
+    """
+    
+    return WaitForUpdateManager(
+            wrapping: NpmBasedPackageManager(uniqueName: "npm-real", isReal: true, lazyContextSetupCommand: nil, solveCommand: solveCommand),
+            sleepTime: 20)
+}
+
+func Yarn1Real() -> PackageManager {
+    let solveCommand =
+    """
+        yarn install --silent
+        node index.js
+    """
+    
+    return WaitForUpdateManager(
+            wrapping: NpmBasedPackageManager(uniqueName: "yarn1-real", isReal: true, lazyContextSetupCommand: nil, solveCommand: solveCommand),
+            sleepTime: 20)
+}
+
+func Yarn2Real() -> PackageManager {
+    let lazyContextSetupCommand =
+    """
+        rm -rf ~/.yarn/berry/cache
+        yarn set version berry
+    """
+    
+    let solveCommand =
+    """
+        yarn install --silent
+        yarn node index.js
+    """
+    
+    return WaitForUpdateManager(
+            wrapping: NpmBasedPackageManager(uniqueName: "yarn2-real", isReal: true, lazyContextSetupCommand: lazyContextSetupCommand, solveCommand: solveCommand),
+            sleepTime: 20)
 }

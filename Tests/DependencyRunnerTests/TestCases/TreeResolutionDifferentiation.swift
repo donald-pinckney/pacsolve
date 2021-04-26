@@ -37,8 +37,8 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         
-        XCTAssertEqual(resultGroups[npmStyleResult], ["npm", "yarn1", "yarn2", "cargo"])
-        XCTAssertEqual(resultGroups[pipStyleResult], ["pip"])
+        XCTAssertEqual(resultGroups[npmStyleResult], npmNames() + yarn1Names() + yarn2Names() + cargoNames())
+        XCTAssertEqual(resultGroups[pipStyleResult], pipNames())
     }
     
     
@@ -72,8 +72,8 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         
-        XCTAssertEqual(resultGroups[npmStyleResult], ["npm", "yarn1", "yarn2"])
-        XCTAssertEqual(resultGroups[pipStyleResult], ["pip", "cargo"])
+        XCTAssertEqual(resultGroups[npmStyleResult], npmNames() + yarn1Names() + yarn2Names())
+        XCTAssertEqual(resultGroups[pipStyleResult], pipNames() + cargoNames())
     }
     
     let program_testVersionCrissCrossPrerelease = EcosystemProgram(declaredContexts: ["ctx"], ops: [
@@ -115,8 +115,8 @@ final class TreeResolutionDifferentiation: XCTestCase {
             ]))
         ]
         
-        XCTAssertEqual(resultGroups[npmStyleResult], ["npm", "yarn1", "yarn2", "cargo"])
-        XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), ["pip"])
+        XCTAssertEqual(resultGroups[npmStyleResult], npmNames() + yarn1Names() + yarn2Names() + cargoNames())
+        XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), pipNames())
 
     }
     
@@ -159,12 +159,12 @@ final class TreeResolutionDifferentiation: XCTestCase {
             ]))
         ]
         
-        XCTAssertEqual(resultGroups[npmStyleResult], ["npm", "yarn1", "yarn2"])
+        XCTAssertEqual(resultGroups[npmStyleResult], npmNames() + yarn1Names() + yarn2Names())
                 
         // NOTE: This is really interesting! Cargo will choose one of the two crossChoice(1/2)
         // based on the lexical ordering of the clobbered name of a vs. b.
         // But it seems that pip will always choose crossChoice1. Not too sure, need to investigate more
-        XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), ["pip", "cargo"])
+        XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), pipNames() + cargoNames())
     }
     
 

@@ -1,9 +1,19 @@
 import XCTest
+import Foundation
 @testable import DependencyRunner
 
 @discardableResult
 func runProgramWithAllPackageManagers(program: EcosystemProgram, funcName: String = #function) -> [[SolveResult] : Set<String>] {
-    let allPackageManagers: [PackageManager] = [Pip(), Npm(), Yarn1(), Yarn2(), Cargo()]
+    let allLocalPackageManagers: [PackageManager] = [Pip(), Npm(), Yarn1(), Yarn2(), Cargo()]
+    let allRealPackageManagers: [PackageManager] = [PipReal(), NpmReal(), Yarn1Real(), Yarn2Real(), CargoReal()]
+    
+    let allPackageManagers: [PackageManager]
+    if shouldRunReal() {
+        allPackageManagers = allLocalPackageManagers + allRealPackageManagers
+    } else {
+        allPackageManagers = allLocalPackageManagers
+    }
+    
     let resultGroups = allPackageManagers
         .map { (program.run(underPackageManager: $0), $0.uniqueName) }
         .reduce(into: [:]) { ( groups: inout [[SolveResult] : Set<String>], result_name) in
@@ -53,3 +63,38 @@ extension Dictionary {
     }
 }
 
+func shouldRunReal() -> Bool {
+    guard let enableStr = ProcessInfo.processInfo.environment["ENABLE_REAL_REGISTRIES"] else {
+        return false
+    }
+    return enableStr.lowercased() == "true" || enableStr.lowercased() == "yes" || enableStr.lowercased() == "1"
+}
+
+func skipTestIfRealRegistriesNotEnabled(file: StaticString = #filePath, line: UInt = #line) throws {
+    try XCTSkipUnless(shouldRunReal(), "Skipping running real registries. Enable using ENABLE_REAL_REGISTRIES=true ...", file: file, line: line)
+}
+
+
+fileprivate func managerNames(localName: String) -> Set<String> {
+    [localName] + (shouldRunReal() ? [localName + "-real"] : [])
+}
+
+func pipNames() -> Set<String> {
+    managerNames(localName: "pip")
+}
+func npmNames() -> Set<String> {
+    managerNames(localName: "npm")
+}
+func yarn1Names() -> Set<String> {
+    managerNames(localName: "yarn1")
+}
+func yarn2Names() -> Set<String> {
+    managerNames(localName: "yarn2")
+}
+func cargoNames() -> Set<String> {
+    managerNames(localName: "cargo")
+}
+
+func +<T>(x: Set<T>, y: Set<T>) -> Set<T> {
+    x.union(y)
+}
