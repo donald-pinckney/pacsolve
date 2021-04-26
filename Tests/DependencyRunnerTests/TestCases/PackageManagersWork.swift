@@ -24,48 +24,48 @@ final class PackageManagersWork: XCTestCase {
     }
 
     func testPipWorks() {
-        resultAssertions(runProgramWithPackageManagers(managerInits: [Pip], programName: "ManagersWork").keys.first!)
+        resultAssertions(runProgramWithPackageManagers(managerNames: ["pip"], programName: "ManagersWork").keys.first!)
     }
 
     func testNpmWorks() {
-        resultAssertions(runProgramWithPackageManagers(managerInits: [Npm], programName: "ManagersWork").keys.first!)
+        resultAssertions(runProgramWithPackageManagers(managerNames: ["npm"], programName: "ManagersWork").keys.first!)
     }
 
     func testYarn1Works() {
-        resultAssertions(runProgramWithPackageManagers(managerInits: [Yarn1], programName: "ManagersWork").keys.first!)
+        resultAssertions(runProgramWithPackageManagers(managerNames: ["yarn1"], programName: "ManagersWork").keys.first!)
     }
 
     func testYarn2Works() {
-        resultAssertions(runProgramWithPackageManagers(managerInits: [Yarn2], programName: "ManagersWork").keys.first!)
+        resultAssertions(runProgramWithPackageManagers(managerNames: ["yarn2"], programName: "ManagersWork").keys.first!)
     }
 
     func testCargoWorks() {
-        resultAssertions(runProgramWithPackageManagers(managerInits: [Cargo.init], programName: "ManagersWork").keys.first!)
+        resultAssertions(runProgramWithPackageManagers(managerNames: ["cargo"], programName: "ManagersWork").keys.first!)
     }
     
     func testPipRealWorks() throws {
         try skipTestIfRealRegistriesNotEnabled()
-        resultAssertions(runProgramWithPackageManagers(managerInits: [PipReal], programName: "ManagersWork").keys.first!)
+        resultAssertions(runProgramWithPackageManagers(managerNames: ["pip-real"], programName: "ManagersWork").keys.first!)
     }
 
     func testNpmRealWorks() throws {
         try skipTestIfRealRegistriesNotEnabled()
-        resultAssertions(runProgramWithPackageManagers(managerInits: [NpmReal], programName: "ManagersWork").keys.first!)
+        resultAssertions(runProgramWithPackageManagers(managerNames: ["npm-real"], programName: "ManagersWork").keys.first!)
     }
     
     func testYarn1RealWorks() throws {
         try skipTestIfRealRegistriesNotEnabled()
-        resultAssertions(runProgramWithPackageManagers(managerInits: [Yarn1Real], programName: "ManagersWork").keys.first!)
+        resultAssertions(runProgramWithPackageManagers(managerNames: ["yarn1-real"], programName: "ManagersWork").keys.first!)
     }
     
     func testYarn2RealWorks() throws {
         try skipTestIfRealRegistriesNotEnabled()
-        resultAssertions(runProgramWithPackageManagers(managerInits: [Yarn2Real], programName: "ManagersWork").keys.first!)
+        resultAssertions(runProgramWithPackageManagers(managerNames: ["yarn2-real"], programName: "ManagersWork").keys.first!)
     }
     
     func testCargoRealWorks() throws {
         try skipTestIfRealRegistriesNotEnabled()
-        resultAssertions(runProgramWithPackageManagers(managerInits: [CargoReal], programName: "ManagersWork").keys.first!)
+        resultAssertions(runProgramWithPackageManagers(managerNames: ["cargo-real"], programName: "ManagersWork").keys.first!)
     }
 
     static var allTests: [(String, (PackageManagersWork) -> () throws -> ())] = [
