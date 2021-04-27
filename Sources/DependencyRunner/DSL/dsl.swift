@@ -1,11 +1,22 @@
-enum ConstraintExpr {
+enum ConstraintExpr: CustomStringConvertible {
     case any
     case exactly(Version)
+    
+    var description: String {
+        switch self {
+        case .any: return "*"
+        case .exactly(let v): return "==\(v)"
+        }
+    }
 }
 
-struct DependencyExpr {
+struct DependencyExpr: CustomStringConvertible {
     let packageToDependOn: Package
     let constraint: ConstraintExpr
+    
+    var description: String {
+        "\(packageToDependOn) \(constraint)"
+    }
 }
 
 //struct EcosystemNode {
