@@ -61,7 +61,25 @@ extension NpmBasedPackageManager : PackageManager {
     }
     
     func yank(package: Package, version: Version) -> YankResult {
-        fatalError("Unimplemented")
+        let yankCommand: String
+        if isReal {
+            yankCommand =
+            """
+                npm unpublish @wtcbkjbuzrbl/\(package)@\(version)
+            """
+        } else {
+            yankCommand =
+            """
+                npm unpublish --registry http://localhost:4873 @wtcbkjbuzrbl/\(package)@\(version)
+            """
+        }
+        
+        do {
+            try shellOut(to: yankCommand)
+        } catch {
+            return .failure(YankError(message: "\(error)"))
+        }
+        return .success(())
     }
     
     func makeSolveContext() -> SolveContext {

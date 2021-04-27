@@ -40,7 +40,21 @@ extension PipImpl : PackageManager {
     }
     
     func yank(package: Package, version: Version) -> YankResult {
-        fatalError("Unimplemented")
+        if isReal {
+            print("Please manually log in to https://test.pypi.org")
+            print("Yank the package: \(package)")
+            print("         version: \(version)")
+            print("\nIf there was an error, type x. Press enter when done.")
+            if let res = readLine() {
+                if res.lowercased().contains("x") {
+                    return .failure(YankError(message: "unknown"))
+                }
+            }
+        } else {
+            fatalError("Unimplemented")
+        }
+        
+        return .success(())
     }
     
     func makeSolveContext() -> SolveContext {

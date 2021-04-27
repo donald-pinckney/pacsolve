@@ -27,7 +27,12 @@ extension CargoRealImpl : PackageManager {
     }
     
     func yank(package: Package, version: Version) -> YankResult {
-        fatalError("Unimplemented")
+        do {
+            try shellOut(to: "cargo", arguments: ["yank", "--vers", "\(version)", "\(package)"])
+        } catch {
+            return .failure(YankError(message: "\(error)"))
+        }
+        return .success(())
     }
     
     func makeSolveContext() -> SolveContext {
