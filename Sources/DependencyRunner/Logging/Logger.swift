@@ -4,6 +4,10 @@ import Foundation
 struct Logger {
     let renamer: PackageRenamer
     
+    func log(startPackageManager managerName: String) {
+        print("Starting execution with package manager: \(managerName.bold())".underline())
+    }
+    
     func log(createContext ctx: ContextVar) {
         let logStr = "\(ctx) <- freshContext()"
         print("    \((logStr + " ... ").dim())", terminator: "")

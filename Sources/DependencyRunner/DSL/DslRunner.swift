@@ -17,6 +17,8 @@ typealias ExecutionResult = Result<[SolveResult], ExecutionError>
 
 extension EcosystemProgram {
     private func runOps(underPackageManager p: PackageManager, logger: Logger) -> ExecutionResult {
+        logger.log(startPackageManager: p.uniqueName)
+        
 //        var contextResults: [ContextVar : SolveResult?] = Dictionary(uniqueKeysWithValues: self.declaredContexts.map { ($0, nil) })
         
         var allResults: [SolveResult] = []
