@@ -11,12 +11,12 @@ final class MinimizeNumberDependencies: XCTestCase {
     func testObviousSingleResolutionPrerelease() {
         let resultGroups = runProgramWithAllPackageManagers(programName: "ObviousSingleResolutionPre")
         
-        let correctResult = [
+        let correctResult = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", children: [
                     ResolvedPackage(package: "b", version: "0.0.2", children: [])]),
                 ResolvedPackage(package: "b", version: "0.0.2", children: [])]))
-        ]
+        ])
         
         XCTAssertEqual(resultGroups[correctResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()).union(pipNames()))
     }
@@ -26,13 +26,13 @@ final class MinimizeNumberDependencies: XCTestCase {
     func testObviousSingleResolution() {
         let resultGroups = runProgramWithAllPackageManagers(programName: "ObviousSingleResolution")
 
-        let correctResult = [
+        let correctResult = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", children: [
                     ResolvedPackage(package: "b", version: "1.0.2", children: [])]),
                 ResolvedPackage(package: "b", version: "1.0.2", children: [])
             ]))
-        ]
+        ])
         
         XCTAssertEqual(resultGroups[correctResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()).union(pipNames()))
     }

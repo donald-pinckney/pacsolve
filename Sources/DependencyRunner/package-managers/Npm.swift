@@ -29,7 +29,7 @@ extension NpmBasedPackageManager : PackageManager {
         }
     }
     
-    private func buildToRegistry(inDirectory srcDir: String) {
+    private func buildToRegistry(inDirectory srcDir: String) -> PublishResult {
         let buildCommand: String
         if isReal {
             // TODO: BUG: we should actually poll npm to check when the package publish has propagated.
@@ -44,18 +44,23 @@ extension NpmBasedPackageManager : PackageManager {
             """
         }
         
-        try! shellOut(to: buildCommand, at: srcDir)
+        do {
+            try shellOut(to: buildCommand, at: srcDir)
+        } catch {
+            return .failure(PublishError(message: "\(error)"))
+        }
+        return .success(())
     }
         
-    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) {
+    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
         let sourceDir = dirManager.generateUniqueSourceDirectory(forPackage: package, version: version)
                 
         templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
         
-        buildToRegistry(inDirectory: sourceDir)
+        return buildToRegistry(inDirectory: sourceDir)
     }
     
-    func yank(package: Package, version: Version) {
+    func yank(package: Package, version: Version) -> YankResult {
         fatalError("Unimplemented")
     }
     

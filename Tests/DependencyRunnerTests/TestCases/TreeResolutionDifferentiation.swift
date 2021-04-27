@@ -13,23 +13,23 @@ final class TreeResolutionDifferentiation: XCTestCase {
     func testTreeResolutionPrerelease() {
         let resultGroups = runProgramWithAllPackageManagers(programName: "TreeResolutionPre")
         
-        let npmStyleResult = [
+        let npmStyleResult = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", children: [
                     ResolvedPackage(package: "b", version: "0.0.1", children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "0.0.2", children: [])
             ]))
-        ]
+        ])
         
-        let pipStyleResult = [
+        let pipStyleResult = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", children: [
                     ResolvedPackage(package: "b", version: "0.0.1", children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "0.0.1", children: [])
             ]))
-        ]
+        ])
         
         
         XCTAssertEqual(resultGroups[npmStyleResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()))
@@ -43,23 +43,23 @@ final class TreeResolutionDifferentiation: XCTestCase {
     func testTreeResolution() {
         let resultGroups = runProgramWithAllPackageManagers(programName: "TreeResolution")
 
-        let npmStyleResult = [
+        let npmStyleResult = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", children: [
                     ResolvedPackage(package: "b", version: "1.0.1", children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "1.0.2", children: [])
             ]))
-        ]
+        ])
         
-        let pipStyleResult = [
+        let pipStyleResult = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", children: [
                     ResolvedPackage(package: "b", version: "1.0.1", children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "1.0.1", children: [])
             ]))
-        ]
+        ])
         
         
         XCTAssertEqual(resultGroups[npmStyleResult], npmNames().union(yarn1Names()).union(yarn2Names()))
@@ -72,32 +72,32 @@ final class TreeResolutionDifferentiation: XCTestCase {
     func testVersionCrissCrossPrerelease() {
         let resultGroups = runProgramWithAllPackageManagers(programName: "CrissCrossPre")
 
-        let npmStyleResult = [
+        let npmStyleResult = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.2", children: [
                     ResolvedPackage(package: "b", version: "0.0.1", children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "0.0.2", children: [])
             ]))
-        ]
+        ])
         
-        let crossChoice1 = [
+        let crossChoice1 = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.2", children: [
                     ResolvedPackage(package: "b", version: "0.0.1", children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "0.0.1", children: [])
             ]))
-        ]
+        ])
         
-        let crossChoice2 = [
+        let crossChoice2 = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", children: [
                     ResolvedPackage(package: "b", version: "0.0.2", children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "0.0.2", children: [])
             ]))
-        ]
+        ])
         
         XCTAssertEqual(resultGroups[npmStyleResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()))
         XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), pipNames())
@@ -110,32 +110,32 @@ final class TreeResolutionDifferentiation: XCTestCase {
     func testVersionCrissCross() {
         let resultGroups = runProgramWithAllPackageManagers(programName: "CrissCross")
 
-        let npmStyleResult = [
+        let npmStyleResult = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.2", children: [
                     ResolvedPackage(package: "b", version: "1.0.1", children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "1.0.2", children: [])
             ]))
-        ]
+        ])
         
-        let crossChoice1 = [
+        let crossChoice1 = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.2", children: [
                     ResolvedPackage(package: "b", version: "1.0.1", children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "1.0.1", children: [])
             ]))
-        ]
+        ])
         
-        let crossChoice2 = [
+        let crossChoice2 = ExecutionResult.success([
             SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", children: [
                     ResolvedPackage(package: "b", version: "1.0.2", children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "1.0.2", children: [])
             ]))
-        ]
+        ])
         
         XCTAssertEqual(resultGroups[npmStyleResult], npmNames().union(yarn1Names()).union(yarn2Names()))
                 

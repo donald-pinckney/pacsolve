@@ -22,14 +22,14 @@ class WaitForUpdateManager : PackageManager {
         isDirty = true
     }
     
-    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) {
-        wrapped.publish(package: package, version: version, dependencies: dependencies)
+    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
         setDirty()
+        return wrapped.publish(package: package, version: version, dependencies: dependencies)
     }
     
-    func yank(package: Package, version: Version) {
-        wrapped.yank(package: package, version: version)
+    func yank(package: Package, version: Version) -> YankResult {
         setDirty()
+        return wrapped.yank(package: package, version: version)
     }
     
     func makeSolveContext() -> SolveContext {

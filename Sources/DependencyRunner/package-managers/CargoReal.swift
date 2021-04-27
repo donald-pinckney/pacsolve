@@ -13,15 +13,20 @@ class CargoRealImpl {
 extension CargoRealImpl : PackageManager {
     var uniqueName: String { "cargo-real" }
         
-    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) {
+    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
         let sourceDir = dirManager.generateUniqueSourceDirectory(forPackage: package, version: version)
                 
         templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
-                
-        try! shellOut(to: "cargo", arguments: ["publish", "--token", "cioZQpaR2LhJ79zPxX22aMj0B5zhC7CSCrr", "--no-verify", "--allow-dirty"], at: sourceDir)
+         
+        do {
+            try shellOut(to: "cargo", arguments: ["publish", "--token", "cioZQpaR2LhJ79zPxX22aMj0B5zhC7CSCrr", "--no-verify", "--allow-dirty"], at: sourceDir)
+        } catch {
+            return .failure(PublishError(message: "\(error)"))
+        }
+        return .success(())
     }
     
-    func yank(package: Package, version: Version) {
+    func yank(package: Package, version: Version) -> YankResult {
         fatalError("Unimplemented")
     }
     

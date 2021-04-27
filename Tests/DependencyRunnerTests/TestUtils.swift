@@ -10,10 +10,12 @@ func assert<K>(_ resultGroups: [K : Set<String>], hasPartitions: Set<Set<String>
     assert(givenPartitions == hasPartitions)
 }
 
-func assertOk(result: SolveResult, message: String = "", file: StaticString = #filePath, line: UInt = #line) -> SolutionTree {
+
+
+func assertSuccess<V, E>(result: Result<V, E>, message: String = "", file: StaticString = #filePath, line: UInt = #line) -> V {
     switch result {
     case .failure(let err):
-        XCTFail("Solve error: \(err)\n\(message)")
+        XCTFail("Error: \(err)\n\(message)")
         fatalError() // unreachable
     case .success(let tree): return tree
     }

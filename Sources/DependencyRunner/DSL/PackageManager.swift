@@ -5,11 +5,11 @@ import Foundation
 //    func solve(dependencies: [DependencyExpr]) -> SolveResult
 //}
 
-struct PublishError: Error {
+struct PublishError: Error, Equatable, Hashable {
     let message: String
 }
 
-struct YankError: Error {
+struct YankError: Error, Equatable, Hashable {
     let message: String
 }
 
@@ -23,8 +23,8 @@ typealias SolveContext = ([DependencyExpr]) -> SolveResult
 protocol PackageManager {
     var uniqueName: String { get }
     
-    func publish(package: Package, version: Version, dependencies: [DependencyExpr])
-    func yank(package: Package, version: Version)
+    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult
+    func yank(package: Package, version: Version) -> YankResult
     
     func makeSolveContext() -> SolveContext
     

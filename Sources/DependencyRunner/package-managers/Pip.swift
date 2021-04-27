@@ -16,24 +16,30 @@ private class PipImpl {
 }
 
 extension PipImpl : PackageManager {
-    private func buildToRegistry(inDirectory srcDir: String) {
+    private func buildToRegistry(inDirectory srcDir: String) -> PublishResult {
         try! shellOut(to: "python3.9 setup.py bdist_wheel", at: srcDir)
-        if isReal {
-            try! shellOut(to: "twine upload --repository testpypi --username __token__ --password pypi-AgENdGVzdC5weXBpLm9yZwIkNDdlMjE3YTQtMDNmNy00NzQ5LWJlMmItYTQwYTQyYTQ3OTNlAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiAFgR8lbkJbvmFLagUxJ_OJeXEpZEcfAQXFjZSFMYzaag dist/*", at: srcDir)
-        } else {
-            try! shellOut(to: "cp \(srcDir)dist/*.whl \(self.dirManager.getRegistryDirectory().relative)")
+        
+        do {
+            if isReal {
+                try shellOut(to: "twine upload --repository testpypi --username __token__ --password pypi-AgENdGVzdC5weXBpLm9yZwIkNDdlMjE3YTQtMDNmNy00NzQ5LWJlMmItYTQwYTQyYTQ3OTNlAAIleyJwZXJtaXNzaW9ucyI6ICJ1c2VyIiwgInZlcnNpb24iOiAxfQAABiAFgR8lbkJbvmFLagUxJ_OJeXEpZEcfAQXFjZSFMYzaag dist/*", at: srcDir)
+            } else {
+                try shellOut(to: "cp \(srcDir)dist/*.whl \(self.dirManager.getRegistryDirectory().relative)")
+            }
+        } catch {
+            return .failure(PublishError(message: "\(error)"))
         }
+        return .success(())
     }
         
-    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) {
+    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
         let sourceDir = dirManager.generateUniqueSourceDirectory(forPackage: package, version: version)
                 
         templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
         
-        buildToRegistry(inDirectory: sourceDir)
+        return buildToRegistry(inDirectory: sourceDir)
     }
     
-    func yank(package: Package, version: Version) {
+    func yank(package: Package, version: Version) -> YankResult {
         fatalError("Unimplemented")
     }
     

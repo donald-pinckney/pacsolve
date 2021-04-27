@@ -14,10 +14,11 @@ final class PackageManagersWork: XCTestCase {
         .solve(inContext: "ctx2", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)]),
     ])
     
-    func resultAssertions(_ results: [SolveResult]) {        
+    func resultAssertions(_ execResult: ExecutionResult) {
         let aVersion1Result = SolveResult.success(SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.1", children: [])]))
         let aVersion2Result = SolveResult.success(SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.2", children: [])]))
         
+        let results = assertSuccess(result: execResult)
         XCTAssertEqual(results.count, 2)
         XCTAssertEqual(results[0], aVersion1Result)
         XCTAssertEqual(results[1], aVersion2Result)

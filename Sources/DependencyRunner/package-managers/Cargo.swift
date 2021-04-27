@@ -75,7 +75,7 @@ extension Cargo : PackageManager {
         }
     }
         
-    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) {
+    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
         let sourceDir = dirManager.generateUniqueSourceDirectory(forPackage: package, version: version)
                 
         templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
@@ -89,9 +89,11 @@ extension Cargo : PackageManager {
         writeRegistryUpdate(metadata: buildResult.metadata)
         
         try! shellOut(to: "git add . && git commit -m x", at: self.dirManager.getRegistryDirectory().relative)
+        
+        return .success(())
     }
     
-    func yank(package: Package, version: Version) {
+    func yank(package: Package, version: Version) -> YankResult {
         fatalError("Unimplemented")
     }
     
