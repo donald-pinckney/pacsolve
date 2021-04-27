@@ -40,7 +40,11 @@ func skipTestIfRealRegistriesNotEnabled(file: StaticString = #filePath, line: UI
 
 
 fileprivate func managerNames(localName: String) -> Set<String> {
-    [localName] + (shouldRunReal() ? [localName + "-real"] : [])
+    var ns = Set([localName])
+    if shouldRunReal() {
+        ns.insert(localName + "-real")
+    }
+    return ns    
 }
 
 func pipNames() -> Set<String> {
@@ -57,8 +61,4 @@ func yarn2Names() -> Set<String> {
 }
 func cargoNames() -> Set<String> {
     managerNames(localName: "cargo")
-}
-
-func +<T>(x: Set<T>, y: Set<T>) -> Set<T> {
-    x.union(y)
 }

@@ -32,7 +32,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         
-        XCTAssertEqual(resultGroups[npmStyleResult], npmNames() + yarn1Names() + yarn2Names() + cargoNames())
+        XCTAssertEqual(resultGroups[npmStyleResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()))
         XCTAssertEqual(resultGroups[pipStyleResult], pipNames())
     }
     
@@ -62,8 +62,8 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         
-        XCTAssertEqual(resultGroups[npmStyleResult], npmNames() + yarn1Names() + yarn2Names())
-        XCTAssertEqual(resultGroups[pipStyleResult], pipNames() + cargoNames())
+        XCTAssertEqual(resultGroups[npmStyleResult], npmNames().union(yarn1Names()).union(yarn2Names()))
+        XCTAssertEqual(resultGroups[pipStyleResult], cargoNames().union(pipNames()))
     }
     
     
@@ -99,7 +99,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
             ]))
         ]
         
-        XCTAssertEqual(resultGroups[npmStyleResult], npmNames() + yarn1Names() + yarn2Names() + cargoNames())
+        XCTAssertEqual(resultGroups[npmStyleResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()))
         XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), pipNames())
 
     }
@@ -137,12 +137,12 @@ final class TreeResolutionDifferentiation: XCTestCase {
             ]))
         ]
         
-        XCTAssertEqual(resultGroups[npmStyleResult], npmNames() + yarn1Names() + yarn2Names())
+        XCTAssertEqual(resultGroups[npmStyleResult], npmNames().union(yarn1Names()).union(yarn2Names()))
                 
         // NOTE: This is really interesting! Cargo will choose one of the two crossChoice(1/2)
         // based on the lexical ordering of the clobbered name of a vs. b.
         // But it seems that pip will always choose crossChoice1. Not too sure, need to investigate more
-        XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), pipNames() + cargoNames())
+        XCTAssertEqual(resultGroups[crossChoice1, default: Set()].union(resultGroups[crossChoice2, default: Set()]), cargoNames().union(pipNames()))
     }
     
 

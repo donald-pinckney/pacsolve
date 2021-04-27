@@ -5,7 +5,18 @@ import Foundation
 //    func solve(dependencies: [DependencyExpr]) -> SolveResult
 //}
 
+struct PublishError: Error {
+    let message: String
+}
+
+struct YankError: Error {
+    let message: String
+}
+
 typealias SolveResult = Result<SolutionTree, SolveError>
+typealias PublishResult = Result<(), PublishError>
+typealias YankResult = Result<(), YankError>
+
 
 typealias SolveContext = ([DependencyExpr]) -> SolveResult
 

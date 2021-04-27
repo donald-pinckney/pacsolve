@@ -12,7 +12,7 @@ final class MaximizeVersionNumbers: XCTestCase {
         let correctResult = [
             SolveResult.success(SolutionTree(children: [ResolvedPackage(package: "a", version: "2.1.0", children: [])]))
         ]
-        XCTAssertEqual(resultGroups[correctResult], npmNames() + yarn1Names() + yarn2Names() + pipNames() + cargoNames())
+        XCTAssertEqual(resultGroups[correctResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()).union(pipNames()))
     }
 
     static var allTests: [(String, (MaximizeVersionNumbers) -> () -> ())] = [

@@ -18,7 +18,7 @@ final class MinimizeNumberDependencies: XCTestCase {
                 ResolvedPackage(package: "b", version: "0.0.2", children: [])]))
         ]
         
-        XCTAssertEqual(resultGroups[correctResult], npmNames() + yarn1Names() + yarn2Names() + pipNames() + cargoNames())
+        XCTAssertEqual(resultGroups[correctResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()).union(pipNames()))
     }
     
     
@@ -34,7 +34,7 @@ final class MinimizeNumberDependencies: XCTestCase {
             ]))
         ]
         
-        XCTAssertEqual(resultGroups[correctResult], npmNames() + yarn1Names() + yarn2Names() + pipNames() + cargoNames())
+        XCTAssertEqual(resultGroups[correctResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()).union(pipNames()))
     }
 
     static var allTests: [(String, (MinimizeNumberDependencies) -> () -> ())] = [
