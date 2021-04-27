@@ -17,6 +17,17 @@ typealias SolveResult = Result<SolutionTree, SolveError>
 typealias PublishResult = Result<(), PublishError>
 typealias YankResult = Result<(), YankError>
 
+extension Result: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .success(let succ):
+            return "success(\(succ))"
+        case .failure(let err):
+            return "failure(\(err))"
+        }
+    }
+}
+
 
 typealias SolveContext = ([DependencyExpr]) -> SolveResult
 
