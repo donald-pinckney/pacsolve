@@ -15,8 +15,8 @@ final class PackageManagersWork: XCTestCase {
     ])
     
     func resultAssertions(_ results: [SolveResult]) {        
-        let aVersion1Result = SolveResult.solveOk(SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.1", children: [])]))
-        let aVersion2Result = SolveResult.solveOk(SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.2", children: [])]))
+        let aVersion1Result = SolveResult.success(SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.1", children: [])]))
+        let aVersion2Result = SolveResult.success(SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.2", children: [])]))
         
         XCTAssertEqual(results.count, 2)
         XCTAssertEqual(results[0], aVersion1Result)

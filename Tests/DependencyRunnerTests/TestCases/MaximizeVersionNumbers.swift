@@ -10,7 +10,7 @@ final class MaximizeVersionNumbers: XCTestCase {
     func testAnyVersionMax() {
         let resultGroups = runProgramWithAllPackageManagers(programName: "AnyVersionMax")
         let correctResult = [
-            SolveResult.solveOk(SolutionTree(children: [ResolvedPackage(package: "a", version: "2.1.0", children: [])]))
+            SolveResult.success(SolutionTree(children: [ResolvedPackage(package: "a", version: "2.1.0", children: [])]))
         ]
         XCTAssertEqual(resultGroups[correctResult], npmNames() + yarn1Names() + yarn2Names() + pipNames() + cargoNames())
     }

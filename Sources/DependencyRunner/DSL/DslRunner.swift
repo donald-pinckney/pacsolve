@@ -45,7 +45,7 @@ extension EcosystemProgram {
         }
         
         let result = transformedProg.runOps(underPackageManager: p)
-        let decodedResult = result.map { $0.mapOk { $0.mapPackageNames(renamer.decode) } }
+        let decodedResult = result.map { $0.map { $0.mapPackageNames(renamer.decode) } }
         
         return decodedResult
 //        return result

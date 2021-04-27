@@ -5,6 +5,8 @@ import Foundation
 //    func solve(dependencies: [DependencyExpr]) -> SolveResult
 //}
 
+typealias SolveResult = Result<SolutionTree, SolveError>
+
 typealias SolveContext = ([DependencyExpr]) -> SolveResult
 
 protocol PackageManager {

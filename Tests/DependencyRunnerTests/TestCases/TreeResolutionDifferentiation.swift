@@ -14,7 +14,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "TreeResolutionPre")
         
         let npmStyleResult = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", children: [
                     ResolvedPackage(package: "b", version: "0.0.1", children: [])
                 ]),
@@ -23,7 +23,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         let pipStyleResult = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", children: [
                     ResolvedPackage(package: "b", version: "0.0.1", children: [])
                 ]),
@@ -44,7 +44,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "TreeResolution")
 
         let npmStyleResult = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", children: [
                     ResolvedPackage(package: "b", version: "1.0.1", children: [])
                 ]),
@@ -53,7 +53,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         let pipStyleResult = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", children: [
                     ResolvedPackage(package: "b", version: "1.0.1", children: [])
                 ]),
@@ -73,7 +73,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "CrissCrossPre")
 
         let npmStyleResult = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.2", children: [
                     ResolvedPackage(package: "b", version: "0.0.1", children: [])
                 ]),
@@ -82,7 +82,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         let crossChoice1 = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.2", children: [
                     ResolvedPackage(package: "b", version: "0.0.1", children: [])
                 ]),
@@ -91,7 +91,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         let crossChoice2 = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", children: [
                     ResolvedPackage(package: "b", version: "0.0.2", children: [])
                 ]),
@@ -111,7 +111,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "CrissCross")
 
         let npmStyleResult = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.2", children: [
                     ResolvedPackage(package: "b", version: "1.0.1", children: [])
                 ]),
@@ -120,7 +120,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         let crossChoice1 = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.2", children: [
                     ResolvedPackage(package: "b", version: "1.0.1", children: [])
                 ]),
@@ -129,7 +129,7 @@ final class TreeResolutionDifferentiation: XCTestCase {
         ]
         
         let crossChoice2 = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", children: [
                     ResolvedPackage(package: "b", version: "1.0.2", children: [])
                 ]),

@@ -12,7 +12,7 @@ final class MinimizeNumberDependencies: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "ObviousSingleResolutionPre")
         
         let correctResult = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", children: [
                     ResolvedPackage(package: "b", version: "0.0.2", children: [])]),
                 ResolvedPackage(package: "b", version: "0.0.2", children: [])]))
@@ -27,7 +27,7 @@ final class MinimizeNumberDependencies: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "ObviousSingleResolution")
 
         let correctResult = [
-            SolveResult.solveOk(SolutionTree(children: [
+            SolveResult.success(SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", children: [
                     ResolvedPackage(package: "b", version: "1.0.2", children: [])]),
                 ResolvedPackage(package: "b", version: "1.0.2", children: [])

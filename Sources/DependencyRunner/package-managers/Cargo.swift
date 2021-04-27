@@ -129,7 +129,7 @@ class CargoSolveContext {
             var parser = SolutionTreeParser(toParse: output)
             return parser.parseSolutionTree()
         } catch {
-            return .solveError("\(error)")
+            return .failure(SolveError(message: "\(error)"))
         }
     }
 }

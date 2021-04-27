@@ -39,3 +39,8 @@ struct SolutionTree: CustomStringConvertible, Equatable, Hashable {
         SolutionTree(children: self.children.map { $0.mapPackageNames(f) })
     }
 }
+
+
+struct SolveError: Error, Equatable, Hashable {
+    let message: String
+}

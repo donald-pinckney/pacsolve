@@ -14,9 +14,9 @@ struct SolutionTreeParser {
             toParse = toParse[markerRange.upperBound..<toParse.endIndex]
             treeLinesToParse = toParse.split(separator: "\n")
             let tree = parseSolutionTreeLines()
-            return .solveOk(tree)
+            return .success(tree)
         } else {
-            return .solveError("Invalid tree dump: \(toParse)")
+            return .failure(SolveError(message: "Invalid tree dump: \(toParse)"))
         }
     }
     

@@ -12,10 +12,10 @@ func assert<K>(_ resultGroups: [K : Set<String>], hasPartitions: Set<Set<String>
 
 func assertOk(result: SolveResult, message: String = "", file: StaticString = #filePath, line: UInt = #line) -> SolutionTree {
     switch result {
-    case .solveError(let err):
+    case .failure(let err):
         XCTFail("Solve error: \(err)\n\(message)")
         fatalError() // unreachable
-    case .solveOk(let tree): return tree
+    case .success(let tree): return tree
     }
 }
 
