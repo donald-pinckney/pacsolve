@@ -9,6 +9,13 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "CrissCrossPre": program_CrissCrossPre,
     "TreeResolution": program_TreeResolution,
     "TreeResolutionPre": program_TreeResolutionPre,
+    "DoublePublish": program_DoublePublish,
+    "DoubleYank": program_DoubleYank,
+    "PublishOutOfOrderBug": program_PublishOutOfOrderBug,
+    "PublishOutOfOrderMinor": program_PublishOutOfOrderMinor,
+    "PublishOutOfOrderMinorBug": program_PublishOutOfOrderMinorBug,
+    "PublishOutOfOrderMajor": program_PublishOutOfOrderMajor,
+    "Republish": program_Republish,
 ]
 
 let ALL_MANAGERS: [String : () -> PackageManager] = [
