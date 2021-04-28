@@ -15,6 +15,8 @@ let program_PublishOutOfOrderBug = EcosystemProgram(declaredContexts: ["ctx"], o
  success([success(a v0.0.1)])
  */
 
+
+
 let program_PublishOutOfOrderMinor = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "a", version: "0.1.1", dependencies: []),
     .publish(package: "a", version: "0.0.1", dependencies: []),
@@ -33,3 +35,11 @@ let program_PublishOutOfOrderMajor = EcosystemProgram(declaredContexts: ["ctx"],
     .publish(package: "a", version: "1.0.1", dependencies: []),
     .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
 ])
+
+/*
+ ["yarn2-real", "cargo-real", "pip-real"]
+ success([success(a v2.0.0)])
+
+ ["npm-real", "yarn1-real"]
+ success([success(a v1.0.1)])
+ */
