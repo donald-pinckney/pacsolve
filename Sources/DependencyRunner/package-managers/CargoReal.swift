@@ -29,7 +29,7 @@ extension CargoRealImpl : PackageManager {
     
     func yank(package: Package, version: Version) -> YankResult {
         do {
-            try shellOut(to: "cargo", arguments: ["yank", "--vers", "\(version)", "\(package)"])
+            try shellOut(to: "cargo", arguments: ["yank", "--vers", "\(version)", "\(package)", "--token", "cioZQpaR2LhJ79zPxX22aMj0B5zhC7CSCrr"])
         } catch {
             return .failure(YankError(message: "\(error)"))
         }
