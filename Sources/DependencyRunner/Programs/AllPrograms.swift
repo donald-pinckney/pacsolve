@@ -24,6 +24,8 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "PublishSelfDep": program_PublishSelfDep,
     "Publish2Cycle": program_Publish2Cycle,
     "PublishOldVersionSelfCycle": program_PublishOldVersionSelfCycle,
+    "FreshExactDepOnYank": program_FreshExactDepOnYank,
+    "FreshAnyDepOnYank": program_FreshAnyDepOnYank,
 ]
 
 

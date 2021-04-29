@@ -5,10 +5,7 @@ let program_DoubleYank = EcosystemProgram(declaredContexts: ["ctx"], ops: [
 ])
 
 /*
- ["npm-real", "yarn1-real", "yarn2-real"]
- success
- 
- ["cargo-real", "pip-real"]
+ ["cargo-real", "pip-real", "npm-real"]
  ERROR on 2nd yank
 
  */

@@ -77,8 +77,8 @@ extension Cargo : PackageManager {
         
     func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
 //        let sourceDir = dirManager.generateUniqueSourceDirectory(forPackage: package, version: version)
-        let sourceDir = dirManager.newSourceDirectory()
-                
+        let sourceDir = dirManager.newSourceDirectory(package: package, version: version)
+
         templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
         
         let buildResult = buildCrate(inDirectory: sourceDir, package: package, version: version, dependencies: dependencies)

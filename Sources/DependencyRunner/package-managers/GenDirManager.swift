@@ -9,6 +9,7 @@ class GenDirManager {
     
     let fileManager = FileManager()
     var createdUniqueDirs: Set<String> = Set()
+    var createdSourceDirs: [Package : [Version : String]] = [:]
     var freeContextName = 0
     var freeSourceName = 0
 
@@ -59,12 +60,15 @@ class GenDirManager {
         return contextDirPath
     }
     
-    func newSourceDirectory() -> String {
-        let sourceDirPath = "\(genBasePath)sources/\(freeSourceName)/"
-        freeSourceName += 1
-        
-        try! fileManager.createDirectory(atPath: sourceDirPath, withIntermediateDirectories: true)
-        
-        return sourceDirPath
+    func newSourceDirectory(package: Package, version: Version) -> String {
+        if let dir = self.createdSourceDirs[package]?[version] {
+            return dir
+        } else {
+            let sourceDirPath = "\(genBasePath)sources/\(freeSourceName)/"
+            freeSourceName += 1
+            try! fileManager.createDirectory(atPath: sourceDirPath, withIntermediateDirectories: true)
+            self.createdSourceDirs[package, default: [:]][version] = sourceDirPath
+            return sourceDirPath
+        }
     }
 }

@@ -54,29 +54,31 @@ extension NpmBasedPackageManager : PackageManager {
         
     func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
 //        let sourceDir = dirManager.generateUniqueSourceDirectory(forPackage: package, version: version)
-        let sourceDir = dirManager.newSourceDirectory()
-                
+        let sourceDir = dirManager.newSourceDirectory(package: package, version: version)
+
         templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
         
         return buildToRegistry(inDirectory: sourceDir)
     }
     
     func yank(package: Package, version: Version) -> YankResult {
+        let srcDir = dirManager.newSourceDirectory(package: package, version: version)
+        
         let yankCommand: String
         if isReal {
             yankCommand =
             """
-                npm unpublish @wtcbkjbuzrbl/\(package)@\(version)
+                npm deprecate @wtcbkjbuzrbl/\(package)@\(version) "x"
             """
         } else {
             yankCommand =
             """
-                npm unpublish --registry http://localhost:4873 @wtcbkjbuzrbl/\(package)@\(version)
+                npm deprecate --registry http://localhost:4873 @wtcbkjbuzrbl/\(package)@\(version) "x"
             """
         }
         
         do {
-            try shellOut(to: yankCommand)
+            try shellOut(to: yankCommand, at: srcDir)
         } catch {
             return .failure(YankError(message: "\(error)"))
         }
