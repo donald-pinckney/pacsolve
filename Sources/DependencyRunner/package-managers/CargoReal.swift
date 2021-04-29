@@ -20,7 +20,7 @@ extension CargoRealImpl : PackageManager {
         templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
          
         do {
-            try shellOut(to: "cargo", arguments: ["publish", "--token", "cioZQpaR2LhJ79zPxX22aMj0B5zhC7CSCrr", "--no-verify", "--allow-dirty"], at: sourceDir)
+            try shellOut(to: "cargo", arguments: ["publish", "--token", "cioPzxOEZonw5VGcJa44lS3mAFyg4H6W9pr", "--no-verify", "--allow-dirty"], at: sourceDir)
         } catch {
             return .failure(PublishError(message: "\(error)"))
         }
@@ -29,7 +29,7 @@ extension CargoRealImpl : PackageManager {
     
     func yank(package: Package, version: Version) -> YankResult {
         do {
-            try shellOut(to: "cargo", arguments: ["yank", "--vers", "\(version)", "\(package)", "--token", "cioZQpaR2LhJ79zPxX22aMj0B5zhC7CSCrr"])
+            try shellOut(to: "cargo", arguments: ["yank", "--vers", "\(version)", "\(package)", "--token", "cioPzxOEZonw5VGcJa44lS3mAFyg4H6W9pr"])
         } catch {
             return .failure(YankError(message: "\(error)"))
         }
