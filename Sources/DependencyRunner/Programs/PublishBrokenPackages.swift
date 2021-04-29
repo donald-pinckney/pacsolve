@@ -45,3 +45,8 @@ let program_PublishWithNonexistentDepVersion = EcosystemProgram(declaredContexts
     .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.2"))]),
     .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
 ])
+
+/*
+ ["pip-real", "npm-real", "cargo-real"]
+ Publishes SUCCEED, solve FAILS
+ */
