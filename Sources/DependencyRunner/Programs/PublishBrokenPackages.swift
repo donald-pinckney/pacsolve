@@ -75,3 +75,27 @@ let program_Publish2Cycle = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "b", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.2"))]),
     .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
 ])
+
+/*
+ ["pip-real", "npm-real"]
+ SOLVE succeeds with a@0.0.2 and b@0.0.2. Imports also work, but the tree-printing recursion stack overflows. TODO: fix this
+ 
+ ["cargo-real"]
+ SOLVE error: cargo detects the cycle
+ */
+
+
+let program_PublishOldVersionSelfCycle = EcosystemProgram(declaredContexts: ["ctx"], ops: [
+    .publish(package: "a", version: "0.0.1", dependencies: []),
+    .publish(package: "a", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.1"))]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.2"))])
+])
+
+/*
+ ["pip-real"]
+ SOLVE fails since pip can't have a@0.0.2 and a@0.0.1
+ 
+ ["npm-real", "cargo-real"]
+ SOLVE succeeds with a@0.0.2 and a@0.0.1.
+ */
+

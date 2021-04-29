@@ -22,7 +22,8 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "PublishThenYankDep": program_PublishThenYankDep,
     "CanPublishStar": program_PublishStar,
     "PublishSelfDep": program_PublishSelfDep,
-    "Publish2Cycle": program_Publish2Cycle
+    "Publish2Cycle": program_Publish2Cycle,
+    "PublishOldVersionSelfCycle": program_PublishOldVersionSelfCycle,
 ]
 
 
