@@ -16,7 +16,17 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "PublishOutOfOrderMinorBug": program_PublishOutOfOrderMinorBug,
     "PublishOutOfOrderMajor": program_PublishOutOfOrderMajor,
     "Republish": program_Republish,
+    "PublishWithNonexistentDep": program_PublishWithNonexistentDep,
+    "PublishWithNonexistentDepVersion": program_PublishWithNonexistentDepVersion,
+    "PublishWithYankedDep": program_PublishWithYankedDep,
+    "PublishThenYankDep": program_PublishThenYankDep,
 ]
+
+
+
+
+
+
 
 let ALL_MANAGERS: [String : () -> PackageManager] = [
     "pip": Pip,
