@@ -50,3 +50,18 @@ let program_PublishWithNonexistentDepVersion = EcosystemProgram(declaredContexts
  ["pip-real", "npm-real", "cargo-real"]
  Publishes SUCCEED, solve FAILS
  */
+
+
+
+let program_PublishSelfDep = EcosystemProgram(declaredContexts: ["ctx"], ops: [
+    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.1"))]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+])
+
+/*
+ ["pip-real", "npm-real"]
+ SOLVE succeeds with a@0.0.1. Imports also work, but the tree-printing recursion stack overflows. TODO: fix this
+ 
+ ["cargo-real"]
+ SOLVE error: cargo detects the cycle
+ */

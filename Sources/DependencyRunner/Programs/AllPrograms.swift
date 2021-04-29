@@ -20,7 +20,8 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "PublishWithNonexistentDepVersion": program_PublishWithNonexistentDepVersion,
     "PublishWithYankedDep": program_PublishWithYankedDep,
     "PublishThenYankDep": program_PublishThenYankDep,
-    "CanPublishStar": program_PublishStar
+    "CanPublishStar": program_PublishStar,
+    "PublishSelfDep": program_PublishSelfDep
 ]
 
 
