@@ -65,3 +65,13 @@ let program_PublishSelfDep = EcosystemProgram(declaredContexts: ["ctx"], ops: [
  ["cargo-real"]
  SOLVE error: cargo detects the cycle
  */
+
+
+
+let program_Publish2Cycle = EcosystemProgram(declaredContexts: ["ctx"], ops: [
+    .publish(package: "a", version: "0.0.1", dependencies: []),
+    .publish(package: "b", version: "0.0.1", dependencies: []),
+    .publish(package: "a", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.2"))]),
+    .publish(package: "b", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.2"))]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+])
