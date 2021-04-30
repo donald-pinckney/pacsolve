@@ -26,7 +26,10 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "PublishOldVersionSelfCycle": program_PublishOldVersionSelfCycle,
     "FreshExactDepOnYank": program_FreshExactDepOnYank,
     "FreshAnyDepOnYank": program_FreshAnyDepOnYank,
-    "SolveYankSolve": program_SolveYankSolve
+    "SolveYankSolve": program_SolveYankSolve,
+    "Max1OrMax2": program_Max1OrMax2,
+    "Max1OrMax2_LexicalReorder": program_Max1OrMax2_LexicalReorder,
+    "Max1OrMax2_DepReorder": program_Max1OrMax2_DepReorder
 ]
 
 
