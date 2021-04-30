@@ -2,7 +2,7 @@ import Foundation
 
 let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "ManagersWork": managersWork,
-    "AnyVersionMax": program_anyVersionMax,
+    "AnyVersionMax": program_AnyVersionMax,
     "ObviousSingleResolution": program_obviousSingleResolution,
     "ObviousSingleResolutionPre": program_obviousSingleResolutionPre,
     "CrissCross": program_CrissCross,

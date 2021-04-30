@@ -1,5 +1,5 @@
 
-let program_anyVersionMax = EcosystemProgram(declaredContexts: ["ctx"], ops: [
+let program_AnyVersionMax = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "a", version: "0.0.1", dependencies: []),
     .publish(package: "a", version: "0.0.2", dependencies: []),
     .publish(package: "a", version: "0.1.0", dependencies: []),
