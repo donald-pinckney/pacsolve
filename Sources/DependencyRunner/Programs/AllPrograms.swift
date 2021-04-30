@@ -30,7 +30,10 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "Max1OrMax2": program_Max1OrMax2,
     "Max1OrMax2_LexicalReorder": program_Max1OrMax2_LexicalReorder,
     "Max1OrMax2_DepReorder": program_Max1OrMax2_DepReorder,
-    "MinNumPackages": program_MinNumPackages
+    "MinNumPackages": program_MinNumPackages,
+    "LocalStoreTryAnyUpdate": program_LocalStoreTryAnyUpdate,
+    "LocalStoreForceChange": program_LocalStoreForceChange,
+    "ChangeInstalledVersion": program_ChangeInstalledVersion,
 ]
 
 
