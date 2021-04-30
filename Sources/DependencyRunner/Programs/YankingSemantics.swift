@@ -30,3 +30,18 @@ let program_FreshAnyDepOnYank = EcosystemProgram(declaredContexts: ["ctx"], ops:
  SOLVE succeeds with a@0.0.2
  */
 
+
+
+let program_SolveYankSolve = EcosystemProgram(declaredContexts: ["ctx"], ops: [
+    .publish(package: "a", version: "0.0.1", dependencies: []),
+    .publish(package: "a", version: "0.0.2", dependencies: []),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)]),
+    .yank(package: "a", version: "0.0.2"),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)]),
+])
+
+/*
+ ["pip-real", "npm-real", "cargo-real"]
+ Both solves succeed with a@0.0.2
+ */
+
