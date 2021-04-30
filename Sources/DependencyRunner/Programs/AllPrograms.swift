@@ -29,7 +29,8 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "SolveYankSolve": program_SolveYankSolve,
     "Max1OrMax2": program_Max1OrMax2,
     "Max1OrMax2_LexicalReorder": program_Max1OrMax2_LexicalReorder,
-    "Max1OrMax2_DepReorder": program_Max1OrMax2_DepReorder
+    "Max1OrMax2_DepReorder": program_Max1OrMax2_DepReorder,
+    "MinNumPackages": program_MinNumPackages
 ]
 
 

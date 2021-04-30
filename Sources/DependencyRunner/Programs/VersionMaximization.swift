@@ -106,3 +106,38 @@ let program_Max1OrMax2_DepReorder = EcosystemProgram(declaredContexts: ["ctx"], 
  b v1.0.1
  c v1.0.1
  */
+
+
+
+let program_MinNumPackages = EcosystemProgram(declaredContexts: ["ctx"], ops: [
+    .publish(package: "b", version: "1.0.0", dependencies: []),
+    .publish(package: "b", version: "1.0.1", dependencies: []),
+    .publish(package: "c", version: "1.0.0", dependencies: []),
+    .publish(package: "d", version: "1.0.0", dependencies: []),
+    .publish(package: "e", version: "1.0.0", dependencies: []),
+    .publish(package: "a", version: "1.0.0", dependencies: []),
+    .publish(package: "a", version: "1.0.1", dependencies: [
+                DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.0")),
+                DependencyExpr(packageToDependOn: "c", constraint: .exactly("1.0.0")),
+                DependencyExpr(packageToDependOn: "d", constraint: .exactly("1.0.0")),
+                DependencyExpr(packageToDependOn: "e", constraint: .exactly("1.0.0"))]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any), DependencyExpr(packageToDependOn: "b", constraint: .any)])
+])
+
+/*
+ ["yarn1", "yarn2", "npm"]
+ a v1.0.1
+   b v1.0.0
+   c v1.0.0
+   d v1.0.0
+   e v1.0.0
+ b v1.0.1
+
+ ["pip", "cargo"]
+ a v1.0.1
+   b v1.0.0
+   c v1.0.0
+   d v1.0.0
+   e v1.0.0
+ b v1.0.0
+ */
