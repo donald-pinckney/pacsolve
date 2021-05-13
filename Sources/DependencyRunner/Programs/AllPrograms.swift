@@ -34,6 +34,8 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "LocalStoreTryAnyUpdate": program_LocalStoreTryAnyUpdate,
     "LocalStoreForceChange": program_LocalStoreForceChange,
     "ChangeInstalledVersion": program_ChangeInstalledVersion,
+    "TreeOrDagDifferent": program_TreeOrDagDifferent,
+    "TreeOrDagSame": program_TreeOrDagSame,
 ]
 
 
