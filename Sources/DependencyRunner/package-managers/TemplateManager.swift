@@ -52,6 +52,12 @@ struct TemplateManager {
         
         instantiateTemplate(name: "package", intoDirectory: intoDirectory, substitutions: substituting)
     }
+    
+    func instantiateContextTemplate(intoDirectory: String, package: Package, version: Version, dependencies: [DependencyExpr]) {
+        let substituting = self.delegate?.templateSubstitutionsFor(package: package, version: version, dependencies: dependencies) ?? [:]
+        
+        instantiateTemplate(name: "context", intoDirectory: intoDirectory, substitutions: substituting)
+    }
 }
 
 

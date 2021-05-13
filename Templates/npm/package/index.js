@@ -1,5 +1,13 @@
 $DEPENDENCY_IMPORTS
 
+//var COUNTER = 0;
+//
+//function inc_counter() {
+//    const ret = COUNTER;
+//    COUNTER += 1;
+//    return ret;
+//}
+
 function dep_tree(indent) {
     const my_name = "$NAME_STRING";
     const my_version = "$VERSION_STRING";

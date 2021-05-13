@@ -119,7 +119,7 @@ class CargoSolveContext {
     }
     
     func solve(dependencies: [DependencyExpr]) -> SolveResult {
-        templateManager.instantiatePackageTemplate(intoDirectory: contextDir, package: "context", version: "0.0.1", dependencies: dependencies)
+        templateManager.instantiateContextTemplate(intoDirectory: contextDir, package: "context", version: "0.0.1", dependencies: dependencies)
                 
         let solveCommand =
         #"""
@@ -145,7 +145,7 @@ extension Cargo : TemplateManagerDelegate {
             "$REGISTRY_DIR" : self.dirManager.getRegistryDirectory().absolute,
             "$DEPENDENCIES_TOML_FRAGMENT" : dependencies.map { $0.cargoFormat() }.joined(separator: "\n"),
 //            "$DEPENDENCY_IMPORTS" : dependencies.map() { "use \($0.packageToDependOn);" }.joined(separator: "\n"),
-//            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn)::dep_tree(indent + 1);" }.joined(separator: "\n    ")
+            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn)::dep_tree(indent + 1);" }.joined(separator: "\n    ")
         ]
     }
 }
