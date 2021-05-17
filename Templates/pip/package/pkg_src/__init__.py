@@ -12,7 +12,7 @@ def inc_counter():
 
 def dep_tree(indent, do_inc):
     if do_inc:
-        print("{},{},{},{}".format(indent, __name__, __version__, do_inc()))
+        print("{},{},{},{}".format(indent, __name__, __version__, inc_counter()))
     else:
         print("{},{},{}".format(indent, __name__, __version__))
         

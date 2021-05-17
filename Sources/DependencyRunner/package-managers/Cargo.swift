@@ -120,12 +120,6 @@ class CargoSolveContext {
     
     func solve(dependencies: [DependencyExpr]) -> SolveResult {
         templateManager.instantiateContextTemplate(intoDirectory: contextDir, package: "context", version: "0.0.1", dependencies: dependencies)
-                
-//        let solveCommand =
-//        #"""
-//            echo "TREE DUMP:"
-//            cargo tree --no-dedupe --prefix depth --format ,{p} | sed 's/ (.*//g'
-//        """#
         
         let solveCommand =
         #"""

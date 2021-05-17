@@ -6,7 +6,7 @@ struct ResolvedPackage<D>: CustomStringConvertible, Equatable, Hashable where D:
     
     func description(depth: Int, lines: inout [String]) {
         let indent = String(repeating: "  ", count: depth)
-        lines.append("\(indent)\(package) v\(version)")
+        lines.append("\(indent)\(package) v\(version)  #\(data)")
         for c in children {
             c.description(depth: depth + 1, lines: &lines)
         }
@@ -33,7 +33,7 @@ struct SolutionTree<D>: CustomStringConvertible, Equatable, Hashable where D: Ha
     let children: [ResolvedPackage<D>]
     
     var description: String {
-        children.map { $0.description }.joined(separator: "\n")
+        "\n" + children.map { $0.description }.joined(separator: "\n")
     }
     
     init(children: [ResolvedPackage<D>]) {
