@@ -1,7 +1,7 @@
 import Foundation
 import Files
 
-protocol TemplateManagerDelegate : class {
+protocol TemplateManagerDelegate : AnyObject {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String]
 }
 

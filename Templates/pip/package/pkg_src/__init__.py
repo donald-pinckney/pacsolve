@@ -12,8 +12,8 @@ def inc_counter():
 
 def dep_tree(indent, do_inc):
     if do_inc:
-        print("{},{} v{},#{}".format(indent, __name__, __version__, do_inc()))
+        print("{},{},{},{}".format(indent, __name__, __version__, do_inc()))
     else:
-        print("{},{} v{}".format(indent, __name__, __version__))
+        print("{},{},{}".format(indent, __name__, __version__))
         
     $DEPENDENCY_TREE_CALLS

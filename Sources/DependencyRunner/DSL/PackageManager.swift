@@ -13,7 +13,7 @@ struct YankError: Error, Equatable, Hashable {
     let message: String
 }
 
-typealias SolveResult = Result<SolutionTree, SolveError>
+typealias SolveResult = Result<SolutionTree<Int>, SolveError>
 typealias PublishResult = Result<(), PublishError>
 typealias YankResult = Result<(), YankError>
 

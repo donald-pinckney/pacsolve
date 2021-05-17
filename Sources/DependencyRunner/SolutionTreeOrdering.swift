@@ -4,6 +4,7 @@ extension ResolvedPackage {
         ResolvedPackage(
             package: package,
             version: version,
+            data: data,
             children: children.map { $0.normalizedOrder() }.sorted(by: <)
         )
     }
@@ -21,20 +22,19 @@ extension ResolvedPackage {
     }
 }
 
-private extension Array where Element == ResolvedPackage {
-    static func <(_ lhs: Self, _ rhs: Self) -> Bool {
-        if lhs.count < rhs.count {
-            return true
-        } else if lhs.count > rhs.count {
-            return false
-        } else {
-            for (l, r) in zip(lhs, rhs) {
-                if l < r {
-                    return true
-                }
+    
+func < <D>(_ lhs: Array<ResolvedPackage<D>>, _ rhs:  Array<ResolvedPackage<D>>) -> Bool {
+    if lhs.count < rhs.count {
+        return true
+    } else if lhs.count > rhs.count {
+        return false
+    } else {
+        for (l, r) in zip(lhs, rhs) {
+            if l < r {
+                return true
             }
-            return false
         }
+        return false
     }
 }
 

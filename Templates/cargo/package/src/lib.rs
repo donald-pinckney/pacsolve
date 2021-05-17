@@ -10,9 +10,9 @@ fn inc_counter() -> u32 {
 
 pub fn dep_tree(indent: usize, do_inc: bool) {
     if do_inc {
-        println!("{},{} v{},#{}", indent, "$NAME_STRING", "$VERSION_STRING", inc_counter());
+        println!("{},{},{},{}", indent, "$NAME_STRING", "$VERSION_STRING", inc_counter());
     } else {
-        println!("{},{} v{}", indent, "$NAME_STRING", "$VERSION_STRING");
+        println!("{},{},{}", indent, "$NAME_STRING", "$VERSION_STRING");
     }
         
     $DEPENDENCY_TREE_CALLS

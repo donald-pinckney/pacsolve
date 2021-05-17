@@ -13,9 +13,9 @@ function dep_tree(indent, do_inc) {
     const my_version = "$VERSION_STRING";
     
     if(do_inc) {
-        console.log(indent + "," + my_name + " v" + my_version + ",#" + inc_counter());
+        console.log(indent + "," + my_name + "," + my_version + "," + inc_counter());
     } else {
-        console.log(indent + "," + my_name + " v" + my_version);
+        console.log(indent + "," + my_name + "," + my_version);
     }
     $DEPENDENCY_TREE_CALLS
 }
@@ -25,5 +25,5 @@ exports.inc_counter = inc_counter
 
 if (require.main === module) {
     console.log("TREE DUMP:")
-    dep_tree(0, false);
+    dep_tree(0, true);
 }
