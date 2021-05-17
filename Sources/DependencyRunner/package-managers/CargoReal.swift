@@ -55,7 +55,8 @@ extension CargoRealImpl : TemplateManagerDelegate {
             "$VERSION_STRING" : version.description,
             "$DEPENDENCIES_TOML_FRAGMENT" : dependencies.map { $0.cargoRealFormat() }.joined(separator: "\n"),
 //            "$DEPENDENCY_IMPORTS" : dependencies.map() { "use \($0.packageToDependOn);" }.joined(separator: "\n"),
-//            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn)::dep_tree(indent + 1);" }.joined(separator: "\n    ")
+            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn)::dep_tree(indent + 1, do_inc);" }.joined(separator: "\n    ")
+
         ]
     }
 }

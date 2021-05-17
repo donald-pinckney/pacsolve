@@ -1,0 +1,11 @@
+[package]
+name = "$NAME_STRING"
+version = "$VERSION_STRING"
+edition = "2018"
+description = "stuff"
+license = "ISC"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+$DEPENDENCIES_TOML_FRAGMENT

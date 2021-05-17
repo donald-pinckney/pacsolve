@@ -14,6 +14,6 @@ pub fn dep_tree(indent: usize, do_inc: bool) {
     } else {
         println!("{},{},{}", indent, "$NAME_STRING", "$VERSION_STRING");
     }
-        
+    
     $DEPENDENCY_TREE_CALLS
 }
