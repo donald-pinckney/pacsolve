@@ -115,7 +115,7 @@ extension PipImpl : TemplateManagerDelegate {
             "$DEPENDENCIES_COMMA_SEP" : dependencies.map { $0.pipFormat().quoted() }.joined(separator: ", \n"),
             "$DEPENDENCIES_LINE_SEP" : dependencies.map { $0.pipFormat() }.joined(separator: "\n"),
             "$DEPENDENCY_IMPORTS" : dependencies.map() { "import \($0.packageToDependOn)" }.joined(separator: "\n"),
-            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn).dep_tree(indent + 1)" }.joined(separator: "\n    ")
+            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn).dep_tree(indent + 1, do_inc)" }.joined(separator: "\n    ")
         ]
     }
 }
