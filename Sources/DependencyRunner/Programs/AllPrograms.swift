@@ -36,6 +36,7 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "ChangeInstalledVersion": program_ChangeInstalledVersion,
     "TreeOrDagDifferent": program_TreeOrDagDifferent,
     "TreeOrDagSame": program_TreeOrDagSame,
+    "SubDependencyBlocked": program_SubDependencyBlocked,
 ]
 
 
