@@ -1,11 +1,3 @@
-
-//struct EcosystemStore: Equatable, Hashable {
-//    let contextResults: [ContextVar : SolveResult?]
-//}
-//
-//func dictionaryOfNils<K, V>(forKeys: [K]) -> [K : V?] {
-//    Dictionary(uniqueKeysWithValues: forKeys.map { ($0, nil) })
-//}
 import Foundation
 
 enum ExecutionError: Error, Equatable, Hashable {

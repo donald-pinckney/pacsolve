@@ -19,12 +19,6 @@ struct DependencyExpr: CustomStringConvertible {
     }
 }
 
-//struct EcosystemNode {
-//    let package: Package
-//    let version: Version
-//    let dependencies: [DependencyExpr]
-//}
-
 typealias ContextVar = String
 
 enum EcosystemOp {
