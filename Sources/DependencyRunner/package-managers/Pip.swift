@@ -35,7 +35,12 @@ extension PipImpl : PackageManager {
 //        let sourceDir = dirManager.generateUniqueSourceDirectory(forPackage: package, version: version)
         let sourceDir = dirManager.newSourceDirectory(package: package, version: version)
 
-        templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
+        
+        do {
+            try templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
+        } catch {
+            return .failure(PublishError(message: "\(error)"))
+        }
         
         return buildToRegistry(inDirectory: sourceDir)
     }
@@ -87,7 +92,11 @@ class PipSolveContext {
     }
     
     func solve(dependencies: [DependencyExpr]) -> SolveResult {
-        templateManager.instantiatePackageTemplate(intoDirectory: contextDir, package: "context", version: "0.0.1", dependencies: dependencies)
+        do {
+            try templateManager.instantiatePackageTemplate(intoDirectory: contextDir, package: "context", version: "0.0.1", dependencies: dependencies)
+        } catch {
+            return .failure(SolveError(message: "\(error)"))
+        }
         
         let solveCommand =
         """
@@ -108,12 +117,13 @@ class PipSolveContext {
 }
 
 extension PipImpl : TemplateManagerDelegate {
-    func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String] {
-        [
+    func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String] {
+        let depStrings = try dependencies.map { try $0.pipFormat() }
+        return [
             "$NAME_STRING" : package.name,
             "$VERSION_STRING" : version.description,
-            "$DEPENDENCIES_COMMA_SEP" : dependencies.map { $0.pipFormat().quoted() }.joined(separator: ", \n"),
-            "$DEPENDENCIES_LINE_SEP" : dependencies.map { $0.pipFormat() }.joined(separator: "\n"),
+            "$DEPENDENCIES_COMMA_SEP" : depStrings.map { $0.quoted() }.joined(separator: ", \n"),
+            "$DEPENDENCIES_LINE_SEP" : depStrings.joined(separator: "\n"),
             "$DEPENDENCY_IMPORTS" : dependencies.map() { "import \($0.packageToDependOn)" }.joined(separator: "\n"),
             "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn).dep_tree(indent + 1, do_inc)" }.joined(separator: "\n    ")
         ]
@@ -121,31 +131,48 @@ extension PipImpl : TemplateManagerDelegate {
 }
 
 extension ConstraintExpr {
-    func pipFormat() -> String {
+    func pipFormat() throws -> String {
         switch self {
-        case .any:
-            return ""
-        case .exactly(let v):
-            return "==\(v)"
-//        case .geq(let v):
-//            return ">=\(v.semverName)"
-//        case .gt(let v):
-//            return ">\(v.semverName)"
-//        case .leq(let v):
-//            return "<=\(v.semverName)"
-//        case .lt(let v):
-//            return "<\(v.semverName)"
-//        case .caret(let v):
-//            return "^\(v.semverName)"
-//        case .tilde(let v):
-//            return "~\(v.semverName)"
+            case .wildcardMajor:
+                return ""
+            case .exactly(let v):
+                return "==\(v)"
+            case .geq(let v):
+                return ">=\(v)"
+            case .gt(let v):
+                return ">\(v)"
+            case .leq(let v):
+                return "<=\(v)"
+            case .lt(let v):
+                return "<\(v)"
+            case .caret(let v):
+                #warning("not yet right")
+                return "^\(v)"
+            case .tilde(let v):
+                #warning("not yet right")
+                return "~\(v)"
+            case let .and(c1, c2):
+                #warning("not yet right")
+                return "(\(c1)) (\(c2))"
+            case let .or(c1, c2):
+                #warning("not yet right")
+                return "(\(c1)) || (\(c2))"
+            case let .wildcardBug(major, minor):
+                #warning("not yet right")
+                return "\(major).\(minor).x"
+            case let .wildcardMinor(major):
+                #warning("not yet right")
+                return "\(major).x"
+            case let .not(c):
+                #warning("not yet right")
+                return "!(\(c))"
         }
     }
 }
 
 extension DependencyExpr {
-    func pipFormat() -> String {
-        "\(self.packageToDependOn)\(self.constraint.pipFormat())"
+    func pipFormat() throws -> String {
+        try "\(self.packageToDependOn)\(self.constraint.pipFormat())"
     }
 }
 

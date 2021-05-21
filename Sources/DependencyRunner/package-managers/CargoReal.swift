@@ -16,10 +16,9 @@ extension CargoRealImpl : PackageManager {
     func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
 //        let sourceDir = dirManager.generateUniqueSourceDirectory(forPackage: package, version: version)
         let sourceDir = dirManager.newSourceDirectory(package: package, version: version)
-                
-        templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
-         
+        
         do {
+            try templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
             try shellOut(to: "cargo", arguments: ["publish", "--token", "cioPzxOEZonw5VGcJa44lS3mAFyg4H6W9pr", "--no-verify", "--allow-dirty"], at: sourceDir)
         } catch {
             return .failure(PublishError(message: "\(error)"))
@@ -49,11 +48,12 @@ extension CargoRealImpl : PackageManager {
 
 
 extension CargoRealImpl : TemplateManagerDelegate {
-    func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String] {
-        [
+    func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String] {
+        let depStrings = try dependencies.map { try $0.cargoRealFormat() }
+        return [
             "$NAME_STRING" : package.name,
             "$VERSION_STRING" : version.description,
-            "$DEPENDENCIES_TOML_FRAGMENT" : dependencies.map { $0.cargoRealFormat() }.joined(separator: "\n"),
+            "$DEPENDENCIES_TOML_FRAGMENT" : depStrings.joined(separator: "\n"),
 //            "$DEPENDENCY_IMPORTS" : dependencies.map() { "use \($0.packageToDependOn);" }.joined(separator: "\n"),
             "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn)::dep_tree(indent + 1, do_inc);" }.joined(separator: "\n    ")
 
@@ -62,8 +62,8 @@ extension CargoRealImpl : TemplateManagerDelegate {
 }
 
 extension DependencyExpr {
-    func cargoRealFormat() -> String {
-        "\(self.packageToDependOn) = { version = \"\(self.constraint.cargoFormat())\" }"
+    func cargoRealFormat() throws -> String {
+        "\(self.packageToDependOn) = { version = \"\(try self.constraint.cargoFormat())\" }"
     }
 }
 

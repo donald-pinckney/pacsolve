@@ -2,7 +2,7 @@ import Foundation
 import Files
 
 protocol TemplateManagerDelegate : AnyObject {
-    func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String]
+    func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String]
 }
 
 struct TemplateManager {
@@ -47,14 +47,14 @@ struct TemplateManager {
         }
     }
     
-    func instantiatePackageTemplate(intoDirectory: String, package: Package, version: Version, dependencies: [DependencyExpr]) {
-        let substituting = self.delegate?.templateSubstitutionsFor(package: package, version: version, dependencies: dependencies) ?? [:]
+    func instantiatePackageTemplate(intoDirectory: String, package: Package, version: Version, dependencies: [DependencyExpr]) throws {
+        let substituting = try self.delegate?.templateSubstitutionsFor(package: package, version: version, dependencies: dependencies) ?? [:]
         
         instantiateTemplate(name: "package", intoDirectory: intoDirectory, substitutions: substituting)
     }
     
-    func instantiateContextTemplate(intoDirectory: String, package: Package, version: Version, dependencies: [DependencyExpr]) {
-        let substituting = self.delegate?.templateSubstitutionsFor(package: package, version: version, dependencies: dependencies) ?? [:]
+    func instantiateContextTemplate(intoDirectory: String, package: Package, version: Version, dependencies: [DependencyExpr]) throws {
+        let substituting = try self.delegate?.templateSubstitutionsFor(package: package, version: version, dependencies: dependencies) ?? [:]
         
         instantiateTemplate(name: "context", intoDirectory: intoDirectory, substitutions: substituting)
     }

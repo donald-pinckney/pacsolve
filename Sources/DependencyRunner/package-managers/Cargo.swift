@@ -27,7 +27,7 @@ class Cargo {
 extension Cargo : PackageManager {
     var uniqueName: String { "cargo" }
 
-    private func buildCrate(inDirectory srcDir: String, package: Package, version: Version, dependencies: [DependencyExpr]) -> (crateBytes: Data, crateFilename: String, metadata: CrateMetadata) {
+    private func buildCrate(inDirectory srcDir: String, package: Package, version: Version, dependencies: [DependencyExpr]) throws -> (crateBytes: Data, crateFilename: String, metadata: CrateMetadata) {
 
         try! shellOut(to: "cargo", arguments: ["package", "--no-verify", "--allow-dirty","--offline"], at: srcDir)
         let crateFilename = "\(package)-\(version).crate"
@@ -36,7 +36,7 @@ extension Cargo : PackageManager {
         let crateBytes = try! Data(contentsOf: crateURL)
         let crateSha = crateBytes.sha256().toHexString()
     
-        let depsMeta = dependencies.map { CrateMetadata.MetaDependency(name: $0.packageToDependOn.name, req: $0.constraint.cargoFormat()) }
+        let depsMeta = try dependencies.map { CrateMetadata.MetaDependency(name: $0.packageToDependOn.name, req: try $0.constraint.cargoFormat()) }
         
         return (crateBytes: crateBytes, crateFilename: crateFilename, metadata: CrateMetadata(name: package.name, vers: version.description, deps: depsMeta, cksum: crateSha))
     }
@@ -78,10 +78,14 @@ extension Cargo : PackageManager {
     func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
 //        let sourceDir = dirManager.generateUniqueSourceDirectory(forPackage: package, version: version)
         let sourceDir = dirManager.newSourceDirectory(package: package, version: version)
-
-        templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
         
-        let buildResult = buildCrate(inDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
+        let buildResult: (crateBytes: Data, crateFilename: String, metadata: CrateMetadata)
+        do {
+            try templateManager.instantiatePackageTemplate(intoDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
+            buildResult = try buildCrate(inDirectory: sourceDir, package: package, version: version, dependencies: dependencies)
+        } catch {
+            return .failure(PublishError(message: "\(error)"))
+        }
         
         let packagesDir = URL(fileURLWithPath: dirManager.getUniqueDirectory(name: "registry/packages").relative, isDirectory: true)
         let packageDest = packagesDir.appendingPathComponent(buildResult.crateFilename, isDirectory: false)
@@ -119,7 +123,11 @@ class CargoSolveContext {
     }
     
     func solve(dependencies: [DependencyExpr]) -> SolveResult {
-        templateManager.instantiateContextTemplate(intoDirectory: contextDir, package: "context", version: "0.0.1", dependencies: dependencies)
+        do {
+            try templateManager.instantiateContextTemplate(intoDirectory: contextDir, package: "context", version: "0.0.1", dependencies: dependencies)
+        } catch {
+            return .failure(SolveError(message: "\(error)"))
+        }
         
         let solveCommand =
         #"""
@@ -137,12 +145,13 @@ class CargoSolveContext {
 }
 
 extension Cargo : TemplateManagerDelegate {
-    func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) -> [String : String] {
-        [
+    func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String] {
+        let depStrings = try dependencies.map { try $0.cargoFormat() }
+        return [
             "$NAME_STRING" : package.name,
             "$VERSION_STRING" : version.description,
             "$REGISTRY_DIR" : self.dirManager.getRegistryDirectory().absolute,
-            "$DEPENDENCIES_TOML_FRAGMENT" : dependencies.map { $0.cargoFormat() }.joined(separator: "\n"),
+            "$DEPENDENCIES_TOML_FRAGMENT" : depStrings.joined(separator: "\n"),
 //            "$DEPENDENCY_IMPORTS" : dependencies.map() { "use \($0.packageToDependOn);" }.joined(separator: "\n"),
             "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn)::dep_tree(indent + 1, do_inc);" }.joined(separator: "\n    ")
         ]
@@ -150,31 +159,46 @@ extension Cargo : TemplateManagerDelegate {
 }
 
 extension ConstraintExpr {
-    func cargoFormat() -> String {
+    func cargoFormat() throws -> String {
         switch self {
-            case .any:
+            case .wildcardMajor:
                 return "*"
             case .exactly(let v):
                 return "= \(v)"
-//            case .geq(let v):
-//                return ">=\(v.semverName)"
-//            case .gt(let v):
-//                return ">\(v.semverName)"
-//            case .leq(let v):
-//                return "<=\(v.semverName)"
-//            case .lt(let v):
-//                return "<\(v.semverName)"
-//            case .caret(let v):
-//                return "^\(v.semverName)"
-//            case .tilde(let v):
-//                return "~\(v.semverName)"
+            case .geq(let v):
+                return ">=\(v)"
+            case .gt(let v):
+                return ">\(v)"
+            case .leq(let v):
+                return "<=\(v)"
+            case .lt(let v):
+                return "<\(v)"
+            case .caret(let v):
+                return "^\(v)"
+            case .tilde(let v):
+                return "~\(v)"
+            case let .and(c1, c2):
+                #warning("not yet right")
+                return "(\(c1)) (\(c2))"
+            case let .or(c1, c2):
+                #warning("not yet right")
+                return "(\(c1)) || (\(c2))"
+            case let .wildcardBug(major, minor):
+                #warning("not yet right")
+                return "\(major).\(minor).x"
+            case let .wildcardMinor(major):
+                #warning("not yet right")
+                return "\(major).x"
+            case let .not(c):
+                #warning("not yet right")
+                return "!(\(c))"
         }
     }
 }
 
 extension DependencyExpr {
-    func cargoFormat() -> String {
-        "\(self.packageToDependOn) = { version = \"\(self.constraint.cargoFormat())\", registry = \"local\" }"
+    func cargoFormat() throws -> String {
+        "\(self.packageToDependOn) = { version = \"\(try self.constraint.cargoFormat())\", registry = \"local\" }"
     }
 }
 
