@@ -37,6 +37,20 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "TreeOrDagDifferent": program_TreeOrDagDifferent,
     "TreeOrDagSame": program_TreeOrDagSame,
     "SubDependencyBlocked": program_SubDependencyBlocked,
+    "TestC_Exactly": program_TestC_Exactly,
+    "TestC_Geq": program_TestC_Geq,
+    "TestC_Gt": program_TestC_Gt,
+    "TestC_Leq": program_TestC_Leq,
+    "TestC_Lt": program_TestC_Lt,
+    "TestC_Caret": program_TestC_Caret,
+    "TestC_Tilde": program_TestC_Tilde,
+    "TestC_And": program_TestC_And,
+    "TestC_Or": program_TestC_Or,
+    "TestC_WildcardBug": program_TestC_WildcardBug,
+    "TestC_WildcardMinor": program_TestC_WildcardMinor,
+    "TestC_WildcardMajor": program_TestC_WildcardMajor,
+    "TestC_Not": program_TestC_Not,
+    
 ]
 
 
