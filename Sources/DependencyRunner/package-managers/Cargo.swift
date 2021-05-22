@@ -179,7 +179,7 @@ extension ConstraintExpr {
                 return "~\(v)"
             case let .and(c1, c2):
                 return try "\(c1.cargoFormat()), \(c2.cargoFormat())"
-            case let .or(c1, c2):
+            case .or(_, _):
                 throw UnsupportedConstraintError(constraint: self)
             case let .wildcardBug(major, minor):
                 return "\(major).\(minor).x"

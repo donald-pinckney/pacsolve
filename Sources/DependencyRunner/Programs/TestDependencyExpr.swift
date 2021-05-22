@@ -15,7 +15,7 @@ let program_TestC_WildcardMajor = testResolve(constraint: .wildcardMajor)
 let program_TestC_WildcardMinor = testResolve(constraint: .wildcardMinor(1))
 let program_TestC_WildcardBug = testResolve(constraint: .wildcardBug(1, 2))
 
-// Does not exist in pip, works the same in all other package managers
+// Unsupported by: pip
 let program_TestC_Caret = testResolve(constraint: .caret("1.2.2"))
 
 // Only supported by pip
@@ -27,11 +27,11 @@ let program_TestC_NotWildcardMinor = testResolve(constraint: .not(.wildcardMinor
 // See: https://github.com/pypa/pip/issues/10011
 let program_TestC_NotWildcardMajor = testResolve(constraint: .not(.wildcardMajor))
 
-// Supported by npm, cargo
+// Unsupported by: pip
 let program_TestC_AndRange = testResolve(constraint: .and(.geq("1.2.3"), .leq("2.2.2")))
 let program_TestC_AndComplex = testResolve(constraint: .and(.tilde("1.2.3"), .and(.caret("1.2.0"), .gt("1.2.1"))))
 
-// Supported by npm only
+// Supported by only: npm, yarn1, yarn2 only
 let program_TestC_AndCNF = testResolve(constraint: .and(
                                         .or(.geq("2.2.2"), .leq("1.2.3")),
                                         .or(.geq("1.0.0"), .leq("0.2.3"))))
