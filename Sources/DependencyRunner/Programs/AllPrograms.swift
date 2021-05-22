@@ -49,8 +49,10 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "TestC_WildcardBug": program_TestC_WildcardBug,
     "TestC_WildcardMinor": program_TestC_WildcardMinor,
     "TestC_WildcardMajor": program_TestC_WildcardMajor,
-    "TestC_Not": program_TestC_Not,
-    
+    "TestC_NotExactly": program_TestC_NotExactly,
+    "TestC_NotWildcardBug": program_TestC_NotWildcardBug,
+    "TestC_NotWildcardMinor": program_TestC_NotWildcardMinor,
+    "TestC_NotWildcardMajor": program_TestC_NotWildcardMajor,
 ]
 
 

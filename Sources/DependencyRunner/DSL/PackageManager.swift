@@ -13,6 +13,11 @@ struct YankError: Error, Equatable, Hashable {
     let message: String
 }
 
+struct UnsupportedConstraintError: Error {
+    let constraint: ConstraintExpr
+}
+
+
 typealias SolveResult = Result<SolutionTree<Int>, SolveError>
 typealias PublishResult = Result<(), PublishError>
 typealias YankResult = Result<(), YankError>

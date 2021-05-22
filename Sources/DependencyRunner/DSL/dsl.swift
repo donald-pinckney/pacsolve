@@ -6,7 +6,7 @@ indirect enum ConstraintExpr: CustomStringConvertible { // npm                  
     case leq(Version)                                   // <=1.2.3                  <=1.2.3                 <=1.2.3
     case lt(Version)                                    // <1.2.3                   <1.2.3                  <1.2.3
     case caret(Version)                                 // ^1.2.3                   ^1.2.3          [3]         n/a
-    case tilde(Version)                                 // ~1.2.3                   ~1.2.3                  ~=1.2.3             [4]
+    case tilde(Version)                                 // ~1.2.3                   ~1.2.3                  ~=1.2.3
     case and(ConstraintExpr, ConstraintExpr)            // >=1.0.2 <2.1.2      [1]  >=1.0.2, <2.1.2         >=1.0.2, <2.1.2
     case or(ConstraintExpr, ConstraintExpr)             // >=1.0.2 || <2.1.2   [2]      n/a                     n/a
     case wildcardBug(Int, Int)                          // 1.2.x                    1.2.*                   ==1.2.*
@@ -17,7 +17,6 @@ indirect enum ConstraintExpr: CustomStringConvertible { // npm                  
     // [1]: Unknown if this works with only ranges
     // [2]: Unknown if this works with only ranges
     // [3]: Also 1.2.3
-    // [4]: Need to verify that pip ~= is semver ~, and not ^, nor something else weird
     // [5]: You can also do e.g. !=1.2.*. Doesn't appear that you can use != as a general not
     
     // Npm reference: https://docs.npmjs.com/cli/v7/configuring-npm/package-json#dependencies

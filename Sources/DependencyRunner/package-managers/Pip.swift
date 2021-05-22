@@ -145,12 +145,10 @@ extension ConstraintExpr {
                 return "<=\(v)"
             case .lt(let v):
                 return "<\(v)"
-            case .caret(let v):
-                #warning("not yet right")
-                return "^\(v)"
+            case .caret(_):
+                throw UnsupportedConstraintError(constraint: self)
             case .tilde(let v):
-                #warning("not yet right")
-                return "~\(v)"
+                return "~=\(v)"
             case let .and(c1, c2):
                 #warning("not yet right")
                 return "(\(c1)) (\(c2))"
@@ -158,14 +156,20 @@ extension ConstraintExpr {
                 #warning("not yet right")
                 return "(\(c1)) || (\(c2))"
             case let .wildcardBug(major, minor):
-                #warning("not yet right")
-                return "\(major).\(minor).x"
+                return "==\(major).\(minor).*"
             case let .wildcardMinor(major):
+                return "==\(major).*"
+            case let .not(.exactly(v)):
+                return "!=\(v)"
+            case let .not(.wildcardBug(major, minor)):
+                return "!=\(major).\(minor).*"
+            case let .not(.wildcardMinor(major)):
+                return "!=\(major).*"
+            case .not(.wildcardMajor):
                 #warning("not yet right")
-                return "\(major).x"
-            case let .not(c):
-                #warning("not yet right")
-                return "!(\(c))"
+                return "!=*"
+            case .not(_):
+                throw UnsupportedConstraintError(constraint: self)
         }
     }
 }
