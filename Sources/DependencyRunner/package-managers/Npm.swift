@@ -188,9 +188,8 @@ extension ConstraintExpr {
                 return "\(major).\(minor).x"
             case let .wildcardMinor(major):
                 return "\(major).x"
-            case let .not(c):
-                #warning("not yet right")
-                return "!(\(c))"
+            case .not(_):
+                throw UnsupportedConstraintError(constraint: self)
         }
     }
 }
