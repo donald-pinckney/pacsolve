@@ -7,15 +7,13 @@ indirect enum ConstraintExpr: CustomStringConvertible { // npm                  
     case lt(Version)                                    // <1.2.3                   <1.2.3                  <1.2.3
     case caret(Version)                                 // ^1.2.3                   ^1.2.3          [3]         n/a
     case tilde(Version)                                 // ~1.2.3                   ~1.2.3                  ~=1.2.3
-    case and(ConstraintExpr, ConstraintExpr)            // >=1.0.2 <2.1.2      [1]  >=1.0.2, <2.1.2         >=1.0.2, <2.1.2
-    case or(ConstraintExpr, ConstraintExpr)             // >=1.0.2 || <2.1.2   [2]      n/a                     n/a
+    case and(ConstraintExpr, ConstraintExpr)            // >=1.0.2 <2.1.2           >=1.0.2, <2.1.2         >=1.0.2, <2.1.2
+    case or(ConstraintExpr, ConstraintExpr)             // >=1.0.2 || <2.1.2            n/a                     n/a
     case wildcardBug(Int, Int)                          // 1.2.x                    1.2.*                   ==1.2.*
     case wildcardMinor(Int)                             // 1.x                      1.*                     ==1.*
     case wildcardMajor                                  // *                        *                       "" (empty string)
     case not(ConstraintExpr)                            //      n/a                     n/a                 !=1.2.3             [5]
     
-    // [1]: Unknown if this works with only ranges
-    // [2]: Unknown if this works with only ranges
     // [3]: Also 1.2.3
     // [5]: You can also do e.g. !=1.2.*. Doesn't appear that you can use != as a general not
     

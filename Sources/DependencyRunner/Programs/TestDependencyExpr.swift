@@ -27,7 +27,13 @@ let program_TestC_NotWildcardMinor = testResolve(constraint: .not(.wildcardMinor
 // See: https://github.com/pypa/pip/issues/10011
 let program_TestC_NotWildcardMajor = testResolve(constraint: .not(.wildcardMajor))
 
-// Nothing works
-let program_TestC_And = testResolve(constraint: .and(.geq("1.2.3"), .leq("2.2.2")))
-let program_TestC_Or = testResolve(constraint: .or(.geq("2.2.2"), .leq("1.2.3")))
+// Supported by npm, cargo
+let program_TestC_AndRange = testResolve(constraint: .and(.geq("1.2.3"), .leq("2.2.2")))
+let program_TestC_AndComplex = testResolve(constraint: .and(.tilde("1.2.3"), .and(.caret("1.2.0"), .gt("1.2.1"))))
+
+// Supported by npm only
+let program_TestC_AndCNF = testResolve(constraint: .and(
+                                        .or(.geq("2.2.2"), .leq("1.2.3")),
+                                        .or(.geq("1.0.0"), .leq("0.2.3"))))
+let program_TestC_OrRange = testResolve(constraint: .or(.geq("2.2.2"), .leq("1.2.3")))
 

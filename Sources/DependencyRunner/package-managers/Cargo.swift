@@ -178,11 +178,9 @@ extension ConstraintExpr {
             case .tilde(let v):
                 return "~\(v)"
             case let .and(c1, c2):
-                #warning("not yet right")
-                return "(\(c1)) (\(c2))"
+                return try "\(c1.cargoFormat()), \(c2.cargoFormat())"
             case let .or(c1, c2):
-                #warning("not yet right")
-                return "(\(c1)) || (\(c2))"
+                throw UnsupportedConstraintError(constraint: self)
             case let .wildcardBug(major, minor):
                 return "\(major).\(minor).x"
             case let .wildcardMinor(major):
