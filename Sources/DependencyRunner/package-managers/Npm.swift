@@ -185,10 +185,8 @@ extension ConstraintExpr {
                 #warning("not yet right")
                 return "(\(c1)) || (\(c2))"
             case let .wildcardBug(major, minor):
-                #warning("not yet right")
                 return "\(major).\(minor).x"
             case let .wildcardMinor(major):
-                #warning("not yet right")
                 return "\(major).x"
             case let .not(c):
                 #warning("not yet right")

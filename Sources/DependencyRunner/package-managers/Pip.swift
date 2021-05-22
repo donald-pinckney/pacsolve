@@ -166,7 +166,6 @@ extension ConstraintExpr {
             case let .not(.wildcardMinor(major)):
                 return "!=\(major).*"
             case .not(.wildcardMajor):
-                #warning("not yet right")
                 return "!=*"
             case .not(_):
                 throw UnsupportedConstraintError(constraint: self)
