@@ -10,7 +10,6 @@ struct UnsupportedConstraintError: Error {
     let constraint: ConstraintExpr
 }
 
-
 typealias SolveResult<T: Hashable> = Result<SolutionTree<T>, SolveError>
 typealias PublishResult = Result<(), PublishError>
 typealias YankResult = Result<(), YankError>
@@ -99,14 +98,14 @@ struct LocalPackageManager: PackageManager {
                 switch pm.publish(package: package, version: v, dependencies: deps) {
                 case .failure(let err):
                     logger.logOpFailure()
-                    return .failure(.publishError(error: err))
+                    return .failure(ExecutionError(message: "Publish error: \(err)"))
                 default: break
                 }
             case let .yank(package: package, version: v):
                 switch pm.yank(package: package, version: v) {
                 case .failure(let err):
                     logger.logOpFailure()
-                    return .failure(.yankError(error: err))
+                    return .failure(ExecutionError(message: "Yank error: \(err)"))
                 default: break
                 }
             case let .solve(inContext: ctxVar, constraints: constraints):
@@ -114,7 +113,7 @@ struct LocalPackageManager: PackageManager {
                 switch result {
                 case .failure(let err):
                     logger.logOpFailure()
-                    return .failure(.solveError(error: err))
+                    return .failure(ExecutionError(message: "Solve error: \(err)"))
                 case .success(let sol):
                     allResults.append(sol)
                 }

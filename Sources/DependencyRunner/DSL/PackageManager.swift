@@ -1,8 +1,6 @@
 
-enum ExecutionError: Error, Equatable, Hashable {
-    case publishError(error: PublishError)
-    case yankError(error: YankError)
-    case solveError(error: SolveError)
+struct ExecutionError: Error, Equatable, Hashable, Codable {
+    let message: String
 }
 
 typealias ExecutionResult<T: Hashable> = Result<[SolutionTree<T>], ExecutionError>

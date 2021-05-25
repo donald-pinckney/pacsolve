@@ -49,6 +49,10 @@ struct SolutionTree<D>: CustomStringConvertible, Equatable, Hashable where D: Ha
     }
 }
 
+extension ResolvedPackage: Codable where D: Codable {}
+
+extension SolutionTree: Codable where D: Codable {}
+
 
 struct SolveError: Error, Equatable, Hashable {
     let message: String
