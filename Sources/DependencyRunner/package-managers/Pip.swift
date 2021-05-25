@@ -118,7 +118,7 @@ class PipSolveContext {
 
 extension PipImpl : TemplateManagerDelegate {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String] {
-        let depStrings = try dependencies.map { try $0.pipFormat() }
+        let depStrings = try dependencies.flatMap { try $0.pipFormat() }
         return [
             "$NAME_STRING" : package.name,
             "$VERSION_STRING" : version.description,
@@ -131,42 +131,40 @@ extension PipImpl : TemplateManagerDelegate {
 }
 
 extension ConstraintExpr {
-    func pipFormat() throws -> String {
+    func pipFormat() throws -> [String] {
         switch self {
             case .wildcardMajor:
-                return ""
+                return [""]
             case .exactly(let v):
-                return "==\(v)"
+                return ["==\(v)"]
             case .geq(let v):
-                return ">=\(v)"
+                return [">=\(v)"]
             case .gt(let v):
-                return ">\(v)"
+                return [">\(v)"]
             case .leq(let v):
-                return "<=\(v)"
+                return ["<=\(v)"]
             case .lt(let v):
-                return "<\(v)"
+                return ["<\(v)"]
             case .caret(_):
                 throw UnsupportedConstraintError(constraint: self)
             case .tilde(let v):
-                return "~=\(v)"
+                return ["~=\(v)"]
             case let .and(c1, c2):
-                #warning("not yet right")
-                return "(\(c1)) (\(c2))"
-            case let .or(c1, c2):
-                #warning("not yet right")
-                return "(\(c1)) || (\(c2))"
+                return try c1.pipFormat() + c2.pipFormat()
+            case .or(_, _):
+                throw UnsupportedConstraintError(constraint: self)
             case let .wildcardBug(major, minor):
-                return "==\(major).\(minor).*"
+                return ["==\(major).\(minor).*"]
             case let .wildcardMinor(major):
-                return "==\(major).*"
+                return ["==\(major).*"]
             case let .not(.exactly(v)):
-                return "!=\(v)"
+                return ["!=\(v)"]
             case let .not(.wildcardBug(major, minor)):
-                return "!=\(major).\(minor).*"
+                return ["!=\(major).\(minor).*"]
             case let .not(.wildcardMinor(major)):
-                return "!=\(major).*"
+                return ["!=\(major).*"]
             case .not(.wildcardMajor):
-                return "!=*"
+                return ["!=*"]
             case .not(_):
                 throw UnsupportedConstraintError(constraint: self)
         }
@@ -174,8 +172,8 @@ extension ConstraintExpr {
 }
 
 extension DependencyExpr {
-    func pipFormat() throws -> String {
-        try "\(self.packageToDependOn)\(self.constraint.pipFormat())"
+    func pipFormat() throws -> [String] {
+        try self.constraint.pipFormat().map { "\(self.packageToDependOn)\($0)" }
     }
 }
 
