@@ -1,4 +1,4 @@
-struct Package : Equatable, Hashable, ExpressibleByStringLiteral, CustomStringConvertible {
+struct Package : Equatable, Hashable, ExpressibleByStringLiteral, CustomStringConvertible, Codable {
     let name: String
     
     init (stringLiteral value: String) {

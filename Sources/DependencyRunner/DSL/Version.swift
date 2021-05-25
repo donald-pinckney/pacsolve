@@ -1,4 +1,4 @@
-struct Version : Equatable, Hashable, ExpressibleByStringLiteral, CustomStringConvertible {
+struct Version : Equatable, Hashable, ExpressibleByStringLiteral, CustomStringConvertible, Codable {
     let major : Int
     let minor : Int
     let bug : Int
