@@ -29,6 +29,10 @@ private var uniqueNamingCounter: UInt64 = 0
 
 typealias PackageRenamer = (encode: (Package) -> Package, decode: (Package) -> Package)
 
+func identityRenaming() -> PackageRenamer {
+    (encode: { $0 }, decode: { $0 })
+}
+
 func buildUniquePackageRenaming(_ program: EcosystemProgram) -> PackageRenamer {
     let currentPackages = Array(getAllPackages(inProgram: program))
     var encodeMap: [Package : Package] = [:]

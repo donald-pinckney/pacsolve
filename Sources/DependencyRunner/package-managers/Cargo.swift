@@ -1,7 +1,7 @@
 import ShellOut
 import Foundation
 
-class Cargo {
+class CargoImpl {
     let dirManager = GenDirManager(baseName: "cargo")
     var templateManager = TemplateManager(templateName: "cargo")
     
@@ -9,7 +9,7 @@ class Cargo {
         self.dirManager.getRegistryDirectory().relative + "config.json"
     }
     
-    init() {
+    fileprivate init() {
         self.templateManager.delegate = self
         
         initRegistry()
@@ -24,8 +24,9 @@ class Cargo {
     }
 }
 
-extension Cargo : InternalPackageManager {
+extension CargoImpl : InternalPackageManager {
     var uniqueName: String { "cargo" }
+    var shouldRenameVars: Bool { false }
 
     private func buildCrate(inDirectory srcDir: String, package: Package, version: Version, dependencies: [DependencyExpr]) throws -> (crateBytes: Data, crateFilename: String, metadata: CrateMetadata) {
 
@@ -144,7 +145,7 @@ class CargoSolveContext {
     }
 }
 
-extension Cargo : TemplateManagerDelegate {
+extension CargoImpl : TemplateManagerDelegate {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String] {
         let depStrings = try dependencies.map { try $0.cargoFormat() }
         return [
@@ -215,4 +216,9 @@ struct CrateMetadata: Encodable {
     let cksum: String
     let features: [String : [String]] = [:]
     let yanked = false
+}
+
+
+func Cargo() -> LocalPackageManager {
+    LocalPackageManager(pm: CargoImpl())
 }

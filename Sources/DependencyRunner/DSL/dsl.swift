@@ -14,7 +14,7 @@ indirect enum ConstraintExpr: CustomStringConvertible {
     case wildcardMinor(Int)                             // 1.x                      1.*                     ==1.*
     case wildcardMajor                                  // *                        *                       "" (empty string)
     case not(ConstraintExpr)                            //      n/a                     n/a                 !=1.2.3             [5]
-    
+
     // [3]: Also 1.2.3
     // [5]: You can also do e.g. !=1.2.*. Doesn't appear that you can use != as a general not
     

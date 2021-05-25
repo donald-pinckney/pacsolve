@@ -12,6 +12,7 @@ class CargoRealImpl {
 
 extension CargoRealImpl : InternalPackageManager {
     var uniqueName: String { "cargo-real" }
+    var shouldRenameVars: Bool { true }
         
     func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
 //        let sourceDir = dirManager.generateUniqueSourceDirectory(forPackage: package, version: version)
@@ -67,6 +68,6 @@ extension DependencyExpr {
     }
 }
 
-func CargoReal() -> InternalPackageManager {
-    WaitForUpdateManager(wrapping: CargoRealImpl(), sleepTime: 60)
+func CargoReal() -> LocalPackageManager {
+    LocalPackageManager(pm: WaitForUpdateManager(wrapping: CargoRealImpl(), sleepTime: 60))
 }

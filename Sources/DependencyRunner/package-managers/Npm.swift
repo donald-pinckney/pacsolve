@@ -21,6 +21,8 @@ private class NpmBasedPackageManager {
 
 
 extension NpmBasedPackageManager : InternalPackageManager {
+    var shouldRenameVars: Bool { isReal }
+    
     func startup() {
         if !isReal {
             let configDir = self.dirManager.getConfigsDirectory().relative
@@ -204,27 +206,27 @@ extension DependencyExpr {
 }
 
 
-func Npm() -> InternalPackageManager {
+func Npm() -> LocalPackageManager {
     let solveCommand =
     """
         npm install --silent --registry http://localhost:4873
         node index.js
     """
     
-    return NpmBasedPackageManager(uniqueName: "npm", isReal: false, lazyContextSetupCommand: nil, solveCommand: solveCommand)
+    return LocalPackageManager(pm: NpmBasedPackageManager(uniqueName: "npm", isReal: false, lazyContextSetupCommand: nil, solveCommand: solveCommand))
 }
 
-func Yarn1() -> InternalPackageManager {
+func Yarn1() -> LocalPackageManager {
     let solveCommand =
     """
         yarn install --silent --registry http://localhost:4873
         node index.js
     """
     
-    return NpmBasedPackageManager(uniqueName: "yarn1", isReal: false, lazyContextSetupCommand: nil, solveCommand: solveCommand)
+    return LocalPackageManager(pm: NpmBasedPackageManager(uniqueName: "yarn1", isReal: false, lazyContextSetupCommand: nil, solveCommand: solveCommand))
 }
 
-func Yarn2() -> InternalPackageManager {
+func Yarn2() -> LocalPackageManager {
     let lazyContextSetupCommand =
     """
         rm -rf ~/.yarn/berry/cache
@@ -239,35 +241,35 @@ func Yarn2() -> InternalPackageManager {
         yarn node index.js
     """
     
-    return NpmBasedPackageManager(uniqueName: "yarn2", isReal: false, lazyContextSetupCommand: lazyContextSetupCommand, solveCommand: solveCommand)
+    return LocalPackageManager(pm: NpmBasedPackageManager(uniqueName: "yarn2", isReal: false, lazyContextSetupCommand: lazyContextSetupCommand, solveCommand: solveCommand))
 }
 
 
-func NpmReal() -> InternalPackageManager {
+func NpmReal() -> LocalPackageManager {
     let solveCommand =
     """
         npm install --silent
         node index.js
     """
     
-    return WaitForUpdateManager(
+    return LocalPackageManager(pm: WaitForUpdateManager(
             wrapping: NpmBasedPackageManager(uniqueName: "npm-real", isReal: true, lazyContextSetupCommand: nil, solveCommand: solveCommand),
-            sleepTime: 60)
+            sleepTime: 60))
 }
 
-func Yarn1Real() -> InternalPackageManager {
+func Yarn1Real() -> LocalPackageManager {
     let solveCommand =
     """
         yarn install --silent
         node index.js
     """
     
-    return WaitForUpdateManager(
+    return LocalPackageManager(pm: WaitForUpdateManager(
             wrapping: NpmBasedPackageManager(uniqueName: "yarn1-real", isReal: true, lazyContextSetupCommand: nil, solveCommand: solveCommand),
-            sleepTime: 60)
+            sleepTime: 60))
 }
 
-func Yarn2Real() -> InternalPackageManager {
+func Yarn2Real() -> LocalPackageManager {
     let lazyContextSetupCommand =
     """
         rm -rf ~/.yarn/berry/cache
@@ -280,7 +282,7 @@ func Yarn2Real() -> InternalPackageManager {
         yarn node index.js
     """
     
-    return WaitForUpdateManager(
+    return LocalPackageManager(pm: WaitForUpdateManager(
             wrapping: NpmBasedPackageManager(uniqueName: "yarn2-real", isReal: true, lazyContextSetupCommand: lazyContextSetupCommand, solveCommand: solveCommand),
-            sleepTime: 60)
+            sleepTime: 60))
 }

@@ -16,6 +16,8 @@ private class PipImpl {
 }
 
 extension PipImpl : InternalPackageManager {
+    var shouldRenameVars: Bool { isReal }
+    
     private func buildToRegistry(inDirectory srcDir: String) -> PublishResult {
         try! shellOut(to: "python3.9 setup.py bdist_wheel", at: srcDir)
         
@@ -178,10 +180,10 @@ extension DependencyExpr {
 }
 
 
-func Pip() -> InternalPackageManager {
-    PipImpl(uniqueName: "pip", isReal: false)
+func Pip() -> LocalPackageManager {
+    LocalPackageManager(pm: PipImpl(uniqueName: "pip", isReal: false))
 }
 
-func PipReal() -> InternalPackageManager {
-    WaitForUpdateManager(wrapping: PipImpl(uniqueName: "pip-real", isReal: true), sleepTime: 60)
+func PipReal() -> LocalPackageManager {
+    LocalPackageManager(pm: WaitForUpdateManager(wrapping: PipImpl(uniqueName: "pip-real", isReal: true), sleepTime: 60))
 }

@@ -5,6 +5,7 @@ class WaitForUpdateManager : InternalPackageManager {
     let sleepTime: UInt32
     var isDirty = false
     var uniqueName: String { wrapped.uniqueName}
+    var shouldRenameVars: Bool { wrapped.shouldRenameVars }
     
     init(wrapping: InternalPackageManager, sleepTime: UInt32) {
         self.wrapped = wrapping

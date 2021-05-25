@@ -62,19 +62,17 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
 
 
 
-
-
-let ALL_MANAGERS: [String : () -> InternalPackageManager] = [
-    "pip": Pip,
-    "pip-real": PipReal,
-    "npm": Npm,
-    "npm-real": NpmReal,
-    "yarn1": Yarn1,
-    "yarn1-real": Yarn1Real,
-    "yarn2": Yarn2,
-    "yarn2-real": Yarn2Real,
-    "cargo": Cargo.init,
-    "cargo-real": CargoReal
+let ALL_MANAGERS: [String : () -> AnyPackageManager] = [
+    "pip": { Pip().eraseTypes() },
+    "pip-real": { PipReal().eraseTypes() },
+    "npm": { Npm().eraseTypes() },
+    "npm-real": { NpmReal().eraseTypes() },
+    "yarn1": { Yarn1().eraseTypes() },
+    "yarn1-real": { Yarn1Real().eraseTypes() },
+    "yarn2": { Yarn2().eraseTypes() },
+    "yarn2-real": { Yarn2Real().eraseTypes() },
+    "cargo": { Cargo().eraseTypes() },
+    "cargo-real": { CargoReal().eraseTypes() }
 ]
 
 let ALL_LOCAL_MANAGER_NAMES: [String] = ALL_MANAGERS.keys.filter { !$0.hasSuffix("-real") }
@@ -82,13 +80,13 @@ let ALL_REAL_MANAGER_NAMES: [String] = ALL_MANAGERS.keys.filter { $0.hasSuffix("
 
 
 @discardableResult
-func runProgramWithPackageManagers(managerNames: [String], program: EcosystemProgram, funcName: String = #function) -> [ExecutionResult<Int> : Set<String>] {
+func runProgramWithPackageManagers(managerNames: [String], program: EcosystemProgram, funcName: String = #function) -> [ExecutionResult<AnyHashable> : Set<String>] {
     
     let managers = managerNames.map { ALL_MANAGERS[$0]!() }
     
     let resultGroups = managers
-        .map { (program.run(underPackageManager: $0), $0.uniqueName) }
-        .reduce(into: [:]) { ( groups: inout [ExecutionResult<Int> : Set<String>], result_name) in
+        .map { ( $0.run(program) , $0.uniqueName) }
+        .reduce(into: [:]) { ( groups: inout [ExecutionResult<AnyHashable> : Set<String>], result_name) in
             let (result, name) = result_name
             groups[result, default: []].insert(name)
         }
@@ -107,7 +105,7 @@ func runProgramWithPackageManagers(managerNames: [String], program: EcosystemPro
 
 
 @discardableResult
-func runProgramWithAllPackageManagers(program: EcosystemProgram, funcName: String = #function) -> [ExecutionResult<Int> : Set<String>] {
+func runProgramWithAllPackageManagers(program: EcosystemProgram, funcName: String = #function) -> [ExecutionResult<AnyHashable> : Set<String>] {
     let allPackageManagers: [String]
     if shouldRunReal() {
         allPackageManagers = ALL_LOCAL_MANAGER_NAMES + ALL_REAL_MANAGER_NAMES
@@ -119,12 +117,12 @@ func runProgramWithAllPackageManagers(program: EcosystemProgram, funcName: Strin
 }
 
 @discardableResult
-func runProgramWithPackageManagers(managerNames: [String], programName: String, funcName: String = #function) -> [ExecutionResult<Int> : Set<String>] {
+func runProgramWithPackageManagers(managerNames: [String], programName: String, funcName: String = #function) -> [ExecutionResult<AnyHashable> : Set<String>] {
     runProgramWithPackageManagers(managerNames: managerNames, program: ALL_PROGRAMS[programName]!, funcName: funcName)
 }
 
 @discardableResult
-func runProgramWithAllPackageManagers(programName: String, funcName: String = #function) -> [ExecutionResult<Int> : Set<String>] {
+func runProgramWithAllPackageManagers(programName: String, funcName: String = #function) -> [ExecutionResult<AnyHashable> : Set<String>] {
     runProgramWithAllPackageManagers(program: ALL_PROGRAMS[programName]!, funcName: funcName)
 }
 

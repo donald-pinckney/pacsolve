@@ -15,19 +15,19 @@ final class TreeResolutionDifferentiation: XCTestCase {
         
         let npmStyleResult = ExecutionResult.success([
             SolutionTree(children: [
-                ResolvedPackage(package: "a", version: "0.0.1", data: 0, children: [
-                    ResolvedPackage(package: "b", version: "0.0.1", data: 0, children: [])
+                ResolvedPackage(package: "a", version: "0.0.1", data: 0 as AnyHashable, children: [
+                    ResolvedPackage(package: "b", version: "0.0.1", data: 0 as AnyHashable, children: [])
                 ]),
-                ResolvedPackage(package: "b", version: "0.0.2", data: 0, children: [])
+                ResolvedPackage(package: "b", version: "0.0.2", data: 0 as AnyHashable, children: [])
             ])
         ])
         
         let pipStyleResult = ExecutionResult.success([
             SolutionTree(children: [
-                ResolvedPackage(package: "a", version: "0.0.1", data: 0, children: [
-                    ResolvedPackage(package: "b", version: "0.0.1", data: 0, children: [])
+                ResolvedPackage(package: "a", version: "0.0.1", data: 0 as AnyHashable, children: [
+                    ResolvedPackage(package: "b", version: "0.0.1", data: 0 as AnyHashable, children: [])
                 ]),
-                ResolvedPackage(package: "b", version: "0.0.1", data: 1, children: [])
+                ResolvedPackage(package: "b", version: "0.0.1", data: 1 as AnyHashable, children: [])
             ])
         ])
         
@@ -45,19 +45,19 @@ final class TreeResolutionDifferentiation: XCTestCase {
 
         let npmStyleResult = ExecutionResult.success([
             SolutionTree(children: [
-                ResolvedPackage(package: "a", version: "1.0.1", data: 0, children: [
-                    ResolvedPackage(package: "b", version: "1.0.1", data: 0, children: [])
+                ResolvedPackage(package: "a", version: "1.0.1", data: 0 as AnyHashable, children: [
+                    ResolvedPackage(package: "b", version: "1.0.1", data: 0 as AnyHashable, children: [])
                 ]),
-                ResolvedPackage(package: "b", version: "1.0.2", data: 0, children: [])
+                ResolvedPackage(package: "b", version: "1.0.2", data: 0 as AnyHashable, children: [])
             ])
         ])
         
         let pipStyleResult = ExecutionResult.success([
             SolutionTree(children: [
-                ResolvedPackage(package: "a", version: "1.0.1", data: 0, children: [
-                    ResolvedPackage(package: "b", version: "1.0.1", data: 0, children: [])
+                ResolvedPackage(package: "a", version: "1.0.1", data: 0 as AnyHashable, children: [
+                    ResolvedPackage(package: "b", version: "1.0.1", data: 0 as AnyHashable, children: [])
                 ]),
-                ResolvedPackage(package: "b", version: "1.0.1", data: 1, children: [])
+                ResolvedPackage(package: "b", version: "1.0.1", data: 1 as AnyHashable, children: [])
             ])
         ])
         
@@ -74,28 +74,28 @@ final class TreeResolutionDifferentiation: XCTestCase {
 
         let npmStyleResult = ExecutionResult.success([
             SolutionTree(children: [
-                ResolvedPackage(package: "a", version: "0.0.2", data: 0, children: [
-                    ResolvedPackage(package: "b", version: "0.0.1", data: 0, children: [])
+                ResolvedPackage(package: "a", version: "0.0.2", data: 0 as AnyHashable, children: [
+                    ResolvedPackage(package: "b", version: "0.0.1", data: 0 as AnyHashable, children: [])
                 ]),
-                ResolvedPackage(package: "b", version: "0.0.2", data: 0, children: [])
+                ResolvedPackage(package: "b", version: "0.0.2", data: 0 as AnyHashable, children: [])
             ])
         ])
         
         let crossChoice1 = ExecutionResult.success([
             SolutionTree(children: [
-                ResolvedPackage(package: "a", version: "0.0.2", data: 0, children: [
-                    ResolvedPackage(package: "b", version: "0.0.1", data: 0, children: [])
+                ResolvedPackage(package: "a", version: "0.0.2", data: 0 as AnyHashable, children: [
+                    ResolvedPackage(package: "b", version: "0.0.1", data: 0 as AnyHashable, children: [])
                 ]),
-                ResolvedPackage(package: "b", version: "0.0.1", data: 1, children: [])
+                ResolvedPackage(package: "b", version: "0.0.1", data: 1 as AnyHashable, children: [])
             ])
         ])
         
         let crossChoice2 = ExecutionResult.success([
             SolutionTree(children: [
-                ResolvedPackage(package: "a", version: "0.0.1", data: 0, children: [
-                    ResolvedPackage(package: "b", version: "0.0.2", data: 0, children: [])
+                ResolvedPackage(package: "a", version: "0.0.1", data: 0 as AnyHashable, children: [
+                    ResolvedPackage(package: "b", version: "0.0.2", data: 0 as AnyHashable, children: [])
                 ]),
-                ResolvedPackage(package: "b", version: "0.0.2", data: 1, children: [])
+                ResolvedPackage(package: "b", version: "0.0.2", data: 1 as AnyHashable, children: [])
             ])
         ])
         
@@ -112,28 +112,28 @@ final class TreeResolutionDifferentiation: XCTestCase {
 
         let npmStyleResult = ExecutionResult.success([
             SolutionTree(children: [
-                ResolvedPackage(package: "a", version: "1.0.2", data: 0, children: [
-                    ResolvedPackage(package: "b", version: "1.0.1", data: 0, children: [])
+                ResolvedPackage(package: "a", version: "1.0.2", data: 0 as AnyHashable, children: [
+                    ResolvedPackage(package: "b", version: "1.0.1", data: 0 as AnyHashable, children: [])
                 ]),
-                ResolvedPackage(package: "b", version: "1.0.2", data: 0, children: [])
+                ResolvedPackage(package: "b", version: "1.0.2", data: 0 as AnyHashable, children: [])
             ])
         ])
         
         let crossChoice1 = ExecutionResult.success([
             SolutionTree(children: [
-                ResolvedPackage(package: "a", version: "1.0.2", data: 0, children: [
-                    ResolvedPackage(package: "b", version: "1.0.1", data: 0, children: [])
+                ResolvedPackage(package: "a", version: "1.0.2", data: 0 as AnyHashable, children: [
+                    ResolvedPackage(package: "b", version: "1.0.1", data: 0 as AnyHashable, children: [])
                 ]),
-                ResolvedPackage(package: "b", version: "1.0.1", data: 1, children: [])
+                ResolvedPackage(package: "b", version: "1.0.1", data: 1 as AnyHashable, children: [])
             ])
         ])
         
         let crossChoice2 = ExecutionResult.success([
             SolutionTree(children: [
-                ResolvedPackage(package: "a", version: "1.0.1", data: 0, children: [
-                    ResolvedPackage(package: "b", version: "1.0.2", data: 0, children: [])
+                ResolvedPackage(package: "a", version: "1.0.1", data: 0 as AnyHashable, children: [
+                    ResolvedPackage(package: "b", version: "1.0.2", data: 0 as AnyHashable, children: [])
                 ]),
-                ResolvedPackage(package: "b", version: "1.0.2", data: 1, children: [])
+                ResolvedPackage(package: "b", version: "1.0.2", data: 1 as AnyHashable, children: [])
             ])
         ])
         

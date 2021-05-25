@@ -1,49 +1,32 @@
-import ShellOut
-import Foundation
 
-//protocol SolveContext {
-//    func solve(dependencies: [DependencyExpr]) -> SolveResult
-//}
-
-struct PublishError: Error, Equatable, Hashable {
-    let message: String
+enum ExecutionError: Error, Equatable, Hashable {
+    case publishError(error: PublishError)
+    case yankError(error: YankError)
+    case solveError(error: SolveError)
 }
 
-struct YankError: Error, Equatable, Hashable {
-    let message: String
+typealias ExecutionResult<T: Hashable> = Result<[SolutionTree<T>], ExecutionError>
+
+
+protocol PackageManager {
+    associatedtype DataType: Hashable
+    
+    var uniqueName: String { get }
+    
+    func run(program: EcosystemProgram) -> Result<[SolutionTree<DataType>], ExecutionError>
 }
 
-struct UnsupportedConstraintError: Error {
-    let constraint: ConstraintExpr
-}
-
-
-typealias SolveResult<T: Hashable> = Result<SolutionTree<T>, SolveError>
-typealias PublishResult = Result<(), PublishError>
-typealias YankResult = Result<(), YankError>
-
-extension Result: CustomStringConvertible {
-    public var description: String {
-        switch self {
-        case .success(let succ):
-            return "success(\(succ))"
-        case .failure(let err):
-            return "failure(\(err))"
-        }
+extension PackageManager {
+    func eraseTypes() -> AnyPackageManager {
+        AnyPackageManager(uniqueName: self.uniqueName, run: { prog in
+            let r: Result<[SolutionTree<AnyHashable>], ExecutionError> = self.run(program: prog).map { $0.map { $0.mapData { $0 } } }
+            return r
+        })
     }
 }
 
 
-typealias SolveContext = ([DependencyExpr]) -> SolveResult<Int>
-
-protocol InternalPackageManager {
-    var uniqueName: String { get }
-    
-    func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult
-    func yank(package: Package, version: Version) -> YankResult
-    
-    func makeSolveContext() -> SolveContext
-    
-    func startup()
-    func shutdown()
+struct AnyPackageManager {
+    let uniqueName: String
+    let run: (EcosystemProgram) -> Result<[SolutionTree<AnyHashable>], ExecutionError>
 }
