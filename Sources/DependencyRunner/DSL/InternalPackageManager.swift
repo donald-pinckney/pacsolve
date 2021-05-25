@@ -1,10 +1,3 @@
-import ShellOut
-import Foundation
-
-//protocol SolveContext {
-//    func solve(dependencies: [DependencyExpr]) -> SolveResult
-//}
-
 struct PublishError: Error, Equatable, Hashable {
     let message: String
 }

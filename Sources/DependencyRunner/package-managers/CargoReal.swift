@@ -1,5 +1,4 @@
 import ShellOut
-import Foundation
 
 class CargoRealImpl {
     let dirManager = GenDirManager(baseName: "cargo-real")

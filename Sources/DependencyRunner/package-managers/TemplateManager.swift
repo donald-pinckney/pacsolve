@@ -1,5 +1,4 @@
 import Foundation
-import Files
 
 protocol TemplateManagerDelegate : AnyObject {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String]
