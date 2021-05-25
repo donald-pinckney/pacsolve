@@ -10,7 +10,7 @@ class CargoRealImpl {
     }
 }
 
-extension CargoRealImpl : PackageManager {
+extension CargoRealImpl : InternalPackageManager {
     var uniqueName: String { "cargo-real" }
         
     func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult {
@@ -67,6 +67,6 @@ extension DependencyExpr {
     }
 }
 
-func CargoReal() -> PackageManager {
+func CargoReal() -> InternalPackageManager {
     WaitForUpdateManager(wrapping: CargoRealImpl(), sleepTime: 60)
 }

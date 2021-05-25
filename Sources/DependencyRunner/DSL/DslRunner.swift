@@ -3,17 +3,18 @@ import Foundation
 enum ExecutionError: Error, Equatable, Hashable {
     case publishError(error: PublishError)
     case yankError(error: YankError)
+    case solveError(error: SolveError)
 }
 
-typealias ExecutionResult = Result<[SolveResult], ExecutionError>
+typealias ExecutionResult<T: Hashable> = Result<[SolutionTree<T>], ExecutionError>
 
 extension EcosystemProgram {
-    private func runOps(underPackageManager p: PackageManager, logger: Logger) -> ExecutionResult {
+    private func runOps(underPackageManager p: InternalPackageManager, logger: Logger) -> ExecutionResult<Int> {
         logger.log(startPackageManager: p.uniqueName)
         
 //        var contextResults: [ContextVar : SolveResult?] = Dictionary(uniqueKeysWithValues: self.declaredContexts.map { ($0, nil) })
         
-        var allResults: [SolveResult] = []
+        var allResults: [SolutionTree<Int>] = []
         
         let contexts: [ContextVar : SolveContext] = Dictionary(uniqueKeysWithValues: self.declaredContexts.map { ctx in
             logger.log(createContext: ctx)
@@ -41,19 +42,23 @@ extension EcosystemProgram {
                 }
             case let .solve(inContext: ctxVar, constraints: constraints):
                 let result = contexts[ctxVar]!(constraints)
-//                contextResults[ctxVar] = result
-                allResults.append(result)
+                switch result {
+                case .failure(let err):
+                    logger.logOpFailure()
+                    return .failure(.solveError(error: err))
+                case .success(let sol):
+                    allResults.append(sol)
+                }
             }
             logger.logOpSuccess()
         }
         
         
         return .success(allResults)
-        
-//        return ProgramResult(solveResults: allResults, ecosystemStore: EcosystemStore(contextResults: contextResults))
-        
+                
     }
-    func run(underPackageManager p: PackageManager) -> Result<[SolveResult], ExecutionError> {
+    
+    func run(underPackageManager p: InternalPackageManager) -> Result<[SolutionTree<Int>], ExecutionError> {
         let renamer = buildUniquePackageRenaming(self)
         let transformedProg = self.mapPackageNames(renamer.encode)
 //        let transformedProg = self
@@ -66,7 +71,7 @@ extension EcosystemProgram {
         let logger = Logger(renamer: renamer)
         
         let result = transformedProg.runOps(underPackageManager: p, logger: logger)
-        let decodedResult = result.map { $0.map { $0.map { $0.mapPackageNames(renamer.decode) } } }
+        let decodedResult = result.map { $0.map { $0.mapPackageNames(renamer.decode) } } 
         
         return decodedResult
 //        return result

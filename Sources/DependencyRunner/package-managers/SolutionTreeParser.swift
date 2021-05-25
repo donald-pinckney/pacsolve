@@ -8,7 +8,7 @@ struct SolutionTreeParser {
         self.treeLinesToParse = []
     }
     
-    mutating func parseSolutionTree() -> SolveResult {
+    mutating func parseSolutionTree() -> SolveResult<Int> {
         let marker = "TREE DUMP:\n"
         if let markerRange = toParse.range(of: marker) {
             toParse = toParse[markerRange.upperBound..<toParse.endIndex]

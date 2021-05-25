@@ -15,7 +15,7 @@ private class PipImpl {
     }
 }
 
-extension PipImpl : PackageManager {
+extension PipImpl : InternalPackageManager {
     private func buildToRegistry(inDirectory srcDir: String) -> PublishResult {
         try! shellOut(to: "python3.9 setup.py bdist_wheel", at: srcDir)
         
@@ -91,7 +91,7 @@ class PipSolveContext {
         self.templateManager = templateManager
     }
     
-    func solve(dependencies: [DependencyExpr]) -> SolveResult {
+    func solve(dependencies: [DependencyExpr]) -> SolveResult<Int> {
         do {
             try templateManager.instantiatePackageTemplate(intoDirectory: contextDir, package: "context", version: "0.0.1", dependencies: dependencies)
         } catch {
@@ -178,10 +178,10 @@ extension DependencyExpr {
 }
 
 
-func Pip() -> PackageManager {
+func Pip() -> InternalPackageManager {
     PipImpl(uniqueName: "pip", isReal: false)
 }
 
-func PipReal() -> PackageManager {
+func PipReal() -> InternalPackageManager {
     WaitForUpdateManager(wrapping: PipImpl(uniqueName: "pip-real", isReal: true), sleepTime: 60)
 }

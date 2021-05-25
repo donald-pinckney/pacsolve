@@ -18,7 +18,7 @@ struct UnsupportedConstraintError: Error {
 }
 
 
-typealias SolveResult = Result<SolutionTree<Int>, SolveError>
+typealias SolveResult<T: Hashable> = Result<SolutionTree<T>, SolveError>
 typealias PublishResult = Result<(), PublishError>
 typealias YankResult = Result<(), YankError>
 
@@ -34,9 +34,9 @@ extension Result: CustomStringConvertible {
 }
 
 
-typealias SolveContext = ([DependencyExpr]) -> SolveResult
+typealias SolveContext = ([DependencyExpr]) -> SolveResult<Int>
 
-protocol PackageManager {
+protocol InternalPackageManager {
     var uniqueName: String { get }
     
     func publish(package: Package, version: Version, dependencies: [DependencyExpr]) -> PublishResult

@@ -12,10 +12,10 @@ final class MinimizeNumberDependencies: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "ObviousSingleResolutionPre")
         
         let correctResult = ExecutionResult.success([
-            SolveResult.success(SolutionTree(children: [
+            SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", data: 0, children: [
                     ResolvedPackage(package: "b", version: "0.0.2", data: 0, children: [])]),
-                ResolvedPackage(package: "b", version: "0.0.2", data: 1, children: [])]))
+                ResolvedPackage(package: "b", version: "0.0.2", data: 1, children: [])])
         ])
         
         XCTAssertEqual(resultGroups[correctResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()).union(pipNames()))
@@ -27,11 +27,11 @@ final class MinimizeNumberDependencies: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "ObviousSingleResolution")
 
         let correctResult = ExecutionResult.success([
-            SolveResult.success(SolutionTree(children: [
+            SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", data: 0, children: [
                     ResolvedPackage(package: "b", version: "1.0.2", data: 0, children: [])]),
                 ResolvedPackage(package: "b", version: "1.0.2", data: 1, children: [])
-            ]))
+            ])
         ])
         
         XCTAssertEqual(resultGroups[correctResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()).union(pipNames()))

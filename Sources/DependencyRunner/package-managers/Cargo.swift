@@ -24,7 +24,7 @@ class Cargo {
     }
 }
 
-extension Cargo : PackageManager {
+extension Cargo : InternalPackageManager {
     var uniqueName: String { "cargo" }
 
     private func buildCrate(inDirectory srcDir: String, package: Package, version: Version, dependencies: [DependencyExpr]) throws -> (crateBytes: Data, crateFilename: String, metadata: CrateMetadata) {
@@ -122,7 +122,7 @@ class CargoSolveContext {
         self.templateManager = templateManager
     }
     
-    func solve(dependencies: [DependencyExpr]) -> SolveResult {
+    func solve(dependencies: [DependencyExpr]) -> SolveResult<Int> {
         do {
             try templateManager.instantiateContextTemplate(intoDirectory: contextDir, package: "context", version: "0.0.1", dependencies: dependencies)
         } catch {

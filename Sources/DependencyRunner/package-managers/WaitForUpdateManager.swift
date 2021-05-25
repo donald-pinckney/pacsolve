@@ -1,12 +1,12 @@
 import Foundation
 
-class WaitForUpdateManager : PackageManager {
-    let wrapped: PackageManager
+class WaitForUpdateManager : InternalPackageManager {
+    let wrapped: InternalPackageManager
     let sleepTime: UInt32
     var isDirty = false
     var uniqueName: String { wrapped.uniqueName}
     
-    init(wrapping: PackageManager, sleepTime: UInt32) {
+    init(wrapping: InternalPackageManager, sleepTime: UInt32) {
         self.wrapped = wrapping
         self.sleepTime = sleepTime
     }

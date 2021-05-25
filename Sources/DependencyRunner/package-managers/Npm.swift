@@ -20,7 +20,7 @@ private class NpmBasedPackageManager {
 }
 
 
-extension NpmBasedPackageManager : PackageManager {
+extension NpmBasedPackageManager : InternalPackageManager {
     func startup() {
         if !isReal {
             let configDir = self.dirManager.getConfigsDirectory().relative
@@ -119,7 +119,7 @@ class NpmSolveContext {
         self.solveCommand = solveCommand
     }
     
-    func solve(dependencies: [DependencyExpr]) -> SolveResult {
+    func solve(dependencies: [DependencyExpr]) -> SolveResult<Int> {
         
         do {
             try templateManager.instantiatePackageTemplate(intoDirectory: contextDir, package: "context", version: "0.0.1", dependencies: dependencies)
@@ -204,7 +204,7 @@ extension DependencyExpr {
 }
 
 
-func Npm() -> PackageManager {
+func Npm() -> InternalPackageManager {
     let solveCommand =
     """
         npm install --silent --registry http://localhost:4873
@@ -214,7 +214,7 @@ func Npm() -> PackageManager {
     return NpmBasedPackageManager(uniqueName: "npm", isReal: false, lazyContextSetupCommand: nil, solveCommand: solveCommand)
 }
 
-func Yarn1() -> PackageManager {
+func Yarn1() -> InternalPackageManager {
     let solveCommand =
     """
         yarn install --silent --registry http://localhost:4873
@@ -224,7 +224,7 @@ func Yarn1() -> PackageManager {
     return NpmBasedPackageManager(uniqueName: "yarn1", isReal: false, lazyContextSetupCommand: nil, solveCommand: solveCommand)
 }
 
-func Yarn2() -> PackageManager {
+func Yarn2() -> InternalPackageManager {
     let lazyContextSetupCommand =
     """
         rm -rf ~/.yarn/berry/cache
@@ -243,7 +243,7 @@ func Yarn2() -> PackageManager {
 }
 
 
-func NpmReal() -> PackageManager {
+func NpmReal() -> InternalPackageManager {
     let solveCommand =
     """
         npm install --silent
@@ -255,7 +255,7 @@ func NpmReal() -> PackageManager {
             sleepTime: 60)
 }
 
-func Yarn1Real() -> PackageManager {
+func Yarn1Real() -> InternalPackageManager {
     let solveCommand =
     """
         yarn install --silent
@@ -267,7 +267,7 @@ func Yarn1Real() -> PackageManager {
             sleepTime: 60)
 }
 
-func Yarn2Real() -> PackageManager {
+func Yarn2Real() -> InternalPackageManager {
     let lazyContextSetupCommand =
     """
         rm -rf ~/.yarn/berry/cache
