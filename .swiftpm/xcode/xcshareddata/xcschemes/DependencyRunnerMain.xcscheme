@@ -76,12 +76,16 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "Max1OrMax2_LexicalReorder"
+            argument = "TreeResolution"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "cargo"
+            argument = "external-asp"
             isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "pip"
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <EnvironmentVariables>

@@ -79,9 +79,6 @@ struct LocalPackageManager: PackageManager {
     
     
     private func runOps(prog: EcosystemProgram, logger: Logger) -> ExecutionResult<Int> {
-        logger.log(startPackageManager: uniqueName)
-
-
         var allResults: [SolutionTree<Int>] = []
 
         let contexts: [ContextVar : SolveContext] = Dictionary(uniqueKeysWithValues: prog.declaredContexts.map { ctx in

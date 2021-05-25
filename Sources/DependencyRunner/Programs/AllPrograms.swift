@@ -86,7 +86,9 @@ func runProgramWithPackageManagers(managerNames: [String], program: EcosystemPro
     let managers = managerNames.map { ALL_MANAGERS[$0]!() }
     
     let resultGroups = managers
-        .map { ( $0.run(program) , $0.uniqueName) }
+        .map { pm -> (ExecutionResult<AnyHashable>, String) in
+            Logger.log(startPackageManager: pm.uniqueName)
+            return (pm.run(program) , pm.uniqueName) }
         .reduce(into: [:]) { ( groups: inout [ExecutionResult<AnyHashable> : Set<String>], result_name) in
             let (result, name) = result_name
             groups[result, default: []].insert(name)

@@ -4,7 +4,7 @@ import Foundation
 struct Logger {
     let renamer: PackageRenamer
     
-    func log(startPackageManager managerName: String) {
+    static func log(startPackageManager managerName: String) {
         print("\nStarting execution with package manager: \(managerName.bold())".underline())
     }
     
