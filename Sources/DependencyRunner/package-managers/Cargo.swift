@@ -37,9 +37,9 @@ extension CargoImpl : InternalPackageManager {
         let crateBytes = try! Data(contentsOf: crateURL)
         let crateSha = crateBytes.sha256().toHexString()
     
-        let depsMeta = try dependencies.map { CrateMetadata.MetaDependency(name: $0.packageToDependOn.name, req: try $0.constraint.cargoFormat()) }
+        let depsMeta = try dependencies.map { CrateMetadata.MetaDependency(name: $0.packageToDependOn.description, req: try $0.constraint.cargoFormat()) }
         
-        return (crateBytes: crateBytes, crateFilename: crateFilename, metadata: CrateMetadata(name: package.name, vers: version.description, deps: depsMeta, cksum: crateSha))
+        return (crateBytes: crateBytes, crateFilename: crateFilename, metadata: CrateMetadata(name: package.description, vers: version.description, deps: depsMeta, cksum: crateSha))
     }
     
     func writeRegistryUpdate(metadata meta: CrateMetadata) {
@@ -149,7 +149,7 @@ extension CargoImpl : TemplateManagerDelegate {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String] {
         let depStrings = try dependencies.map { try $0.cargoFormat() }
         return [
-            "$NAME_STRING" : package.name,
+            "$NAME_STRING" : package.description,
             "$VERSION_STRING" : version.description,
             "$REGISTRY_DIR" : self.dirManager.getRegistryDirectory().absolute,
             "$DEPENDENCIES_TOML_FRAGMENT" : depStrings.joined(separator: "\n"),

@@ -51,7 +51,7 @@ extension CargoRealImpl : TemplateManagerDelegate {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String] {
         let depStrings = try dependencies.map { try $0.cargoRealFormat() }
         return [
-            "$NAME_STRING" : package.name,
+            "$NAME_STRING" : package.description,
             "$VERSION_STRING" : version.description,
             "$DEPENDENCIES_TOML_FRAGMENT" : depStrings.joined(separator: "\n"),
 //            "$DEPENDENCY_IMPORTS" : dependencies.map() { "use \($0.packageToDependOn);" }.joined(separator: "\n"),

@@ -151,7 +151,7 @@ extension NpmBasedPackageManager : TemplateManagerDelegate {
         let scopeStr = isReal ? "@wtcbkjbuzrbl/" : ""
         let depStrings = try dependencies.map { try $0.npmFormat(isReal: isReal) }
         return [
-            "$NAME_STRING" : package.name,
+            "$NAME_STRING" : package.description,
             "$VERSION_STRING" : version.description,
             "$DEPENDENCIES_JSON_FRAGMENT" : depStrings.joined(separator: ", \n"),
             "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.packageToDependOn) = require('\(scopeStr)\($0.packageToDependOn)');" }.joined(separator: "\n"),

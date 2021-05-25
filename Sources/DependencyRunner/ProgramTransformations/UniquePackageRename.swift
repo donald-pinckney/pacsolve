@@ -47,8 +47,8 @@ func buildUniquePackageRenaming(_ program: EcosystemProgram) -> PackageRenamer {
         uniqueNamingCounter += 1
         var r = UInt64.random(in: UInt64.min...UInt64.max)
         d.append(Data(bytes: &r, count: MemoryLayout<UInt32>.size))
-        d.append(p.name.data(using: .utf8)!)
-        let sha = "a" + p.name + d.sha224().toHexString()
+        d.append(p.description.data(using: .utf8)!)
+        let sha = "a" + p.description + d.sha224().toHexString()
         assert(sha.count <= 64)
         
         let newP = Package(stringLiteral: sha)

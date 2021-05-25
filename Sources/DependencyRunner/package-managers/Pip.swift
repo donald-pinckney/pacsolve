@@ -122,7 +122,7 @@ extension PipImpl : TemplateManagerDelegate {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String] {
         let depStrings = try dependencies.flatMap { try $0.pipFormat() }
         return [
-            "$NAME_STRING" : package.name,
+            "$NAME_STRING" : package.description,
             "$VERSION_STRING" : version.description,
             "$DEPENDENCIES_COMMA_SEP" : depStrings.map { $0.quoted() }.joined(separator: ", \n"),
             "$DEPENDENCIES_LINE_SEP" : depStrings.joined(separator: "\n"),

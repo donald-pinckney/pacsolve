@@ -45,8 +45,8 @@ private extension Version {
     }
 }
 
-private extension Package {
-    static func <(lhs: Package, rhs: Package) -> Bool {
-        lhs.name < rhs.name
-    }
-}
+//private extension Package {
+//    static func <(lhs: Package, rhs: Package) -> Bool {
+//        lhs.description < rhs.description
+//    }
+//}

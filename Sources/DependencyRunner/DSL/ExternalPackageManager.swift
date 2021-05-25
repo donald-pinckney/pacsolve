@@ -20,6 +20,7 @@ struct ExternalPackageManager: PackageManager {
                 
         do {
             let enc = JSONEncoder()
+            enc.outputFormatting = .prettyPrinted
             let jsonIn = try enc.encode(program)
             
             let tempFileIn = try self.dirManager.newTempFile(ext: "in.json", contents: jsonIn)
