@@ -1,0 +1,10 @@
+{
+  "python.analysis.typeCheckingMode": "basic",
+  "files.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/.swiftpm": true,
+    "**/.build": true,
+    "**/.vagrant": true,
+  }
+}

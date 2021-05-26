@@ -5,4 +5,5 @@
 xcuserdata/
 generated/
 .vagrant/
-venv/
+.venv/
+__pycache__/
