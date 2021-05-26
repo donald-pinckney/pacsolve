@@ -27,7 +27,7 @@ struct ExternalPackageManager: PackageManager {
             let tempFileOut = try self.dirManager.newTempFile(ext: "out.json", contents: nil)
 
             let executable = baseCommand[0]
-            let args = Array(baseCommand[1...]) + ["--input-json", tempFileIn.path, "--output-json", tempFileOut.path]
+            let args = Array(baseCommand[1...]) + ["--in-json", tempFileIn.path, "--out-json", tempFileOut.path]
             print(try shellOut(to: executable, arguments: args))
             
             let jsonOut = try Data(contentsOf: tempFileOut)

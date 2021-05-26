@@ -215,7 +215,29 @@ enum EcosystemOp: Codable {
     }
 }
 
+enum VersionFormat: Codable {
+    case semver
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .semver: try container.encode("semver")
+        }
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let str = try container.decode(String.self)
+        switch str {
+        case "semver": self = .semver
+        default:
+            throw DecodingError.dataCorruptedError(in: container, debugDescription: "Unknown VersionFormat case: \(str)")
+        }
+    }
+}
+
 struct EcosystemProgram: Codable {
+    var versionFormat: VersionFormat = .semver
     let declaredContexts: Set<ContextVar>
     let ops: [EcosystemOp]
 }

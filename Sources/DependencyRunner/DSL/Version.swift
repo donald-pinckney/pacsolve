@@ -17,4 +17,14 @@ struct Version : Equatable, Hashable, ExpressibleByStringLiteral, CustomStringCo
     var description: String {
         "\(major).\(minor).\(bug)"
     }
+    
+//    func encode(to encoder: Encoder) throws {
+//        var container = encoder.singleValueContainer()
+//        try container.encode(self.description)
+//    }
+//    
+//    init(from decoder: Decoder) throws {
+//        let str = try decoder.singleValueContainer().decode(String.self)
+//        self.init(stringLiteral: str)
+//    }
 }

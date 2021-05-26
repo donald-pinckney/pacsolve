@@ -4,6 +4,5 @@
 # Probably there is a good and easy way to build a python executable .pex thingy
 # But I don't know offhand
 
-cd PythonSolver
-source venv/bin/activate
-python solver.py $@
+source PythonSolver/venv/bin/activate
+python PythonSolver/solver.py $@
