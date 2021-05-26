@@ -5,3 +5,4 @@
 xcuserdata/
 generated/
 .vagrant/
+venv/

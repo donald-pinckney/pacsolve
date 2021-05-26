@@ -76,7 +76,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "TreeResolution"
+            argument = "TestC_AndCNF"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument

@@ -73,7 +73,7 @@ let ALL_MANAGERS: [String : () -> AnyPackageManager] = [
     "yarn2-real": { Yarn2Real().eraseTypes() },
     "cargo": { Cargo().eraseTypes() },
     "cargo-real": { CargoReal().eraseTypes() },
-    "external-asp": { ExternalPackageManager(name: "external-asp", baseCommand: ["python", "solver.py"]).eraseTypes() }
+    "external-asp": { ExternalPackageManager(name: "external-asp", baseCommand: ["PythonSolver/main.sh"]).eraseTypes() }
 ]
 
 let ALL_LOCAL_MANAGER_NAMES: [String] = ALL_MANAGERS.keys.filter { !$0.hasSuffix("-real") }

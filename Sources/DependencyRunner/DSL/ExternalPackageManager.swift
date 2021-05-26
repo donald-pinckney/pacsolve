@@ -28,7 +28,7 @@ struct ExternalPackageManager: PackageManager {
 
             let executable = baseCommand[0]
             let args = Array(baseCommand[1...]) + ["--input-json", tempFileIn.path, "--output-json", tempFileOut.path]
-            try shellOut(to: executable, arguments: args)
+            print(try shellOut(to: executable, arguments: args))
             
             let jsonOut = try Data(contentsOf: tempFileOut)
             
