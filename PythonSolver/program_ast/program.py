@@ -1,4 +1,4 @@
-from .version import Version
+from .version import Version, VersionFormat
 from .dependency import Dependency
 from solver.solve_result import SolutionGraph
 from typing import List, Optional, Set
@@ -48,7 +48,8 @@ class OpSolve(Op):
 
 
 class Program(object):
-  def __init__(self, contexts: Set[str], ops: List[Op]) -> None:
+  def __init__(self, contexts: Set[str], ops: List[Op], version_format: VersionFormat) -> None:
     super().__init__()
     self.contexts = contexts
     self.ops = ops
+    self.version_format = version_format

@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Set, Union, cast
-from program_ast.version import Version
+from program_ast.version import Version, VersionFormat
 
 class SolutionGraphVertex(ABC):
   @abstractmethod
@@ -65,9 +65,9 @@ class ExecutionResult(object):
     self.is_success = is_success
     self.results_or_error = results_or_error
 
-  def to_json(self):
+  def to_json(self, version_format: VersionFormat):
     if self.is_success:
-      return {'result_success': [cast(SolutionGraph, g).to_json() for g in self.results_or_error]}
+      return {'result_success': {'versionFormat': version_format.to_json(), 'results': [cast(SolutionGraph, g).to_json() for g in self.results_or_error]}}
     else:
       return {'result_failure': self.results_or_error}
 

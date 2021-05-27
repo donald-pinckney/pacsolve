@@ -1,7 +1,7 @@
 from typing import List, Optional
 from program_ast.version import SemverVersion
 from solver.base import Registry, Solver
-from solver.solve_result import SolutionGraph, RootContextVertex, ResolvedPackageVertex
+from solver.solve_result import SolutionGraph, RootContextVertex, ResolvedPackageVertex, SolveError
 from program_ast.dependency import Dependency
 
 class BadSolver(Solver):
@@ -13,7 +13,7 @@ class BadSolver(Solver):
     
     g = SolutionGraph(root, [a, b, c])
     g.add_edge(root, a)
-    g.add_edge(root, c)
+    g.add_edge(root, c)    
     g.add_edge(a, b)
     return g
     

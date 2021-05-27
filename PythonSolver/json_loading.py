@@ -94,4 +94,4 @@ def load_program(j) -> Program:
   
   contexts = set(j['declaredContexts'])
   ops = [load_op(version_format_fn, oj) for oj in j['ops']]
-  return Program(contexts, ops)
+  return Program(contexts, ops, version_format)

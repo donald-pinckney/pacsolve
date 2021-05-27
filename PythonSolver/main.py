@@ -25,7 +25,7 @@ def main():
 
   print(result)
   
-  result_json = result.to_json()
+  result_json = result.to_json(prog.version_format)
 
   with open(out_path, 'w') as out_f:
     json.dump(result_json, out_f, indent=2)

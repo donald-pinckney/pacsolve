@@ -59,3 +59,11 @@ class StringVersion(Version):
 class VersionFormat(Enum):
   SEMVER = auto()
   STRING = auto()
+
+  def to_json(self):
+    if self is VersionFormat.SEMVER:
+      return "semver"
+    elif self is VersionFormat.STRING:
+      return "string"
+    else:
+      raise ValueError()
