@@ -1,6 +1,5 @@
 from program_ast.constraint import *
 from program_ast.dependency import *
-from program_ast.op import *
 from program_ast.program import *
 from program_ast.version import *
 
@@ -95,4 +94,4 @@ def load_program(j) -> Program:
   
   contexts = set(j['declaredContexts'])
   ops = [load_op(version_format_fn, oj) for oj in j['ops']]
-  return Program(version_format, contexts, ops)
+  return Program(contexts, ops)

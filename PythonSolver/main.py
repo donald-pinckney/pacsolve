@@ -1,6 +1,7 @@
 import json
 import argparse
 from json_loading import load_program
+from solver.bad_solver import BadSolver
 
 
 def main():
@@ -19,12 +20,15 @@ def main():
   print()
   print(repr(prog))
 
-  # result = prog.run()
-  
-  # result_json = result.to_json()
+  solver = BadSolver()
+  result = solver.run_program(prog)
 
-  # with open(out_path, 'w') as out_f:
-  #   json.dump(result_json, out_f)
+  print(result)
+  
+  result_json = result.to_json()
+
+  with open(out_path, 'w') as out_f:
+    json.dump(result_json, out_f)
 
 
 if __name__ == "__main__":

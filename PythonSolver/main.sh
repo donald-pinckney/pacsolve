@@ -5,4 +5,4 @@
 # But I don't know offhand
 
 source PythonSolver/.venv/bin/activate
-python PythonSolver/solver.py $@
+python PythonSolver/main.py $@
