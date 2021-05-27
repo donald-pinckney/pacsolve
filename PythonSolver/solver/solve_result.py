@@ -41,10 +41,10 @@ class SolutionGraph(object):
   def __init__(self, context_vertex: RootContextVertex, package_vertices: List[ResolvedPackageVertex]) -> None:
     super().__init__()
     self.context_vertex = context_vertex
-    self.package_vertices = package_vertices
-    all_vertices: List[SolutionGraphVertex] = cast(List[SolutionGraphVertex], package_vertices) + [cast(SolutionGraphVertex, context_vertex)]
-    self.out_edges: Dict[SolutionGraphVertex, Set[SolutionGraphVertex]] = {n: set() for n in all_vertices}
-    self.all_vertices = set(all_vertices)
+    self.package_vertices = set(package_vertices)
+    self.all_vertices = set(cast(List[SolutionGraphVertex], package_vertices))
+    self.all_vertices.add(context_vertex)
+    self.out_edges: Dict[SolutionGraphVertex, Set[SolutionGraphVertex]] = {n: set() for n in self.all_vertices}
 
   def add_edge(self, from_vertex: SolutionGraphVertex, to_vertex: SolutionGraphVertex):
     assert from_vertex in self.all_vertices
