@@ -28,7 +28,7 @@ def main():
   result_json = result.to_json()
 
   with open(out_path, 'w') as out_f:
-    json.dump(result_json, out_f)
+    json.dump(result_json, out_f, indent=2)
 
 
 if __name__ == "__main__":

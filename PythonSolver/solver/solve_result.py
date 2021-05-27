@@ -1,11 +1,13 @@
-from abc import ABC
-from typing import Dict, List, Set, Union, cast
+from abc import ABC, abstractmethod
+from typing import Any, Dict, List, Set, Union, cast
 from program_ast.version import Version
 
-class SolutionGraphNode(ABC):
-  pass
-
-class ResolvedPackageNode(SolutionGraphNode):
+class SolutionGraphVertex(ABC):
+  @abstractmethod
+  def to_json(self) -> Any:
+    pass
+  
+class ResolvedPackageVertex(SolutionGraphVertex):
   def __init__(self, package: str, version: Version) -> None:
     super().__init__()
     self.package = package
@@ -23,25 +25,38 @@ class ResolvedPackageNode(SolutionGraphNode):
   def __hash__(self):
     return hash(self.__members())
 
+  def to_json(self) -> Any:
+    return {'resolved_package_vertex': {'package': self.package, 'vertex': self.version.to_json()}}
 
-class RootContextNode(SolutionGraphNode):
+
+class RootContextVertex(SolutionGraphVertex):
   def __init__(self) -> None:
     super().__init__()
 
+  def to_json(self) -> Any:
+    return {'root_context_vertex': None}
+
 
 class SolutionGraph(object):
-  def __init__(self, context_node: RootContextNode, package_nodes: List[ResolvedPackageNode]) -> None:
+  def __init__(self, context_vertex: RootContextVertex, package_vertices: List[ResolvedPackageVertex]) -> None:
     super().__init__()
-    self.context_node = context_node
-    self.package_nodes = package_nodes
-    all_nodes: List[SolutionGraphNode] = cast(List[SolutionGraphNode], package_nodes) + [cast(SolutionGraphNode, context_node)]
-    self.out_edges: Dict[SolutionGraphNode, Set[ResolvedPackageNode]] = {n: set() for n in all_nodes}
+    self.context_vertex = context_vertex
+    self.package_vertices = package_vertices
+    all_vertices: List[SolutionGraphVertex] = cast(List[SolutionGraphVertex], package_vertices) + [cast(SolutionGraphVertex, context_vertex)]
+    self.out_edges: Dict[SolutionGraphVertex, Set[SolutionGraphVertex]] = {n: set() for n in all_vertices}
+    self.all_vertices = set(all_vertices)
 
-  def add_edge(self, from_node: SolutionGraphNode, to_node: ResolvedPackageNode):
-    self.out_edges[from_node].add(to_node)
+  def add_edge(self, from_vertex: SolutionGraphVertex, to_vertex: SolutionGraphVertex):
+    assert from_vertex in self.all_vertices
+    assert to_vertex in self.all_vertices
+    self.out_edges[from_vertex].add(to_vertex)
   
   def to_json(self):
-    pass
+    return {
+      'context_vertex': self.context_vertex.to_json(), 
+      'package_vertices': [p.to_json() for p in self.package_vertices], 
+      'adjacency_lists': [{'source_vertex': k.to_json(), 'out_edges': [ov.to_json() for ov in outs]} for k, outs in self.out_edges.items()]
+    }
 
 
 class ExecutionResult(object):
@@ -51,7 +66,10 @@ class ExecutionResult(object):
     self.results_or_error = results_or_error
 
   def to_json(self):
-    pass
+    if self.is_success:
+      return {'result_success': [cast(SolutionGraph, g).to_json() for g in self.results_or_error]}
+    else:
+      return {'result_failure': self.results_or_error}
 
 
 class SolveError(Exception):

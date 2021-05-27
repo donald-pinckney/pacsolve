@@ -1,9 +1,15 @@
+from abc import ABC, abstractmethod
 from enum import Enum, auto
 
 # Base class for different supported Version formats
-class Version(object):
+class Version(ABC):
   def __init__(self) -> None:
     super().__init__()
+
+  @abstractmethod
+  def to_json(self):
+    pass
+  
 
 # We have either a semver format
 class SemverVersion(Version):
@@ -25,6 +31,9 @@ class SemverVersion(Version):
   def __hash__(self):
     return hash(self.__members())
 
+  def to_json(self):
+    return {'major': self.major, 'minor': self.minor, 'bug': self.bug}
+
 # Or a version that is just a string blob
 class StringVersion(Version):
   def __init__(self, version_string: str) -> None:
@@ -42,6 +51,9 @@ class StringVersion(Version):
 
   def __hash__(self):
     return hash(self.__members())
+
+  def to_json(self):
+    return self.version_string
 
 # We also have an explicit enum for the chosen version format.
 class VersionFormat(Enum):
