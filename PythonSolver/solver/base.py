@@ -10,7 +10,7 @@ class WorldState(object):
   def __init__(self, contexts: Set[str]) -> None:
     super().__init__()
     self.registry: Registry = dict()
-    self.context_results: Dict[str, Optional[SolutionTree]] = {ctx: None for ctx in contexts}
+    self.context_results: Dict[str, Optional[SolutionGraph]] = {ctx: None for ctx in contexts}
 
   def publish(self, package: str, version: Version, dependencies: List[Dependency]):
     if (package, version) in self.registry:
@@ -24,16 +24,16 @@ class WorldState(object):
   def yank(self, package: str, version: Version):
     del self.registry[(package, version)]
 
-  def get_context_result(self, context: str) -> Optional[SolutionTree]:
+  def get_context_result(self, context: str) -> Optional[SolutionGraph]:
     return self.context_results[context]
 
-  def set_context_result(self, context: str, result: SolutionTree):
+  def set_context_result(self, context: str, result: SolutionGraph):
     self.context_results[context] = result
 
 class Solver(ABC):
   # Should raise a SolveError exception if dependencies can't be solved.
   @abstractmethod
-  def solve(self, previous_solution: Optional[SolutionTree], dependencies: List[Dependency], registry: Registry) -> SolutionTree:
+  def solve(self, previous_solution: Optional[SolutionGraph], dependencies: List[Dependency], registry: Registry) -> SolutionGraph:
     pass
 
   def run_program(self, program: Program) -> ExecutionResult:

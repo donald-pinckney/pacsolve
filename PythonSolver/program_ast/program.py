@@ -1,6 +1,6 @@
 from .version import Version
 from .dependency import Dependency
-from solver.solve_result import SolutionTree
+from solver.solve_result import SolutionGraph
 from typing import List, Optional, Set
 from abc import ABC, abstractmethod
 
@@ -10,7 +10,7 @@ class Op(ABC):
     super().__init__()
 
   @abstractmethod
-  def run(self, solver, world_state) -> Optional[SolutionTree]:
+  def run(self, solver, world_state) -> Optional[SolutionGraph]:
     pass
 
 # A publish operation
@@ -21,7 +21,7 @@ class OpPublish(Op):
     self.version = version
     self.dependencies = dependencies
 
-  def run(self, solver, world_state) -> Optional[SolutionTree]:
+  def run(self, solver, world_state) -> Optional[SolutionGraph]:
     world_state.publish(self.package, self.version, self.dependencies)
 
 # A yank operation
@@ -31,7 +31,7 @@ class OpYank(Op):
     self.package = package
     self.version = version
 
-  def run(self, solver, world_state) -> Optional[SolutionTree]:
+  def run(self, solver, world_state) -> Optional[SolutionGraph]:
     world_state.yank(self.package, self.version)
 
 # A solve operation
@@ -41,7 +41,7 @@ class OpSolve(Op):
     self.in_context = in_context
     self.dependencies = dependencies
 
-  def run(self, solver, world_state) -> Optional[SolutionTree]:
+  def run(self, solver, world_state) -> Optional[SolutionGraph]:
     result = solver.solve(world_state.get_context_result(self.in_context), self.dependencies, world_state.get_registry())
     world_state.set_context_result(self.in_context, result)
     return result
