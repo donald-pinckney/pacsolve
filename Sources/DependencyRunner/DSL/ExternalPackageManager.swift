@@ -3,6 +3,11 @@ import ShellOut
 
 struct Unit: Hashable, Codable {}
 
+struct AnyVersionTypeResults: Codable {
+    let results: [SolutionGraph<Unit>]
+    let versionFormat: String
+}
+
 struct ExternalPackageManager: PackageManager {
     typealias DataType = AnyHashable
     
@@ -33,9 +38,9 @@ struct ExternalPackageManager: PackageManager {
             let jsonOut = try Data(contentsOf: tempFileOut)
             
             let dec = JSONDecoder()
-            let result = try dec.decode(Result<[SolutionGraph<Unit>], ExecutionError>.self, from: jsonOut)
+            let result = try dec.decode(Result<AnyVersionTypeResults, ExecutionError>.self, from: jsonOut)
             
-            return result.map { $0.map { $0.mapVertices { $0.mapData { $0 as AnyHashable }}}}
+            return result.map { $0.results.map { $0.mapVertices { $0.mapData { $0 as AnyHashable }}}}
         } catch {
             return .failure(ExecutionError(message: "Communication error: \(error)"))
         }

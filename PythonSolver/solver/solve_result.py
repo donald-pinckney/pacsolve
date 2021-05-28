@@ -14,7 +14,7 @@ class ResolvedPackageVertex(SolutionGraphVertex):
     self.version = version
 
   def to_json(self) -> Any:
-    return {'resolved_package_vertex': {'package': self.package, 'vertex': self.version.to_json()}}
+    return {'resolved_package_vertex': {'package': self.package, 'version': self.version.to_json(), 'data': {}}}
 
 
 class RootContextVertex(SolutionGraphVertex):
@@ -49,8 +49,8 @@ class SolutionGraph(object):
   def to_json(self):
     return {
       'vertices': [v.to_json() for v in self.vertices],
-      'context_vertex': self.context_vertex,
-      'adjacency_lists': {v: [ov for ov in outs] for v, outs in self.out_edges.items()}
+      'contextVertex': self.context_vertex,
+      'adjacencyLists': {v: [ov for ov in outs] for v, outs in self.out_edges.items()}
     }
 
 
