@@ -27,6 +27,11 @@ extension ResolvedPackage {
     func mapData<E>(_ f: (D) -> E) -> ResolvedPackage<E> {
         ResolvedPackage<E>(package: self.package, version: self.version, data: f(self.data), children: self.children.map { $0.mapData(f) })
     }
+    
+    func traversePostorder<R>(_ f: (ResolvedPackage, [R]) -> R) -> R {
+        let results = self.children.map { $0.traversePostorder(f) }
+        return f(self, results)
+    }
 }
 
 struct SolutionTree<D>: CustomStringConvertible, Equatable, Hashable where D: Hashable {
@@ -46,6 +51,10 @@ struct SolutionTree<D>: CustomStringConvertible, Equatable, Hashable where D: Ha
     
     func mapData<E>(_ f: (D) -> E) -> SolutionTree<E> {
         SolutionTree<E>(children: self.children.map { $0.mapData(f) })
+    }
+    
+    func traversePostorderExceptRoot<R>(_ f: (ResolvedPackage<D>, [R]) -> R) -> [R] {
+        return self.children.map { $0.traversePostorder(f) }
     }
 }
 

@@ -3,7 +3,7 @@ struct ExecutionError: Error, Equatable, Hashable, Codable {
     let message: String
 }
 
-typealias ExecutionResult<T: Hashable> = Result<[SolutionTree<T>], ExecutionError>
+typealias ExecutionResult<T: Hashable> = Result<[SolutionGraph<T>], ExecutionError>
 
 
 protocol PackageManager {
@@ -11,13 +11,13 @@ protocol PackageManager {
     
     var uniqueName: String { get }
     
-    func run(program: EcosystemProgram) -> Result<[SolutionTree<DataType>], ExecutionError>
+    func run(program: EcosystemProgram) -> Result<[SolutionGraph<DataType>], ExecutionError>
 }
 
 extension PackageManager {
     func eraseTypes() -> AnyPackageManager {
         AnyPackageManager(uniqueName: self.uniqueName, run: { prog in
-            let r: Result<[SolutionTree<AnyHashable>], ExecutionError> = self.run(program: prog).map { $0.map { $0.mapData { $0 } } }
+            let r: Result<[SolutionGraph<AnyHashable>], ExecutionError> = self.run(program: prog).map { $0.map { $0.mapVertices { $0.mapData { $0 as AnyHashable }}}}
             return r
         })
     }
@@ -26,5 +26,5 @@ extension PackageManager {
 
 struct AnyPackageManager {
     let uniqueName: String
-    let run: (EcosystemProgram) -> Result<[SolutionTree<AnyHashable>], ExecutionError>
+    let run: (EcosystemProgram) -> Result<[SolutionGraph<AnyHashable>], ExecutionError>
 }

@@ -51,7 +51,7 @@ struct LocalPackageManager: PackageManager {
         pm.uniqueName
     }
     
-    func run(program prog: EcosystemProgram) -> Result<[SolutionTree<Int>], ExecutionError> {
+    func run(program prog: EcosystemProgram) -> Result<[SolutionGraph<Int>], ExecutionError> {
         let renamer: PackageRenamer
         if pm.shouldRenameVars {
             renamer = buildUniquePackageRenaming(prog)
@@ -69,16 +69,16 @@ struct LocalPackageManager: PackageManager {
         let logger = Logger(renamer: renamer)
 
         let result = self.runOps(prog: transformedProg, logger: logger)
-        let decodedResult = result.map { $0.map { $0.mapPackageNames(renamer.decode) } }
-
-        return decodedResult
+        let decodedResultTrees = result.map { $0.map { $0.mapPackageNames(renamer.decode) } }
+        let resultGraphs = decodedResultTrees.map { $0.map { SolutionGraph(fromTree: $0) } }
+        return resultGraphs
     }
     
     
     
     
     
-    private func runOps(prog: EcosystemProgram, logger: Logger) -> ExecutionResult<Int> {
+    private func runOps(prog: EcosystemProgram, logger: Logger) -> Result<[SolutionTree<Int>], ExecutionError> {
         var allResults: [SolutionTree<Int>] = []
 
         let contexts: [ContextVar : SolveContext] = Dictionary(uniqueKeysWithValues: prog.declaredContexts.map { ctx in

@@ -12,18 +12,6 @@ class ResolvedPackageVertex(SolutionGraphVertex):
     super().__init__()
     self.package = package
     self.version = version
-  
-  def __members(self):
-    return (self.package, self.version)
-
-  def __eq__(self, other):
-    if type(other) is type(self):
-      return self.__members() == other.__members()
-    else:
-      return False
-
-  def __hash__(self):
-    return hash(self.__members())
 
   def to_json(self) -> Any:
     return {'resolved_package_vertex': {'package': self.package, 'vertex': self.version.to_json()}}
@@ -38,24 +26,31 @@ class RootContextVertex(SolutionGraphVertex):
 
 
 class SolutionGraph(object):
-  def __init__(self, context_vertex: RootContextVertex, package_vertices: List[ResolvedPackageVertex]) -> None:
+  def __init__(self, vertices=[RootContextVertex()], context_vertex=0, out_edges: Dict[int, Set[int]]=dict()) -> None:
     super().__init__()
+    self.vertices: List = vertices
     self.context_vertex = context_vertex
-    self.package_vertices = set(package_vertices)
-    self.all_vertices = set(cast(List[SolutionGraphVertex], package_vertices))
-    self.all_vertices.add(context_vertex)
-    self.out_edges: Dict[SolutionGraphVertex, Set[SolutionGraphVertex]] = {n: set() for n in self.all_vertices}
+    self.out_edges = {v: (out_edges[v] if v in out_edges else set()) for v in range(len(vertices))}
 
-  def add_edge(self, from_vertex: SolutionGraphVertex, to_vertex: SolutionGraphVertex):
-    assert from_vertex in self.all_vertices
-    assert to_vertex in self.all_vertices
+  def add_edge(self, from_vertex: int, to_vertex: int):
     self.out_edges[from_vertex].add(to_vertex)
+
+  def add_context_edge(self, to_vertex: int):
+    self.add_edge(self.context_vertex, to_vertex)
+
+  def add_vertex(self, v: SolutionGraphVertex) -> int:
+    idx = len(self.vertices)
+    assert idx not in self.out_edges
+
+    self.vertices.append(v)
+    self.out_edges[idx] = set()
+    return idx
   
   def to_json(self):
     return {
-      'context_vertex': self.context_vertex.to_json(), 
-      'package_vertices': [p.to_json() for p in self.package_vertices], 
-      'adjacency_lists': [{'source_vertex': k.to_json(), 'out_edges': [ov.to_json() for ov in outs]} for k, outs in self.out_edges.items()]
+      'vertices': [v.to_json() for v in self.vertices],
+      'context_vertex': self.context_vertex,
+      'adjacency_lists': {v: [ov for ov in outs] for v, outs in self.out_edges.items()}
     }
 
 

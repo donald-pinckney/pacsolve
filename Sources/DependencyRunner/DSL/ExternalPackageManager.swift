@@ -16,7 +16,7 @@ struct ExternalPackageManager: PackageManager {
         self.dirManager = GenDirManager(baseName: uniqueName)
     }
     
-    func run(program: EcosystemProgram) -> Result<[SolutionTree<AnyHashable>], ExecutionError> {
+    func run(program: EcosystemProgram) -> Result<[SolutionGraph<AnyHashable>], ExecutionError> {
                 
         do {
             let enc = JSONEncoder()
@@ -33,9 +33,9 @@ struct ExternalPackageManager: PackageManager {
             let jsonOut = try Data(contentsOf: tempFileOut)
             
             let dec = JSONDecoder()
-            let result = try dec.decode(Result<[SolutionTree<Unit>], ExecutionError>.self, from: jsonOut)
+            let result = try dec.decode(Result<[SolutionGraph<Unit>], ExecutionError>.self, from: jsonOut)
             
-            return result.map { $0.map { $0.mapData { $0 as AnyHashable} } }
+            return result.map { $0.map { $0.mapVertices { $0.mapData { $0 as AnyHashable }}}}
         } catch {
             return .failure(ExecutionError(message: "Communication error: \(error)"))
         }

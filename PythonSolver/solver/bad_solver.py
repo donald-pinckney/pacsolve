@@ -11,10 +11,10 @@ class BadSolver(Solver):
     b = ResolvedPackageVertex("b", SemverVersion(2, 1, 2))
     c = ResolvedPackageVertex("c", SemverVersion(1, 2, 3))
     
-    g = SolutionGraph(root, [a, b, c])
-    g.add_edge(root, a)
-    g.add_edge(root, c)    
-    g.add_edge(a, b)
+    g = SolutionGraph(
+      vertices=[root, a, b, c], 
+      context_vertex=0, 
+      out_edges={0: {1, 3}, 1: {2}})
     return g
     
     

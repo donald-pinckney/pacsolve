@@ -14,21 +14,21 @@ final class TreeResolutionDifferentiation: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "TreeResolutionPre")
         
         let npmStyleResult = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "0.0.1", data: 0 as AnyHashable, children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "0.0.2", data: 0 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         let pipStyleResult = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "0.0.1", data: 0 as AnyHashable, children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "0.0.1", data: 1 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         
@@ -44,21 +44,21 @@ final class TreeResolutionDifferentiation: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "TreeResolution")
 
         let npmStyleResult = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "1.0.1", data: 0 as AnyHashable, children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "1.0.2", data: 0 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         let pipStyleResult = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "1.0.1", data: 0 as AnyHashable, children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "1.0.1", data: 1 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         
@@ -73,30 +73,30 @@ final class TreeResolutionDifferentiation: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "CrissCrossPre")
 
         let npmStyleResult = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.2", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "0.0.1", data: 0 as AnyHashable, children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "0.0.2", data: 0 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         let crossChoice1 = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.2", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "0.0.1", data: 0 as AnyHashable, children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "0.0.1", data: 1 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         let crossChoice2 = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "0.0.2", data: 0 as AnyHashable, children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "0.0.2", data: 1 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         XCTAssertEqual(resultGroups[npmStyleResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()))
@@ -111,30 +111,30 @@ final class TreeResolutionDifferentiation: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "CrissCross")
 
         let npmStyleResult = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.2", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "1.0.1", data: 0 as AnyHashable, children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "1.0.2", data: 0 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         let crossChoice1 = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.2", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "1.0.1", data: 0 as AnyHashable, children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "1.0.1", data: 1 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         let crossChoice2 = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "1.0.2", data: 0 as AnyHashable, children: [])
                 ]),
                 ResolvedPackage(package: "b", version: "1.0.2", data: 1 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         XCTAssertEqual(resultGroups[npmStyleResult], npmNames().union(yarn1Names()).union(yarn2Names()))

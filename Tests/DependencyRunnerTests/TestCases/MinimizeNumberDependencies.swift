@@ -12,10 +12,10 @@ final class MinimizeNumberDependencies: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "ObviousSingleResolutionPre")
         
         let correctResult = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "0.0.1", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "0.0.2", data: 0 as AnyHashable, children: [])]),
-                ResolvedPackage(package: "b", version: "0.0.2", data: 1 as AnyHashable, children: [])])
+                ResolvedPackage(package: "b", version: "0.0.2", data: 1 as AnyHashable, children: [])]))
         ])
         
         XCTAssertEqual(resultGroups[correctResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()).union(pipNames()))
@@ -27,11 +27,11 @@ final class MinimizeNumberDependencies: XCTestCase {
         let resultGroups = runProgramWithAllPackageManagers(programName: "ObviousSingleResolution")
 
         let correctResult = ExecutionResult.success([
-            SolutionTree(children: [
+            SolutionGraph(fromTree: SolutionTree(children: [
                 ResolvedPackage(package: "a", version: "1.0.1", data: 0 as AnyHashable, children: [
                     ResolvedPackage(package: "b", version: "1.0.2", data: 0 as AnyHashable, children: [])]),
                 ResolvedPackage(package: "b", version: "1.0.2", data: 1 as AnyHashable, children: [])
-            ])
+            ]))
         ])
         
         XCTAssertEqual(resultGroups[correctResult], npmNames().union(yarn1Names()).union(yarn2Names()).union(cargoNames()).union(pipNames()))
