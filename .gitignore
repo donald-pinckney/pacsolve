@@ -7,3 +7,4 @@ generated/
 .vagrant/
 .venv/
 __pycache__/
+Scratch/

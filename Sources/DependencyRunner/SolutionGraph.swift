@@ -64,10 +64,10 @@ extension SolutionGraphVertex: Codable where D: Codable {
 struct SolutionGraph<D>: Equatable, Hashable where D: Hashable {
     var vertices: [SolutionGraphVertex<D>] = [.rootContext]
     var contextVertex: Int = 0
-    var adjacencyLists: [Int : Set<Int>] = [0 : []]
+    var adjacencyLists: [Int : [Int]] = [0 : []]
     
     mutating func addEdge(from: Int, to: Int) {
-        adjacencyLists[from]!.insert(to)
+        adjacencyLists[from]!.append(to)
     }
     
     mutating func addContextEdge(to: Int) {

@@ -26,14 +26,14 @@ class RootContextVertex(SolutionGraphVertex):
 
 
 class SolutionGraph(object):
-  def __init__(self, vertices=[RootContextVertex()], context_vertex=0, out_edges: Dict[int, Set[int]]=dict()) -> None:
+  def __init__(self, vertices=[RootContextVertex()], context_vertex=0, out_edges: Dict[int, List[int]]=dict()) -> None:
     super().__init__()
     self.vertices: List = vertices
     self.context_vertex = context_vertex
-    self.out_edges = {v: (out_edges[v] if v in out_edges else set()) for v in range(len(vertices))}
+    self.out_edges = {v: (out_edges[v] if v in out_edges else []) for v in range(len(vertices))}
 
   def add_edge(self, from_vertex: int, to_vertex: int):
-    self.out_edges[from_vertex].add(to_vertex)
+    self.out_edges[from_vertex].append(to_vertex)
 
   def add_context_edge(self, to_vertex: int):
     self.add_edge(self.context_vertex, to_vertex)
@@ -43,14 +43,14 @@ class SolutionGraph(object):
     assert idx not in self.out_edges
 
     self.vertices.append(v)
-    self.out_edges[idx] = set()
+    self.out_edges[idx] = []
     return idx
   
   def to_json(self):
     return {
       'vertices': [v.to_json() for v in self.vertices],
       'contextVertex': self.context_vertex,
-      'adjacencyLists': {v: [ov for ov in outs] for v, outs in self.out_edges.items()}
+      'adjacencyLists': self.out_edges,
     }
 
 

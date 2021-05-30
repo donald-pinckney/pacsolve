@@ -14,7 +14,7 @@ class BadSolver(Solver):
     g = SolutionGraph(
       vertices=[root, a, b, c], 
       context_vertex=0, 
-      out_edges={0: {1, 3}, 1: {2}})
+      out_edges={0: [1, 3], 1: [2]})
     return g
     
     
