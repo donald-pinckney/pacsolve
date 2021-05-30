@@ -17,13 +17,8 @@ def main():
 
   prog = load_program(in_data)
 
-  print()
-  print(repr(prog))
-
   solver = BadSolver()
   result = solver.run_program(prog)
-
-  print(result)
   
   result_json = result.to_json(prog.version_format)
 

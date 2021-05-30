@@ -81,7 +81,7 @@ let ALL_REAL_MANAGER_NAMES: [String] = ALL_MANAGERS.keys.filter { $0.hasSuffix("
 
 
 @discardableResult
-func runProgramWithPackageManagers(managerNames: [String], program: EcosystemProgram, funcName: String = #function) -> [ExecutionResult<AnyHashable> : Set<String>] {
+func runProgramWithPackageManagers(managerNames: [String], program: EcosystemProgram, funcName: String = #function, iTerm2: Bool = false) -> [ExecutionResult<AnyHashable> : Set<String>] {
     
     let managers = managerNames.map { ALL_MANAGERS[$0]!() }
     
@@ -94,11 +94,26 @@ func runProgramWithPackageManagers(managerNames: [String], program: EcosystemPro
             groups[result, default: []].insert(name)
         }
 
+    
+    let renderDir = GenDirManager(baseName: "renders")
 
     print("Test \(funcName) results:")
     for (result, group) in resultGroups {
         print(group)
-        print(result)
+        switch result {
+        case .failure(let err):
+            print("Execution error: \(err)")
+        case .success(let graphs):
+            let graphs = graphs + graphs
+            let graphDescs = graphs.map { g in
+                do {
+                    return try g.graphDescription(inDirectory: renderDir, hasIterm2: iTerm2)
+                } catch {
+                    return "Error rendering graph: \(error)"
+                }
+            }.joined(separator: ",\n")
+            print("[\n\(graphDescs)\n]")
+        }
         print()
     }
     print("------------------------------------\n\n")
@@ -108,7 +123,7 @@ func runProgramWithPackageManagers(managerNames: [String], program: EcosystemPro
 
 
 @discardableResult
-func runProgramWithAllPackageManagers(program: EcosystemProgram, funcName: String = #function) -> [ExecutionResult<AnyHashable> : Set<String>] {
+func runProgramWithAllPackageManagers(program: EcosystemProgram, funcName: String = #function, iTerm2: Bool = false) -> [ExecutionResult<AnyHashable> : Set<String>] {
     let allPackageManagers: [String]
     if shouldRunReal() {
         allPackageManagers = ALL_LOCAL_MANAGER_NAMES + ALL_REAL_MANAGER_NAMES
@@ -116,17 +131,17 @@ func runProgramWithAllPackageManagers(program: EcosystemProgram, funcName: Strin
         allPackageManagers = ALL_LOCAL_MANAGER_NAMES
     }
     
-    return runProgramWithPackageManagers(managerNames: allPackageManagers, program: program, funcName: funcName)
+    return runProgramWithPackageManagers(managerNames: allPackageManagers, program: program, funcName: funcName, iTerm2: iTerm2)
 }
 
 @discardableResult
-func runProgramWithPackageManagers(managerNames: [String], programName: String, funcName: String = #function) -> [ExecutionResult<AnyHashable> : Set<String>] {
-    runProgramWithPackageManagers(managerNames: managerNames, program: ALL_PROGRAMS[programName]!, funcName: funcName)
+func runProgramWithPackageManagers(managerNames: [String], programName: String, funcName: String = #function, iTerm2: Bool = false) -> [ExecutionResult<AnyHashable> : Set<String>] {
+    runProgramWithPackageManagers(managerNames: managerNames, program: ALL_PROGRAMS[programName]!, funcName: funcName, iTerm2: iTerm2)
 }
 
 @discardableResult
-func runProgramWithAllPackageManagers(programName: String, funcName: String = #function) -> [ExecutionResult<AnyHashable> : Set<String>] {
-    runProgramWithAllPackageManagers(program: ALL_PROGRAMS[programName]!, funcName: funcName)
+func runProgramWithAllPackageManagers(programName: String, funcName: String = #function, iTerm2: Bool = false) -> [ExecutionResult<AnyHashable> : Set<String>] {
+    runProgramWithAllPackageManagers(program: ALL_PROGRAMS[programName]!, funcName: funcName, iTerm2: iTerm2)
 }
 
 

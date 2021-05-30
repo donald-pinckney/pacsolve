@@ -118,3 +118,9 @@ extension SolutionGraph {
         }
     }
 }
+
+extension SolutionGraph: CustomStringConvertible {
+    var description: String {
+        "\ngraph here\n"
+    }
+}
