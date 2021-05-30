@@ -24,7 +24,7 @@ extension SolutionGraph {
             toVerts.map { toVert in "node\(fromVert) -> node\(toVert) [color=\"gray88\"];" }
         }.joined(separator: "\n")
         
-        return "digraph G {\ngraph [bgcolor=\"transparent\"];\n\(nodes)\n\(edges)\n}"
+        return "digraph G {\ngraph [bgcolor=\"transparent\",rankdir=\"LR\"];\n\(nodes)\n\(edges)\n}"
     }
     
     private func drawGraphToFile(_ d: GenDirManager) throws -> URL {
