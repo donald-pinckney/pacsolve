@@ -104,7 +104,6 @@ func runProgramWithPackageManagers(managerNames: [String], program: EcosystemPro
         case .failure(let err):
             print("Execution error: \(err)")
         case .success(let graphs):
-            let graphs = graphs + graphs
             let graphDescs = graphs.map { g in
                 do {
                     return try g.graphDescription(inDirectory: renderDir, hasIterm2: iTerm2)

@@ -89,8 +89,10 @@ struct SolutionGraph<D>: Equatable, Hashable where D: Hashable {
 
 extension SolutionGraph: Codable where D: Codable {}
 
-extension SolutionGraph {
-    init(fromTree t: SolutionTree<D>) {
+extension SolutionGraph where D == AnyHashable {
+    init<TD>(fromTree tempTree: SolutionTree<TD>) {
+        
+        let t = tempTree.mapData { _ in Unit() as AnyHashable }
         
         self = SolutionGraph()
         

@@ -15,8 +15,8 @@ final class PackageManagersWork: XCTestCase {
     ])
     
     func resultAssertions(_ execResult: ExecutionResult<AnyHashable>) {
-        let aVersion1Result = SolutionGraph(fromTree: SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.1", data: 0 as AnyHashable, children: [])]))
-        let aVersion2Result = SolutionGraph(fromTree: SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.2", data: 0 as AnyHashable, children: [])]))
+        let aVersion1Result = SolutionGraph(fromTree: SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.1", data: 0, children: [])]))
+        let aVersion2Result = SolutionGraph(fromTree: SolutionTree(children: [ResolvedPackage(package: "a", version: "0.0.2", data: 0, children: [])]))
         
         let results = assertSuccess(result: execResult)
         XCTAssertEqual(results.count, 2)

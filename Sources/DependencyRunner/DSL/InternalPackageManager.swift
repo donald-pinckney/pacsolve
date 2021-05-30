@@ -44,14 +44,14 @@ protocol InternalPackageManager {
 
 
 struct LocalPackageManager: PackageManager {
-    typealias DataType = Int
+    typealias DataType = AnyHashable
     let pm: InternalPackageManager
     
     var uniqueName: String {
         pm.uniqueName
     }
     
-    func run(program prog: EcosystemProgram) -> Result<[SolutionGraph<Int>], ExecutionError> {
+    func run(program prog: EcosystemProgram) -> Result<[SolutionGraph<AnyHashable>], ExecutionError> {
         let renamer: PackageRenamer
         if pm.shouldRenameVars {
             renamer = buildUniquePackageRenaming(prog)
@@ -70,8 +70,7 @@ struct LocalPackageManager: PackageManager {
 
         let result = self.runOps(prog: transformedProg, logger: logger)
         let decodedResultTrees = result.map { $0.map { $0.mapPackageNames(renamer.decode) } }
-        let resultGraphs = decodedResultTrees.map { $0.map { SolutionGraph(fromTree: $0) } }
-        return resultGraphs
+        return decodedResultTrees.map { $0.map { SolutionGraph(fromTree: $0) } }
     }
     
     
