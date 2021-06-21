@@ -2,6 +2,7 @@
 
 (require rosette/lib/destruct)
 (require rosette/lib/angelic)
+(require json)
 
 ; A different version of the bounded recursion macro from:
 ; https://docs.racket-lang.org/rosette-guide/ch_essentials.html?q=constant#%28part._sec~3anotes%29
@@ -50,21 +51,46 @@
    (dep "C" (constraint-wildcardMajor))
   ))
 
-; TODO: Right now this is a really dumb O(n) lookup.
-; I could either rewrite the code below to avoid this,
-; or I can rewrite this code to be an O(1) lookup with dictionaries.
-; But this shouldn't affect the actual constraints, just the generation time.
-(define (package-index p)
-  (index-where (vector->list REGISTRY) (lambda (p-group) (string=? p (car p-group)))))
+(define (registry-num-packages)
+  (vector-length REGISTRY))
 
-(define (registry-get-package-version p v)
-  (define p-idx (package-index p))
-  (define version-vec (cdr (vector-ref REGISTRY p-idx)))
-  (define v-idx (index-where (vector->list version-vec) (lambda (reg-v) (equal? v (car reg-v)))))
-  (cdr (vector-ref version-vec v-idx)))
+(define (registry-package-name p-idx)
+  (car (vector-ref REGISTRY p-idx)))
+
+(define (registry-num-versions p-idx)
+  (vector-length (cdr (vector-ref REGISTRY p-idx))))
 
 (define (registry-ref p-idx v-idx)
   (vector-ref (cdr (vector-ref REGISTRY p-idx)) v-idx))
+
+
+(define (make-registry-package-hash)
+  (define h (make-hash))
+  (for-each
+   (lambda (p-idx) (hash-set! h (car (vector-ref REGISTRY p-idx)) p-idx))
+   (range (registry-num-packages)))
+  h)
+
+(define (make-version-hash vers-vec)
+  (define h (make-hash))
+  (for-each
+   (lambda (v-idx) (hash-set! h (car (vector-ref vers-vec v-idx)) v-idx))
+   (range (vector-length vers-vec)))
+  h)
+
+(define (make-registry-version-hashes)
+  (list->vector (map (lambda (p-idx) (make-version-hash (cdr (vector-ref REGISTRY p-idx)))) (range (registry-num-packages)))))
+
+(define PACKAGE-HASH (make-registry-package-hash))
+(define VERSION-HASHES (make-registry-version-hashes))
+
+(define (package-index p)
+  (hash-ref PACKAGE-HASH p))
+
+(define (version-index p-idx v)
+  (hash-ref (vector-ref VERSION-HASHES p-idx) v))
+
+
   
 
 ;;; -------------------------------------------
@@ -86,6 +112,12 @@
       (cons (- n 1) (range-s (- n 1)))
       '()))
 
+
+(define (range-s-not-bound n)
+  (if (> n 0)
+      (cons (- n 1) (range-s-not-bound (- n 1)))
+      '()))
+
 (define (fin* n)
   (apply choose* (range n)))
 
@@ -95,7 +127,7 @@
 (define (edge* p-idx max-duplicates)
   (edge
    p-idx
-   (fin* (vector-length (cdr (vector-ref REGISTRY p-idx))))
+   (fin* (registry-num-versions p-idx))
    (fin* max-duplicates)))
 
 (define (node* deps max-duplicates)
@@ -114,21 +146,24 @@
 
 (define (package-group* package max-duplicates)
   (define p-idx (package-index package))
-  (define version-specs (vector->list (cdr (vector-ref REGISTRY p-idx))))
+  (define version-idxs (range (registry-num-versions p-idx)))
   
   (define version-groups
     (map
-     (lambda (vers-deps) (version-group* (car vers-deps) (cdr vers-deps) max-duplicates))
-     version-specs))
+     (lambda (version-idx)
+       (define version-pair (registry-ref p-idx version-idx))
+       (version-group* (car version-pair) (cdr version-pair) max-duplicates))
+     version-idxs))
 
   (package-group package (vector->immutable-vector (list->vector version-groups))))
 
 (define (graph* max-duplicates)
   (define context-node (node* CONTEXT-DEPS max-duplicates))
+  (define p-idxs (range (registry-num-packages)))
   (define package-groups
     (map
-     (lambda (package-etc) (package-group* (car package-etc) max-duplicates))
-     (vector->list REGISTRY)))
+     (lambda (p-idx) (package-group* (registry-package-name p-idx) max-duplicates))
+     p-idxs))
  
   (graph context-node package-groups))
 
@@ -159,7 +194,10 @@
 (define (for/graph-edges g f)
   (for/graph-version-groups g
     (lambda (v-group package)
-      (define deps (registry-get-package-version package (version-group-version v-group)))
+      (define p-idx (package-index package))
+      (define v-idx (version-index p-idx (version-group-version v-group)))
+
+      (define deps (cdr (registry-ref p-idx v-idx)))
       
       (for-each (lambda (node)
                   (for-each (lambda (e dep)
@@ -233,28 +271,27 @@
 (define (check-graph-consistent g r)
   (for-each
    (lambda (p-idx)
-     (define v-vec (cdr (vector-ref REGISTRY p-idx)))
-     (define n-vers (vector-length v-vec))
+     (define n-vers (registry-num-versions p-idx))
      (define p-group (list-ref (graph-package-groups-list g) p-idx)) ; the package group in the graph
      
      (for-each
       (lambda (v1-idx)
-        (define v1 (car (vector-ref v-vec v1-idx)))
+        (define v1 (car (registry-ref p-idx v1-idx)))
         (define v1-group (vector-ref (package-group-version-groups-vec p-group) v1-idx)) ; the version group for v1
         (define v1-count (version-group-node-count v1-group))
         
         (for-each
          (lambda (v2-idx)
-           (define v2 (car (vector-ref v-vec v2-idx)))
+           (define v2 (car (registry-ref p-idx v2-idx)))
            (define v2-group (vector-ref (package-group-version-groups-vec p-group) v2-idx)) ; the version group for v2
            (define v2-count (version-group-node-count v2-group))
 
-           (if (not (r v1 v2))
-               (assert (not (and (< 0 v1-count) (< 0 v2-count))))
+           (if (not (r v1 v2)) ; v1 and v2 are concrete
+               (assert (not (and (< 0 v1-count) (< 0 v2-count)))) ; v1-count and v2-count are symbolic
                #t))
          (range v1-idx)))
       (range n-vers)))
-   (range (vector-length REGISTRY))))
+   (range (registry-num-packages))))
    
 (define (consistency/pip v1 v2)
   (equal? v1 v2))
@@ -283,7 +320,8 @@
 
 (define (optimize-graph g)
   ; For now we just minimize the number of vertices
-  (list (graph-num-vertices g)))
+  (list
+   (graph-num-vertices g)))
                                     
 
 
