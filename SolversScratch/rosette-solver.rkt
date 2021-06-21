@@ -4,6 +4,7 @@
 (require rosette/lib/angelic)
 (require json)
 
+
 ; A different version of the bounded recursion macro from:
 ; https://docs.racket-lang.org/rosette-guide/ch_essentials.html?q=constant#%28part._sec~3anotes%29
 (define-syntax-rule
@@ -24,11 +25,37 @@
 (struct constraint-exactly (version) #:transparent)
 (struct dep (package constraint) #:transparent)
 
+(define (parse-version j) (version (hash-ref j 'major) (hash-ref j 'minor) (hash-ref j 'bug)))
+(define (parse-constraint j)
+  (define keys (hash-keys j))
+  (assert (= (length keys) 1))
+  (define k (list-ref keys 0))
+  (define data (hash-ref j k))
+  (match k
+    ['exactly (constraint-exactly (parse-version data))]
+    ['wildcardMajor (constraint-wildcardMajor)]))
+
+(define (parse-dependency j) (dep (hash-ref j 'packageToDependOn) (parse-constraint (hash-ref j 'constraint))))
+(define (parse-dependencies j) (map parse-dependency j))
+(define (parse-package-version j) (cons (parse-version (hash-ref j 'version)) (parse-dependencies (hash-ref j 'dependencies))))
+(define (parse-package j) (cons (hash-ref j 'package) (vector->immutable-vector (list->vector (map parse-package-version (hash-ref j 'versions))))))
+(define (parse-registry j) (vector->immutable-vector (list->vector (map parse-package j))))
+
+(define (parse-json j)
+  (values
+   (parse-registry (hash-ref j 'registry))
+   (parse-dependencies (hash-ref j 'context_dependencies))))
+
+(define (read-input path)
+  (with-input-from-file path (lambda () (parse-json (read-json)))))
+
+
 
 ;;; -------------------------------------------
 ;;; THE PACKAGE REGISTRY & CONTEXT DEPENDENCIES
 ;;; -------------------------------------------
-(define REGISTRY
+
+(define SAMPLE-REGISTRY
   (vector-immutable
    (cons "A" (vector-immutable
               (cons (version 1 0 0) (list (dep "B" (constraint-exactly (version 1 0 1)))))))
@@ -45,11 +72,23 @@
    (cons "D" (vector-immutable
               (cons (version 1 0 0) (list (dep "C" (constraint-wildcardMajor))))))))
           
-(define CONTEXT-DEPS
+(define SAMPLE-CONTEXT-DEPS
   (list
    (dep "A" (constraint-wildcardMajor))
    (dep "C" (constraint-wildcardMajor))
   ))
+
+(define INPUT-SOURCE
+  (if (= 2 (vector-length (current-command-line-arguments)))
+      (vector-ref (current-command-line-arguments) 0)
+      #f
+      ;"/Users/donaldpinckney/Research/packages/dependency-runner/SolversScratch/input_sample.json"
+      ))
+
+(define-values (REGISTRY CONTEXT-DEPS)
+  (if (equal? #f INPUT-SOURCE)
+      (values SAMPLE-REGISTRY SAMPLE-CONTEXT-DEPS)
+      (read-input INPUT-SOURCE)))
 
 (define (registry-num-packages)
   (vector-length REGISTRY))
