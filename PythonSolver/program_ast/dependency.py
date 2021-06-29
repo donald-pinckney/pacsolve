@@ -6,3 +6,6 @@ class Dependency(object):
     super().__init__()
     self.package_to_depend_on = package_to_depend_on
     self.constraint = constraint
+
+  def to_json(self):
+    return {"packageToDependOn": self.package_to_depend_on, "constraint": self.constraint.to_json()}

@@ -1,6 +1,7 @@
 import json
 import argparse
 from json_loading import load_program
+from solver.RosetteSolver import RosetteSolver
 from solver.bad_solver import BadSolver
 
 
@@ -17,7 +18,8 @@ def main():
 
   prog = load_program(in_data)
 
-  solver = BadSolver()
+  # solver = BadSolver()
+  solver = RosetteSolver()
   result = solver.run_program(prog)
   
   result_json = result.to_json(prog.version_format)

@@ -8,3 +8,4 @@ generated/
 .venv/
 __pycache__/
 Scratch/
+*.rkt~

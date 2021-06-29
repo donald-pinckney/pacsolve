@@ -27,13 +27,15 @@
 
 (define (parse-version j) (version (hash-ref j 'major) (hash-ref j 'minor) (hash-ref j 'bug)))
 (define (parse-constraint j)
+  ;(display j)
   (define keys (hash-keys j))
   (assert (= (length keys) 1))
   (define k (list-ref keys 0))
   (define data (hash-ref j k))
   (match k
     ['exactly (constraint-exactly (parse-version data))]
-    ['wildcardMajor (constraint-wildcardMajor)]))
+    ['wildcardMajor (constraint-wildcardMajor)]
+    [else (error "Unknown type of constraint" k)]))
 
 (define (parse-dependency j) (dep (hash-ref j 'packageToDependOn) (parse-constraint (hash-ref j 'constraint))))
 (define (parse-dependencies j) (map parse-dependency j))
@@ -81,8 +83,9 @@
 (define INPUT-SOURCE
   (if (= 2 (vector-length (current-command-line-arguments)))
       (vector-ref (current-command-line-arguments) 0)
-      #f
+      ;#f
       ;"/Users/donaldpinckney/Research/packages/dependency-runner/SolversScratch/input_sample.json"
+      "/var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp06gcelmz"
       ))
 
 (define-values (REGISTRY CONTEXT-DEPS)
@@ -253,6 +256,86 @@
 
 
 ;;; -------------------------------------------
+;;; SERIALIZING SOLUTION GRAPH TO JSON
+;;; -------------------------------------------
+
+
+(define (flatten-graph-idx e p-counts v-counts)
+  (define p-idx (edge-package-idx e))
+  (define v-idx (edge-version-idx e))
+  (define n-idx (edge-node-idx e))
+  
+  (define prev-p-sum (apply + (map (lambda (prev-p-idx) (list-ref p-counts prev-p-idx)) (range p-idx))))
+  (define vg-counts (list-ref v-counts p-idx))
+  (define prev-v-sum (apply + (map (lambda (prev-v-idx) (list-ref vg-counts prev-v-idx)) (range v-idx))))
+  (+ 1 prev-p-sum prev-v-sum n-idx))
+
+(define (version->json v) (make-hash (list (cons 'major (version-major v)) (cons 'minor (version-minor v)) (cons 'bug (version-bug v)))))
+
+(define (resolved-vertex->json p v) (make-hash (list (cons 'type "ResolvedPackageVertex") (cons 'package p) (cons 'version (version->json v)))))
+
+(struct temp-graph-node (vertex-data edge-data) #:transparent)
+
+(define (graph->json g)
+  (define context-edges (node-edges (graph-context-node g)))
+  (define p-groups (graph-package-groups-list g))
+  (define version-counts
+    (map
+     (lambda (pg)
+       (map
+        (lambda (vg-idx)
+          (define vg (vector-ref (package-group-version-groups-vec pg) vg-idx))
+          (version-group-node-count vg))
+        (range (vector-length (package-group-version-groups-vec pg)))))
+     p-groups))
+  (define package-counts (map (lambda (xs) (apply + xs)) version-counts))
+
+  (define vertices-and-edges-flattened 
+    (flatten
+     (map
+      (lambda (pg)
+        (define p (package-group-package pg))
+        (map
+         (lambda (vg-idx)
+           (define vg (vector-ref (package-group-version-groups-vec pg) vg-idx))
+           (define v (version-group-version vg))
+           (map
+            (lambda (n)
+              (temp-graph-node (resolved-vertex->json p v) (node-edges n)))
+            (version-group-nodes-list vg)))
+         (range (vector-length (package-group-version-groups-vec pg)))))
+      p-groups)))
+
+  (define vertices
+    (cons (make-hash (list (cons 'type "RootContextVertex")))
+          (map (lambda (pr) (temp-graph-node-vertex-data pr)) vertices-and-edges-flattened)))
+
+  (define edge-data
+    (cons
+     context-edges
+     (map (lambda (pr) (temp-graph-node-edge-data pr)) vertices-and-edges-flattened)))
+
+  (define edge-flat-indices
+    (map
+     (lambda (edges)
+       (map
+        (lambda (e)
+          (flatten-graph-idx e package-counts version-counts))
+        edges))
+     edge-data))
+
+  (make-hash (list (cons 'vertices vertices) (cons 'out_edge_array edge-flat-indices) (cons 'context_vertex 0))))
+
+(define (sol->json g sol)
+  (if (sat? sol)
+      (make-hash (list (cons 'success #t) (cons 'graph (graph->json (evaluate g sol)))))
+      (make-hash (list (cons 'success #f) (cons 'error "Failed to solve constraints :(")))))
+
+
+
+
+
+;;; -------------------------------------------
 ;;; CONSTRAINT GENERATION
 ;;; -------------------------------------------
 
@@ -372,12 +455,26 @@
 ;; A value of 1 means that each version will be in the graph either 0 or 1 times (i.e. no duplicates).
 (define MAX-DUPLICATES 1) 
 
-(display "Generating...\n")
+;(display "Generating...\n")
 (define G (graph* MAX-DUPLICATES))
-(display "Solving...\n")
+;(display "Solving...\n")
 (define sol
   (optimize
    #:minimize (optimize-graph G)
    #:guarantee (check-graph G)))
-(evaluate G sol)
+;(evaluate G sol)
+
+;(display "\n")
+
+;(sol->json G sol)
+
+(define OUTPUT-PATH
+  (if (= 2 (vector-length (current-command-line-arguments)))
+      (vector-ref (current-command-line-arguments) 1)
+      "/Users/donaldpinckney/Research/packages/dependency-runner/SolversScratch/output_sample.json"
+      ))
+(define (write-output path j)
+  (with-output-to-file path (lambda () (write-json j)) #:exists 'replace))
+
+(write-output OUTPUT-PATH (sol->json G sol))
 
