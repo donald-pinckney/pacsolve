@@ -84,7 +84,7 @@
   (if (= 2 (vector-length (current-command-line-arguments)))
       (vector-ref (current-command-line-arguments) 0)
       ;#f
-      ;"/Users/donaldpinckney/Research/packages/dependency-runner/SolversScratch/input_sample.json"
+      ;"/Users/donaldpinckney/Research/packages/dependency-runner/RosetteSolver/input_sample.json"
       "/var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp06gcelmz"
       ))
 
@@ -471,7 +471,7 @@
 (define OUTPUT-PATH
   (if (= 2 (vector-length (current-command-line-arguments)))
       (vector-ref (current-command-line-arguments) 1)
-      "/Users/donaldpinckney/Research/packages/dependency-runner/SolversScratch/output_sample.json"
+      "/Users/donaldpinckney/Research/packages/dependency-runner/RosetteSolver/output_sample.json"
       ))
 (define (write-output path j)
   (with-output-to-file path (lambda () (write-json j)) #:exists 'replace))

@@ -8,8 +8,8 @@
       "name": "Run Solver",
       "type": "python",
       "request": "launch",
-      "program": "PythonSolver/main.py",
-      // "python": "PythonSolver/.venv/bin/python",
+      "program": "PythonSolvingHarness/main.py",
+      // "python": "PythonSolvingHarness/.venv/bin/python",
       "args": ["--in-json", "generated/external-asp-0/0.in.json", "--out-json", "generated/external-asp-0/1.out.json"],
       "console": "integratedTerminal"
     }

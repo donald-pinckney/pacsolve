@@ -49,7 +49,7 @@ class RosetteSolver(Solver):
     with open(rosette_in_path, 'w') as rosette_in_f:
       json.dump(rosette_input_json, rosette_in_f)
     
-    subprocess.check_call(["racket", "SolversScratch/rosette-solver.rkt", rosette_in_path, rosette_out_path])
+    subprocess.check_call(["racket", "RosetteSolver/rosette-solver.rkt", rosette_in_path, rosette_out_path])
 
     with open(rosette_out_path, 'r') as rosette_out_f:
       out_json = json.load(rosette_out_f)
