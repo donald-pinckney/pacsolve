@@ -22,11 +22,6 @@
 (define (parse-package j) (cons (hash-ref j 'package) (vector->immutable-vector (list->vector (map parse-package-version (hash-ref j 'versions))))))
 (define (parse-registry j) (vector->immutable-vector (list->vector (map parse-package j))))
 
-(define (parse-json j)
-  (values
-   (parse-registry (hash-ref j 'registry))
-   (parse-dependencies (hash-ref j 'context_dependencies))))
-
 
 (define (make-registry-package-hash reg-vec)
   (define h (make-hash))
@@ -46,19 +41,38 @@
   (list->vector (map (lambda (p-idx) (make-version-hash (cdr (vector-ref reg-vec p-idx)))) (range (vector-length reg-vec)))))
 
 
+(define (check-supported-consistency s)
+  (if (member s (list "pip" "npm")) #t (error "Unsupported consistency relation")))
+
+(define (check-supported-min-criteria s)
+  (if (member s (list "graph-num-vertices")) #t (error "Unsupported minimization criteria")))
+
+(define (parse-options j) 
+  (define consis (hash-ref j 'consistency))
+  (define crit (hash-ref j 'minimization-criteria))
+
+  (check-supported-consistency consis)
+  (map check-supported-min-criteria crit)
+
+  (options
+    (hash-ref j 'max-duplicates)
+    consis
+    (hash-ref j 'check-acyclic)
+    crit))
+
 (define (read-input-query path)
   (with-input-from-file path (lambda ()
-    (define-values (reg c-deps) (parse-json (read-json)))
+    (define j (read-json))
+    (define reg (parse-registry (hash-ref j 'registry)))
+    (define c-deps (parse-dependencies (hash-ref j 'context_dependencies)))
+    (define options (parse-options (hash-ref j 'options)))
+
     (query 
       (registry 
         reg 
         (make-registry-package-hash reg) 
         (make-registry-version-hashes reg)) 
       c-deps
-      (options
-        1
-        "pip"
-        #t
-        (list "graph-num-vertices"))))))
+      options))))
 
 

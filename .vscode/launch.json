@@ -10,7 +10,7 @@
       "request": "launch",
       "program": "PythonSolvingHarness/main.py",
       // "python": "PythonSolvingHarness/.venv/bin/python",
-      "args": ["--in-json", "generated/external-asp-0/0.in.json", "--out-json", "generated/external-asp-0/1.out.json"],
+      "args": ["--in-json", "generated/external-rosette-0/0.in.json", "--out-json", "generated/external-rosette-0/1.out.json"],
       "console": "integratedTerminal"
     }
   ]

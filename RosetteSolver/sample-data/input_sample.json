@@ -1,4 +1,12 @@
 {
+  "options": {
+    "max-duplicates": 1,
+    "consistency": "pip",
+    "check-acyclic": true,
+    "minimization-criteria": [
+      "graph-num-vertices"
+    ]
+  },
   "registry": [
     {
       "package": "A",

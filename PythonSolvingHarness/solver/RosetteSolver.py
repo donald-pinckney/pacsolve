@@ -41,7 +41,18 @@ class RosetteSolver(Solver):
 
     rosette_context_deps = [d.to_json() for d in dependencies]
 
-    rosette_input_json = {"registry": rosette_reg_json, "context_dependencies": rosette_context_deps}
+    rosette_input_json = {
+      "registry": rosette_reg_json, 
+      "context_dependencies": rosette_context_deps,
+      "options": {
+        "max-duplicates": 1,
+        "consistency": "pip",
+        "check-acyclic": True,
+        "minimization-criteria": [
+          "graph-num-vertices"
+        ]
+      }
+    }
 
     rosette_in_path = tempfile.mktemp()
     rosette_out_path = tempfile.mktemp()
