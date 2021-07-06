@@ -4,6 +4,7 @@
 (require "graph.rkt")
 (require "query.rkt")
 (require "query-access.rkt")
+(require "consistency.rkt")
 
 (provide check-graph)
 
@@ -86,16 +87,16 @@
          (range v1-idx)))
       (range n-vers)))
    (range (registry-num-packages query))))
-   
-(define (consistency/pip v1 v2)
-  (equal? v1 v2))
-
-(define (consistency/npm v1 v2)
-  #t)
 
 ;;; *** Final constraint generation
 (define (check-graph query g)
+  (define consistency-rel 
+    (match (query-consistency query)
+      ["pip" consistency/pip]
+      ["npm" consistency/npm]))
+  (define check-acyclic (query-check-acyclic query))
+
   (check-graph-well-formed query g)
-  (check-graph-acyclic query g) ; Just comment this out to allow cyclic graphs
   (check-graph-sat-deps query g)
-  (check-graph-consistent query g consistency/pip))
+  (if check-acyclic (check-graph-acyclic query g) #t)
+  (check-graph-consistent query g consistency-rel))

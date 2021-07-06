@@ -55,6 +55,9 @@
         (make-registry-package-hash reg) 
         (make-registry-version-hashes reg)) 
       c-deps
-      1))))
+      1
+      "pip"
+      #t
+      (list "graph-num-vertices")))))
 
 
