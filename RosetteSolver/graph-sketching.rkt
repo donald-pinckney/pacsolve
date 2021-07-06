@@ -44,45 +44,45 @@
 (define (build-list-s* bound len-s f)
   (map (lambda (_) (f)) (range-s bound len-s)))
 
-(define (edge* p-idx max-duplicates)
+(define (edge* query p-idx max-duplicates)
   (edge
    p-idx
-   (fin* (registry-num-versions p-idx))
+   (fin* (registry-num-versions query p-idx))
    (fin* max-duplicates)))
 
-(define (node* deps max-duplicates)
+(define (node* query deps max-duplicates)
   (define-symbolic* ts integer?)
   (node
    (map
-    (lambda (dep) (edge* (package-index (dep-package dep)) max-duplicates))
+    (lambda (dep) (edge* query (package-index query (dep-package dep)) max-duplicates))
     deps)
    ts))
 
-(define (version-group* version deps max-duplicates)
+(define (version-group* query version deps max-duplicates)
   (define num-nodes (fin* (add1 max-duplicates)))
   (define nodes
-    (build-list-s* max-duplicates num-nodes (lambda () (node* deps max-duplicates))))
+    (build-list-s* max-duplicates num-nodes (lambda () (node* query deps max-duplicates))))
   (version-group version num-nodes nodes))
 
-(define (package-group* package max-duplicates)
-  (define p-idx (package-index package))
-  (define version-idxs (range (registry-num-versions p-idx)))
+(define (package-group* query package max-duplicates)
+  (define p-idx (package-index query package))
+  (define version-idxs (range (registry-num-versions query p-idx)))
   
   (define version-groups
     (map
      (lambda (version-idx)
-       (define version-pair (registry-ref p-idx version-idx))
-       (version-group* (car version-pair) (cdr version-pair) max-duplicates))
+       (define version-pair (registry-ref query p-idx version-idx))
+       (version-group* query (car version-pair) (cdr version-pair) max-duplicates))
      version-idxs))
 
   (package-group package (vector->immutable-vector (list->vector version-groups))))
 
-(define (graph* max-duplicates)
-  (define context-node (node* CONTEXT-DEPS max-duplicates))
-  (define p-idxs (range REGISTRY-NUM-PACKAGES))
+(define (graph* query max-duplicates)
+  (define context-node (node* query (context-deps query) max-duplicates))
+  (define p-idxs (range (registry-num-packages query)))
   (define package-groups
     (map
-     (lambda (p-idx) (package-group* (registry-package-name p-idx) max-duplicates))
+     (lambda (p-idx) (package-group* query (registry-package-name query p-idx) max-duplicates))
      p-idxs))
  
   (graph context-node package-groups))

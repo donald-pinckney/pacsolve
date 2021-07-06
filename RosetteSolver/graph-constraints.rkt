@@ -27,15 +27,15 @@
 (define (check-version-group-well-formed v-group _package)
   (assert (<= 0 (version-group-node-count v-group))))
 
-(define (check-graph-well-formed g)
-  (for/graph-edges g (lambda (e _constraint _p _v _n) (check-edge-well-formed e g)))
+(define (check-graph-well-formed query g)
+  (for/graph-edges query g (lambda (e _constraint _p _v _n) (check-edge-well-formed e g)))
   (for/graph-version-groups g check-version-group-well-formed))
 
 
 ;;; *** Constraints part 2: Checking that the graph is a DAG. This check can simply be omitted to allow cyclic graphs
-(define (check-graph-acyclic g)
+(define (check-graph-acyclic query g)
   (assert (= 0 (node-top-order (graph-context-node g))))
-  (for/graph-edges g
+  (for/graph-edges query g
     (lambda (e c _sp _sv src-node)
       (define dp-idx (edge-package-idx e)) ; not symbolic
       (define dv-idx (edge-version-idx e)) ; symbolic
@@ -55,28 +55,28 @@
     [(constraint-wildcardMajor) #t]
     [(constraint-exactly cv) (equal? v-s cv)]))
 
-(define (check-graph-sat-deps g)
-  (for/graph-edges g (lambda (e constraint _p _v _n)
-    (define dest-version (car (registry-ref (edge-package-idx e) (edge-version-idx e))))
+(define (check-graph-sat-deps query g)
+  (for/graph-edges query g (lambda (e constraint _p _v _n)
+    (define dest-version (car (registry-ref query (edge-package-idx e) (edge-version-idx e))))
     (assert (sat/version-constraint dest-version constraint)))))
 
 
 ;;; *** Constraints part 4: Checking that the graph contains pairwise consistent versions of the same package, parameterized by relation `r`
-(define (check-graph-consistent g r)
+(define (check-graph-consistent query g r)
   (for-each
    (lambda (p-idx)
-     (define n-vers (registry-num-versions p-idx))
+     (define n-vers (registry-num-versions query p-idx))
      (define p-group (list-ref (graph-package-groups-list g) p-idx)) ; the package group in the graph
      
      (for-each
       (lambda (v1-idx)
-        (define v1 (car (registry-ref p-idx v1-idx)))
+        (define v1 (car (registry-ref query p-idx v1-idx)))
         (define v1-group (vector-ref (package-group-version-groups-vec p-group) v1-idx)) ; the version group for v1
         (define v1-count (version-group-node-count v1-group))
         
         (for-each
          (lambda (v2-idx)
-           (define v2 (car (registry-ref p-idx v2-idx)))
+           (define v2 (car (registry-ref query p-idx v2-idx)))
            (define v2-group (vector-ref (package-group-version-groups-vec p-group) v2-idx)) ; the version group for v2
            (define v2-count (version-group-node-count v2-group))
 
@@ -85,7 +85,7 @@
                #t))
          (range v1-idx)))
       (range n-vers)))
-   (range REGISTRY-NUM-PACKAGES)))
+   (range (registry-num-packages query))))
    
 (define (consistency/pip v1 v2)
   (equal? v1 v2))
@@ -94,8 +94,8 @@
   #t)
 
 ;;; *** Final constraint generation
-(define (check-graph g)
-  (check-graph-well-formed g)
-  (check-graph-acyclic g) ; Just comment this out to allow cyclic graphs
-  (check-graph-sat-deps g)
-  (check-graph-consistent g consistency/pip))
+(define (check-graph query g)
+  (check-graph-well-formed query g)
+  (check-graph-acyclic query g) ; Just comment this out to allow cyclic graphs
+  (check-graph-sat-deps query g)
+  (check-graph-consistent query g consistency/pip))

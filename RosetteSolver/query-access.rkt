@@ -1,42 +1,33 @@
 #lang rosette
 
 (require "query.rkt")
-(require "load-query.rkt")
 
-
-(define INPUT-SOURCE
-  (if (= 2 (vector-length (current-command-line-arguments)))
-      (vector-ref (current-command-line-arguments) 0)
-      (error "Incorrect number of command line arguments")))
-
-(define QUERY (read-input-query INPUT-SOURCE))
-
-(provide REGISTRY-NUM-PACKAGES)
+(provide registry-num-packages)
 (provide registry-package-name)
 (provide registry-num-versions)
 (provide registry-ref)
 (provide package-index)
 (provide version-index)
-(provide CONTEXT-DEPS)
+(provide context-deps)
 
-(define REGISTRY-NUM-PACKAGES
-  (vector-length (registry-vec (query-registry QUERY))))
+(define (registry-num-packages query)
+  (vector-length (registry-vec (query-registry query))))
 
-(define (registry-package-name p-idx)
-  (car (vector-ref (registry-vec (query-registry QUERY)) p-idx)))
+(define (registry-package-name query p-idx)
+  (car (vector-ref (registry-vec (query-registry query)) p-idx)))
 
-(define (registry-num-versions p-idx)
-  (vector-length (cdr (vector-ref (registry-vec (query-registry QUERY)) p-idx))))
+(define (registry-num-versions query p-idx)
+  (vector-length (cdr (vector-ref (registry-vec (query-registry query)) p-idx))))
 
-(define (registry-ref p-idx v-idx)
-  (vector-ref (cdr (vector-ref (registry-vec (query-registry QUERY)) p-idx)) v-idx))
+(define (registry-ref query p-idx v-idx)
+  (vector-ref (cdr (vector-ref (registry-vec (query-registry query)) p-idx)) v-idx))
 
-(define (package-index p)
-  (hash-ref (registry-package-hash (query-registry QUERY)) p))
+(define (package-index query p)
+  (hash-ref (registry-package-hash (query-registry query)) p))
 
-(define (version-index p-idx v)
-  (hash-ref (vector-ref (registry-version-hashes (query-registry QUERY)) p-idx) v))
+(define (version-index query p-idx v)
+  (hash-ref (vector-ref (registry-version-hashes (query-registry query)) p-idx) v))
 
-(define CONTEXT-DEPS (query-context-deps QUERY))
+(define (context-deps query) (query-context-deps query))
 
 

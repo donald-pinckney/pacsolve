@@ -49,14 +49,14 @@
 
 ; g : graph
 ; f : edge (out) -> constraint -> package -> version -> node -> ()
-(define (for/graph-edges g f)
+(define (for/graph-edges query g f)
   (for/graph-version-groups g
     (lambda (v-group package)
-      (define p-idx (package-index package))
-      (define v-idx (version-index p-idx (version-group-version v-group)))
+      (define p-idx (package-index query package))
+      (define v-idx (version-index query p-idx (version-group-version v-group)))
 
-      (define deps (cdr (registry-ref p-idx v-idx)))
-      
+      (define deps (cdr (registry-ref query p-idx v-idx)))
+
       (for-each (lambda (node)
                   (for-each (lambda (e dep)
                               (f e (dep-constraint dep) package (version-group-version v-group) node))
@@ -67,4 +67,4 @@
   (for-each (lambda (e dep)
               (f e (dep-constraint dep) #f #f (graph-context-node g)))
             (node-edges (graph-context-node g))
-            CONTEXT-DEPS))
+            (context-deps query)))

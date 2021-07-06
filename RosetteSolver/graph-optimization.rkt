@@ -15,7 +15,7 @@
    (lambda (v-group sum)
      (+ sum (version-group-node-count v-group)))))
 
-(define (optimize-graph g)
+(define (optimize-graph query g)
   ; For now we just minimize the number of vertices
   (list
    (graph-num-vertices g)))
