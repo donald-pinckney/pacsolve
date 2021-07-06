@@ -15,8 +15,5 @@
 (struct dep (package constraint) #:transparent)
 
 (struct registry (vec package-hash version-hashes) #:transparent)
-(struct query (registry context-deps) #:transparent)
-
-
-
+(struct query (registry context-deps max-duplicates) #:transparent)
 

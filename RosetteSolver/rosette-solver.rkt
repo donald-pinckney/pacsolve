@@ -21,12 +21,7 @@
 ;;; -------------------------------------------
 
 
-
-;; Increase this appropriately to allow more duplicate nodes.
-;; A value of 1 means that each version will be in the graph either 0 or 1 times (i.e. no duplicates).
-(define MAX-DUPLICATES 1) 
-
-(define G (graph* QUERY MAX-DUPLICATES))
+(define G (graph* QUERY))
 
 (define (rosette-sol->solution sol)
   (if (sat? sol)

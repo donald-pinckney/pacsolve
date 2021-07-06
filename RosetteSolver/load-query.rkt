@@ -54,6 +54,7 @@
         reg 
         (make-registry-package-hash reg) 
         (make-registry-version-hashes reg)) 
-      c-deps))))
+      c-deps
+      1))))
 
 
