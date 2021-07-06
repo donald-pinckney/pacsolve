@@ -21,7 +21,7 @@
     ["graph-num-vertices" graph-num-vertices]))
 
 (define (optimize-graph query g)
-  (define optim-fns (map lookup-optim-fn (query-min-criteria query)))
+  (define optim-fns (map lookup-optim-fn (options-min-criteria (query-options query))))
 
   (map (lambda (fn) (fn query g)) optim-fns))
                             

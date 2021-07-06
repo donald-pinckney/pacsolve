@@ -91,10 +91,10 @@
 ;;; *** Final constraint generation
 (define (check-graph query g)
   (define consistency-rel 
-    (match (query-consistency query)
+    (match (options-consistency (query-options query))
       ["pip" consistency/pip]
       ["npm" consistency/npm]))
-  (define check-acyclic (query-check-acyclic query))
+  (define check-acyclic (options-check-acyclic (query-options query)))
 
   (check-graph-well-formed query g)
   (check-graph-sat-deps query g)

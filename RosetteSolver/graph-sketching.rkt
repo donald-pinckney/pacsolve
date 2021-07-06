@@ -48,7 +48,7 @@
   (edge
    p-idx
    (fin* (registry-num-versions query p-idx))
-   (fin* (query-max-duplicates query))))
+   (fin* (options-max-duplicates (query-options query)))))
 
 (define (node* query deps)
   (define-symbolic* ts integer?)
@@ -59,9 +59,9 @@
    ts))
 
 (define (version-group* query version deps)
-  (define num-nodes (fin* (add1 (query-max-duplicates query))))
+  (define num-nodes (fin* (add1 (options-max-duplicates (query-options query)))))
   (define nodes
-    (build-list-s* (query-max-duplicates query) num-nodes (lambda () (node* query deps))))
+    (build-list-s* (options-max-duplicates (query-options query)) num-nodes (lambda () (node* query deps))))
   (version-group version num-nodes nodes))
 
 (define (package-group* query package)
