@@ -47,7 +47,7 @@ class RosetteSolver(Solver):
       "options": {
         "max-duplicates": 1,
         "consistency": "pip",
-        "check-acyclic": True,
+        "check-acyclic": False,
         "minimization-criteria": [
           "graph-num-vertices"
         ]
