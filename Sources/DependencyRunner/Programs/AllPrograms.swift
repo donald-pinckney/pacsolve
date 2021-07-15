@@ -56,6 +56,7 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "TestC_NotWildcardMinor": program_TestC_NotWildcardMinor,
     "TestC_NotWildcardMajor": program_TestC_NotWildcardMajor,
     "TestC_NotExactlyAll": program_TestC_NotExactlyAll,
+    "Transitive": program_Transitive,
     "RandomExampleEmptyConstraints" : generateRandomExampleEmptyConstraints(numPackages: 3, numVersions: 5),
     "RandomExampleAnyConstraints" : generateRandomExampleAnyConstraints(numPackages: 3, numVersions: 5, numDeps: 2),
 ]

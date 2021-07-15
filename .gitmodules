@@ -1,0 +1,3 @@
+[submodule "arborist"]
+	path = arborist
+	url = https://github.com/npm/arborist
