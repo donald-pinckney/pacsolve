@@ -1,3 +1,6 @@
 [submodule "arborist"]
 	path = arborist
 	url = https://github.com/npm/arborist
+[submodule "npm"]
+	path = npm
+	url = https://github.com/donald-pinckney/cli/
