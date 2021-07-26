@@ -1,0 +1,224 @@
+{
+  "options": {
+    "max-duplicates": 1,
+    "consistency": "pip",
+    "check-acyclic": true,
+    "minimization-criteria": [
+      "graph-num-vertices"
+    ]
+  },
+  "registry": [
+    {
+      "package": "A",
+      "versions": [
+        {
+          "version": {
+            "major": 1,
+            "minor": 0,
+            "bug": 0
+          },
+          "dependencies": [
+            {
+              "packageToDependOn": "B",
+              "constraint": {
+                "exactly": {
+                  "major": 1,
+                  "minor": 0,
+                  "bug": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+
+
+    {
+      "package": "B",
+      "versions": [
+        {
+          "version": {
+            "major": 1,
+            "minor": 0,
+            "bug": 0
+          },
+          "dependencies": [
+            {
+              "packageToDependOn": "A",
+              "constraint": {
+                "wildcardMajor": null
+              }
+            }
+          ]
+        },
+        {
+          "version": {
+            "major": 1,
+            "minor": 0,
+            "bug": 1
+          },
+          "dependencies": [
+            
+          ]
+        }
+      ]
+    },
+
+
+
+    {
+      "package": "C",
+      "versions": [
+        {
+          "version": {
+            "major": 1,
+            "minor": 0,
+            "bug": 0
+          },
+          "dependencies": []
+        }
+      ]
+    },
+
+
+
+    {
+      "package": "D",
+      "versions": [
+        {
+          "version": {
+            "major": 1,
+            "minor": 0,
+            "bug": 0
+          },
+          "dependencies": [
+            {
+              "packageToDependOn": "C",
+              "constraint": {
+                "wildcardMajor": null
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "context_dependencies": [
+    {
+      "packageToDependOn": "A",
+      "constraint": {
+        "wildcardMajor": null
+      }
+    },
+    {
+      "packageToDependOn": "C",
+      "constraint": {
+        "wildcardMajor": null
+      }
+    }
+  ],
+  "functions": {
+    "constraintInterpretation": {
+      "FunctionDef": {
+        "numParams": 1,
+        "rules": [
+          {
+            "FunctionRule": {
+              "patterns": [
+                {
+                  "DictionaryPattern": {
+                    "namesPatternsDict": {
+                      "wildcardMajor": {
+                        "WildcardPattern": {}
+                      }
+                    }
+                  }
+                }
+              ],
+              "rhs": {
+                "LambdaExpr": {
+                  "params": [
+                    "v"
+                  ],
+                  "body": {
+                    "ConstExpr": {
+                      "value": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "FunctionRule": {
+              "patterns": [
+                {
+                  "DictionaryPattern": {
+                    "namesPatternsDict": {
+                      "exactly": {
+                        "BindingPattern": {
+                          "name": "cv"
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "rhs": {
+                "LambdaExpr": {
+                  "params": [
+                    "v"
+                  ],
+                  "body": {
+                    "PrimitiveOpExpr": {
+                      "op": "equal?",
+                      "args": [
+                        {
+                          "VarExpr": {
+                            "varName": "v"
+                          }
+                        },
+                        {
+                          "VarExpr": {
+                            "varName": "cv"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "consistency": {
+      "FunctionDef": {
+        "numParams": 0,
+        "rules": [
+          {
+            "FunctionRule": {
+              "patterns": [],
+              "rhs": {
+                "LambdaExpr": {
+                  "params": [
+                    "v1",
+                    "v2"
+                  ],
+                  "body": {
+                    "ConstExpr": {
+                      "value": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
