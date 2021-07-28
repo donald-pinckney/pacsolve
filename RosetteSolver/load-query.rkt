@@ -4,25 +4,42 @@
 (require racket/pretty)
 (require "query.rkt")
 (require "function-dsl.rkt")
+(require "dsl-primitives.rkt")
 
 (provide read-input-query)
 
 
-(define (parse-version j) (version (hash-ref j 'major) (hash-ref j 'minor) (hash-ref j 'bug)))
-(define (parse-constraint j)
-  (define keys (hash-keys j))
-  (define k (list-ref keys 0))
-  (define data (hash-ref j k))
-  (match k
-    ['exactly (constraint-exactly (parse-version data))]
-    ['wildcardMajor (constraint-wildcardMajor)]
-    [else (error "Unknown type of constraint" k)]))
+(define (parse-version fns j)
+  (define v-fn (hash-ref fns 'versionType))
+  (eval-dsl-function
+    DSL-PRIMITIVES
+    fns
+    "versionType"
+    (list j)))
+  
+(define (parse-constraint fns j)
+  (define c-fn (hash-ref fns 'constraintInterpretation))
+  (eval-dsl-function
+    DSL-PRIMITIVES
+    fns
+    "constraintInterpretation"
+    (list j)))
 
-(define (parse-dependency j) (dep (hash-ref j 'packageToDependOn) (parse-constraint (hash-ref j 'constraint))))
-(define (parse-dependencies j) (map parse-dependency j))
-(define (parse-package-version j) (cons (parse-version (hash-ref j 'version)) (parse-dependencies (hash-ref j 'dependencies))))
-(define (parse-package j) (cons (hash-ref j 'package) (vector->immutable-vector (list->vector (map parse-package-version (hash-ref j 'versions))))))
-(define (parse-registry j) (vector->immutable-vector (list->vector (map parse-package j))))
+(define (parse-dependency fns j) 
+  (dep 
+    (hash-ref j 'packageToDependOn) 
+    (parse-constraint fns (hash-ref j 'constraint))))
+(define (parse-dependencies fns j) (map (lambda (x) (parse-dependency fns x)) j))
+(define (parse-package-version fns j) 
+  (cons 
+    (parse-version fns (hash-ref j 'version)) 
+    (parse-dependencies fns (hash-ref j 'dependencies))))
+
+(define (parse-package fns j) 
+  (cons 
+    (hash-ref j 'package) 
+    (vector->immutable-vector (list->vector (map (lambda (x) (parse-package-version fns x)) (hash-ref j 'versions))))))
+(define (parse-registry fns j) (vector->immutable-vector (list->vector (map (lambda (x) (parse-package fns x)) j))))
 
 
 (define (make-registry-package-hash reg-vec)
@@ -69,10 +86,15 @@
 (define (read-input-query path)
   (with-input-from-file path (lambda ()
     (define j (read-json))
-    (define reg (parse-registry (hash-ref j 'registry)))
-    (define c-deps (parse-dependencies (hash-ref j 'context_dependencies)))
+    (define fns (parse-functions (hash-ref j 'functions)))
+    ; (define fns (functions 
+    ;   (hash-ref functions-hash 'versionType)
+    ;   (hash-ref functions-hash 'consistency)
+    ;   (hash-ref functions-hash 'constraintInterpretation)))
+    
+    (define reg (parse-registry fns (hash-ref j 'registry)))
+    (define c-deps (parse-dependencies fns (hash-ref j 'context_dependencies)))
     (define options (parse-options (hash-ref j 'options)))
-    (define functions-hash (parse-functions (hash-ref j 'functions)))
     ; (pretty-display functions)
 
     ; (pretty-display 
@@ -88,9 +110,6 @@
         (make-registry-version-hashes reg)) 
       c-deps
       options
-      (functions 
-        (hash-ref functions-hash 'versionType)
-        (hash-ref functions-hash 'consistency)
-        (hash-ref functions-hash 'constraintInterpretation))))))
+      fns))))
 
 

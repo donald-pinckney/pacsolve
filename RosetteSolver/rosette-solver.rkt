@@ -16,6 +16,8 @@
 
 (define QUERY (read-input-query INPUT-SOURCE))
 
+(display QUERY)
+
 ;;; -------------------------------------------
 ;;; Actually doing the solve!
 ;;; -------------------------------------------
@@ -33,5 +35,5 @@
    #:minimize (optimize-graph QUERY G)
    #:guarantee (check-graph QUERY G)))
 
-(write-solution (rosette-sol->solution sol))
+; (write-solution (rosette-sol->solution sol))
 

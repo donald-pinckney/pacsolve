@@ -6,7 +6,7 @@
 ;; ComplexExpr
 (struct LetExpr (varName bindValue rest) #:transparent)
 (struct LambdaExpr (param body) #:transparent) ; body must be a SimpleExpr
-(struct RecurExpr (args) #:transparent)
+(struct CallExpr (name args) #:transparent)
 
 ;; SimpleExpr
 (struct VarExpr (varName) #:transparent)
@@ -79,7 +79,7 @@
   (define fn (hash-ref primitives op))
   (apply fn args))
 
-(define (dsl-eval primitives rules bindings e)
+(define (dsl-eval primitives fns bindings e)
   (display "\n")
   (display bindings)
   (display "\n")
@@ -94,34 +94,37 @@
       c]
 
     [(PrimitiveOpExpr op args)
-      (let ([evaled-args (map (lambda (arg) (dsl-eval primitives rules bindings arg)) args)])
+      (let ([evaled-args (map (lambda (arg) (dsl-eval primitives fns bindings arg)) args)])
         (eval-primitive primitives op evaled-args))]
 
     [(LetExpr varName binding body)
-      (let ([evaled-binding (dsl-eval primitives rules bindings binding)])
-        (dsl-eval primitives rules (hash-set bindings varName evaled-binding) body))]
+      (let ([evaled-binding (dsl-eval primitives fns bindings binding)])
+        (dsl-eval primitives fns (hash-set bindings varName evaled-binding) body))]
 
-    [(RecurExpr args) 
-      (let ([evaled-args (map (lambda (arg) (dsl-eval primitives rules bindings arg)) args)])
-        (try-eval-rules primitives rules evaled-args))]
+    [(CallExpr f args) 
+      (let ([evaled-args (map (lambda (arg) (dsl-eval primitives fns bindings arg)) args)])
+        (eval-dsl-function primitives fns f evaled-args))]
     
     [(LambdaExpr param body) 
       (lambda (rParam) 
-        (dsl-eval primitives rules (hash-set bindings param rParam) body))]))
+        (dsl-eval primitives fns (hash-set bindings param rParam) body))]))
 
-(define (try-eval-rules primitives rules args)
+(define (try-eval-rules primitives fns rules args)
   (match rules
     [(cons r moreRules) 
       (match (check-match (FunctionRule-patterns r) args)
-        [#f (try-eval-rules primitives moreRules args)]
-        [bindings (dsl-eval primitives rules (make-immutable-hash (hash->list bindings)) (FunctionRule-rhs r))])]
+        [#f (try-eval-rules primitives fns moreRules args)]
+        [bindings (dsl-eval primitives fns rules (make-immutable-hash (hash->list bindings)) (FunctionRule-rhs r))])]
     [(list) (error "No matching clauses")]))
 
-(define (eval-dsl-function primitives f args)
+(define (eval-dsl-function-impl primitives fns f args)
   (if 
     (= (length args) (FunctionDef-numParams f))
-    (try-eval-rules primitives (FunctionDef-rules f) args)
+    (try-eval-rules primitives fns (FunctionDef-rules f) args)
     (error "Incorrect number of arguments")))
+
+(define (eval-dsl-function primitives fns f args)
+  (eval-dsl-function-impl primitives fns (hash-ref fns f) args))
 
 
 (define (get-class-data j)
@@ -159,8 +162,8 @@
       (PrimitiveOpExpr op (map parse-complex-expr args))]
     [(cons 'LambdaExpr (hash-table ('param param) ('body body)))
       (LambdaExpr param (parse-simple-expr body))]
-    [(cons 'RecurExpr (hash-table ('args args)))
-      (RecurExpr (map parse-complex-expr args))]))
+    [(cons 'CallExpr (hash-table ('name name) ('args args)))
+      (CallExpr name (map parse-complex-expr args))]))
 
 (define (parse-pattern j)
   (match (get-class-data j)

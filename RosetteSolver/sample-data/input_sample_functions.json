@@ -167,25 +167,42 @@
                 }
               ],
               "rhs": {
-                "LambdaExpr": {
-                  "param": [
-                    "v"
-                  ],
-                  "body": {
-                    "PrimitiveOpExpr": {
-                      "op": "equal?",
+                "LetExpr": {
+                  "varName": "cvv",
+                  "bindValue": {
+                    "CallExpr": {
+                      "name": "versionType",
                       "args": [
-                        {
-                          "VarExpr": {
-                            "varName": "v"
-                          }
-                        },
                         {
                           "VarExpr": {
                             "varName": "cv"
                           }
                         }
                       ]
+                    }
+                  },
+                  "rest": {
+                    "LambdaExpr": {
+                      "param": [
+                        "v"
+                      ],
+                      "body": {
+                        "PrimitiveOpExpr": {
+                          "op": "equal?",
+                          "args": [
+                            {
+                              "VarExpr": {
+                                "varName": "v"
+                              }
+                            },
+                            {
+                              "VarExpr": {
+                                "varName": "cvv"
+                              }
+                            }
+                          ]
+                        }
+                      }
                     }
                   }
                 }

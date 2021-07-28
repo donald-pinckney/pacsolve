@@ -1,23 +1,14 @@
 #lang racket
 
-(provide (struct-out version))
-(provide (struct-out constraint-wildcardMajor))
-(provide (struct-out constraint-exactly))
 (provide (struct-out dep))
 
 (provide (struct-out registry))
 (provide (struct-out options))
-(provide (struct-out functions))
 (provide (struct-out query))
 
-
-(struct version (major minor bug) #:transparent)
-(struct constraint-wildcardMajor () #:transparent)
-(struct constraint-exactly (version) #:transparent)
 (struct dep (package constraint) #:transparent)
 
 (struct registry (vec package-hash version-hashes) #:transparent)
 (struct options (max-duplicates consistency check-acyclic min-criteria) #:transparent)
-(struct functions (version-type consistency constraint-interpretation) #:transparent)
-(struct query (registry context-deps options functions) #:transparent)
+(struct query (registry context-deps options functions-hash) #:transparent)
 

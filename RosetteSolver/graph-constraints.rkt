@@ -52,9 +52,12 @@
 
 ;;; *** Constraints part 3: Checking that the graph satisfies all dependency constraints
 (define (sat/version-constraint v-s c)
-  (destruct c
-    [(constraint-wildcardMajor) #t]
-    [(constraint-exactly cv) (equal? v-s cv)]))
+  #t)
+  
+;; TODO: Re-enable this
+  ; (destruct c
+  ;   [(constraint-wildcardMajor) #t]
+  ;   [(constraint-exactly cv) (equal? v-s cv)]))
 
 (define (check-graph-sat-deps query g)
   (for/graph-edges query g (lambda (e constraint _p _v _n)
