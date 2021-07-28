@@ -7,6 +7,7 @@
 
 (provide (struct-out registry))
 (provide (struct-out options))
+(provide (struct-out functions))
 (provide (struct-out query))
 
 
@@ -17,5 +18,6 @@
 
 (struct registry (vec package-hash version-hashes) #:transparent)
 (struct options (max-duplicates consistency check-acyclic min-criteria) #:transparent)
-(struct query (registry context-deps options) #:transparent)
+(struct functions (version-type consistency constraint-interpretation) #:transparent)
+(struct query (registry context-deps options functions) #:transparent)
 

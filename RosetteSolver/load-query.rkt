@@ -1,7 +1,9 @@
 #lang racket
 
 (require json)
+(require racket/pretty)
 (require "query.rkt")
+(require "function-dsl.rkt")
 
 (provide read-input-query)
 
@@ -60,12 +62,24 @@
     (hash-ref j 'check-acyclic)
     crit))
 
+(define (parse-functions fns)
+  (define parsed-fns-list (hash-map fns (lambda (name def) (cons name (parse-function def)))))
+  (make-hash parsed-fns-list))
+
 (define (read-input-query path)
   (with-input-from-file path (lambda ()
     (define j (read-json))
     (define reg (parse-registry (hash-ref j 'registry)))
     (define c-deps (parse-dependencies (hash-ref j 'context_dependencies)))
     (define options (parse-options (hash-ref j 'options)))
+    (define functions-hash (parse-functions (hash-ref j 'functions)))
+    ; (pretty-display functions)
+
+    ; (pretty-display 
+    ;   (eval-dsl-function
+    ;     (make-hash) 
+    ;     (hash-ref functions 'constraintInterpretation) 
+    ;     (list (make-hash (list (cons 'exactly (make-hash (list (cons 'major 1) (cons 'minor 2) (cons 'bug 3)))) )))))
 
     (query 
       (registry 
@@ -73,6 +87,10 @@
         (make-registry-package-hash reg) 
         (make-registry-version-hashes reg)) 
       c-deps
-      options))))
+      options
+      (functions 
+        (hash-ref functions-hash 'versionType)
+        (hash-ref functions-hash 'consistency)
+        (hash-ref functions-hash 'constraintInterpretation))))))
 
 

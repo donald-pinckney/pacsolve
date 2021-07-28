@@ -139,7 +139,7 @@
               ],
               "rhs": {
                 "LambdaExpr": {
-                  "params": [
+                  "param": [
                     "v"
                   ],
                   "body": {
@@ -168,7 +168,7 @@
               ],
               "rhs": {
                 "LambdaExpr": {
-                  "params": [
+                  "param": [
                     "v"
                   ],
                   "body": {
@@ -197,22 +197,77 @@
     },
     "consistency": {
       "FunctionDef": {
-        "numParams": 0,
+        "numParams": 2,
         "rules": [
           {
             "FunctionRule": {
-              "patterns": [],
+              "patterns": [
+                {
+                  "WildcardPattern": {}
+                },
+                {
+                  "WildcardPattern": {}
+                }
+              ],
               "rhs": {
-                "LambdaExpr": {
-                  "params": [
-                    "v1",
-                    "v2"
-                  ],
-                  "body": {
-                    "ConstExpr": {
-                      "value": true
+                "ConstExpr": {
+                  "value": true
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "versionType": {
+      "FunctionDef": {
+        "numParams": 1,
+        "rules": [
+          {
+            "FunctionRule": {
+              "patterns": [
+                {
+                  "DictionaryPattern": {
+                    "namesPatternsDict": {
+                      "major": {
+                        "BindingPattern": {
+                          "name": "major"
+                        }
+                      },
+                      "minor": {
+                        "BindingPattern": {
+                          "name": "minor"
+                        }
+                      },
+                      "bug": {
+                        "BindingPattern": {
+                          "name": "bug"
+                        }
+                      }
                     }
                   }
+                }
+              ],
+              "rhs": {
+                "PrimitiveOpExpr": {
+                  "op": "immutable-vector",
+                  "args": [
+                    {
+                      "VarExpr": {
+                        "varName": "major"
+                      }
+                    },
+                    {
+                      "VarExpr": {
+                        "varName": "minor"
+                      }
+                    },
+                    {
+                      "VarExpr": {
+                        "varName": "bug"
+                      }
+                    }
+                  ]
                 }
               }
             }
