@@ -5,8 +5,6 @@
 (require "solution.rkt")
 (require json)
 
-;; TODO: Re-enable this
-
 (provide write-solution)
 
 (define (flatten-graph-idx e p-counts v-counts)

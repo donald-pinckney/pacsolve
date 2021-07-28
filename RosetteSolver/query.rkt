@@ -10,6 +10,7 @@
 (provide (struct-out query))
 
 (provide serialize-version)
+(provide evaluate-consistency)
 
 (struct dep (package constraint) #:transparent)
 
@@ -24,3 +25,10 @@
     (query-functions-hash query)
     "versionSerialize"
     (list version)))
+
+(define (evaluate-consistency query v1 v2)
+  (eval-dsl-function
+    DSL-PRIMITIVES
+    (query-functions-hash query)
+    "consistency"
+    (list v1 v2)))
