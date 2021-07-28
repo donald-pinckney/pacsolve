@@ -102,18 +102,6 @@
     
     [(LambdaExpr param body) 
       (lambda (rParam)
-        (display "\nInside lambda:\n")
-        (display rParam)
-        (display "\n")
-        (display bindings)
-        (display "\n")
-        (print param)
-        (display "\n")
-        (print (hash-set bindings param rParam))
-        (display "\n")
-        (print body)
-        (display "\n")
-        ; (display )
         (dsl-eval primitives fns (hash-set bindings param rParam) body))]))
 
 (define (try-eval-rules primitives fns rules args)
