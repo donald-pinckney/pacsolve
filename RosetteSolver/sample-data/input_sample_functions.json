@@ -323,50 +323,57 @@
                   "args": [
                     {
                       "PrimitiveOpExpr": {
-                        "op": "cons",
+                        "op": "list",
                         "args": [
                           {
-                            "ConstExpr": {
-                              "value": "major"
+                            "PrimitiveOpExpr": {
+                              "op": "cons",
+                              "args": [
+                                {
+                                  "ConstExpr": {
+                                    "value": "major"
+                                  }
+                                },
+                                {
+                                  "VarExpr": {
+                                    "varName": "major"
+                                  }
+                                }
+                              ]
                             }
                           },
                           {
-                            "VarExpr": {
-                              "varName": "major"
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "PrimitiveOpExpr": {
-                        "op": "cons",
-                        "args": [
-                          {
-                            "ConstExpr": {
-                              "value": "minor"
-                            }
-                          },
-                          {
-                            "VarExpr": {
-                              "varName": "minor"
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    {
-                      "PrimitiveOpExpr": {
-                        "op": "cons",
-                        "args": [
-                          {
-                            "ConstExpr": {
-                              "value": "bug"
+                            "PrimitiveOpExpr": {
+                              "op": "cons",
+                              "args": [
+                                {
+                                  "ConstExpr": {
+                                    "value": "minor"
+                                  }
+                                },
+                                {
+                                  "VarExpr": {
+                                    "varName": "minor"
+                                  }
+                                }
+                              ]
                             }
                           },
                           {
-                            "VarExpr": {
-                              "varName": "bug"
+                            "PrimitiveOpExpr": {
+                              "op": "cons",
+                              "args": [
+                                {
+                                  "ConstExpr": {
+                                    "value": "bug"
+                                  }
+                                },
+                                {
+                                  "VarExpr": {
+                                    "varName": "bug"
+                                  }
+                                }
+                              ]
                             }
                           }
                         ]

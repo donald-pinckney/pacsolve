@@ -1,7 +1,6 @@
 #lang racket
 
 (require json)
-(require racket/pretty)
 (require "query.rkt")
 (require "function-dsl.rkt")
 (require "dsl-primitives.rkt")
@@ -90,6 +89,7 @@
     (define fns-tmp (parse-functions (hash-ref j 'functions)))
     (define fns (make-immutable-hash (list
       (cons "versionDeserialize" (hash-ref fns-tmp 'versionDeserialize))
+      (cons "versionSerialize" (hash-ref fns-tmp 'versionSerialize))
       (cons "consistency" (hash-ref fns-tmp 'consistency))
       (cons "constraintInterpretation" (hash-ref fns-tmp 'constraintInterpretation)))))
     

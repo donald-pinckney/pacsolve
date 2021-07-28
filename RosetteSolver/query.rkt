@@ -1,10 +1,15 @@
 #lang racket
 
+(require "function-dsl.rkt")
+(require "dsl-primitives.rkt")
+
 (provide (struct-out dep))
 
 (provide (struct-out registry))
 (provide (struct-out options))
 (provide (struct-out query))
+
+(provide serialize-version)
 
 (struct dep (package constraint) #:transparent)
 
@@ -12,3 +17,10 @@
 (struct options (max-duplicates consistency check-acyclic min-criteria) #:transparent)
 (struct query (registry context-deps options functions-hash) #:transparent)
 
+
+(define (serialize-version query version)
+  (eval-dsl-function
+    DSL-PRIMITIVES
+    (query-functions-hash query)
+    "versionSerialize"
+    (list version)))

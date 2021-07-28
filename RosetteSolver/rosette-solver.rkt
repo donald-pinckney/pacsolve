@@ -37,5 +37,5 @@
 
 (display "\n\n")
 (display sol)
-; (write-solution (rosette-sol->solution sol))
+(write-solution QUERY (rosette-sol->solution sol))
 
