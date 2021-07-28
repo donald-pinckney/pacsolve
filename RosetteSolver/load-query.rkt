@@ -3,21 +3,22 @@
 (require json)
 (require "query.rkt")
 (require "function-dsl.rkt")
-(require "dsl-primitives.rkt")
+(require "dsl-primitives-concrete.rkt")
+(require "dsl-primitives-symbolic.rkt")
 
 (provide read-input-query)
 
 
 (define (parse-version fns j)
   (eval-dsl-function
-    DSL-PRIMITIVES
+    DSL-PRIMITIVES-CONCRETE
     fns
     "versionDeserialize"
     (list j)))
   
 (define (parse-constraint fns j)
   (eval-dsl-function
-    DSL-PRIMITIVES
+    DSL-PRIMITIVES-SYMBOLIC
     fns
     "constraintInterpretation"
     (list j)))
@@ -83,9 +84,7 @@
 (define (read-input-query path)
   (with-input-from-file path (lambda ()
     (define j (read-json))
-    ; (display "\n\n")
-    ; (pretty-display j)
-    ; (display "\n\n")
+
     (define fns-tmp (parse-functions (hash-ref j 'functions)))
     (define fns (make-immutable-hash (list
       (cons "versionDeserialize" (hash-ref fns-tmp 'versionDeserialize))
@@ -96,13 +95,6 @@
     (define reg (parse-registry fns (hash-ref j 'registry)))
     (define c-deps (parse-dependencies fns (hash-ref j 'context_dependencies)))
     (define options (parse-options (hash-ref j 'options)))
-    ; (pretty-display functions)
-
-    ; (pretty-display 
-    ;   (eval-dsl-function
-    ;     (make-hash) 
-    ;     (hash-ref functions 'constraintInterpretation) 
-    ;     (list (make-hash (list (cons 'exactly (make-hash (list (cons 'major 1) (cons 'minor 2) (cons 'bug 3)))) )))))
 
     (query 
       (registry 

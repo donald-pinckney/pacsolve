@@ -1,10 +1,8 @@
 #lang rosette
 
-(require rosette/lib/destruct)
 (require "graph.rkt")
 (require "query.rkt")
 (require "query-access.rkt")
-(require "consistency.rkt")
 
 (provide check-graph)
 

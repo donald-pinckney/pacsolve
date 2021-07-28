@@ -1,6 +1,5 @@
 #lang rosette
 
-(require "query.rkt")
 (require "load-query.rkt")
 (require "graph-sketching.rkt")
 (require "solution.rkt")
