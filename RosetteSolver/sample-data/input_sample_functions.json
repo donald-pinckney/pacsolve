@@ -139,9 +139,7 @@
               ],
               "rhs": {
                 "LambdaExpr": {
-                  "param": [
-                    "v"
-                  ],
+                  "param": "v",
                   "body": {
                     "ConstExpr": {
                       "value": true
@@ -171,7 +169,7 @@
                   "varName": "cvv",
                   "bindValue": {
                     "CallExpr": {
-                      "name": "versionType",
+                      "name": "versionDeserialize",
                       "args": [
                         {
                           "VarExpr": {
@@ -183,9 +181,7 @@
                   },
                   "rest": {
                     "LambdaExpr": {
-                      "param": [
-                        "v"
-                      ],
+                      "param": "v",
                       "body": {
                         "PrimitiveOpExpr": {
                           "op": "equal?",
@@ -236,7 +232,7 @@
         ]
       }
     },
-    "versionType": {
+    "versionDeserialize": {
       "FunctionDef": {
         "numParams": 1,
         "rules": [
@@ -282,6 +278,98 @@
                     {
                       "VarExpr": {
                         "varName": "bug"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "versionSerialize": {
+      "FunctionDef": {
+        "numParams": 1,
+        "rules": [
+          {
+            "FunctionRule": {
+              "patterns": [
+                {
+                  "VectorPattern": {
+                    "patterns": [
+                      {
+                        "BindingPattern": {
+                          "name": "major"
+                        }
+                      },
+                      {
+                        "BindingPattern": {
+                          "name": "minor"
+                        }
+                      },
+                      {
+                        "BindingPattern": {
+                          "name": "bug"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "rhs": {
+                "PrimitiveOpExpr": {
+                  "op": "make-json-hash",
+                  "args": [
+                    {
+                      "PrimitiveOpExpr": {
+                        "op": "cons",
+                        "args": [
+                          {
+                            "ConstExpr": {
+                              "value": "major"
+                            }
+                          },
+                          {
+                            "VarExpr": {
+                              "varName": "major"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "PrimitiveOpExpr": {
+                        "op": "cons",
+                        "args": [
+                          {
+                            "ConstExpr": {
+                              "value": "minor"
+                            }
+                          },
+                          {
+                            "VarExpr": {
+                              "varName": "minor"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "PrimitiveOpExpr": {
+                        "op": "cons",
+                        "args": [
+                          {
+                            "ConstExpr": {
+                              "value": "bug"
+                            }
+                          },
+                          {
+                            "VarExpr": {
+                              "varName": "bug"
+                            }
+                          }
+                        ]
                       }
                     }
                   ]

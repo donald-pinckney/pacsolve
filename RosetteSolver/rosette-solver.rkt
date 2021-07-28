@@ -35,5 +35,7 @@
    #:minimize (optimize-graph QUERY G)
    #:guarantee (check-graph QUERY G)))
 
+(display "\n\n")
+(display sol)
 ; (write-solution (rosette-sol->solution sol))
 

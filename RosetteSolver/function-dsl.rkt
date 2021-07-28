@@ -80,11 +80,6 @@
   (apply fn args))
 
 (define (dsl-eval primitives fns bindings e)
-  (display "\n")
-  (display bindings)
-  (display "\n")
-  (print e)
-  (display "\n\n")
 
   (match e
     [(VarExpr v) 
@@ -106,7 +101,19 @@
         (eval-dsl-function primitives fns f evaled-args))]
     
     [(LambdaExpr param body) 
-      (lambda (rParam) 
+      (lambda (rParam)
+        (display "\nInside lambda:\n")
+        (display rParam)
+        (display "\n")
+        (display bindings)
+        (display "\n")
+        (print param)
+        (display "\n")
+        (print (hash-set bindings param rParam))
+        (display "\n")
+        (print body)
+        (display "\n")
+        ; (display )
         (dsl-eval primitives fns (hash-set bindings param rParam) body))]))
 
 (define (try-eval-rules primitives fns rules args)
@@ -114,7 +121,7 @@
     [(cons r moreRules) 
       (match (check-match (FunctionRule-patterns r) args)
         [#f (try-eval-rules primitives fns moreRules args)]
-        [bindings (dsl-eval primitives fns rules (make-immutable-hash (hash->list bindings)) (FunctionRule-rhs r))])]
+        [bindings (dsl-eval primitives fns (make-immutable-hash (hash->list bindings)) (FunctionRule-rhs r))])]
     [(list) (error "No matching clauses")]))
 
 (define (eval-dsl-function-impl primitives fns f args)
@@ -169,7 +176,7 @@
   (match (get-class-data j)
     [(cons 'DictionaryPattern (hash-table ('namesPatternsDict subpatterns))) 
       (define parsed-subs (hash-map subpatterns (lambda (name pat) (cons name (parse-pattern pat)))))
-      (DictionaryPattern (make-hash parsed-subs))]
+      (DictionaryPattern (make-hasheq parsed-subs))]
     [(cons 'VectorPattern (hash-table ('patterns subpatterns))) 
       (define parsed-subs (vector-map (lambda (pat) (parse-pattern pat)) (list->vector subpatterns)))
       (VectorPattern parsed-subs)]

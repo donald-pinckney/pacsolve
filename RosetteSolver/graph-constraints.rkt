@@ -52,7 +52,7 @@
 
 ;;; *** Constraints part 3: Checking that the graph satisfies all dependency constraints
 (define (sat/version-constraint v-s c)
-  #t)
+  (c v-s))
   
 ;; TODO: Re-enable this
   ; (destruct c

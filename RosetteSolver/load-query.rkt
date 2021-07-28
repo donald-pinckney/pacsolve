@@ -10,15 +10,13 @@
 
 
 (define (parse-version fns j)
-  (define v-fn (hash-ref fns 'versionType))
   (eval-dsl-function
     DSL-PRIMITIVES
     fns
-    "versionType"
+    "versionDeserialize"
     (list j)))
   
 (define (parse-constraint fns j)
-  (define c-fn (hash-ref fns 'constraintInterpretation))
   (eval-dsl-function
     DSL-PRIMITIVES
     fns
@@ -86,11 +84,14 @@
 (define (read-input-query path)
   (with-input-from-file path (lambda ()
     (define j (read-json))
-    (define fns (parse-functions (hash-ref j 'functions)))
-    ; (define fns (functions 
-    ;   (hash-ref functions-hash 'versionType)
-    ;   (hash-ref functions-hash 'consistency)
-    ;   (hash-ref functions-hash 'constraintInterpretation)))
+    ; (display "\n\n")
+    ; (pretty-display j)
+    ; (display "\n\n")
+    (define fns-tmp (parse-functions (hash-ref j 'functions)))
+    (define fns (make-immutable-hash (list
+      (cons "versionDeserialize" (hash-ref fns-tmp 'versionDeserialize))
+      (cons "consistency" (hash-ref fns-tmp 'consistency))
+      (cons "constraintInterpretation" (hash-ref fns-tmp 'constraintInterpretation)))))
     
     (define reg (parse-registry fns (hash-ref j 'registry)))
     (define c-deps (parse-dependencies fns (hash-ref j 'context_dependencies)))
