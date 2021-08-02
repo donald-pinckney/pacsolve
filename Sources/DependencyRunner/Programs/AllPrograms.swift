@@ -48,6 +48,8 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "TestC_AndComplex": program_TestC_AndComplex,
     "TestC_AndCNF": program_TestC_AndCNF,
     "TestC_OrRange": program_TestC_OrRange,
+    "TestC_AndOr": program_TestC_AndOr,
+    "TestC_OrAnd": program_TestC_OrAnd,
     "TestC_WildcardBug": program_TestC_WildcardBug,
     "TestC_WildcardMinor": program_TestC_WildcardMinor,
     "TestC_WildcardMajor": program_TestC_WildcardMajor,

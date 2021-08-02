@@ -110,7 +110,7 @@
       (match (check-match (FunctionRule-patterns r) args)
         [#f (try-eval-rules primitives fns moreRules args)]
         [bindings (dsl-eval primitives fns (make-immutable-hash (hash->list bindings)) (FunctionRule-rhs r))])]
-    [(list) (error "No matching clauses")]))
+    [(list) (error "No matching clauses for: " args)]))
 
 (define (eval-dsl-function-impl primitives fns f args)
   (if 

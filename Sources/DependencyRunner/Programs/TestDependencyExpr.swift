@@ -41,3 +41,10 @@ let program_TestC_AndCNF = testResolve(constraint: .and(
                                         .or(.geq("1.0.0"), .leq("0.2.3"))))
 let program_TestC_OrRange = testResolve(constraint: .or(.geq("2.2.2"), .leq("1.2.3")))
 
+let program_TestC_AndOr = testResolve(constraint: .and(.exactly("1.2.0"), .or(.exactly("1.2.1"), .exactly("1.2.2"))))
+let program_TestC_OrAnd = testResolve(constraint: .or(.and(.exactly("1.2.0"), .exactly("1.2.1")), .exactly("1.2.2")))
+
+
+// 1.2.0 1.2.1 || 1.2.1
+// 1.2.0 && (1.2.1 || 1.2.2)
+// (1.2.0 && 1.2.1) || 1.2.2
