@@ -3,8 +3,9 @@
 (provide DSL-PRIMITIVES-CONCRETE)
 
 (define (make-json-hash assocs)
-  (make-hash (map (lambda (p) (cons (string->symbol (car p)) (cdr p))) assocs)))
+  (make-hasheq (map (lambda (p) (cons (string->symbol (car p)) (cdr p))) assocs)))
 
+;; Loaded for functions: "versionDeserialize", "versionSerialize", "consistency"
 (define DSL-PRIMITIVES-CONCRETE (make-immutable-hash (list
   (cons "immutable-vector" vector-immutable)
   (cons "cons" cons)

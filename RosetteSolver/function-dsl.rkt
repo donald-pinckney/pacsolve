@@ -34,6 +34,10 @@
   b1)
 
 (define (hash-match patHash argHash)
+  ; (display patHash)
+  ; (display "\n")
+  ; (display argHash)
+  ; (display "\n\n")
   (if 
     (and (hash-keys-subset? patHash argHash) (hash-keys-subset? argHash patHash))
     (let* ([keys (hash-keys patHash)]

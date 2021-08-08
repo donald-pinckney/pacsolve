@@ -86,12 +86,12 @@
     (define j (read-json))
 
     (define fns-tmp (parse-functions (hash-ref j 'functions)))
-    (define fns (make-immutable-hash (list
-      (cons "versionDeserialize" (hash-ref fns-tmp 'versionDeserialize))
-      (cons "versionSerialize" (hash-ref fns-tmp 'versionSerialize))
-      (cons "consistency" (hash-ref fns-tmp 'consistency))
-      (cons "constraintInterpretation" (hash-ref fns-tmp 'constraintInterpretation)))))
-    
+
+    (define fns (make-immutable-hash 
+      (map 
+        (lambda (pair) (cons (symbol->string (car pair)) (cdr pair)))
+        (hash->list fns-tmp))))
+
     (define reg (parse-registry fns (hash-ref j 'registry)))
     (define c-deps (parse-dependencies fns (hash-ref j 'context_dependencies)))
     (define options (parse-options (hash-ref j 'options)))
