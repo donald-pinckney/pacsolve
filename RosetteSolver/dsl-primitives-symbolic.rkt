@@ -1,5 +1,7 @@
 #lang rosette
 
+; (display (current-bitwidth))
+
 (provide DSL-PRIMITIVES-SYMBOLIC)
 
 (define (make-json-hash assocs)

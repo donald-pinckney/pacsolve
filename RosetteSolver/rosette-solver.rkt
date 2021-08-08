@@ -1,6 +1,7 @@
 #lang rosette
 
-(output-smt "z3-debugging/")
+(current-bitwidth 32)
+; (output-smt "z3-debugging/")
 
 (require "load-query.rkt")
 (require "graph-sketching.rkt")
