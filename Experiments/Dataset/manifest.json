@@ -1,0 +1,11 @@
+{
+  "configs": ["npm", "rosette-npm-num_packages"],
+
+  "projects": {
+    "ejs" : {
+      "git": "https://github.com/ocelot-ide/ElementaryJS",
+      "pre-install": "git checkout d58c290a958dbba4838bb615e633838b4095eea7",
+      "post-install": "npm run build && npm test"
+    }
+  }
+}
