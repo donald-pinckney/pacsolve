@@ -6,6 +6,12 @@
       "git": "https://github.com/ocelot-ide/ElementaryJS",
       "pre-install": "git checkout d58c290a958dbba4838bb615e633838b4095eea7",
       "post-install": "npm run build && npm test"
+    },
+    "piranha" : {
+      "git": "https://github.com/uber/piranha",
+      "subdirectory": "javascript",
+      "pre-install": "git checkout b3a2abe2c8844752397879b4b2bcde964c73852c",
+      "post-install": "npm test"
     }
   }
 }

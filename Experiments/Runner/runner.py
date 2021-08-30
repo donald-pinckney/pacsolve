@@ -14,8 +14,18 @@ import single_runner
 #   parser.add_argument('--configs', nargs='+', help='The list of install configurations to try')
 #   args = parser.parse_args()
 
-def run_single(out, name, maybePath, maybeRepo, configs, preinstall, postinstall):
-  options = argparse.Namespace(name=name, repo=maybeRepo, path=maybePath, pre_install=preinstall, post_install=postinstall, out=out, configs=configs)
+def run_single(out, name, maybePath, maybeRepo, configs, subdirectory, preinstall, postinstall, verbosity):
+  options = argparse.Namespace(
+    name=name, 
+    repo=maybeRepo, 
+    path=maybePath, 
+    subdirectory=subdirectory, 
+    pre_install=preinstall, 
+    post_install=postinstall, 
+    out=out, 
+    configs=configs,
+    verbosity=verbosity
+  )
   single_runner.run(options)
 
 def run(options):
@@ -35,8 +45,18 @@ def run(options):
   else:
     projects = all_projects
   
-  for project_name, options in projects.items():
-    run_single(out_dir, project_name, options.get("path"), options.get("git"), configs, options.get("pre-install"), options.get("post-install"))
+  for project_name, project_options in projects.items():
+    run_single(
+      out_dir, 
+      project_name, 
+      project_options.get("path"), 
+      project_options.get("git"), 
+      configs, 
+      project_options.get("subdirectory"), 
+      project_options.get("pre-install"), 
+      project_options.get("post-install"),
+      options.verbosity
+    )
 
 
   
