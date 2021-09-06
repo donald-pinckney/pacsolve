@@ -1,0 +1,12 @@
+[package]
+name = "Z3Solver"
+version = "0.1.0"
+authors = ["Donald Pinckney <donald_pinckney@icloud.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+z3 = "0.11.2"
+serde = "1.0.130"
+serde_json = "1.0.67"
