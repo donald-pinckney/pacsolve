@@ -1,0 +1,13 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": [
+      "npm",
+      "install"
+    ],
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: powerbi-visuals-tools@3.3.2\nnpm ERR! Found: webpack@5.51.1\nnpm ERR! node_modules/webpack\nnpm ERR!   webpack@\"^5.38.1\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer webpack@\"^4.x\" from base64-inline-loader@1.1.1\nnpm ERR! node_modules/base64-inline-loader\nnpm ERR!   base64-inline-loader@\"^1.1.1\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-09-01T22_23_31_313Z-debug.log\n"
+  }
+}

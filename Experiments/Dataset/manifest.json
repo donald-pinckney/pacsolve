@@ -12,6 +12,34 @@
       "subdirectory": "javascript",
       "pre-install": "git checkout b3a2abe2c8844752397879b4b2bcde964c73852c",
       "post-install": "npm test"
+    },
+    "pyright": {
+      "git": "https://github.com/microsoft/pyright",
+      "subdirectory": "packages/pyright",
+      "pre-install": "git checkout 56014e5909091bc80c98e214318724b59c70367c"
+    },
+    "beachball": {
+      "comment": "Rosette times out",
+      "git": "https://github.com/microsoft/beachball",
+      "pre-install": "git checkout 6a417b3a6590855e2788a5c2084292106e34731e"
+    },
+    "maker.js-playground": {
+      "comment": "Rosette times out",
+      "git": "https://github.com/microsoft/maker.js",
+      "subdirectory": "packages/playground",
+      "pre-install": "git checkout 705f31b089ad97b247359bc2b0420cabf4de029b",
+      "post-install": "npm run build"
+    },
+    "@mixer/webpack-bundle-compare": {
+      "git": "https://github.com/microsoft/webpack-bundle-compare",
+      "pre-install": "git checkout 3e27bcd0f540c6dd7f09178f004c88e5d59a499c",
+      "post-install": "npm run build && npm test"
+    },
+    "PowerBI-visuals-tools": {
+      "comment": "Rosette times out",
+      "git": "https://github.com/microsoft/PowerBI-visuals-tools",
+      "pre-install": "git checkout 7aa9b4141e24c76b7b2df2559d01e6195e1c0bdb",
+      "post-install":"npm test"
     }
   }
 }
