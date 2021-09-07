@@ -177,13 +177,11 @@
     [(cons 'WildcardPattern _) (WildcardPattern)]))
 
 (define (parse-rule j)
-  (define data (unwrap-class j 'FunctionRule))
-  (define patterns (map parse-pattern (hash-ref data 'patterns)))
-  (define rhs (parse-complex-expr (hash-ref data 'rhs)))
+  (define patterns (map parse-pattern (hash-ref j 'patterns)))
+  (define rhs (parse-complex-expr (hash-ref j 'rhs)))
   (FunctionRule patterns rhs))
 
 (define (parse-function j)
-  (define data (unwrap-class j 'FunctionDef))
-  (define nParams (hash-ref data 'numParams))
-  (define rules (map parse-rule (hash-ref data 'rules)))
+  (define nParams (hash-ref j 'numParams))
+  (define rules (map parse-rule (hash-ref j 'rules)))
   (FunctionDef nParams rules))

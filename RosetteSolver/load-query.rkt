@@ -58,22 +58,16 @@
   (list->vector (map (lambda (p-idx) (make-version-hash (cdr (vector-ref reg-vec p-idx)))) (range (vector-length reg-vec)))))
 
 
-(define (check-supported-consistency s)
-  (if (member s (list "pip" "npm")) #t (error "Unsupported consistency relation")))
-
 (define (check-supported-min-criteria s)
   (if (member s (list "graph-num-vertices")) #t (error "Unsupported minimization criteria")))
 
 (define (parse-options j) 
-  (define consis (hash-ref j 'consistency))
-  (define crit (hash-ref j 'minimization-criteria))
+  (define crit (hash-ref j 'minimization_criteria))
 
-  (check-supported-consistency consis)
   (map check-supported-min-criteria crit)
 
   (options
     (hash-ref j 'max_duplicates)
-    consis
     (hash-ref j 'check_acyclic)
     crit))
 
