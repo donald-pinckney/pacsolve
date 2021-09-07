@@ -1,7 +1,8 @@
 use serde::Deserialize;
-use serde_json::{Result, Value};
+use serde_json::Value;
 use std::collections::HashMap;
 use std::fs::File;
+use crate::dsl;
 
 
 #[derive(Deserialize, Debug)]
@@ -94,6 +95,6 @@ struct QueryOptions {
 // Beyond these require functions, the hash map may also contain any other
 // arbitrary helper functions.
 // type ArbitraryFunctionsMap = HashMap<String, dsl_format::FunDef>;
-type ArbitraryFunctionsMap = HashMap<String, Value>;
+type ArbitraryFunctionsMap = HashMap<String, dsl::FunDef>;
 
 
