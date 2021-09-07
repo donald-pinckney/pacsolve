@@ -29,7 +29,8 @@ pub struct ResolutionGraph {
 }
 
 #[derive(Serialize)]
+#[serde(tag = "type")]
 enum Vertex {
   RootContextVertex,
-  ResolvedPackageVertex(String, Value)
+  ResolvedPackageVertex { package: String, version: Value }
 }
