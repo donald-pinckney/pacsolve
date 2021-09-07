@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use std::fs::File;
 
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Debug)]
 pub struct InputQuery {
   // A listing of all relevant named packages & versions & dependencies
   registry: Vec<Package>, 
@@ -24,7 +24,7 @@ impl InputQuery {
   }
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Debug)]
 struct Package {
   // The name of the package
   package: String,
@@ -32,7 +32,7 @@ struct Package {
   versions: Vec<VersionOfAPackage>
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Debug)]
 struct VersionOfAPackage {
   // An arbitrary JSON blob encoding the version number, 
   // but it must be deserializable by the
@@ -45,7 +45,7 @@ struct VersionOfAPackage {
 
 type Dependencies = Vec<Dependency>;
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Debug)]
 #[serde(rename_all = "camelCase")]
 struct Dependency {
   // The name of the package to depend on,
@@ -57,7 +57,7 @@ struct Dependency {
   constraint: Value // This has "type" JsonConstraint
 }
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Debug)]
 struct QueryOptions {
   // currently is always set to 1. 
   // remove in final version

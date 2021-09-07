@@ -19,6 +19,7 @@ fn main() {
     let output_path = &args[2];
 
     let input = InputQuery::from_path(input_path);
+    println!("{:?}", input);
     let solver = Solver::new(input);
     let output = solver.solve();
     write_output_result(output, output_path);
