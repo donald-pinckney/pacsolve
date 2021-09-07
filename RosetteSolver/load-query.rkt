@@ -72,9 +72,9 @@
   (map check-supported-min-criteria crit)
 
   (options
-    (hash-ref j 'max-duplicates)
+    (hash-ref j 'max_duplicates)
     consis
-    (hash-ref j 'check-acyclic)
+    (hash-ref j 'check_acyclic)
     crit))
 
 (define (parse-functions fns)
