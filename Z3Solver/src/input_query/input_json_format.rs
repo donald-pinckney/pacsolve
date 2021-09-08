@@ -1,54 +1,54 @@
+use std::fs::File;
 use serde::Deserialize;
 use serde_json::Value;
 use std::collections::HashMap;
-use std::fs::File;
 use crate::dsl;
 
 
 #[derive(Deserialize, Debug)]
-pub struct InputQuery {
+pub struct InputQueryJSON {
   // A listing of all relevant named packages & versions & dependencies
-  registry: Vec<Package>, 
+  pub registry: Vec<PackageJSON>, 
   // The dependencies of the "context" node, that is, the dependencies
   // of the place we are running `npm install` from.
-  context_dependencies: Dependencies,
+  pub context_dependencies: Dependencies,
   // Some options for the query.
-  options: QueryOptions,
+  pub options: QueryOptions,
   // The arbitrary functions given in a DSL
-  functions: ArbitraryFunctionsMap,
+  pub functions: ArbitraryFunctionsMap,
 }
 
-impl InputQuery {
-  pub fn from_path(path: &str) -> InputQuery {
+impl InputQueryJSON {
+  pub fn from_path(path: &str) -> InputQueryJSON {
     let input_file = File::open(path).expect(&format!("Failed to open input path: {}", path));
     serde_json::from_reader(input_file).expect("Failed to parse input JSON")
   }
 }
 
 #[derive(Deserialize, Debug)]
-struct Package {
+pub struct PackageJSON {
   // The name of the package
-  package: String,
+  pub package: String,
   // List of all the specific versions of a package
-  versions: Vec<VersionOfAPackage>
+  pub versions: Vec<VersionOfAPackageJSON>
 }
 
 #[derive(Deserialize, Debug)]
-struct VersionOfAPackage {
+pub struct VersionOfAPackageJSON {
   // An arbitrary JSON blob encoding the version number, 
   // but it must be deserializable by the
   // "versionDeserialize" function (see below) 
-  version: Value, // This has "type" JsonVersion
+  pub version: Value, // This has "type" JsonVersion
 
   // The dependencies of this version of the package
-  dependencies: Dependencies
+  pub dependencies: Dependencies
 }
 
-type Dependencies = Vec<Dependency>;
+pub type Dependencies = Vec<Dependency>;
 
 #[derive(Deserialize, Debug)]
 #[serde(rename_all = "camelCase")]
-struct Dependency {
+pub struct Dependency {
   // The name of the package to depend on,
   // refers to `package_name` field in `Package`.
   package_to_depend_on: String,
@@ -59,7 +59,7 @@ struct Dependency {
 }
 
 #[derive(Deserialize, Debug)]
-struct QueryOptions {
+pub struct QueryOptions {
   // currently is always set to 1. 
   // remove in final version
   max_duplicates: i32, 
@@ -94,7 +94,6 @@ struct QueryOptions {
 //
 // Beyond these require functions, the hash map may also contain any other
 // arbitrary helper functions.
-// type ArbitraryFunctionsMap = HashMap<String, dsl_format::FunDef>;
-type ArbitraryFunctionsMap = HashMap<String, dsl::FunDef>;
+pub type ArbitraryFunctionsMap = HashMap<String, dsl::FunDef>;
 
 

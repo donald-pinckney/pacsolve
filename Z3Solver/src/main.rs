@@ -1,13 +1,13 @@
-mod input_format;
+mod input_query;
 mod output_format;
 mod dsl;
 mod solver;
 
 use std::env;
-use input_format::InputQuery;
+use input_query::InputQuery;
 use output_format::write_output_result;
 use solver::Solver;
-
+use z3::{Config, Context};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -20,7 +20,11 @@ fn main() {
 
     let input = InputQuery::from_path(input_path);
     println!("{:?}", input);
-    let solver = Solver::new(input);
+
+    let cfg = Config::new();
+    let ctx = Context::new(&cfg);
+    let solver = Solver::new(&ctx, input);
+
     let output = solver.solve();
     write_output_result(output, output_path);
 }
