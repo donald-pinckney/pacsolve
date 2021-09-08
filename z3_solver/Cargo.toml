@@ -1,5 +1,5 @@
 [package]
-name = "Z3Solver"
+name = "z3_solver"
 version = "0.1.0"
 authors = ["Donald Pinckney <donald_pinckney@icloud.com>"]
 edition = "2018"

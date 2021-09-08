@@ -3,15 +3,6 @@
 version = 3
 
 [[package]]
-name = "Z3Solver"
-version = "0.1.0"
-dependencies = [
- "serde",
- "serde_json",
- "z3",
-]
-
-[[package]]
 name = "aho-corasick"
 version = "0.7.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -410,4 +401,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1c82dcbc58be4bf1994c520066cb2bd6c3d36aed0fdc57244f34d277421986a6"
 dependencies = [
  "bindgen",
+]
+
+[[package]]
+name = "z3_solver"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+ "z3",
 ]
