@@ -12,7 +12,7 @@ use std::assert;
 #[derive(Debug)]
 pub struct InputQuery {
   // The graph of all dependencies, including registry and context
-  dependency_graph: PackageUniverse<Dependencies>,
+  universe: PackageUniverse<Dependencies>,
   // Some options for the query.
   options: QueryOptions,
   // The arbitrary functions given in a DSL
@@ -52,6 +52,6 @@ impl InputQuery {
     }
 
     let dep_graph = PackageUniverse { registry: Registry(reg), context_data: json.context_dependencies };
-    InputQuery { dependency_graph: dep_graph, options: json.options, functions: json.functions }
+    InputQuery { universe: dep_graph, options: json.options, functions: json.functions }
   }
 }

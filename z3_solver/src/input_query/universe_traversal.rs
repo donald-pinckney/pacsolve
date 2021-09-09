@@ -8,21 +8,21 @@ use crate::input_query::Registry;
 
 
 impl<D> Registry<D> {
-  fn iter(&self) -> impl Iterator<Item=(&std::string::String, &serde_json::Value, &D)> + '_ {
+  pub fn iter(&self) -> impl Iterator<Item=(&std::string::String, &serde_json::Value, &D)> + '_ {
     self.0.iter().flat_map(|(name, versions)| versions.iter().map(move |(v, d)| (name, v, d)))
   }
 
-  fn map<E, F>(&self, mut f: F) -> Registry<E> where F: FnMut(&String, &Value, &D) -> E, E: Clone {
+  pub fn map<E, F>(&self, mut f: F) -> Registry<E> where F: FnMut(&String, &Value, &D) -> E, E: Clone {
     self.iter().map(|(p, v, d)| (p, v, f(p, v, d))).collect()
   }
 
-  fn map_data<E, F>(&self, mut f: F) -> Registry<E> where F: FnMut(&D) -> E, E: Clone {
+  pub fn map_data<E, F>(&self, mut f: F) -> Registry<E> where F: FnMut(&D) -> E, E: Clone {
     self.map(|p, v, d| f(d))
   }
 }
 
 impl<D> PackageUniverse<D> where D: Clone {
-  fn map_data<E, F>(&self, mut f: F) -> PackageUniverse<E> where F: FnMut(&D) -> E, E: Clone {
+  pub fn map_data<E, F>(&self, mut f: F) -> PackageUniverse<E> where F: FnMut(&D) -> E, E: Clone {
     let new_context = f(&self.context_data);
     let new_reg: Registry<E> = self.registry.map_data(f);
     
