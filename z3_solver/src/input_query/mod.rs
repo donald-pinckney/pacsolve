@@ -11,7 +11,7 @@ use std::assert;
 #[derive(Debug)]
 pub struct InputQuery {
   // The graph of all dependencies, including registry and context
-  dependency_graph: DependencyGraph,
+  dependency_graph: PackageUniverse<Dependencies>,
   // Some options for the query.
   options: QueryOptions,
   // The arbitrary functions given in a DSL
@@ -19,14 +19,9 @@ pub struct InputQuery {
 }
 
 #[derive(Debug)]
-pub struct DependencyGraph {
-  registry: HashMap<String, Vec<(Value, PackageVersionData)>>,
-  context_dependencies: Dependencies,
-}
-
-#[derive(Debug)]
-struct PackageVersionData {
-  dependencies: Dependencies
+pub struct PackageUniverse<D> {
+  registry: HashMap<String, Vec<(Value, D)>>,
+  context_data: D,
 }
 
 impl InputQuery {
@@ -38,7 +33,7 @@ impl InputQuery {
       let package = p.package;
       let versions = p.versions;
       assert!(!reg.contains_key(&package));
-      let mut vers_map: Vec<(Value, PackageVersionData)> = Vec::new();
+      let mut vers_map: Vec<(Value, Dependencies)> = Vec::new();
 
       for v in versions {
         let version = v.version;
@@ -46,13 +41,13 @@ impl InputQuery {
         // Value is not hashable, so we get this gross O(n^2), but whatever
         assert!(!vers_map.iter().any(|(v2, _)| version == *v2));
 
-        vers_map.push((version, PackageVersionData { dependencies: deps }));
+        vers_map.push((version, deps ));
       }
 
       reg.insert(package, vers_map);
     }
 
-    let dep_graph = DependencyGraph { registry: reg, context_dependencies: json.context_dependencies };
+    let dep_graph = PackageUniverse { registry: reg, context_data: json.context_dependencies };
     InputQuery { dependency_graph: dep_graph, options: json.options, functions: json.functions }
   }
 }
