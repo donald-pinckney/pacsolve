@@ -2,7 +2,6 @@ mod input_json_format;
 mod universe_traversal;
 
 
-use input_json_format::{PackageJSON, VersionOfAPackageJSON};
 pub use input_json_format::{QueryOptions, ArbitraryFunctionsMap, Dependencies};
 
 use input_json_format::InputQueryJSON;
