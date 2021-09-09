@@ -1,6 +1,8 @@
 mod input_json_format;
+mod universe_traversal;
 
 
+use input_json_format::{PackageJSON, VersionOfAPackageJSON};
 pub use input_json_format::{QueryOptions, ArbitraryFunctionsMap, Dependencies};
 
 use input_json_format::InputQueryJSON;
@@ -19,8 +21,11 @@ pub struct InputQuery {
 }
 
 #[derive(Debug)]
+pub struct Registry<D>(HashMap<String, Vec<(Value, D)>>);
+
+#[derive(Debug)]
 pub struct PackageUniverse<D> {
-  registry: HashMap<String, Vec<(Value, D)>>,
+  registry: Registry<D>,
   context_data: D,
 }
 
@@ -47,7 +52,7 @@ impl InputQuery {
       reg.insert(package, vers_map);
     }
 
-    let dep_graph = PackageUniverse { registry: reg, context_data: json.context_dependencies };
+    let dep_graph = PackageUniverse { registry: Registry(reg), context_data: json.context_dependencies };
     InputQuery { dependency_graph: dep_graph, options: json.options, functions: json.functions }
   }
 }

@@ -46,7 +46,7 @@ pub struct VersionOfAPackageJSON {
 
 pub type Dependencies = Vec<Dependency>;
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct Dependency {
   // The name of the package to depend on,
