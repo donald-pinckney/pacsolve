@@ -19,7 +19,7 @@ fn main() {
     let output_path = &args[2];
 
     let input = InputQuery::from_path(input_path);
-    println!("{:?}", input);
+    // println!("{:?}", input);
 
     let cfg = Config::new();
     let ctx = Context::new(&cfg);
