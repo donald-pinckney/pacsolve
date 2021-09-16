@@ -51,11 +51,11 @@ pub type Dependencies = Vec<Dependency>;
 pub struct Dependency {
   // The name of the package to depend on,
   // refers to `package_name` field in `Package`.
-  package_to_depend_on: String,
+  pub package_to_depend_on: String,
 
   // An arbitrary JSON blob encoding the version constraint of the dependency.
   // It must be readable by the "constraintInterpretation" function (see below).
-  constraint: Value // This has "type" JsonConstraint
+  pub constraint: Value // This has "type" JsonConstraint
 }
 
 #[derive(Deserialize, Debug)]
@@ -66,7 +66,7 @@ pub struct QueryOptions {
   // Whether or not to add a constraint
   // that the resolution graph is acyclic
   // Use false for npm!
-  check_acyclic: bool,
+  pub check_acyclic: bool,
   // A list of prioritized minimization criteria.
   // Currently the only supported criteria is: "graph-num-vertices"
   minimization_criteria: Vec<String>,

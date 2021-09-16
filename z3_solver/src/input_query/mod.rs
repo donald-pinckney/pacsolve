@@ -2,7 +2,7 @@ mod input_json_format;
 mod universe_traversal;
 
 
-pub use input_json_format::{QueryOptions, ArbitraryFunctionsMap, Dependencies};
+pub use input_json_format::{QueryOptions, ArbitraryFunctionsMap, Dependencies, Dependency};
 pub use universe_traversal::*;
 
 use input_json_format::InputQueryJSON;
@@ -23,7 +23,7 @@ pub struct InputQuery {
 }
 
 #[derive(Debug)]
-pub struct Registry<D>(HashMap<String, Vec<(Value, D)>>);
+pub struct Registry<D>(pub HashMap<String, Vec<(Value, D)>>);
 
 #[derive(Debug)]
 pub struct PackageUniverse<D> {
@@ -71,6 +71,14 @@ impl<D> PackageUniverse<D> where D: Clone {
 }
 
 impl<D> Registry<D> {
+  pub fn new() -> Registry<D> {
+    Registry(HashMap::new())
+  }
+
+  pub fn insert(&mut self, p: String, v: Value, d: D) {
+    self.0.entry(p).or_default().push((v, d));
+  }
+
   pub fn iter(&self) -> impl Iterator<Item=(&std::string::String, &serde_json::Value, &D)> + '_ {
     self.0.iter().flat_map(|(name, versions)| versions.iter().map(move |(v, d)| (name, v, d)))
   }

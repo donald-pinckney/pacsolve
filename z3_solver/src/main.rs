@@ -2,6 +2,7 @@ mod input_query;
 mod output_format;
 mod dsl;
 mod solver;
+mod constraint_generator;
 
 use std::env;
 use input_query::InputQuery;
