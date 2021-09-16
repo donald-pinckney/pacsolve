@@ -5,11 +5,8 @@ use z3::Symbol;
 use z3::FuncDecl;
 use std::collections::HashMap;
 use z3::Sort;
-use crate::input_query::Registry;
-use crate::output_format::ResolutionGraph;
 use crate::input_query::InputQuery;
-use crate::output_format::OutputResult;
-use z3::{Config, Context, Optimize, SatResult, Model, DatatypeSort};
+use z3::{Context, Optimize, SatResult, Model, DatatypeSort};
 use z3::ast::{Ast, Bool, Datatype, Int};
 use serde_json::Value;
 
@@ -26,11 +23,11 @@ pub struct ConstraintGenerator<'ctx> {
 struct GeneratedDefinitions<'ctx> {
   required_fn: FuncDecl<'ctx>,
   top_order_fn: FuncDecl<'ctx>,
-  Package_sort: Sort<'ctx>,
-  Package_constants: HashMap<String, Datatype<'ctx>>,
-  Package_testers: HashMap<String, FuncDecl<'ctx>>,
-  Version_dt: DatatypeSort<'ctx>,
-  PV_dt: DatatypeSort<'ctx>
+  // package_sort: Sort<'ctx>,
+  package_constants: HashMap<String, Datatype<'ctx>>,
+  // package_testers: HashMap<String, FuncDecl<'ctx>>,
+  version_dt: DatatypeSort<'ctx>,
+  pv_dt: DatatypeSort<'ctx>
 }
 
 pub struct DependencyConstraintInfo<'ctx> {
@@ -46,23 +43,23 @@ impl GeneratedDefinitions<'_> {
 
     let package_names: Vec<&String> = registry.0.keys().collect();
     let package_symbols: Vec<Symbol> = package_names.iter().map(|p| (*p).clone().into()).collect();
-    let (Package_sort, Package_constructors_tmp, Package_testers_tmp) = Sort::enumeration(
+    let (package_sort, package_constructors_tmp, _package_testers_tmp) = Sort::enumeration(
       context,
       "Package".into(),
       &package_symbols
     );
 
-    let Package_constants: HashMap<String, Datatype> = package_names
-      .iter().zip(Package_constructors_tmp.iter())
+    let package_constants: HashMap<String, Datatype> = package_names
+      .iter().zip(package_constructors_tmp.iter())
       .map(|(p, ctr)| ((*p).clone(), ctr.apply(&[]).as_datatype().unwrap()))
       .collect();
     
-    let Package_testers: HashMap<String, FuncDecl> = package_names
-      .iter().zip(Package_testers_tmp.into_iter())
-      .map(|(p, tr)| ((*p).clone(), tr))
-      .collect(); 
+    // let package_testers: HashMap<String, FuncDecl> = package_names
+    //   .iter().zip(package_testers_tmp.into_iter())
+    //   .map(|(p, tr)| ((*p).clone(), tr))
+    //   .collect(); 
 
-    let Version_dt = DatatypeBuilder::new(context, "Version")
+    let version_dt = DatatypeBuilder::new(context, "Version")
       .variant(
         "mk-version",
         vec![
@@ -72,45 +69,38 @@ impl GeneratedDefinitions<'_> {
           ("prerelease", DatatypeAccessor::Sort(Sort::int(context)))
         ])
         .finish();
-    // let Version_sort = Version_dt.sort;
-    // let Version_constructor = &Version_dt.variants[0].constructor;
-    // let Version_accessors = &Version_dt.variants[0].accessors;
-    
 
-    let PV_dt = DatatypeBuilder::new(context, "PV")
+
+    let pv_dt = DatatypeBuilder::new(context, "PV")
       .variant(
         "mk-pv",
         vec![
-          ("package", DatatypeAccessor::Sort(Package_sort.clone())),
-          ("version", DatatypeAccessor::Sort(Version_dt.sort.clone()))
+          ("package", DatatypeAccessor::Sort(package_sort.clone())),
+          ("version", DatatypeAccessor::Sort(version_dt.sort.clone()))
         ])
         .finish();
-    // let PV_sort = PV_dt.sort;
-    // let PV_constructor = PV_dt.variants[0].constructor;
-    // let PV_accessors = &PV_dt.variants[0].accessors;
-
 
     let required_fn = FuncDecl::new(
       context,
       "required",
-      &[&PV_dt.sort],
+      &[&pv_dt.sort],
       &Sort::bool(context));
     
     let top_order_fn = FuncDecl::new(
       context,
       "top_order",
-      &[&PV_dt.sort],
+      &[&pv_dt.sort],
       &Sort::int(context));
     
 
     GeneratedDefinitions {
       required_fn: required_fn,
       top_order_fn: top_order_fn,
-      Package_sort: Package_sort,
-      Package_constants: Package_constants,
-      Package_testers: Package_testers,
-      Version_dt: Version_dt,
-      PV_dt: PV_dt,
+      // package_sort: Package_sort,
+      package_constants: package_constants,
+      // package_testers: Package_testers,
+      version_dt: version_dt,
+      pv_dt: pv_dt,
     }
   }
 }
@@ -123,7 +113,7 @@ impl<'ctx> ConstraintGenerator<'ctx> {
     let defs = GeneratedDefinitions::new(context, query);
 
     let context_dep_info: Vec<_> = universe.context_data.iter().map(|dep| {
-      let var = Datatype::fresh_const(context, "edge", &defs.PV_dt.sort);
+      let var = Datatype::fresh_const(context, "edge", &defs.pv_dt.sort);
       DependencyConstraintInfo {
         var: var,
         dependency: dep.clone(),
@@ -136,7 +126,7 @@ impl<'ctx> ConstraintGenerator<'ctx> {
     for (p, v, deps) in registry.iter() {
       let mut dep_infos: Vec<DependencyConstraintInfo> = Vec::new();
       for dep in deps.iter() {
-        let var = Datatype::fresh_const(context, "edge", &defs.PV_dt.sort);
+        let var = Datatype::fresh_const(context, "edge", &defs.pv_dt.sort);
         let info = DependencyConstraintInfo {
           var: var,
           dependency: dep.clone(),
@@ -160,7 +150,7 @@ impl<'ctx> ConstraintGenerator<'ctx> {
   pub fn iter_deps(&self) -> impl Iterator<Item=&DependencyConstraintInfo> {
     self.context_dep_infos.iter().chain(
       self.registry_dep_infos.values()
-      .flat_map(|vs| vs.iter().flat_map(|(v, deps)| deps)))
+      .flat_map(|vs| vs.iter().flat_map(|(_, deps)| deps)))
   }
 
   fn iter_package_versions(&self) -> impl Iterator<Item=(&String, &Value)> {
@@ -174,7 +164,7 @@ impl<'ctx> ConstraintGenerator<'ctx> {
   }
 
   pub fn package_for_name(&self, p_name: &String) -> &Datatype<'ctx> {
-    &self.definitions.Package_constants[p_name]
+    &self.definitions.package_constants[p_name]
   }
 
   pub fn node_top_order(&self, node: &Option<(String, Value)>) -> Int<'ctx> {
@@ -198,11 +188,11 @@ impl<'ctx> ConstraintGenerator<'ctx> {
   }
 
   pub fn version(&self, pv: &Datatype<'ctx>) -> Datatype<'ctx> {
-    self.definitions.PV_dt.variants[0].accessors[1].apply(&[pv]).as_datatype().unwrap()
+    self.definitions.pv_dt.variants[0].accessors[1].apply(&[pv]).as_datatype().unwrap()
   }
 
   pub fn package(&self, pv: &Datatype<'ctx>) -> Datatype<'ctx> {
-    self.definitions.PV_dt.variants[0].accessors[0].apply(&[pv]).as_datatype().unwrap()
+    self.definitions.pv_dt.variants[0].accessors[0].apply(&[pv]).as_datatype().unwrap()
   }
 
   pub fn pv_exists(&self, pv: &Datatype<'ctx>) -> Bool<'ctx> {
@@ -217,7 +207,7 @@ impl<'ctx> ConstraintGenerator<'ctx> {
 
 
   pub fn mk_pv(&self, p: &Datatype<'ctx>, v: &Datatype<'ctx>) -> Datatype<'ctx> {
-    self.definitions.PV_dt.variants[0].constructor.apply(&[p, v]).as_datatype().unwrap()
+    self.definitions.pv_dt.variants[0].constructor.apply(&[p, v]).as_datatype().unwrap()
   }
 
 
@@ -230,7 +220,7 @@ impl<'ctx> ConstraintGenerator<'ctx> {
     let bug = Int::from_i64(self.context, o["bug"].as_i64().unwrap());
     let prerelease = Int::from_i64(self.context, o["prerelease"].as_i64().unwrap());
 
-    self.definitions.Version_dt.variants[0].constructor.apply(&[&major, &minor, &bug, &prerelease]).as_datatype().unwrap()
+    self.definitions.version_dt.variants[0].constructor.apply(&[&major, &minor, &bug, &prerelease]).as_datatype().unwrap()
   }
 
   pub fn and(&self, values: &[&Bool<'ctx>]) -> Bool {

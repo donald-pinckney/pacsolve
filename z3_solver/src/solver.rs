@@ -1,17 +1,8 @@
-use crate::input_query::Dependency;
-use z3::DatatypeAccessor;
-use z3::DatatypeBuilder;
-use z3::Symbol;
-use z3::FuncDecl;
-use std::collections::HashMap;
-use z3::Sort;
-use crate::input_query::Registry;
 use crate::output_format::ResolutionGraph;
 use crate::input_query::InputQuery;
 use crate::output_format::OutputResult;
-use z3::{Config, Context, Optimize, SatResult, Model, DatatypeSort};
-use z3::ast::{Ast, Bool, Datatype, Dynamic};
-use serde_json::Value;
+use z3::{Context, Model};
+use z3::ast::{Ast, Bool};
 use crate::constraint_generator::{ConstraintGenerator, DependencyConstraintInfo};
 
 
