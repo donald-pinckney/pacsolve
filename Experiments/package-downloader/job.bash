@@ -9,4 +9,4 @@
 #SBATCH --output=%j.output
 #SBATCH --error=%j.error
 
-python --version
+python main.py
