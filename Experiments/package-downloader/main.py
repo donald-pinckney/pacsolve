@@ -73,19 +73,31 @@ def main():
   raw_file = 'all_packages_raw.json'
   os.system(f'wget -O {raw_file} https://replicate.npmjs.com/_all_docs')
 
+  print("Parsing replacate JSON", file=sys.stderr)
+
   with open(raw_file) as f:
     db = json.load(f)
+
+  print("Getting package names", file=sys.stderr)
 
   rows = db['rows']
   package_names = [r['key'] for r in rows]
 
   # package_names = package_names[:1000]
+
+  print("About to start process_map", file=sys.stderr)
+
   package_metadata = process_map(get_name_metadata, package_names, max_workers=os.cpu_count() * 5, chunksize=16)
+
+  print("Converting to dictionary", file=sys.stderr)
 
   package_data = dict(zip(package_names, package_metadata))
   package_data = {k: v for k, v in package_data.items() if v is not None}
 
   # with open('all_package_stats.json', 'w') as f:
+
+  print("Writing JSON", file=sys.stderr)
+
   print(json.dumps(package_data))
   print()
 
