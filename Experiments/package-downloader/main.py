@@ -73,9 +73,26 @@ def get_name_metadata(name):
 def non_process_map(f, xs):
   return list(map(f, xs))
 
+
+def job_chunk(xs, n_jobs, job_id):
+  l = len(xs)
+  chunk_size = l // n_jobs
+  last_extra = l % n_jobs
+  my_chunk_size = chunk_size + (last_extra if job_id == n_jobs - 1 else 0)
+  start = job_id * chunk_size
+  end = start + my_chunk_size
+  return xs[start:end]
+
+
 def main():
-  raw_file = 'all_packages_raw.json'
-  os.system(f'wget -O {raw_file} https://replicate.npmjs.com/_all_docs')
+  # raw_file = 'all_packages_raw.json'
+  # os.system(f'wget -O {raw_file} https://replicate.npmjs.com/_all_docs')
+
+  raw_file = sys.argv[1]
+  n_jobs = sys.argv[2]
+  job_id = sys.argv[3]
+
+
 
   print("Parsing replacate JSON", file=sys.stderr)
 
@@ -88,6 +105,8 @@ def main():
   package_names = [r['key'] for r in rows]
 
   package_names = package_names[:10000]
+
+  package_names = job_chunk(package_names, n_jobs, job_id)
 
   print("About to start process_map", file=sys.stderr)
 

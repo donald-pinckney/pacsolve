@@ -9,4 +9,9 @@
 #SBATCH --output=%j.output
 #SBATCH --error=%j.error
 
-python main.py
+# python main.py
+
+echo $num_jobs
+echo $my_job_id
+
+python --version
