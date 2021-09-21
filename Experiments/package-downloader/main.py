@@ -81,6 +81,7 @@ def job_chunk(xs, n_jobs, job_id):
   my_chunk_size = chunk_size + (last_extra if job_id == n_jobs - 1 else 0)
   start = job_id * chunk_size
   end = start + my_chunk_size
+  print(f'Running chunk {start}:{end} for job id {job_id}', file=sys.stderr)
   return xs[start:end]
 
 

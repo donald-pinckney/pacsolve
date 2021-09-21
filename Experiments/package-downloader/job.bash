@@ -9,10 +9,5 @@
 #SBATCH --output=%j.output
 #SBATCH --error=%j.error
 
-# python main.py
+python main.py "$raw_json" $num_jobs $my_job_id
 
-echo $raw_json
-echo $num_jobs
-echo $my_job_id
-
-python --version
