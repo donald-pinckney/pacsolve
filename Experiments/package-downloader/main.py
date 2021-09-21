@@ -79,8 +79,8 @@ def main():
   rows = db['rows']
   package_names = [r['key'] for r in rows]
 
-  package_names = package_names[:1000]
-  package_metadata = process_map(get_name_metadata, package_names, max_workers=os.cpu_count() * 5, chunksize=1)
+  # package_names = package_names[:1000]
+  package_metadata = process_map(get_name_metadata, package_names, max_workers=os.cpu_count() * 5, chunksize=16)
 
   package_data = dict(zip(package_names, package_metadata))
   package_data = {k: v for k, v in package_data.items() if v is not None}
