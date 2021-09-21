@@ -64,7 +64,11 @@ def get_name_metadata(name):
     print(e, file=sys.stderr)
     return None
   
-  return process_data(packument, download_json)
+  try:
+    return process_data(packument, download_json)
+  except Exception as e:
+    print(f'Error processing {name}:', file=sys.stderr)
+    raise e
 
 def non_process_map(f, xs):
   return list(map(f, xs))
@@ -83,7 +87,7 @@ def main():
   rows = db['rows']
   package_names = [r['key'] for r in rows]
 
-  # package_names = package_names[:1000]
+  package_names = package_names[:10000]
 
   print("About to start process_map", file=sys.stderr)
 
