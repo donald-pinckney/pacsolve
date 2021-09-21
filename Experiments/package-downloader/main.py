@@ -109,7 +109,7 @@ def main():
   rows = db['rows']
   package_names = [r['key'] for r in rows]
 
-  package_names = package_names[:100]
+  package_names = package_names[:30]
 
   package_names = job_chunk(package_names, n_jobs, job_id)
 
