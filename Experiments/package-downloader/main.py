@@ -4,6 +4,7 @@ import requests
 from tqdm.contrib.concurrent import process_map 
 import os
 import sys
+import time
 
 
 def download_packument_json(name):
@@ -24,6 +25,9 @@ def retry(f, n):
         return f(*args, **kwargs)
       except Exception as e:
         the_err = e
+        # sleep for a bit
+        if i != n - 1:
+          time.sleep(5 * (i + 1))
         pass
     raise the_err
 
@@ -105,7 +109,7 @@ def main():
   rows = db['rows']
   package_names = [r['key'] for r in rows]
 
-  package_names = package_names[:10000]
+  package_names = package_names[:100]
 
   package_names = job_chunk(package_names, n_jobs, job_id)
 
