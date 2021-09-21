@@ -11,6 +11,7 @@
 
 # python main.py
 
+echo $raw_json
 echo $num_jobs
 echo $my_job_id
 
