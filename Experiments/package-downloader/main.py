@@ -31,7 +31,7 @@ def retry(f, n):
 
 
 def process_data(packument: Dict, download_json):
-  downloads = download_json['downloads']
+  downloads = download_json.get('downloads')
   
   times_dict = packument['time']
   modified = times_dict['modified']
