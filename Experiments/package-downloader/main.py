@@ -90,8 +90,8 @@ def main():
   # os.system(f'wget -O {raw_file} https://replicate.npmjs.com/_all_docs')
 
   raw_file = sys.argv[1]
-  n_jobs = sys.argv[2]
-  job_id = sys.argv[3]
+  n_jobs = int(sys.argv[2])
+  job_id = int(sys.argv[3])
 
 
 
