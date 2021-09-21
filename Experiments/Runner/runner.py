@@ -31,7 +31,7 @@ def run_single(out, name, maybePath, maybeRepo, configs, subdirectory, preinstal
 def run(options):
   script_path = os.path.realpath(__file__)
   root_dir = os.path.dirname(os.path.dirname(script_path))
-  manifest_path = os.path.join(root_dir, "Dataset", "manifest.json")
+  manifest_path = os.path.join(root_dir, "Datasets", "testing-projects.json")
   out_dir = os.path.join(root_dir, "Output")
 
   with open(manifest_path) as f:
