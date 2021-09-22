@@ -38,7 +38,7 @@ def process_data(packument: Dict, download_json):
   if 'dist-tags' not in packument:
     return None
 
-  downloads = download_json.get('downloads')
+  # downloads = download_json.get('downloads')
   
   times_dict = packument['time']
   modified = times_dict['modified']
@@ -53,7 +53,7 @@ def process_data(packument: Dict, download_json):
     'modified': modified,
     'created': created,
     'version-times': times_dict,
-    'downloads_august_2021': downloads,
+    # 'downloads_august_2021': downloads,
     'versions': [k for k in packument['versions']],
     'maintainers': packument['maintainers'],
     'description': packument.get('description'),
@@ -65,14 +65,14 @@ def process_data(packument: Dict, download_json):
 def get_name_metadata(name):
   try:
     packument = retry(download_packument_json, 5)(name)
-    download_json = retry(download_download_count_json, 5)(name)
+    # download_json = retry(download_download_count_json, 5)(name)
   except Exception as e:
     print(f'Failed to download {name} 5 times. Error:', file=sys.stderr)
     print(e, file=sys.stderr)
     return None
   
   try:
-    return process_data(packument, download_json)
+    return process_data(packument, None)
   except Exception as e:
     print(f'Error processing {name}:', file=sys.stderr)
     raise e
