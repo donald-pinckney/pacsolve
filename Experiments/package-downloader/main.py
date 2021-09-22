@@ -35,6 +35,9 @@ def retry(f, n):
 
 
 def process_data(packument: Dict, download_json):
+  if 'dist-tags' not in packument:
+    return None
+    
   downloads = download_json.get('downloads')
   
   times_dict = packument['time']
