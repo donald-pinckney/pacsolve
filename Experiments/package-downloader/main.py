@@ -118,7 +118,7 @@ def main():
 
   print("About to start process_map", file=sys.stderr)
 
-  package_metadata = process_map(get_name_metadata, package_names, max_workers=os.cpu_count() * 3, chunksize=16)
+  package_metadata = process_map(get_name_metadata, package_names, max_workers=os.cpu_count() * 5, chunksize=16)
 
   print("Converting to dictionary", file=sys.stderr)
 
