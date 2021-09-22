@@ -12,7 +12,7 @@ echo "Creating VMs: $instance_list"
 
 gcloud beta compute instances create $instance_list \
   --zone=us-central1-a \
-  --machine-type=f1-micro \
+  --machine-type=e2-small \
   --subnet=default \
   --network-tier=PREMIUM \
   --maintenance-policy=MIGRATE \
@@ -32,19 +32,24 @@ echo "Waiting a bit..."
 sleep 10
 
 for ((my_job=0;my_job<num_jobs;my_job++)); do
-  echo "Setting up VM $my_job"
+  echo ""
+  echo "Download setup script on VM $my_job"
   gcloud compute ssh instance-$my_job \
-    --command "nohup gsutil cp gs://testing-npm-bucket/gcp_setup_script.sh ~/gcp_setup_script.sh &"
+    --zone=us-central1-a \
+    --command "gsutil cp gs://testing-npm-bucket/gcp_setup_script.sh gcp_setup_script.sh"
 done
-
-sleep 10
 
 for ((my_job=1;my_job<num_jobs;my_job++)); do
-  echo "Setting up VM $my_job"
-  gcloud compute ssh instance-$my_job --command "nohup bash gcp_setup_script.sh &"
+  echo ""
+  echo "Starting background setup script up VM $my_job"
+  gcloud compute ssh instance-$my_job \
+    --zone=us-central1-a \
+    --command "nohup bash gcp_setup_script.sh" &
 done
 
-my_job=1
-echo "Setting up VM $my_job"
-gcloud compute ssh instance-$my_job --command "bash gcp_setup_script.sh"
-
+my_job=0
+echo ""
+echo "Foreground setup script up VM $my_job"
+gcloud compute ssh instance-$my_job \
+  --zone=us-central1-a \
+  --command "bash gcp_setup_script.sh"
