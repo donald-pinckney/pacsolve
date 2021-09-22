@@ -32,7 +32,13 @@ echo "Waiting a bit..."
 sleep 10
 
 for ((my_job=0;my_job<num_jobs;my_job++)); do
-  gcloud compute ssh instance-$my_job --command "gsutil cp gs://testing-npm-bucket/gcp_setup_script.sh ~/gcp_setup_script.sh"
-  gcloud compute ssh instance-$my_job --command "bash gcp_setup_script.sh"
+  echo "Setting up VM $my_job"
+  gcloud compute ssh instance-$my_job \
+    --command "nohup gsutil cp gs://testing-npm-bucket/gcp_setup_script.sh ~/gcp_setup_script.sh &"
+done
+
+for ((my_job=0;my_job<num_jobs;my_job++)); do
+  echo "Setting up VM $my_job"
+  gcloud compute ssh instance-$my_job --command "nohup bash gcp_setup_script.sh &"
 done
 
