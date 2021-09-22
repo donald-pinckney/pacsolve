@@ -1,9 +1,14 @@
 #!/bin/bash
 
+
 module load python/3.8.1
 pip install --upgrade tqdm --user
 
-num_jobs='48'
+num_jobs='2000'
+
+
+mkdir -p outputs/
+mkdir -p logs/
 
 # wget -O all_packages_raw.json https://replicate.npmjs.com/_all_docs
 

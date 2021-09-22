@@ -6,8 +6,9 @@
 #SBATCH --mem=16G
 #SBATCH -N 1
 #SBATCH -n 1
-#SBATCH --output=%j.output
-#SBATCH --error=%j.error
+#SBATCH --output=outputs/%j.output
+#SBATCH --error=logs/%j.error
 
 python metadata.py "$raw_json" $num_jobs $my_job_id
+sleep 30
 
