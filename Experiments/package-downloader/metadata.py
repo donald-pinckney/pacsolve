@@ -2,36 +2,25 @@ import json
 from typing import Dict
 import requests
 from tqdm.contrib.concurrent import process_map 
+from tqdm import tqdm
 import os
 import sys
 import time
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
 
 
-def download_packument_json(name):
+def download_packument_json(name, session):
   url = f'https://registry.npmjs.org/{name}'
-  r = requests.get(url)
+  # r = requests.get(url)
+  r = session.get(url)
   return r.json()
 
-def download_download_count_json(name):
+def download_download_count_json(name, session):
   url = f'https://api.npmjs.org/downloads/point/2021-08-01:2021-08-31/{name}'
   r = requests.get(url)
   return r.json()
 
-def retry(f, n):
-  def wrapper(*args, **kwargs):
-    the_err = None
-    for i in range(n):
-      try:
-        return f(*args, **kwargs)
-      except Exception as e:
-        the_err = e
-        # sleep for a bit
-        if i != n - 1:
-          time.sleep(5 * (i + 1))
-        pass
-    raise the_err
-
-  return wrapper
 
 
 def process_data(packument: Dict, download_json):
@@ -62,9 +51,9 @@ def process_data(packument: Dict, download_json):
     'license': packument.get('license'),
   }
 
-def get_name_metadata(name):
+def get_name_metadata(name, session):
   try:
-    packument = retry(download_packument_json, 5)(name)
+    packument = download_packument_json(name, session)
     # download_json = retry(download_download_count_json, 5)(name)
   except Exception as e:
     print(f'Failed to download {name} 5 times. Error:', file=sys.stderr)
@@ -77,8 +66,8 @@ def get_name_metadata(name):
     print(f'Error processing {name}:', file=sys.stderr)
     raise e
 
-def non_process_map(f, xs):
-  return list(map(f, xs))
+def non_process_map(f, xs, env, **junk):
+  return list(map(lambda x: f(x, env), tqdm(xs)))
 
 
 def job_chunk(xs, n_jobs, job_id):
@@ -118,7 +107,14 @@ def main():
 
   print("About to start process_map", file=sys.stderr)
 
-  package_metadata = process_map(get_name_metadata, package_names, max_workers=os.cpu_count() * 5, chunksize=16)
+
+  session = requests.Session()
+  retry = Retry(connect=8, backoff_factor=0.5)
+  adapter = HTTPAdapter(max_retries=retry)
+  session.mount('http://', adapter)
+  session.mount('https://', adapter)
+
+  package_metadata = non_process_map(get_name_metadata, package_names, session, max_workers=os.cpu_count() * 5, chunksize=16)
 
   print("Converting to dictionary", file=sys.stderr)
 
