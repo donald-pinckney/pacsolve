@@ -4,7 +4,7 @@
 module load python/3.8.1
 pip install --upgrade tqdm --user
 
-num_jobs='2000'
+num_jobs='1000'
 
 
 mkdir -p outputs/
