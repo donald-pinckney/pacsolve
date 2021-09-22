@@ -54,17 +54,18 @@ def process_data(packument: Dict, download_json):
 def get_name_metadata(name, session):
   try:
     packument = download_packument_json(name, session)
+    return packument
     # download_json = retry(download_download_count_json, 5)(name)
   except Exception as e:
-    print(f'Failed to download {name} 5 times. Error:', file=sys.stderr)
+    print(f'Failed to download {name}. Error:', file=sys.stderr)
     print(e, file=sys.stderr)
     return None
   
-  try:
-    return process_data(packument, None)
-  except Exception as e:
-    print(f'Error processing {name}:', file=sys.stderr)
-    raise e
+  # try:
+  #   return process_data(packument, None)
+  # except Exception as e:
+  #   print(f'Error processing {name}:', file=sys.stderr)
+  #   raise e
 
 def non_process_map(f, xs, env, **junk):
   return list(map(lambda x: f(x, env), tqdm(xs)))
