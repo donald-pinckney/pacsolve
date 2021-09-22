@@ -1,6 +1,6 @@
 #!/bin/bash
 
-num_jobs=3
+num_jobs=4
 
 gsutil cp gcp_setup_script.sh gs://testing-npm-bucket
 

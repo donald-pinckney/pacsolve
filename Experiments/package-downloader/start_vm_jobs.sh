@@ -1,6 +1,6 @@
 #!/bin/bash
 
-num_jobs=3
+num_jobs=4
 
 for ((my_job=0;my_job<num_jobs;my_job++)); do
   echo ""
