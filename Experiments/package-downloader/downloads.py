@@ -88,10 +88,10 @@ def main():
 
   
   session = requests.Session()
-  retry = Retry(connect=8, backoff_factor=0.5)
-  adapter = HTTPAdapter(max_retries=retry)
-  session.mount('http://', adapter)
-  session.mount('https://', adapter)
+  # retry = Retry(connect=8, backoff_factor=0.5)
+  # adapter = HTTPAdapter(max_retries=retry)
+  # session.mount('http://', adapter)
+  # session.mount('https://', adapter)
 
   download_jsons = [download_download_count_json(n, session) for n in tqdm(all_names)]
 
