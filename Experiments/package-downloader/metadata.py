@@ -92,7 +92,7 @@ def main():
 
 
 
-  print("Parsing replacate JSON", file=sys.stderr)
+  print("Parsing replicate JSON", file=sys.stderr)
 
   with open(raw_file) as f:
     db = json.load(f)
