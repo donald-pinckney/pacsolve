@@ -38,9 +38,9 @@ impl Version {
         let m_2 = m.get(2).unwrap().as_str();
         let m_3 = m.get(3).unwrap().as_str();
 
-        let m_1: u64 = m_1.parse().expect(&format!("bad number: {}", m_1));
-        let m_2: u64 = m_2.parse().expect(&format!("bad number: {}", m_2));
-        let m_3: u64 = m_3.parse().expect(&format!("bad number: {}", m_3));
+        let m_1: u64 = m_1.parse().ok()?;//.expect(&format!("bad number: {}", m_1));
+        let m_2: u64 = m_2.parse().ok()?;//.expect(&format!("bad number: {}", m_2));
+        let m_3: u64 = m_3.parse().ok()?;//.expect(&format!("bad number: {}", m_3));
 
         let m_4 = m.get(4).map(|x| x.as_str().to_owned());
         let m_5 = m.get(5).map(|x| x.as_str().to_owned());
