@@ -152,15 +152,15 @@ fn process_packument_blob(all_packages: &HashSet<String>, v: Value, _pkg_name: S
 
     let time_raw = unwrap_object(j.remove("time").ok_or(format!("Expected time field: {:#?}", j))?);
     // let time_raw = unwrap_object(j.remove("time").expect(&format!("Expected time field: {:#?}, pkg_name = {}", j, _pkg_name)));
-    let mut times: HashMap<_, _> = time_raw.into_iter().map(|(k, t_str)| 
-        (k, parse_datetime(unwrap_string(t_str).unwrap()))
+    let mut times: HashMap<_, _> = time_raw.into_iter().flat_map(|(k, t_str)| 
+        Some((k, parse_datetime(unwrap_string(t_str).ok()?)))
     ).collect();
     let modified = times.remove("modified").unwrap();
     let created = times.remove("created").unwrap();
 
     let version_times: HashMap<_, _> = times.into_iter().map(|(v_str, t)| (Version::parse(v_str), t)).collect();
 
-    let version_packuments_map = unwrap_object(j.remove("versions").unwrap());
+    let version_packuments_map = j.remove("versions").map(unwrap_object).unwrap_or_default(); //unwrap_object(j.remove("versions").unwrap());
     let version_packuments = version_packuments_map.into_iter().map(|(v_str, blob)|
         (Version::parse(v_str), process_version(all_packages, unwrap_object(blob)))
     ).collect();
