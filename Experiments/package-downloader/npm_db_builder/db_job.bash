@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --nodes=1
-#SBATCH --time=8:00:00
+#SBATCH --time=24:00:00
 #SBATCH --job-name=npm_db
 #SBATCH --partition=short
 #SBATCH --mem=10G
