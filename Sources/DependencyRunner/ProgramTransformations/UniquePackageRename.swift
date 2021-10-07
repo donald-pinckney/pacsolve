@@ -65,12 +65,12 @@ extension EcosystemProgram {
         let newOps = self.ops.map { op -> EcosystemOp in
             switch op {
             case let .publish(package: p, version: v, dependencies: deps):
-                let newDeps = deps.map { DependencyExpr(packageToDependOn: f($0.packageToDependOn), constraint: $0.constraint) }
+                let newDeps = deps.map { DependencyExpr(packageToDependOn: f($0.packageToDependOn), constraint: $0.constraint, depType: $0.depType) }
                 return .publish(package: f(p), version: v, dependencies: newDeps)
             case let .yank(package: p, version: v):
                 return .yank(package: f(p), version: v)
             case let .solve(inContext: cv, constraints: deps):
-                let newDeps = deps.map { DependencyExpr(packageToDependOn: f($0.packageToDependOn), constraint: $0.constraint) }
+                let newDeps = deps.map { DependencyExpr(packageToDependOn: f($0.packageToDependOn), constraint: $0.constraint, depType: $0.depType) }
                 return .solve(inContext: cv, constraints: newDeps)
             }
         }

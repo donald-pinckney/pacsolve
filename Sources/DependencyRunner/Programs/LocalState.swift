@@ -1,8 +1,8 @@
 let program_LocalStoreTryAnyUpdate = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "a", version: "0.0.1", dependencies: []),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)]),
     .publish(package: "a", version: "0.0.2", dependencies: []),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)]),
 ])
 
 /*
@@ -17,10 +17,10 @@ let program_LocalStoreForceChange = EcosystemProgram(declaredContexts: ["ctx"], 
     .publish(package: "a", version: "1.0.2", dependencies: []),
     
     .publish(package: "b", version: "1.0.1", dependencies: []),
-    .publish(package: "b", version: "1.0.2", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("1.0.2"))]),
+    .publish(package: "b", version: "1.0.2", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("1.0.2"), depType: .prod)]),
 
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "b", constraint: .any)]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "b", constraint: .any), DependencyExpr(packageToDependOn: "a", constraint: .exactly("1.0.1"))]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "b", constraint: .any, depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "b", constraint: .any, depType: .prod), DependencyExpr(packageToDependOn: "a", constraint: .exactly("1.0.1"), depType: .prod)]),
 ])
 
 /*
@@ -47,8 +47,8 @@ let program_ChangeInstalledVersion = EcosystemProgram(declaredContexts: ["ctx"],
     .publish(package: "a", version: "1.0.1", dependencies: []),
     .publish(package: "a", version: "1.0.2", dependencies: []),
 
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("1.0.1"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("1.0.2"))])
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("1.0.1"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("1.0.2"), depType: .prod)])
 ])
 
 /*

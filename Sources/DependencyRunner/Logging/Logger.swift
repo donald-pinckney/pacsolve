@@ -18,12 +18,12 @@ struct Logger {
         switch op {
         case let .publish(package: p, version: v, dependencies: deps):
             let newP = renamer.decode(p)
-            let newDeps = deps.map { DependencyExpr(packageToDependOn: renamer.decode($0.packageToDependOn), constraint: $0.constraint) }
+            let newDeps = deps.map { DependencyExpr(packageToDependOn: renamer.decode($0.packageToDependOn), constraint: $0.constraint, depType: $0.depType) }
             logStr = "publish(\(newP), \(v), \(newDeps))"
         case let .yank(package: p, version: v):
             logStr = "yank(\(renamer.decode(p)), \(v))"
         case let .solve(inContext: ctx, constraints: deps):
-            let newDeps = deps.map { DependencyExpr(packageToDependOn: renamer.decode($0.packageToDependOn), constraint: $0.constraint) }
+            let newDeps = deps.map { DependencyExpr(packageToDependOn: renamer.decode($0.packageToDependOn), constraint: $0.constraint, depType: $0.depType) }
             logStr = "\(ctx) <- solve(\(newDeps))"
         }
         

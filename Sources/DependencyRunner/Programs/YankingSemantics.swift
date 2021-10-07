@@ -2,7 +2,7 @@ let program_FreshExactDepOnYank = EcosystemProgram(declaredContexts: ["ctx"], op
     .publish(package: "a", version: "0.0.1", dependencies: []),
     .publish(package: "a", version: "0.0.2", dependencies: []),
     .yank(package: "a", version: "0.0.2"),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.2"))])
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.2"), depType: .prod)])
 ])
 
 /*
@@ -19,7 +19,7 @@ let program_FreshAnyDepOnYank = EcosystemProgram(declaredContexts: ["ctx"], ops:
     .publish(package: "a", version: "0.0.1", dependencies: []),
     .publish(package: "a", version: "0.0.2", dependencies: []),
     .yank(package: "a", version: "0.0.2"),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -35,9 +35,9 @@ let program_FreshAnyDepOnYank = EcosystemProgram(declaredContexts: ["ctx"], ops:
 let program_SolveYankSolve = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "a", version: "0.0.1", dependencies: []),
     .publish(package: "a", version: "0.0.2", dependencies: []),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)]),
     .yank(package: "a", version: "0.0.2"),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)]),
 ])
 
 /*

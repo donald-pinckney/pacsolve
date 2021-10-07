@@ -1,4 +1,5 @@
 outputs/
+outputs_tmp/
 downloads-outputs/
 all_downloads.json
 all_packages.json

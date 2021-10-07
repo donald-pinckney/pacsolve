@@ -1,7 +1,7 @@
 
 let program_PublishWithNonexistentDep = EcosystemProgram(declaredContexts: ["ctx"], ops: [
-    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.1"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.1"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -18,8 +18,8 @@ let program_PublishWithYankedDep = EcosystemProgram(declaredContexts: ["ctx"], o
     .publish(package: "b", version: "0.0.1", dependencies: []),
     .publish(package: "b", version: "0.0.2", dependencies: []),
     .yank(package: "b", version: "0.0.1"),
-    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.1"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.1"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -34,16 +34,16 @@ let program_PublishWithYankedDep = EcosystemProgram(declaredContexts: ["ctx"], o
 
 let program_PublishThenYankDep = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "b", version: "0.0.1", dependencies: []),
-    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.1"))]),
+    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.1"), depType: .prod)]),
     .yank(package: "b", version: "0.0.1"),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 
 let program_PublishWithNonexistentDepVersion = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "b", version: "0.0.1", dependencies: []),
-    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.2"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.2"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -54,8 +54,8 @@ let program_PublishWithNonexistentDepVersion = EcosystemProgram(declaredContexts
 
 
 let program_PublishSelfDep = EcosystemProgram(declaredContexts: ["ctx"], ops: [
-    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.1"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .publish(package: "a", version: "0.0.1", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.1"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -71,9 +71,9 @@ let program_PublishSelfDep = EcosystemProgram(declaredContexts: ["ctx"], ops: [
 let program_Publish2Cycle = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "a", version: "0.0.1", dependencies: []),
     .publish(package: "b", version: "0.0.1", dependencies: []),
-    .publish(package: "a", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.2"))]),
-    .publish(package: "b", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.2"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .publish(package: "a", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("0.0.2"), depType: .prod)]),
+    .publish(package: "b", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.2"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -87,8 +87,8 @@ let program_Publish2Cycle = EcosystemProgram(declaredContexts: ["ctx"], ops: [
 
 let program_PublishOldVersionSelfCycle = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "a", version: "0.0.1", dependencies: []),
-    .publish(package: "a", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.1"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.2"))])
+    .publish(package: "a", version: "0.0.2", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.1"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("0.0.2"), depType: .prod)])
 ])
 
 /*

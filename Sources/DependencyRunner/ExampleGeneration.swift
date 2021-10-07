@@ -46,14 +46,14 @@ func generateRandomExampleAnyConstraints(numPackages: Int, numVersions: Int, num
     var ops: [EcosystemOp] = pkgs.flatMap { (p: String, vs: [Version]) in
         vs.map { v in
             let deps = (0..<numDeps).map { di in
-                DependencyExpr(packageToDependOn: pkgs.keys.randomElement()!, constraint: .wildcardMajor)
+                DependencyExpr(packageToDependOn: pkgs.keys.randomElement()!, constraint: .wildcardMajor, depType: .prod)
             }
             return .publish(package: p, version: v, dependencies: deps)
         }
     }
     
     let deps = (0..<numDeps).map { di in
-        DependencyExpr(packageToDependOn: pkgs.keys.randomElement()!, constraint: .wildcardMajor)
+        DependencyExpr(packageToDependOn: pkgs.keys.randomElement()!, constraint: .wildcardMajor, depType: .prod)
     }
     
     ops.append(.solve(inContext: "ctx", constraints: deps))

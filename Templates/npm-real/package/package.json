@@ -6,6 +6,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-      $DEPENDENCIES_JSON_FRAGMENT
+      $DEPENDENCIES_PROD_JSON_FRAGMENT
+  },
+  "devDependencies": {
+      $DEPENDENCIES_DEV_JSON_FRAGMENT
+  },
+  "peerDependencies": {
+      $DEPENDENCIES_PEER_JSON_FRAGMENT
+  },
+  "optionalDependencies": {
+      $DEPENDENCIES_OPTIONAL_JSON_FRAGMENT
   }
 }

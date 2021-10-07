@@ -149,13 +149,20 @@ class NpmSolveContext {
 extension NpmBasedPackageManager : TemplateManagerDelegate {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String] {
         let scopeStr = isReal ? "@wtcbkjbuzrbl/" : ""
-        let depStrings = try dependencies.map { try $0.npmFormat(isReal: isReal) }
+        let prodDepStrings = try dependencies.filter { $0.depType == .prod }.map { try $0.npmFormat(isReal: isReal) }
+        let devDepStrings = try dependencies.filter { $0.depType == .dev }.map { try $0.npmFormat(isReal: isReal) }
+        let peerDepStrings = try dependencies.filter { $0.depType == .peer }.map { try $0.npmFormat(isReal: isReal) }
+        let optionalDepStrings = try dependencies.filter { $0.depType == .optional }.map { try $0.npmFormat(isReal: isReal) }
+
         return [
             "$NAME_STRING" : package.description,
             "$VERSION_STRING" : version.description,
-            "$DEPENDENCIES_JSON_FRAGMENT" : depStrings.joined(separator: ", \n"),
-            "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.packageToDependOn) = require('\(scopeStr)\($0.packageToDependOn)');" }.joined(separator: "\n"),
-            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn).dep_tree(indent + 1, do_inc);" }.joined(separator: "\n    "),
+            "$DEPENDENCIES_PROD_JSON_FRAGMENT" : prodDepStrings.joined(separator: ", \n"),
+            "$DEPENDENCIES_DEV_JSON_FRAGMENT" : devDepStrings.joined(separator: ", \n"),
+            "$DEPENDENCIES_PEER_JSON_FRAGMENT" : peerDepStrings.joined(separator: ", \n"),
+            "$DEPENDENCIES_OPTIONAL_JSON_FRAGMENT" : optionalDepStrings.joined(separator: ", \n"),
+//            "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.packageToDependOn) = require('\(scopeStr)\($0.packageToDependOn)');" }.joined(separator: "\n"),
+//            "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn).dep_tree(indent + 1, do_inc);" }.joined(separator: "\n    "),
             "$NPM_AUTH_TOKEN": "6fc635a8-73e4-4ac7" + "-8198-4b78fc489362"
         ]
     }

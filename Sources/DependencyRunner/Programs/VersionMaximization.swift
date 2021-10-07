@@ -10,7 +10,7 @@ let program_AnyVersionMax = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "a", version: "2.0.0", dependencies: []),
     .publish(package: "a", version: "2.0.1", dependencies: []),
     .publish(package: "a", version: "2.1.0", dependencies: []),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -26,8 +26,8 @@ let program_Max1OrMax2 = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "c", version: "1.0.0", dependencies: []),
     .publish(package: "c", version: "1.0.1", dependencies: []),
     .publish(package: "a", version: "1.0.0", dependencies: []),
-    .publish(package: "a", version: "1.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.0")), DependencyExpr(packageToDependOn: "c", constraint: .exactly("1.0.0"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any), DependencyExpr(packageToDependOn: "b", constraint: .any), DependencyExpr(packageToDependOn: "c", constraint: .any)])
+    .publish(package: "a", version: "1.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.0"), depType: .prod), DependencyExpr(packageToDependOn: "c", constraint: .exactly("1.0.0"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod), DependencyExpr(packageToDependOn: "b", constraint: .any, depType: .prod), DependencyExpr(packageToDependOn: "c", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -54,8 +54,8 @@ let program_Max1OrMax2_LexicalReorder = EcosystemProgram(declaredContexts: ["ctx
     .publish(package: "c", version: "1.0.0", dependencies: []),
     .publish(package: "c", version: "1.0.1", dependencies: []),
     .publish(package: "b", version: "1.0.0", dependencies: []),
-    .publish(package: "b", version: "1.0.1", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("1.0.0")), DependencyExpr(packageToDependOn: "c", constraint: .exactly("1.0.0"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "b", constraint: .any), DependencyExpr(packageToDependOn: "a", constraint: .any), DependencyExpr(packageToDependOn: "c", constraint: .any)])
+    .publish(package: "b", version: "1.0.1", dependencies: [DependencyExpr(packageToDependOn: "a", constraint: .exactly("1.0.0"), depType: .prod), DependencyExpr(packageToDependOn: "c", constraint: .exactly("1.0.0"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "b", constraint: .any, depType: .prod), DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod), DependencyExpr(packageToDependOn: "c", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -87,8 +87,8 @@ let program_Max1OrMax2_DepReorder = EcosystemProgram(declaredContexts: ["ctx"], 
     .publish(package: "c", version: "1.0.0", dependencies: []),
     .publish(package: "c", version: "1.0.1", dependencies: []),
     .publish(package: "a", version: "1.0.0", dependencies: []),
-    .publish(package: "a", version: "1.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.0")), DependencyExpr(packageToDependOn: "c", constraint: .exactly("1.0.0"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "b", constraint: .any), DependencyExpr(packageToDependOn: "c", constraint: .any), DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .publish(package: "a", version: "1.0.1", dependencies: [DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.0"), depType: .prod), DependencyExpr(packageToDependOn: "c", constraint: .exactly("1.0.0"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "b", constraint: .any, depType: .prod), DependencyExpr(packageToDependOn: "c", constraint: .any, depType: .prod), DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -117,11 +117,11 @@ let program_MinNumPackages = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "e", version: "1.0.0", dependencies: []),
     .publish(package: "a", version: "1.0.0", dependencies: []),
     .publish(package: "a", version: "1.0.1", dependencies: [
-                DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.0")),
-                DependencyExpr(packageToDependOn: "c", constraint: .exactly("1.0.0")),
-                DependencyExpr(packageToDependOn: "d", constraint: .exactly("1.0.0")),
-                DependencyExpr(packageToDependOn: "e", constraint: .exactly("1.0.0"))]),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any), DependencyExpr(packageToDependOn: "b", constraint: .any)])
+                DependencyExpr(packageToDependOn: "b", constraint: .exactly("1.0.0"), depType: .prod),
+                DependencyExpr(packageToDependOn: "c", constraint: .exactly("1.0.0"), depType: .prod),
+                DependencyExpr(packageToDependOn: "d", constraint: .exactly("1.0.0"), depType: .prod),
+                DependencyExpr(packageToDependOn: "e", constraint: .exactly("1.0.0"), depType: .prod)]),
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod), DependencyExpr(packageToDependOn: "b", constraint: .any, depType: .prod)])
 ])
 
 /*

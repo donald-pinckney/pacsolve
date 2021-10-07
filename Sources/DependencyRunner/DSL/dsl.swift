@@ -138,12 +138,20 @@ extension ConstraintExpr: Codable {
     }
 }
 
+enum DependencyType: Int, Codable {
+    case prod = 0
+    case dev = 1
+    case peer = 2
+    case optional = 3
+}
+
 struct DependencyExpr: CustomStringConvertible, Codable {
     let packageToDependOn: Package
     let constraint: ConstraintExpr
+    let depType: DependencyType
     
     var description: String {
-        "\(packageToDependOn) \(constraint)"
+        "\(packageToDependOn) : \(constraint) (\(depType))"
     }
 }
 

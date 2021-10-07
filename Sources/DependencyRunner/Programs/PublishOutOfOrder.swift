@@ -4,7 +4,7 @@ let program_PublishOutOfOrderBug = EcosystemProgram(declaredContexts: ["ctx"], o
     .publish(package: "a", version: "0.0.5", dependencies: []),
     .publish(package: "a", version: "0.0.2", dependencies: []),
     .publish(package: "a", version: "0.0.1", dependencies: []),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 /*
@@ -20,20 +20,20 @@ let program_PublishOutOfOrderBug = EcosystemProgram(declaredContexts: ["ctx"], o
 let program_PublishOutOfOrderMinor = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "a", version: "0.1.1", dependencies: []),
     .publish(package: "a", version: "0.0.1", dependencies: []),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 let program_PublishOutOfOrderMinorBug = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "a", version: "0.1.1", dependencies: []),
     .publish(package: "a", version: "0.1.0", dependencies: []),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 let program_PublishOutOfOrderMajor = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     .publish(package: "a", version: "1.0.0", dependencies: []),
     .publish(package: "a", version: "2.0.0", dependencies: []),
     .publish(package: "a", version: "1.0.1", dependencies: []),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any)])
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
 ])
 
 /*

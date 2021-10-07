@@ -2,7 +2,7 @@ let aVersions: [Version] = (0...3).flatMap { major in (0...3).flatMap { minor in
 let aVersionPublishes: [EcosystemOp] = aVersions.map { .publish(package: "a", version: $0, dependencies: []) }
 
 func testResolve(constraint c: ConstraintExpr) -> EcosystemProgram {
-    EcosystemProgram(declaredContexts: ["ctx"], ops: aVersionPublishes + [.solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: c)])])
+    EcosystemProgram(declaredContexts: ["ctx"], ops: aVersionPublishes + [.solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: c, depType: .prod)])])
 }
 
 // Same behavior across all 5 package managers
