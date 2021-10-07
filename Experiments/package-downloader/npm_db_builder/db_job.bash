@@ -10,3 +10,5 @@
 #SBATCH --error=log.error
 
 rm npm_db.sqlite3 npm_db.sqlite3-journal ; RUST_BACKTRACE=full cargo run --release
+
+echo "DONE (or failed)"
