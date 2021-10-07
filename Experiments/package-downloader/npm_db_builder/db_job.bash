@@ -3,7 +3,7 @@
 #SBATCH --time=24:00:00
 #SBATCH --job-name=npm_db
 #SBATCH --partition=short
-#SBATCH --mem=10G
+#SBATCH --mem=64G
 #SBATCH -N 1
 #SBATCH -n 1
 #SBATCH --output=log.output
