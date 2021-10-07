@@ -141,7 +141,7 @@ fn process_packument_blob(all_packages: &HashSet<String>, v: Value, _pkg_name: S
     let dist_tags_raw_maybe = j.remove("dist-tags").map(|dt| unwrap_object(dt).unwrap());
     let mut dist_tags: Option<HashMap<String, Version>> = dist_tags_raw_maybe.map(|dist_tags_raw| 
         dist_tags_raw.into_iter().map(|(tag, v_str)| 
-            (tag, Version::parse(unwrap_string(v_str).unwrap()))
+            (tag, Version::parse(unwrap_string(v_str).unwrap()).unwrap())
         ).collect()
     );
     
@@ -158,11 +158,13 @@ fn process_packument_blob(all_packages: &HashSet<String>, v: Value, _pkg_name: S
     let modified = times.remove("modified").unwrap();
     let created = times.remove("created").unwrap();
 
-    let version_times: HashMap<_, _> = times.into_iter().map(|(v_str, t)| (Version::parse(v_str), t)).collect();
+    let version_times: HashMap<_, _> = times.into_iter().flat_map(|(v_str, t)| 
+        Some((Version::parse(v_str.clone())?, t))
+    ).collect();
 
     let version_packuments_map = j.remove("versions").map(|x| unwrap_object(x).unwrap()).unwrap_or_default(); //unwrap_object(j.remove("versions").unwrap());
     let version_packuments = version_packuments_map.into_iter().map(|(v_str, blob)|
-        (Version::parse(v_str), process_version(all_packages, unwrap_object(blob).unwrap()))
+        (Version::parse(v_str).unwrap(), process_version(all_packages, unwrap_object(blob).unwrap()))
     ).collect();
     Ok(Packument {
         latest: latest,

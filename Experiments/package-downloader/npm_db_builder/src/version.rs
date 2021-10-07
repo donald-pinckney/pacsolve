@@ -26,13 +26,13 @@ impl fmt::Display for Version {
 }
 
 impl Version {
-    pub fn parse(v_str: String) -> Version {
+    pub fn parse(v_str: String) -> Option<Version> {
         lazy_static! {
             static ref RE: Regex = Regex::new(r"^v?(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][a-zA-Z0-9-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][a-zA-Z0-9-]*))*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$").unwrap();
         }
 
         // let v_str = x.trim();
-        let m = RE.captures_iter(v_str.trim()).next().unwrap();
+        let m = RE.captures_iter(v_str.trim()).next()?;
 
         let m_1 = m.get(1).unwrap().as_str();
         let m_2 = m.get(2).unwrap().as_str();
@@ -45,13 +45,13 @@ impl Version {
         let m_4 = m.get(4).map(|x| x.as_str().to_owned());
         let m_5 = m.get(5).map(|x| x.as_str().to_owned());
 
-        Version {
+        Some(Version {
             major: m_1,
             minor: m_2,
             bug: m_3,
             prerelease: m_4,
             build: m_5
-        }
+        })
     }
 }
 
