@@ -35,10 +35,10 @@ fn unwrap_string(v: Value) -> Result<String, String> {
     }
 }
 
-fn unwrap_object(v: Value) -> serde_json::Map<String, Value> {
+fn unwrap_object(v: Value) -> Result<serde_json::Map<String, Value>, String> {
     match v {
-        Value::Object(o) => o,
-        _ => panic!()
+        Value::Object(o) => Ok(o),
+        _ => Err(format!("Expected object, got: {:?}", v))
     }
 }
 
@@ -55,7 +55,7 @@ fn read_all_packages() -> Result<HashSet<String>, Box<dyn Error>> {
     let file = File::open("../all_packages.json")?;
     let reader = BufReader::new(file);
 
-    let mut j = unwrap_object(serde_json::from_reader(reader)?);
+    let mut j = unwrap_object(serde_json::from_reader(reader)?).unwrap();
     let rows = unwrap_array(j["rows"].take());
     let pkg_names: HashSet<String> = rows.into_iter().map(|r| r["key"].as_str().unwrap().to_owned()).collect();
     Ok(pkg_names)
@@ -66,7 +66,7 @@ fn read_downloads(all_packages: &HashSet<String>) -> Result<HashMap<&String, u64
     let file = File::open("../all_downloads.json")?;
     let reader = BufReader::new(file);
 
-    let j = unwrap_object(serde_json::from_reader(reader)?);
+    let j = unwrap_object(serde_json::from_reader(reader)?).unwrap();
     Ok(j.into_iter().flat_map(|(pkg_name, count_val)| {
         let pkg_ref = all_packages.get(&pkg_name)?;
         Some((pkg_ref, unwrap_number(count_val).as_u64().unwrap()))
@@ -96,11 +96,11 @@ fn process_version(all_packages: &HashSet<String>, mut version_blob: serde_json:
     // version_blob.remove("name");
     // version_blob.remove("version");
     let description = version_blob.remove("description").and_then(|x| unwrap_string(x).ok());
-    let prod_dependencies_raw = unwrap_object(version_blob.remove("dependencies").unwrap_or(empty_object()));
-    let dev_dependencies_raw = unwrap_object(version_blob.remove("devDependencies").unwrap_or(empty_object()));
-    let peer_dependencies_raw = unwrap_object(version_blob.remove("peerDependencies").unwrap_or(empty_object()));
-    let optional_dependencies_raw = unwrap_object(version_blob.remove("optionalDependencies").unwrap_or(empty_object()));
-    let mut dist = unwrap_object(version_blob.remove("dist").unwrap());
+    let prod_dependencies_raw = unwrap_object(version_blob.remove("dependencies").unwrap_or(empty_object())).unwrap_or_default();
+    let dev_dependencies_raw = unwrap_object(version_blob.remove("devDependencies").unwrap_or(empty_object())).unwrap_or_default();
+    let peer_dependencies_raw = unwrap_object(version_blob.remove("peerDependencies").unwrap_or(empty_object())).unwrap_or_default();
+    let optional_dependencies_raw = unwrap_object(version_blob.remove("optionalDependencies").unwrap_or(empty_object())).unwrap_or_default();
+    let mut dist = unwrap_object(version_blob.remove("dist").unwrap()).unwrap();
     let shasum = unwrap_string(dist.remove("shasum").unwrap()).unwrap();
     let tarball = unwrap_string(dist.remove("tarball").unwrap()).unwrap();
 
@@ -136,9 +136,9 @@ fn process_version(all_packages: &HashSet<String>, mut version_blob: serde_json:
 }
 
 fn process_packument_blob(all_packages: &HashSet<String>, v: Value, _pkg_name: String) -> Result<Packument, String> {
-    let mut j = unwrap_object(v);
+    let mut j = unwrap_object(v).unwrap();
     
-    let dist_tags_raw_maybe = j.remove("dist-tags").map(|dt| unwrap_object(dt));
+    let dist_tags_raw_maybe = j.remove("dist-tags").map(|dt| unwrap_object(dt).unwrap());
     let mut dist_tags: Option<HashMap<String, Version>> = dist_tags_raw_maybe.map(|dist_tags_raw| 
         dist_tags_raw.into_iter().map(|(tag, v_str)| 
             (tag, Version::parse(unwrap_string(v_str).unwrap()))
@@ -150,7 +150,7 @@ fn process_packument_blob(all_packages: &HashSet<String>, v: Value, _pkg_name: S
         None => None
     };
 
-    let time_raw = unwrap_object(j.remove("time").ok_or(format!("Expected time field: {:#?}", j))?);
+    let time_raw = unwrap_object(j.remove("time").ok_or(format!("Expected time field: {:#?}", j))?).unwrap();
     // let time_raw = unwrap_object(j.remove("time").expect(&format!("Expected time field: {:#?}, pkg_name = {}", j, _pkg_name)));
     let mut times: HashMap<_, _> = time_raw.into_iter().flat_map(|(k, t_str)| 
         Some((k, parse_datetime(unwrap_string(t_str).ok()?)))
@@ -160,9 +160,9 @@ fn process_packument_blob(all_packages: &HashSet<String>, v: Value, _pkg_name: S
 
     let version_times: HashMap<_, _> = times.into_iter().map(|(v_str, t)| (Version::parse(v_str), t)).collect();
 
-    let version_packuments_map = j.remove("versions").map(unwrap_object).unwrap_or_default(); //unwrap_object(j.remove("versions").unwrap());
+    let version_packuments_map = j.remove("versions").map(|x| unwrap_object(x).unwrap()).unwrap_or_default(); //unwrap_object(j.remove("versions").unwrap());
     let version_packuments = version_packuments_map.into_iter().map(|(v_str, blob)|
-        (Version::parse(v_str), process_version(all_packages, unwrap_object(blob)))
+        (Version::parse(v_str), process_version(all_packages, unwrap_object(blob).unwrap()))
     ).collect();
     Ok(Packument {
         latest: latest,
