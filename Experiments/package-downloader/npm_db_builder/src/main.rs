@@ -93,8 +93,8 @@ fn empty_object() -> Value {
 }
 
 fn process_version(all_packages: &HashSet<String>, mut version_blob: serde_json::Map<String, Value>) -> VersionPackument {
-    version_blob.remove("name");
-    version_blob.remove("version");
+    // version_blob.remove("name");
+    // version_blob.remove("version");
     let description = version_blob.remove("description").and_then(|x| unwrap_string(x).ok());
     let prod_dependencies_raw = unwrap_object(version_blob.remove("dependencies").unwrap_or(empty_object()));
     let dev_dependencies_raw = unwrap_object(version_blob.remove("devDependencies").unwrap_or(empty_object()));
@@ -105,19 +105,19 @@ fn process_version(all_packages: &HashSet<String>, mut version_blob: serde_json:
     let tarball = unwrap_string(dist.remove("tarball").unwrap()).unwrap();
 
     let prod_dependencies = prod_dependencies_raw.into_iter().enumerate().map(|(i, (p, c))| 
-        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).unwrap()))
+        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).ok()))
     ).collect();
 
     let dev_dependencies = dev_dependencies_raw.into_iter().enumerate().map(|(i, (p, c))|
-        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).unwrap()))
+        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).ok()))
     ).collect();
 
     let peer_dependencies = peer_dependencies_raw.into_iter().enumerate().map(|(i, (p, c))|
-        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).unwrap()))
+        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).ok()))
     ).collect();
 
     let optional_dependencies = optional_dependencies_raw.into_iter().enumerate().map(|(i, (p, c))|
-        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).unwrap()))
+        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).ok()))
     ).collect();
 
 

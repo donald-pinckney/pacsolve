@@ -81,7 +81,7 @@ impl<'pkgs> Inserter<'pkgs> {
         `id` INTEGER NOT NULL PRIMARY KEY,
         `package_raw` TEXT,
         `package_id` INTEGER,
-        `spec_raw` TEXT NOT NULL
+        `spec_raw` TEXT
       );
       CREATE TABLE `version_dependencies` (
         `version_id` INTEGER NOT NULL,
@@ -186,7 +186,7 @@ impl<'pkgs> Inserter<'pkgs> {
 
   fn build_dependency_hash_rows(&mut self, 
     v_id: u64, 
-    deps: HashMap<PackageReference<'pkgs>, (u64, String)>, 
+    deps: HashMap<PackageReference<'pkgs>, (u64, Option<String>)>, 
     dep_type: i32, 
     into_dep_rows: &mut Vec<sql_data::Dependency>, 
     into_rel_rows: &mut Vec<sql_data::VersionDependencyRelation>) {

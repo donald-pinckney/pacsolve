@@ -72,7 +72,7 @@ pub struct Dependency {
   pub id: u64,
   pub package_raw: Option<String>,
   pub package_id: Option<u64>,
-  pub spec_raw: String
+  pub spec_raw: Option<String>
 }
 
 impl SqlInsertable for Dependency {

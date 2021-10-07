@@ -22,10 +22,10 @@ impl PackageReference<'_> {
 
 #[derive(Debug)]
 pub struct Dependencies<'pkgs> {
-    pub prod_dependencies: HashMap<PackageReference<'pkgs>, (u64, String)>,
-    pub dev_dependencies: HashMap<PackageReference<'pkgs>, (u64, String)>,
-    pub peer_dependencies: HashMap<PackageReference<'pkgs>, (u64, String)>,
-    pub optional_dependencies: HashMap<PackageReference<'pkgs>, (u64, String)>
+    pub prod_dependencies: HashMap<PackageReference<'pkgs>, (u64, Option<String>)>,
+    pub dev_dependencies: HashMap<PackageReference<'pkgs>, (u64, Option<String>)>,
+    pub peer_dependencies: HashMap<PackageReference<'pkgs>, (u64, Option<String>)>,
+    pub optional_dependencies: HashMap<PackageReference<'pkgs>, (u64, Option<String>)>
 }
 
 #[derive(Debug)]
