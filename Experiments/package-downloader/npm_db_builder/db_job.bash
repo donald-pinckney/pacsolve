@@ -9,4 +9,4 @@
 #SBATCH --output=%j.output
 #SBATCH --error=%j.error
 
-rm npm_db.sqlite3 npm_db.sqlite3-journal ; cargo run --release
+rm npm_db.sqlite3 npm_db.sqlite3-journal ; RUST_BACKTRACE=full cargo run --release

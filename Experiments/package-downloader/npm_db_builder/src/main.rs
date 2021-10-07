@@ -28,10 +28,10 @@ fn unwrap_array(v: Value) -> Vec<Value> {
     }
 }
 
-fn unwrap_string(v: Value) -> String {
+fn unwrap_string(v: Value) -> Result<String, String> {
     match v {
-        Value::String(s) => s,
-        _ => panic!()
+        Value::String(s) => Ok(s),
+        _ => Err(format!("Expected string, got: {:?}", v))
     }
 }
 
@@ -95,29 +95,29 @@ fn empty_object() -> Value {
 fn process_version(all_packages: &HashSet<String>, mut version_blob: serde_json::Map<String, Value>) -> VersionPackument {
     version_blob.remove("name");
     version_blob.remove("version");
-    let description = version_blob.remove("description").map(|x| unwrap_string(x));
+    let description = version_blob.remove("description").and_then(|x| unwrap_string(x).ok());
     let prod_dependencies_raw = unwrap_object(version_blob.remove("dependencies").unwrap_or(empty_object()));
     let dev_dependencies_raw = unwrap_object(version_blob.remove("devDependencies").unwrap_or(empty_object()));
     let peer_dependencies_raw = unwrap_object(version_blob.remove("peerDependencies").unwrap_or(empty_object()));
     let optional_dependencies_raw = unwrap_object(version_blob.remove("optionalDependencies").unwrap_or(empty_object()));
     let mut dist = unwrap_object(version_blob.remove("dist").unwrap());
-    let shasum = unwrap_string(dist.remove("shasum").unwrap());
-    let tarball = unwrap_string(dist.remove("tarball").unwrap());
+    let shasum = unwrap_string(dist.remove("shasum").unwrap()).unwrap();
+    let tarball = unwrap_string(dist.remove("tarball").unwrap()).unwrap();
 
     let prod_dependencies = prod_dependencies_raw.into_iter().enumerate().map(|(i, (p, c))| 
-        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c)))
+        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).unwrap()))
     ).collect();
 
     let dev_dependencies = dev_dependencies_raw.into_iter().enumerate().map(|(i, (p, c))|
-        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c)))
+        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).unwrap()))
     ).collect();
 
     let peer_dependencies = peer_dependencies_raw.into_iter().enumerate().map(|(i, (p, c))|
-        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c)))
+        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).unwrap()))
     ).collect();
 
     let optional_dependencies = optional_dependencies_raw.into_iter().enumerate().map(|(i, (p, c))|
-        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c)))
+        (PackageReference::lookup(all_packages, p), (u64::try_from(i).unwrap(), unwrap_string(c).unwrap()))
     ).collect();
 
 
@@ -139,7 +139,11 @@ fn process_packument_blob(all_packages: &HashSet<String>, v: Value, _pkg_name: S
     let mut j = unwrap_object(v);
     
     let dist_tags_raw_maybe = j.remove("dist-tags").map(|dt| unwrap_object(dt));
-    let mut dist_tags: Option<HashMap<String, Version>> = dist_tags_raw_maybe.map(|dist_tags_raw| dist_tags_raw.into_iter().map(|(tag, v_str)| (tag, Version::parse(unwrap_string(v_str)))).collect());
+    let mut dist_tags: Option<HashMap<String, Version>> = dist_tags_raw_maybe.map(|dist_tags_raw| 
+        dist_tags_raw.into_iter().map(|(tag, v_str)| 
+            (tag, Version::parse(unwrap_string(v_str).unwrap()))
+        ).collect()
+    );
     
     let latest = match &mut dist_tags {
         Some(dt) => dt.remove("latest"),
@@ -148,7 +152,9 @@ fn process_packument_blob(all_packages: &HashSet<String>, v: Value, _pkg_name: S
 
     let time_raw = unwrap_object(j.remove("time").ok_or(format!("Expected time field: {:#?}", j))?);
     // let time_raw = unwrap_object(j.remove("time").expect(&format!("Expected time field: {:#?}, pkg_name = {}", j, _pkg_name)));
-    let mut times: HashMap<_, _> = time_raw.into_iter().map(|(k, t_str)| (k, parse_datetime(unwrap_string(t_str)))).collect();
+    let mut times: HashMap<_, _> = time_raw.into_iter().map(|(k, t_str)| 
+        (k, parse_datetime(unwrap_string(t_str).unwrap()))
+    ).collect();
     let modified = times.remove("modified").unwrap();
     let created = times.remove("created").unwrap();
 
