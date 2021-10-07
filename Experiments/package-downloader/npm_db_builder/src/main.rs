@@ -1,5 +1,3 @@
-use rusqlite::Connection;
-// use crate::sql_commands::SqlConnection;
 use crate::packument::Dependencies;
 use packument::Packument;
 use packument::PackageReference;
@@ -21,7 +19,7 @@ mod version;
 mod packument;
 mod inserter;
 mod sql_data;
-mod sql_commands;
+mod sql_insertable;
 
 fn unwrap_array(v: Value) -> Vec<Value> {
     match v {

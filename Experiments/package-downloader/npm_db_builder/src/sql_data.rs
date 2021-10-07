@@ -1,9 +1,7 @@
-use std::collections::HashMap;
 use rusqlite::ToSql;
-use crate::sql_commands::SqlInsertable;
+use crate::sql_insertable::SqlInsertable;
 use chrono::Utc;
 use chrono::DateTime;
-use rusqlite::params;
 use serde_json::Value;
 
 #[derive(Debug)]
@@ -18,17 +16,6 @@ pub struct Package<'pkgs> {
 }
 
 impl<'pkgs> SqlInsertable for Package<'pkgs> {
-  const CREATE_SQL: &'static str = r"
-    CREATE TABLE `package` (
-      `id` bigint PRIMARY KEY,
-      `name` varchar(255) UNIQUE NOT NULL,
-      `downloads` bigint COMMENT 'Number of downloads in August 2021',
-      `latest_version` bigint,
-      `created` datetime NOT NULL,
-      `modified` datetime NOT NULL,
-      `other_dist_tags` json
-    )
-  ";
   const INSERT_TEMPLATE: &'static str = r"
     INSERT INTO `package` 
       (`id`, `name`, `downloads`, `latest_version`, `created`, `modified`, `other_dist_tags`) VALUES 
@@ -70,22 +57,6 @@ pub struct Version {
 }
 
 impl SqlInsertable for Version {
-  const CREATE_SQL: &'static str = r"
-    CREATE TABLE `version` (
-      `id` bigint PRIMARY KEY,
-      `package_id` bigint NOT NULL,
-      `description` varchar(255),
-      `shasum` varchar(255) NOT NULL,
-      `tarball` varchar(255) NOT NULL,
-      `major` bigint NOT NULL,
-      `minor` bigint NOT NULL,
-      `bug` bigint NOT NULL,
-      `prerelease` varchar(255),
-      `build` varchar(255),
-      `created` datetime NOT NULL,
-      `extra_metadata` json NOT NULL
-    )
-  ";
   const INSERT_TEMPLATE: &'static str = r"
     INSERT INTO `version` 
       (`id`, `package_id`, `description`, `shasum`, `tarball`, `major`, `minor`, `bug`, `prerelease`, `build`, `created`, `extra_metadata`) VALUES 
@@ -105,14 +76,6 @@ pub struct Dependency {
 }
 
 impl SqlInsertable for Dependency {
-  const CREATE_SQL: &'static str = r"
-    CREATE TABLE `dependency` (
-      `id` bigint PRIMARY KEY,
-      `package_raw` varchar(255),
-      `package_id` bigint,
-      `spec_raw` varchar(255) NOT NULL
-    )
-  ";
   const INSERT_TEMPLATE: &'static str = r"
     INSERT INTO `dependency` 
       (`id`, `package_raw`, `package_id`, `spec_raw`) VALUES 
@@ -123,29 +86,20 @@ impl SqlInsertable for Dependency {
   }
 }
 
-pub const DEPENDENCY_TYPE_PROD: &'static str = "prod";
-pub const DEPENDENCY_TYPE_DEV: &'static str = "dev";
-pub const DEPENDENCY_TYPE_PEER: &'static str = "peer";
-pub const DEPENDENCY_TYPE_OPTIONAL: &'static str = "optional";
+pub const DEPENDENCY_TYPE_PROD: i32 = 0;
+pub const DEPENDENCY_TYPE_DEV: i32 = 1;
+pub const DEPENDENCY_TYPE_PEER: i32 = 2;
+pub const DEPENDENCY_TYPE_OPTIONAL: i32 = 3;
 
 #[derive(Debug)]
 pub struct VersionDependencyRelation {
   pub version_id: u64,
   pub dependency_id: u64,
-  pub dep_type: &'static str,
+  pub dep_type: i32,
   pub dependency_index: u64
 }
 
 impl SqlInsertable for VersionDependencyRelation {
-  const CREATE_SQL: &'static str = r"
-    CREATE TABLE `version_dependencies` (
-      `version_id` bigint NOT NULL,
-      `dependency_id` bigint NOT NULL,
-      `type` varchar(10) NOT NULL,
-      `dependency_index` bigint NOT NULL,
-      PRIMARY KEY (`version_id`, `dependency_id`, `type`)
-    )
-  ";
   const INSERT_TEMPLATE: &'static str = r"
     INSERT INTO `version_dependencies` 
       (`version_id`, `dependency_id`, `type`, `dependency_index`) VALUES 

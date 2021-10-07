@@ -1,7 +1,6 @@
 use rusqlite::Connection;
 use serde_json::Value;
 use serde_json::Map;
-use crate::sql_commands;
 use crate::PackageReference;
 use crate::packument::Dependencies;
 use chrono::Utc;
@@ -13,7 +12,7 @@ use std::collections::HashMap;
 use std::collections::HashSet;
 use std::convert::TryFrom;
 use crate::sql_data;
-use crate::sql_commands::SqlInsertable;
+use crate::sql_insertable::SqlInsertable;
 
 pub struct Inserter<'pkgs> {
   pkgs_not_processed: HashSet<&'pkgs String>,
@@ -25,6 +24,19 @@ pub struct Inserter<'pkgs> {
   connection: Connection
 }
 
+// impl<'pkgs> Drop for Inserter<'pkgs> {
+//   fn drop(&mut self) { 
+//     println!("Altering tables");
+//     self.connection.execute_batch(r"
+//       ALTER TABLE `version` ADD FOREIGN KEY (`package_id`) REFERENCES `package` (`id`);
+//       ALTER TABLE `package` ADD FOREIGN KEY (`latest_version`) REFERENCES `version` (`id`);
+//       ALTER TABLE `dependency` ADD FOREIGN KEY (`package_id`) REFERENCES `package` (`id`);
+//       ALTER TABLE `version_dependencies` ADD FOREIGN KEY (`version_id`) REFERENCES `version` (`id`);
+//       ALTER TABLE `version_dependencies` ADD FOREIGN KEY (`dependency_id`) REFERENCES `dependency` (`id`);    
+//     ").unwrap(); 
+//   }
+// }
+
 impl<'pkgs> Inserter<'pkgs> {
   pub fn new(pkg_names: &'pkgs HashSet<String>, downloads: HashMap<&'pkgs String, u64>) -> Inserter<'pkgs> {
     let pkgs_not_processed: HashSet<_> = pkg_names.iter().collect();
@@ -32,7 +44,7 @@ impl<'pkgs> Inserter<'pkgs> {
     let pkg_name_to_id: HashMap<_, _> = pkg_id_to_name.iter().map(|(i, p)| (*p, *i)).collect();
 
     let conn = Connection::open("npm_db.sqlite3").unwrap();
-    
+
     conn.execute_batch(r"
       PRAGMA journal_mode = OFF;
       PRAGMA synchronous = 0;
@@ -43,39 +55,39 @@ impl<'pkgs> Inserter<'pkgs> {
 
     conn.execute_batch(r"
     CREATE TABLE `package` (
-        `id` bigint PRIMARY KEY,
-        `name` varchar(255) UNIQUE NOT NULL,
-        `downloads` bigint COMMENT 'Number of downloads in August 2021',
-        `latest_version` bigint,
-        `created` datetime NOT NULL,
-        `modified` datetime NOT NULL,
-        `other_dist_tags` json
+        `id` INTEGER NOT NULL PRIMARY KEY,
+        `name` TEXT UNIQUE NOT NULL,
+        `downloads` INTEGER COMMENT 'Number of downloads in August 2021',
+        `latest_version` INTEGER,
+        `created` TEXT NOT NULL,
+        `modified` TEXT NOT NULL,
+        `other_dist_tags` TEXT
       );
       CREATE TABLE `version` (
-        `id` bigint PRIMARY KEY,
-        `package_id` bigint NOT NULL,
-        `description` varchar(255),
-        `shasum` varchar(255) NOT NULL,
-        `tarball` varchar(255) NOT NULL,
-        `major` bigint NOT NULL,
-        `minor` bigint NOT NULL,
-        `bug` bigint NOT NULL,
-        `prerelease` varchar(255),
-        `build` varchar(255),
-        `created` datetime NOT NULL,
-        `extra_metadata` json NOT NULL
+        `id` INTEGER NOT NULL PRIMARY KEY,
+        `package_id` INTEGER NOT NULL,
+        `description` TEXT,
+        `shasum` TEXT NOT NULL,
+        `tarball` TEXT NOT NULL,
+        `major` INTEGER NOT NULL,
+        `minor` INTEGER NOT NULL,
+        `bug` INTEGER NOT NULL,
+        `prerelease` TEXT,
+        `build` TEXT,
+        `created` TEXT NOT NULL,
+        `extra_metadata` TEXT NOT NULL
       );
       CREATE TABLE `dependency` (
-        `id` bigint PRIMARY KEY,
-        `package_raw` varchar(255),
-        `package_id` bigint,
-        `spec_raw` varchar(255) NOT NULL
+        `id` INTEGER NOT NULL PRIMARY KEY,
+        `package_raw` TEXT,
+        `package_id` INTEGER,
+        `spec_raw` TEXT NOT NULL
       );
       CREATE TABLE `version_dependencies` (
-        `version_id` bigint NOT NULL,
-        `dependency_id` bigint NOT NULL,
-        `type` varchar(10) NOT NULL,
-        `dependency_index` bigint NOT NULL,
+        `version_id` INTEGER NOT NULL,
+        `dependency_id` INTEGER NOT NULL,
+        `type` INTEGER NOT NULL, COMMENT '0 = prod, 1 = dev, 2 = peer, 3 = optional',
+        `dependency_index` INTEGER NOT NULL,
         PRIMARY KEY (`version_id`, `dependency_id`, `type`)
       );
     ").unwrap();
@@ -175,7 +187,7 @@ impl<'pkgs> Inserter<'pkgs> {
   fn build_dependency_hash_rows(&mut self, 
     v_id: u64, 
     deps: HashMap<PackageReference<'pkgs>, (u64, String)>, 
-    dep_type: &'static str, 
+    dep_type: i32, 
     into_dep_rows: &mut Vec<sql_data::Dependency>, 
     into_rel_rows: &mut Vec<sql_data::VersionDependencyRelation>) {
 
