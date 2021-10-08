@@ -93,7 +93,7 @@ fn empty_object() -> Value {
     Value::Object(serde_json::Map::new())
 }
 
-fn process_version(all_packages: &HashSet<String>, mut version_blob: serde_json::Map<String, Value>) -> VersionPackument {
+fn process_version(all_packages: &HashSet<String>, mut version_blob: serde_json::Map<String, Value>) -> Option<VersionPackument> {
     // version_blob.remove("name");
     // version_blob.remove("version");
     let description = version_blob.remove("description").and_then(|x| unwrap_string(x).ok());
@@ -102,7 +102,7 @@ fn process_version(all_packages: &HashSet<String>, mut version_blob: serde_json:
     let peer_dependencies_raw = unwrap_object(version_blob.remove("peerDependencies").unwrap_or(empty_object())).unwrap_or_default();
     let optional_dependencies_raw = unwrap_object(version_blob.remove("optionalDependencies").unwrap_or(empty_object())).unwrap_or_default();
     let mut dist = unwrap_object(version_blob.remove("dist").unwrap()).unwrap();
-    let shasum = unwrap_string(dist.remove("shasum").unwrap()).unwrap();
+    let shasum = unwrap_string(dist.remove("shasum")?).expect(&format!("Expected a string. Blob = {:?}", version_blob));
     let tarball = unwrap_string(dist.remove("tarball").unwrap()).unwrap();
 
     let prod_dependencies = prod_dependencies_raw.into_iter().enumerate().map(|(i, (p, c))| 
@@ -122,7 +122,7 @@ fn process_version(all_packages: &HashSet<String>, mut version_blob: serde_json:
     ).collect();
 
 
-    VersionPackument {
+    Some(VersionPackument {
         description: description,
         shasum: shasum,
         tarball: tarball,
@@ -133,7 +133,7 @@ fn process_version(all_packages: &HashSet<String>, mut version_blob: serde_json:
             optional_dependencies: optional_dependencies,
         },
         extra_metadata: version_blob.into_iter().collect()
-    }
+    })
 }
 
 fn process_packument_blob(all_packages: &HashSet<String>, v: Value, _pkg_name: String) -> Result<Packument, String> {
@@ -164,8 +164,8 @@ fn process_packument_blob(all_packages: &HashSet<String>, v: Value, _pkg_name: S
     ).collect();
 
     let version_packuments_map = j.remove("versions").map(|x| unwrap_object(x).unwrap()).unwrap_or_default(); //unwrap_object(j.remove("versions").unwrap());
-    let version_packuments = version_packuments_map.into_iter().map(|(v_str, blob)|
-        (Version::parse(v_str).unwrap(), process_version(all_packages, unwrap_object(blob).unwrap()))
+    let version_packuments = version_packuments_map.into_iter().flat_map(|(v_str, blob)|
+        Some((Version::parse(v_str).unwrap(), process_version(all_packages, unwrap_object(blob).unwrap())?))
     ).collect();
     Ok(Packument {
         latest: latest,
