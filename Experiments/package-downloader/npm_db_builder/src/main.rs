@@ -197,6 +197,7 @@ fn main() {
     println!("{} packages loaded", pkg_names.len());
 
     let mut bad_pkg_names = HashSet::new();
+    let mut ok_pkg_names = HashSet::new();
 
     let packuemnt_paths = fs::read_dir("../outputs").unwrap();
     for entry in packuemnt_paths {
@@ -209,11 +210,13 @@ fn main() {
             if pack.is_err() {
                 println!("    **** Error processing pkg: {}. Error: {}", pkg, pack.unwrap_err());
                 bad_pkg_names.insert(pkg.clone());
+            } else {
+                ok_pkg_names.insert(pkg.clone());
             }
         }
     }
 
-    pkg_names.retain(|x| !bad_pkg_names.contains(x));
+    pkg_names.retain(|x| !bad_pkg_names.contains(x) && ok_pkg_names.contains(x));
 
 
     println!("\n\nReading download metrics.");
