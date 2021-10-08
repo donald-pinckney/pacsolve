@@ -217,6 +217,7 @@ fn main() {
     }
 
     pkg_names.retain(|x| !bad_pkg_names.contains(x) && ok_pkg_names.contains(x));
+    println!("{} packages kept", pkg_names.len());
 
 
     println!("\n\nReading download metrics.");
