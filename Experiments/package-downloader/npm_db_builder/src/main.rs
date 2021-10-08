@@ -84,7 +84,8 @@ fn read_downloads(all_packages: &HashSet<String>) -> Result<HashMap<&String, u64
 
 
 fn parse_datetime(x: String) -> DateTime<Utc> {
-    let dt = DateTime::parse_from_rfc3339(&x).unwrap();
+    let dt = DateTime::parse_from_rfc3339(&x)
+        .or_else(|_| DateTime::parse_from_rfc3339(&(x + "Z"))).unwrap();
     dt.with_timezone(&Utc)
 }
 
