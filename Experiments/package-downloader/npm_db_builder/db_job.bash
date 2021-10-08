@@ -11,6 +11,6 @@
 #SBATCH -n 1
 
 rm npm_db.sqlite3 npm_db.sqlite3-journal
-RUST_BACKTRACE=full cargo run --release > output.log 2> error.log
+time cargo run --release > output.log 2> error.log
 
 echo "DONE (or failed)"
