@@ -1,3 +1,4 @@
+use indicatif::ProgressStyle;
 use crate::packument::Dependencies;
 use packument::Packument;
 use packument::PackageReference;
@@ -202,7 +203,12 @@ fn main() {
 
     let packuemnt_paths: Vec<_> = fs::read_dir("../outputs").unwrap().collect();
 
-    for entry in packuemnt_paths.iter().progress() {
+    let it = packuemnt_paths.iter().progress();
+    it.progress.set_style(
+        ProgressStyle::default_bar()
+        .template("[{elapsed_precise}] {bar:100} {percent} [{pos:>7}/{len:7}] [{per_sec}] [{eta_precise}]")
+    );
+    for entry in it {
         let p = entry.as_ref().unwrap().path();
         println!("Validating packuments in {}", p.display());
         let packuments = read_packuments_file(&pkg_names, p);
@@ -230,7 +236,12 @@ fn main() {
 
     let mut inserter = Inserter::new(&pkg_names, downloads);
 
-    for entry in packuemnt_paths.iter().progress() {
+    let it = packuemnt_paths.iter().progress();
+    it.progress.set_style(
+        ProgressStyle::default_bar()
+        .template("[{elapsed_precise}] {bar:100} {pos:>7}/{len:7} [{percent}%] [{per_sec}] [{eta_precise} eta]")
+    );
+    for entry in it {
         let p = entry.as_ref().unwrap().path();
 
         println!("Inserting packuments in {}", p.display());
