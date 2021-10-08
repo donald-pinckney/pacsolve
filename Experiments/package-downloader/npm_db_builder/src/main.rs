@@ -14,6 +14,7 @@ use chrono::{DateTime, Utc};
 use std::convert::TryFrom;
 use version::Version;
 use inserter::Inserter;
+use indicatif::ProgressIterator;
 
 mod version;
 mod packument;
@@ -182,7 +183,7 @@ fn read_packuments_file<P: AsRef<Path>>(all_packages: &HashSet<String>, path: P)
     let file = File::open(path).unwrap();
     let reader = BufReader::new(file);
     let packument_blobs: HashMap<String, Value> = serde_json::from_reader(reader).unwrap();
-    println!("  Processing JSON");
+    // println!("  Processing JSON");
     let packuments: HashMap<&String, _> = packument_blobs.into_iter().flat_map(|(pkg, pak)| {
         let pkg_ref = all_packages.get(&pkg)?;
         Some((pkg_ref, process_packument_blob(all_packages, pak, pkg)))
@@ -199,12 +200,13 @@ fn main() {
     let mut bad_pkg_names = HashSet::new();
     let mut ok_pkg_names = HashSet::new();
 
-    let packuemnt_paths = fs::read_dir("../outputs").unwrap();
-    for entry in packuemnt_paths {
-        let p = entry.unwrap().path();
+    let packuemnt_paths: Vec<_> = fs::read_dir("../outputs").unwrap().collect();
+
+    for entry in packuemnt_paths.iter().progress() {
+        let p = entry.as_ref().unwrap().path();
         println!("Validating packuments in {}", p.display());
         let packuments = read_packuments_file(&pkg_names, p);
-        println!("  {} packuments loaded.", packuments.len());
+        // println!("  {} packuments loaded.", packuments.len());
 
         for (pkg, pack) in packuments {
             if pack.is_err() {
@@ -228,12 +230,12 @@ fn main() {
 
     let mut inserter = Inserter::new(&pkg_names, downloads);
 
-    let packuemnt_paths = fs::read_dir("../outputs").unwrap();
-    for entry in packuemnt_paths {
-        let p = entry.unwrap().path();
-        println!("Reading packuments in {}", p.display());
+    for entry in packuemnt_paths.iter().progress() {
+        let p = entry.as_ref().unwrap().path();
+
+        println!("Inserting packuments in {}", p.display());
         let packuments = read_packuments_file(&pkg_names, p);
-        println!("  {} packuments loaded. Inserting them into DB...", packuments.len());
+        // println!("  {} packuments loaded. Inserting them into DB...", packuments.len());
 
         for (pkg, pack) in packuments {
             inserter.insert_packument(pkg, pack.unwrap());

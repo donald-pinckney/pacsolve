@@ -238,7 +238,7 @@ impl<'pkgs> Inserter<'pkgs> {
   fn build_version_row(&mut self, pkg_id: u64, v: Version, v_pack: VersionPackument<'pkgs>, v_times: &HashMap<Version, DateTime<Utc>>) 
   -> Option<(sql_data::Version, Dependencies<'pkgs>)> {
     let created_time = *v_times.get(&v).or_else(|| {
-      eprintln!("Didn't have time: {:#?}", v_pack);
+      println!("Didn't have time: {:#?}", v_pack);
       None
     })?;
 
