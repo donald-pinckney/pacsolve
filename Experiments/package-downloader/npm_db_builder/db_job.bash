@@ -5,6 +5,7 @@
 #SBATCH --partition=short
 #SBATCH --mem=64G
 #SBATCH --exclusive
+#SBATCH --mail-user=$USER@northeastern.edu
 #SBATCH --mail-type=ALL
 #SBATCH -N 1
 #SBATCH -n 1
