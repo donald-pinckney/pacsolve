@@ -188,6 +188,8 @@ extension ConstraintExpr {
                 return "\(major).x"
             case .not(_):
                 throw UnsupportedConstraintError(constraint: self)
+            case .other(let o):
+                return o
         }
     }
 }

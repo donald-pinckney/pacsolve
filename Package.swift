@@ -20,8 +20,9 @@ let package = Package(
         .package(url: "https://github.com/JohnSundell/ShellOut.git", from: "2.0.0"),
         .package(url: "https://github.com/JohnSundell/Files", from: "4.0.0"),
         .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "1.3.8")),
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.4.0"),
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
         .package(url: "https://github.com/mtynior/ColorizeSwift.git", from: "1.6.0"),
+        .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.13.0")
 
     ],
     targets: [
@@ -39,6 +40,7 @@ let package = Package(
             name: "DependencyRunnerMain",
             dependencies: [
                 "DependencyRunner",
+                .product(name: "SQLite", package: "SQLite.swift"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser")
             ]),
         .testTarget(

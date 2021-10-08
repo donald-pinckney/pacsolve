@@ -14,7 +14,7 @@ indirect enum ConstraintExpr: CustomStringConvertible {
     case wildcardMinor(Int)                             // 1.x                      1.*                     ==1.*
     case wildcardMajor                                  // *                        *                       "" (empty string)
     case not(ConstraintExpr)                            //      n/a                     n/a                 !=1.2.3             [5]
-
+    case other(String)
     // [3]: Also 1.2.3
     // [5]: You can also do e.g. !=1.2.*. Doesn't appear that you can use != as a general not
     
@@ -37,6 +37,7 @@ indirect enum ConstraintExpr: CustomStringConvertible {
         case let .wildcardBug(major, minor): return "==\(major).\(minor).*"
         case let .wildcardMinor(major): return "==\(major).*"
         case let .not(c): return "!(\(c))"
+        case let .other(o): return o
         }
     }
     
@@ -62,6 +63,7 @@ extension ConstraintExpr: Codable {
         case wildcardMinor
         case wildcardMajor
         case not
+        case other
     }
     
     enum LeftRightKeys: CodingKey {
@@ -99,6 +101,7 @@ extension ConstraintExpr: Codable {
         case let .wildcardMinor(major): try container.encode(major, forKey: .wildcardMinor)
         case .wildcardMajor: try container.encodeNil(forKey: .wildcardMajor)
         case let .not(c): try container.encode(c, forKey: .not)
+        case let .other(o): try container.encode(o, forKey: .other)
         }
     }
     
@@ -134,6 +137,7 @@ extension ConstraintExpr: Codable {
             }
             self = .wildcardMajor
         case .not: self = .not(try container.decode(ConstraintExpr.self, forKey: k))
+        case .other: self = .other(try container.decode(String.self, forKey: k))
         }
     }
 }

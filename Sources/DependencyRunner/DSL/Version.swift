@@ -2,11 +2,15 @@ struct Version : Equatable, Hashable, ExpressibleByStringLiteral, CustomStringCo
     let major : Int
     let minor : Int
     let bug : Int
+    let prerelease : String?
+    let build : String?
     
-    init(major: Int, minor: Int, bug: Int) {
+    init(major: Int, minor: Int, bug: Int, prerelease: String? = nil, build: String? = nil) {
         self.major = major
         self.minor = minor
         self.bug = bug
+        self.prerelease = prerelease
+        self.build = build
     }
     
     init(stringLiteral value: String) {
@@ -15,7 +19,9 @@ struct Version : Equatable, Hashable, ExpressibleByStringLiteral, CustomStringCo
     }
     
     var description: String {
-        "\(major).\(minor).\(bug)"
+        let preStr = prerelease.map { "-\($0)" } ?? ""
+        let buildStr = build.map { "+\($0)" } ?? ""
+        return "\(major).\(minor).\(bug)\(preStr)\(buildStr)"
     }
     
 //    func encode(to encoder: Encoder) throws {

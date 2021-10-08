@@ -169,6 +169,8 @@ extension ConstraintExpr {
                 return ["!=*"]
             case .not(_):
                 throw UnsupportedConstraintError(constraint: self)
+            case .other(let o):
+                return [o]
         }
     }
 }
