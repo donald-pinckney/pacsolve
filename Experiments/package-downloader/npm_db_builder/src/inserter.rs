@@ -138,13 +138,14 @@ impl<'pkgs> Inserter<'pkgs> {
       
       //pack_latest.map(|l| l == v).unwrap_or(false);
 
-      let (v_row, v_deps) = self.build_version_row(pkg_id, v, v_pack, &pack.version_times);
-      if is_latest {
-        latest_version_id = Some(v_row.id);
-      }
+      if let Some((v_row, v_deps)) = self.build_version_row(pkg_id, v, v_pack, &pack.version_times) {
+        if is_latest {
+          latest_version_id = Some(v_row.id);
+        }
 
-      self.build_dependency_rows(v_row.id, v_deps, &mut dep_rows, &mut rel_rows);
-      version_rows.push(v_row);
+        self.build_dependency_rows(v_row.id, v_deps, &mut dep_rows, &mut rel_rows);
+        version_rows.push(v_row);
+      }
     }
 
     package.latest_version = latest_version_id;
@@ -235,11 +236,14 @@ impl<'pkgs> Inserter<'pkgs> {
   }
 
   fn build_version_row(&mut self, pkg_id: u64, v: Version, v_pack: VersionPackument<'pkgs>, v_times: &HashMap<Version, DateTime<Utc>>) 
-  -> (sql_data::Version, Dependencies<'pkgs>) {
+  -> Option<(sql_data::Version, Dependencies<'pkgs>)> {
+    let created_time = *v_times.get(&v).or_else(|| {
+      eprintln!("Didn't have time: {:#?}", v_pack);
+      None
+    })?;
+
     let id = self.version_id_counter;
     self.version_id_counter += 1;
-
-    let created_time = v_times[&v];
 
     let other_dist_tags_json = Value::Object(v_pack.extra_metadata.into_iter().collect());
 
@@ -258,6 +262,6 @@ impl<'pkgs> Inserter<'pkgs> {
       extra_metadata: other_dist_tags_json
     };
     let deps = v_pack.dependencies;
-    (v_row, deps)
+    Some((v_row, deps))
   }
 }

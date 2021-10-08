@@ -239,4 +239,6 @@ fn main() {
             inserter.insert_packument(pkg, pack.unwrap());
         }
     }
+
+    println!("All done");
 }
