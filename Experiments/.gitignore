@@ -1,2 +1,4 @@
-Output/src/
-Output/work/
+Output/**/src/
+Output/**/work/
+old_results/Output/src/
+old_results/Output/work/
