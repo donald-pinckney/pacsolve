@@ -1,3 +1,5 @@
+import Progress
+
 struct PublishError: Error, Equatable, Hashable {
     let message: String
 }
@@ -87,8 +89,8 @@ struct LocalPackageManager: PackageManager {
             return result
         })
 
-        for op in prog.ops {
-            logger.log(opExecution: op)
+        for op in Progress(prog.ops) {
+//            logger.log(opExecution: op)
             switch op {
             case let .publish(package: package, version: v, dependencies: deps):
                 switch pm.publish(package: package, version: v, dependencies: deps) {
@@ -114,7 +116,7 @@ struct LocalPackageManager: PackageManager {
                     allResults.append(sol)
                 }
             }
-            logger.logOpSuccess()
+//            logger.logOpSuccess()
         }
 
 

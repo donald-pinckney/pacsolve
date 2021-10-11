@@ -59,7 +59,8 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
-      useCustomWorkingDirectory = "NO"
+      useCustomWorkingDirectory = "YES"
+      customWorkingDirectory = "/Users/donaldpinckney/Research/packages/dependency-runner"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -76,16 +77,20 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "TestC_AndCNF"
+            argument = "--db-path"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "external-asp"
+            argument = "../npm_db.sqlite3"
             isEnabled = "YES">
          </CommandLineArgument>
          <CommandLineArgument
-            argument = "pip"
-            isEnabled = "NO">
+            argument = "--initial-sql"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "&quot;SELECT id FROM package ORDER BY downloads DESC LIMIT(1)&quot;"
+            isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>
       <EnvironmentVariables>

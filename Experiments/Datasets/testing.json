@@ -1,6 +1,4 @@
 {
-  "configs": ["npm", "rosette-npm-num_packages"],
-
   "projects": {
     "ejs" : {
       "git": "https://github.com/ocelot-ide/ElementaryJS",

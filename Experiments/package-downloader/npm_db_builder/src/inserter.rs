@@ -24,19 +24,6 @@ pub struct Inserter<'pkgs> {
   connection: Connection
 }
 
-// impl<'pkgs> Drop for Inserter<'pkgs> {
-//   fn drop(&mut self) { 
-//     println!("Altering tables");
-//     self.connection.execute_batch(r"
-//       ALTER TABLE `version` ADD FOREIGN KEY (`package_id`) REFERENCES `package` (`id`);
-//       ALTER TABLE `package` ADD FOREIGN KEY (`latest_version`) REFERENCES `version` (`id`);
-//       ALTER TABLE `dependency` ADD FOREIGN KEY (`package_id`) REFERENCES `package` (`id`);
-//       ALTER TABLE `version_dependencies` ADD FOREIGN KEY (`version_id`) REFERENCES `version` (`id`);
-//       ALTER TABLE `version_dependencies` ADD FOREIGN KEY (`dependency_id`) REFERENCES `dependency` (`id`);    
-//     ").unwrap(); 
-//   }
-// }
-
 impl<'pkgs> Inserter<'pkgs> {
   pub fn new(pkg_names: &'pkgs HashSet<String>, downloads: HashMap<&'pkgs String, u64>) -> Inserter<'pkgs> {
     let pkgs_not_processed: HashSet<_> = pkg_names.iter().collect();
@@ -101,6 +88,13 @@ impl<'pkgs> Inserter<'pkgs> {
       dep_id_counter: 0,
       connection: conn
     }
+  }
+
+  pub fn build_indexes(&self) {
+    self.connection.execute_batch(r"
+      CREATE INDEX idx_version_package_id ON version(package_id);
+      CREATE INDEX idx_dependency_package_id ON dependency(package_id);
+    ").unwrap();
   }
 
 

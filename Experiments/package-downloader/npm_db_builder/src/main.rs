@@ -253,5 +253,7 @@ fn main() {
         }
     }
 
-    println!("All done");
+    println!("All done inserting data. Now building indexes, may take some time...");
+    inserter.build_indexes();
+    println!("All done!");
 }

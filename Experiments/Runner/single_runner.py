@@ -3,6 +3,7 @@ import subprocess
 import json
 import time
 from contextlib import contextmanager
+import sys
 
 
 class TestingError(Exception):
@@ -131,8 +132,8 @@ def prepare_out_dir(out_dir, name, run_configs, subdirectoryMaybe):
   run_subprocess(["rm", "-rf", results_path], check=False)
   os.makedirs(results_path)
 
-  result_files = [os.path.join(results_path, '{}.json'.format(config_name)) for config_name in run_configs]
-  work_dirs = [os.path.join(work_path, config_name) for config_name in run_configs]
+  result_files = [os.path.join(results_path, '{}.json'.format(config_name_val[0])) for config_name_val in run_configs]
+  work_dirs = [os.path.join(work_path, config_name_val[0]) for config_name_val in run_configs]
   for wd in work_dirs:
     os.makedirs(wd, exist_ok=False)
   
@@ -140,12 +141,22 @@ def prepare_out_dir(out_dir, name, run_configs, subdirectoryMaybe):
 
 
 def prepare_src_dir(src_dir, config):
-  if config.path is None:
+  if config.repo is not None:
     # Clone from git
     run_subprocess(["git", "clone", config.repo, src_dir], check=True, silent=True, log=True)
-  else:
+  elif config.path is not None:
     # Copy from local directory
     run_subprocess(["cp", "-r", config.path, src_dir], check=True, log=True)
+  elif config.tarball is not None:
+    # 1. Fetch tarball, 2. unzip tarball and place appropriately.
+    # print(f"curl '{config.tarball}' | tar -xz -C {src_dir}")
+    # # print working directory
+    # print(os.getcwd())
+    # sys.exit(0)
+    run_subprocess(f"curl '{config.tarball}' | tar -xz -C '{src_dir}'", check=True, log=True, shell=True)
+  else:
+    raise ValueError("No source method specified")
+    
 
 def copy_to_work_dir(src_dir, work_dir):
   src = os.path.join(src_dir, ".")
@@ -160,16 +171,11 @@ def preinstall(wd, options):
 
 def install(wd, config):
   with log_section("Install"):
-    if config == 'npm':
-      install_command = ["npm", "install"]
-    elif config == 'rosette-npm-num_packages':
-      install_command = ["npm", "install", "--rosette"]
-    else:
-      raise Exception("Unknown test config: {}".format(config))
+    install_command = config[1]
 
     try:
       t0 = time.time()
-      run_subprocess(install_command, cwd=wd, check=True, capture_output=True, log=True)
+      run_subprocess(install_command, cwd=wd, check=True, capture_output=True, log=True, shell=True)
       t1 = time.time()
       return t1 - t0
 
@@ -221,7 +227,7 @@ def run(options):
       prepare_src_dir(source_dir, options)
     
     for config, wd, rf in zip(run_configs, work_dirs, result_files):
-      with log_section("Run configuration: {}".format(config)):
+      with log_section("Run configuration: {} ({})".format(config[0], config[1])):
         with log_section("Setup working directory ({})".format(wd), level=2):
           copy_to_work_dir(source_dir, wd)
           wd = path_join_flat(wd, options.subdirectory)

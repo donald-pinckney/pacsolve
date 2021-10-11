@@ -22,8 +22,8 @@ let package = Package(
         .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMinor(from: "1.3.8")),
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
         .package(url: "https://github.com/mtynior/ColorizeSwift.git", from: "1.6.0"),
-        .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.13.0")
-
+        .package(url: "https://github.com/stephencelis/SQLite.swift.git", from: "0.13.0"),
+        .package(name: "Progress", url: "https://github.com/jkandzi/Progress.swift", from: "0.4.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -34,13 +34,14 @@ let package = Package(
                 "Files",
                 "ShellOut",
                 "CryptoSwift",
-                "ColorizeSwift"
+                "ColorizeSwift",
+                .product(name: "SQLite", package: "SQLite.swift"),
+                .product(name: "Progress", package: "Progress")
             ]),
         .target(
             name: "DependencyRunnerMain",
             dependencies: [
                 "DependencyRunner",
-                .product(name: "SQLite", package: "SQLite.swift"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser")
             ]),
         .testTarget(

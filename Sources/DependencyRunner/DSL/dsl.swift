@@ -142,7 +142,7 @@ extension ConstraintExpr: Codable {
     }
 }
 
-enum DependencyType: Int, Codable {
+enum DependencyType: Int64, Codable {
     case prod = 0
     case dev = 1
     case peer = 2
