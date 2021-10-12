@@ -7,4 +7,7 @@
 #SBATCH -N 1
 #SBATCH -n 1
 
-python3 Runner/main.py --dataset nontesting --only supports-color --cleanup --configs npm '~/.npm-packages/bin/npm install --production' rosette '~/.npm-packages/bin/npm install --rosette'
+module load nodejs
+module load python/3.8.1
+
+python Runner/main.py --dataset nontesting --only supports-color --cleanup --configs npm '~/.npm-packages/bin/npm install --production' rosette '~/.npm-packages/bin/npm install --rosette'
