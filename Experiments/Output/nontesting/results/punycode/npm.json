@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 1,
+    "stdout": "\n> punycode@2.1.1 prepublish\n> node scripts/prepublish.js\n\n",
+    "stderr": "node:internal/modules/cjs/loader:922\n  throw err;\n  ^\n\nError: Cannot find module '/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/punycode/npm/package/scripts/prepublish.js'\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:919:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:763:27)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)\n    at node:internal/main/run_main_module:17:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/punycode/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c node scripts/prepublish.js\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T04_01_17_294Z-debug.log\n"
+  }
+}

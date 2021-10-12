@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 2.889641046524048,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "tslib",
+    "version": "2.3.1",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "tslib",
+        "version": "2.3.1",
+        "license": "0BSD"
+      }
+    }
+  }
+}

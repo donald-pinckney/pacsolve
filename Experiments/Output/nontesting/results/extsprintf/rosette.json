@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 2.932163715362549,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "extsprintf",
+    "version": "1.4.0",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "extsprintf",
+        "version": "1.4.0",
+        "engines": [
+          "node >=0.6.0"
+        ],
+        "license": "MIT"
+      }
+    }
+  }
+}

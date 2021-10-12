@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> ajv@8.6.3 prepublish\n> npm run build\n\n\n> ajv@8.6.3 build\n> rm -rf dist && tsc && cp -r lib/refs dist && rm dist/refs/json-schema-2019-09/index.ts && rm dist/refs/json-schema-2020-12/index.ts && rm dist/refs/jtd-schema.ts\n\n",
+    "stderr": "npm WARN EBADENGINE Unsupported engine {\nnpm WARN EBADENGINE   package: 'node-fetch@3.0.0',\nnpm WARN EBADENGINE   required: { node: '^12.20.0 || ^14.13.1 || >=16.0.0' },\nnpm WARN EBADENGINE   current: { node: 'v15.2.1', npm: '7.20.1' }\nnpm WARN EBADENGINE }\nsh: tsc: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/ajv/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T04_08_06_526Z-debug.log\n"
+  }
+}

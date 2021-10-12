@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> is-core-module@2.6.0 prepublish\n> not-in-publish || npm run prepublishOnly\n\n\n> is-core-module@2.6.0 prepublishOnly\n> safe-publish-latest\n\n",
+    "stderr": "sh: not-in-publish: command not found\nsh: safe-publish-latest: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/is-core-module/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c not-in-publish || npm run prepublishOnly\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T05_32_44_584Z-debug.log\n"
+  }
+}

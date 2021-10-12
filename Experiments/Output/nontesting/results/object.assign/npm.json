@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> object.assign@4.1.2 prepublish\n> safe-publish-latest && npm run build\n\n",
+    "stderr": "sh: safe-publish-latest: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/object.assign/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c safe-publish-latest && npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T05_25_38_243Z-debug.log\n"
+  }
+}

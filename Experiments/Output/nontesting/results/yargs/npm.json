@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> yargs@17.1.1 prepare\n> npm run compile\n\n\n> yargs@17.1.1 compile\n> rimraf build && tsc\n\n",
+    "stderr": "sh: rimraf: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/yargs/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run compile\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T03_56_55_992Z-debug.log\n"
+  }
+}

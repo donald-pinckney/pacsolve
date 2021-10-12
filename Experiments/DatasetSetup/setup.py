@@ -34,7 +34,7 @@ def run(options):
 
   con = sqlite3.connect(f"file:{sql_path}?mode=ro", uri=True)
   print(f"Quering for top {num_roots} packages by downloads.")
-  package_df = pd.read_sql_query(f"SELECT id, name FROM package ORDER BY downloads DESC LIMIT({num_roots});", con)
+  package_df = pd.read_sql_query(f"SELECT id, name FROM package WHERE name NOT LIKE '@types%' ORDER BY downloads DESC LIMIT({num_roots});", con)
 
   print(f"Looking up highest version number (non prerelese) for each top package")
   package_id_col = []

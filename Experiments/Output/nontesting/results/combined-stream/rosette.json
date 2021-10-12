@@ -1,0 +1,79 @@
+{
+  "install-success": true,
+  "install_time": 3.247267246246338,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "combined-stream",
+    "version": "1.0.8",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "combined-stream",
+        "version": "1.0.8",
+        "license": "MIT",
+        "dependencies": {
+          "delayed-stream": "~1.0.0"
+        },
+        "devDependencies": {
+          "far": "~0.0.7"
+        },
+        "engines": {
+          "node": ">= 0.8"
+        }
+      },
+      "node_modules/delayed-stream": {
+        "version": "1.0.0",
+        "resolved": "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz",
+        "engines": {
+          "node": ">=0.4.0"
+        }
+      },
+      "node_modules/far": {
+        "version": "0.0.7",
+        "resolved": "https://registry.npmjs.org/far/-/far-0.0.7.tgz",
+        "integrity": "sha1-AcH9NivNJs6c8WGvOTiqNGGfeac=",
+        "dev": true,
+        "dependencies": {
+          "oop": "0.0.3"
+        },
+        "bin": {
+          "node-far": "bin/node-far"
+        },
+        "engines": {
+          "node": "*"
+        }
+      },
+      "node_modules/oop": {
+        "version": "0.0.3",
+        "resolved": "https://registry.npmjs.org/oop/-/oop-0.0.3.tgz",
+        "integrity": "sha1-cPpAWlZQiRoZT9yCymja1tq/RAE=",
+        "dev": true,
+        "engines": {
+          "node": ">=0.4.0"
+        }
+      }
+    },
+    "dependencies": {
+      "delayed-stream": {
+        "version": "1.0.0",
+        "resolved": "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz"
+      },
+      "far": {
+        "version": "0.0.7",
+        "resolved": "https://registry.npmjs.org/far/-/far-0.0.7.tgz",
+        "integrity": "sha1-AcH9NivNJs6c8WGvOTiqNGGfeac=",
+        "dev": true,
+        "requires": {
+          "oop": "0.0.3"
+        }
+      },
+      "oop": {
+        "version": "0.0.3",
+        "resolved": "https://registry.npmjs.org/oop/-/oop-0.0.3.tgz",
+        "integrity": "sha1-cPpAWlZQiRoZT9yCymja1tq/RAE=",
+        "dev": true
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette",
+    "retcode": 1,
+    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-28777-Uqy36xQJ91p7\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-28777-vE9BV5Slxny5\nDecoding Rosette answer: [object Object]\n\n> is-plain-object@5.0.0 prepare\n> rollup -c\n\n",
+    "stderr": "npm WARN deprecated gulp-header@1.8.12: Removed event-stream from gulp-header\nnpm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated\nnpm WARN deprecated mkdirp@0.5.4: Legacy versions of mkdirp are no longer supported. Please update to mkdirp 1.x. (Note that the API surface has changed to use Promises in 1.x.)\nnpm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated\nnpm WARN deprecated debug@3.2.6: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)\n[!] Error: Could not resolve entry module (rollup.config.js).\nError: Could not resolve entry module (rollup.config.js).\n    at error (/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/is-plain-object/rosette/package/node_modules/rollup/dist/shared/rollup.js:158:30)\n    at ModuleLoader.loadEntryModule (/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/is-plain-object/rosette/package/node_modules/rollup/dist/shared/rollup.js:22284:20)\n    at async Promise.all (index 0)\n\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/is-plain-object/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c rollup -c\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T05_10_22_231Z-debug.log\n"
+  }
+}

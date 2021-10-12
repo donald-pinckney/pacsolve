@@ -14,7 +14,7 @@ import single_runner
 #   parser.add_argument('--configs', nargs='+', help='The list of install configurations to try')
 #   args = parser.parse_args()
 
-def run_single(out, name, maybePath, maybeRepo, maybeTarball, configs, subdirectory, preinstall, postinstall, verbosity):
+def run_single(out, name, maybePath, maybeRepo, maybeTarball, configs, subdirectory, preinstall, postinstall, cleanup, verbosity):
   options = argparse.Namespace(
     name=name, 
     repo=maybeRepo, 
@@ -25,6 +25,7 @@ def run_single(out, name, maybePath, maybeRepo, maybeTarball, configs, subdirect
     post_install=postinstall, 
     out=out, 
     configs=configs,
+    cleanup=cleanup,
     verbosity=verbosity
   )
   single_runner.run(options)
@@ -62,6 +63,7 @@ def run(options):
       "package" if project_options.get("tarball") is not None else project_options.get("subdirectory"), 
       project_options.get("pre-install"), 
       project_options.get("post-install"),
+      options.cleanup,
       options.verbosity
     )
 

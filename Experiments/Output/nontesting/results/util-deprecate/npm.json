@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 0.9099178314208984,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "util-deprecate",
+    "version": "1.0.2",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "util-deprecate",
+        "version": "1.0.2",
+        "license": "MIT"
+      }
+    }
+  }
+}

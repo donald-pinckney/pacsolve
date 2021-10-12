@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 0.6684117317199707,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "lodash",
+    "version": "4.17.21",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "lodash",
+        "version": "4.17.21",
+        "license": "MIT"
+      }
+    }
+  }
+}

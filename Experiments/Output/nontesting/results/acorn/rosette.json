@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette",
+    "retcode": 254,
+    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-13464-744rP5E9BhFu\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-13464-w0WgQuoirBy0\nDecoding Rosette answer: [object Object]\n\n> acorn@8.5.0 prepare\n> cd ..; npm run build:main && npm run build:bin\n\n",
+    "stderr": "npm ERR! code ENOENT\nnpm ERR! syscall open\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/acorn/rosette/package.json\nnpm ERR! errno -2\nnpm ERR! enoent ENOENT: no such file or directory, open '/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/acorn/rosette/package.json'\nnpm ERR! enoent This is related to npm not being able to find a file.\nnpm ERR! enoent \n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T04_01_28_701Z-debug.log\nnpm ERR! code 254\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/acorn/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c cd ..; npm run build:main && npm run build:bin\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T04_01_28_823Z-debug.log\n"
+  }
+}

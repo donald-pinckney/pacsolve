@@ -9,6 +9,7 @@ def main():
   parser.add_argument('--only', default=None, nargs='+', help='The name of projects to test')
   parser.add_argument('--all', action='store_const', const=True, default=False, help='Run all tests')
   parser.add_argument('--configs', default=[], nargs='+', help='Configurations to run')
+  parser.add_argument('--cleanup', action='store_const', const=True, default=False, help='Cleanup work and src dirs')
   args = parser.parse_args()
   print(args)
   runner.run(args)

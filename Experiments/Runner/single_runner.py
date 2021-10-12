@@ -110,6 +110,11 @@ def run_subprocess(cmd, **args):
     if did_log:
       print("❌ ({:.2f} s)".format(dt))
     raise 
+  except subprocess.TimeoutExpired as e:
+    dt = time.time() - t0
+    if did_log:
+      print("❌ ({:.2f} s)".format(dt))
+    raise
 
 
 def path_join_flat(*args):
@@ -175,12 +180,13 @@ def install(wd, config):
 
     try:
       t0 = time.time()
-      run_subprocess(install_command, cwd=wd, check=True, capture_output=True, log=True, shell=True)
+      run_subprocess(install_command, cwd=wd, check=True, capture_output=True, log=True, shell=True, timeout=300)
       t1 = time.time()
       return t1 - t0
-
     except subprocess.CalledProcessError as e:
       raise TestingError("install", e.cmd, e.returncode, e.stdout, e.stderr)
+    except subprocess.TimeoutExpired as e:
+      raise TestingError("install timeout", e.cmd, None, None, None)
 
 def postinstall(wd, options):
   with log_section("Post-install"):
@@ -190,10 +196,11 @@ def postinstall(wd, options):
       except subprocess.CalledProcessError as e:
         raise TestingError("post-install", e.cmd, e.returncode, e.stdout, e.stderr)
 
-def copy_result(wd, result_file, install_success, install_time, error):
+def copy_result(wd, result_file, install_success, install_time, error, cleanup):
   if install_success:
     with open(os.path.join(wd, 'package-lock.json'), 'r') as f:
       lockfile = json.load(f)
+
     if error is None:
       result = {
         'install-success': True, 
@@ -223,7 +230,6 @@ def run(options):
     with log_section("Acquire Source", level=2):
       run_configs = options.configs
       source_dir, work_dirs, result_files = prepare_out_dir(options.out, options.name, run_configs, options.subdirectory)
-
       prepare_src_dir(source_dir, options)
     
     for config, wd, rf in zip(run_configs, work_dirs, result_files):
@@ -236,14 +242,20 @@ def run(options):
         try:
           install_time = install(wd, config)
         except TestingError as e:
-          copy_result(wd, rf, False, None, e)
+          copy_result(wd, rf, False, None, e, False)
           continue
 
         try:
           postinstall(wd, options)
         except TestingError as e:
-          copy_result(wd, rf, True, install_time, e)
+          copy_result(wd, rf, True, install_time, e, False)
           continue
           
-        copy_result(wd, rf, True, install_time, None)
+        copy_result(wd, rf, True, install_time, None, options.cleanup)
+
+        if options.cleanup:
+          run_subprocess(["rm", "-rf", wd], check=True, log=True)
+
+    if options.cleanup: 
+      run_subprocess(["rm", "-rf", source_dir], check=True, log=True)
   

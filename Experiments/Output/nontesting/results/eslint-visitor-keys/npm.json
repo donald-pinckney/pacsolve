@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> eslint-visitor-keys@3.0.0 prepare\n> npm run build\n\n\n> eslint-visitor-keys@3.0.0 build\n> rollup -c\n\n",
+    "stderr": "npm WARN EBADENGINE Unsupported engine {\nnpm WARN EBADENGINE   package: 'eslint-visitor-keys@3.0.0',\nnpm WARN EBADENGINE   required: { node: '^12.22.0 || ^14.17.0 || >=16.0.0' },\nnpm WARN EBADENGINE   current: { node: 'v15.2.1', npm: '7.20.1' }\nnpm WARN EBADENGINE }\nsh: rollup: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/eslint-visitor-keys/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T04_47_03_671Z-debug.log\n"
+  }
+}

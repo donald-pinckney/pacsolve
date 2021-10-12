@@ -1,0 +1,22 @@
+{
+  "install-success": true,
+  "install_time": 0.5958540439605713,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "caniuse-lite",
+    "version": "1.0.30001259",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "caniuse-lite",
+        "version": "1.0.30001259",
+        "license": "CC-BY-4.0",
+        "funding": {
+          "type": "opencollective",
+          "url": "https://opencollective.com/browserslist"
+        }
+      }
+    }
+  }
+}
