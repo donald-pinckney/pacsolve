@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.8880457878112793,
+  "install_time": 2.6670539379119873,
   "post-install-success": true,
   "lockfile": {
     "name": "process-nextick-args",

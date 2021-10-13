@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 12.562637090682983,
+  "install_time": 12.366707801818848,
   "post-install-success": true,
   "lockfile": {
     "name": "write-file-atomic",

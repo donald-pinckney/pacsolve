@@ -5,6 +5,6 @@
     "command": "npm install --production",
     "retcode": 127,
     "stdout": "\n> kind-of@6.0.3 prepublish\n> browserify -o browser.js -e index.js -s index --bare\n\n",
-    "stderr": "sh: browserify: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/kind-of/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c browserify -o browser.js -e index.js -s index --bare\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T03_49_40_746Z-debug.log\n"
+    "stderr": "sh: browserify: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/kind-of/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c browserify -o browser.js -e index.js -s index --bare\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T16_57_07_753Z-debug.log\n"
   }
 }

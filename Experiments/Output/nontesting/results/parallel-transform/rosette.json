@@ -1,0 +1,130 @@
+{
+  "install-success": true,
+  "install_time": 5.535416841506958,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "parallel-transform",
+    "version": "1.2.0",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "parallel-transform",
+        "version": "1.2.0",
+        "license": "MIT",
+        "dependencies": {
+          "cyclist": "^1.0.1",
+          "inherits": "^2.0.3",
+          "readable-stream": "^2.1.5"
+        }
+      },
+      "node_modules/cyclist": {
+        "version": "1.0.1",
+        "integrity": "sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk="
+      },
+      "node_modules/inherits": {
+        "version": "2.0.4",
+        "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+      },
+      "node_modules/readable-stream": {
+        "version": "2.2.9",
+        "integrity": "sha1-z3jsb0ptHrQ9JkiMrJfwQudLf8g=",
+        "dependencies": {
+          "buffer-shims": "~1.0.0",
+          "core-util-is": "~1.0.0",
+          "inherits": "~2.0.1",
+          "isarray": "~1.0.0",
+          "process-nextick-args": "~1.0.6",
+          "string_decoder": "~1.0.0",
+          "util-deprecate": "~1.0.1"
+        }
+      },
+      "node_modules/readable-stream/node_modules/buffer-shims": {
+        "version": "1.0.0",
+        "integrity": "sha1-mXjOMXOIxkmth5MCjDR37wRKi1E="
+      },
+      "node_modules/readable-stream/node_modules/core-util-is": {
+        "version": "1.0.3",
+        "integrity": "sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ=="
+      },
+      "node_modules/readable-stream/node_modules/inherits": {
+        "resolved": "node_modules/inherits",
+        "link": true
+      },
+      "node_modules/readable-stream/node_modules/isarray": {
+        "version": "1.0.0",
+        "integrity": "sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE="
+      },
+      "node_modules/readable-stream/node_modules/process-nextick-args": {
+        "version": "1.0.6",
+        "integrity": "sha1-D5awAc6pCxJZLOVm7bl+wR5pvQU="
+      },
+      "node_modules/readable-stream/node_modules/string_decoder": {
+        "version": "1.0.0",
+        "integrity": "sha1-8G9BFXtmTYYGn4S9vcmw2KsoFmc=",
+        "dependencies": {
+          "buffer-shims": "~1.0.0"
+        }
+      },
+      "node_modules/readable-stream/node_modules/string_decoder/node_modules/buffer-shims": {
+        "resolved": "node_modules/readable-stream/node_modules/buffer-shims",
+        "link": true
+      },
+      "node_modules/readable-stream/node_modules/util-deprecate": {
+        "version": "1.0.2",
+        "integrity": "sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8="
+      }
+    },
+    "dependencies": {
+      "cyclist": {
+        "version": "1.0.1"
+      },
+      "inherits": {
+        "version": "2.0.4"
+      },
+      "readable-stream": {
+        "version": "2.2.9",
+        "requires": {
+          "buffer-shims": "~1.0.0",
+          "core-util-is": "~1.0.0",
+          "inherits": "~2.0.1",
+          "isarray": "~1.0.0",
+          "process-nextick-args": "~1.0.6",
+          "string_decoder": "~1.0.0",
+          "util-deprecate": "~1.0.1"
+        },
+        "dependencies": {
+          "buffer-shims": {
+            "version": "1.0.0"
+          },
+          "core-util-is": {
+            "version": "1.0.3"
+          },
+          "inherits": {
+            "version": "file:node_modules/inherits"
+          },
+          "isarray": {
+            "version": "1.0.0"
+          },
+          "process-nextick-args": {
+            "version": "1.0.6"
+          },
+          "string_decoder": {
+            "version": "1.0.0",
+            "requires": {
+              "buffer-shims": "~1.0.0"
+            },
+            "dependencies": {
+              "buffer-shims": {
+                "version": "file:node_modules/readable-stream/node_modules/buffer-shims"
+              }
+            }
+          },
+          "util-deprecate": {
+            "version": "1.0.2"
+          }
+        }
+      }
+    }
+  }
+}

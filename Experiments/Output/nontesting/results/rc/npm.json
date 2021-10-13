@@ -1,0 +1,75 @@
+{
+  "install-success": true,
+  "install_time": 1.9337348937988281,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "rc",
+    "version": "1.2.8",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "rc",
+        "version": "1.2.8",
+        "license": "(BSD-2-Clause OR MIT OR Apache-2.0)",
+        "dependencies": {
+          "deep-extend": "^0.6.0",
+          "ini": "~1.3.0",
+          "minimist": "^1.2.0",
+          "strip-json-comments": "~2.0.1"
+        },
+        "bin": {
+          "rc": "cli.js"
+        }
+      },
+      "node_modules/deep-extend": {
+        "version": "0.6.0",
+        "resolved": "https://registry.npmjs.org/deep-extend/-/deep-extend-0.6.0.tgz",
+        "integrity": "sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==",
+        "engines": {
+          "node": ">=4.0.0"
+        }
+      },
+      "node_modules/ini": {
+        "version": "1.3.8",
+        "resolved": "https://registry.npmjs.org/ini/-/ini-1.3.8.tgz",
+        "integrity": "sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew=="
+      },
+      "node_modules/minimist": {
+        "version": "1.2.5",
+        "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz",
+        "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw=="
+      },
+      "node_modules/strip-json-comments": {
+        "version": "2.0.1",
+        "resolved": "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-2.0.1.tgz",
+        "integrity": "sha1-PFMZQukIwml8DsNEhYwobHygpgo=",
+        "engines": {
+          "node": ">=0.10.0"
+        }
+      }
+    },
+    "dependencies": {
+      "deep-extend": {
+        "version": "0.6.0",
+        "resolved": "https://registry.npmjs.org/deep-extend/-/deep-extend-0.6.0.tgz",
+        "integrity": "sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA=="
+      },
+      "ini": {
+        "version": "1.3.8",
+        "resolved": "https://registry.npmjs.org/ini/-/ini-1.3.8.tgz",
+        "integrity": "sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew=="
+      },
+      "minimist": {
+        "version": "1.2.5",
+        "resolved": "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz",
+        "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw=="
+      },
+      "strip-json-comments": {
+        "version": "2.0.1",
+        "resolved": "https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-2.0.1.tgz",
+        "integrity": "sha1-PFMZQukIwml8DsNEhYwobHygpgo="
+      }
+    }
+  }
+}

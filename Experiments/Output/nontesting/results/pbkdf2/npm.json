@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> pbkdf2@3.1.2 prepublish\n> npm run test\n\n\n> pbkdf2@3.1.2 test\n> npm run lint && npm run unit\n\n\n> pbkdf2@3.1.2 lint\n> standard\n\n",
+    "stderr": "sh: standard: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/pbkdf2/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run test\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T00_37_02_567Z-debug.log\n"
+  }
+}

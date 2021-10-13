@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette",
+    "retcode": 2,
+    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-48238-Rpjo1Cff5nDO\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-48238-HxRB7ccDeYY0\nDecoding Rosette answer: [object Object]\n\n> file-loader@6.2.0 prepare\n> npm run build\n\n\n> file-loader@6.2.0 prebuild\n> npm run clean\n\n\n> file-loader@6.2.0 clean\n> del-cli dist\n\n\n> file-loader@6.2.0 build\n> cross-env NODE_ENV=production babel src -d dist --copy-files\n\n",
+    "stderr": "npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated\nnpm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated\nnpm WARN deprecated sane@4.1.0: some dependency vulnerabilities fixed, support for node < 10 dropped, and newer ECMAScript syntax/features added\nnpm WARN deprecated fsevents@1.2.13: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.\nnpm WARN deprecated chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.\nnpm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.\nnpm WARN deprecated kleur@2.0.2: Please upgrade to kleur@3 or migrate to 'ansi-colors' if you prefer the old syntax. Visit <https://github.com/lukeed/kleur/releases/tag/v3.0.0\\> for migration path(s).\nnpm WARN deprecated json-parser@1.1.5: `json-parser` is deprecated. Please use `comment-json` instead\nbabel:\n  src does not exist\nnpm ERR! code 2\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/file-loader/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T00_55_33_936Z-debug.log\n"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette",
+    "retcode": 1,
+    "stdout": "0 / 1\n100 / 50\n200 / 33\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-17345-Qd6G6Of4IXu6\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-17345-M4td5yPqX27S\nDecoding Rosette answer: [object Object]\n",
+    "stderr": "npm ERR! Cannot read property 'package' of null\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T20_54_59_420Z-debug.log\n"
+  }
+}

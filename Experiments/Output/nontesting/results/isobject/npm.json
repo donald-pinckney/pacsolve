@@ -5,6 +5,6 @@
     "command": "npm install --production",
     "retcode": 127,
     "stdout": "\n> isobject@4.0.0 prepublish\n> npm run build\n\n\n> isobject@4.0.0 build\n> rollup -i index.js -o index.cjs.js -f cjs\n\n",
-    "stderr": "sh: rollup: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/isobject/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T04_24_17_326Z-debug.log\n"
+    "stderr": "sh: rollup: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/isobject/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T17_31_51_919Z-debug.log\n"
   }
 }

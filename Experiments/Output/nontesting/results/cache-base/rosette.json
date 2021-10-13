@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette",
+    "retcode": 1,
+    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-14719-v0yDv12tQTx4\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-14719-7E229CBt2OkL\nDecoding Rosette answer: [object Object]\n",
+    "stderr": "npm ERR! Cannot set property 'peer' of null\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T20_37_48_703Z-debug.log\n"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.296138048171997,
+  "install_time": 3.9592251777648926,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/parser",

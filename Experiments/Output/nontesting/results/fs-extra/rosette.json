@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 10.046385288238525,
+  "install_time": 12.210874080657959,
   "post-install-success": true,
   "lockfile": {
     "name": "fs-extra",
@@ -2141,8 +2141,8 @@
         }
       },
       "node_modules/graceful-fs": {
-        "version": "4.2.1",
-        "integrity": "sha512-b9usnbDGnD928gJB3LrCmxoibr3VE4U2SMo5PBuBnokWyDADTqDPXg4YpwKF1trpH+UbGp7QLicO3+aWEy0+mw=="
+        "version": "4.2.0",
+        "integrity": "sha512-jpSvDPV4Cq/bgtpndIWbI5hmYxhQGHPC4d4cqBPb4DLniCfhJokdXhwhaDuLBGLQdvvRum/UiX6ECVIPvDXqdg=="
       },
       "node_modules/growl": {
         "version": "1.10.5",
@@ -6596,7 +6596,7 @@
         "dev": true
       },
       "graceful-fs": {
-        "version": "4.2.1"
+        "version": "4.2.0"
       },
       "growl": {
         "version": "1.10.5",

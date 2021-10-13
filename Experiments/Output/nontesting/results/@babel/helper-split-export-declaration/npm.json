@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.9608218669891357,
+  "install_time": 0.9901423454284668,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/helper-split-export-declaration",

@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> type-detect@4.0.8 prepare\n> cross-env NODE_ENV=production npm run build\n\n",
+    "stderr": "npm WARN EBADENGINE Unsupported engine {\nnpm WARN EBADENGINE   package: 'karma@1.7.1',\nnpm WARN EBADENGINE   required: { node: '0.10 || 0.12 || 4 || 5 || 6 || 7 || 8' },\nnpm WARN EBADENGINE   current: { node: 'v15.2.1', npm: '7.20.1' }\nnpm WARN EBADENGINE }\nsh: cross-env: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/type-detect/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c cross-env NODE_ENV=production npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T22_36_07_788Z-debug.log\n"
+  }
+}

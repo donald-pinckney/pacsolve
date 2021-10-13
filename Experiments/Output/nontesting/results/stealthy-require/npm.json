@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> stealthy-require@1.1.1 prepublish\n> publish-please guard\n\n",
+    "stderr": "sh: publish-please: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/stealthy-require/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c publish-please guard\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T02_57_23_530Z-debug.log\n"
+  }
+}

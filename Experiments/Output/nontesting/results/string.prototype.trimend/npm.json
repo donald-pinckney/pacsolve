@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> string.prototype.trimend@1.0.4 prepublish\n> safe-publish-latest\n\n",
+    "stderr": "sh: safe-publish-latest: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/string.prototype.trimend/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c safe-publish-latest\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T19_20_23_574Z-debug.log\n"
+  }
+}

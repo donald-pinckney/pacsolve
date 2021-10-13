@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> ret@0.4.0 prepare\n> tsc\n\n",
+    "stderr": "sh: tsc: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/ret/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c tsc\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T20_15_52_996Z-debug.log\n"
+  }
+}

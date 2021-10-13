@@ -1,0 +1,51 @@
+{
+  "install-success": true,
+  "install_time": 3.755276918411255,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "jest-docblock",
+    "version": "27.0.6",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "jest-docblock",
+        "version": "27.0.6",
+        "license": "MIT",
+        "dependencies": {
+          "detect-newline": "^3.0.0"
+        },
+        "devDependencies": {
+          "@types/node": "*"
+        },
+        "engines": {
+          "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+        }
+      },
+      "node_modules/@types/node": {
+        "version": "16.10.4",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-16.10.4.tgz",
+        "integrity": "sha512-EITwVTX5B4nDjXjGeQAfXOrm+Jn+qNjDmyDRtWoD+wZsl/RDPRTFRKivs4Mt74iOFlLOrE5+Kf+p5yjyhm3+cA==",
+        "dev": true
+      },
+      "node_modules/detect-newline": {
+        "version": "3.0.0",
+        "integrity": "sha512-JAP22dVPAqvhdRFFxK1G5GViIokyUn0UWXRNW0ztK96fsqi9cuM8w8ESbSk+T2w5OVorcMcL6m7yUg1RrX+2CA==",
+        "engines": {
+          "node": ">=8"
+        }
+      }
+    },
+    "dependencies": {
+      "@types/node": {
+        "version": "16.10.4",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-16.10.4.tgz",
+        "integrity": "sha512-EITwVTX5B4nDjXjGeQAfXOrm+Jn+qNjDmyDRtWoD+wZsl/RDPRTFRKivs4Mt74iOFlLOrE5+Kf+p5yjyhm3+cA==",
+        "dev": true
+      },
+      "detect-newline": {
+        "version": "3.0.0"
+      }
+    }
+  }
+}

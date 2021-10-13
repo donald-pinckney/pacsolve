@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 1.5954251289367676,
+  "install_time": 1.7318809032440186,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/helper-member-expression-to-functions",

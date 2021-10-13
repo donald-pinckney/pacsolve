@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 0.6422321796417236,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "path-dirname",
+    "version": "1.0.2",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "path-dirname",
+        "version": "1.0.2",
+        "license": "MIT"
+      }
+    }
+  }
+}

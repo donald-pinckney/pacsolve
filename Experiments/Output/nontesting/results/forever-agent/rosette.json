@@ -1,0 +1,22 @@
+{
+  "install-success": true,
+  "install_time": 3.271383047103882,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "forever-agent",
+    "version": "0.6.1",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "forever-agent",
+        "version": "0.6.1",
+        "license": "Apache-2.0",
+        "devDependencies": {},
+        "engines": {
+          "node": "*"
+        }
+      }
+    }
+  }
+}

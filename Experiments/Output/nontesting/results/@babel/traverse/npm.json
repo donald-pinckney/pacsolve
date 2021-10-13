@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 4.608027935028076,
+  "install_time": 4.816112041473389,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/traverse",

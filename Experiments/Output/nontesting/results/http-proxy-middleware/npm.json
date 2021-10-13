@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> http-proxy-middleware@2.0.1 prepare\n> husky install && yarn build && rm dist/tsconfig.tsbuildinfo\n\n",
+    "stderr": "npm WARN ERESOLVE overriding peer dependency\nnpm WARN Found: @types/jest@26.0.24\nnpm WARN node_modules/@types/jest\nnpm WARN   dev @types/jest@\"^26.0.23\" from the root project\nnpm WARN \nnpm WARN Could not resolve dependency:\nnpm WARN peerOptional @types/jest@\"^27.0.0\" from ts-jest@27.0.5\nnpm WARN node_modules/ts-jest\nnpm WARN   dev ts-jest@\"^27.0.2\" from the root project\nsh: husky: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/http-proxy-middleware/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c husky install && yarn build && rm dist/tsconfig.tsbuildinfo\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T02_03_03_013Z-debug.log\n"
+  }
+}

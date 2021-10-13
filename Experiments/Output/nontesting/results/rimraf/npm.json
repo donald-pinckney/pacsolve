@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 5.091569900512695,
+  "install_time": 5.095826148986816,
   "post-install-success": true,
   "lockfile": {
     "name": "rimraf",

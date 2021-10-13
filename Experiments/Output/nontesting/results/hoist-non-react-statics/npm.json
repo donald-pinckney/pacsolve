@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> hoist-non-react-statics@3.3.2 prepublish\n> npm test\n\n\n> hoist-non-react-statics@3.3.2 test\n> nyc mocha tests/unit/ --recursive --reporter spec --require=@babel/register\n\n",
+    "stderr": "sh: nyc: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/hoist-non-react-statics/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm test\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T02_01_30_839Z-debug.log\n"
+  }
+}

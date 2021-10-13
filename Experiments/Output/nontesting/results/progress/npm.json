@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 0.6579699516296387,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "progress",
+    "version": "2.0.3",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "progress",
+        "version": "2.0.3",
+        "license": "MIT",
+        "engines": {
+          "node": ">=0.4.0"
+        }
+      }
+    }
+  }
+}

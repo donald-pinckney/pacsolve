@@ -1,0 +1,143 @@
+{
+  "install-success": true,
+  "install_time": 3.4334800243377686,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "eslint-module-utils",
+    "version": "2.6.2",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "eslint-module-utils",
+        "version": "2.6.2",
+        "license": "MIT",
+        "dependencies": {
+          "debug": "^3.2.7",
+          "pkg-dir": "^2.0.0"
+        },
+        "engines": {
+          "node": ">=4"
+        }
+      },
+      "node_modules/debug": {
+        "version": "3.2.7",
+        "integrity": "sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==",
+        "dependencies": {
+          "ms": "^2.1.1"
+        }
+      },
+      "node_modules/debug/node_modules/ms": {
+        "version": "2.1.2",
+        "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
+      },
+      "node_modules/pkg-dir": {
+        "version": "2.0.0",
+        "integrity": "sha1-9tXREJ4Z1j7fQo4L1X4Sd3YVM0s=",
+        "dependencies": {
+          "find-up": "^2.1.0"
+        },
+        "engines": {
+          "node": ">=4"
+        }
+      },
+      "node_modules/pkg-dir/node_modules/find-up": {
+        "version": "2.1.0",
+        "integrity": "sha1-RdG35QbHF93UgndaK3eSCjwMV6c=",
+        "dependencies": {
+          "locate-path": "^2.0.0"
+        },
+        "engines": {
+          "node": ">=4"
+        }
+      },
+      "node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path": {
+        "version": "2.0.0",
+        "integrity": "sha1-K1aLJl7slExtnA3pw9u7ygNUzY4=",
+        "dependencies": {
+          "p-locate": "^2.0.0",
+          "path-exists": "^3.0.0"
+        },
+        "engines": {
+          "node": ">=4"
+        }
+      },
+      "node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path/node_modules/p-locate": {
+        "version": "2.0.0",
+        "integrity": "sha1-IKAQOyIqcMj9OcwuWAaA893l7EM=",
+        "dependencies": {
+          "p-limit": "^1.1.0"
+        },
+        "engines": {
+          "node": ">=4"
+        }
+      },
+      "node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path/node_modules/p-locate/node_modules/p-limit": {
+        "version": "1.1.0",
+        "integrity": "sha1-sH/y2aXYi+yAYDWJWiurZqJ5iLw=",
+        "engines": {
+          "node": ">=4"
+        }
+      },
+      "node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path/node_modules/path-exists": {
+        "version": "3.0.0",
+        "integrity": "sha1-zg6+ql94yxiSXqfYENe1mwEP1RU=",
+        "engines": {
+          "node": ">=4"
+        }
+      }
+    },
+    "dependencies": {
+      "debug": {
+        "version": "3.2.7",
+        "requires": {
+          "ms": "^2.1.1"
+        },
+        "dependencies": {
+          "ms": {
+            "version": "2.1.2"
+          }
+        }
+      },
+      "pkg-dir": {
+        "version": "2.0.0",
+        "requires": {
+          "find-up": "^2.1.0"
+        },
+        "dependencies": {
+          "find-up": {
+            "version": "2.1.0",
+            "requires": {
+              "locate-path": "^2.0.0"
+            },
+            "dependencies": {
+              "locate-path": {
+                "version": "2.0.0",
+                "requires": {
+                  "p-locate": "^2.0.0",
+                  "path-exists": "^3.0.0"
+                },
+                "dependencies": {
+                  "p-locate": {
+                    "version": "2.0.0",
+                    "requires": {
+                      "p-limit": "^1.1.0"
+                    },
+                    "dependencies": {
+                      "p-limit": {
+                        "version": "1.1.0"
+                      }
+                    }
+                  },
+                  "path-exists": {
+                    "version": "3.0.0"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

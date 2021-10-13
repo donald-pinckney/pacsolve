@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: babel-loader@8.2.2\nnpm ERR! Found: eslint-plugin-flowtype@5.10.0\nnpm ERR! node_modules/eslint-plugin-flowtype\nnpm ERR!   dev eslint-plugin-flowtype@\"^5.2.0\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer eslint-plugin-flowtype@\"^3.0.0\" from eslint-config-babel@9.0.0\nnpm ERR! node_modules/eslint-config-babel\nnpm ERR!   dev eslint-config-babel@\"^9.0.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T00_57_29_956Z-debug.log\n"
+  }
+}

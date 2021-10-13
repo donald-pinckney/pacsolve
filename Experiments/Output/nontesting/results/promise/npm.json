@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 1,
+    "stdout": "\n> promise@8.1.0 prepublish\n> node build\n\n",
+    "stderr": "node:internal/modules/cjs/loader:922\n  throw err;\n  ^\n\nError: Cannot find module 'rimraf'\nRequire stack:\n- /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/promise/npm/package/build.js\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:919:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:763:27)\n    at Module.require (node:internal/modules/cjs/loader:991:19)\n    at require (node:internal/modules/cjs/helpers:92:18)\n    at Object.<anonymous> (/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/promise/npm/package/build.js:4:14)\n    at Module._compile (node:internal/modules/cjs/loader:1102:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1131:10)\n    at Module.load (node:internal/modules/cjs/loader:967:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:807:14)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12) {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: [\n    '/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/promise/npm/package/build.js'\n  ]\n}\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/promise/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c node build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T01_58_21_592Z-debug.log\n"
+  }
+}

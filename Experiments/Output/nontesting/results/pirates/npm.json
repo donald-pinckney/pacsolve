@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> pirates@4.0.1 prepublish\n> yarn run clean && yarn run build\n\nyarn run v1.22.10\n$ rimraf lib\ninfo Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.\n",
+    "stderr": "/bin/sh: rimraf: command not found\nerror Command failed with exit code 127.\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/pirates/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c yarn run clean && yarn run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T01_27_03_738Z-debug.log\n"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 4.02674412727356,
+  "install_time": 4.410983085632324,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/helper-module-imports",

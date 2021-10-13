@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 16.901002645492554,
+  "install_time": 19.256470918655396,
   "post-install-success": true,
   "lockfile": {
     "name": "balanced-match",
@@ -392,9 +392,9 @@
         "dev": true
       },
       "node_modules/@types/node": {
-        "version": "16.10.3",
-        "resolved": "https://registry.npmjs.org/@types/node/-/node-16.10.3.tgz",
-        "integrity": "sha512-ho3Ruq+fFnBrZhUYI46n/bV2GjwzSkwuT4dTf0GkuNFmnb8nq4ny2z9JEVemFi6bdEJanHLlYfy9c6FN9B9McQ==",
+        "version": "16.10.4",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-16.10.4.tgz",
+        "integrity": "sha512-EITwVTX5B4nDjXjGeQAfXOrm+Jn+qNjDmyDRtWoD+wZsl/RDPRTFRKivs4Mt74iOFlLOrE5+Kf+p5yjyhm3+cA==",
         "dev": true
       },
       "node_modules/@types/normalize-package-data": {
@@ -10004,9 +10004,9 @@
         "dev": true
       },
       "@types/node": {
-        "version": "16.10.3",
-        "resolved": "https://registry.npmjs.org/@types/node/-/node-16.10.3.tgz",
-        "integrity": "sha512-ho3Ruq+fFnBrZhUYI46n/bV2GjwzSkwuT4dTf0GkuNFmnb8nq4ny2z9JEVemFi6bdEJanHLlYfy9c6FN9B9McQ==",
+        "version": "16.10.4",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-16.10.4.tgz",
+        "integrity": "sha512-EITwVTX5B4nDjXjGeQAfXOrm+Jn+qNjDmyDRtWoD+wZsl/RDPRTFRKivs4Mt74iOFlLOrE5+Kf+p5yjyhm3+cA==",
         "dev": true
       },
       "@types/normalize-package-data": {

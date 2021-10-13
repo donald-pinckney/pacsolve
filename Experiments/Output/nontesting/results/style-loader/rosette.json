@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette",
+    "retcode": 1,
+    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-55700-uXh8wJ2vaBEm\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-55700-Cvm8toej6EVc\nDecoding Rosette answer: [object Object]\n\n> style-loader@3.3.0 prepare\n> husky install && npm run build\n\n",
+    "stderr": "npm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.\nnpm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.\n.git can't be found (see https://git.io/Jc3F9)\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/style-loader/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c husky install && npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T01_45_31_738Z-debug.log\n"
+  }
+}

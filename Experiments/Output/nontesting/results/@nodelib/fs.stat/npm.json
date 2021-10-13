@@ -1,0 +1,41 @@
+{
+  "install-success": true,
+  "install_time": 1.9955601692199707,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "@nodelib/fs.stat",
+    "version": "2.0.5",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "@nodelib/fs.stat",
+        "version": "2.0.5",
+        "license": "MIT",
+        "devDependencies": {
+          "@nodelib/fs.macchiato": "1.0.4"
+        },
+        "engines": {
+          "node": ">= 8"
+        }
+      },
+      "node_modules/@nodelib/fs.macchiato": {
+        "version": "1.0.4",
+        "resolved": "https://registry.npmjs.org/@nodelib/fs.macchiato/-/fs.macchiato-1.0.4.tgz",
+        "integrity": "sha512-o3u4PGaUMkyqN8zVXWM2iuVWg3O/h3cVy5nDOWqPrkbW4dO6u3qKJEF8gA2Esru2wskA8qFHZ+eYANN/yss8kA==",
+        "dev": true,
+        "engines": {
+          "node": ">= 8"
+        }
+      }
+    },
+    "dependencies": {
+      "@nodelib/fs.macchiato": {
+        "version": "1.0.4",
+        "resolved": "https://registry.npmjs.org/@nodelib/fs.macchiato/-/fs.macchiato-1.0.4.tgz",
+        "integrity": "sha512-o3u4PGaUMkyqN8zVXWM2iuVWg3O/h3cVy5nDOWqPrkbW4dO6u3qKJEF8gA2Esru2wskA8qFHZ+eYANN/yss8kA==",
+        "dev": true
+      }
+    }
+  }
+}

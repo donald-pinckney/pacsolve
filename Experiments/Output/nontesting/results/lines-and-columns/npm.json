@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> lines-and-columns@1.1.6 prepublish\n> npm run lint && npm run build\n\n\n> lines-and-columns@1.1.6 lint\n> tslint --config tslint.json --project tsconfig.json --type-check\n\n",
+    "stderr": "sh: tslint: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/lines-and-columns/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run lint && npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T21_17_49_085Z-debug.log\n"
+  }
+}

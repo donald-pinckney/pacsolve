@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 13.01533579826355,
+  "install_time": 12.952845096588135,
   "post-install-success": true,
   "lockfile": {
     "name": "normalize-package-data",
@@ -2398,8 +2398,8 @@
         }
       },
       "node_modules/hosted-git-info": {
-        "version": "4.0.2",
-        "integrity": "sha512-c9OGXbZ3guC/xOlCg1Ci/VgWlwsqDv1yMQL1CWqXDL0hDjXuNcq0zuR4xqPSuasI3kqFDhqSyTjREz5gzq0fXg==",
+        "version": "4.0.1",
+        "integrity": "sha512-eT7NrxAsppPRQEBSwKSosReE+v8OzABwEScQYk5d4uxaEPlzxTIku7LINXtBGalthkLhJnq5lBI89PfK43zAKg==",
         "dependencies": {
           "lru-cache": "^6.0.0"
         },
@@ -2571,7 +2571,6 @@
       },
       "node_modules/is-core-module": {
         "version": "2.7.0",
-        "resolved": "https://registry.npmjs.org/is-core-module/-/is-core-module-2.7.0.tgz",
         "integrity": "sha512-ByY+tjCciCr+9nLryBYcSD50EOGWt95c7tIsKTG1J2ixKKXPvF7Ej3AVd+UfDydAJom3biBGDBALaO79ktwgEQ==",
         "dependencies": {
           "has": "^1.0.3"
@@ -3868,8 +3867,8 @@
         "dev": true
       },
       "node_modules/semver": {
-        "version": "7.3.4",
-        "integrity": "sha512-tCfb2WLjqFAtXn4KEdxIhalnRtoKFN7nAwj0B3ZXCbQloV2tq5eDbcTmT68JJD3nRJq24/XgxtQKFIpQdtvmVw==",
+        "version": "7.3.5",
+        "integrity": "sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==",
         "dependencies": {
           "lru-cache": "^6.0.0"
         },
@@ -6492,8 +6491,8 @@
         "integrity": "sha1-KGlKzfOf4n3kUUP/+B8h9sZtRKw="
       },
       "node_modules/validate-npm-package-license/node_modules/spdx-expression-parse": {
-        "version": "1.0.4",
-        "integrity": "sha1-m98vIOH0DtRH++JzJmGR/O1RYmw="
+        "version": "1.0.3",
+        "integrity": "sha1-yjw4KMT+qKpEmXiEs5j8XWdDZEI="
       },
       "node_modules/verror": {
         "version": "1.10.0",
@@ -8595,7 +8594,7 @@
         }
       },
       "hosted-git-info": {
-        "version": "4.0.2",
+        "version": "4.0.1",
         "requires": {
           "lru-cache": "^6.0.0"
         },
@@ -8722,8 +8721,6 @@
       },
       "is-core-module": {
         "version": "2.7.0",
-        "resolved": "https://registry.npmjs.org/is-core-module/-/is-core-module-2.7.0.tgz",
-        "integrity": "sha512-ByY+tjCciCr+9nLryBYcSD50EOGWt95c7tIsKTG1J2ixKKXPvF7Ej3AVd+UfDydAJom3biBGDBALaO79ktwgEQ==",
         "requires": {
           "has": "^1.0.3"
         }
@@ -9708,7 +9705,7 @@
         "dev": true
       },
       "semver": {
-        "version": "7.3.4",
+        "version": "7.3.5",
         "requires": {
           "lru-cache": "^6.0.0"
         },
@@ -11536,7 +11533,7 @@
             }
           },
           "spdx-expression-parse": {
-            "version": "1.0.4"
+            "version": "1.0.3"
           }
         }
       },

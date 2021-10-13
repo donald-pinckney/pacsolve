@@ -5,6 +5,6 @@
     "command": "npm install --production",
     "retcode": 127,
     "stdout": "\n> domelementtype@2.2.0 prepare\n> npm run build\n\n\n> domelementtype@2.2.0 build\n> tsc\n\n",
-    "stderr": "sh: tsc: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/domelementtype/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T05_01_33_644Z-debug.log\n"
+    "stderr": "sh: tsc: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/domelementtype/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_08_05_662Z-debug.log\n"
   }
 }

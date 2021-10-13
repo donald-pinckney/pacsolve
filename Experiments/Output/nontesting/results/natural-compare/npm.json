@@ -1,0 +1,49 @@
+{
+  "install-success": true,
+  "install_time": 1.8594448566436768,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "natural-compare",
+    "version": "1.4.0",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "natural-compare",
+        "version": "1.4.0",
+        "license": "MIT",
+        "devDependencies": {
+          "buildman": "*",
+          "testman": "*"
+        }
+      },
+      "node_modules/buildman": {
+        "version": "1.0.0",
+        "resolved": "https://registry.npmjs.org/buildman/-/buildman-1.0.0.tgz",
+        "integrity": "sha1-m4bRfEYPEuAV5gJOsHKz0UXppWM=",
+        "deprecated": "Package no longer supported. Contact support@npmjs.com for more info.",
+        "dev": true
+      },
+      "node_modules/testman": {
+        "version": "0.5.1",
+        "resolved": "https://registry.npmjs.org/testman/-/testman-0.5.1.tgz",
+        "integrity": "sha1-Wb2Ii5XNyN9DYhnmmZ/+gIhK2vA=",
+        "dev": true
+      }
+    },
+    "dependencies": {
+      "buildman": {
+        "version": "1.0.0",
+        "resolved": "https://registry.npmjs.org/buildman/-/buildman-1.0.0.tgz",
+        "integrity": "sha1-m4bRfEYPEuAV5gJOsHKz0UXppWM=",
+        "dev": true
+      },
+      "testman": {
+        "version": "0.5.1",
+        "resolved": "https://registry.npmjs.org/testman/-/testman-0.5.1.tgz",
+        "integrity": "sha1-Wb2Ii5XNyN9DYhnmmZ/+gIhK2vA=",
+        "dev": true
+      }
+    }
+  }
+}

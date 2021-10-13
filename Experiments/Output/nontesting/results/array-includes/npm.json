@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> array-includes@3.1.3 prepublish\n> safe-publish-latest\n\n",
+    "stderr": "sh: safe-publish-latest: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/array-includes/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c safe-publish-latest\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T23_17_46_424Z-debug.log\n"
+  }
+}

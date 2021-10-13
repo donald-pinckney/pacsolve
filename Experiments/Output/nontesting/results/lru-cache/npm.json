@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 6.342482805252075,
+  "install_time": 6.088815927505493,
   "post-install-success": true,
   "lockfile": {
     "name": "lru-cache",

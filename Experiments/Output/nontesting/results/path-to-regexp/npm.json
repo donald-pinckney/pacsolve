@@ -5,6 +5,6 @@
     "command": "npm install --production",
     "retcode": 127,
     "stdout": "\n> path-to-regexp@6.2.0 prepare\n> npm run build\n\n\n> path-to-regexp@6.2.0 build\n> rimraf dist/ dist.es2015/ && tsc && tsc -P tsconfig.es2015.json\n\n",
-    "stderr": "sh: rimraf: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/path-to-regexp/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T04_54_34_423Z-debug.log\n"
+    "stderr": "sh: rimraf: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/path-to-regexp/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_01_14_250Z-debug.log\n"
   }
 }

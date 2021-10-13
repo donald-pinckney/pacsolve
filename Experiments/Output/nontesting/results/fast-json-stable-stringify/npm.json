@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 8.27803897857666,
+  "install_time": 10.587175130844116,
   "post-install-success": true,
   "lockfile": {
     "name": "fast-json-stable-stringify",

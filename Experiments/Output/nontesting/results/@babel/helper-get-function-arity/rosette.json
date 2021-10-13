@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.710753917694092,
+  "install_time": 3.814918041229248,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/helper-get-function-arity",

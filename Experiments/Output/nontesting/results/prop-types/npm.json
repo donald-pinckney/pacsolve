@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> prop-types@15.7.2 prepublish\n> yarn build\n\nyarn run v1.22.10\n$ yarn umd && yarn umd-min\n$ NODE_ENV=development browserify index.js -t loose-envify --standalone PropTypes -o prop-types.js\ninfo Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.\ninfo Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.\n",
+    "stderr": "/bin/sh: browserify: command not found\nerror Command failed with exit code 127.\nerror Command failed with exit code 127.\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/prop-types/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c yarn build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T01_43_11_273Z-debug.log\n"
+  }
+}

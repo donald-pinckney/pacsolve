@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.9070160388946533,
+  "install_time": 4.043387174606323,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/helper-validator-identifier",

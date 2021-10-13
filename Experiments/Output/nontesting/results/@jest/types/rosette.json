@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 54.50441813468933,
+  "install_time": 57.792855978012085,
   "post-install-success": true,
   "lockfile": {
     "name": "@jest/types",
@@ -24,19 +24,19 @@
         }
       },
       "node_modules/@types/istanbul-lib-coverage": {
-        "version": "2.0.3",
-        "integrity": "sha512-sz7iLqvVUg1gIedBOvlkxPlc8/uVzyS5OwGz1cKjXzkl3FpL3al0crU8YGU1WoHkxn0Wxbw5tyi6hvzJKNzFsw=="
+        "version": "2.0.2",
+        "integrity": "sha512-rsZg7eL+Xcxsxk2XlBt9KcG8nOp9iYdKCOikY9x2RFJCyOdNj4MKPQty0e8oZr29vVAzKXr1BmR+kZauti3o1w=="
       },
       "node_modules/@types/istanbul-reports": {
-        "version": "3.0.0",
-        "integrity": "sha512-nwKNbvnwJ2/mndE9ItP/zc2TCzw6uuodnF4EHYWD+gCQDVBuRQL5UzbZD0/ezy1iKsFU2ZQiDqg4M9dN4+wZgA==",
+        "version": "3.0.1",
+        "integrity": "sha512-c3mAZEuK0lvBp8tmuL74XRKn1+y2dcwOUpH7x4WrF6gk1GIgiluDRgMYQtw2OFcBvAJWlt6ASU3tSqxp0Uu0Aw==",
         "dependencies": {
           "@types/istanbul-lib-report": "*"
         }
       },
       "node_modules/@types/istanbul-reports/node_modules/@types/istanbul-lib-report": {
-        "version": "1.1.1",
-        "integrity": "sha512-3BUTyMzbZa2DtDI2BkERNC6jJw2Mr2Y0oGI7mRxYNBPxppbtEK1F66u3bKwU2g+wxwWI7PAoRpJnOY1grJqzHg==",
+        "version": "1.1.0",
+        "integrity": "sha512-nW5QuzmMhr7fHPijtaGOemFFI8Ctrxb/dIXgouSlKmWT16RxWlGLEX/nGghIBOReKe9hPFZXoNh338nFQk2xcA==",
         "dependencies": {
           "@types/istanbul-lib-coverage": "*"
         }
@@ -46,8 +46,8 @@
         "link": true
       },
       "node_modules/@types/node": {
-        "version": "7.0.48",
-        "integrity": "sha512-LLlXafM3BD52MH056tHxTXO8JFCnpJJQkdzIU3+m8ew+CXJY/5zIXgDNb4TK/QFvlI8QexLS5tL+sE0Qhegr1w=="
+        "version": "14.17.20",
+        "integrity": "sha512-gI5Sl30tmhXsqkNvopFydP7ASc4c2cLfGNQrVKN3X90ADFWFsPEsotm/8JHSUJQKTHbwowAHtcJPeyVhtKv0TQ=="
       },
       "node_modules/@types/yargs": {
         "version": "16.0.1",
@@ -57,19 +57,12 @@
         }
       },
       "node_modules/@types/yargs/node_modules/@types/yargs-parser": {
-        "version": "11.0.0",
-        "integrity": "sha512-ZfKjiy9zRHQWWRiQLeushSHE2IgHJ8U/OaABsNodkuufZoWED7Plz6egREZiE8dfrTAnrD8Rw/kUh2S6Iu1W0w==",
-        "dependencies": {
-          "@types/yargs": "*"
-        }
-      },
-      "node_modules/@types/yargs/node_modules/@types/yargs-parser/node_modules/@types/yargs": {
-        "resolved": "node_modules/@types/yargs",
-        "link": true
+        "version": "11.0.4",
+        "integrity": "sha512-l+jxGV/WPsyrdpPi9+jUzZ/lKuL1oJ39MFfj/fiW/a2Dom7BqbZaGDtapIfR2eJMNCkLEZ45yoAarDlGjG4sqQ=="
       },
       "node_modules/chalk": {
-        "version": "4.1.0",
-        "integrity": "sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==",
+        "version": "4.1.1",
+        "integrity": "sha512-diHzdDKxcU+bAsUboHLPEDQiw0qEe0qd7SYUn3HgcFlWgbDcfLGswOHYeGrHKzG9z6UYf01d9VFMfZxPM1xZSg==",
         "dependencies": {
           "ansi-styles": "^4.1.0",
           "supports-color": "^7.1.0"
@@ -128,16 +121,16 @@
     },
     "dependencies": {
       "@types/istanbul-lib-coverage": {
-        "version": "2.0.3"
+        "version": "2.0.2"
       },
       "@types/istanbul-reports": {
-        "version": "3.0.0",
+        "version": "3.0.1",
         "requires": {
           "@types/istanbul-lib-report": "*"
         },
         "dependencies": {
           "@types/istanbul-lib-report": {
-            "version": "1.1.1",
+            "version": "1.1.0",
             "requires": {
               "@types/istanbul-lib-coverage": "*"
             },
@@ -150,7 +143,7 @@
         }
       },
       "@types/node": {
-        "version": "7.0.48"
+        "version": "14.17.20"
       },
       "@types/yargs": {
         "version": "16.0.1",
@@ -159,15 +152,12 @@
         },
         "dependencies": {
           "@types/yargs-parser": {
-            "version": "11.0.0",
-            "requires": {
-              "@types/yargs": "*"
-            }
+            "version": "11.0.4"
           }
         }
       },
       "chalk": {
-        "version": "4.1.0",
+        "version": "4.1.1",
         "requires": {
           "ansi-styles": "^4.1.0",
           "supports-color": "^7.1.0"

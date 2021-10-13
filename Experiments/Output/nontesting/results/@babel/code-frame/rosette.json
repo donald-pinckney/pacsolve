@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 4.391448020935059,
+  "install_time": 3.815774917602539,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/code-frame",

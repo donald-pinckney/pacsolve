@@ -5,6 +5,6 @@
     "command": "npm install --production",
     "retcode": 127,
     "stdout": "\n> is-callable@1.2.4 prepublish\n> not-in-publish || npm run prepublishOnly\n\n\n> is-callable@1.2.4 prepublishOnly\n> safe-publish-latest\n\n",
-    "stderr": "sh: not-in-publish: command not found\nsh: safe-publish-latest: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/is-callable/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c not-in-publish || npm run prepublishOnly\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T05_17_41_494Z-debug.log\n"
+    "stderr": "sh: not-in-publish: command not found\nsh: safe-publish-latest: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/is-callable/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c not-in-publish || npm run prepublishOnly\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_23_41_488Z-debug.log\n"
   }
 }

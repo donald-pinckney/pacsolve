@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 56.191011905670166,
+  "install_time": 52.794358015060425,
   "post-install-success": true,
   "lockfile": {
     "name": "jest-worker",
@@ -78,8 +78,8 @@
         }
       },
       "node_modules/@types/node": {
-        "version": "4.2.19",
-        "integrity": "sha512-eNuEAkttGXfHZpNxxSM1Vk1fp07TC5CR1rRTUEu+1cFATIu6EHNT7bFMutt3U5+Ac+zngfu/OJc9hCjwrN5IPQ=="
+        "version": "10.17.51",
+        "integrity": "sha512-KANw+MkL626tq90l++hGelbl67irOJzGhUJk6a1Bt8QHOeh9tztJx+L0AqttraWKinmZn7Qi5lJZJzx45Gq0dg=="
       },
       "node_modules/@types/supports-color": {
         "version": "8.1.1",
@@ -270,8 +270,8 @@
         "dev": true
       },
       "node_modules/supports-color": {
-        "version": "8.0.0",
-        "integrity": "sha512-of+3NN2wzrj+nTYWrTf4Oc13Lo5gDLVBzKREX8DW1e3IWw8znzOc03NaQwnma27qO3nKPDA8C0HN50SS0Pki7g==",
+        "version": "8.1.1",
+        "integrity": "sha512-MpUEN2OodtUzxvKQl72cUF7RQ5EiHsGvSsVG0ia9c5RbWGL2CI4C7EpPS8UTBIplnlzZiNuV56w+FuNxy3ty2Q==",
         "dependencies": {
           "has-flag": "^4.0.0"
         },
@@ -340,7 +340,7 @@
         }
       },
       "@types/node": {
-        "version": "4.2.19"
+        "version": "10.17.51"
       },
       "@types/supports-color": {
         "version": "8.1.1",
@@ -484,7 +484,7 @@
         "dev": true
       },
       "supports-color": {
-        "version": "8.0.0",
+        "version": "8.1.1",
         "requires": {
           "has-flag": "^4.0.0"
         }

@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 254,
+    "stdout": "\n> acorn-walk@8.2.0 prepare\n> cd ..; npm run build:walk\n\n",
+    "stderr": "npm ERR! code ENOENT\nnpm ERR! syscall open\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/acorn-walk/npm/package.json\nnpm ERR! errno -2\nnpm ERR! enoent ENOENT: no such file or directory, open '/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/acorn-walk/npm/package.json'\nnpm ERR! enoent This is related to npm not being able to find a file.\nnpm ERR! enoent \n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T19_31_37_265Z-debug.log\nnpm ERR! code 254\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/acorn-walk/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c cd ..; npm run build:walk\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T19_31_37_308Z-debug.log\n"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "install-success": true,
+  "install_time": 2.998246192932129,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "jest-pnp-resolver",
+    "version": "1.2.2",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "jest-pnp-resolver",
+        "version": "1.2.2",
+        "license": "MIT",
+        "engines": {
+          "node": ">=6"
+        },
+        "peerDependencies": {
+          "jest-resolve": "*"
+        },
+        "peerDependenciesMeta": {
+          "jest-resolve": {
+            "optional": true
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 32.648290157318115,
+  "install_time": 29.29350209236145,
   "post-install-success": true,
   "lockfile": {
     "name": "cross-spawn",
@@ -10692,8 +10692,8 @@
         "dev": true
       },
       "node_modules/path-key": {
-        "version": "3.1.1",
-        "integrity": "sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==",
+        "version": "3.1.0",
+        "integrity": "sha512-8cChqz0RP6SHJkMt48FW0A7+qUOn+OsnOsVtzI59tZ8m+5bCSk7hzwET0pulwOM2YMn9J1efb07KB9l9f30SGg==",
         "engines": {
           "node": ">=8"
         }
@@ -13254,13 +13254,13 @@
         }
       },
       "node_modules/which": {
-        "version": "2.0.1",
-        "integrity": "sha512-N7GBZOTswtB9lkQBZA4+zAXrjEIWAUOB93AvzUiudRzRxhUdLURQ7D/gAIMY1gatT/LTbmbcv8SiYazy3eYB7w==",
+        "version": "2.0.2",
+        "integrity": "sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==",
         "dependencies": {
           "isexe": "^2.0.0"
         },
         "bin": {
-          "which": "bin/which"
+          "node-which": "bin/node-which"
         },
         "engines": {
           "node": ">= 8"
@@ -21752,7 +21752,7 @@
         "dev": true
       },
       "path-key": {
-        "version": "3.1.1"
+        "version": "3.1.0"
       },
       "path-parse": {
         "version": "1.0.7",
@@ -23769,7 +23769,7 @@
         }
       },
       "which": {
-        "version": "2.0.1",
+        "version": "2.0.2",
         "requires": {
           "isexe": "^2.0.0"
         }

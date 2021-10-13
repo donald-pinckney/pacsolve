@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 0.8858282566070557,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "@webassemblyjs/utf8",
+    "version": "1.11.1",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "@webassemblyjs/utf8",
+        "version": "1.11.1",
+        "license": "MIT"
+      }
+    }
+  }
+}

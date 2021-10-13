@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 1.0837311744689941,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "async-each",
+    "version": "1.0.3",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "async-each",
+        "version": "1.0.3",
+        "license": "MIT"
+      }
+    }
+  }
+}

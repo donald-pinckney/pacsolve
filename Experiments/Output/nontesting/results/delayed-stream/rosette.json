@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.254981279373169,
+  "install_time": 3.187480926513672,
   "post-install-success": true,
   "lockfile": {
     "name": "delayed-stream",

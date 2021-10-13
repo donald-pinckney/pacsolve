@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 11.028700351715088,
+  "install_time": 11.269382953643799,
   "post-install-success": true,
   "lockfile": {
     "name": "postcss-value-parser",

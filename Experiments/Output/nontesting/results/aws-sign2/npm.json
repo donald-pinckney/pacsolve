@@ -1,0 +1,22 @@
+{
+  "install-success": true,
+  "install_time": 0.6058759689331055,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "aws-sign2",
+    "version": "0.7.0",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "aws-sign2",
+        "version": "0.7.0",
+        "license": "Apache-2.0",
+        "devDependencies": {},
+        "engines": {
+          "node": "*"
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,6 @@
     "command": "npm install --production",
     "retcode": 127,
     "stdout": "\n> form-data@4.0.0 prepublish\n> in-publish && npm run update-readme || not-in-publish\n\n",
-    "stderr": "sh: in-publish: command not found\nsh: not-in-publish: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/form-data/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c in-publish && npm run update-readme || not-in-publish\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T04_26_22_106Z-debug.log\n"
+    "stderr": "sh: in-publish: command not found\nsh: not-in-publish: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/form-data/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c in-publish && npm run update-readme || not-in-publish\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T17_33_52_782Z-debug.log\n"
   }
 }

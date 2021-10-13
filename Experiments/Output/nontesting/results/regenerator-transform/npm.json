@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install timeout",
+    "command": "npm install --production",
+    "retcode": null,
+    "stdout": null,
+    "stderr": null
+  }
+}

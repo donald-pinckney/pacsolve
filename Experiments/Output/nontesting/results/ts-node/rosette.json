@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette",
+    "retcode": 1,
+    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-70012-5nVECkfS5EPH\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-70012-RUy1YDzM5jiL\nDecoding Rosette answer: [object Object]\n",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: ts-node@10.2.1\nnpm ERR! Found: typescript@4.3.5\nnpm ERR! node_modules/typescript\nnpm ERR!   dev typescript@\"4.3.5\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer typescript@\"3.9.x || 4.0.x || 4.1.x || 4.2.x\" from typedoc@0.20.37\nnpm ERR! node_modules/typedoc\nnpm ERR!   dev typedoc@\"^0.20.28\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T02_55_45_984Z-debug.log\n"
+  }
+}

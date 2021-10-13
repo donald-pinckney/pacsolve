@@ -1,0 +1,97 @@
+{
+  "install-success": true,
+  "install_time": 1.8891620635986328,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "@jest/source-map",
+    "version": "27.0.6",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "@jest/source-map",
+        "version": "27.0.6",
+        "license": "MIT",
+        "dependencies": {
+          "callsites": "^3.0.0",
+          "graceful-fs": "^4.2.4",
+          "source-map": "^0.6.0"
+        },
+        "devDependencies": {
+          "@types/graceful-fs": "^4.1.2"
+        },
+        "engines": {
+          "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+        }
+      },
+      "node_modules/@types/graceful-fs": {
+        "version": "4.1.5",
+        "resolved": "https://registry.npmjs.org/@types/graceful-fs/-/graceful-fs-4.1.5.tgz",
+        "integrity": "sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==",
+        "dev": true,
+        "dependencies": {
+          "@types/node": "*"
+        }
+      },
+      "node_modules/@types/node": {
+        "version": "16.10.4",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-16.10.4.tgz",
+        "integrity": "sha512-EITwVTX5B4nDjXjGeQAfXOrm+Jn+qNjDmyDRtWoD+wZsl/RDPRTFRKivs4Mt74iOFlLOrE5+Kf+p5yjyhm3+cA==",
+        "dev": true
+      },
+      "node_modules/callsites": {
+        "version": "3.1.0",
+        "resolved": "https://registry.npmjs.org/callsites/-/callsites-3.1.0.tgz",
+        "integrity": "sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==",
+        "engines": {
+          "node": ">=6"
+        }
+      },
+      "node_modules/graceful-fs": {
+        "version": "4.2.8",
+        "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.8.tgz",
+        "integrity": "sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg=="
+      },
+      "node_modules/source-map": {
+        "version": "0.6.1",
+        "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+        "integrity": "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==",
+        "engines": {
+          "node": ">=0.10.0"
+        }
+      }
+    },
+    "dependencies": {
+      "@types/graceful-fs": {
+        "version": "4.1.5",
+        "resolved": "https://registry.npmjs.org/@types/graceful-fs/-/graceful-fs-4.1.5.tgz",
+        "integrity": "sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==",
+        "dev": true,
+        "requires": {
+          "@types/node": "*"
+        }
+      },
+      "@types/node": {
+        "version": "16.10.4",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-16.10.4.tgz",
+        "integrity": "sha512-EITwVTX5B4nDjXjGeQAfXOrm+Jn+qNjDmyDRtWoD+wZsl/RDPRTFRKivs4Mt74iOFlLOrE5+Kf+p5yjyhm3+cA==",
+        "dev": true
+      },
+      "callsites": {
+        "version": "3.1.0",
+        "resolved": "https://registry.npmjs.org/callsites/-/callsites-3.1.0.tgz",
+        "integrity": "sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ=="
+      },
+      "graceful-fs": {
+        "version": "4.2.8",
+        "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.8.tgz",
+        "integrity": "sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg=="
+      },
+      "source-map": {
+        "version": "0.6.1",
+        "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+        "integrity": "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g=="
+      }
+    }
+  }
+}

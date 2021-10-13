@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette",
+    "retcode": 1,
+    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-25741-rMPeXSwQakQE\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-25741-lngU3l3I0YA0\nDecoding Rosette answer: [object Object]\n",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: abab@2.0.5\nnpm ERR! Found: webpack@4.46.0\nnpm ERR! node_modules/webpack\nnpm ERR!   dev webpack@\"^4.5.0\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer webpack@\"^2.0.0 || ^3.0.0\" from karma-webpack@3.0.5\nnpm ERR! node_modules/karma-webpack\nnpm ERR!   dev karma-webpack@\"^3.0.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T21_47_13_274Z-debug.log\n"
+  }
+}

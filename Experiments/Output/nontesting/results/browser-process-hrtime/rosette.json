@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 2.73057222366333,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "browser-process-hrtime",
+    "version": "1.0.0",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "browser-process-hrtime",
+        "version": "1.0.0",
+        "license": "BSD-2-Clause"
+      }
+    }
+  }
+}

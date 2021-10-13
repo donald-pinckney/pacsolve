@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 7.029166221618652,
+  "install_time": 7.178377866744995,
   "post-install-success": true,
   "lockfile": {
     "name": "micromatch",
@@ -115,6 +115,7 @@
       },
       "node_modules/braces": {
         "version": "3.0.2",
+        "resolved": "https://registry.npmjs.org/braces/-/braces-3.0.2.tgz",
         "integrity": "sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==",
         "dependencies": {
           "fill-range": "^7.0.1"
@@ -1296,8 +1297,8 @@
         }
       },
       "node_modules/picomatch": {
-        "version": "2.3.0",
-        "integrity": "sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==",
+        "version": "2.2.3",
+        "integrity": "sha512-KpELjfwcCDUb9PeigTs2mBJzXUPzAuP2oPcA989He8Rte0+YUAjw1JVedDhuTKPkHjSYzMN3npC9luThGYEKdg==",
         "engines": {
           "node": ">=8.6"
         },
@@ -1874,6 +1875,8 @@
       },
       "braces": {
         "version": "3.0.2",
+        "resolved": "https://registry.npmjs.org/braces/-/braces-3.0.2.tgz",
+        "integrity": "sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==",
         "requires": {
           "fill-range": "^7.0.1"
         }
@@ -2748,7 +2751,7 @@
         "dev": true
       },
       "picomatch": {
-        "version": "2.3.0"
+        "version": "2.2.3"
       },
       "pretty-remarkable": {
         "version": "1.0.0",

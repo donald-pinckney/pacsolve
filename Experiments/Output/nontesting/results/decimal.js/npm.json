@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 0.6386868953704834,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "decimal.js",
+    "version": "10.3.1",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "decimal.js",
+        "version": "10.3.1",
+        "license": "MIT"
+      }
+    }
+  }
+}

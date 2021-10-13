@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.0217480659484863,
+  "install_time": 2.055058240890503,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/highlight",

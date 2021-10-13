@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 11.664494037628174,
+  "install_time": 11.386959314346313,
   "post-install-success": true,
   "lockfile": {
     "name": "base64-js",

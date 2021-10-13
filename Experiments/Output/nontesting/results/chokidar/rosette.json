@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 13.635565757751465,
+  "install_time": 12.2034912109375,
   "post-install-success": true,
   "lockfile": {
     "name": "chokidar",
@@ -728,9 +728,9 @@
         "dev": true
       },
       "node_modules/@types/node": {
-        "version": "14.17.21",
-        "resolved": "https://registry.npmjs.org/@types/node/-/node-14.17.21.tgz",
-        "integrity": "sha512-zv8ukKci1mrILYiQOwGSV4FpkZhyxQtuFWGya2GujWg+zVAeRQ4qbaMmWp9vb9889CFA8JECH7lkwCL6Ygg8kA==",
+        "version": "14.17.22",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-14.17.22.tgz",
+        "integrity": "sha512-6Mgu9YWd8j0dk9M8V9+5w6ktqIFCcn/fFXAVIDFk/niAOFiOiz4GeFAMWYAQjKrcsASbFqMkqR8/Y2wuVCAkNg==",
         "dev": true
       },
       "node_modules/@types/parsimmon": {
@@ -2788,8 +2788,8 @@
         }
       },
       "node_modules/is-binary-path/node_modules/binary-extensions": {
-        "version": "2.0.0",
-        "integrity": "sha512-Phlt0plgpIIBOGTT/ehfFnbNlfsDEiqmzE2KRXoX1bLIlir4X/MR+zSyBEkL05ffWgnRSf/DXv+WrUAVr93/ow==",
+        "version": "2.2.0",
+        "integrity": "sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==",
         "engines": {
           "node": ">=8"
         }
@@ -2885,8 +2885,8 @@
         }
       },
       "node_modules/is-glob": {
-        "version": "4.0.2",
-        "integrity": "sha512-ZZTOjRcDjuAAAv2cTBQP/lL59ZTArx77+7UzHdWW/XB1mrfp7DEaVpKmZ0XIzx+M7AxfhKcqV+nMetUQmFifwg==",
+        "version": "4.0.3",
+        "integrity": "sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==",
         "dependencies": {
           "is-extglob": "^2.1.1"
         },
@@ -6291,9 +6291,9 @@
         "dev": true
       },
       "@types/node": {
-        "version": "14.17.21",
-        "resolved": "https://registry.npmjs.org/@types/node/-/node-14.17.21.tgz",
-        "integrity": "sha512-zv8ukKci1mrILYiQOwGSV4FpkZhyxQtuFWGya2GujWg+zVAeRQ4qbaMmWp9vb9889CFA8JECH7lkwCL6Ygg8kA==",
+        "version": "14.17.22",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-14.17.22.tgz",
+        "integrity": "sha512-6Mgu9YWd8j0dk9M8V9+5w6ktqIFCcn/fFXAVIDFk/niAOFiOiz4GeFAMWYAQjKrcsASbFqMkqR8/Y2wuVCAkNg==",
         "dev": true
       },
       "@types/parsimmon": {
@@ -7874,7 +7874,7 @@
         },
         "dependencies": {
           "binary-extensions": {
-            "version": "2.0.0"
+            "version": "2.2.0"
           }
         }
       },
@@ -7928,7 +7928,7 @@
         }
       },
       "is-glob": {
-        "version": "4.0.2",
+        "version": "4.0.3",
         "requires": {
           "is-extglob": "^2.1.1"
         },

@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install timeout",
+    "command": "npm install --rosette",
+    "retcode": null,
+    "stdout": null,
+    "stderr": null
+  }
+}

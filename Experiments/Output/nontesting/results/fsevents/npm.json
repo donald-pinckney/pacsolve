@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.597382068634033,
+  "install_time": 2.213625907897949,
   "post-install-success": true,
   "lockfile": {
     "name": "fsevents",

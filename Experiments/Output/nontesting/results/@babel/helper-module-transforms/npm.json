@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 1.866645097732544,
+  "install_time": 3.8037948608398438,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/helper-module-transforms",

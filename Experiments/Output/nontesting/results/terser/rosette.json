@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette",
+    "retcode": 1,
+    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-99691-Vw0iRH5JnJBS\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-99691-U2UPem26wyB4\nDecoding Rosette answer: [object Object]\n\n> terser@5.9.0 prepare\n> npm run build\n\n\n> terser@5.9.0 build\n> rimraf dist/bundle* && rollup --config --silent\n\n",
+    "stderr": "[!] Error: Could not resolve entry module (rollup.config.js).\nError: Could not resolve entry module (rollup.config.js).\n    at error (/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/terser/rosette/package/node_modules/rollup/dist/shared/rollup.js:151:30)\n    at ModuleLoader.loadEntryModule (/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/terser/rosette/package/node_modules/rollup/dist/shared/rollup.js:19883:20)\n    at async Promise.all (index 0)\n\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/terser/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_57_41_075Z-debug.log\n"
+  }
+}

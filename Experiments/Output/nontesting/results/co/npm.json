@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> co@4.6.0 prepublish\n> npm run browserify\n\n\n> co@4.6.0 browserify\n> browserify index.js -o ./co-browser.js -s co\n\n",
+    "stderr": "sh: browserify: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/co/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run browserify\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T22_20_21_978Z-debug.log\n"
+  }
+}

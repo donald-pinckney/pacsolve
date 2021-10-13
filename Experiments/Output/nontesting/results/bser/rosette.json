@@ -1,0 +1,30 @@
+{
+  "install-success": true,
+  "install_time": 2.997339963912964,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "bser",
+    "version": "2.1.1",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "bser",
+        "version": "2.1.1",
+        "license": "Apache-2.0",
+        "dependencies": {
+          "node-int64": "^0.4.0"
+        }
+      },
+      "node_modules/node-int64": {
+        "version": "0.4.0",
+        "integrity": "sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs="
+      }
+    },
+    "dependencies": {
+      "node-int64": {
+        "version": "0.4.0"
+      }
+    }
+  }
+}

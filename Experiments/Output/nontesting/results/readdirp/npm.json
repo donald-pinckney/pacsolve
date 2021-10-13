@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 13.81149697303772,
+  "install_time": 7.765092134475708,
   "post-install-success": true,
   "lockfile": {
     "name": "readdirp",
@@ -683,9 +683,9 @@
         }
       },
       "node_modules/@types/node": {
-        "version": "14.17.21",
-        "resolved": "https://registry.npmjs.org/@types/node/-/node-14.17.21.tgz",
-        "integrity": "sha512-zv8ukKci1mrILYiQOwGSV4FpkZhyxQtuFWGya2GujWg+zVAeRQ4qbaMmWp9vb9889CFA8JECH7lkwCL6Ygg8kA==",
+        "version": "14.17.22",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-14.17.22.tgz",
+        "integrity": "sha512-6Mgu9YWd8j0dk9M8V9+5w6ktqIFCcn/fFXAVIDFk/niAOFiOiz4GeFAMWYAQjKrcsASbFqMkqR8/Y2wuVCAkNg==",
         "dev": true
       },
       "node_modules/@types/parsimmon": {
@@ -6123,9 +6123,9 @@
         }
       },
       "@types/node": {
-        "version": "14.17.21",
-        "resolved": "https://registry.npmjs.org/@types/node/-/node-14.17.21.tgz",
-        "integrity": "sha512-zv8ukKci1mrILYiQOwGSV4FpkZhyxQtuFWGya2GujWg+zVAeRQ4qbaMmWp9vb9889CFA8JECH7lkwCL6Ygg8kA==",
+        "version": "14.17.22",
+        "resolved": "https://registry.npmjs.org/@types/node/-/node-14.17.22.tgz",
+        "integrity": "sha512-6Mgu9YWd8j0dk9M8V9+5w6ktqIFCcn/fFXAVIDFk/niAOFiOiz4GeFAMWYAQjKrcsASbFqMkqR8/Y2wuVCAkNg==",
         "dev": true
       },
       "@types/parsimmon": {

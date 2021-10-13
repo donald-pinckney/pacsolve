@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! Found: eslint@6.8.0\nnpm ERR! node_modules/eslint\nnpm ERR!   dev eslint@\"^6.1.0\" from the root project\nnpm ERR!   peer eslint@\">=5.16.0\" from @mysticatea/eslint-plugin@11.0.0\nnpm ERR!   node_modules/@mysticatea/eslint-plugin\nnpm ERR!     dev @mysticatea/eslint-plugin@\"^11.0.0\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer eslint@\"^5.0.0\" from @typescript-eslint/parser@1.11.0\nnpm ERR! node_modules/@mysticatea/eslint-plugin/node_modules/@typescript-eslint/parser\nnpm ERR!   @typescript-eslint/parser@\"~1.11.0\" from @mysticatea/eslint-plugin@11.0.0\nnpm ERR!   node_modules/@mysticatea/eslint-plugin\nnpm ERR!     dev @mysticatea/eslint-plugin@\"^11.0.0\" from the root project\nnpm ERR!   peer @typescript-eslint/parser@\"^1.9.0\" from @typescript-eslint/eslint-plugin@1.11.0\nnpm ERR!   node_modules/@mysticatea/eslint-plugin/node_modules/@typescript-eslint/eslint-plugin\nnpm ERR!     @typescript-eslint/eslint-plugin@\"~1.11.0\" from @mysticatea/eslint-plugin@11.0.0\nnpm ERR!     node_modules/@mysticatea/eslint-plugin\nnpm ERR!       dev @mysticatea/eslint-plugin@\"^11.0.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T19_43_31_470Z-debug.log\n"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> css-what@5.0.1 prepare\n> npm run build\n\n\n> css-what@5.0.1 build\n> tsc\n\n",
+    "stderr": "npm WARN ERESOLVE overriding peer dependency\nnpm WARN Found: @types/jest@26.0.24\nnpm WARN node_modules/@types/jest\nnpm WARN   dev @types/jest@\"^26.0.3\" from the root project\nnpm WARN \nnpm WARN Could not resolve dependency:\nnpm WARN peerOptional @types/jest@\"^27.0.0\" from ts-jest@27.0.5\nnpm WARN node_modules/ts-jest\nnpm WARN   dev ts-jest@\"^27.0.1\" from the root project\nsh: tsc: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/css-what/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T19_20_55_279Z-debug.log\n"
+  }
+}

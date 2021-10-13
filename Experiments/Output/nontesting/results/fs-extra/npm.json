@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 10.046123743057251,
+  "install_time": 11.418147087097168,
   "post-install-success": true,
   "lockfile": {
     "name": "fs-extra",

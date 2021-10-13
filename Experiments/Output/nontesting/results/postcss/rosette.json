@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.4130380153656006,
+  "install_time": 3.250915288925171,
   "post-install-success": true,
   "lockfile": {
     "name": "postcss",

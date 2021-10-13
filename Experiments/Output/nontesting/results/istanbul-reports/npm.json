@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> istanbul-reports@3.0.2 prepare\n> webpack --config lib/html-spa/webpack.config.js --mode production\n\n",
+    "stderr": "sh: webpack: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/istanbul-reports/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c webpack --config lib/html-spa/webpack.config.js --mode production\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T21_19_15_783Z-debug.log\n"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.669569969177246,
+  "install_time": 4.209517955780029,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/highlight",
@@ -26,8 +26,8 @@
         }
       },
       "node_modules/@babel/helper-validator-identifier": {
-        "version": "7.14.5",
-        "integrity": "sha512-5lsetuxCLilmVGyiLEfoHBRX8UCFD+1m2x3Rj97WrW3V7H3u4RWRXA4evMjImCsin2J2YT0QaVDGf+z8ondbAg==",
+        "version": "7.14.8",
+        "integrity": "sha512-ZGy6/XQjllhYQrNw/3zfWRwZCTVSiBLZ9DHVZxn9n2gip/7ab8mv2TWlKPIBk26RwedCBoWdjLmn+t9na2Gcow==",
         "engines": {
           "node": ">=6.9.0"
         }
@@ -52,8 +52,8 @@
         }
       },
       "node_modules/chalk": {
-        "version": "2.2.2",
-        "integrity": "sha512-LvixLAQ4MYhbf7hgL4o5PeK32gJKvVzDRiSNIApDofQvyhl8adgG2lJVXn4+ekQoK7HL9RF8lqxwerpe0x2pCw==",
+        "version": "2.2.0",
+        "integrity": "sha512-0BMM/2hG3ZaoPfR6F+h/oWpZtsh3b/s62TjSM6MGCJWEbJDN1acqCXvyhhZsDSVFklpebUoQ5O1kKC7lOzrn9g==",
         "dependencies": {
           "ansi-styles": "^3.1.0",
           "escape-string-regexp": "^1.0.5",
@@ -74,8 +74,8 @@
         }
       },
       "node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
-        "version": "1.5.0",
-        "integrity": "sha1-eitO+0SI34W8pkQ8sDi3EA++feE="
+        "version": "1.1.1",
+        "integrity": "sha1-f9sJISr+9G2I4PoIDEsbnLjYVk4="
       },
       "node_modules/chalk/node_modules/escape-string-regexp": {
         "version": "1.0.5",
@@ -120,7 +120,7 @@
     },
     "dependencies": {
       "@babel/helper-validator-identifier": {
-        "version": "7.14.5"
+        "version": "7.14.8"
       },
       "@types/chalk": {
         "version": "2.2.0",
@@ -138,7 +138,7 @@
         "dev": true
       },
       "chalk": {
-        "version": "2.2.2",
+        "version": "2.2.0",
         "requires": {
           "ansi-styles": "^3.1.0",
           "escape-string-regexp": "^1.0.5",
@@ -152,7 +152,7 @@
             },
             "dependencies": {
               "color-convert": {
-                "version": "1.5.0"
+                "version": "1.1.1"
               }
             }
           },

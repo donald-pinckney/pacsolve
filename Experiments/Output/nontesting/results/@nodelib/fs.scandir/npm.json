@@ -1,0 +1,125 @@
+{
+  "install-success": true,
+  "install_time": 2.7867519855499268,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "@nodelib/fs.scandir",
+    "version": "2.1.5",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "@nodelib/fs.scandir",
+        "version": "2.1.5",
+        "license": "MIT",
+        "dependencies": {
+          "@nodelib/fs.stat": "2.0.5",
+          "run-parallel": "^1.1.9"
+        },
+        "devDependencies": {
+          "@nodelib/fs.macchiato": "1.0.4",
+          "@types/run-parallel": "^1.1.0"
+        },
+        "engines": {
+          "node": ">= 8"
+        }
+      },
+      "node_modules/@nodelib/fs.macchiato": {
+        "version": "1.0.4",
+        "resolved": "https://registry.npmjs.org/@nodelib/fs.macchiato/-/fs.macchiato-1.0.4.tgz",
+        "integrity": "sha512-o3u4PGaUMkyqN8zVXWM2iuVWg3O/h3cVy5nDOWqPrkbW4dO6u3qKJEF8gA2Esru2wskA8qFHZ+eYANN/yss8kA==",
+        "dev": true,
+        "engines": {
+          "node": ">= 8"
+        }
+      },
+      "node_modules/@nodelib/fs.stat": {
+        "version": "2.0.5",
+        "resolved": "https://registry.npmjs.org/@nodelib/fs.stat/-/fs.stat-2.0.5.tgz",
+        "integrity": "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A==",
+        "engines": {
+          "node": ">= 8"
+        }
+      },
+      "node_modules/@types/run-parallel": {
+        "version": "1.1.0",
+        "resolved": "https://registry.npmjs.org/@types/run-parallel/-/run-parallel-1.1.0.tgz",
+        "integrity": "sha512-Pq/gMWP/mQO3fQIQ7KXe5YKuyhxcUl3ArrIoYUSaCmoeLlftjwNotD24MdkpJPwY8vvEq4vnC0rVXwT5ry3Rlg==",
+        "dev": true
+      },
+      "node_modules/queue-microtask": {
+        "version": "1.2.3",
+        "resolved": "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz",
+        "integrity": "sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==",
+        "funding": [
+          {
+            "type": "github",
+            "url": "https://github.com/sponsors/feross"
+          },
+          {
+            "type": "patreon",
+            "url": "https://www.patreon.com/feross"
+          },
+          {
+            "type": "consulting",
+            "url": "https://feross.org/support"
+          }
+        ]
+      },
+      "node_modules/run-parallel": {
+        "version": "1.2.0",
+        "resolved": "https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz",
+        "integrity": "sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==",
+        "funding": [
+          {
+            "type": "github",
+            "url": "https://github.com/sponsors/feross"
+          },
+          {
+            "type": "patreon",
+            "url": "https://www.patreon.com/feross"
+          },
+          {
+            "type": "consulting",
+            "url": "https://feross.org/support"
+          }
+        ],
+        "dependencies": {
+          "queue-microtask": "^1.2.2"
+        }
+      }
+    },
+    "dependencies": {
+      "@nodelib/fs.macchiato": {
+        "version": "1.0.4",
+        "resolved": "https://registry.npmjs.org/@nodelib/fs.macchiato/-/fs.macchiato-1.0.4.tgz",
+        "integrity": "sha512-o3u4PGaUMkyqN8zVXWM2iuVWg3O/h3cVy5nDOWqPrkbW4dO6u3qKJEF8gA2Esru2wskA8qFHZ+eYANN/yss8kA==",
+        "dev": true
+      },
+      "@nodelib/fs.stat": {
+        "version": "2.0.5",
+        "resolved": "https://registry.npmjs.org/@nodelib/fs.stat/-/fs.stat-2.0.5.tgz",
+        "integrity": "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A=="
+      },
+      "@types/run-parallel": {
+        "version": "1.1.0",
+        "resolved": "https://registry.npmjs.org/@types/run-parallel/-/run-parallel-1.1.0.tgz",
+        "integrity": "sha512-Pq/gMWP/mQO3fQIQ7KXe5YKuyhxcUl3ArrIoYUSaCmoeLlftjwNotD24MdkpJPwY8vvEq4vnC0rVXwT5ry3Rlg==",
+        "dev": true
+      },
+      "queue-microtask": {
+        "version": "1.2.3",
+        "resolved": "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz",
+        "integrity": "sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A=="
+      },
+      "run-parallel": {
+        "version": "1.2.0",
+        "resolved": "https://registry.npmjs.org/run-parallel/-/run-parallel-1.2.0.tgz",
+        "integrity": "sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==",
+        "requires": {
+          "queue-microtask": "^1.2.2"
+        }
+      }
+    }
+  }
+}

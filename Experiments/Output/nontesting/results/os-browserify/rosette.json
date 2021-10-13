@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 2.7631421089172363,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "os-browserify",
+    "version": "0.3.0",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "os-browserify",
+        "version": "0.3.0",
+        "license": "MIT"
+      }
+    }
+  }
+}

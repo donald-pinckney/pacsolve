@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.1122429370880127,
+  "install_time": 3.144744873046875,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/runtime",

@@ -1,0 +1,51 @@
+{
+  "install-success": true,
+  "install_time": 0.9880390167236328,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "tunnel-agent",
+    "version": "0.6.0",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "tunnel-agent",
+        "version": "0.6.0",
+        "license": "Apache-2.0",
+        "dependencies": {
+          "safe-buffer": "^5.0.1"
+        },
+        "devDependencies": {},
+        "engines": {
+          "node": "*"
+        }
+      },
+      "node_modules/safe-buffer": {
+        "version": "5.2.1",
+        "resolved": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz",
+        "integrity": "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==",
+        "funding": [
+          {
+            "type": "github",
+            "url": "https://github.com/sponsors/feross"
+          },
+          {
+            "type": "patreon",
+            "url": "https://www.patreon.com/feross"
+          },
+          {
+            "type": "consulting",
+            "url": "https://feross.org/support"
+          }
+        ]
+      }
+    },
+    "dependencies": {
+      "safe-buffer": {
+        "version": "5.2.1",
+        "resolved": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz",
+        "integrity": "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ=="
+      }
+    }
+  }
+}

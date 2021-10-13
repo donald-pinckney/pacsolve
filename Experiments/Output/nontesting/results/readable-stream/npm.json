@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 26.98216724395752,
+  "install_time": 26.520973205566406,
   "post-install-success": true,
   "lockfile": {
     "name": "readable-stream",

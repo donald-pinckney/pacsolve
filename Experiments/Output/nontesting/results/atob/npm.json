@@ -1,0 +1,24 @@
+{
+  "install-success": true,
+  "install_time": 0.7074112892150879,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "atob",
+    "version": "2.1.2",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "atob",
+        "version": "2.1.2",
+        "license": "(MIT OR Apache-2.0)",
+        "bin": {
+          "atob": "bin/atob.js"
+        },
+        "engines": {
+          "node": ">= 4.5.0"
+        }
+      }
+    }
+  }
+}

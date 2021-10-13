@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 7.692166090011597,
+  "install_time": 6.929661989212036,
   "post-install-success": true,
   "lockfile": {
     "name": "semver",

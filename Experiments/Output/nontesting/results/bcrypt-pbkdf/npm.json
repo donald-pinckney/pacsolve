@@ -1,0 +1,34 @@
+{
+  "install-success": true,
+  "install_time": 0.9534730911254883,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "bcrypt-pbkdf",
+    "version": "1.0.2",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "bcrypt-pbkdf",
+        "version": "1.0.2",
+        "license": "BSD-3-Clause",
+        "dependencies": {
+          "tweetnacl": "^0.14.3"
+        },
+        "devDependencies": {}
+      },
+      "node_modules/tweetnacl": {
+        "version": "0.14.5",
+        "resolved": "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz",
+        "integrity": "sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q="
+      }
+    },
+    "dependencies": {
+      "tweetnacl": {
+        "version": "0.14.5",
+        "resolved": "https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz",
+        "integrity": "sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q="
+      }
+    }
+  }
+}

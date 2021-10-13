@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 3.057171106338501,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "gensync",
+    "version": "0.1.0",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "gensync",
+        "version": "0.1.0",
+        "license": "ISC",
+        "engines": {
+          "node": ">=5.0.0"
+        }
+      }
+    }
+  }
+}

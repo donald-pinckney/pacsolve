@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 5.112874984741211,
+  "install_time": 4.1826491355896,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/template",
@@ -48,8 +48,8 @@
         "link": true
       },
       "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk": {
-        "version": "2.2.2",
-        "integrity": "sha512-LvixLAQ4MYhbf7hgL4o5PeK32gJKvVzDRiSNIApDofQvyhl8adgG2lJVXn4+ekQoK7HL9RF8lqxwerpe0x2pCw==",
+        "version": "2.0.0",
+        "integrity": "sha512-7jy/5E6bVCRhLlvznnsbVPjsARuVC9HDkBjUKVaOmUrhsp6P3ExUUcW09htM7/qieRH+D2lHVpNbuYh7GjVJ0g==",
         "dependencies": {
           "ansi-styles": "^3.1.0",
           "escape-string-regexp": "^1.0.5",
@@ -70,8 +70,8 @@
         }
       },
       "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
-        "version": "1.2.2",
-        "integrity": "sha1-776VaX3TfX7s+uH9LPvrhMwlBk4="
+        "version": "1.5.0",
+        "integrity": "sha1-eitO+0SI34W8pkQ8sDi3EA++feE="
       },
       "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/escape-string-regexp": {
         "version": "1.0.5",
@@ -81,8 +81,8 @@
         }
       },
       "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/supports-color": {
-        "version": "4.3.0",
-        "integrity": "sha512-Yf+8UYPgZlMkps2h2P+248+8iE2hXXWjiZgwcKQc2ncE2s1cYAMdpzyPJ4+ttifNogmi09L5Wr0QxyZN6O9M/w==",
+        "version": "4.5.0",
+        "integrity": "sha1-vnoN5ITexcXN34s9WRJQRJEvY1s=",
         "dependencies": {
           "has-flag": "^2.0.0"
         },
@@ -102,8 +102,8 @@
         "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
       },
       "node_modules/@babel/parser": {
-        "version": "7.15.5",
-        "integrity": "sha512-2hQstc6I7T6tQsWzlboMh3SgMRPaS4H6H7cPQsJkdzTzEGqQrpLDsE2BGASU5sBPoEQyHzeqU6C8uKbFeEk6sg==",
+        "version": "7.15.6",
+        "integrity": "sha512-S/TSCcsRuCkmpUuoWijua0Snt+f3ewU/8spLo+4AXJCZfT0bVCzLD5MuOKdrx0mlAptbKzn5AdgEIIKXxXkz9Q==",
         "bin": {
           "parser": "bin/babel-parser.js"
         },
@@ -123,8 +123,8 @@
         }
       },
       "node_modules/@babel/types/node_modules/@babel/helper-validator-identifier": {
-        "version": "7.15.7",
-        "integrity": "sha512-K4JvCtQqad9OY2+yTU8w+E82ywk/fe+ELNlt1G8z3bVGlZfn/hOcQQsUhGhW/N+tb3fxK800wLtKOE/aM0m72w==",
+        "version": "7.14.9",
+        "integrity": "sha512-pQYxPY0UP6IHISRitNe8bsijHex4TWZXi2HwKVsjPiltzlhse2znVcm9Ace510VT1kxIHjGJCZZQBX2gJDbo0g==",
         "engines": {
           "node": ">=6.9.0"
         }
@@ -156,7 +156,7 @@
                 "version": "file:node_modules/@babel/types/node_modules/@babel/helper-validator-identifier"
               },
               "chalk": {
-                "version": "2.2.2",
+                "version": "2.0.0",
                 "requires": {
                   "ansi-styles": "^3.1.0",
                   "escape-string-regexp": "^1.0.5",
@@ -170,7 +170,7 @@
                     },
                     "dependencies": {
                       "color-convert": {
-                        "version": "1.2.2"
+                        "version": "1.5.0"
                       }
                     }
                   },
@@ -178,7 +178,7 @@
                     "version": "1.0.5"
                   },
                   "supports-color": {
-                    "version": "4.3.0",
+                    "version": "4.5.0",
                     "requires": {
                       "has-flag": "^2.0.0"
                     },
@@ -198,7 +198,7 @@
         }
       },
       "@babel/parser": {
-        "version": "7.15.5"
+        "version": "7.15.6"
       },
       "@babel/types": {
         "version": "7.15.6",
@@ -208,7 +208,7 @@
         },
         "dependencies": {
           "@babel/helper-validator-identifier": {
-            "version": "7.15.7"
+            "version": "7.14.9"
           },
           "to-fast-properties": {
             "version": "2.0.0"

@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> symbol-observable@4.0.0 prepublish\n> npm test\n\n\n> symbol-observable@4.0.0 test\n> npm run build && mocha && tsc && node ./ts-test/test.js && check-es3-syntax -p lib/ --kill\n\n\n> symbol-observable@4.0.0 build\n> babel es --out-dir lib\n\n",
+    "stderr": "sh: babel: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/symbol-observable/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm test\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T00_48_51_231Z-debug.log\n"
+  }
+}

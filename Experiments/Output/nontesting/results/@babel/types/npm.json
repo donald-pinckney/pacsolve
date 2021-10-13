@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.0326759815216064,
+  "install_time": 1.9116909503936768,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/types",

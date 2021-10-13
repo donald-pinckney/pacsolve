@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 8.690064907073975,
+  "install_time": 6.497696876525879,
   "post-install-success": true,
   "lockfile": {
     "name": "graceful-fs",

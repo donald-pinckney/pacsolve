@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 10.299379825592041,
+  "install_time": 9.430635929107666,
   "post-install-success": true,
   "lockfile": {
     "name": "eslint-scope",

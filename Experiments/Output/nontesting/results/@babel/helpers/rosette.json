@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 5.706543922424316,
+  "install_time": 5.706102132797241,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/helpers",
@@ -362,8 +362,8 @@
         }
       },
       "node_modules/@babel/traverse/node_modules/globals": {
-        "version": "11.5.0",
-        "integrity": "sha512-hYyf+kI8dm3nORsiiXUQigOU62hDLfJ9G01uyGMxhc6BKsircrUhC4uJPQPUSuq2GrTmiiEt7ewxlMdBewfmKQ==",
+        "version": "11.11.0",
+        "integrity": "sha512-WHq43gS+6ufNOEqlrDBxVEbb8ntfXrfAUU2ZOpCxrBdGKW3gyv8mCxAfIBD0DroPKGrJ2eSsXsLtY9MPntsyTw==",
         "engines": {
           "node": ">=4"
         }
@@ -891,7 +891,7 @@
             }
           },
           "globals": {
-            "version": "11.5.0"
+            "version": "11.11.0"
           }
         }
       },

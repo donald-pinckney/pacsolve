@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> is-arguments@1.1.1 prepublish\n> not-in-publish || npm run prepublishOnly\n\n\n> is-arguments@1.1.1 prepublishOnly\n> safe-publish-latest\n\n",
+    "stderr": "sh: not-in-publish: command not found\nsh: safe-publish-latest: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/is-arguments/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c not-in-publish || npm run prepublishOnly\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T23_47_09_780Z-debug.log\n"
+  }
+}

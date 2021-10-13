@@ -5,6 +5,6 @@
     "command": "npm install --production",
     "retcode": 127,
     "stdout": "\n> which@2.0.2 prepublish\n> npm run changelog\n\n\n> which@2.0.2 prechangelog\n> bash gen-changelog.sh\n\n",
-    "stderr": "bash: gen-changelog.sh: No such file or directory\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/which/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run changelog\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T04_21_00_055Z-debug.log\n"
+    "stderr": "bash: gen-changelog.sh: No such file or directory\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/which/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run changelog\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T17_28_31_918Z-debug.log\n"
   }
 }

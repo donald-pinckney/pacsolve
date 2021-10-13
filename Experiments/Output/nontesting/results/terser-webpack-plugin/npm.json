@@ -1,10 +1,10 @@
 {
   "install-success": false,
   "error": {
-    "stage": "install timeout",
+    "stage": "install",
     "command": "npm install --production",
-    "retcode": null,
-    "stdout": null,
-    "stderr": null
+    "retcode": 127,
+    "stdout": "\n> terser-webpack-plugin@5.2.4 prepare\n> husky install && npm run build\n\n",
+    "stderr": "sh: husky: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/terser-webpack-plugin/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c husky install && npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_40_46_585Z-debug.log\n"
   }
 }

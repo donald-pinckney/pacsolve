@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 0.6543941497802734,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "minimalistic-assert",
+    "version": "1.0.1",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "minimalistic-assert",
+        "version": "1.0.1",
+        "license": "ISC"
+      }
+    }
+  }
+}

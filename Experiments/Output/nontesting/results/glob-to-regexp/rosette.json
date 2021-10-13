@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 2.9319190979003906,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "glob-to-regexp",
+    "version": "0.4.1",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "glob-to-regexp",
+        "version": "0.4.1",
+        "license": "BSD-2-Clause"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.72294282913208,
+  "install_time": 2.941411018371582,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/helper-plugin-utils",

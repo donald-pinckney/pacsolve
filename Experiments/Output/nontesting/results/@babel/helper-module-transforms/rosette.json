@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 5.58872389793396,
+  "install_time": 4.7572081089019775,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/helper-module-transforms",
@@ -137,8 +137,8 @@
         }
       },
       "node_modules/@babel/template/node_modules/@babel/code-frame": {
-        "version": "7.15.8",
-        "integrity": "sha512-2IAnmn8zbvC/jKYhq5Ki9I+DwjlrtMPUCH/CpHvqI4dNnlwHwsxoIhlc8WcYY5LSYknXQtAlFYuHfqAFCvQ4Wg==",
+        "version": "7.14.5",
+        "integrity": "sha512-9pzDqyc6OLDaqe+zbACgFkb6fKMNG6CObKpnYXChRsvYGyEdc7CA2BaqeOM+vOtCS5ndmJicPJhKAwYRI6UfFw==",
         "dependencies": {
           "@babel/highlight": "^7.14.5"
         },
@@ -163,8 +163,8 @@
         "link": true
       },
       "node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk": {
-        "version": "2.3.0",
-        "integrity": "sha512-Az5zJR2CBujap2rqXGaJKaPHyJ0IrUimvYNX+ncCy8PJP4ltOGTrHUIo097ZaL2zMeKYpiCdqDvS6zdrTFok3Q==",
+        "version": "2.1.0",
+        "integrity": "sha512-LUHGS/dge4ujbXMJrnihYMcL4AoOweGnw9Tp3kQuqy1Kx5c1qKjqvMJZ6nVJPMWJtKCTN72ZogH3oeSO9g9rXQ==",
         "dependencies": {
           "ansi-styles": "^3.1.0",
           "escape-string-regexp": "^1.0.5",
@@ -185,8 +185,8 @@
         }
       },
       "node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
-        "version": "1.2.1",
-        "integrity": "sha1-hZmp7cfa27frRtax42rX10L13vo="
+        "version": "1.5.0",
+        "integrity": "sha1-eitO+0SI34W8pkQ8sDi3EA++feE="
       },
       "node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/escape-string-regexp": {
         "version": "1.0.5",
@@ -196,8 +196,8 @@
         }
       },
       "node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/supports-color": {
-        "version": "4.3.0",
-        "integrity": "sha512-Yf+8UYPgZlMkps2h2P+248+8iE2hXXWjiZgwcKQc2ncE2s1cYAMdpzyPJ4+ttifNogmi09L5Wr0QxyZN6O9M/w==",
+        "version": "4.1.0",
+        "integrity": "sha1-kswUuz2tiSjKVlbDPhmhnyCvXHo=",
         "dependencies": {
           "has-flag": "^2.0.0"
         },
@@ -253,10 +253,10 @@
         "link": true
       },
       "node_modules/@babel/traverse/node_modules/@babel/generator": {
-        "version": "7.15.4",
-        "integrity": "sha512-d3itta0tu+UayjEORPNz6e1T3FtvWlP5N4V5M+lhp/CxT4oAA7/NcScnpRyspUMLK6tu9MNHmQHxRykuN2R7hw==",
+        "version": "7.15.8",
+        "integrity": "sha512-ECmAKstXbp1cvpTTZciZCgfOt6iN64lR0d+euv3UZisU5awfRawOvg07Utn/qBGuH4bRIEZKrA/4LzZyXhZr8g==",
         "dependencies": {
-          "@babel/types": "^7.15.4",
+          "@babel/types": "^7.15.6",
           "jsesc": "^2.5.1",
           "source-map": "^0.5.0"
         },
@@ -269,8 +269,8 @@
         "link": true
       },
       "node_modules/@babel/traverse/node_modules/@babel/generator/node_modules/jsesc": {
-        "version": "2.5.1",
-        "integrity": "sha1-5CGiqOINawgZ3yiQj3glJrlt0f4=",
+        "version": "2.5.2",
+        "integrity": "sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==",
         "bin": {
           "jsesc": "bin/jsesc"
         },
@@ -279,8 +279,8 @@
         }
       },
       "node_modules/@babel/traverse/node_modules/@babel/generator/node_modules/source-map": {
-        "version": "0.5.1",
-        "integrity": "sha1-X71Aoc3khf6rTTZGC49Jbts2Ls8=",
+        "version": "0.5.4",
+        "integrity": "sha1-K+sYoquKvYgyCnIXjGcfDkxd7yg=",
         "engines": {
           "node": ">=0.10.0"
         }
@@ -346,19 +346,11 @@
         "link": true
       },
       "node_modules/@babel/traverse/node_modules/debug": {
-        "version": "4.3.0",
-        "integrity": "sha512-jjO6JD2rKfiZQnBoRzhRTbXjHLGLfH+UtGkWLc/UXAh/rzZMyjbgn0NcfFpqT8nd1kTtFnDiJcrIFkq4UKeJVg==",
+        "version": "4.1.1",
+        "integrity": "sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==",
         "deprecated": "Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)",
         "dependencies": {
-          "ms": "2.1.2"
-        },
-        "engines": {
-          "node": ">=6.0"
-        },
-        "peerDependenciesMeta": {
-          "supports-color": {
-            "optional": true
-          }
+          "ms": "^2.1.1"
         }
       },
       "node_modules/@babel/traverse/node_modules/debug/node_modules/ms": {
@@ -366,8 +358,8 @@
         "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
       },
       "node_modules/@babel/traverse/node_modules/globals": {
-        "version": "11.2.0",
-        "integrity": "sha512-RDC7Tj17I/56wpVvCVLSXtnn2Fo6CQZ9vaj+ARn+qlzm/ozbKQZe+j9fvHZCbSq+4JSGjTpKEt7p/AA1IKXRFA==",
+        "version": "11.11.0",
+        "integrity": "sha512-WHq43gS+6ufNOEqlrDBxVEbb8ntfXrfAUU2ZOpCxrBdGKW3gyv8mCxAfIBD0DroPKGrJ2eSsXsLtY9MPntsyTw==",
         "engines": {
           "node": ">=4"
         }
@@ -506,7 +498,7 @@
                         "version": "file:node_modules/@babel/helper-validator-identifier"
                       },
                       "chalk": {
-                        "version": "2.3.0",
+                        "version": "2.1.0",
                         "requires": {
                           "ansi-styles": "^3.1.0",
                           "escape-string-regexp": "^1.0.5",
@@ -520,7 +512,7 @@
                             },
                             "dependencies": {
                               "color-convert": {
-                                "version": "1.2.1"
+                                "version": "1.5.0"
                               }
                             }
                           },
@@ -528,7 +520,7 @@
                             "version": "1.0.5"
                           },
                           "supports-color": {
-                            "version": "4.3.0",
+                            "version": "4.1.0",
                             "requires": {
                               "has-flag": "^2.0.0"
                             },
@@ -548,9 +540,9 @@
                 }
               },
               "@babel/generator": {
-                "version": "7.15.4",
+                "version": "7.15.8",
                 "requires": {
-                  "@babel/types": "^7.15.4",
+                  "@babel/types": "^7.15.6",
                   "jsesc": "^2.5.1",
                   "source-map": "^0.5.0"
                 },
@@ -571,10 +563,10 @@
                     }
                   },
                   "jsesc": {
-                    "version": "2.5.1"
+                    "version": "2.5.2"
                   },
                   "source-map": {
-                    "version": "0.5.1"
+                    "version": "0.5.4"
                   }
                 }
               },
@@ -618,7 +610,7 @@
                     },
                     "dependencies": {
                       "@babel/code-frame": {
-                        "version": "7.15.8",
+                        "version": "7.14.5",
                         "requires": {
                           "@babel/highlight": "^7.14.5"
                         },
@@ -635,7 +627,7 @@
                                 "version": "file:node_modules/@babel/helper-validator-identifier"
                               },
                               "chalk": {
-                                "version": "2.3.0",
+                                "version": "2.1.0",
                                 "requires": {
                                   "ansi-styles": "^3.1.0",
                                   "escape-string-regexp": "^1.0.5",
@@ -649,7 +641,7 @@
                                     },
                                     "dependencies": {
                                       "color-convert": {
-                                        "version": "1.2.1"
+                                        "version": "1.5.0"
                                       }
                                     }
                                   },
@@ -657,7 +649,7 @@
                                     "version": "1.0.5"
                                   },
                                   "supports-color": {
-                                    "version": "4.3.0",
+                                    "version": "4.1.0",
                                     "requires": {
                                       "has-flag": "^2.0.0"
                                     },
@@ -778,9 +770,9 @@
                 }
               },
               "debug": {
-                "version": "4.3.0",
+                "version": "4.1.1",
                 "requires": {
-                  "ms": "2.1.2"
+                  "ms": "^2.1.1"
                 },
                 "dependencies": {
                   "ms": {
@@ -789,7 +781,7 @@
                 }
               },
               "globals": {
-                "version": "11.2.0"
+                "version": "11.11.0"
               }
             }
           },
@@ -868,7 +860,7 @@
         },
         "dependencies": {
           "@babel/code-frame": {
-            "version": "7.15.8",
+            "version": "7.14.5",
             "requires": {
               "@babel/highlight": "^7.14.5"
             },
@@ -885,7 +877,7 @@
                     "version": "file:node_modules/@babel/helper-validator-identifier"
                   },
                   "chalk": {
-                    "version": "2.3.0",
+                    "version": "2.1.0",
                     "requires": {
                       "ansi-styles": "^3.1.0",
                       "escape-string-regexp": "^1.0.5",
@@ -899,7 +891,7 @@
                         },
                         "dependencies": {
                           "color-convert": {
-                            "version": "1.2.1"
+                            "version": "1.5.0"
                           }
                         }
                       },
@@ -907,7 +899,7 @@
                         "version": "1.0.5"
                       },
                       "supports-color": {
-                        "version": "4.3.0",
+                        "version": "4.1.0",
                         "requires": {
                           "has-flag": "^2.0.0"
                         },
@@ -978,7 +970,7 @@
                     "version": "file:node_modules/@babel/helper-validator-identifier"
                   },
                   "chalk": {
-                    "version": "2.3.0",
+                    "version": "2.1.0",
                     "requires": {
                       "ansi-styles": "^3.1.0",
                       "escape-string-regexp": "^1.0.5",
@@ -992,7 +984,7 @@
                         },
                         "dependencies": {
                           "color-convert": {
-                            "version": "1.2.1"
+                            "version": "1.5.0"
                           }
                         }
                       },
@@ -1000,7 +992,7 @@
                         "version": "1.0.5"
                       },
                       "supports-color": {
-                        "version": "4.3.0",
+                        "version": "4.1.0",
                         "requires": {
                           "has-flag": "^2.0.0"
                         },
@@ -1020,9 +1012,9 @@
             }
           },
           "@babel/generator": {
-            "version": "7.15.4",
+            "version": "7.15.8",
             "requires": {
-              "@babel/types": "^7.15.4",
+              "@babel/types": "^7.15.6",
               "jsesc": "^2.5.1",
               "source-map": "^0.5.0"
             },
@@ -1043,10 +1035,10 @@
                 }
               },
               "jsesc": {
-                "version": "2.5.1"
+                "version": "2.5.2"
               },
               "source-map": {
-                "version": "0.5.1"
+                "version": "0.5.4"
               }
             }
           },
@@ -1090,7 +1082,7 @@
                 },
                 "dependencies": {
                   "@babel/code-frame": {
-                    "version": "7.15.8",
+                    "version": "7.14.5",
                     "requires": {
                       "@babel/highlight": "^7.14.5"
                     },
@@ -1107,7 +1099,7 @@
                             "version": "file:node_modules/@babel/helper-validator-identifier"
                           },
                           "chalk": {
-                            "version": "2.3.0",
+                            "version": "2.1.0",
                             "requires": {
                               "ansi-styles": "^3.1.0",
                               "escape-string-regexp": "^1.0.5",
@@ -1121,7 +1113,7 @@
                                 },
                                 "dependencies": {
                                   "color-convert": {
-                                    "version": "1.2.1"
+                                    "version": "1.5.0"
                                   }
                                 }
                               },
@@ -1129,7 +1121,7 @@
                                 "version": "1.0.5"
                               },
                               "supports-color": {
-                                "version": "4.3.0",
+                                "version": "4.1.0",
                                 "requires": {
                                   "has-flag": "^2.0.0"
                                 },
@@ -1250,9 +1242,9 @@
             }
           },
           "debug": {
-            "version": "4.3.0",
+            "version": "4.1.1",
             "requires": {
-              "ms": "2.1.2"
+              "ms": "^2.1.1"
             },
             "dependencies": {
               "ms": {
@@ -1261,7 +1253,7 @@
             }
           },
           "globals": {
-            "version": "11.2.0"
+            "version": "11.11.0"
           }
         }
       },

@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 2.6262760162353516,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "boolbase",
+    "version": "1.0.0",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "boolbase",
+        "version": "1.0.0",
+        "license": "ISC"
+      }
+    }
+  }
+}

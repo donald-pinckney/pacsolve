@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 0.6439530849456787,
+  "post-install-success": true,
+  "lockfile": {
+    "name": "http-parser-js",
+    "version": "0.5.3",
+    "lockfileVersion": 2,
+    "requires": true,
+    "packages": {
+      "": {
+        "name": "http-parser-js",
+        "version": "0.5.3",
+        "license": "MIT"
+      }
+    }
+  }
+}

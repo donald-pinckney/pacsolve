@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette",
+    "retcode": 1,
+    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-47098-ynZJrRqu6LKj\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-47098-32qbTYqM0yPs\nDecoding Rosette answer: [object Object]\n\n> webpack-dev-middleware@5.1.0 prepare\n> husky install && npm run build\n\n",
+    "stderr": ".git can't be found (see https://git.io/Jc3F9)\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/webpack-dev-middleware/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c husky install && npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T00_47_25_289Z-debug.log\n"
+  }
+}

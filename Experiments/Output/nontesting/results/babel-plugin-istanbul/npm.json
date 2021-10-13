@@ -1,0 +1,10 @@
+{
+  "install-success": false,
+  "error": {
+    "stage": "install",
+    "command": "npm install --production",
+    "retcode": 127,
+    "stdout": "\n> babel-plugin-istanbul@6.0.0 prepublish\n> npm test && npm run release\n\n\n> babel-plugin-istanbul@6.0.0 pretest\n> standard && npm run release\n\n",
+    "stderr": "sh: standard: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/babel-plugin-istanbul/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm test && npm run release\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T22_54_59_874Z-debug.log\n"
+  }
+}

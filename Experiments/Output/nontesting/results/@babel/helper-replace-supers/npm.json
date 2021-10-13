@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 1.2428631782531738,
+  "install_time": 1.4569909572601318,
   "post-install-success": true,
   "lockfile": {
     "name": "@babel/helper-replace-supers",

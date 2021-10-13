@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 5.382236957550049,
+  "install_time": 5.139545917510986,
   "post-install-success": true,
   "lockfile": {
     "name": "argparse",
