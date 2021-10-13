@@ -14,7 +14,8 @@ def main():
   # where each result row has one of: "success", "failure", "timeout"
   # For example, the first row should be:
   # supports-color     success     26.07438611984253     success       17.688903331756592
-  pass
+  
+  print("Replace with code")
 
 if __name__ == '__main__':
   main()
