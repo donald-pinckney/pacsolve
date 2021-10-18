@@ -179,10 +179,7 @@ def install(wd, config):
     install_command = config[1]
 
     try:
-      t0 = time.time()
-      run_subprocess(install_command, cwd=wd, check=True, capture_output=True, log=True, shell=True, timeout=300)
-      t1 = time.time()
-      return t1 - t0
+      run_subprocess(install_command, cwd=wd, check=True, capture_output=True, log=True, shell=True, timeout=600)
     except subprocess.CalledProcessError as e:
       raise TestingError("install", e.cmd, e.returncode, e.stdout, e.stderr)
     except subprocess.TimeoutExpired as e:
@@ -196,28 +193,35 @@ def postinstall(wd, options):
       except subprocess.CalledProcessError as e:
         raise TestingError("post-install", e.cmd, e.returncode, e.stdout, e.stderr)
 
-def copy_result(wd, result_file, install_success, install_time, error, cleanup):
+def copy_result(wd, result_file, install_success, install_time, error):
   if install_success:
-    with open(os.path.join(wd, 'package-lock.json'), 'r') as f:
-      lockfile = json.load(f)
+    try:
+      with open(os.path.join(wd, 'node_modules', '.package-lock.json'), 'r') as f:
+        installed_deps = json.load(f)["packages"]
+    except FileNotFoundError:
+      installed_deps = dict()
 
     if error is None:
       result = {
         'install-success': True, 
         'install_time': install_time, 
         'post-install-success': True,
-        'lockfile': lockfile
+        'installed_deps': installed_deps
       }
     else:
       result = {
         'install-success': True, 
         'install_time': install_time, 
         'post-install-success': False, 
-        'lockfile': lockfile, 
+        'installed_deps': installed_deps, 
         'error': error.toJSON()
       }
   else:
-    result = {'install-success': False, 'error': error.toJSON()}
+    result = {
+      'install-success': False, 
+      'install_time': install_time,
+      'error': error.toJSON()
+    }
     
   with open(result_file, 'w') as f:
     json.dump(result, f, indent=2)
@@ -227,6 +231,10 @@ def run(options):
   CHOSEN_LOG_LEVEL = options.verbosity
   
   with log_section("Project: {}".format(options.name)):
+    with log_section("Kill Processes"):
+      run_subprocess(["pkill", "-f", "z3"], check=False, log=True)
+      run_subprocess(["pkill", "-f", "racket"], check=False, log=True)
+
     with log_section("Acquire Source", level=2):
       run_configs = options.configs
       source_dir, work_dirs, result_files = prepare_out_dir(options.out, options.name, run_configs, options.subdirectory)
@@ -240,18 +248,21 @@ def run(options):
 
         preinstall(wd, options)
         try:
-          install_time = install(wd, config)
+          t0 = time.time()
+          install(wd, config)
+          install_time = time.time() - t0
         except TestingError as e:
-          copy_result(wd, rf, False, None, e, False)
+          install_time = time.time() - t0
+          copy_result(wd, rf, False, install_time, e)
           continue
 
         try:
           postinstall(wd, options)
         except TestingError as e:
-          copy_result(wd, rf, True, install_time, e, False)
+          copy_result(wd, rf, True, install_time, e)
           continue
           
-        copy_result(wd, rf, True, install_time, None, options.cleanup)
+        copy_result(wd, rf, True, install_time, None)
 
         if options.cleanup:
           run_subprocess(["rm", "-rf", wd], check=True, log=True)
