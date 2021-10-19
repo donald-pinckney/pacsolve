@@ -30,6 +30,22 @@ def run_single(out, name, maybePath, maybeRepo, maybeTarball, configs, subdirect
   )
   single_runner.run(options)
 
+def range_in(idx, r):
+  a = r[0]
+  b = r[1]
+
+  if a is None and b is None:
+    return True
+  elif a is None:
+    return idx < b
+  elif b is None:
+    return idx >= a
+  else:
+    return (a <= idx) and (idx < b)
+
+def filter_projects_range(projects, range):
+  return {k: v for idx, (k, v) in enumerate(projects.items()) if range_in(idx, range)}
+
 def run(options):
   script_path = os.path.realpath(__file__)
   root_dir = os.path.dirname(os.path.dirname(script_path))
@@ -47,27 +63,33 @@ def run(options):
 
   all_projects = manifest["projects"]
 
-  if not options.all:
-    projects = {p: all_projects[p] for p in options.only}
-  else:
+  if options.all:
     projects = all_projects
+  elif options.only is not None:
+    projects = {p: all_projects[p] for p in options.only}
+  elif options.range is not None:
+    projects = filter_projects_range(all_projects, options.range)
+  else:
+    raise ValueError("Must specify either --all, --only, or --range")
+
   
   for project_idx, (project_name, project_options) in enumerate(projects.items()) :
     print(f"Running {project_idx} / {len(projects)}")
-    
-    run_single(
-      out_dir, 
-      project_name, 
-      project_options.get("path"), 
-      project_options.get("git"),
-      project_options.get("tarball"),
-      configs, 
-      "package" if project_options.get("tarball") is not None else project_options.get("subdirectory"), 
-      project_options.get("pre-install"), 
-      project_options.get("post-install"),
-      options.cleanup,
-      options.verbosity
-    )
+    print(project_name)
+
+    # run_single(
+    #   out_dir, 
+    #   project_name, 
+    #   project_options.get("path"), 
+    #   project_options.get("git"),
+    #   project_options.get("tarball"),
+    #   configs, 
+    #   "package" if project_options.get("tarball") is not None else project_options.get("subdirectory"), 
+    #   project_options.get("pre-install"), 
+    #   project_options.get("post-install"),
+    #   options.cleanup,
+    #   options.verbosity
+    # )
 
 
   
