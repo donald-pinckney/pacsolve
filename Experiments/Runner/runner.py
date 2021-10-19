@@ -74,7 +74,7 @@ def run(options):
 
   
   for project_idx, (project_name, project_options) in projects:
-    print(f"Running {project_idx} / {len(projects)}")
+    print(f"Running {project_idx} / {len(all_projects)}")
 
     run_single(
       out_dir, 
