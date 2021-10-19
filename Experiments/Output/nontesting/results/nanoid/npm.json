@@ -1,24 +1,6 @@
 {
   "install-success": true,
-  "install_time": 1.2810537815093994,
+  "install_time": 0.41857266426086426,
   "post-install-success": true,
-  "lockfile": {
-    "name": "nanoid",
-    "version": "3.1.25",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "nanoid",
-        "version": "3.1.25",
-        "license": "MIT",
-        "bin": {
-          "nanoid": "bin/nanoid.cjs"
-        },
-        "engines": {
-          "node": "^10 || ^12 || ^13.7 || ^14 || >=15.0.1"
-        }
-      }
-    }
-  }
+  "installed_deps": {}
 }

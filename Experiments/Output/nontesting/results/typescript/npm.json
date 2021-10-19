@@ -1,10 +1,6 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --production",
-    "retcode": 127,
-    "stdout": "\n> typescript@4.4.3 prepare\n> gulp build-eslint-rules\n\n",
-    "stderr": "sh: gulp: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/typescript/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c gulp build-eslint-rules\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_56_37_123Z-debug.log\n"
-  }
+  "install-success": true,
+  "install_time": 20.157010793685913,
+  "post-install-success": true,
+  "installed_deps": {}
 }

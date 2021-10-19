@@ -1,24 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.142857313156128,
+  "install_time": 2.506420135498047,
   "post-install-success": true,
-  "lockfile": {
-    "name": "prettier",
-    "version": "2.4.1",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "prettier",
-        "version": "2.4.1",
-        "license": "MIT",
-        "bin": {
-          "prettier": "bin-prettier.js"
-        },
-        "engines": {
-          "node": ">=10.13.0"
-        }
-      }
-    }
-  }
+  "installed_deps": {}
 }

@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.6902880668640137,
+  "install_time": 0.41078996658325195,
   "post-install-success": true,
-  "lockfile": {
-    "name": "is-promise",
-    "version": "4.0.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "is-promise",
-        "version": "4.0.0",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

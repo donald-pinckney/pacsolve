@@ -1,23 +1,6 @@
 {
   "install-success": true,
-  "install_time": 1.023285150527954,
+  "install_time": 0.39310598373413086,
   "post-install-success": true,
-  "lockfile": {
-    "name": "core-js",
-    "version": "3.18.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "core-js",
-        "version": "3.18.0",
-        "hasInstallScript": true,
-        "license": "MIT",
-        "funding": {
-          "type": "opencollective",
-          "url": "https://opencollective.com/core-js"
-        }
-      }
-    }
-  }
+  "installed_deps": {}
 }

@@ -1,10 +1,38 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --production",
-    "retcode": 127,
-    "stdout": "\n> camel-case@4.1.2 prepare\n> npm run build\n\n\n> camel-case@4.1.2 build\n> rimraf dist/ dist.es2015/ && tsc && tsc -P tsconfig.es2015.json\n\n",
-    "stderr": "sh: rimraf: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/camel-case/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T00_01_13_579Z-debug.log\n"
+  "install-success": true,
+  "install_time": 5.7836384773254395,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/lower-case": {
+      "version": "2.0.2",
+      "resolved": "https://registry.npmjs.org/lower-case/-/lower-case-2.0.2.tgz",
+      "integrity": "sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==",
+      "dependencies": {
+        "tslib": "^2.0.3"
+      }
+    },
+    "node_modules/no-case": {
+      "version": "3.0.4",
+      "resolved": "https://registry.npmjs.org/no-case/-/no-case-3.0.4.tgz",
+      "integrity": "sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==",
+      "dependencies": {
+        "lower-case": "^2.0.2",
+        "tslib": "^2.0.3"
+      }
+    },
+    "node_modules/pascal-case": {
+      "version": "3.1.2",
+      "resolved": "https://registry.npmjs.org/pascal-case/-/pascal-case-3.1.2.tgz",
+      "integrity": "sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==",
+      "dependencies": {
+        "no-case": "^3.0.4",
+        "tslib": "^2.0.3"
+      }
+    },
+    "node_modules/tslib": {
+      "version": "2.3.1",
+      "resolved": "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz",
+      "integrity": "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
+    }
   }
 }

@@ -1,21 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.8342180252075195,
+  "install_time": 2.140444755554199,
   "post-install-success": true,
-  "lockfile": {
-    "name": "jest-get-type",
-    "version": "27.0.6",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "jest-get-type",
-        "version": "27.0.6",
-        "license": "MIT",
-        "engines": {
-          "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
-        }
-      }
-    }
-  }
+  "installed_deps": {}
 }

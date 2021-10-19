@@ -1,33 +1,11 @@
 {
   "install-success": true,
-  "install_time": 3.4819741249084473,
+  "install_time": 2.3447394371032715,
   "post-install-success": true,
-  "lockfile": {
-    "name": "ecc-jsbn",
-    "version": "0.2.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "ecc-jsbn",
-        "version": "0.2.0",
-        "license": "MIT",
-        "dependencies": {
-          "jsbn": "~0.1.0"
-        },
-        "engines": {
-          "node": ">=6.0.0"
-        }
-      },
-      "node_modules/jsbn": {
-        "version": "0.1.0",
-        "integrity": "sha1-ZQmH2g3XT06/WhE3eiqi0nPpff0="
-      }
-    },
-    "dependencies": {
-      "jsbn": {
-        "version": "0.1.0"
-      }
+  "installed_deps": {
+    "node_modules/jsbn": {
+      "version": "0.1.0",
+      "integrity": "sha1-ZQmH2g3XT06/WhE3eiqi0nPpff0="
     }
   }
 }

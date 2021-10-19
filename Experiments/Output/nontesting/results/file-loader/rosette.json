@@ -1,10 +1,117 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 2,
-    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-48238-Rpjo1Cff5nDO\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-48238-HxRB7ccDeYY0\nDecoding Rosette answer: [object Object]\n\n> file-loader@6.2.0 prepare\n> npm run build\n\n\n> file-loader@6.2.0 prebuild\n> npm run clean\n\n\n> file-loader@6.2.0 clean\n> del-cli dist\n\n\n> file-loader@6.2.0 build\n> cross-env NODE_ENV=production babel src -d dist --copy-files\n\n",
-    "stderr": "npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated\nnpm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated\nnpm WARN deprecated sane@4.1.0: some dependency vulnerabilities fixed, support for node < 10 dropped, and newer ECMAScript syntax/features added\nnpm WARN deprecated fsevents@1.2.13: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.\nnpm WARN deprecated chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.\nnpm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.\nnpm WARN deprecated kleur@2.0.2: Please upgrade to kleur@3 or migrate to 'ansi-colors' if you prefer the old syntax. Visit <https://github.com/lukeed/kleur/releases/tag/v3.0.0\\> for migration path(s).\nnpm WARN deprecated json-parser@1.1.5: `json-parser` is deprecated. Please use `comment-json` instead\nbabel:\n  src does not exist\nnpm ERR! code 2\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/file-loader/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T00_55_33_936Z-debug.log\n"
+  "install-success": true,
+  "install_time": 3.115044593811035,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/loader-utils": {
+      "version": "2.0.0",
+      "integrity": "sha512-rP4F0h2RaWSvPEkD7BLDFQnvSf+nK+wr3ESUjNTyAGobqrijmW92zc+SO6d4p4B1wh7+B/Jg1mkQe5NYUEHtHQ==",
+      "dependencies": {
+        "big.js": "^5.2.2",
+        "emojis-list": "^3.0.0",
+        "json5": "^2.1.2"
+      },
+      "engines": {
+        "node": ">=8.9.0"
+      }
+    },
+    "node_modules/loader-utils/node_modules/big.js": {
+      "version": "5.2.2",
+      "integrity": "sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==",
+      "engines": {
+        "node": "*"
+      }
+    },
+    "node_modules/loader-utils/node_modules/emojis-list": {
+      "version": "3.0.0",
+      "integrity": "sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==",
+      "engines": {
+        "node": ">= 4"
+      }
+    },
+    "node_modules/loader-utils/node_modules/json5": {
+      "version": "2.1.3",
+      "integrity": "sha512-KXPvOm8K9IJKFM0bmdn8QXh7udDh1g/giieX0NLCaMnb4hEiVFqnop2ImTXCc5e0/oHz3LTqmHGtExn5hfMkOA==",
+      "dependencies": {
+        "minimist": "^1.2.5"
+      },
+      "bin": {
+        "json5": "lib/cli.js"
+      },
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/loader-utils/node_modules/json5/node_modules/minimist": {
+      "version": "1.2.5",
+      "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw=="
+    },
+    "node_modules/schema-utils": {
+      "version": "3.0.0",
+      "integrity": "sha512-6D82/xSzO094ajanoOSbe4YvXWMfn2A//8Y1+MUqFAJul5Bs+yn36xbK9OtNDcRVSBJ9jjeoXftM6CfztsjOAA==",
+      "dependencies": {
+        "@types/json-schema": "^7.0.6",
+        "ajv": "^6.12.5",
+        "ajv-keywords": "^3.5.2"
+      },
+      "engines": {
+        "node": ">= 10.13.0"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/webpack"
+      }
+    },
+    "node_modules/schema-utils/node_modules/@types/json-schema": {
+      "version": "7.0.9",
+      "integrity": "sha512-qcUXuemtEu+E5wZSJHNxUXeCZhAfXKQ41D+duX+VYPde7xyEVZci+/oXKJL13tnRs9lR2pr4fod59GT6/X1/yQ=="
+    },
+    "node_modules/schema-utils/node_modules/ajv": {
+      "version": "6.12.6",
+      "integrity": "sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==",
+      "dependencies": {
+        "fast-deep-equal": "^3.1.1",
+        "fast-json-stable-stringify": "^2.0.0",
+        "json-schema-traverse": "^0.4.1",
+        "uri-js": "^4.2.2"
+      },
+      "funding": {
+        "type": "github",
+        "url": "https://github.com/sponsors/epoberezkin"
+      }
+    },
+    "node_modules/schema-utils/node_modules/ajv-keywords": {
+      "version": "3.5.2",
+      "integrity": "sha512-5p6WTN0DdTGVQk6VjcEju19IgaHudalcfabD7yhDGeA6bcQnmL+CpveLJq/3hvfwd1aof6L386Ougkx6RfyMIQ==",
+      "peerDependencies": {
+        "ajv": "^6.9.1"
+      }
+    },
+    "node_modules/schema-utils/node_modules/ajv/node_modules/fast-deep-equal": {
+      "version": "3.1.1",
+      "integrity": "sha512-8UEa58QDLauDNfpbrX55Q9jrGHThw2ZMdOky5Gl1CDtVeJDPVrG4Jxx1N8jw2gkWaff5UUuX1KJd+9zGe2B+ZA=="
+    },
+    "node_modules/schema-utils/node_modules/ajv/node_modules/fast-json-stable-stringify": {
+      "version": "2.1.0",
+      "integrity": "sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw=="
+    },
+    "node_modules/schema-utils/node_modules/ajv/node_modules/json-schema-traverse": {
+      "version": "0.4.1",
+      "integrity": "sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg=="
+    },
+    "node_modules/schema-utils/node_modules/ajv/node_modules/uri-js": {
+      "version": "4.3.0",
+      "integrity": "sha512-Q9Q9RlMM08eWfdPPmDDrXd8Ny3R1sY/DaRDR2zTPPneJ6GYiLx3++fPiZobv49ovkYAnHl/P72Ie3HWXIRVVYA==",
+      "dependencies": {
+        "punycode": "^2.1.0"
+      }
+    },
+    "node_modules/schema-utils/node_modules/ajv/node_modules/uri-js/node_modules/punycode": {
+      "version": "2.1.1",
+      "integrity": "sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==",
+      "engines": {
+        "node": ">=6"
+      }
+    }
   }
 }

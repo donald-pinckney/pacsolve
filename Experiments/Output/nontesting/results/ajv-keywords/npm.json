@@ -1,10 +1,12 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --production",
-    "retcode": 127,
-    "stdout": "\n> ajv-keywords@5.0.0 prepublish\n> npm run build\n\n\n> ajv-keywords@5.0.0 build\n> rm -rf dist && tsc\n\n",
-    "stderr": "sh: tsc: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/ajv-keywords/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T20_38_46_454Z-debug.log\n"
+  "install-success": true,
+  "install_time": 7.701909303665161,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/fast-deep-equal": {
+      "version": "3.1.3",
+      "resolved": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz",
+      "integrity": "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="
+    }
   }
 }

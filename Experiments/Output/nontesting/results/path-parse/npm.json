@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.8933670520782471,
+  "install_time": 0.3825497627258301,
   "post-install-success": true,
-  "lockfile": {
-    "name": "path-parse",
-    "version": "1.0.7",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "path-parse",
-        "version": "1.0.7",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

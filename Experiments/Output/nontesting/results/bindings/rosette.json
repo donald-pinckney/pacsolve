@@ -1,30 +1,11 @@
 {
   "install-success": true,
-  "install_time": 3.6090619564056396,
+  "install_time": 2.5578055381774902,
   "post-install-success": true,
-  "lockfile": {
-    "name": "bindings",
-    "version": "1.5.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "bindings",
-        "version": "1.5.0",
-        "license": "MIT",
-        "dependencies": {
-          "file-uri-to-path": "1.0.0"
-        }
-      },
-      "node_modules/file-uri-to-path": {
-        "version": "1.0.0",
-        "integrity": "sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw=="
-      }
-    },
-    "dependencies": {
-      "file-uri-to-path": {
-        "version": "1.0.0"
-      }
+  "installed_deps": {
+    "node_modules/file-uri-to-path": {
+      "version": "1.0.0",
+      "integrity": "sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw=="
     }
   }
 }

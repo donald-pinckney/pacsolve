@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.9733502864837646,
+  "install_time": 2.2970480918884277,
   "post-install-success": true,
-  "lockfile": {
-    "name": "@webassemblyjs/helper-fsm",
-    "version": "1.11.1",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "@webassemblyjs/helper-fsm",
-        "version": "1.11.1",
-        "license": "ISC"
-      }
-    }
-  }
+  "installed_deps": {}
 }

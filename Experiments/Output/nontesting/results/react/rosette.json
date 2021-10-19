@@ -1,61 +1,27 @@
 {
   "install-success": true,
-  "install_time": 4.304290056228638,
+  "install_time": 2.7086966037750244,
   "post-install-success": true,
-  "lockfile": {
-    "name": "react",
-    "version": "17.0.2",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "react",
-        "version": "17.0.2",
-        "license": "MIT",
-        "dependencies": {
-          "loose-envify": "^1.1.0",
-          "object-assign": "^4.1.1"
-        },
-        "engines": {
-          "node": ">=0.10.0"
-        }
+  "installed_deps": {
+    "node_modules/loose-envify": {
+      "version": "1.2.0",
+      "integrity": "sha1-aaZarT3lQs9O4PT+dOjjPHCcyw8=",
+      "dependencies": {
+        "js-tokens": "^1.0.1"
       },
-      "node_modules/loose-envify": {
-        "version": "1.3.1",
-        "integrity": "sha1-0aitM/qc4OcT1l/dCsi3SNR4yEg=",
-        "dependencies": {
-          "js-tokens": "^3.0.0"
-        },
-        "bin": {
-          "loose-envify": "cli.js"
-        }
-      },
-      "node_modules/loose-envify/node_modules/js-tokens": {
-        "version": "3.0.2",
-        "integrity": "sha1-mGbfOVECEw449/mWvOtlRDIJwls="
-      },
-      "node_modules/object-assign": {
-        "version": "4.1.1",
-        "integrity": "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=",
-        "engines": {
-          "node": ">=0.10.0"
-        }
+      "bin": {
+        "loose-envify": "cli.js"
       }
     },
-    "dependencies": {
-      "loose-envify": {
-        "version": "1.3.1",
-        "requires": {
-          "js-tokens": "^3.0.0"
-        },
-        "dependencies": {
-          "js-tokens": {
-            "version": "3.0.2"
-          }
-        }
-      },
-      "object-assign": {
-        "version": "4.1.1"
+    "node_modules/loose-envify/node_modules/js-tokens": {
+      "version": "1.0.1",
+      "integrity": "sha1-zENaXIuUrRWst5gxQPyAGCyJrq4="
+    },
+    "node_modules/object-assign": {
+      "version": "4.1.1",
+      "integrity": "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=",
+      "engines": {
+        "node": ">=0.10.0"
       }
     }
   }

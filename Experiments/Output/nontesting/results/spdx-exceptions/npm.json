@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.6639680862426758,
+  "install_time": 0.39913415908813477,
   "post-install-success": true,
-  "lockfile": {
-    "name": "spdx-exceptions",
-    "version": "2.3.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "spdx-exceptions",
-        "version": "2.3.0",
-        "license": "CC-BY-3.0"
-      }
-    }
-  }
+  "installed_deps": {}
 }

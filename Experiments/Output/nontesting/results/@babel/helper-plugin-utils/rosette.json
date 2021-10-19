@@ -1,21 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.941411018371582,
+  "install_time": 2.1371774673461914,
   "post-install-success": true,
-  "lockfile": {
-    "name": "@babel/helper-plugin-utils",
-    "version": "7.14.5",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "@babel/helper-plugin-utils",
-        "version": "7.14.5",
-        "license": "MIT",
-        "engines": {
-          "node": ">=6.9.0"
-        }
-      }
-    }
-  }
+  "installed_deps": {}
 }

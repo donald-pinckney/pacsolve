@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.6308462619781494,
+  "install_time": 0.393665075302124,
   "post-install-success": true,
-  "lockfile": {
-    "name": "react-is",
-    "version": "17.0.2",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "react-is",
-        "version": "17.0.2",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

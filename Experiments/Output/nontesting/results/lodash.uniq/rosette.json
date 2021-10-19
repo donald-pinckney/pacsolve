@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.1816341876983643,
+  "install_time": 2.434058904647827,
   "post-install-success": true,
-  "lockfile": {
-    "name": "lodash.uniq",
-    "version": "4.5.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "lodash.uniq",
-        "version": "4.5.0",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

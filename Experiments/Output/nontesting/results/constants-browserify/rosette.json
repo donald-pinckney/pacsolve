@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.7435050010681152,
+  "install_time": 2.4324605464935303,
   "post-install-success": true,
-  "lockfile": {
-    "name": "constants-browserify",
-    "version": "1.0.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "constants-browserify",
-        "version": "1.0.0",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

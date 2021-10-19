@@ -1,10 +1,6 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --production",
-    "retcode": 127,
-    "stdout": "\n> performance-now@2.1.0 prepublish\n> npm test\n\n\n> performance-now@2.1.0 pretest\n> npm run build\n\n\n> performance-now@2.1.0 build\n> mkdir -p lib && rm -rf lib/* && node_modules/.bin/coffee --compile -m --output lib/ src/\n\n",
-    "stderr": "npm WARN EBADENGINE Unsupported engine {\nnpm WARN EBADENGINE   package: 'call-delayed@1.0.0',\nnpm WARN EBADENGINE   required: { node: '6.x.x' },\nnpm WARN EBADENGINE   current: { node: 'v15.2.1', npm: '7.20.1' }\nnpm WARN EBADENGINE }\nsh: node_modules/.bin/coffee: No such file or directory\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/performance-now/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm test\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T19_02_39_554Z-debug.log\n"
-  }
+  "install-success": true,
+  "install_time": 3.767458915710449,
+  "post-install-success": true,
+  "installed_deps": {}
 }

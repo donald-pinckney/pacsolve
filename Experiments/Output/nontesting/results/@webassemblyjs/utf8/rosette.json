@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.134165048599243,
+  "install_time": 2.3688199520111084,
   "post-install-success": true,
-  "lockfile": {
-    "name": "@webassemblyjs/utf8",
-    "version": "1.11.1",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "@webassemblyjs/utf8",
-        "version": "1.11.1",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

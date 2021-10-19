@@ -1,10 +1,136 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 1,
-    "stdout": "0 / 1\n100 / 1177\n200 / 1077\n300 / 980\n400 / 880\n500 / 780\n600 / 680\n700 / 580\n800 / 480\n900 / 380\n1000 / 280\n1100 / 180\n1200 / 80\n1300 / 25\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-60003-XVAymkrq82hb\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-60003-Zb0NkA0Govi5\nDecoding Rosette answer: [object Object]\n\n> http-proxy-middleware@2.0.1 prepare\n> husky install && yarn build && rm dist/tsconfig.tsbuildinfo\n\n",
-    "stderr": "npm WARN ERESOLVE overriding peer dependency\nnpm WARN Found: @types/jest@26.0.24\nnpm WARN node_modules/@types/jest\nnpm WARN   dev @types/jest@\"^26.0.23\" from the root project\nnpm WARN \nnpm WARN Could not resolve dependency:\nnpm WARN peerOptional @types/jest@\"^27.0.0\" from ts-jest@27.0.5\nnpm WARN node_modules/ts-jest\nnpm WARN   dev ts-jest@\"^27.0.2\" from the root project\nnpm WARN deprecated debug@4.1.1: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)\nnpm WARN deprecated debug@4.1.1: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)\nnpm WARN deprecated debug@4.1.1: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)\nnpm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.\n/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/http-proxy-middleware/rosette/package/node_modules/husky/lib/index.js:20\n        throw new Error(`.git can't be found (see ${url})`);\n        ^\n\nError: .git can't be found (see https://typicode.github.io/husky/#/?id=custom-directory)\n    at Object.install (/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/http-proxy-middleware/rosette/package/node_modules/husky/lib/index.js:20:15)\n    at Object.install (/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/http-proxy-middleware/rosette/package/node_modules/husky/lib/bin.js:27:41)\n    at Object.<anonymous> (/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/http-proxy-middleware/rosette/package/node_modules/husky/lib/bin.js:39:22)\n    at Module._compile (node:internal/modules/cjs/loader:1102:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1131:10)\n    at Module.load (node:internal/modules/cjs/loader:967:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:807:14)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)\n    at node:internal/main/run_main_module:17:47\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/http-proxy-middleware/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c husky install && yarn build && rm dist/tsconfig.tsbuildinfo\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T02_06_50_617Z-debug.log\n"
+  "install-success": true,
+  "install_time": 194.68433785438538,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@types/http-proxy": {
+      "version": "1.17.7",
+      "integrity": "sha512-9hdj6iXH64tHSLTY+Vt2eYOGzSogC+JQ2H7bdPWkuh7KXP5qLllWx++t+K9Wk556c3dkDdPws/SpMRi0sdCT1w==",
+      "dependencies": {
+        "@types/node": "*"
+      }
+    },
+    "node_modules/@types/http-proxy/node_modules/@types/node": {
+      "version": "9.6.38",
+      "integrity": "sha512-DQpoqhq5wxekTecxnf33SRGqpPNfyQLW/TmOZpNssSkZZStN9ujzRS6+aReY3qNzGuIyX77LoCUcm0qYgET7aQ=="
+    },
+    "node_modules/http-proxy": {
+      "version": "1.18.1",
+      "integrity": "sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==",
+      "dependencies": {
+        "eventemitter3": "^4.0.0",
+        "follow-redirects": "^1.0.0",
+        "requires-port": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      }
+    },
+    "node_modules/http-proxy/node_modules/eventemitter3": {
+      "version": "4.0.1",
+      "integrity": "sha512-MnI0l35oYL2C/c80rjJN7qu50MDx39yYE7y7oYck2YA3v+y7EaAenY8IU8AP4d1RWqE8VAKWFGSh3rfP87ll3g=="
+    },
+    "node_modules/http-proxy/node_modules/follow-redirects": {
+      "version": "1.13.0",
+      "integrity": "sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==",
+      "funding": [
+        {
+          "type": "individual",
+          "url": "https://github.com/sponsors/RubenVerborgh"
+        }
+      ],
+      "engines": {
+        "node": ">=4.0"
+      }
+    },
+    "node_modules/http-proxy/node_modules/requires-port": {
+      "version": "1.0.0",
+      "integrity": "sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8="
+    },
+    "node_modules/is-glob": {
+      "version": "4.0.1",
+      "integrity": "sha512-5G0tKtBTFImOqDnLB2hG6Bp2qcKEFduo4tZu9MT/H6NQv/ghhy30o55ufafxJ/LdH79LLs2Kfrn85TLKyA7BUg==",
+      "dependencies": {
+        "is-extglob": "^2.1.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/is-glob/node_modules/is-extglob": {
+      "version": "2.1.1",
+      "integrity": "sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/is-plain-obj": {
+      "version": "3.0.0",
+      "integrity": "sha512-gwsOE28k+23GP1B6vFl1oVh/WOzmawBrKwo5Ev6wMKzPkaXaCDIQKzLnvsA42DRlbVTWorkgTKIviAKCWkfUwA==",
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/micromatch": {
+      "version": "4.0.2",
+      "integrity": "sha512-y7FpHSbMUMoyPbYUSzO6PaZ6FyRnQOpHuKwbo1G+Knck95XVU4QAiKdGEnj5wwoS7PlOgthX/09u5iFJ+aYf5Q==",
+      "dependencies": {
+        "braces": "^3.0.1",
+        "picomatch": "^2.0.5"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/micromatch/node_modules/braces": {
+      "version": "3.0.1",
+      "integrity": "sha512-Vmyh3JAr5DRUKCdRrC+WyAAsWBez8HLnBmVb6Ux2VYbvC8DjqMC228WHx24fiQG5BiDOVo+otK1scdkK5S6YNg==",
+      "dependencies": {
+        "fill-range": "^7.0.1"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/micromatch/node_modules/braces/node_modules/fill-range": {
+      "version": "7.0.1",
+      "integrity": "sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==",
+      "dependencies": {
+        "to-regex-range": "^5.0.1"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/micromatch/node_modules/braces/node_modules/fill-range/node_modules/to-regex-range": {
+      "version": "5.0.1",
+      "integrity": "sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==",
+      "dependencies": {
+        "is-number": "^7.0.0"
+      },
+      "engines": {
+        "node": ">=8.0"
+      }
+    },
+    "node_modules/micromatch/node_modules/braces/node_modules/fill-range/node_modules/to-regex-range/node_modules/is-number": {
+      "version": "7.0.0",
+      "integrity": "sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==",
+      "engines": {
+        "node": ">=0.12.0"
+      }
+    },
+    "node_modules/micromatch/node_modules/picomatch": {
+      "version": "2.2.2",
+      "integrity": "sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==",
+      "engines": {
+        "node": ">=8.6"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/jonschlinkert"
+      }
+    }
   }
 }

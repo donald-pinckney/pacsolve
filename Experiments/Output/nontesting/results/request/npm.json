@@ -1,10 +1,11 @@
 {
   "install-success": false,
+  "install_time": 1.63362455368042,
   "error": {
     "stage": "install",
-    "command": "npm install --production",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
     "retcode": 1,
     "stdout": "",
-    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: request@2.88.2\nnpm ERR! Found: karma@3.1.4\nnpm ERR! node_modules/karma\nnpm ERR!   dev karma@\"^3.0.0\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer karma@\"1.x.x || 2.x.x\" from karma-tap@3.2.1\nnpm ERR! node_modules/karma-tap\nnpm ERR!   dev karma-tap@\"^3.0.1\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_40_05_666Z-debug.log\n"
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: request@2.88.2\nnpm ERR! Found: karma@3.1.4\nnpm ERR! node_modules/karma\nnpm ERR!   dev karma@\"^3.0.0\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer karma@\"1.x.x || 2.x.x\" from karma-tap@3.2.1\nnpm ERR! node_modules/karma-tap\nnpm ERR!   dev karma-tap@\"^3.0.1\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /mnt/data/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /mnt/data/donald/.npm/_logs/2021-10-19T15_56_02_552Z-debug.log\n"
   }
 }

@@ -1,19 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.881005048751831,
+  "install_time": 2.29048228263855,
   "post-install-success": true,
-  "lockfile": {
-    "name": "promise-inflight",
-    "version": "1.0.1",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "promise-inflight",
-        "version": "1.0.1",
-        "license": "ISC",
-        "devDependencies": {}
-      }
-    }
-  }
+  "installed_deps": {}
 }

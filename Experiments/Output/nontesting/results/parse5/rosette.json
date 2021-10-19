@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.6976780891418457,
+  "install_time": 2.1550025939941406,
   "post-install-success": true,
-  "lockfile": {
-    "name": "parse5",
-    "version": "6.0.1",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "parse5",
-        "version": "6.0.1",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

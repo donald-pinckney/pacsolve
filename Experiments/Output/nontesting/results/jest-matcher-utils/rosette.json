@@ -1,10 +1,190 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 1,
-    "stdout": "0 / 1\n100 / 1161\n200 / 1061\n300 / 964\n400 / 864\n500 / 764\n600 / 664\n700 / 564\n800 / 464\n900 / 364\n1000 / 264\n1100 / 164\n1200 / 64\n1300 / 62\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-19786-Ceg4UHZ8KEJq\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-19786-0Vo07R54I4dP\nDecoding Rosette answer: [object Object]\n",
-    "stderr": "npm ERR! code ETARGET\nnpm ERR! notarget No matching version found for @jest/test-utils@^27.2.0.\nnpm ERR! notarget In most cases you or one of your dependencies are requesting\nnpm ERR! notarget a package version that doesn't exist.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T21_12_45_596Z-debug.log\n"
+  "install-success": true,
+  "install_time": 236.51527452468872,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/chalk": {
+      "version": "4.1.0",
+      "integrity": "sha512-qwx12AxXe2Q5xQ43Ac//I6v5aXTipYrSESdOgzrN+9XjgEpyjpKuvSGaN4qE93f7TQTlerQQ8S+EQ0EyDoVL1A==",
+      "dependencies": {
+        "ansi-styles": "^4.1.0",
+        "supports-color": "^7.1.0"
+      },
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/chalk/chalk?sponsor=1"
+      }
+    },
+    "node_modules/chalk/node_modules/ansi-styles": {
+      "version": "4.1.0",
+      "integrity": "sha512-Qts4KCLKG+waHc9C4m07weIY8qyeixoS0h6RnbsNVD6Fw+pEZGW3vTyObL3WXpE09Mq4Oi7/lBEyLmOiLtlYWQ==",
+      "dependencies": {
+        "color-convert": "^2.0.1"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
+      "version": "2.0.1",
+      "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
+      "dependencies": {
+        "color-name": "~1.1.4"
+      },
+      "engines": {
+        "node": ">=7.0.0"
+      }
+    },
+    "node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert/node_modules/color-name": {
+      "version": "1.1.4",
+      "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
+    },
+    "node_modules/chalk/node_modules/supports-color": {
+      "version": "7.1.0",
+      "integrity": "sha512-oRSIpR8pxT1Wr2FquTNnGet79b3BWljqOuoW/h4oBhxJ/HUbX5nX6JSruTkvXDCFMwDPvsaTTbvMLKZWSy0R5g==",
+      "dependencies": {
+        "has-flag": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/chalk/node_modules/supports-color/node_modules/has-flag": {
+      "version": "4.0.0",
+      "integrity": "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/jest-diff": {
+      "version": "27.2.0",
+      "integrity": "sha512-QSO9WC6btFYWtRJ3Hac0sRrkspf7B01mGrrQEiCW6TobtViJ9RWL0EmOs/WnBsZDsI/Y2IoSHZA2x6offu0sYw==",
+      "dependencies": {
+        "chalk": "^4.0.0",
+        "diff-sequences": "^27.0.6",
+        "jest-get-type": "^27.0.6",
+        "pretty-format": "^27.2.0"
+      },
+      "engines": {
+        "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+      }
+    },
+    "node_modules/jest-diff/node_modules/chalk": {
+      "resolved": "node_modules/chalk",
+      "link": true
+    },
+    "node_modules/jest-diff/node_modules/diff-sequences": {
+      "version": "27.0.6",
+      "integrity": "sha512-ag6wfpBFyNXZ0p8pcuIDS//D8H062ZQJ3fzYxjpmeKjnz8W4pekL3AI8VohmyZmsWW2PWaHgjsmqR6L13101VQ==",
+      "engines": {
+        "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+      }
+    },
+    "node_modules/jest-diff/node_modules/jest-get-type": {
+      "resolved": "node_modules/jest-get-type",
+      "link": true
+    },
+    "node_modules/jest-diff/node_modules/pretty-format": {
+      "resolved": "node_modules/pretty-format",
+      "link": true
+    },
+    "node_modules/jest-get-type": {
+      "version": "27.0.6",
+      "integrity": "sha512-XTkK5exIeUbbveehcSR8w0bhH+c0yloW/Wpl+9vZrjzztCPWrxhHwkIFpZzCt71oRBsgxmuUfxEqOYoZI2macg==",
+      "engines": {
+        "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+      }
+    },
+    "node_modules/pretty-format": {
+      "version": "27.2.0",
+      "integrity": "sha512-KyJdmgBkMscLqo8A7K77omgLx5PWPiXJswtTtFV7XgVZv2+qPk6UivpXXO+5k6ZEbWIbLoKdx1pZ6ldINzbwTA==",
+      "dependencies": {
+        "@jest/types": "^27.1.1",
+        "ansi-regex": "^5.0.0",
+        "ansi-styles": "^5.0.0",
+        "react-is": "^17.0.1"
+      },
+      "engines": {
+        "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+      }
+    },
+    "node_modules/pretty-format/node_modules/@jest/types": {
+      "version": "27.2.4",
+      "integrity": "sha512-IDO2ezTxeMvQAHxzG/ZvEyA47q0aVfzT95rGFl7bZs/Go0aIucvfDbS2rmnoEdXxlLQhcolmoG/wvL/uKx4tKA==",
+      "dependencies": {
+        "@types/istanbul-lib-coverage": "^2.0.0",
+        "@types/istanbul-reports": "^3.0.0",
+        "@types/node": "*",
+        "@types/yargs": "^16.0.0",
+        "chalk": "^4.0.0"
+      },
+      "engines": {
+        "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+      }
+    },
+    "node_modules/pretty-format/node_modules/@jest/types/node_modules/@types/istanbul-lib-coverage": {
+      "version": "2.0.3",
+      "integrity": "sha512-sz7iLqvVUg1gIedBOvlkxPlc8/uVzyS5OwGz1cKjXzkl3FpL3al0crU8YGU1WoHkxn0Wxbw5tyi6hvzJKNzFsw=="
+    },
+    "node_modules/pretty-format/node_modules/@jest/types/node_modules/@types/istanbul-reports": {
+      "version": "3.0.1",
+      "integrity": "sha512-c3mAZEuK0lvBp8tmuL74XRKn1+y2dcwOUpH7x4WrF6gk1GIgiluDRgMYQtw2OFcBvAJWlt6ASU3tSqxp0Uu0Aw==",
+      "dependencies": {
+        "@types/istanbul-lib-report": "*"
+      }
+    },
+    "node_modules/pretty-format/node_modules/@jest/types/node_modules/@types/istanbul-reports/node_modules/@types/istanbul-lib-report": {
+      "version": "3.0.0",
+      "integrity": "sha512-plGgXAPfVKFoYfa9NpYDAkseG+g6Jr294RqeqcqDixSbU34MZVJRi/P+7Y8GDpzkEwLaGZZOpKIEmeVZNtKsrg==",
+      "dependencies": {
+        "@types/istanbul-lib-coverage": "*"
+      }
+    },
+    "node_modules/pretty-format/node_modules/@jest/types/node_modules/@types/istanbul-reports/node_modules/@types/istanbul-lib-report/node_modules/@types/istanbul-lib-coverage": {
+      "resolved": "node_modules/pretty-format/node_modules/@jest/types/node_modules/@types/istanbul-lib-coverage",
+      "link": true
+    },
+    "node_modules/pretty-format/node_modules/@jest/types/node_modules/@types/node": {
+      "version": "11.15.30",
+      "integrity": "sha512-hfwDEF18Jyh94A9D8d/VVQlty0gOeNjQLvNjo2pHwosSfI7D+yUTzEZSop4vltJ1iEoimUqi5u3ABs2UlLvfcw=="
+    },
+    "node_modules/pretty-format/node_modules/@jest/types/node_modules/@types/yargs": {
+      "version": "16.0.3",
+      "integrity": "sha512-YlFfTGS+zqCgXuXNV26rOIeETOkXnGQXP/pjjL9P0gO/EP9jTmc7pUBhx+jVEIxpq41RX33GQ7N3DzOSfZoglQ==",
+      "dependencies": {
+        "@types/yargs-parser": "*"
+      }
+    },
+    "node_modules/pretty-format/node_modules/@jest/types/node_modules/@types/yargs/node_modules/@types/yargs-parser": {
+      "version": "20.2.0",
+      "integrity": "sha512-37RSHht+gzzgYeobbG+KWryeAW8J33Nhr69cjTqSYymXVZEN9NbRYWoYlRtDhHKPVT1FyNKwaTPC1NynKZpzRA=="
+    },
+    "node_modules/pretty-format/node_modules/@jest/types/node_modules/chalk": {
+      "resolved": "node_modules/chalk",
+      "link": true
+    },
+    "node_modules/pretty-format/node_modules/ansi-regex": {
+      "version": "5.0.0",
+      "integrity": "sha512-bY6fj56OUQ0hU1KjFNDQuJFezqKdrAyFdIevADiqrWHwSlbmBNMHp5ak2f40Pm8JTFyM2mqxkG6ngkHO11f/lg==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/pretty-format/node_modules/ansi-styles": {
+      "version": "5.0.0",
+      "integrity": "sha512-6564t0m0fuQMnockqBv7wJxo9T5C2V9JpYXyNScfRDPVLusOQQhkpMGrFC17QbiolraQ1sMXX+Y5nJpjqozL4g==",
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/chalk/ansi-styles?sponsor=1"
+      }
+    },
+    "node_modules/pretty-format/node_modules/react-is": {
+      "version": "17.0.2",
+      "integrity": "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
+    }
   }
 }

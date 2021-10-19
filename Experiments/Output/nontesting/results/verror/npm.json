@@ -1,64 +1,28 @@
 {
   "install-success": true,
-  "install_time": 0.9721128940582275,
+  "install_time": 0.6620144844055176,
   "post-install-success": true,
-  "lockfile": {
-    "name": "verror",
-    "version": "1.10.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "verror",
-        "version": "1.10.0",
-        "engines": [
-          "node >=0.6.0"
-        ],
-        "license": "MIT",
-        "dependencies": {
-          "assert-plus": "^1.0.0",
-          "core-util-is": "1.0.2",
-          "extsprintf": "^1.2.0"
-        }
-      },
-      "node_modules/assert-plus": {
-        "version": "1.0.0",
-        "resolved": "https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz",
-        "integrity": "sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=",
-        "engines": {
-          "node": ">=0.8"
-        }
-      },
-      "node_modules/core-util-is": {
-        "version": "1.0.2",
-        "resolved": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz",
-        "integrity": "sha1-tf1UIgqivFq1eqtxQMlAdUUDwac="
-      },
-      "node_modules/extsprintf": {
-        "version": "1.4.0",
-        "resolved": "https://registry.npmjs.org/extsprintf/-/extsprintf-1.4.0.tgz",
-        "integrity": "sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=",
-        "engines": [
-          "node >=0.6.0"
-        ]
+  "installed_deps": {
+    "node_modules/assert-plus": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz",
+      "integrity": "sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=",
+      "engines": {
+        "node": ">=0.8"
       }
     },
-    "dependencies": {
-      "assert-plus": {
-        "version": "1.0.0",
-        "resolved": "https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz",
-        "integrity": "sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU="
-      },
-      "core-util-is": {
-        "version": "1.0.2",
-        "resolved": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz",
-        "integrity": "sha1-tf1UIgqivFq1eqtxQMlAdUUDwac="
-      },
-      "extsprintf": {
-        "version": "1.4.0",
-        "resolved": "https://registry.npmjs.org/extsprintf/-/extsprintf-1.4.0.tgz",
-        "integrity": "sha1-4mifjzVvrWLMplo6kcXfX5VRaS8="
-      }
+    "node_modules/core-util-is": {
+      "version": "1.0.2",
+      "resolved": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz",
+      "integrity": "sha1-tf1UIgqivFq1eqtxQMlAdUUDwac="
+    },
+    "node_modules/extsprintf": {
+      "version": "1.4.0",
+      "resolved": "https://registry.npmjs.org/extsprintf/-/extsprintf-1.4.0.tgz",
+      "integrity": "sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=",
+      "engines": [
+        "node >=0.6.0"
+      ]
     }
   }
 }

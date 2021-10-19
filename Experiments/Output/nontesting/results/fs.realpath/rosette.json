@@ -1,19 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.7305219173431396,
+  "install_time": 2.1409120559692383,
   "post-install-success": true,
-  "lockfile": {
-    "name": "fs.realpath",
-    "version": "1.0.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "fs.realpath",
-        "version": "1.0.0",
-        "license": "ISC",
-        "devDependencies": {}
-      }
-    }
-  }
+  "installed_deps": {}
 }

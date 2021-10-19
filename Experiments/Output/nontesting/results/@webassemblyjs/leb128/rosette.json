@@ -1,30 +1,11 @@
 {
   "install-success": true,
-  "install_time": 5.414083957672119,
+  "install_time": 2.5325381755828857,
   "post-install-success": true,
-  "lockfile": {
-    "name": "@webassemblyjs/leb128",
-    "version": "1.11.1",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "@webassemblyjs/leb128",
-        "version": "1.11.1",
-        "license": "Apache-2.0",
-        "dependencies": {
-          "@xtuc/long": "4.2.2"
-        }
-      },
-      "node_modules/@xtuc/long": {
-        "version": "4.2.2",
-        "integrity": "sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ=="
-      }
-    },
-    "dependencies": {
-      "@xtuc/long": {
-        "version": "4.2.2"
-      }
+  "installed_deps": {
+    "node_modules/@xtuc/long": {
+      "version": "4.2.2",
+      "integrity": "sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ=="
     }
   }
 }

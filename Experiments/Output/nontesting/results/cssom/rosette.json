@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.963979959487915,
+  "install_time": 2.1458044052124023,
   "post-install-success": true,
-  "lockfile": {
-    "name": "cssom",
-    "version": "0.5.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "cssom",
-        "version": "0.5.0",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

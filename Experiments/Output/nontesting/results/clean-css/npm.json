@@ -1,10 +1,15 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --production",
-    "retcode": 127,
-    "stdout": "\n> clean-css@5.1.5 prepublish\n> npm run check\n\n\n> clean-css@5.1.5 check\n> jshint .\n\n",
-    "stderr": "sh: jshint: command not found\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/clean-css/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run check\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T02_53_52_770Z-debug.log\n"
+  "install-success": true,
+  "install_time": 4.544988632202148,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/source-map": {
+      "version": "0.6.1",
+      "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+      "integrity": "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
   }
 }

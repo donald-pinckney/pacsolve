@@ -1,10 +1,6 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --production",
-    "retcode": 1,
-    "stdout": "\n> bluebird@3.7.2 prepublish\n> npm run generate-browser-core && npm run generate-browser-full\n\n\n> bluebird@3.7.2 generate-browser-core\n> node tools/build.js --features=core --no-debug --release --zalgo --browser --minify && mv js/browser/bluebird.js js/browser/bluebird.core.js && mv js/browser/bluebird.min.js js/browser/bluebird.core.min.js\n\n",
-    "stderr": "node:internal/modules/cjs/loader:922\n  throw err;\n  ^\n\nError: Cannot find module '/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/bluebird/npm/package/tools/build.js'\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:919:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:763:27)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)\n    at node:internal/main/run_main_module:17:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/bluebird/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run generate-browser-core && npm run generate-browser-full\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_38_01_430Z-debug.log\n"
-  }
+  "install-success": true,
+  "install_time": 8.658415794372559,
+  "post-install-success": true,
+  "installed_deps": {}
 }

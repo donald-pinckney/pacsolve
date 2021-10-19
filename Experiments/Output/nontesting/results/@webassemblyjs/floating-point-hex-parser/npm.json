@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.617866039276123,
+  "install_time": 0.4058375358581543,
   "post-install-success": true,
-  "lockfile": {
-    "name": "@webassemblyjs/floating-point-hex-parser",
-    "version": "1.11.1",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "@webassemblyjs/floating-point-hex-parser",
-        "version": "1.11.1",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

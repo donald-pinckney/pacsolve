@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.602177619934082,
+  "install_time": 0.4134030342102051,
   "post-install-success": true,
-  "lockfile": {
-    "name": "js-tokens",
-    "version": "7.0.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "js-tokens",
-        "version": "7.0.0",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

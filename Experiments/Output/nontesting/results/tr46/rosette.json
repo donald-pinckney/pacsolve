@@ -1,10 +1,14 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 1,
-    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-12572-r9W7U1poQpzo\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-12572-UJmwiUZ8tPOa\nDecoding Rosette answer: [object Object]\n\n> tr46@2.1.0 prepublish\n> node scripts/generateMappingTable.js && node scripts/generateRegexes.js\n\n",
-    "stderr": "npm WARN deprecated unicode-13.0.0@0.8.0: Use @unicode/unicode-13.0.0 instead.\nnode:internal/modules/cjs/loader:922\n  throw err;\n  ^\n\nError: Cannot find module '/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/tr46/rosette/package/scripts/generateMappingTable.js'\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:919:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:763:27)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)\n    at node:internal/main/run_main_module:17:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/tr46/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c node scripts/generateMappingTable.js && node scripts/generateRegexes.js\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T20_16_27_384Z-debug.log\n"
+  "install-success": true,
+  "install_time": 2.346874952316284,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/punycode": {
+      "version": "2.1.1",
+      "integrity": "sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==",
+      "engines": {
+        "node": ">=6"
+      }
+    }
   }
 }

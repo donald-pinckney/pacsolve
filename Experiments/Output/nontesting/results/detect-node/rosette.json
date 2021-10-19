@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.7567670345306396,
+  "install_time": 2.4168004989624023,
   "post-install-success": true,
-  "lockfile": {
-    "name": "detect-node",
-    "version": "2.1.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "detect-node",
-        "version": "2.1.0",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

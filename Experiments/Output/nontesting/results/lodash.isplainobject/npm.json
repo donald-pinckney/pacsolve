@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.6854195594787598,
+  "install_time": 0.4290144443511963,
   "post-install-success": true,
-  "lockfile": {
-    "name": "lodash.isplainobject",
-    "version": "4.0.6",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "lodash.isplainobject",
-        "version": "4.0.6",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

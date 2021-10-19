@@ -1,10 +1,14 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 2,
-    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-52271-r1P6kn80uhkw\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-52271-swHs2OeZWlzd\nDecoding Rosette answer: [object Object]\n\n> pirates@4.0.1 prepublish\n> yarn run clean && yarn run build\n\nyarn run v1.22.10\n$ rimraf lib\nDone in 0.18s.\nyarn run v1.22.10\n$ babel src -d lib\ninfo Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.\n",
-    "stderr": "npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated\nnpm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated\nnpm WARN deprecated circular-json@0.3.3: CircularJSON is in maintenance only, flatted is its successor.\nnpm WARN deprecated fsevents@1.2.13: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.\nnpm WARN deprecated chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.\nnpm WARN deprecated babel-eslint@10.1.0: babel-eslint is now @babel/eslint-parser. This package will no longer receive updates.\nnpm WARN deprecated core-js@2.6.12: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.\nbabel:\n  src does not exist\nerror Command failed with exit code 2.\nnpm ERR! code 2\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/pirates/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c yarn run clean && yarn run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-13T01_27_41_518Z-debug.log\n"
+  "install-success": true,
+  "install_time": 2.6553995609283447,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/node-modules-regexp": {
+      "version": "1.0.0",
+      "integrity": "sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
   }
 }

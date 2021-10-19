@@ -1,10 +1,21 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 2,
-    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-81564-ng9EhHmF7vWw\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-81564-6Bpzjm6VrJzB\nDecoding Rosette answer: [object Object]\n\n> postcss-selector-parser@6.0.6 prepare\n> del-cli dist && BABEL_ENV=publish babel src --out-dir dist --ignore /__tests__/\n\n",
-    "stderr": "npm WARN deprecated har-validator@5.1.5: this library is no longer supported\nnpm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.\nnpm WARN deprecated request@2.88.2: request has been deprecated, see https://github.com/request/request/issues/3142\nbabel:\n  src does not exist\nnpm ERR! code 2\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/postcss-selector-parser/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c del-cli dist && BABEL_ENV=publish babel src --out-dir dist --ignore /__tests__/\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T17_41_04_430Z-debug.log\n"
+  "install-success": true,
+  "install_time": 2.3436737060546875,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/cssesc": {
+      "version": "3.0.0",
+      "integrity": "sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==",
+      "bin": {
+        "cssesc": "bin/cssesc"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/util-deprecate": {
+      "version": "1.0.2",
+      "integrity": "sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8="
+    }
   }
 }

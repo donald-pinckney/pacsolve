@@ -1,107 +1,43 @@
 {
   "install-success": true,
-  "install_time": 3.6702020168304443,
+  "install_time": 2.4517674446105957,
   "post-install-success": true,
-  "lockfile": {
-    "name": "@nodelib/fs.walk",
-    "version": "1.2.8",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "@nodelib/fs.walk",
-        "version": "1.2.8",
-        "license": "MIT",
-        "dependencies": {
-          "@nodelib/fs.scandir": "2.1.5",
-          "fastq": "^1.6.0"
-        },
-        "devDependencies": {
-          "@nodelib/fs.macchiato": "1.0.4"
-        },
-        "engines": {
-          "node": ">= 8"
-        }
+  "installed_deps": {
+    "node_modules/@nodelib/fs.scandir": {
+      "version": "2.1.5",
+      "integrity": "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==",
+      "dependencies": {
+        "@nodelib/fs.stat": "2.0.5",
+        "run-parallel": "^1.1.9"
       },
-      "node_modules/@nodelib/fs.macchiato": {
-        "version": "1.0.4",
-        "resolved": "https://registry.npmjs.org/@nodelib/fs.macchiato/-/fs.macchiato-1.0.4.tgz",
-        "integrity": "sha512-o3u4PGaUMkyqN8zVXWM2iuVWg3O/h3cVy5nDOWqPrkbW4dO6u3qKJEF8gA2Esru2wskA8qFHZ+eYANN/yss8kA==",
-        "dev": true,
-        "engines": {
-          "node": ">= 8"
-        }
-      },
-      "node_modules/@nodelib/fs.scandir": {
-        "version": "2.1.5",
-        "integrity": "sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==",
-        "dependencies": {
-          "@nodelib/fs.stat": "2.0.5",
-          "run-parallel": "^1.1.9"
-        },
-        "engines": {
-          "node": ">= 8"
-        }
-      },
-      "node_modules/@nodelib/fs.scandir/node_modules/@nodelib/fs.stat": {
-        "version": "2.0.5",
-        "integrity": "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A==",
-        "engines": {
-          "node": ">= 8"
-        }
-      },
-      "node_modules/@nodelib/fs.scandir/node_modules/run-parallel": {
-        "version": "1.1.9",
-        "integrity": "sha512-DEqnSRTDw/Tc3FXf49zedI638Z9onwUotBMiUFKmrO2sdFKIbXamXGQ3Axd4qgphxKB4kw/qP1w5kTxnfU1B9Q=="
-      },
-      "node_modules/fastq": {
-        "version": "1.6.0",
-        "integrity": "sha512-jmxqQ3Z/nXoeyDmWAzF9kH1aGZSis6e/SbfPmJpUnyZ0ogr6iscHQaml4wsEepEWSdtmpy+eVXmCRIMpxaXqOA==",
-        "dependencies": {
-          "reusify": "^1.0.0"
-        }
-      },
-      "node_modules/fastq/node_modules/reusify": {
-        "version": "1.0.3",
-        "integrity": "sha512-t8ZQIaf4CHxy8mb4QddDuGOygGiSSiJHMZrtrC+4E7urVtqON4dHVwmV0gfiBOE1tt5p1puae6o8e0b3wkr1Ag==",
-        "engines": {
-          "iojs": ">=1.0.0",
-          "node": ">=0.10.0"
-        }
+      "engines": {
+        "node": ">= 8"
       }
     },
-    "dependencies": {
-      "@nodelib/fs.macchiato": {
-        "version": "1.0.4",
-        "resolved": "https://registry.npmjs.org/@nodelib/fs.macchiato/-/fs.macchiato-1.0.4.tgz",
-        "integrity": "sha512-o3u4PGaUMkyqN8zVXWM2iuVWg3O/h3cVy5nDOWqPrkbW4dO6u3qKJEF8gA2Esru2wskA8qFHZ+eYANN/yss8kA==",
-        "dev": true
-      },
-      "@nodelib/fs.scandir": {
-        "version": "2.1.5",
-        "requires": {
-          "@nodelib/fs.stat": "2.0.5",
-          "run-parallel": "^1.1.9"
-        },
-        "dependencies": {
-          "@nodelib/fs.stat": {
-            "version": "2.0.5"
-          },
-          "run-parallel": {
-            "version": "1.1.9"
-          }
-        }
-      },
-      "fastq": {
-        "version": "1.6.0",
-        "requires": {
-          "reusify": "^1.0.0"
-        },
-        "dependencies": {
-          "reusify": {
-            "version": "1.0.3"
-          }
-        }
+    "node_modules/@nodelib/fs.scandir/node_modules/@nodelib/fs.stat": {
+      "version": "2.0.5",
+      "integrity": "sha512-RkhPPp2zrqDAQA/2jNhnztcPAlv64XdhIp7a7454A5ovI7Bukxgt7MX7udwAu3zg1DcpPU0rz3VV1SeaqvY4+A==",
+      "engines": {
+        "node": ">= 8"
+      }
+    },
+    "node_modules/@nodelib/fs.scandir/node_modules/run-parallel": {
+      "version": "1.1.9",
+      "integrity": "sha512-DEqnSRTDw/Tc3FXf49zedI638Z9onwUotBMiUFKmrO2sdFKIbXamXGQ3Axd4qgphxKB4kw/qP1w5kTxnfU1B9Q=="
+    },
+    "node_modules/fastq": {
+      "version": "1.7.0",
+      "integrity": "sha512-YOadQRnHd5q6PogvAR/x62BGituF2ufiEA6s8aavQANw5YKHERI4AREboX6KotzP8oX2klxYF2wcV/7bn1clfQ==",
+      "dependencies": {
+        "reusify": "^1.0.4"
+      }
+    },
+    "node_modules/fastq/node_modules/reusify": {
+      "version": "1.0.4",
+      "integrity": "sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==",
+      "engines": {
+        "iojs": ">=1.0.0",
+        "node": ">=0.10.0"
       }
     }
   }

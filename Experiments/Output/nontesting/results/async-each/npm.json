@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 1.0837311744689941,
+  "install_time": 0.3886401653289795,
   "post-install-success": true,
-  "lockfile": {
-    "name": "async-each",
-    "version": "1.0.3",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "async-each",
-        "version": "1.0.3",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

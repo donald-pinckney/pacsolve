@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.776031017303467,
+  "install_time": 2.2958531379699707,
   "post-install-success": true,
-  "lockfile": {
-    "name": "lodash.clonedeep",
-    "version": "4.5.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "lodash.clonedeep",
-        "version": "4.5.0",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

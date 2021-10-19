@@ -1,10 +1,12 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --production",
-    "retcode": 127,
-    "stdout": "\n> which@2.0.2 prepublish\n> npm run changelog\n\n\n> which@2.0.2 prechangelog\n> bash gen-changelog.sh\n\n",
-    "stderr": "bash: gen-changelog.sh: No such file or directory\nnpm ERR! code 127\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/which/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run changelog\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T17_28_31_918Z-debug.log\n"
+  "install-success": true,
+  "install_time": 2.94860577583313,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/isexe": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz",
+      "integrity": "sha1-6PvzdNxVb/iUehDcsFctYz8s+hA="
+    }
   }
 }

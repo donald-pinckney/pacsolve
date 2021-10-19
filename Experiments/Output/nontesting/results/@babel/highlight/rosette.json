@@ -1,189 +1,68 @@
 {
   "install-success": true,
-  "install_time": 4.209517955780029,
+  "install_time": 2.821446418762207,
   "post-install-success": true,
-  "lockfile": {
-    "name": "@babel/highlight",
-    "version": "7.14.5",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "@babel/highlight",
-        "version": "7.14.5",
-        "license": "MIT",
-        "dependencies": {
-          "@babel/helper-validator-identifier": "^7.14.5",
-          "chalk": "^2.0.0",
-          "js-tokens": "^4.0.0"
-        },
-        "devDependencies": {
-          "@types/chalk": "^2.0.0",
-          "strip-ansi": "^4.0.0"
-        },
-        "engines": {
-          "node": ">=6.9.0"
-        }
-      },
-      "node_modules/@babel/helper-validator-identifier": {
-        "version": "7.14.8",
-        "integrity": "sha512-ZGy6/XQjllhYQrNw/3zfWRwZCTVSiBLZ9DHVZxn9n2gip/7ab8mv2TWlKPIBk26RwedCBoWdjLmn+t9na2Gcow==",
-        "engines": {
-          "node": ">=6.9.0"
-        }
-      },
-      "node_modules/@types/chalk": {
-        "version": "2.2.0",
-        "resolved": "https://registry.npmjs.org/@types/chalk/-/chalk-2.2.0.tgz",
-        "integrity": "sha512-1zzPV9FDe1I/WHhRkf9SNgqtRJWZqrBWgu7JGveuHmmyR9CnAPCie2N/x+iHrgnpYBIcCJWHBoMRv2TRWktsvw==",
-        "deprecated": "This is a stub types definition for chalk (https://github.com/chalk/chalk). chalk provides its own type definitions, so you don't need @types/chalk installed!",
-        "dev": true,
-        "dependencies": {
-          "chalk": "*"
-        }
-      },
-      "node_modules/ansi-regex": {
-        "version": "3.0.0",
-        "resolved": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-3.0.0.tgz",
-        "integrity": "sha1-7QMXwyIGT3lGbAKWa922Bas32Zg=",
-        "dev": true,
-        "engines": {
-          "node": ">=4"
-        }
-      },
-      "node_modules/chalk": {
-        "version": "2.2.0",
-        "integrity": "sha512-0BMM/2hG3ZaoPfR6F+h/oWpZtsh3b/s62TjSM6MGCJWEbJDN1acqCXvyhhZsDSVFklpebUoQ5O1kKC7lOzrn9g==",
-        "dependencies": {
-          "ansi-styles": "^3.1.0",
-          "escape-string-regexp": "^1.0.5",
-          "supports-color": "^4.0.0"
-        },
-        "engines": {
-          "node": ">=4"
-        }
-      },
-      "node_modules/chalk/node_modules/ansi-styles": {
-        "version": "3.1.0",
-        "integrity": "sha1-CcIC1ckX7CMYjKpcnLkXnNlUd1A=",
-        "dependencies": {
-          "color-convert": "^1.0.0"
-        },
-        "engines": {
-          "node": ">=4"
-        }
-      },
-      "node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
-        "version": "1.1.1",
-        "integrity": "sha1-f9sJISr+9G2I4PoIDEsbnLjYVk4="
-      },
-      "node_modules/chalk/node_modules/escape-string-regexp": {
-        "version": "1.0.5",
-        "integrity": "sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=",
-        "engines": {
-          "node": ">=0.8.0"
-        }
-      },
-      "node_modules/chalk/node_modules/supports-color": {
-        "version": "4.5.0",
-        "integrity": "sha1-vnoN5ITexcXN34s9WRJQRJEvY1s=",
-        "dependencies": {
-          "has-flag": "^2.0.0"
-        },
-        "engines": {
-          "node": ">=4"
-        }
-      },
-      "node_modules/chalk/node_modules/supports-color/node_modules/has-flag": {
-        "version": "2.0.0",
-        "integrity": "sha1-6CB68cx7MNRGzHC3NLXovhj4jVE=",
-        "engines": {
-          "node": ">=0.10.0"
-        }
-      },
-      "node_modules/js-tokens": {
-        "version": "4.0.0",
-        "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
-      },
-      "node_modules/strip-ansi": {
-        "version": "4.0.0",
-        "resolved": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-4.0.0.tgz",
-        "integrity": "sha1-qEeQIusaw2iocTibY1JixQXuNo8=",
-        "dev": true,
-        "dependencies": {
-          "ansi-regex": "^3.0.0"
-        },
-        "engines": {
-          "node": ">=4"
-        }
+  "installed_deps": {
+    "node_modules/@babel/helper-validator-identifier": {
+      "version": "7.15.7",
+      "integrity": "sha512-K4JvCtQqad9OY2+yTU8w+E82ywk/fe+ELNlt1G8z3bVGlZfn/hOcQQsUhGhW/N+tb3fxK800wLtKOE/aM0m72w==",
+      "engines": {
+        "node": ">=6.9.0"
       }
     },
-    "dependencies": {
-      "@babel/helper-validator-identifier": {
-        "version": "7.14.8"
+    "node_modules/chalk": {
+      "version": "2.2.2",
+      "integrity": "sha512-LvixLAQ4MYhbf7hgL4o5PeK32gJKvVzDRiSNIApDofQvyhl8adgG2lJVXn4+ekQoK7HL9RF8lqxwerpe0x2pCw==",
+      "dependencies": {
+        "ansi-styles": "^3.1.0",
+        "escape-string-regexp": "^1.0.5",
+        "supports-color": "^4.0.0"
       },
-      "@types/chalk": {
-        "version": "2.2.0",
-        "resolved": "https://registry.npmjs.org/@types/chalk/-/chalk-2.2.0.tgz",
-        "integrity": "sha512-1zzPV9FDe1I/WHhRkf9SNgqtRJWZqrBWgu7JGveuHmmyR9CnAPCie2N/x+iHrgnpYBIcCJWHBoMRv2TRWktsvw==",
-        "dev": true,
-        "requires": {
-          "chalk": "*"
-        }
-      },
-      "ansi-regex": {
-        "version": "3.0.0",
-        "resolved": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-3.0.0.tgz",
-        "integrity": "sha1-7QMXwyIGT3lGbAKWa922Bas32Zg=",
-        "dev": true
-      },
-      "chalk": {
-        "version": "2.2.0",
-        "requires": {
-          "ansi-styles": "^3.1.0",
-          "escape-string-regexp": "^1.0.5",
-          "supports-color": "^4.0.0"
-        },
-        "dependencies": {
-          "ansi-styles": {
-            "version": "3.1.0",
-            "requires": {
-              "color-convert": "^1.0.0"
-            },
-            "dependencies": {
-              "color-convert": {
-                "version": "1.1.1"
-              }
-            }
-          },
-          "escape-string-regexp": {
-            "version": "1.0.5"
-          },
-          "supports-color": {
-            "version": "4.5.0",
-            "requires": {
-              "has-flag": "^2.0.0"
-            },
-            "dependencies": {
-              "has-flag": {
-                "version": "2.0.0"
-              }
-            }
-          }
-        }
-      },
-      "js-tokens": {
-        "version": "4.0.0"
-      },
-      "strip-ansi": {
-        "version": "4.0.0",
-        "resolved": "https://registry.npmjs.org/strip-ansi/-/strip-ansi-4.0.0.tgz",
-        "integrity": "sha1-qEeQIusaw2iocTibY1JixQXuNo8=",
-        "dev": true,
-        "requires": {
-          "ansi-regex": "^3.0.0"
-        }
+      "engines": {
+        "node": ">=4"
       }
+    },
+    "node_modules/chalk/node_modules/ansi-styles": {
+      "version": "3.1.0",
+      "integrity": "sha1-CcIC1ckX7CMYjKpcnLkXnNlUd1A=",
+      "dependencies": {
+        "color-convert": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
+      "version": "1.1.0",
+      "integrity": "sha1-YrgJYcEoL0lRd8W0mSAHL+0ij4I="
+    },
+    "node_modules/chalk/node_modules/escape-string-regexp": {
+      "version": "1.0.5",
+      "integrity": "sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=",
+      "engines": {
+        "node": ">=0.8.0"
+      }
+    },
+    "node_modules/chalk/node_modules/supports-color": {
+      "version": "4.0.0",
+      "integrity": "sha1-M6fGgKpRLJ0D75KcrLuXTSA9J5A=",
+      "dependencies": {
+        "has-flag": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/chalk/node_modules/supports-color/node_modules/has-flag": {
+      "version": "2.0.0",
+      "integrity": "sha1-6CB68cx7MNRGzHC3NLXovhj4jVE=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/js-tokens": {
+      "version": "4.0.0",
+      "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
     }
   }
 }

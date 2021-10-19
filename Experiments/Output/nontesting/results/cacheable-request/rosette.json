@@ -1,10 +1,107 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 1,
-    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-26557-d3bkcQ34K8QY\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-26557-Yb3JZ1U5KT35\nDecoding Rosette answer: [object Object]\n",
-    "stderr": "npm ERR! Cannot set property 'peer' of null\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T21_55_43_471Z-debug.log\n"
+  "install-success": true,
+  "install_time": 2.9848716259002686,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/clone-response": {
+      "version": "1.0.2",
+      "integrity": "sha1-0dyXOSAxTfZ/vrlCI7TuNQI56Ws=",
+      "dependencies": {
+        "mimic-response": "^1.0.0"
+      }
+    },
+    "node_modules/clone-response/node_modules/mimic-response": {
+      "version": "1.0.0",
+      "integrity": "sha1-3z02Uqc/3ta5sLJBRub9BSNTRY4=",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/get-stream": {
+      "version": "5.2.0",
+      "integrity": "sha512-nBF+F1rAZVCu/p7rjzgA+Yb4lfYXrpl7a6VmJrU8wF9I1CKvP/QwPNZHnOlwbTkY6dvtFIzFMSyQXbLoTQPRpA==",
+      "dependencies": {
+        "pump": "^3.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/get-stream/node_modules/pump": {
+      "version": "3.0.0",
+      "integrity": "sha512-LwZy+p3SFs1Pytd/jYct4wpv49HiYCqd9Rlc5ZVdk0V+8Yzv6jR5Blk3TRmPL1ft69TxP0IMZGJ+WPFU2BFhww==",
+      "dependencies": {
+        "end-of-stream": "^1.1.0",
+        "once": "^1.3.1"
+      }
+    },
+    "node_modules/get-stream/node_modules/pump/node_modules/end-of-stream": {
+      "version": "1.1.0",
+      "integrity": "sha1-6TUyWLqpEIll78QcsO+K3i88+wc=",
+      "dependencies": {
+        "once": "~1.3.0"
+      }
+    },
+    "node_modules/get-stream/node_modules/pump/node_modules/end-of-stream/node_modules/once": {
+      "resolved": "node_modules/get-stream/node_modules/pump/node_modules/once",
+      "link": true
+    },
+    "node_modules/get-stream/node_modules/pump/node_modules/once": {
+      "version": "1.3.1",
+      "integrity": "sha1-8/Pk2lt9J7XHMpae4+Z+cpRXsx8=",
+      "dependencies": {
+        "wrappy": "1"
+      }
+    },
+    "node_modules/get-stream/node_modules/pump/node_modules/once/node_modules/wrappy": {
+      "version": "1.0.0",
+      "integrity": "sha1-iq5PxrTNa+MqRVOYW88ys+4THk4="
+    },
+    "node_modules/http-cache-semantics": {
+      "version": "4.0.4",
+      "integrity": "sha512-Z2EICWNJou7Tr9Bd2M2UqDJq3A9F2ePG9w3lIpjoyuSyXFP9QbniJVu3XQYytuw5ebmG7dXSXO9PgAjJG8DDKA=="
+    },
+    "node_modules/keyv": {
+      "version": "4.0.0",
+      "integrity": "sha512-U7ioE8AimvRVLfw4LffyOIRhL2xVgmE8T22L6i0BucSnBUyv4w+I7VN/zVZwRKHOI6ZRUcdMdWHQ8KSUvGpEog==",
+      "dependencies": {
+        "json-buffer": "3.0.1"
+      }
+    },
+    "node_modules/keyv/node_modules/json-buffer": {
+      "version": "3.0.1",
+      "integrity": "sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ=="
+    },
+    "node_modules/lowercase-keys": {
+      "version": "2.0.0",
+      "integrity": "sha512-tqNXrS78oMOE73NMxK4EMLQsQowWf8jKooH9g7xPavRT706R6bkQJ6DY2Te7QukaZsulxa30wQ7bk0pm4XiHmA==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/normalize-url": {
+      "version": "6.0.1",
+      "integrity": "sha512-VU4pzAuh7Kip71XEmO9aNREYAdMHFGTVj/i+CaTImS8x0i1d3jUZkXhqluy/PRgjPLMgsLQulYY3PJ/aSbSjpQ==",
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/responselike": {
+      "version": "2.0.0",
+      "integrity": "sha512-xH48u3FTB9VsZw7R+vvgaKeLKzT6jOogbQhEe/jewwnZgzPcnyWui2Av6JpoYZF/91uueC+lqhWqeURw5/qhCw==",
+      "dependencies": {
+        "lowercase-keys": "^2.0.0"
+      }
+    },
+    "node_modules/responselike/node_modules/lowercase-keys": {
+      "resolved": "node_modules/lowercase-keys",
+      "link": true
+    }
   }
 }

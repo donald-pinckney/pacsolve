@@ -1,36 +1,12 @@
 {
   "install-success": true,
-  "install_time": 1.1608788967132568,
+  "install_time": 0.5743732452392578,
   "post-install-success": true,
-  "lockfile": {
-    "name": "@babel/runtime",
-    "version": "7.15.4",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "@babel/runtime",
-        "version": "7.15.4",
-        "license": "MIT",
-        "dependencies": {
-          "regenerator-runtime": "^0.13.4"
-        },
-        "engines": {
-          "node": ">=6.9.0"
-        }
-      },
-      "node_modules/regenerator-runtime": {
-        "version": "0.13.9",
-        "resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz",
-        "integrity": "sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA=="
-      }
-    },
-    "dependencies": {
-      "regenerator-runtime": {
-        "version": "0.13.9",
-        "resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz",
-        "integrity": "sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA=="
-      }
+  "installed_deps": {
+    "node_modules/regenerator-runtime": {
+      "version": "0.13.9",
+      "resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz",
+      "integrity": "sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA=="
     }
   }
 }

@@ -1,10 +1,6 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 1,
-    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-99318-AH3YoF4xAhDG\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-99318-tYC8yASgh9Le\nDecoding Rosette answer: [object Object]\n\n> typescript@4.4.3 prepare\n> gulp build-eslint-rules\n\n",
-    "stderr": "npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated\nnpm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated\nnpm WARN deprecated fsevents@1.2.13: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.\nnpm WARN deprecated chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.\nnpm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.\nnpm WARN deprecated istanbul@0.4.5: This module is no longer maintained, try this instead:\nnpm WARN deprecated   npm i nyc\nnpm WARN deprecated Visit https://istanbul.js.org/integrations for other alternatives.\n[14:57:07] No gulpfile found\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/typescript/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c gulp build-eslint-rules\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_57_07_103Z-debug.log\n"
-  }
+  "install-success": true,
+  "install_time": 2.1332385540008545,
+  "post-install-success": true,
+  "installed_deps": {}
 }

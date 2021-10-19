@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.6858770847320557,
+  "install_time": 0.41612792015075684,
   "post-install-success": true,
-  "lockfile": {
-    "name": "lodash.debounce",
-    "version": "4.0.8",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "lodash.debounce",
-        "version": "4.0.8",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

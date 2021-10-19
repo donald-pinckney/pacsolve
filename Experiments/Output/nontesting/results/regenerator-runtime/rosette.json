@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.7456579208374023,
+  "install_time": 2.133183240890503,
   "post-install-success": true,
-  "lockfile": {
-    "name": "regenerator-runtime",
-    "version": "0.13.9",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "regenerator-runtime",
-        "version": "0.13.9",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

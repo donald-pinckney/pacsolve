@@ -1,10 +1,6 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --production",
-    "retcode": 254,
-    "stdout": "\n> csstype@3.0.9 prepublish\n> npm install --prefix __tests__ && npm install --prefix __tests__/__fixtures__\n\n",
-    "stderr": "npm ERR! code ENOENT\nnpm ERR! syscall open\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/csstype/npm/package/__tests__/package.json\nnpm ERR! errno -2\nnpm ERR! enoent ENOENT: no such file or directory, open '/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/csstype/npm/package/__tests__/package.json'\nnpm ERR! enoent This is related to npm not being able to find a file.\nnpm ERR! enoent \n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T21_34_08_629Z-debug.log\nnpm ERR! code 254\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/csstype/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm install --prefix __tests__ && npm install --prefix __tests__/__fixtures__\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T21_34_08_668Z-debug.log\n"
-  }
+  "install-success": true,
+  "install_time": 10.815216302871704,
+  "post-install-success": true,
+  "installed_deps": {}
 }

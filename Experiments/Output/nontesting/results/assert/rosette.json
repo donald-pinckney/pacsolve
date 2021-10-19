@@ -1,10 +1,101 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 2,
-    "stdout": "0 / 1\n100 / 73\n200 / 13\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-27397-5gI8ExzdnX0M\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-27397-VgQ3s86T3jB6\nDecoding Rosette answer: [object Object]\n\n> assert@2.0.0 prepare\n> npm run build\n\n\n> assert@2.0.0 build\n> babel assert.js test.js --out-dir build && babel internal --out-dir build/internal && babel test --out-dir build/test\n\n",
-    "stderr": "npm WARN deprecated urix@0.1.0: Please see https://github.com/lydell/urix#deprecated\nnpm WARN deprecated har-validator@5.1.5: this library is no longer supported\nnpm WARN deprecated resolve-url@0.2.1: https://github.com/lydell/resolve-url#deprecated\nnpm WARN deprecated jetpack-id@1.0.0: Jetpack extensions are no longer supported by Firefox. Use web-ext instead to build a WebExtension.\nnpm WARN deprecated fsevents@1.2.13: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.\nnpm WARN deprecated chokidar@2.1.8: Chokidar 2 will break on node v14+. Upgrade to chokidar 3 with 15x less dependencies.\nnpm WARN deprecated debug@4.1.1: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)\nnpm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.\nnpm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.\nnpm WARN deprecated request@2.88.0: request has been deprecated, see https://github.com/request/request/issues/3142\nnpm WARN deprecated highlight.js@9.12.0: Version no longer supported. Upgrade to @latest\nnpm WARN deprecated core-js@2.6.12: core-js@<3.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.\nbabel:\n  assert.js does not exist\n  test.js does not exist\nnpm ERR! code 2\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/assert/rosette/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T22_11_29_811Z-debug.log\n"
+  "install-success": true,
+  "install_time": 9.755167245864868,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/es6-object-assign": {
+      "version": "1.1.0",
+      "integrity": "sha1-wsNYJlYkfDnqEHyx5mUrb58kUjw="
+    },
+    "node_modules/is-nan": {
+      "version": "1.2.1",
+      "integrity": "sha1-n69ltvttskt/XAYoR16nH5iEAeI=",
+      "dependencies": {
+        "define-properties": "^1.1.1"
+      },
+      "engines": {
+        "node": ">= 0.4"
+      }
+    },
+    "node_modules/is-nan/node_modules/define-properties": {
+      "version": "1.1.3",
+      "integrity": "sha512-3MqfYKj2lLzdMSf8ZIZE/V+Zuy+BgD6f164e8K2w7dgnpKArBDerGYpM46IYYcjnkdPNMjPk9A6VFB8+3SKlXQ==",
+      "dependencies": {
+        "object-keys": "^1.0.12"
+      },
+      "engines": {
+        "node": ">= 0.4"
+      }
+    },
+    "node_modules/is-nan/node_modules/define-properties/node_modules/object-keys": {
+      "version": "1.1.1",
+      "integrity": "sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==",
+      "engines": {
+        "node": ">= 0.4"
+      }
+    },
+    "node_modules/object-is": {
+      "version": "1.1.1",
+      "integrity": "sha512-9wFT2CEamBmkYN6TEqnXCOzexDKR/N3hyUOQwtxIxZCZOyvlTUhKUejftM6+nciflJX0x2VLh7wNFWvIpmKGNw==",
+      "dependencies": {
+        "define-properties": "^1.1.3"
+      },
+      "engines": {
+        "node": ">= 0.4"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/object-is/node_modules/define-properties": {
+      "resolved": "node_modules/is-nan/node_modules/define-properties",
+      "link": true
+    },
+    "node_modules/util": {
+      "version": "0.12.2",
+      "integrity": "sha512-XE+MkWQvglYa+IOfBt5UFG93EmncEMP23UqpgDvVZVFBPxwmkK10QRp6pgU4xICPnWRf/t0zPv4noYSUq9gqUQ==",
+      "dependencies": {
+        "inherits": "^2.0.3",
+        "is-arguments": "^1.0.4",
+        "is-generator-function": "^1.0.7",
+        "safe-buffer": "^5.1.2"
+      }
+    },
+    "node_modules/util/node_modules/inherits": {
+      "version": "2.0.3",
+      "integrity": "sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4="
+    },
+    "node_modules/util/node_modules/is-arguments": {
+      "version": "1.0.4",
+      "integrity": "sha512-xPh0Rmt8NE65sNzvyUmWgI1tz3mKq74lGA0mL8LYZcoIzKOzDh6HmrYm3d18k60nHerC8A9Km8kYu87zfSFnLA==",
+      "engines": {
+        "node": ">= 0.4"
+      }
+    },
+    "node_modules/util/node_modules/is-generator-function": {
+      "version": "1.0.7",
+      "integrity": "sha512-YZc5EwyO4f2kWCax7oegfuSr9mFz1ZvieNYBEjmukLxgXfBUbxAWGVF7GZf0zidYtoBl3WvC07YK0wT76a+Rtw==",
+      "engines": {
+        "node": ">= 0.4"
+      }
+    },
+    "node_modules/util/node_modules/safe-buffer": {
+      "version": "5.2.1",
+      "integrity": "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==",
+      "funding": [
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/feross"
+        },
+        {
+          "type": "patreon",
+          "url": "https://www.patreon.com/feross"
+        },
+        {
+          "type": "consulting",
+          "url": "https://feross.org/support"
+        }
+      ]
+    }
   }
 }

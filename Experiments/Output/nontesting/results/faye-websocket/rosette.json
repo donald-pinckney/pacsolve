@@ -1,198 +1,23 @@
 {
   "install-success": true,
-  "install_time": 3.9810168743133545,
+  "install_time": 2.918520450592041,
   "post-install-success": true,
-  "lockfile": {
-    "name": "faye-websocket",
-    "version": "0.11.4",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "faye-websocket",
-        "version": "0.11.4",
-        "license": "Apache-2.0",
-        "dependencies": {
-          "websocket-driver": ">=0.5.1"
-        },
-        "devDependencies": {
-          "jstest": "*",
-          "pace": "*",
-          "permessage-deflate": "*"
-        },
-        "engines": {
-          "node": ">=0.8.0"
-        }
+  "installed_deps": {
+    "node_modules/websocket-driver": {
+      "version": "0.6.0",
+      "integrity": "sha1-DZ4ODqZuOS8MYTxTXYBuB2tC/10=",
+      "dependencies": {
+        "websocket-extensions": ">=0.1.1"
       },
-      "node_modules/abbrev": {
-        "version": "1.1.1",
-        "resolved": "https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz",
-        "integrity": "sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==",
-        "dev": true
-      },
-      "node_modules/charm": {
-        "version": "0.1.2",
-        "resolved": "https://registry.npmjs.org/charm/-/charm-0.1.2.tgz",
-        "integrity": "sha1-BsIe7RobBq62dVPNxT4jJ0usIpY=",
-        "dev": true
-      },
-      "node_modules/jstest": {
-        "version": "1.0.5",
-        "resolved": "https://registry.npmjs.org/jstest/-/jstest-1.0.5.tgz",
-        "integrity": "sha1-4J2h4dahwotjr9lS0916mMXYYCc=",
-        "dev": true,
-        "dependencies": {
-          "nopt": ""
-        },
-        "bin": {
-          "jstest": "bin/jstest"
-        },
-        "engines": {
-          "node": ">=0.4.0"
-        }
-      },
-      "node_modules/nopt": {
-        "version": "5.0.0",
-        "resolved": "https://registry.npmjs.org/nopt/-/nopt-5.0.0.tgz",
-        "integrity": "sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==",
-        "dev": true,
-        "dependencies": {
-          "abbrev": "1"
-        },
-        "bin": {
-          "nopt": "bin/nopt.js"
-        },
-        "engines": {
-          "node": ">=6"
-        }
-      },
-      "node_modules/pace": {
-        "version": "0.0.4",
-        "resolved": "https://registry.npmjs.org/pace/-/pace-0.0.4.tgz",
-        "integrity": "sha1-1mQF1fW8EtJUQabibIeNvGnnenc=",
-        "dev": true,
-        "dependencies": {
-          "charm": "~0.1.0"
-        },
-        "engines": {
-          "node": "*"
-        }
-      },
-      "node_modules/permessage-deflate": {
-        "version": "0.1.7",
-        "resolved": "https://registry.npmjs.org/permessage-deflate/-/permessage-deflate-0.1.7.tgz",
-        "integrity": "sha512-EUNi/RIsyJ1P1u9QHFwMOUWMYetqlE22ZgGbad7YP856WF4BFF0B7DuNy6vEGsgNNud6c/SkdWzkne71hH8MjA==",
-        "dev": true,
-        "dependencies": {
-          "safe-buffer": "*"
-        },
-        "engines": {
-          "node": ">=0.8.0"
-        }
-      },
-      "node_modules/safe-buffer": {
-        "version": "5.2.1",
-        "resolved": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz",
-        "integrity": "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==",
-        "dev": true,
-        "funding": [
-          {
-            "type": "github",
-            "url": "https://github.com/sponsors/feross"
-          },
-          {
-            "type": "patreon",
-            "url": "https://www.patreon.com/feross"
-          },
-          {
-            "type": "consulting",
-            "url": "https://feross.org/support"
-          }
-        ]
-      },
-      "node_modules/websocket-driver": {
-        "version": "0.6.0",
-        "integrity": "sha1-DZ4ODqZuOS8MYTxTXYBuB2tC/10=",
-        "dependencies": {
-          "websocket-extensions": ">=0.1.1"
-        },
-        "engines": {
-          "node": ">=0.6.0"
-        }
-      },
-      "node_modules/websocket-driver/node_modules/websocket-extensions": {
-        "version": "0.1.1",
-        "integrity": "sha1-domUmcGEtu91Q3fC27DNbLVdKec=",
-        "engines": {
-          "node": ">=0.6.0"
-        }
+      "engines": {
+        "node": ">=0.6.0"
       }
     },
-    "dependencies": {
-      "abbrev": {
-        "version": "1.1.1",
-        "resolved": "https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz",
-        "integrity": "sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==",
-        "dev": true
-      },
-      "charm": {
-        "version": "0.1.2",
-        "resolved": "https://registry.npmjs.org/charm/-/charm-0.1.2.tgz",
-        "integrity": "sha1-BsIe7RobBq62dVPNxT4jJ0usIpY=",
-        "dev": true
-      },
-      "jstest": {
-        "version": "1.0.5",
-        "resolved": "https://registry.npmjs.org/jstest/-/jstest-1.0.5.tgz",
-        "integrity": "sha1-4J2h4dahwotjr9lS0916mMXYYCc=",
-        "dev": true,
-        "requires": {
-          "nopt": ""
-        }
-      },
-      "nopt": {
-        "version": "5.0.0",
-        "resolved": "https://registry.npmjs.org/nopt/-/nopt-5.0.0.tgz",
-        "integrity": "sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==",
-        "dev": true,
-        "requires": {
-          "abbrev": "1"
-        }
-      },
-      "pace": {
-        "version": "0.0.4",
-        "resolved": "https://registry.npmjs.org/pace/-/pace-0.0.4.tgz",
-        "integrity": "sha1-1mQF1fW8EtJUQabibIeNvGnnenc=",
-        "dev": true,
-        "requires": {
-          "charm": "~0.1.0"
-        }
-      },
-      "permessage-deflate": {
-        "version": "0.1.7",
-        "resolved": "https://registry.npmjs.org/permessage-deflate/-/permessage-deflate-0.1.7.tgz",
-        "integrity": "sha512-EUNi/RIsyJ1P1u9QHFwMOUWMYetqlE22ZgGbad7YP856WF4BFF0B7DuNy6vEGsgNNud6c/SkdWzkne71hH8MjA==",
-        "dev": true,
-        "requires": {
-          "safe-buffer": "*"
-        }
-      },
-      "safe-buffer": {
-        "version": "5.2.1",
-        "resolved": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz",
-        "integrity": "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==",
-        "dev": true
-      },
-      "websocket-driver": {
-        "version": "0.6.0",
-        "requires": {
-          "websocket-extensions": ">=0.1.1"
-        },
-        "dependencies": {
-          "websocket-extensions": {
-            "version": "0.1.1"
-          }
-        }
+    "node_modules/websocket-driver/node_modules/websocket-extensions": {
+      "version": "0.1.1",
+      "integrity": "sha1-domUmcGEtu91Q3fC27DNbLVdKec=",
+      "engines": {
+        "node": ">=0.6.0"
       }
     }
   }

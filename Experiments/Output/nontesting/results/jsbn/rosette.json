@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.3069241046905518,
+  "install_time": 2.60910964012146,
   "post-install-success": true,
-  "lockfile": {
-    "name": "jsbn",
-    "version": "1.1.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "jsbn",
-        "version": "1.1.0",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

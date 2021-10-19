@@ -1,35 +1,14 @@
 {
   "install-success": true,
-  "install_time": 1.631223201751709,
+  "install_time": 0.60158371925354,
   "post-install-success": true,
-  "lockfile": {
-    "name": "getpass",
-    "version": "0.1.7",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "getpass",
-        "version": "0.1.7",
-        "license": "MIT",
-        "dependencies": {
-          "assert-plus": "^1.0.0"
-        }
-      },
-      "node_modules/assert-plus": {
-        "version": "1.0.0",
-        "resolved": "https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz",
-        "integrity": "sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=",
-        "engines": {
-          "node": ">=0.8"
-        }
-      }
-    },
-    "dependencies": {
-      "assert-plus": {
-        "version": "1.0.0",
-        "resolved": "https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz",
-        "integrity": "sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU="
+  "installed_deps": {
+    "node_modules/assert-plus": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz",
+      "integrity": "sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=",
+      "engines": {
+        "node": ">=0.8"
       }
     }
   }

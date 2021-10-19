@@ -1,22 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.6779298782348633,
+  "install_time": 2.118431329727173,
   "post-install-success": true,
-  "lockfile": {
-    "name": "oauth-sign",
-    "version": "0.9.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "oauth-sign",
-        "version": "0.9.0",
-        "license": "Apache-2.0",
-        "devDependencies": {},
-        "engines": {
-          "node": "*"
-        }
-      }
-    }
-  }
+  "installed_deps": {}
 }

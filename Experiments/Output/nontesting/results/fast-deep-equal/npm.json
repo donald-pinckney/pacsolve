@@ -1,10 +1,6 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --production",
-    "retcode": 1,
-    "stdout": "\n> fast-deep-equal@3.1.3 prepublish\n> npm run build\n\n\n> fast-deep-equal@3.1.3 build\n> node build\n\n",
-    "stderr": "node:internal/modules/cjs/loader:922\n  throw err;\n  ^\n\nError: Cannot find module '/Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/fast-deep-equal/npm/package/build'\n    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:919:15)\n    at Function.Module._load (node:internal/modules/cjs/loader:763:27)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)\n    at node:internal/main/run_main_module:17:47 {\n  code: 'MODULE_NOT_FOUND',\n  requireStack: []\n}\nnpm ERR! code 1\nnpm ERR! path /Users/donaldpinckney/Research/packages/dependency-runner/Experiments/Output/nontesting/work/fast-deep-equal/npm/package\nnpm ERR! command failed\nnpm ERR! command sh -c npm run build\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T17_49_07_823Z-debug.log\n"
-  }
+  "install-success": true,
+  "install_time": 3.72542667388916,
+  "post-install-success": true,
+  "installed_deps": {}
 }

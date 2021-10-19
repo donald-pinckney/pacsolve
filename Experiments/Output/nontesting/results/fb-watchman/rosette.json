@@ -1,45 +1,18 @@
 {
   "install-success": true,
-  "install_time": 3.1770641803741455,
+  "install_time": 2.636183261871338,
   "post-install-success": true,
-  "lockfile": {
-    "name": "fb-watchman",
-    "version": "2.0.1",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "fb-watchman",
-        "version": "2.0.1",
-        "license": "Apache-2.0",
-        "dependencies": {
-          "bser": "2.1.1"
-        }
-      },
-      "node_modules/bser": {
-        "version": "2.1.1",
-        "integrity": "sha512-gQxTNE/GAfIIrmHLUE3oJyp5FO6HRBfhjnw4/wMmA63ZGDJnWBmgY/lyQBpnDUkGmAhbSe39tx2d/iTOAfglwQ==",
-        "dependencies": {
-          "node-int64": "^0.4.0"
-        }
-      },
-      "node_modules/bser/node_modules/node-int64": {
-        "version": "0.4.0",
-        "integrity": "sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs="
+  "installed_deps": {
+    "node_modules/bser": {
+      "version": "2.1.1",
+      "integrity": "sha512-gQxTNE/GAfIIrmHLUE3oJyp5FO6HRBfhjnw4/wMmA63ZGDJnWBmgY/lyQBpnDUkGmAhbSe39tx2d/iTOAfglwQ==",
+      "dependencies": {
+        "node-int64": "^0.4.0"
       }
     },
-    "dependencies": {
-      "bser": {
-        "version": "2.1.1",
-        "requires": {
-          "node-int64": "^0.4.0"
-        },
-        "dependencies": {
-          "node-int64": {
-            "version": "0.4.0"
-          }
-        }
-      }
+    "node_modules/bser/node_modules/node-int64": {
+      "version": "0.4.0",
+      "integrity": "sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs="
     }
   }
 }

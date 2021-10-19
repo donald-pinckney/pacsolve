@@ -1,10 +1,6 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install timeout",
-    "command": "npm install --production",
-    "retcode": null,
-    "stdout": null,
-    "stderr": null
-  }
+  "install-success": true,
+  "install_time": 1.830244779586792,
+  "post-install-success": true,
+  "installed_deps": {}
 }

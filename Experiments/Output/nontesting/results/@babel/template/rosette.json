@@ -1,219 +1,121 @@
 {
   "install-success": true,
-  "install_time": 4.1826491355896,
+  "install_time": 2.9770963191986084,
   "post-install-success": true,
-  "lockfile": {
-    "name": "@babel/template",
-    "version": "7.15.4",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "@babel/template",
-        "version": "7.15.4",
-        "license": "MIT",
-        "dependencies": {
-          "@babel/code-frame": "^7.14.5",
-          "@babel/parser": "^7.15.4",
-          "@babel/types": "^7.15.4"
-        },
-        "engines": {
-          "node": ">=6.9.0"
-        }
+  "installed_deps": {
+    "node_modules/@babel/code-frame": {
+      "version": "7.15.8",
+      "integrity": "sha512-2IAnmn8zbvC/jKYhq5Ki9I+DwjlrtMPUCH/CpHvqI4dNnlwHwsxoIhlc8WcYY5LSYknXQtAlFYuHfqAFCvQ4Wg==",
+      "dependencies": {
+        "@babel/highlight": "^7.14.5"
       },
-      "node_modules/@babel/code-frame": {
-        "version": "7.14.5",
-        "integrity": "sha512-9pzDqyc6OLDaqe+zbACgFkb6fKMNG6CObKpnYXChRsvYGyEdc7CA2BaqeOM+vOtCS5ndmJicPJhKAwYRI6UfFw==",
-        "dependencies": {
-          "@babel/highlight": "^7.14.5"
-        },
-        "engines": {
-          "node": ">=6.9.0"
-        }
-      },
-      "node_modules/@babel/code-frame/node_modules/@babel/highlight": {
-        "version": "7.14.5",
-        "integrity": "sha512-qf9u2WFWVV0MppaL877j2dBtQIDgmidgjGk5VIMw3OadXvYaXn66U1BFlH2t4+t3i+8PhedppRv+i40ABzd+gg==",
-        "dependencies": {
-          "@babel/helper-validator-identifier": "^7.14.5",
-          "chalk": "^2.0.0",
-          "js-tokens": "^4.0.0"
-        },
-        "engines": {
-          "node": ">=6.9.0"
-        }
-      },
-      "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/@babel/helper-validator-identifier": {
-        "resolved": "node_modules/@babel/types/node_modules/@babel/helper-validator-identifier",
-        "link": true
-      },
-      "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk": {
-        "version": "2.0.0",
-        "integrity": "sha512-7jy/5E6bVCRhLlvznnsbVPjsARuVC9HDkBjUKVaOmUrhsp6P3ExUUcW09htM7/qieRH+D2lHVpNbuYh7GjVJ0g==",
-        "dependencies": {
-          "ansi-styles": "^3.1.0",
-          "escape-string-regexp": "^1.0.5",
-          "supports-color": "^4.0.0"
-        },
-        "engines": {
-          "node": ">=4"
-        }
-      },
-      "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/ansi-styles": {
-        "version": "3.1.0",
-        "integrity": "sha1-CcIC1ckX7CMYjKpcnLkXnNlUd1A=",
-        "dependencies": {
-          "color-convert": "^1.0.0"
-        },
-        "engines": {
-          "node": ">=4"
-        }
-      },
-      "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
-        "version": "1.5.0",
-        "integrity": "sha1-eitO+0SI34W8pkQ8sDi3EA++feE="
-      },
-      "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/escape-string-regexp": {
-        "version": "1.0.5",
-        "integrity": "sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=",
-        "engines": {
-          "node": ">=0.8.0"
-        }
-      },
-      "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/supports-color": {
-        "version": "4.5.0",
-        "integrity": "sha1-vnoN5ITexcXN34s9WRJQRJEvY1s=",
-        "dependencies": {
-          "has-flag": "^2.0.0"
-        },
-        "engines": {
-          "node": ">=4"
-        }
-      },
-      "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/supports-color/node_modules/has-flag": {
-        "version": "2.0.0",
-        "integrity": "sha1-6CB68cx7MNRGzHC3NLXovhj4jVE=",
-        "engines": {
-          "node": ">=0.10.0"
-        }
-      },
-      "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/js-tokens": {
-        "version": "4.0.0",
-        "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
-      },
-      "node_modules/@babel/parser": {
-        "version": "7.15.6",
-        "integrity": "sha512-S/TSCcsRuCkmpUuoWijua0Snt+f3ewU/8spLo+4AXJCZfT0bVCzLD5MuOKdrx0mlAptbKzn5AdgEIIKXxXkz9Q==",
-        "bin": {
-          "parser": "bin/babel-parser.js"
-        },
-        "engines": {
-          "node": ">=6.0.0"
-        }
-      },
-      "node_modules/@babel/types": {
-        "version": "7.15.6",
-        "integrity": "sha512-BPU+7QhqNjmWyDO0/vitH/CuhpV8ZmK1wpKva8nuyNF5MJfuRNWMc+hc14+u9xT93kvykMdncrJT19h74uB1Ig==",
-        "dependencies": {
-          "@babel/helper-validator-identifier": "^7.14.9",
-          "to-fast-properties": "^2.0.0"
-        },
-        "engines": {
-          "node": ">=6.9.0"
-        }
-      },
-      "node_modules/@babel/types/node_modules/@babel/helper-validator-identifier": {
-        "version": "7.14.9",
-        "integrity": "sha512-pQYxPY0UP6IHISRitNe8bsijHex4TWZXi2HwKVsjPiltzlhse2znVcm9Ace510VT1kxIHjGJCZZQBX2gJDbo0g==",
-        "engines": {
-          "node": ">=6.9.0"
-        }
-      },
-      "node_modules/@babel/types/node_modules/to-fast-properties": {
-        "version": "2.0.0",
-        "integrity": "sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=",
-        "engines": {
-          "node": ">=4"
-        }
+      "engines": {
+        "node": ">=6.9.0"
       }
     },
-    "dependencies": {
-      "@babel/code-frame": {
-        "version": "7.14.5",
-        "requires": {
-          "@babel/highlight": "^7.14.5"
-        },
-        "dependencies": {
-          "@babel/highlight": {
-            "version": "7.14.5",
-            "requires": {
-              "@babel/helper-validator-identifier": "^7.14.5",
-              "chalk": "^2.0.0",
-              "js-tokens": "^4.0.0"
-            },
-            "dependencies": {
-              "@babel/helper-validator-identifier": {
-                "version": "file:node_modules/@babel/types/node_modules/@babel/helper-validator-identifier"
-              },
-              "chalk": {
-                "version": "2.0.0",
-                "requires": {
-                  "ansi-styles": "^3.1.0",
-                  "escape-string-regexp": "^1.0.5",
-                  "supports-color": "^4.0.0"
-                },
-                "dependencies": {
-                  "ansi-styles": {
-                    "version": "3.1.0",
-                    "requires": {
-                      "color-convert": "^1.0.0"
-                    },
-                    "dependencies": {
-                      "color-convert": {
-                        "version": "1.5.0"
-                      }
-                    }
-                  },
-                  "escape-string-regexp": {
-                    "version": "1.0.5"
-                  },
-                  "supports-color": {
-                    "version": "4.5.0",
-                    "requires": {
-                      "has-flag": "^2.0.0"
-                    },
-                    "dependencies": {
-                      "has-flag": {
-                        "version": "2.0.0"
-                      }
-                    }
-                  }
-                }
-              },
-              "js-tokens": {
-                "version": "4.0.0"
-              }
-            }
-          }
-        }
+    "node_modules/@babel/code-frame/node_modules/@babel/highlight": {
+      "version": "7.14.5",
+      "integrity": "sha512-qf9u2WFWVV0MppaL877j2dBtQIDgmidgjGk5VIMw3OadXvYaXn66U1BFlH2t4+t3i+8PhedppRv+i40ABzd+gg==",
+      "dependencies": {
+        "@babel/helper-validator-identifier": "^7.14.5",
+        "chalk": "^2.0.0",
+        "js-tokens": "^4.0.0"
       },
-      "@babel/parser": {
-        "version": "7.15.6"
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/@babel/helper-validator-identifier": {
+      "resolved": "node_modules/@babel/types/node_modules/@babel/helper-validator-identifier",
+      "link": true
+    },
+    "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk": {
+      "version": "2.3.0",
+      "integrity": "sha512-Az5zJR2CBujap2rqXGaJKaPHyJ0IrUimvYNX+ncCy8PJP4ltOGTrHUIo097ZaL2zMeKYpiCdqDvS6zdrTFok3Q==",
+      "dependencies": {
+        "ansi-styles": "^3.1.0",
+        "escape-string-regexp": "^1.0.5",
+        "supports-color": "^4.0.0"
       },
-      "@babel/types": {
-        "version": "7.15.6",
-        "requires": {
-          "@babel/helper-validator-identifier": "^7.14.9",
-          "to-fast-properties": "^2.0.0"
-        },
-        "dependencies": {
-          "@babel/helper-validator-identifier": {
-            "version": "7.14.9"
-          },
-          "to-fast-properties": {
-            "version": "2.0.0"
-          }
-        }
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/ansi-styles": {
+      "version": "3.1.0",
+      "integrity": "sha1-CcIC1ckX7CMYjKpcnLkXnNlUd1A=",
+      "dependencies": {
+        "color-convert": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
+      "version": "1.5.0",
+      "integrity": "sha1-eitO+0SI34W8pkQ8sDi3EA++feE="
+    },
+    "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/escape-string-regexp": {
+      "version": "1.0.5",
+      "integrity": "sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=",
+      "engines": {
+        "node": ">=0.8.0"
+      }
+    },
+    "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/supports-color": {
+      "version": "4.1.0",
+      "integrity": "sha1-kswUuz2tiSjKVlbDPhmhnyCvXHo=",
+      "dependencies": {
+        "has-flag": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/supports-color/node_modules/has-flag": {
+      "version": "2.0.0",
+      "integrity": "sha1-6CB68cx7MNRGzHC3NLXovhj4jVE=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/js-tokens": {
+      "version": "4.0.0",
+      "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
+    },
+    "node_modules/@babel/parser": {
+      "version": "7.15.8",
+      "integrity": "sha512-BRYa3wcQnjS/nqI8Ac94pYYpJfojHVvVXJ97+IDCImX4Jc8W8Xv1+47enbruk+q1etOpsQNwnfFcNGw+gtPGxA==",
+      "bin": {
+        "parser": "bin/babel-parser.js"
+      },
+      "engines": {
+        "node": ">=6.0.0"
+      }
+    },
+    "node_modules/@babel/types": {
+      "version": "7.15.4",
+      "integrity": "sha512-0f1HJFuGmmbrKTCZtbm3cU+b/AqdEYk5toj5iQur58xkVMlS0JWaKxTBSmCXd47uiN7vbcozAupm6Mvs80GNhw==",
+      "dependencies": {
+        "@babel/helper-validator-identifier": "^7.14.9",
+        "to-fast-properties": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/types/node_modules/@babel/helper-validator-identifier": {
+      "version": "7.14.9",
+      "integrity": "sha512-pQYxPY0UP6IHISRitNe8bsijHex4TWZXi2HwKVsjPiltzlhse2znVcm9Ace510VT1kxIHjGJCZZQBX2gJDbo0g==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/types/node_modules/to-fast-properties": {
+      "version": "2.0.0",
+      "integrity": "sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=",
+      "engines": {
+        "node": ">=4"
       }
     }
   }

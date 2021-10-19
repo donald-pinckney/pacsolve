@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.9826948642730713,
+  "install_time": 2.4491121768951416,
   "post-install-success": true,
-  "lockfile": {
-    "name": "lodash.merge",
-    "version": "4.6.2",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "lodash.merge",
-        "version": "4.6.2",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

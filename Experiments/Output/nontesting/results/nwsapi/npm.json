@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 1.0076396465301514,
+  "install_time": 0.4366922378540039,
   "post-install-success": true,
-  "lockfile": {
-    "name": "nwsapi",
-    "version": "2.2.0",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "nwsapi",
-        "version": "2.2.0",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

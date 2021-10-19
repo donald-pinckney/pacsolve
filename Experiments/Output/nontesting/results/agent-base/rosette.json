@@ -1,10 +1,26 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 1,
-    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-94160-Qgh7kf37nqkI\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-94160-DhbEOEOLZ1rd\nDecoding Rosette answer: [object Object]\n",
-    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! Found: eslint-plugin-import@2.16.0\nnpm ERR! node_modules/eslint-plugin-import\nnpm ERR!   dev eslint-plugin-import@\"2.16.0\" from the root project\nnpm ERR!   peer eslint-plugin-import@\"^2.14.0\" from eslint-config-airbnb@17.1.0\nnpm ERR!   node_modules/eslint-config-airbnb\nnpm ERR!     dev eslint-config-airbnb@\"17.1.0\" from the root project\nnpm ERR!   1 more (eslint-import-resolver-typescript)\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer eslint-plugin-import@\"^2.17.2\" from eslint-config-airbnb-base@13.2.0\nnpm ERR! node_modules/eslint-config-airbnb/node_modules/eslint-config-airbnb-base\nnpm ERR!   eslint-config-airbnb-base@\"^13.1.0\" from eslint-config-airbnb@17.1.0\nnpm ERR!   node_modules/eslint-config-airbnb\nnpm ERR!     dev eslint-config-airbnb@\"17.1.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_26_49_765Z-debug.log\n"
+  "install-success": true,
+  "install_time": 2.42828106880188,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/debug": {
+      "version": "4.3.2",
+      "integrity": "sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==",
+      "dependencies": {
+        "ms": "2.1.2"
+      },
+      "engines": {
+        "node": ">=6.0"
+      },
+      "peerDependenciesMeta": {
+        "supports-color": {
+          "optional": true
+        }
+      }
+    },
+    "node_modules/debug/node_modules/ms": {
+      "version": "2.1.2",
+      "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
+    }
   }
 }

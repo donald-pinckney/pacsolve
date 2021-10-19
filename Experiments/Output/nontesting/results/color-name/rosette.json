@@ -1,18 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.6769211292266846,
+  "install_time": 2.1425790786743164,
   "post-install-success": true,
-  "lockfile": {
-    "name": "color-name",
-    "version": "1.1.4",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "color-name",
-        "version": "1.1.4",
-        "license": "MIT"
-      }
-    }
-  }
+  "installed_deps": {}
 }

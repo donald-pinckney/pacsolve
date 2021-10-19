@@ -1,10 +1,11 @@
 {
   "install-success": false,
+  "install_time": 3.631481170654297,
   "error": {
     "stage": "install",
-    "command": "npm install --production",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
     "retcode": 1,
     "stdout": "",
-    "stderr": "npm ERR! code ETARGET\nnpm ERR! notarget No matching version found for @jest/test-utils@^27.2.0.\nnpm ERR! notarget In most cases you or one of your dependencies are requesting\nnpm ERR! notarget a package version that doesn't exist.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T23_09_17_247Z-debug.log\n"
+    "stderr": "npm ERR! code ETARGET\nnpm ERR! notarget No matching version found for @jest/test-utils@^27.2.0.\nnpm ERR! notarget In most cases you or one of your dependencies are requesting\nnpm ERR! notarget a package version that doesn't exist.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /mnt/data/donald/.npm/_logs/2021-10-19T19_32_11_390Z-debug.log\n"
   }
 }

@@ -1,25 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.1799821853637695,
+  "install_time": 2.1664681434631348,
   "post-install-success": true,
-  "lockfile": {
-    "name": "big.js",
-    "version": "6.1.1",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "big.js",
-        "version": "6.1.1",
-        "license": "MIT",
-        "engines": {
-          "node": "*"
-        },
-        "funding": {
-          "type": "opencollective",
-          "url": "https://opencollective.com/bigjs"
-        }
-      }
-    }
-  }
+  "installed_deps": {}
 }

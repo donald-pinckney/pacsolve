@@ -1,10 +1,41 @@
 {
-  "install-success": false,
-  "error": {
-    "stage": "install",
-    "command": "npm install --rosette",
-    "retcode": 1,
-    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-98334-yQ0ZxXTLitWd\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-98334-sjvjzqUSOz49\nDecoding Rosette answer: [object Object]\n",
-    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! Found: eslint-plugin-import@2.16.0\nnpm ERR! node_modules/eslint-plugin-import\nnpm ERR!   dev eslint-plugin-import@\"2.16.0\" from the root project\nnpm ERR!   peer eslint-plugin-import@\"^2.14.0\" from eslint-config-airbnb@17.1.0\nnpm ERR!   node_modules/eslint-config-airbnb\nnpm ERR!     dev eslint-config-airbnb@\"17.1.0\" from the root project\nnpm ERR!   1 more (eslint-import-resolver-typescript)\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer eslint-plugin-import@\"^2.17.2\" from eslint-config-airbnb-base@13.2.0\nnpm ERR! node_modules/eslint-config-airbnb/node_modules/eslint-config-airbnb-base\nnpm ERR!   eslint-config-airbnb-base@\"^13.1.0\" from eslint-config-airbnb@17.1.0\nnpm ERR!   node_modules/eslint-config-airbnb\nnpm ERR!     dev eslint-config-airbnb@\"17.1.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-12T18_51_01_073Z-debug.log\n"
+  "install-success": true,
+  "install_time": 2.93997859954834,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/agent-base": {
+      "version": "6.0.0",
+      "integrity": "sha512-j1Q7cSCqN+AwrmDd+pzgqc0/NpC655x2bUf5ZjRIO77DcNBFmh+OgRNzF6OKdCC9RSCb19fGd99+bhXFdkRNqw==",
+      "dependencies": {
+        "debug": "4"
+      },
+      "engines": {
+        "node": ">= 6.0.0"
+      }
+    },
+    "node_modules/agent-base/node_modules/debug": {
+      "resolved": "node_modules/debug",
+      "link": true
+    },
+    "node_modules/debug": {
+      "version": "4.2.0",
+      "integrity": "sha512-IX2ncY78vDTjZMFUdmsvIRFY2Cf4FnD0wRs+nQwJU8Lu99/tPFdb0VybiiMTPe3I6rQmwsqQqRBvxU+bZ/I8sg==",
+      "deprecated": "Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)",
+      "dependencies": {
+        "ms": "2.1.2"
+      },
+      "engines": {
+        "node": ">=6.0"
+      },
+      "peerDependenciesMeta": {
+        "supports-color": {
+          "optional": true
+        }
+      }
+    },
+    "node_modules/debug/node_modules/ms": {
+      "version": "2.1.2",
+      "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
+    }
   }
 }

@@ -1,22 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.6975409984588623,
+  "install_time": 0.39389491081237793,
   "post-install-success": true,
-  "lockfile": {
-    "name": "imurmurhash",
-    "version": "0.1.4",
-    "lockfileVersion": 2,
-    "requires": true,
-    "packages": {
-      "": {
-        "name": "imurmurhash",
-        "version": "0.1.4",
-        "license": "MIT",
-        "devDependencies": {},
-        "engines": {
-          "node": ">=0.8.19"
-        }
-      }
-    }
-  }
+  "installed_deps": {}
 }
