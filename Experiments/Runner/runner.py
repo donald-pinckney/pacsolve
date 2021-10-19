@@ -52,7 +52,9 @@ def run(options):
   else:
     projects = all_projects
   
-  for project_name, project_options in projects.items():
+  for project_idx, (project_name, project_options) in enumerate(projects.items()) :
+    print(f"Running {project_idx} / {len(projects)}")
+    
     run_single(
       out_dir, 
       project_name, 
