@@ -75,21 +75,21 @@ def run(options):
   
   for project_idx, (project_name, project_options) in enumerate(projects.items()) :
     print(f"Running {project_idx} / {len(projects)}")
-    print(project_name)
+    # print(project_name)
 
-    # run_single(
-    #   out_dir, 
-    #   project_name, 
-    #   project_options.get("path"), 
-    #   project_options.get("git"),
-    #   project_options.get("tarball"),
-    #   configs, 
-    #   "package" if project_options.get("tarball") is not None else project_options.get("subdirectory"), 
-    #   project_options.get("pre-install"), 
-    #   project_options.get("post-install"),
-    #   options.cleanup,
-    #   options.verbosity
-    # )
+    run_single(
+      out_dir, 
+      project_name, 
+      project_options.get("path"), 
+      project_options.get("git"),
+      project_options.get("tarball"),
+      configs, 
+      "package" if project_options.get("tarball") is not None else project_options.get("subdirectory"), 
+      project_options.get("pre-install"), 
+      project_options.get("post-install"),
+      options.cleanup,
+      options.verbosity
+    )
 
 
   
