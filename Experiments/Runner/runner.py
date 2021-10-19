@@ -43,8 +43,8 @@ def range_in(idx, r):
   else:
     return (a <= idx) and (idx < b)
 
-def filter_projects_range(projects, range):
-  return {k: v for idx, (k, v) in enumerate(projects.items()) if range_in(idx, range)}
+def filter_projects_range(projects, r):
+  return [(idx, p) for idx, p in enumerate(projects.items()) if range_in(idx, r)]
 
 def run(options):
   script_path = os.path.realpath(__file__)
@@ -64,18 +64,17 @@ def run(options):
   all_projects = manifest["projects"]
 
   if options.all:
-    projects = all_projects
+    projects = enumerate(all_projects.items())
   elif options.only is not None:
-    projects = {p: all_projects[p] for p in options.only}
+    projects = [(idx, (pk, pv)) for idx, (pk, pv) in enumerate(all_projects.items()) if pk in options.only]
   elif options.range is not None:
     projects = filter_projects_range(all_projects, options.range)
   else:
     raise ValueError("Must specify either --all, --only, or --range")
 
   
-  for project_idx, (project_name, project_options) in enumerate(projects.items()) :
+  for project_idx, (project_name, project_options) in projects:
     print(f"Running {project_idx} / {len(projects)}")
-    # print(project_name)
 
     run_single(
       out_dir, 
