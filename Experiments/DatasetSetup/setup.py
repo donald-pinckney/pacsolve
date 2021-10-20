@@ -19,24 +19,19 @@ def get_latest_version(con, package_id):
   return pd.read_sql_query(query, con).iloc[0]
 
 
-def write_df_to_json(df):
+def write_df_to_json(df, dataset_name):
   project_map = dict()
   for i, row in df.iterrows():
     project_map[row['name']] = {"tarball": row['tarball']}
   
   json_output = {'projects': project_map}
-  with open('Datasets/nontesting.json', 'w') as f:
+  with open(f'Datasets/{dataset_name}.json', 'w') as f:
     json.dump(json_output, f, indent=2)
 
-def run(options):
-  sql_path = options.sqlite_path
-  num_roots = options.num_roots
+def prepare_dataset(con, dataset_name, roots_query):
+  package_df = pd.read_sql_query(roots_query, con)
 
-  con = sqlite3.connect(f"file:{sql_path}?mode=ro", uri=True)
-  print(f"Quering for top {num_roots} packages by downloads.")
-  package_df = pd.read_sql_query(f"SELECT id, name FROM package WHERE name NOT LIKE '@types%' ORDER BY downloads DESC LIMIT({num_roots});", con)
-
-  print(f"Looking up highest version number (non prerelese) for each top package")
+  print(f"Looking up highest version number (non prerelese) for each root package")
   package_id_col = []
   name_col = []
   version_id_col = []
@@ -67,5 +62,40 @@ def run(options):
     'tarball': tarball_col
   })
 
-  write_df_to_json(version_data_df)
+  write_df_to_json(version_data_df, dataset_name)
+
+
+def run(options):
+  sql_path = options.sqlite_path
+  num_roots = options.num_roots
+
+  con = sqlite3.connect(f"file:{sql_path}?mode=ro", uri=True)
+
+  top_downloads_query = f"""
+    SELECT id, name 
+    FROM package 
+    WHERE name NOT LIKE '@types%' 
+    ORDER BY downloads DESC LIMIT({num_roots});
+  """
+
+  top_deps_query = f"""
+    SELECT package.id AS id, package.name AS name
+    FROM package
+    JOIN version ON version.id = package.latest_version and package.name NOT LIKE '@types%'
+    JOIN version_dependencies ON version.id = version_dependencies.version_id AND version_dependencies.type = 0
+    JOIN dependency ON version_dependencies.dependency_id = dependency.id AND dependency.package_id IS NOT NULL
+    GROUP BY package.id
+    ORDER BY COUNT(*) DESC
+    LIMIT({num_roots})
+  """
+
+  print(f"Quering for top {num_roots} packages by downloads.")
+  prepare_dataset(con, 'nontesting_most_downloads', top_downloads_query)
+
+  print(f"Quering for top {num_roots} packages by number prod deps.")
+  prepare_dataset(con, 'nontesting_most_deps', top_deps_query)
+
+
+
+
 
