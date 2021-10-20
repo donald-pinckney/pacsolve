@@ -1,0 +1,3004 @@
+{
+  "projects": {
+    "sindresorhus.js": {
+      "tarball": "https://registry.npmjs.org/sindresorhus.js/-/sindresorhus.js-1.0.3.tgz"
+    },
+    "1000-packages": {
+      "tarball": "https://registry.npmjs.org/1000-packages/-/1000-packages-1.0.6.tgz"
+    },
+    "potionseller": {
+      "tarball": "https://registry.npmjs.org/potionseller/-/potionseller-1.0.0.tgz"
+    },
+    "bloater": {
+      "tarball": "https://registry.npmjs.org/bloater/-/bloater-1.0.0.tgz"
+    },
+    "no-one-left-behind": {
+      "tarball": "https://registry.npmjs.org/no-one-left-behind/-/no-one-left-behind-2018.2.10.tgz"
+    },
+    "npm-all-packages": {
+      "tarball": "https://registry.npmjs.org/npm-all-packages/-/npm-all-packages-1.0.0.tgz"
+    },
+    "digital-keyboard-demos": {
+      "tarball": "https://registry.npmjs.org/digital-keyboard-demos/-/digital-keyboard-demos-1.0.1.tgz"
+    },
+    "hot-zone-vue": {
+      "tarball": "https://registry.npmjs.org/hot-zone-vue/-/hot-zone-vue-1.0.0.tgz"
+    },
+    "@thirstcreative/nuxt-module": {
+      "tarball": "https://registry.npmjs.org/@thirstcreative/nuxt-module/-/nuxt-module-0.0.25.tgz"
+    },
+    "@hawkingnetwork/react-native-tab-view": {
+      "tarball": "https://registry.npmjs.org/@hawkingnetwork/react-native-tab-view/-/react-native-tab-view-2.11.0.tgz"
+    },
+    "easyplayer-my": {
+      "tarball": "https://registry.npmjs.org/easyplayer-my/-/easyplayer-my-3.3.9.tgz"
+    },
+    "vue-compment": {
+      "tarball": "https://registry.npmjs.org/vue-compment/-/vue-compment-0.1.0.tgz"
+    },
+    "@ericmcornelius/ease": {
+      "tarball": "https://registry.npmjs.org/@ericmcornelius/ease/-/ease-0.5.5.tgz"
+    },
+    "@vitali_shcherbina/styled-lib": {
+      "tarball": "https://registry.npmjs.org/@vitali_shcherbina/styled-lib/-/styled-lib-1.0.3.tgz"
+    },
+    "nois-react-toast": {
+      "tarball": "https://registry.npmjs.org/nois-react-toast/-/nois-react-toast-1.0.0.tgz"
+    },
+    "react-picky-with-clear": {
+      "tarball": "https://registry.npmjs.org/react-picky-with-clear/-/react-picky-with-clear-6.0.9.tgz"
+    },
+    "flowable-bpmn-modeler": {
+      "tarball": "https://registry.npmjs.org/flowable-bpmn-modeler/-/flowable-bpmn-modeler-1.0.0.tgz"
+    },
+    "@ngxvoice/ngx-voicelistner": {
+      "tarball": "https://registry.npmjs.org/@ngxvoice/ngx-voicelistner/-/ngx-voicelistner-1.0.0.tgz"
+    },
+    "birken-react-native-community-image-editor": {
+      "tarball": "https://registry.npmjs.org/birken-react-native-community-image-editor/-/birken-react-native-community-image-editor-2.3.3.tgz"
+    },
+    "@innodata/vue-v3-ya-metrika": {
+      "tarball": "https://registry.npmjs.org/@innodata/vue-v3-ya-metrika/-/vue-v3-ya-metrika-1.0.0.tgz"
+    },
+    "vue-v3-yandex-metrika": {
+      "tarball": "https://registry.npmjs.org/vue-v3-yandex-metrika/-/vue-v3-yandex-metrika-0.0.2-development.tgz"
+    },
+    "@dalygbarron/fish-tank": {
+      "tarball": "https://registry.npmjs.org/@dalygbarron/fish-tank/-/fish-tank-0.1.0.tgz"
+    },
+    "@blkmarketco/components-library": {
+      "tarball": "https://registry.npmjs.org/@blkmarketco/components-library/-/components-library-1.0.4.tgz"
+    },
+    "discordjs-con-self": {
+      "tarball": "https://registry.npmjs.org/discordjs-con-self/-/discordjs-con-self-1.0.0.tgz"
+    },
+    "discord.js-bycon": {
+      "tarball": "https://registry.npmjs.org/discord.js-bycon/-/discord.js-bycon-1.0.4.tgz"
+    },
+    "react-native-modal-progress-bar": {
+      "tarball": "https://registry.npmjs.org/react-native-modal-progress-bar/-/react-native-modal-progress-bar-1.0.3.tgz"
+    },
+    "@corelmax/react-native-my2c2p-sdk": {
+      "tarball": "https://registry.npmjs.org/@corelmax/react-native-my2c2p-sdk/-/react-native-my2c2p-sdk-1.0.7.tgz"
+    },
+    "react-native-kakao-maps": {
+      "tarball": "https://registry.npmjs.org/react-native-kakao-maps/-/react-native-kakao-maps-0.1.2.tgz"
+    },
+    "native-google-login": {
+      "tarball": "https://registry.npmjs.org/native-google-login/-/native-google-login-0.1.3.tgz"
+    },
+    "react-native-contact-list": {
+      "tarball": "https://registry.npmjs.org/react-native-contact-list/-/react-native-contact-list-0.2.4.tgz"
+    },
+    "@hemith/react-native-tnk": {
+      "tarball": "https://registry.npmjs.org/@hemith/react-native-tnk/-/react-native-tnk-0.1.8.tgz"
+    },
+    "native-apple-login": {
+      "tarball": "https://registry.npmjs.org/native-apple-login/-/native-apple-login-0.1.2.tgz"
+    },
+    "@geeky-apo/react-native-advanced-clipboard": {
+      "tarball": "https://registry.npmjs.org/@geeky-apo/react-native-advanced-clipboard/-/react-native-advanced-clipboard-0.1.0.tgz"
+    },
+    "native-kakao-login": {
+      "tarball": "https://registry.npmjs.org/native-kakao-login/-/native-kakao-login-0.2.0.tgz"
+    },
+    "react-native-pulsator-native": {
+      "tarball": "https://registry.npmjs.org/react-native-pulsator-native/-/react-native-pulsator-native-1.0.3.tgz"
+    },
+    "react-native-flyy": {
+      "tarball": "https://registry.npmjs.org/react-native-flyy/-/react-native-flyy-1.2.7.tgz"
+    },
+    "react-native-responsive-size": {
+      "tarball": "https://registry.npmjs.org/react-native-responsive-size/-/react-native-responsive-size-0.1.0.tgz"
+    },
+    "@apardellass/react-native-audio-stream": {
+      "tarball": "https://registry.npmjs.org/@apardellass/react-native-audio-stream/-/react-native-audio-stream-0.1.4.tgz"
+    },
+    "@datalogic/react-native-datalogic-module": {
+      "tarball": "https://registry.npmjs.org/@datalogic/react-native-datalogic-module/-/react-native-datalogic-module-1.0.1.tgz"
+    },
+    "@felipesimmi/react-native-datalogic-module": {
+      "tarball": "https://registry.npmjs.org/@felipesimmi/react-native-datalogic-module/-/react-native-datalogic-module-1.0.13-beta.tgz"
+    },
+    "react-native-plugpag-wrapper": {
+      "tarball": "https://registry.npmjs.org/react-native-plugpag-wrapper/-/react-native-plugpag-wrapper-0.1.3.tgz"
+    },
+    "react-native-test-module-hhh": {
+      "tarball": "https://registry.npmjs.org/react-native-test-module-hhh/-/react-native-test-module-hhh-0.1.1.tgz"
+    },
+    "@kristoffertonning/vue-laravel-errors": {
+      "tarball": "https://registry.npmjs.org/@kristoffertonning/vue-laravel-errors/-/vue-laravel-errors-1.0.0.tgz"
+    },
+    "react-native-is7": {
+      "tarball": "https://registry.npmjs.org/react-native-is7/-/react-native-is7-0.1.3.tgz"
+    },
+    "cotrader-dex-sdk": {
+      "tarball": "https://registry.npmjs.org/cotrader-dex-sdk/-/cotrader-dex-sdk-1.0.0.tgz"
+    },
+    "miguelcostero-ng2-toasty": {
+      "tarball": "https://registry.npmjs.org/miguelcostero-ng2-toasty/-/miguelcostero-ng2-toasty-0.0.0-semantically-released.tgz"
+    },
+    "gql_din_mod": {
+      "tarball": "https://registry.npmjs.org/gql_din_mod/-/gql_din_mod-0.1.1.tgz"
+    },
+    "@arielapaula/test": {
+      "tarball": "https://registry.npmjs.org/@arielapaula/test/-/test-0.0.0.tgz"
+    },
+    "react-native-dsphoto-module": {
+      "tarball": "https://registry.npmjs.org/react-native-dsphoto-module/-/react-native-dsphoto-module-0.4.0.tgz"
+    },
+    "@igniswap/igni-swap-lib": {
+      "tarball": "https://registry.npmjs.org/@igniswap/igni-swap-lib/-/igni-swap-lib-0.0.5.tgz"
+    },
+    "course-vue-tpl": {
+      "tarball": "https://registry.npmjs.org/course-vue-tpl/-/course-vue-tpl-1.0.0.tgz"
+    },
+    "vue-dev-clone": {
+      "tarball": "https://registry.npmjs.org/vue-dev-clone/-/vue-dev-clone-2.6.18.tgz"
+    },
+    "@seculum/vue-dev-clone": {
+      "tarball": "https://registry.npmjs.org/@seculum/vue-dev-clone/-/vue-dev-clone-2.6.15.tgz"
+    },
+    "react-native-ytximkit": {
+      "tarball": "https://registry.npmjs.org/react-native-ytximkit/-/react-native-ytximkit-0.1.0.tgz"
+    },
+    "@arielapaula/components": {
+      "tarball": "https://registry.npmjs.org/@arielapaula/components/-/components-0.1.0.tgz"
+    },
+    "@thismr/bitmindtest-core": {
+      "tarball": "https://registry.npmjs.org/@thismr/bitmindtest-core/-/bitmindtest-core-1.0.0.tgz"
+    },
+    "@meysam213/react-leaflet": {
+      "tarball": "https://registry.npmjs.org/@meysam213/react-leaflet/-/react-leaflet-1.14.0.tgz"
+    },
+    "testapa": {
+      "tarball": "https://registry.npmjs.org/testapa/-/testapa-2.0.0.tgz"
+    },
+    "fhir2": {
+      "tarball": "https://registry.npmjs.org/fhir2/-/fhir2-1.0.0.tgz"
+    },
+    "webche": {
+      "tarball": "https://registry.npmjs.org/webche/-/webche-0.1.2.tgz"
+    },
+    "jesusdemo": {
+      "tarball": "https://registry.npmjs.org/jesusdemo/-/jesusdemo-1.0.0.tgz"
+    },
+    "@buganto/client": {
+      "tarball": "https://registry.npmjs.org/@buganto/client/-/client-1.0.0.tgz"
+    },
+    "pixiu-swap-core": {
+      "tarball": "https://registry.npmjs.org/pixiu-swap-core/-/pixiu-swap-core-1.0.0.tgz"
+    },
+    "playkit-js-hls-sondq": {
+      "tarball": "https://registry.npmjs.org/playkit-js-hls-sondq/-/playkit-js-hls-sondq-1.0.1.tgz"
+    },
+    "vcloudcam-playkit-js-hls": {
+      "tarball": "https://registry.npmjs.org/vcloudcam-playkit-js-hls/-/vcloudcam-playkit-js-hls-1.0.1.tgz"
+    },
+    "@cdevine49/react-numeric-input": {
+      "tarball": "https://registry.npmjs.org/@cdevine49/react-numeric-input/-/react-numeric-input-2.2.4.tgz"
+    },
+    "ant-design-draggable-modal-fix": {
+      "tarball": "https://registry.npmjs.org/ant-design-draggable-modal-fix/-/ant-design-draggable-modal-fix-1.0.0.tgz"
+    },
+    "responsive-react-app": {
+      "tarball": "https://registry.npmjs.org/responsive-react-app/-/responsive-react-app-0.1.3.tgz"
+    },
+    "@openpolitica/matomo-next": {
+      "tarball": "https://registry.npmjs.org/@openpolitica/matomo-next/-/matomo-next-1.2.1.tgz"
+    },
+    "@olympfin/olymp-swap-lib": {
+      "tarball": "https://registry.npmjs.org/@olympfin/olymp-swap-lib/-/olymp-swap-lib-1.0.0.tgz"
+    },
+    "ckeditor5-build-classic-v-edit": {
+      "tarball": "https://registry.npmjs.org/ckeditor5-build-classic-v-edit/-/ckeditor5-build-classic-v-edit-19.0.1.tgz"
+    },
+    "base-editor": {
+      "tarball": "https://registry.npmjs.org/base-editor/-/base-editor-1.0.3.tgz"
+    },
+    "pixiuswap-libs-sdk": {
+      "tarball": "https://registry.npmjs.org/pixiuswap-libs-sdk/-/pixiuswap-libs-sdk-1.0.3.tgz"
+    },
+    "axios-yet-another-proxy-fix": {
+      "tarball": "https://registry.npmjs.org/axios-yet-another-proxy-fix/-/axios-yet-another-proxy-fix-1.0.0.tgz"
+    },
+    "@afria/afria-libraries": {
+      "tarball": "https://registry.npmjs.org/@afria/afria-libraries/-/afria-libraries-1.0.0.tgz"
+    },
+    "@carhoo/widget-dealers": {
+      "tarball": "https://registry.npmjs.org/@carhoo/widget-dealers/-/widget-dealers-0.0.4.tgz"
+    },
+    "fenglin-uploader": {
+      "tarball": "https://registry.npmjs.org/fenglin-uploader/-/fenglin-uploader-1.0.3.tgz"
+    },
+    "@oriduk/ckeditor5-rebuild-musicanote": {
+      "tarball": "https://registry.npmjs.org/@oriduk/ckeditor5-rebuild-musicanote/-/ckeditor5-rebuild-musicanote-16.1.5.tgz"
+    },
+    "@oriduk/ckeditor5-rebuild-oriduk": {
+      "tarball": "https://registry.npmjs.org/@oriduk/ckeditor5-rebuild-oriduk/-/ckeditor5-rebuild-oriduk-16.2.0.tgz"
+    },
+    "ckeditor5-build-classic-ticket": {
+      "tarball": "https://registry.npmjs.org/ckeditor5-build-classic-ticket/-/ckeditor5-build-classic-ticket-19.0.0.tgz"
+    },
+    "react-native-template-vife": {
+      "tarball": "https://registry.npmjs.org/react-native-template-vife/-/react-native-template-vife-1.2.0.tgz"
+    },
+    "@materia-dex/materia-contracts-proxy": {
+      "tarball": "https://registry.npmjs.org/@materia-dex/materia-contracts-proxy/-/materia-contracts-proxy-1.1.8.tgz"
+    },
+    "testnpm_lmn": {
+      "tarball": "https://registry.npmjs.org/testnpm_lmn/-/testnpm_lmn-1.0.0.tgz"
+    },
+    "@eliteswap/v2-core": {
+      "tarball": "https://registry.npmjs.org/@eliteswap/v2-core/-/v2-core-2.0.5.tgz"
+    },
+    "@xswap/v2-core": {
+      "tarball": "https://registry.npmjs.org/@xswap/v2-core/-/v2-core-1.0.5.tgz"
+    },
+    "react-native-version-manager": {
+      "tarball": "https://registry.npmjs.org/react-native-version-manager/-/react-native-version-manager-1.1.0.tgz"
+    },
+    "react-native-template-nascam-template": {
+      "tarball": "https://registry.npmjs.org/react-native-template-nascam-template/-/react-native-template-nascam-template-0.0.7.tgz"
+    },
+    "@kirrosh/pts": {
+      "tarball": "https://registry.npmjs.org/@kirrosh/pts/-/pts-0.10.5.tgz"
+    },
+    "stnenopmoc-iu": {
+      "tarball": "https://registry.npmjs.org/stnenopmoc-iu/-/stnenopmoc-iu-1.0.27.tgz"
+    },
+    "@rstacruz/pnpm": {
+      "tarball": "https://registry.npmjs.org/@rstacruz/pnpm/-/pnpm-0.29.0-5-g701c4d9b.tgz"
+    },
+    "prova-cpm-3": {
+      "tarball": "https://registry.npmjs.org/prova-cpm-3/-/prova-cpm-3-1.0.1.tgz"
+    },
+    "test-carosello-campus": {
+      "tarball": "https://registry.npmjs.org/test-carosello-campus/-/test-carosello-campus-1.0.0.tgz"
+    },
+    "cpm-11": {
+      "tarball": "https://registry.npmjs.org/cpm-11/-/cpm-11-1.0.1.tgz"
+    },
+    "sam-carousel": {
+      "tarball": "https://registry.npmjs.org/sam-carousel/-/sam-carousel-1.0.2.tgz"
+    },
+    "cpm-16": {
+      "tarball": "https://registry.npmjs.org/cpm-16/-/cpm-16-1.0.1.tgz"
+    },
+    "cpm-5": {
+      "tarball": "https://registry.npmjs.org/cpm-5/-/cpm-5-1.0.1.tgz"
+    },
+    "campus4": {
+      "tarball": "https://registry.npmjs.org/campus4/-/campus4-1.1.3.tgz"
+    },
+    "campus2": {
+      "tarball": "https://registry.npmjs.org/campus2/-/campus2-1.1.3.tgz"
+    },
+    "carop2": {
+      "tarball": "https://registry.npmjs.org/carop2/-/carop2-1.1.3.tgz"
+    },
+    "samc4": {
+      "tarball": "https://registry.npmjs.org/samc4/-/samc4-2.0.0.tgz"
+    },
+    "campus-carosello": {
+      "tarball": "https://registry.npmjs.org/campus-carosello/-/campus-carosello-1.0.1.tgz"
+    },
+    "cpm-10": {
+      "tarball": "https://registry.npmjs.org/cpm-10/-/cpm-10-1.0.1.tgz"
+    },
+    "samc5": {
+      "tarball": "https://registry.npmjs.org/samc5/-/samc5-2.0.0.tgz"
+    },
+    "prova-2-carosello": {
+      "tarball": "https://registry.npmjs.org/prova-2-carosello/-/prova-2-carosello-1.1.4.tgz"
+    },
+    "campus3": {
+      "tarball": "https://registry.npmjs.org/campus3/-/campus3-1.1.3.tgz"
+    },
+    "prova-cpm-4": {
+      "tarball": "https://registry.npmjs.org/prova-cpm-4/-/prova-cpm-4-1.0.1.tgz"
+    },
+    "samc2": {
+      "tarball": "https://registry.npmjs.org/samc2/-/samc2-2.0.0.tgz"
+    },
+    "cpm-20": {
+      "tarball": "https://registry.npmjs.org/cpm-20/-/cpm-20-1.0.1.tgz"
+    },
+    "cpm-21": {
+      "tarball": "https://registry.npmjs.org/cpm-21/-/cpm-21-1.0.1.tgz"
+    },
+    "cpm-14": {
+      "tarball": "https://registry.npmjs.org/cpm-14/-/cpm-14-1.0.1.tgz"
+    },
+    "carop4": {
+      "tarball": "https://registry.npmjs.org/carop4/-/carop4-1.1.3.tgz"
+    },
+    "carosello-tribus": {
+      "tarball": "https://registry.npmjs.org/carosello-tribus/-/carosello-tribus-1.1.3.tgz"
+    },
+    "cpm-12": {
+      "tarball": "https://registry.npmjs.org/cpm-12/-/cpm-12-1.0.1.tgz"
+    },
+    "cpm-7": {
+      "tarball": "https://registry.npmjs.org/cpm-7/-/cpm-7-1.0.1.tgz"
+    },
+    "cpm-13": {
+      "tarball": "https://registry.npmjs.org/cpm-13/-/cpm-13-1.0.1.tgz"
+    },
+    "cpm-def": {
+      "tarball": "https://registry.npmjs.org/cpm-def/-/cpm-def-1.0.1.tgz"
+    },
+    "car-cmp-2": {
+      "tarball": "https://registry.npmjs.org/car-cmp-2/-/car-cmp-2-1.1.3.tgz"
+    },
+    "cpm-9": {
+      "tarball": "https://registry.npmjs.org/cpm-9/-/cpm-9-1.0.1.tgz"
+    },
+    "prova-cpm-2": {
+      "tarball": "https://registry.npmjs.org/prova-cpm-2/-/prova-cpm-2-1.0.1.tgz"
+    },
+    "cpm-18": {
+      "tarball": "https://registry.npmjs.org/cpm-18/-/cpm-18-1.0.1.tgz"
+    },
+    "samc3": {
+      "tarball": "https://registry.npmjs.org/samc3/-/samc3-2.0.0.tgz"
+    },
+    "campus1": {
+      "tarball": "https://registry.npmjs.org/campus1/-/campus1-1.1.3.tgz"
+    },
+    "cpm-17": {
+      "tarball": "https://registry.npmjs.org/cpm-17/-/cpm-17-1.0.1.tgz"
+    },
+    "cpm-6": {
+      "tarball": "https://registry.npmjs.org/cpm-6/-/cpm-6-1.0.1.tgz"
+    },
+    "carop": {
+      "tarball": "https://registry.npmjs.org/carop/-/carop-1.1.3.tgz"
+    },
+    "cpm-8": {
+      "tarball": "https://registry.npmjs.org/cpm-8/-/cpm-8-1.0.1.tgz"
+    },
+    "carop3": {
+      "tarball": "https://registry.npmjs.org/carop3/-/carop3-1.1.3.tgz"
+    },
+    "prova-cmp": {
+      "tarball": "https://registry.npmjs.org/prova-cmp/-/prova-cmp-1.0.0.tgz"
+    },
+    "cpm-19": {
+      "tarball": "https://registry.npmjs.org/cpm-19/-/cpm-19-1.0.1.tgz"
+    },
+    "cpm-15": {
+      "tarball": "https://registry.npmjs.org/cpm-15/-/cpm-15-1.0.1.tgz"
+    },
+    "carosello-campus-opacita": {
+      "tarball": "https://registry.npmjs.org/carosello-campus-opacita/-/carosello-campus-opacita-1.1.3.tgz"
+    },
+    "carosello-tribus-2": {
+      "tarball": "https://registry.npmjs.org/carosello-tribus-2/-/carosello-tribus-2-1.1.3.tgz"
+    },
+    "video-multi-uploader": {
+      "tarball": "https://registry.npmjs.org/video-multi-uploader/-/video-multi-uploader-0.0.1.tgz"
+    },
+    "cpcs6_logger": {
+      "tarball": "https://registry.npmjs.org/cpcs6_logger/-/cpcs6_logger-1.0.1.tgz"
+    },
+    "3.0.0": {
+      "tarball": "https://registry.npmjs.org/3.0.0/-/3.0.0-3.0.0.tgz"
+    },
+    "ant-design-draggable-modal-fix-2": {
+      "tarball": "https://registry.npmjs.org/ant-design-draggable-modal-fix-2/-/ant-design-draggable-modal-fix-2-1.0.2.tgz"
+    },
+    "react-native-handcheque-engine": {
+      "tarball": "https://registry.npmjs.org/react-native-handcheque-engine/-/react-native-handcheque-engine-0.0.2.tgz"
+    },
+    "@nodeberry/solidity-payment-processor": {
+      "tarball": "https://registry.npmjs.org/@nodeberry/solidity-payment-processor/-/solidity-payment-processor-1.0.2.tgz"
+    },
+    "cthpb-plugin-social": {
+      "tarball": "https://registry.npmjs.org/cthpb-plugin-social/-/cthpb-plugin-social-0.0.13.tgz"
+    },
+    "tailwind-vector-effect": {
+      "tarball": "https://registry.npmjs.org/tailwind-vector-effect/-/tailwind-vector-effect-1.0.2.tgz"
+    },
+    "google-remake": {
+      "tarball": "https://registry.npmjs.org/google-remake/-/google-remake-1.0.2.tgz"
+    },
+    "help-widget": {
+      "tarball": "https://registry.npmjs.org/help-widget/-/help-widget-1.0.0.tgz"
+    },
+    "dataorm": {
+      "tarball": "https://registry.npmjs.org/dataorm/-/dataorm-0.1.0.tgz"
+    },
+    "hexyun.helpers": {
+      "tarball": "https://registry.npmjs.org/hexyun.helpers/-/hexyun.helpers-0.0.7.tgz"
+    },
+    "react-misc-toolbox": {
+      "tarball": "https://registry.npmjs.org/react-misc-toolbox/-/react-misc-toolbox-1.1.58.tgz"
+    },
+    "regression-external-dto": {
+      "tarball": "https://registry.npmjs.org/regression-external-dto/-/regression-external-dto-0.1.5.tgz"
+    },
+    "start-starwars-lib": {
+      "tarball": "https://registry.npmjs.org/start-starwars-lib/-/start-starwars-lib-3.0.0.tgz"
+    },
+    "ckeditor-5-imi-1": {
+      "tarball": "https://registry.npmjs.org/ckeditor-5-imi-1/-/ckeditor-5-imi-1-2.0.0.tgz"
+    },
+    "@thinkincoin-libs/token-lists": {
+      "tarball": "https://registry.npmjs.org/@thinkincoin-libs/token-lists/-/token-lists-1.0.4.tgz"
+    },
+    "@rbc-public/react-selectable-fast": {
+      "tarball": "https://registry.npmjs.org/@rbc-public/react-selectable-fast/-/react-selectable-fast-3.1.1-1.tgz"
+    },
+    "react-native-ok-sdk": {
+      "tarball": "https://registry.npmjs.org/react-native-ok-sdk/-/react-native-ok-sdk-0.0.1.tgz"
+    },
+    "@cryptocode99/token-lists": {
+      "tarball": "https://registry.npmjs.org/@cryptocode99/token-lists/-/token-lists-0.0.2.tgz"
+    },
+    "@xswap/token-lists": {
+      "tarball": "https://registry.npmjs.org/@xswap/token-lists/-/token-lists-1.0.2.tgz"
+    },
+    "@eliteswap/token-lists": {
+      "tarball": "https://registry.npmjs.org/@eliteswap/token-lists/-/token-lists-1.0.4.tgz"
+    },
+    "@torswap/tor-token-lists": {
+      "tarball": "https://registry.npmjs.org/@torswap/tor-token-lists/-/tor-token-lists-1.0.5.tgz"
+    },
+    "@maujzs/branch-release": {
+      "tarball": "https://registry.npmjs.org/@maujzs/branch-release/-/branch-release-0.1.0.tgz"
+    },
+    "react-native-dm-player": {
+      "tarball": "https://registry.npmjs.org/react-native-dm-player/-/react-native-dm-player-1.0.2.tgz"
+    },
+    "l2forlerna": {
+      "tarball": "https://registry.npmjs.org/l2forlerna/-/l2forlerna-1.0.1.tgz"
+    },
+    "fastlion-picture-viewer": {
+      "tarball": "https://registry.npmjs.org/fastlion-picture-viewer/-/fastlion-picture-viewer-1.0.0.tgz"
+    },
+    "@l1nyanm1ng/react-picture-viewer": {
+      "tarball": "https://registry.npmjs.org/@l1nyanm1ng/react-picture-viewer/-/react-picture-viewer-0.0.4.tgz"
+    },
+    "sticky-scroll-catch": {
+      "tarball": "https://registry.npmjs.org/sticky-scroll-catch/-/sticky-scroll-catch-1.3.5.tgz"
+    },
+    "react-angular-component": {
+      "tarball": "https://registry.npmjs.org/react-angular-component/-/react-angular-component-0.1.0.tgz"
+    },
+    "search-list-react": {
+      "tarball": "https://registry.npmjs.org/search-list-react/-/search-list-react-1.1.0.tgz"
+    },
+    "wc-starterkit": {
+      "tarball": "https://registry.npmjs.org/wc-starterkit/-/wc-starterkit-1.0.0.tgz"
+    },
+    "@smartpartner/postdirekt-autocomplete": {
+      "tarball": "https://registry.npmjs.org/@smartpartner/postdirekt-autocomplete/-/postdirekt-autocomplete-2.0.1.tgz"
+    },
+    "react-redux-demo1": {
+      "tarball": "https://registry.npmjs.org/react-redux-demo1/-/react-redux-demo1-1.0.0.tgz"
+    },
+    "qa_hdd": {
+      "tarball": "https://registry.npmjs.org/qa_hdd/-/qa_hdd-1.0.9.tgz"
+    },
+    "primeng-custom": {
+      "tarball": "https://registry.npmjs.org/primeng-custom/-/primeng-custom-4.0.0-beta.1.tgz"
+    },
+    "big-bertha": {
+      "tarball": "https://registry.npmjs.org/big-bertha/-/big-bertha-1.0.1.tgz"
+    },
+    "merino": {
+      "tarball": "https://registry.npmjs.org/merino/-/merino-1.0.6.tgz"
+    },
+    "rn-pdf-reader-offline": {
+      "tarball": "https://registry.npmjs.org/rn-pdf-reader-offline/-/rn-pdf-reader-offline-1.0.0.tgz"
+    },
+    "@southcn/ckeditor5-build-inline": {
+      "tarball": "https://registry.npmjs.org/@southcn/ckeditor5-build-inline/-/ckeditor5-build-inline-1.0.3.tgz"
+    },
+    "ckeditor5-build-custom-strapi": {
+      "tarball": "https://registry.npmjs.org/ckeditor5-build-custom-strapi/-/ckeditor5-build-custom-strapi-1.0.0.tgz"
+    },
+    "ckeditor5-click-virtual": {
+      "tarball": "https://registry.npmjs.org/ckeditor5-click-virtual/-/ckeditor5-click-virtual-0.0.3.tgz"
+    },
+    "@zebracompany/f_editor": {
+      "tarball": "https://registry.npmjs.org/@zebracompany/f_editor/-/f_editor-0.0.5.tgz"
+    },
+    "@ikon-x/ckeditor5-custom-build-for-irrosoft": {
+      "tarball": "https://registry.npmjs.org/@ikon-x/ckeditor5-custom-build-for-irrosoft/-/ckeditor5-custom-build-for-irrosoft-0.0.1.tgz"
+    },
+    "ckeditor5-custom-build-for-irrosoft": {
+      "tarball": "https://registry.npmjs.org/ckeditor5-custom-build-for-irrosoft/-/ckeditor5-custom-build-for-irrosoft-0.0.1.tgz"
+    },
+    "@artiso-solutions/vue-html-to-paper": {
+      "tarball": "https://registry.npmjs.org/@artiso-solutions/vue-html-to-paper/-/vue-html-to-paper-1.3.2.tgz"
+    },
+    "@stansaal/ckeditor5-custom-build": {
+      "tarball": "https://registry.npmjs.org/@stansaal/ckeditor5-custom-build/-/ckeditor5-custom-build-0.0.8.tgz"
+    },
+    "cordova-plugin-amplify-pay": {
+      "tarball": "https://registry.npmjs.org/cordova-plugin-amplify-pay/-/cordova-plugin-amplify-pay-1.0.0.tgz"
+    },
+    "cordova-plugin-amplify-payment": {
+      "tarball": "https://registry.npmjs.org/cordova-plugin-amplify-payment/-/cordova-plugin-amplify-payment-1.0.0.tgz"
+    },
+    "@sung/subsequence": {
+      "tarball": "https://registry.npmjs.org/@sung/subsequence/-/subsequence-0.0.2-alpha.1.tgz"
+    },
+    "miracle-webpack-tree-shaking": {
+      "tarball": "https://registry.npmjs.org/miracle-webpack-tree-shaking/-/miracle-webpack-tree-shaking-1.0.0.tgz"
+    },
+    "ckeditor5-strapi-msg": {
+      "tarball": "https://registry.npmjs.org/ckeditor5-strapi-msg/-/ckeditor5-strapi-msg-1.0.0.tgz"
+    },
+    "solregex2": {
+      "tarball": "https://registry.npmjs.org/solregex2/-/solregex2-0.3.1.tgz"
+    },
+    "search-input-react": {
+      "tarball": "https://registry.npmjs.org/search-input-react/-/search-input-react-1.1.1.tgz"
+    },
+    "fahad-redux-axios-midleware": {
+      "tarball": "https://registry.npmjs.org/fahad-redux-axios-midleware/-/fahad-redux-axios-midleware-1.0.0.tgz"
+    },
+    "vue-size-tracker": {
+      "tarball": "https://registry.npmjs.org/vue-size-tracker/-/vue-size-tracker-1.1.0.tgz"
+    },
+    "@krwhitley/neataptic": {
+      "tarball": "https://registry.npmjs.org/@krwhitley/neataptic/-/neataptic-1.5.1.tgz"
+    },
+    "react-native-touch-id-namgyu": {
+      "tarball": "https://registry.npmjs.org/react-native-touch-id-namgyu/-/react-native-touch-id-namgyu-1.0.1.tgz"
+    },
+    "babylonia": {
+      "tarball": "https://registry.npmjs.org/babylonia/-/babylonia-7.4.0.tgz"
+    },
+    "vue-router-middleware-system": {
+      "tarball": "https://registry.npmjs.org/vue-router-middleware-system/-/vue-router-middleware-system-1.0.1.tgz"
+    },
+    "react-native-brother-project": {
+      "tarball": "https://registry.npmjs.org/react-native-brother-project/-/react-native-brother-project-1.0.8.tgz"
+    },
+    "@upacyxou/react-native-draggable-flatlist": {
+      "tarball": "https://registry.npmjs.org/@upacyxou/react-native-draggable-flatlist/-/react-native-draggable-flatlist-2.7.6.tgz"
+    },
+    "carousel-react": {
+      "tarball": "https://registry.npmjs.org/carousel-react/-/carousel-react-1.2.1.tgz"
+    },
+    "@headgum/tko-mapping": {
+      "tarball": "https://registry.npmjs.org/@headgum/tko-mapping/-/tko-mapping-2.9.0.tgz"
+    },
+    "@fangdh/typescript-esbuild-2021": {
+      "tarball": "https://registry.npmjs.org/@fangdh/typescript-esbuild-2021/-/typescript-esbuild-2021-0.4.4.tgz"
+    },
+    "@novembrecom/zxcvbn": {
+      "tarball": "https://registry.npmjs.org/@novembrecom/zxcvbn/-/zxcvbn-4.4.2.tgz"
+    },
+    "react-native-twilio-voice-sdk-upgrade": {
+      "tarball": "https://registry.npmjs.org/react-native-twilio-voice-sdk-upgrade/-/react-native-twilio-voice-sdk-upgrade-0.6.3.tgz"
+    },
+    "react-native-android-advertising-id": {
+      "tarball": "https://registry.npmjs.org/react-native-android-advertising-id/-/react-native-android-advertising-id-1.0.11.tgz"
+    },
+    "techfox-react-feather": {
+      "tarball": "https://registry.npmjs.org/techfox-react-feather/-/techfox-react-feather-1.0.0.tgz"
+    },
+    "techfox-icon": {
+      "tarball": "https://registry.npmjs.org/techfox-icon/-/techfox-icon-1.0.0.tgz"
+    },
+    "freemamba": {
+      "tarball": "https://registry.npmjs.org/freemamba/-/freemamba-0.1.0.tgz"
+    },
+    "@thanhnguyen14797/react-native-thanh-toast-library": {
+      "tarball": "https://registry.npmjs.org/@thanhnguyen14797/react-native-thanh-toast-library/-/react-native-thanh-toast-library-1.0.7.tgz"
+    },
+    "react-native-thanh-toast-library": {
+      "tarball": "https://registry.npmjs.org/react-native-thanh-toast-library/-/react-native-thanh-toast-library-1.0.0.tgz"
+    },
+    "react-native-sample-android-toast-version10": {
+      "tarball": "https://registry.npmjs.org/react-native-sample-android-toast-version10/-/react-native-sample-android-toast-version10-2.0.0.tgz"
+    },
+    "@meerasolution/react-native-ms-upi-payment": {
+      "tarball": "https://registry.npmjs.org/@meerasolution/react-native-ms-upi-payment/-/react-native-ms-upi-payment-2.0.2.tgz"
+    },
+    "@mblode/react-native-feather": {
+      "tarball": "https://registry.npmjs.org/@mblode/react-native-feather/-/react-native-feather-0.0.1.tgz"
+    },
+    "@boundless-inc/mobiledoc-dom-renderer": {
+      "tarball": "https://registry.npmjs.org/@boundless-inc/mobiledoc-dom-renderer/-/mobiledoc-dom-renderer-0.6.5.tgz"
+    },
+    "@opn-ooo/eslint-config-opn": {
+      "tarball": "https://registry.npmjs.org/@opn-ooo/eslint-config-opn/-/eslint-config-opn-1.0.5.tgz"
+    },
+    "most-dependencies": {
+      "tarball": "https://registry.npmjs.org/most-dependencies/-/most-dependencies-1.0.0.tgz"
+    },
+    "react-native-hlf-wrapper": {
+      "tarball": "https://registry.npmjs.org/react-native-hlf-wrapper/-/react-native-hlf-wrapper-0.0.2.tgz"
+    },
+    "textfield-sample": {
+      "tarball": "https://registry.npmjs.org/textfield-sample/-/textfield-sample-1.0.1.tgz"
+    },
+    "@rps-engine/core": {
+      "tarball": "https://registry.npmjs.org/@rps-engine/core/-/core-0.1.1.tgz"
+    },
+    "forminput-ui-lib": {
+      "tarball": "https://registry.npmjs.org/forminput-ui-lib/-/forminput-ui-lib-1.0.0.tgz"
+    },
+    "@pawjs/tapable": {
+      "tarball": "https://registry.npmjs.org/@pawjs/tapable/-/tapable-2.0.0-beta.11.tgz"
+    },
+    "first-app-lyfuci": {
+      "tarball": "https://registry.npmjs.org/first-app-lyfuci/-/first-app-lyfuci-1.0.0.tgz"
+    },
+    "binary-booking-calendar": {
+      "tarball": "https://registry.npmjs.org/binary-booking-calendar/-/binary-booking-calendar-0.1.10.tgz"
+    },
+    "@mindinventory/rn-top-navbar": {
+      "tarball": "https://registry.npmjs.org/@mindinventory/rn-top-navbar/-/rn-top-navbar-0.0.3.tgz"
+    },
+    "@amraneze/react-instagram-login": {
+      "tarball": "https://registry.npmjs.org/@amraneze/react-instagram-login/-/react-instagram-login-2.0.1.tgz"
+    },
+    "hubot-buda": {
+      "tarball": "https://registry.npmjs.org/hubot-buda/-/hubot-buda-1.0.0.tgz"
+    },
+    "@cleveradssolutions/cas.cordova.optimal": {
+      "tarball": "https://registry.npmjs.org/@cleveradssolutions/cas.cordova.optimal/-/cas.cordova.optimal-0.1.0.tgz"
+    },
+    "@cleveradssolutions/cas.cordova.families": {
+      "tarball": "https://registry.npmjs.org/@cleveradssolutions/cas.cordova.families/-/cas.cordova.families-0.1.0.tgz"
+    },
+    "mikolalysenko-hoarders": {
+      "tarball": "https://registry.npmjs.org/mikolalysenko-hoarders/-/mikolalysenko-hoarders-1.0.0.tgz"
+    },
+    "@saeon/quick-form": {
+      "tarball": "https://registry.npmjs.org/@saeon/quick-form/-/quick-form-3.2.4.tgz"
+    },
+    "mncss": {
+      "tarball": "https://registry.npmjs.org/mncss/-/mncss-1.0.3.tgz"
+    },
+    "react-websockets": {
+      "tarball": "https://registry.npmjs.org/react-websockets/-/react-websockets-1.0.0.tgz"
+    },
+    "svavatar": {
+      "tarball": "https://registry.npmjs.org/svavatar/-/svavatar-1.0.4.tgz"
+    },
+    "iex-sdk": {
+      "tarball": "https://registry.npmjs.org/iex-sdk/-/iex-sdk-1.0.2.tgz"
+    },
+    "npm-package-mentorcheck": {
+      "tarball": "https://registry.npmjs.org/npm-package-mentorcheck/-/npm-package-mentorcheck-1.0.1.tgz"
+    },
+    "woven-challenge-deploy": {
+      "tarball": "https://registry.npmjs.org/woven-challenge-deploy/-/woven-challenge-deploy-1.0.8.tgz"
+    },
+    "@meklitc7/date-library": {
+      "tarball": "https://registry.npmjs.org/@meklitc7/date-library/-/date-library-1.0.0.tgz"
+    },
+    "stringlb": {
+      "tarball": "https://registry.npmjs.org/stringlb/-/stringlb-2.0.0.tgz"
+    },
+    "@maricode1111/date-lib": {
+      "tarball": "https://registry.npmjs.org/@maricode1111/date-lib/-/date-lib-1.0.1.tgz"
+    },
+    "@meklitc7/string-library": {
+      "tarball": "https://registry.npmjs.org/@meklitc7/string-library/-/string-library-1.0.2.tgz"
+    },
+    "@sandycamilo/datelib": {
+      "tarball": "https://registry.npmjs.org/@sandycamilo/datelib/-/datelib-1.0.1.tgz"
+    },
+    "reikamoon-string-library-aa": {
+      "tarball": "https://registry.npmjs.org/reikamoon-string-library-aa/-/reikamoon-string-library-aa-1.0.2.tgz"
+    },
+    "date-library-aa": {
+      "tarball": "https://registry.npmjs.org/date-library-aa/-/date-library-aa-1.1.0.tgz"
+    },
+    "h5-templete": {
+      "tarball": "https://registry.npmjs.org/h5-templete/-/h5-templete-0.0.1.tgz"
+    },
+    "ka-flow.js": {
+      "tarball": "https://registry.npmjs.org/ka-flow.js/-/ka-flow.js-2.14.0.tgz"
+    },
+    "@ansonhkg/utils": {
+      "tarball": "https://registry.npmjs.org/@ansonhkg/utils/-/utils-0.0.36.tgz"
+    },
+    "@mhmdaljefri/revogrid": {
+      "tarball": "https://registry.npmjs.org/@mhmdaljefri/revogrid/-/revogrid-3.0.98.tgz"
+    },
+    "babel-plugin-specify-imports": {
+      "tarball": "https://registry.npmjs.org/babel-plugin-specify-imports/-/babel-plugin-specify-imports-1.1.1.tgz"
+    },
+    "@moezx/meting": {
+      "tarball": "https://registry.npmjs.org/@moezx/meting/-/meting-2.0.1.tgz"
+    },
+    "patternx": {
+      "tarball": "https://registry.npmjs.org/patternx/-/patternx-0.0.1.tgz"
+    },
+    "@dan/cryptocoins-icons": {
+      "tarball": "https://registry.npmjs.org/@dan/cryptocoins-icons/-/cryptocoins-icons-2.9.1.tgz"
+    },
+    "icons-vue-test": {
+      "tarball": "https://registry.npmjs.org/icons-vue-test/-/icons-vue-test-0.0.1.tgz"
+    },
+    "demo-component-skyflyer86": {
+      "tarball": "https://registry.npmjs.org/demo-component-skyflyer86/-/demo-component-skyflyer86-1.0.0.tgz"
+    },
+    "ts-reactx": {
+      "tarball": "https://registry.npmjs.org/ts-reactx/-/ts-reactx-1.0.1.tgz"
+    },
+    "rfp-lib": {
+      "tarball": "https://registry.npmjs.org/rfp-lib/-/rfp-lib-1.0.6.tgz"
+    },
+    "axios-retry-ano": {
+      "tarball": "https://registry.npmjs.org/axios-retry-ano/-/axios-retry-ano-1.0.2.tgz"
+    },
+    "@jretts/modified-sveltejs": {
+      "tarball": "https://registry.npmjs.org/@jretts/modified-sveltejs/-/modified-sveltejs-1.0.0.tgz"
+    },
+    "a_react_reflux_demo": {
+      "tarball": "https://registry.npmjs.org/a_react_reflux_demo/-/a_react_reflux_demo-1.0.0.tgz"
+    },
+    "canvas-fingerprint": {
+      "tarball": "https://registry.npmjs.org/canvas-fingerprint/-/canvas-fingerprint-1.0.3.tgz"
+    },
+    "@astro-my/sign-request": {
+      "tarball": "https://registry.npmjs.org/@astro-my/sign-request/-/sign-request-0.1.1.tgz"
+    },
+    "@kylesferrazza/graphql-relay-updated": {
+      "tarball": "https://registry.npmjs.org/@kylesferrazza/graphql-relay-updated/-/graphql-relay-updated-0.6.0.tgz"
+    },
+    "web-component-tester-bundle": {
+      "tarball": "https://registry.npmjs.org/web-component-tester-bundle/-/web-component-tester-bundle-0.0.8.tgz"
+    },
+    "@alta-ng-timeago/hiamtanh-alta": {
+      "tarball": "https://registry.npmjs.org/@alta-ng-timeago/hiamtanh-alta/-/hiamtanh-alta-1.0.0.tgz"
+    },
+    "pb-schema": {
+      "tarball": "https://registry.npmjs.org/pb-schema/-/pb-schema-3.3.8.tgz"
+    },
+    "terrible-lodash": {
+      "tarball": "https://registry.npmjs.org/terrible-lodash/-/terrible-lodash-0.0.3.tgz"
+    },
+    "ch3ck": {
+      "tarball": "https://registry.npmjs.org/ch3ck/-/ch3ck-1.0.2.tgz"
+    },
+    "generator-liuhuijun-vue": {
+      "tarball": "https://registry.npmjs.org/generator-liuhuijun-vue/-/generator-liuhuijun-vue-1.0.0.tgz"
+    },
+    "@levlevin/react-portal-tooltip": {
+      "tarball": "https://registry.npmjs.org/@levlevin/react-portal-tooltip/-/react-portal-tooltip-2.4.8.tgz"
+    },
+    "mhyd": {
+      "tarball": "https://registry.npmjs.org/mhyd/-/mhyd-11.2.1.tgz"
+    },
+    "mhy": {
+      "tarball": "https://registry.npmjs.org/mhy/-/mhy-11.3.3.tgz"
+    },
+    "chain_digger": {
+      "tarball": "https://registry.npmjs.org/chain_digger/-/chain_digger-0.0.1.tgz"
+    },
+    "eslint-config-k3cman-angular": {
+      "tarball": "https://registry.npmjs.org/eslint-config-k3cman-angular/-/eslint-config-k3cman-angular-1.0.0.tgz"
+    },
+    "@azure/connectors-all": {
+      "tarball": "https://registry.npmjs.org/@azure/connectors-all/-/connectors-all-0.0.2-alpha.tgz"
+    },
+    "js-utils-jll2": {
+      "tarball": "https://registry.npmjs.org/js-utils-jll2/-/js-utils-jll2-1.0.0.tgz"
+    },
+    "mutasi-bca": {
+      "tarball": "https://registry.npmjs.org/mutasi-bca/-/mutasi-bca-1.1.4.tgz"
+    },
+    "@livecycle.io/rrweb-snapshot": {
+      "tarball": "https://registry.npmjs.org/@livecycle.io/rrweb-snapshot/-/rrweb-snapshot-1.1.7.tgz"
+    },
+    "@graines-digitales/nice-handsome-button": {
+      "tarball": "https://registry.npmjs.org/@graines-digitales/nice-handsome-button/-/nice-handsome-button-0.0.2.tgz"
+    },
+    "cblink-cli": {
+      "tarball": "https://registry.npmjs.org/cblink-cli/-/cblink-cli-1.0.2.tgz"
+    },
+    "nguye": {
+      "tarball": "https://registry.npmjs.org/nguye/-/nguye-0.0.1.tgz"
+    },
+    "tanngo": {
+      "tarball": "https://registry.npmjs.org/tanngo/-/tanngo-0.0.1.tgz"
+    },
+    "kountexample": {
+      "tarball": "https://registry.npmjs.org/kountexample/-/kountexample-0.1.1.tgz"
+    },
+    "@ibrahimcesar/middy-idempotent": {
+      "tarball": "https://registry.npmjs.org/@ibrahimcesar/middy-idempotent/-/middy-idempotent-0.0.20.tgz"
+    },
+    "@edoroshenko/codemirror": {
+      "tarball": "https://registry.npmjs.org/@edoroshenko/codemirror/-/codemirror-5.48.3.tgz"
+    },
+    "lazy-bee-ui": {
+      "tarball": "https://registry.npmjs.org/lazy-bee-ui/-/lazy-bee-ui-1.0.1.tgz"
+    },
+    "@posturize/react-resizable-rotatable-draggable": {
+      "tarball": "https://registry.npmjs.org/@posturize/react-resizable-rotatable-draggable/-/react-resizable-rotatable-draggable-0.3.0-dev.0.tgz"
+    },
+    "nuxtjs-argon": {
+      "tarball": "https://registry.npmjs.org/nuxtjs-argon/-/nuxtjs-argon-1.1.3.tgz"
+    },
+    "@dcp-ui/icons": {
+      "tarball": "https://registry.npmjs.org/@dcp-ui/icons/-/icons-1.0.0.tgz"
+    },
+    "@welcome-ui/icons": {
+      "tarball": "https://registry.npmjs.org/@welcome-ui/icons/-/icons-3.8.0.tgz"
+    },
+    "tnp": {
+      "tarball": "https://registry.npmjs.org/tnp/-/tnp-0.0.144.tgz"
+    },
+    "cordova-plugin-tsp": {
+      "tarball": "https://registry.npmjs.org/cordova-plugin-tsp/-/cordova-plugin-tsp-0.3.1.tgz"
+    },
+    "wcq-vue": {
+      "tarball": "https://registry.npmjs.org/wcq-vue/-/wcq-vue-1.0.0.tgz"
+    },
+    "apc-youtube": {
+      "tarball": "https://registry.npmjs.org/apc-youtube/-/apc-youtube-1.0.0.tgz"
+    },
+    "outils-ren": {
+      "tarball": "https://registry.npmjs.org/outils-ren/-/outils-ren-1.0.0.tgz"
+    },
+    "npmtest-05041": {
+      "tarball": "https://registry.npmjs.org/npmtest-05041/-/npmtest-05041-0.0.1.tgz"
+    },
+    "lrbceshi": {
+      "tarball": "https://registry.npmjs.org/lrbceshi/-/lrbceshi-1.0.0.tgz"
+    },
+    "viber-botkit": {
+      "tarball": "https://registry.npmjs.org/viber-botkit/-/viber-botkit-1.0.4.tgz"
+    },
+    "drowl-base-theme-iconset": {
+      "tarball": "https://registry.npmjs.org/drowl-base-theme-iconset/-/drowl-base-theme-iconset-1.0.3.tgz"
+    },
+    "hendo-cli-luozheao": {
+      "tarball": "https://registry.npmjs.org/hendo-cli-luozheao/-/hendo-cli-luozheao-0.0.9.tgz"
+    },
+    "hendo-cli": {
+      "tarball": "https://registry.npmjs.org/hendo-cli/-/hendo-cli-0.0.9.tgz"
+    },
+    "cordova-plugin-demotoast": {
+      "tarball": "https://registry.npmjs.org/cordova-plugin-demotoast/-/cordova-plugin-demotoast-1.0.0.tgz"
+    },
+    "bs3-breakpoint": {
+      "tarball": "https://registry.npmjs.org/bs3-breakpoint/-/bs3-breakpoint-0.0.4.tgz"
+    },
+    "ng2-accordions": {
+      "tarball": "https://registry.npmjs.org/ng2-accordions/-/ng2-accordions-1.0.16.tgz"
+    },
+    "angular2-example-http-login": {
+      "tarball": "https://registry.npmjs.org/angular2-example-http-login/-/angular2-example-http-login-5.0.11.tgz"
+    },
+    "rebird-https-letsencrypt": {
+      "tarball": "https://registry.npmjs.org/rebird-https-letsencrypt/-/rebird-https-letsencrypt-0.0.6.tgz"
+    },
+    "loading-info": {
+      "tarball": "https://registry.npmjs.org/loading-info/-/loading-info-0.0.10.tgz"
+    },
+    "ng2-preloader": {
+      "tarball": "https://registry.npmjs.org/ng2-preloader/-/ng2-preloader-1.0.10.tgz"
+    },
+    "edit-table": {
+      "tarball": "https://registry.npmjs.org/edit-table/-/edit-table-0.0.13.tgz"
+    },
+    "ng2-button-loader": {
+      "tarball": "https://registry.npmjs.org/ng2-button-loader/-/ng2-button-loader-0.0.12.tgz"
+    },
+    "test-public-pro": {
+      "tarball": "https://registry.npmjs.org/test-public-pro/-/test-public-pro-1.0.0.tgz"
+    },
+    "@stdlib/stats-base": {
+      "tarball": "https://registry.npmjs.org/@stdlib/stats-base/-/stats-base-0.0.5.tgz"
+    },
+    "@resystem/ida-js-sdk": {
+      "tarball": "https://registry.npmjs.org/@resystem/ida-js-sdk/-/ida-js-sdk-0.2.27.tgz"
+    },
+    "@bebopskull/lotide": {
+      "tarball": "https://registry.npmjs.org/@bebopskull/lotide/-/lotide-1.0.0.tgz"
+    },
+    "panqibao": {
+      "tarball": "https://registry.npmjs.org/panqibao/-/panqibao-8.0.1.tgz"
+    },
+    "decdk": {
+      "tarball": "https://registry.npmjs.org/decdk/-/decdk-1.124.0.tgz"
+    },
+    "crpm": {
+      "tarball": "https://registry.npmjs.org/crpm/-/crpm-2.6.0.tgz"
+    },
+    "@sap/cloud-sdk-vdm": {
+      "tarball": "https://registry.npmjs.org/@sap/cloud-sdk-vdm/-/cloud-sdk-vdm-1.21.0.tgz"
+    },
+    "@stdlib/math-base-special": {
+      "tarball": "https://registry.npmjs.org/@stdlib/math-base-special/-/math-base-special-0.0.4.tgz"
+    },
+    "@mhy/mhy": {
+      "tarball": "https://registry.npmjs.org/@mhy/mhy/-/mhy-0.19.9.tgz"
+    },
+    "wescheme-js": {
+      "tarball": "https://registry.npmjs.org/wescheme-js/-/wescheme-js-0.0.5.tgz"
+    },
+    "lq-server-cli": {
+      "tarball": "https://registry.npmjs.org/lq-server-cli/-/lq-server-cli-1.0.7.tgz"
+    },
+    "@hristo2612/capacitor-google-auth": {
+      "tarball": "https://registry.npmjs.org/@hristo2612/capacitor-google-auth/-/capacitor-google-auth-0.0.1.tgz"
+    },
+    "@synthit/nested-list": {
+      "tarball": "https://registry.npmjs.org/@synthit/nested-list/-/nested-list-0.0.1.tgz"
+    },
+    "uinz-notification": {
+      "tarball": "https://registry.npmjs.org/uinz-notification/-/uinz-notification-1.0.1.tgz"
+    },
+    "over-armour-master": {
+      "tarball": "https://registry.npmjs.org/over-armour-master/-/over-armour-master-1.1.0.tgz"
+    },
+    "@elliemae/pui-cli": {
+      "tarball": "https://registry.npmjs.org/@elliemae/pui-cli/-/pui-cli-5.2.0.tgz"
+    },
+    "@jonathansadowski/wpc-test": {
+      "tarball": "https://registry.npmjs.org/@jonathansadowski/wpc-test/-/wpc-test-0.17.0.tgz"
+    },
+    "@kafudev/react-native-shell": {
+      "tarball": "https://registry.npmjs.org/@kafudev/react-native-shell/-/react-native-shell-0.64.1-beta.47.tgz"
+    },
+    "@zatkoa/eslint-config-zatkoa": {
+      "tarball": "https://registry.npmjs.org/@zatkoa/eslint-config-zatkoa/-/eslint-config-zatkoa-1.0.0.tgz"
+    },
+    "learning_locker": {
+      "tarball": "https://registry.npmjs.org/learning_locker/-/learning_locker-2.0.7.tgz"
+    },
+    "raptor-app": {
+      "tarball": "https://registry.npmjs.org/raptor-app/-/raptor-app-5.0.5.tgz"
+    },
+    "hello_world_founder": {
+      "tarball": "https://registry.npmjs.org/hello_world_founder/-/hello_world_founder-1.0.3.tgz"
+    },
+    "com.tqniyati.nfc.nfcplugin": {
+      "tarball": "https://registry.npmjs.org/com.tqniyati.nfc.nfcplugin/-/com.tqniyati.nfc.nfcplugin-0.2.6.tgz"
+    },
+    "@larsroettig/component-targetables": {
+      "tarball": "https://registry.npmjs.org/@larsroettig/component-targetables/-/component-targetables-1.0.0.tgz"
+    },
+    "dk_2018_1_1": {
+      "tarball": "https://registry.npmjs.org/dk_2018_1_1/-/dk_2018_1_1-1.0.0.tgz"
+    },
+    "elvy": {
+      "tarball": "https://registry.npmjs.org/elvy/-/elvy-0.0.1.tgz"
+    },
+    "tatra": {
+      "tarball": "https://registry.npmjs.org/tatra/-/tatra-1.1.7.tgz"
+    },
+    "@stijnvanhulle/components": {
+      "tarball": "https://registry.npmjs.org/@stijnvanhulle/components/-/components-1.4.15.tgz"
+    },
+    "fishzero": {
+      "tarball": "https://registry.npmjs.org/fishzero/-/fishzero-1.0.0.tgz"
+    },
+    "gix-npm-server": {
+      "tarball": "https://registry.npmjs.org/gix-npm-server/-/gix-npm-server-1.0.0.tgz"
+    },
+    "betterlyearn2": {
+      "tarball": "https://registry.npmjs.org/betterlyearn2/-/betterlyearn2-1.0.0.tgz"
+    },
+    "@respondea/cordova-plugin-v-inappbrowser": {
+      "tarball": "https://registry.npmjs.org/@respondea/cordova-plugin-v-inappbrowser/-/cordova-plugin-v-inappbrowser-5.0.1-dev.4.tgz"
+    },
+    "@aws-cdk/cloudformation-include": {
+      "tarball": "https://registry.npmjs.org/@aws-cdk/cloudformation-include/-/cloudformation-include-1.124.0.tgz"
+    },
+    "zyl": {
+      "tarball": "https://registry.npmjs.org/zyl/-/zyl-1.0.0.tgz"
+    },
+    "morphi": {
+      "tarball": "https://registry.npmjs.org/morphi/-/morphi-4.0.39.tgz"
+    },
+    "plugin_test01": {
+      "tarball": "https://registry.npmjs.org/plugin_test01/-/plugin_test01-1.1.0.tgz"
+    },
+    "bit-bin": {
+      "tarball": "https://registry.npmjs.org/bit-bin/-/bit-bin-14.8.8.tgz"
+    },
+    "ebit-bin": {
+      "tarball": "https://registry.npmjs.org/ebit-bin/-/ebit-bin-14.8.86.tgz"
+    },
+    "wed_developer": {
+      "tarball": "https://registry.npmjs.org/wed_developer/-/wed_developer-1.0.0.tgz"
+    },
+    "react-application-core": {
+      "tarball": "https://registry.npmjs.org/react-application-core/-/react-application-core-0.0.412.tgz"
+    },
+    "toyako": {
+      "tarball": "https://registry.npmjs.org/toyako/-/toyako-1.0.1.tgz"
+    },
+    "@kafudev/react-native-core": {
+      "tarball": "https://registry.npmjs.org/@kafudev/react-native-core/-/react-native-core-1.0.4.tgz"
+    },
+    "rnshell": {
+      "tarball": "https://registry.npmjs.org/rnshell/-/rnshell-0.64.2.tgz"
+    },
+    "@linewit/vue-router-generator": {
+      "tarball": "https://registry.npmjs.org/@linewit/vue-router-generator/-/vue-router-generator-1.0.3.tgz"
+    },
+    "vue-router-generator": {
+      "tarball": "https://registry.npmjs.org/vue-router-generator/-/vue-router-generator-1.0.4.tgz"
+    },
+    "@synthit/editorjshtml": {
+      "tarball": "https://registry.npmjs.org/@synthit/editorjshtml/-/editorjshtml-0.0.1.tgz"
+    },
+    "@kacao/chops": {
+      "tarball": "https://registry.npmjs.org/@kacao/chops/-/chops-0.0.3.tgz"
+    },
+    "@synthit/editorjs-html": {
+      "tarball": "https://registry.npmjs.org/@synthit/editorjs-html/-/editorjs-html-0.0.1.tgz"
+    },
+    "lpack-ts-react-apollo": {
+      "tarball": "https://registry.npmjs.org/lpack-ts-react-apollo/-/lpack-ts-react-apollo-1.0.0.tgz"
+    },
+    "putout": {
+      "tarball": "https://registry.npmjs.org/putout/-/putout-20.4.0.tgz"
+    },
+    "cemento-paid": {
+      "tarball": "https://registry.npmjs.org/cemento-paid/-/cemento-paid-1.5.0.tgz"
+    },
+    "omni-common-ui": {
+      "tarball": "https://registry.npmjs.org/omni-common-ui/-/omni-common-ui-0.39.0.tgz"
+    },
+    "sid-test-create-npm": {
+      "tarball": "https://registry.npmjs.org/sid-test-create-npm/-/sid-test-create-npm-0.1.0.tgz"
+    },
+    "sid-npmtest-1": {
+      "tarball": "https://registry.npmjs.org/sid-npmtest-1/-/sid-npmtest-1-0.1.1.tgz"
+    },
+    "xcim-codesandbox": {
+      "tarball": "https://registry.npmjs.org/xcim-codesandbox/-/xcim-codesandbox-1.0.14.tgz"
+    },
+    "@plone/volto": {
+      "tarball": "https://registry.npmjs.org/@plone/volto/-/volto-13.15.1.tgz"
+    },
+    "pw-components": {
+      "tarball": "https://registry.npmjs.org/pw-components/-/pw-components-0.2.2.tgz"
+    },
+    "@jayway/tds": {
+      "tarball": "https://registry.npmjs.org/@jayway/tds/-/tds-0.0.87.tgz"
+    },
+    "gatsby": {
+      "tarball": "https://registry.npmjs.org/gatsby/-/gatsby-3.14.0.tgz"
+    },
+    "@namchey/linkpreview": {
+      "tarball": "https://registry.npmjs.org/@namchey/linkpreview/-/linkpreview-1.4.0.tgz"
+    },
+    "cocos-creator": {
+      "tarball": "https://registry.npmjs.org/cocos-creator/-/cocos-creator-2.4.2.tgz"
+    },
+    "@ruibaby/wiki": {
+      "tarball": "https://registry.npmjs.org/@ruibaby/wiki/-/wiki-2.5.171.tgz"
+    },
+    "@dylanvann/gatsby": {
+      "tarball": "https://registry.npmjs.org/@dylanvann/gatsby/-/gatsby-2.22.20.tgz"
+    },
+    "@structure.rest/editor": {
+      "tarball": "https://registry.npmjs.org/@structure.rest/editor/-/editor-0.2.0.tgz"
+    },
+    "generaljs-2021": {
+      "tarball": "https://registry.npmjs.org/generaljs-2021/-/generaljs-2021-2.0.1.tgz"
+    },
+    "terriajs": {
+      "tarball": "https://registry.npmjs.org/terriajs/-/terriajs-8.1.0.tgz"
+    },
+    "@comunica/actor-init-sparql": {
+      "tarball": "https://registry.npmjs.org/@comunica/actor-init-sparql/-/actor-init-sparql-1.22.1.tgz"
+    },
+    "next-nodecms": {
+      "tarball": "https://registry.npmjs.org/next-nodecms/-/next-nodecms-1.0.40.tgz"
+    },
+    "cncjs": {
+      "tarball": "https://registry.npmjs.org/cncjs/-/cncjs-1.9.22.tgz"
+    },
+    "tailwind-template": {
+      "tarball": "https://registry.npmjs.org/tailwind-template/-/tailwind-template-1.0.0.tgz"
+    },
+    "mcashscan-frontend": {
+      "tarball": "https://registry.npmjs.org/mcashscan-frontend/-/mcashscan-frontend-0.1.0.tgz"
+    },
+    "@procore/core-scripts": {
+      "tarball": "https://registry.npmjs.org/@procore/core-scripts/-/core-scripts-10.0.2.tgz"
+    },
+    "ws-voice-infinity-global-module": {
+      "tarball": "https://registry.npmjs.org/ws-voice-infinity-global-module/-/ws-voice-infinity-global-module-0.9.73.tgz"
+    },
+    "@romger/react-table": {
+      "tarball": "https://registry.npmjs.org/@romger/react-table/-/react-table-1.0.1.tgz"
+    },
+    "@thewhite/react-global-module": {
+      "tarball": "https://registry.npmjs.org/@thewhite/react-global-module/-/react-global-module-1.0.49.tgz"
+    },
+    "@thewhite/react-table": {
+      "tarball": "https://registry.npmjs.org/@thewhite/react-table/-/react-table-1.0.14.tgz"
+    },
+    "@liferay/portal-7.4-ga1": {
+      "tarball": "https://registry.npmjs.org/@liferay/portal-7.4-ga1/-/portal-7.4-ga1-0.0.1-alpha.1.tgz"
+    },
+    "@thewhite/react-geo": {
+      "tarball": "https://registry.npmjs.org/@thewhite/react-geo/-/react-geo-1.0.5.tgz"
+    },
+    "webcube": {
+      "tarball": "https://registry.npmjs.org/webcube/-/webcube-2.0.3.tgz"
+    },
+    "compass-base": {
+      "tarball": "https://registry.npmjs.org/compass-base/-/compass-base-0.1.18.tgz"
+    },
+    "ws-intranet-global-module": {
+      "tarball": "https://registry.npmjs.org/ws-intranet-global-module/-/ws-intranet-global-module-0.1.37.tgz"
+    },
+    "nuclide": {
+      "tarball": "https://registry.npmjs.org/nuclide/-/nuclide-0.366.0.tgz"
+    },
+    "@kmwork/front-core": {
+      "tarball": "https://registry.npmjs.org/@kmwork/front-core/-/front-core-2.0.7.tgz"
+    },
+    "storefront-alpha": {
+      "tarball": "https://registry.npmjs.org/storefront-alpha/-/storefront-alpha-0.0.17.tgz"
+    },
+    "eslint-plugin-aurelia-event-aggregator": {
+      "tarball": "https://registry.npmjs.org/eslint-plugin-aurelia-event-aggregator/-/eslint-plugin-aurelia-event-aggregator-1.0.0.tgz"
+    },
+    "ws-react-table": {
+      "tarball": "https://registry.npmjs.org/ws-react-table/-/ws-react-table-1.0.0.tgz"
+    },
+    "hulionjs": {
+      "tarball": "https://registry.npmjs.org/hulionjs/-/hulionjs-0.0.41.tgz"
+    },
+    "ws-react-base-dictionary": {
+      "tarball": "https://registry.npmjs.org/ws-react-base-dictionary/-/ws-react-base-dictionary-5.0.87.tgz"
+    },
+    "@romger/react-geo": {
+      "tarball": "https://registry.npmjs.org/@romger/react-geo/-/react-geo-1.0.1.tgz"
+    },
+    "reskript": {
+      "tarball": "https://registry.npmjs.org/reskript/-/reskript-0.26.7.tgz"
+    },
+    "ufp-core": {
+      "tarball": "https://registry.npmjs.org/ufp-core/-/ufp-core-0.7.0.tgz"
+    },
+    "@radic/build-tools-webpack": {
+      "tarball": "https://registry.npmjs.org/@radic/build-tools-webpack/-/build-tools-webpack-1.3.0.tgz"
+    },
+    "cli-service-deps": {
+      "tarball": "https://registry.npmjs.org/cli-service-deps/-/cli-service-deps-1.0.0.tgz"
+    },
+    "@bonobolabs/gatsby": {
+      "tarball": "https://registry.npmjs.org/@bonobolabs/gatsby/-/gatsby-2.17.12.tgz"
+    },
+    "@pareext/cli-service": {
+      "tarball": "https://registry.npmjs.org/@pareext/cli-service/-/cli-service-0.7.0.tgz"
+    },
+    "caipi": {
+      "tarball": "https://registry.npmjs.org/caipi/-/caipi-0.4.3.tgz"
+    },
+    "pri": {
+      "tarball": "https://registry.npmjs.org/pri/-/pri-4.3.11.tgz"
+    },
+    "@reagentum/front-core": {
+      "tarball": "https://registry.npmjs.org/@reagentum/front-core/-/front-core-1.9.50.tgz"
+    },
+    "@netdata/interactive-landscape": {
+      "tarball": "https://registry.npmjs.org/@netdata/interactive-landscape/-/interactive-landscape-1.0.47.tgz"
+    },
+    "netdata-collectors-landscape": {
+      "tarball": "https://registry.npmjs.org/netdata-collectors-landscape/-/netdata-collectors-landscape-0.0.1.tgz"
+    },
+    "@romger/react-global-module": {
+      "tarball": "https://registry.npmjs.org/@romger/react-global-module/-/react-global-module-1.0.1.tgz"
+    },
+    "@macko911/gatsby": {
+      "tarball": "https://registry.npmjs.org/@macko911/gatsby/-/gatsby-2.17.8.tgz"
+    },
+    "@triotech/vue-core": {
+      "tarball": "https://registry.npmjs.org/@triotech/vue-core/-/vue-core-1.0.0.tgz"
+    },
+    "smasher": {
+      "tarball": "https://registry.npmjs.org/smasher/-/smasher-0.1.2.tgz"
+    },
+    "icx4": {
+      "tarball": "https://registry.npmjs.org/icx4/-/icx4-0.1.23.tgz"
+    },
+    "lodash-modularized": {
+      "tarball": "https://registry.npmjs.org/lodash-modularized/-/lodash-modularized-0.0.2.tgz"
+    },
+    "interactive-landscape-cagip": {
+      "tarball": "https://registry.npmjs.org/interactive-landscape-cagip/-/interactive-landscape-cagip-1.0.212-cagip.tgz"
+    },
+    "prisme-flow": {
+      "tarball": "https://registry.npmjs.org/prisme-flow/-/prisme-flow-1.0.17.tgz"
+    },
+    "gulp-frontend-tools": {
+      "tarball": "https://registry.npmjs.org/gulp-frontend-tools/-/gulp-frontend-tools-0.2.30.tgz"
+    },
+    "@seasketch/geoprocessing": {
+      "tarball": "https://registry.npmjs.org/@seasketch/geoprocessing/-/geoprocessing-0.13.0.tgz"
+    },
+    "@garden-io/core": {
+      "tarball": "https://registry.npmjs.org/@garden-io/core/-/core-0.12.26.tgz"
+    },
+    "f_yoshi": {
+      "tarball": "https://registry.npmjs.org/f_yoshi/-/f_yoshi-4.12.0.tgz"
+    },
+    "cook-cli": {
+      "tarball": "https://registry.npmjs.org/cook-cli/-/cook-cli-1.4.0.tgz"
+    },
+    "jumbo-react": {
+      "tarball": "https://registry.npmjs.org/jumbo-react/-/jumbo-react-3.0.1.tgz"
+    },
+    "yoshi-fork-teamcity": {
+      "tarball": "https://registry.npmjs.org/yoshi-fork-teamcity/-/yoshi-fork-teamcity-4.6.0-alpha.7.tgz"
+    },
+    "ws-react-global-module": {
+      "tarball": "https://registry.npmjs.org/ws-react-global-module/-/ws-react-global-module-0.0.50.tgz"
+    },
+    "gamelynx-gatsby": {
+      "tarball": "https://registry.npmjs.org/gamelynx-gatsby/-/gamelynx-gatsby-2.13.58.tgz"
+    },
+    "dynamic-characteristic": {
+      "tarball": "https://registry.npmjs.org/dynamic-characteristic/-/dynamic-characteristic-0.1.4.tgz"
+    },
+    "mulp": {
+      "tarball": "https://registry.npmjs.org/mulp/-/mulp-3.0.0.tgz"
+    },
+    "wuchuan": {
+      "tarball": "https://registry.npmjs.org/wuchuan/-/wuchuan-1.0.0.tgz"
+    },
+    "bslint": {
+      "tarball": "https://registry.npmjs.org/bslint/-/bslint-5.15.3.tgz"
+    },
+    "@hatiolab/things-shell": {
+      "tarball": "https://registry.npmjs.org/@hatiolab/things-shell/-/things-shell-0.6.166.tgz"
+    },
+    "nger-cli": {
+      "tarball": "https://registry.npmjs.org/nger-cli/-/nger-cli-1.0.17.tgz"
+    },
+    "hzero-front-runtime": {
+      "tarball": "https://registry.npmjs.org/hzero-front-runtime/-/hzero-front-runtime-1.0.7.tgz"
+    },
+    "snapmaker-luban": {
+      "tarball": "https://registry.npmjs.org/snapmaker-luban/-/snapmaker-luban-3.6.0.tgz"
+    },
+    "@jasonssun/npm": {
+      "tarball": "https://registry.npmjs.org/@jasonssun/npm/-/npm-6.14.6.tgz"
+    },
+    "@thewhite/react-modal-dialog": {
+      "tarball": "https://registry.npmjs.org/@thewhite/react-modal-dialog/-/react-modal-dialog-1.0.3.tgz"
+    },
+    "@wardpeet/gatsby": {
+      "tarball": "https://registry.npmjs.org/@wardpeet/gatsby/-/gatsby-2.9.4.tgz"
+    },
+    "ws-react-modal-dialog": {
+      "tarball": "https://registry.npmjs.org/ws-react-modal-dialog/-/ws-react-modal-dialog-2.0.12.tgz"
+    },
+    "npmc": {
+      "tarball": "https://registry.npmjs.org/npmc/-/npmc-6.9.0-canary.0.tgz"
+    },
+    "@beatchainmusic/ui": {
+      "tarball": "https://registry.npmjs.org/@beatchainmusic/ui/-/ui-1.0.57.tgz"
+    },
+    "tnx-shared": {
+      "tarball": "https://registry.npmjs.org/tnx-shared/-/tnx-shared-0.1.336.tgz"
+    },
+    "joys-react-h5-scripts": {
+      "tarball": "https://registry.npmjs.org/joys-react-h5-scripts/-/joys-react-h5-scripts-0.1.4.tgz"
+    },
+    "pzmtest": {
+      "tarball": "https://registry.npmjs.org/pzmtest/-/pzmtest-6.12.0.tgz"
+    },
+    "@romger/react-modal-dialog": {
+      "tarball": "https://registry.npmjs.org/@romger/react-modal-dialog/-/react-modal-dialog-1.0.1.tgz"
+    },
+    "beatchain-artists-react": {
+      "tarball": "https://registry.npmjs.org/beatchain-artists-react/-/beatchain-artists-react-0.1.0.tgz"
+    },
+    "npm-prog": {
+      "tarball": "https://registry.npmjs.org/npm-prog/-/npm-prog-6.11.3.tgz"
+    },
+    "jameslinenode.js1": {
+      "tarball": "https://registry.npmjs.org/jameslinenode.js1/-/jameslinenode.js1-0.0.0.tgz"
+    },
+    "khoom": {
+      "tarball": "https://registry.npmjs.org/khoom/-/khoom-0.9.1-beta.tgz"
+    },
+    "shaocongwang": {
+      "tarball": "https://registry.npmjs.org/shaocongwang/-/shaocongwang-6.9.0.tgz"
+    },
+    "@beisen/npm": {
+      "tarball": "https://registry.npmjs.org/@beisen/npm/-/npm-6.13.4.tgz"
+    },
+    "vinpm": {
+      "tarball": "https://registry.npmjs.org/vinpm/-/vinpm-6.13.5.tgz"
+    },
+    "null-session-npm": {
+      "tarball": "https://registry.npmjs.org/null-session-npm/-/null-session-npm-6.14.8.tgz"
+    },
+    "@salomvary/npm": {
+      "tarball": "https://registry.npmjs.org/@salomvary/npm/-/npm-6.10.1-salomvary1.tgz"
+    },
+    "compute.io": {
+      "tarball": "https://registry.npmjs.org/compute.io/-/compute.io-0.106.0.tgz"
+    },
+    "@kuinox/testpackagethatnooneshoulduseever": {
+      "tarball": "https://registry.npmjs.org/@kuinox/testpackagethatnooneshoulduseever/-/testpackagethatnooneshoulduseever-6.42.6-ci.tgz"
+    },
+    "@kuinox/testpackagethatnooneshoulduse": {
+      "tarball": "https://registry.npmjs.org/@kuinox/testpackagethatnooneshoulduse/-/testpackagethatnooneshoulduse-6.42.5-ci.tgz"
+    },
+    "@bhargav018/electrode-archetype-react-app-dev": {
+      "tarball": "https://registry.npmjs.org/@bhargav018/electrode-archetype-react-app-dev/-/electrode-archetype-react-app-dev-6.5.8.tgz"
+    },
+    "discord-music-bots": {
+      "tarball": "https://registry.npmjs.org/discord-music-bots/-/discord-music-bots-1.0.2.tgz"
+    },
+    "bbolla-electrode-archetype-react-app-dev": {
+      "tarball": "https://registry.npmjs.org/bbolla-electrode-archetype-react-app-dev/-/bbolla-electrode-archetype-react-app-dev-6.5.8.tgz"
+    },
+    "data-fair": {
+      "tarball": "https://registry.npmjs.org/data-fair/-/data-fair-2.28.1.tgz"
+    },
+    "tovar.js": {
+      "tarball": "https://registry.npmjs.org/tovar.js/-/tovar.js-0.1.9-rc1.tgz"
+    },
+    "@mathieudutour/gatsby": {
+      "tarball": "https://registry.npmjs.org/@mathieudutour/gatsby/-/gatsby-2.1.51.tgz"
+    },
+    "hornet-js-builder": {
+      "tarball": "https://registry.npmjs.org/hornet-js-builder/-/hornet-js-builder-2.0.7.tgz"
+    },
+    "homeassistant-frontend-raceland": {
+      "tarball": "https://registry.npmjs.org/homeassistant-frontend-raceland/-/homeassistant-frontend-raceland-1.0.5.tgz"
+    },
+    "@teambit/legacy": {
+      "tarball": "https://registry.npmjs.org/@teambit/legacy/-/legacy-1.0.154.tgz"
+    },
+    "advanced-boilerplate": {
+      "tarball": "https://registry.npmjs.org/advanced-boilerplate/-/advanced-boilerplate-0.15.4.tgz"
+    },
+    "wx-build": {
+      "tarball": "https://registry.npmjs.org/wx-build/-/wx-build-1.0.0.tgz"
+    },
+    "@egis/build-tools": {
+      "tarball": "https://registry.npmjs.org/@egis/build-tools/-/build-tools-11.4.1.tgz"
+    },
+    "@iovx/iv-tool": {
+      "tarball": "https://registry.npmjs.org/@iovx/iv-tool/-/iv-tool-1.1.5.tgz"
+    },
+    "bb-lp-cli": {
+      "tarball": "https://registry.npmjs.org/bb-lp-cli/-/bb-lp-cli-1.9.17.tgz"
+    },
+    "cagip-interactive-landscape": {
+      "tarball": "https://registry.npmjs.org/cagip-interactive-landscape/-/cagip-interactive-landscape-1.0.5.tgz"
+    },
+    "xdms3": {
+      "tarball": "https://registry.npmjs.org/xdms3/-/xdms3-1.0.2.tgz"
+    },
+    "gridiron-example": {
+      "tarball": "https://registry.npmjs.org/gridiron-example/-/gridiron-example-0.19.1.tgz"
+    },
+    "@datawheel/canon-core": {
+      "tarball": "https://registry.npmjs.org/@datawheel/canon-core/-/canon-core-0.24.1.tgz"
+    },
+    "datetimemodule": {
+      "tarball": "https://registry.npmjs.org/datetimemodule/-/datetimemodule-0.0.1.tgz"
+    },
+    "modeify": {
+      "tarball": "https://registry.npmjs.org/modeify/-/modeify-1.3.0.tgz"
+    },
+    "@tramvai/cli": {
+      "tarball": "https://registry.npmjs.org/@tramvai/cli/-/cli-1.9.0.tgz"
+    },
+    "@cocalc/frontend": {
+      "tarball": "https://registry.npmjs.org/@cocalc/frontend/-/frontend-1.6.0.tgz"
+    },
+    "joys-react-scripts": {
+      "tarball": "https://registry.npmjs.org/joys-react-scripts/-/joys-react-scripts-2.0.16.tgz"
+    },
+    "cra-template-level": {
+      "tarball": "https://registry.npmjs.org/cra-template-level/-/cra-template-level-0.3.4.tgz"
+    },
+    "@clearfacts/cf-storybook": {
+      "tarball": "https://registry.npmjs.org/@clearfacts/cf-storybook/-/cf-storybook-0.2.3.tgz"
+    },
+    "webpack-digest": {
+      "tarball": "https://registry.npmjs.org/webpack-digest/-/webpack-digest-0.5.38.tgz"
+    },
+    "@alicd/sugar": {
+      "tarball": "https://registry.npmjs.org/@alicd/sugar/-/sugar-0.0.3.tgz"
+    },
+    "hookedjs": {
+      "tarball": "https://registry.npmjs.org/hookedjs/-/hookedjs-2.2.0.tgz"
+    },
+    "rekit-studio-sdk": {
+      "tarball": "https://registry.npmjs.org/rekit-studio-sdk/-/rekit-studio-sdk-3.0.5.tgz"
+    },
+    "@unction/complete": {
+      "tarball": "https://registry.npmjs.org/@unction/complete/-/complete-21.4.0.tgz"
+    },
+    "@stdlib/blas-ext-base": {
+      "tarball": "https://registry.npmjs.org/@stdlib/blas-ext-base/-/blas-ext-base-0.0.5.tgz"
+    },
+    "@charliec3/gh-actions-example-docs": {
+      "tarball": "https://registry.npmjs.org/@charliec3/gh-actions-example-docs/-/gh-actions-example-docs-3.10.2.tgz"
+    },
+    "@charliec3/gh-actions-example-docs2": {
+      "tarball": "https://registry.npmjs.org/@charliec3/gh-actions-example-docs2/-/gh-actions-example-docs2-3.9.1.tgz"
+    },
+    "touchui-pc-pack": {
+      "tarball": "https://registry.npmjs.org/touchui-pc-pack/-/touchui-pc-pack-1.0.8.tgz"
+    },
+    "react-base-starter-project": {
+      "tarball": "https://registry.npmjs.org/react-base-starter-project/-/react-base-starter-project-0.2.0.tgz"
+    },
+    "@charliec3/gh-actions-example": {
+      "tarball": "https://registry.npmjs.org/@charliec3/gh-actions-example/-/gh-actions-example-3.10.2.tgz"
+    },
+    "linagora-rse": {
+      "tarball": "https://registry.npmjs.org/linagora-rse/-/linagora-rse-1.3.7.tgz"
+    },
+    "@eui/deps-base": {
+      "tarball": "https://registry.npmjs.org/@eui/deps-base/-/deps-base-10.4.6.tgz"
+    },
+    "better-babel-cli": {
+      "tarball": "https://registry.npmjs.org/better-babel-cli/-/better-babel-cli-1.2.3.tgz"
+    },
+    "meshblu-core-dispatcher": {
+      "tarball": "https://registry.npmjs.org/meshblu-core-dispatcher/-/meshblu-core-dispatcher-20.1.5.tgz"
+    },
+    "brainfock": {
+      "tarball": "https://registry.npmjs.org/brainfock/-/brainfock-0.27.1-alpha.1.tgz"
+    },
+    "smashing-dev-tool": {
+      "tarball": "https://registry.npmjs.org/smashing-dev-tool/-/smashing-dev-tool-0.3.1.tgz"
+    },
+    "@tonice/core": {
+      "tarball": "https://registry.npmjs.org/@tonice/core/-/core-0.0.283.tgz"
+    },
+    "@djakne/react-native-track-player": {
+      "tarball": "https://registry.npmjs.org/@djakne/react-native-track-player/-/react-native-track-player-2.0.0-crashfix-6.tgz"
+    },
+    "ya-driver": {
+      "tarball": "https://registry.npmjs.org/ya-driver/-/ya-driver-1.9.7.tgz"
+    },
+    "asuna-node-server": {
+      "tarball": "https://registry.npmjs.org/asuna-node-server/-/asuna-node-server-0.7.0.tgz"
+    },
+    "iqs-facade-public-node": {
+      "tarball": "https://registry.npmjs.org/iqs-facade-public-node/-/iqs-facade-public-node-1.0.1.tgz"
+    },
+    "@leuven2030/ui": {
+      "tarball": "https://registry.npmjs.org/@leuven2030/ui/-/ui-0.0.49.tgz"
+    },
+    "ghost": {
+      "tarball": "https://registry.npmjs.org/ghost/-/ghost-4.15.0.tgz"
+    },
+    "gasm": {
+      "tarball": "https://registry.npmjs.org/gasm/-/gasm-1.0.0.tgz"
+    },
+    "pdf-keya": {
+      "tarball": "https://registry.npmjs.org/pdf-keya/-/pdf-keya-1.0.8.tgz"
+    },
+    "@wirecase/react-components": {
+      "tarball": "https://registry.npmjs.org/@wirecase/react-components/-/react-components-1.4.2-alpha.15.tgz"
+    },
+    "@npm-polymer/npm-polymer": {
+      "tarball": "https://registry.npmjs.org/@npm-polymer/npm-polymer/-/npm-polymer-0.0.4.tgz"
+    },
+    "@strapi/admin": {
+      "tarball": "https://registry.npmjs.org/@strapi/admin/-/admin-4.0.0-next.0.tgz"
+    },
+    "rc-tools": {
+      "tarball": "https://registry.npmjs.org/rc-tools/-/rc-tools-9.6.1.tgz"
+    },
+    "@nodox/gatsby": {
+      "tarball": "https://registry.npmjs.org/@nodox/gatsby/-/gatsby-1.10.4.tgz"
+    },
+    "cordova-plugin-require-bluetoothle": {
+      "tarball": "https://registry.npmjs.org/cordova-plugin-require-bluetoothle/-/cordova-plugin-require-bluetoothle-1.0.4.tgz"
+    },
+    "rc-ts-scripts": {
+      "tarball": "https://registry.npmjs.org/rc-ts-scripts/-/rc-ts-scripts-2.0.0.tgz"
+    },
+    "touchui-pack": {
+      "tarball": "https://registry.npmjs.org/touchui-pack/-/touchui-pack-1.9.37.tgz"
+    },
+    "@elumeo/jfs-core": {
+      "tarball": "https://registry.npmjs.org/@elumeo/jfs-core/-/jfs-core-9.10.40.tgz"
+    },
+    "netlify-cli": {
+      "tarball": "https://registry.npmjs.org/netlify-cli/-/netlify-cli-6.9.12.tgz"
+    },
+    "dbz-flame-scripts": {
+      "tarball": "https://registry.npmjs.org/dbz-flame-scripts/-/dbz-flame-scripts-1.0.0.tgz"
+    },
+    "agneta-platform": {
+      "tarball": "https://registry.npmjs.org/agneta-platform/-/agneta-platform-0.16.9.tgz"
+    },
+    "typedoc-plugin-toc-group-mod": {
+      "tarball": "https://registry.npmjs.org/typedoc-plugin-toc-group-mod/-/typedoc-plugin-toc-group-mod-0.0.5.tgz"
+    },
+    "smc-webapp": {
+      "tarball": "https://registry.npmjs.org/smc-webapp/-/smc-webapp-1.6.0.tgz"
+    },
+    "dkaframework": {
+      "tarball": "https://registry.npmjs.org/dkaframework/-/dkaframework-1.0.153.tgz"
+    },
+    "@forge/sandbox": {
+      "tarball": "https://registry.npmjs.org/@forge/sandbox/-/sandbox-0.0.0-experimental-24f6ac8677d52a91e787a5e03726b5e96ce5e12c.tgz"
+    },
+    "@reactgo/cli": {
+      "tarball": "https://registry.npmjs.org/@reactgo/cli/-/cli-3.5.12.tgz"
+    },
+    "@galtproject/js-ipfs": {
+      "tarball": "https://registry.npmjs.org/@galtproject/js-ipfs/-/js-ipfs-1.0.0.tgz"
+    },
+    "ticketmelon-web": {
+      "tarball": "https://registry.npmjs.org/ticketmelon-web/-/ticketmelon-web-2.8.5.tgz"
+    },
+    "@goodforonefare/sewing-kit": {
+      "tarball": "https://registry.npmjs.org/@goodforonefare/sewing-kit/-/sewing-kit-0.114.2.tgz"
+    },
+    "uni-nav": {
+      "tarball": "https://registry.npmjs.org/uni-nav/-/uni-nav-1.0.4.tgz"
+    },
+    "@schacker/hpack-cli": {
+      "tarball": "https://registry.npmjs.org/@schacker/hpack-cli/-/hpack-cli-0.2.0.tgz"
+    },
+    "rocket-starter": {
+      "tarball": "https://registry.npmjs.org/rocket-starter/-/rocket-starter-1.16.0.tgz"
+    },
+    "treats": {
+      "tarball": "https://registry.npmjs.org/treats/-/treats-0.4.3.tgz"
+    },
+    "sku-for-testing": {
+      "tarball": "https://registry.npmjs.org/sku-for-testing/-/sku-for-testing-10.3.7.tgz"
+    },
+    "@vandai-nguyen/module_test": {
+      "tarball": "https://registry.npmjs.org/@vandai-nguyen/module_test/-/module_test-1.0.1.tgz"
+    },
+    "fd-proxy-server": {
+      "tarball": "https://registry.npmjs.org/fd-proxy-server/-/fd-proxy-server-0.0.10.tgz"
+    },
+    "install-is": {
+      "tarball": "https://registry.npmjs.org/install-is/-/install-is-1.1.0.tgz"
+    },
+    "ce-webpack": {
+      "tarball": "https://registry.npmjs.org/ce-webpack/-/ce-webpack-4.0.1.tgz"
+    },
+    "payload": {
+      "tarball": "https://registry.npmjs.org/payload/-/payload-0.10.4.tgz"
+    },
+    "baidu-acu-react-tools": {
+      "tarball": "https://registry.npmjs.org/baidu-acu-react-tools/-/baidu-acu-react-tools-3.1.15.tgz"
+    },
+    "create-reaction-app": {
+      "tarball": "https://registry.npmjs.org/create-reaction-app/-/create-reaction-app-0.0.4.tgz"
+    },
+    "novel-opds-now": {
+      "tarball": "https://registry.npmjs.org/novel-opds-now/-/novel-opds-now-3.1.1.tgz"
+    },
+    "@teambit/react": {
+      "tarball": "https://registry.npmjs.org/@teambit/react/-/react-0.0.510.tgz"
+    },
+    "@curiostack/base-web": {
+      "tarball": "https://registry.npmjs.org/@curiostack/base-web/-/base-web-0.2.2.tgz"
+    },
+    "@things-real/shell": {
+      "tarball": "https://registry.npmjs.org/@things-real/shell/-/shell-0.6.32.tgz"
+    },
+    "@pixiebrix/extension": {
+      "tarball": "https://registry.npmjs.org/@pixiebrix/extension/-/extension-1.3.2-alpha.3.tgz"
+    },
+    "orc-scripts": {
+      "tarball": "https://registry.npmjs.org/orc-scripts/-/orc-scripts-1.1.0.tgz"
+    },
+    "boringbits": {
+      "tarball": "https://registry.npmjs.org/boringbits/-/boringbits-3.39.0.tgz"
+    },
+    "@0xcda7a/npm": {
+      "tarball": "https://registry.npmjs.org/@0xcda7a/npm/-/npm-5.7.1.tgz"
+    },
+    "lackey-cms": {
+      "tarball": "https://registry.npmjs.org/lackey-cms/-/lackey-cms-0.17.11.tgz"
+    },
+    "@mechamittens/extension": {
+      "tarball": "https://registry.npmjs.org/@mechamittens/extension/-/extension-0.0.4.tgz"
+    },
+    "olymp": {
+      "tarball": "https://registry.npmjs.org/olymp/-/olymp-20.2.16.tgz"
+    },
+    "421752593pro": {
+      "tarball": "https://registry.npmjs.org/421752593pro/-/421752593pro-5.6.0.tgz"
+    },
+    "@nextj/kit": {
+      "tarball": "https://registry.npmjs.org/@nextj/kit/-/kit-0.3.2.tgz"
+    },
+    "qxf2006hf0216": {
+      "tarball": "https://registry.npmjs.org/qxf2006hf0216/-/qxf2006hf0216-5.6.0.tgz"
+    },
+    "@frontastic/catwalk": {
+      "tarball": "https://registry.npmjs.org/@frontastic/catwalk/-/catwalk-1.19.3.tgz"
+    },
+    "vue2do": {
+      "tarball": "https://registry.npmjs.org/vue2do/-/vue2do-0.4.28.tgz"
+    },
+    "akfun": {
+      "tarball": "https://registry.npmjs.org/akfun/-/akfun-1.5.13.tgz"
+    },
+    "abp-zero-template1": {
+      "tarball": "https://registry.npmjs.org/abp-zero-template1/-/abp-zero-template1-5.6.0.tgz"
+    },
+    "mini-vue-validate": {
+      "tarball": "https://registry.npmjs.org/mini-vue-validate/-/mini-vue-validate-1.0.1.tgz"
+    },
+    "zckj_yxt": {
+      "tarball": "https://registry.npmjs.org/zckj_yxt/-/zckj_yxt-1.0.7.tgz"
+    },
+    "@r3l/app": {
+      "tarball": "https://registry.npmjs.org/@r3l/app/-/app-0.6.1.tgz"
+    },
+    "npm5v": {
+      "tarball": "https://registry.npmjs.org/npm5v/-/npm5v-5.6.1.tgz"
+    },
+    "nst-cli": {
+      "tarball": "https://registry.npmjs.org/nst-cli/-/nst-cli-1.0.1.tgz"
+    },
+    "xrengine": {
+      "tarball": "https://registry.npmjs.org/xrengine/-/xrengine-0.0.9.tgz"
+    },
+    "electron-epos-printer": {
+      "tarball": "https://registry.npmjs.org/electron-epos-printer/-/electron-epos-printer-1.0.1.tgz"
+    },
+    "apim-ui": {
+      "tarball": "https://registry.npmjs.org/apim-ui/-/apim-ui-5.21.37.tgz"
+    },
+    "@loudsrl/turf": {
+      "tarball": "https://registry.npmjs.org/@loudsrl/turf/-/turf-6.3.3.tgz"
+    },
+    "@atomist/automation-client": {
+      "tarball": "https://registry.npmjs.org/@atomist/automation-client/-/automation-client-2.2.1.tgz"
+    },
+    "@bmap-turf/turf": {
+      "tarball": "https://registry.npmjs.org/@bmap-turf/turf/-/turf-6.4.4.tgz"
+    },
+    "pushgeek-web-push-services": {
+      "tarball": "https://registry.npmjs.org/pushgeek-web-push-services/-/pushgeek-web-push-services-1.0.1.tgz"
+    },
+    "@xupengfly2061/boot": {
+      "tarball": "https://registry.npmjs.org/@xupengfly2061/boot/-/boot-0.0.1.tgz"
+    },
+    "@turf/turf": {
+      "tarball": "https://registry.npmjs.org/@turf/turf/-/turf-6.5.0.tgz"
+    },
+    "em-project-dev": {
+      "tarball": "https://registry.npmjs.org/em-project-dev/-/em-project-dev-1.0.8.tgz"
+    },
+    "fe-gulp": {
+      "tarball": "https://registry.npmjs.org/fe-gulp/-/fe-gulp-7.5.2.tgz"
+    },
+    "vai": {
+      "tarball": "https://registry.npmjs.org/vai/-/vai-0.0.6.tgz"
+    },
+    "reaktor": {
+      "tarball": "https://registry.npmjs.org/reaktor/-/reaktor-1.0.0.tgz"
+    },
+    "kibana-with-account": {
+      "tarball": "https://registry.npmjs.org/kibana-with-account/-/kibana-with-account-1.0.0.tgz"
+    },
+    "largest-package": {
+      "tarball": "https://registry.npmjs.org/largest-package/-/largest-package-21.0.0.tgz"
+    },
+    "infini": {
+      "tarball": "https://registry.npmjs.org/infini/-/infini-0.2.15.tgz"
+    },
+    "gatsby-theme-gatsbyjs-website": {
+      "tarball": "https://registry.npmjs.org/gatsby-theme-gatsbyjs-website/-/gatsby-theme-gatsbyjs-website-0.0.0.tgz"
+    },
+    "@structure.rest/structure": {
+      "tarball": "https://registry.npmjs.org/@structure.rest/structure/-/structure-1.0.26.tgz"
+    },
+    "cdap-ui": {
+      "tarball": "https://registry.npmjs.org/cdap-ui/-/cdap-ui-6.1.0-SNAPSHOT.tgz"
+    },
+    "gatsby-songwang": {
+      "tarball": "https://registry.npmjs.org/gatsby-songwang/-/gatsby-songwang-1.9.79.tgz"
+    },
+    "@gatsbyjs/gatsby-theme-website": {
+      "tarball": "https://registry.npmjs.org/@gatsbyjs/gatsby-theme-website/-/gatsby-theme-website-0.0.0.tgz"
+    },
+    "liutestatomic": {
+      "tarball": "https://registry.npmjs.org/liutestatomic/-/liutestatomic-0.0.13.tgz"
+    },
+    "@shedali/mdgen": {
+      "tarball": "https://registry.npmjs.org/@shedali/mdgen/-/mdgen-0.4.10.tgz"
+    },
+    "cge-app-modules": {
+      "tarball": "https://registry.npmjs.org/cge-app-modules/-/cge-app-modules-1.0.1.tgz"
+    },
+    "rd-te-styles": {
+      "tarball": "https://registry.npmjs.org/rd-te-styles/-/rd-te-styles-1.0.15.tgz"
+    },
+    "@agneta/platform": {
+      "tarball": "https://registry.npmjs.org/@agneta/platform/-/platform-0.17.0.tgz"
+    },
+    "rah": {
+      "tarball": "https://registry.npmjs.org/rah/-/rah-3.1.0.tgz"
+    },
+    "italent-portal": {
+      "tarball": "https://registry.npmjs.org/italent-portal/-/italent-portal-2.0.1.tgz"
+    },
+    "test-widget-order-component": {
+      "tarball": "https://registry.npmjs.org/test-widget-order-component/-/test-widget-order-component-1.0.0.tgz"
+    },
+    "xys_cli": {
+      "tarball": "https://registry.npmjs.org/xys_cli/-/xys_cli-1.1.2.tgz"
+    },
+    "openid-passport": {
+      "tarball": "https://registry.npmjs.org/openid-passport/-/openid-passport-1.0.3.tgz"
+    },
+    "rm3": {
+      "tarball": "https://registry.npmjs.org/rm3/-/rm3-0.5.0.tgz"
+    },
+    "@procraft/widget-order-component": {
+      "tarball": "https://registry.npmjs.org/@procraft/widget-order-component/-/widget-order-component-1.0.3.tgz"
+    },
+    "rescape-web": {
+      "tarball": "https://registry.npmjs.org/rescape-web/-/rescape-web-0.1.4.tgz"
+    },
+    "@zypolo91/boot-script": {
+      "tarball": "https://registry.npmjs.org/@zypolo91/boot-script/-/boot-script-1.0.7.tgz"
+    },
+    "git-repo-init": {
+      "tarball": "https://registry.npmjs.org/git-repo-init/-/git-repo-init-1.3.1.tgz"
+    },
+    "bs-ad-builder": {
+      "tarball": "https://registry.npmjs.org/bs-ad-builder/-/bs-ad-builder-2.0.0.tgz"
+    },
+    "rollup-plugin-wasm-compiler": {
+      "tarball": "https://registry.npmjs.org/rollup-plugin-wasm-compiler/-/rollup-plugin-wasm-compiler-0.0.2.tgz"
+    },
+    "validate.io": {
+      "tarball": "https://registry.npmjs.org/validate.io/-/validate.io-2.0.7.tgz"
+    },
+    "ipfs-vue": {
+      "tarball": "https://registry.npmjs.org/ipfs-vue/-/ipfs-vue-0.35.0-rc.6.tgz"
+    },
+    "xigua-player": {
+      "tarball": "https://registry.npmjs.org/xigua-player/-/xigua-player-0.1.2.tgz"
+    },
+    "editortest008": {
+      "tarball": "https://registry.npmjs.org/editortest008/-/editortest008-0.1.15.tgz"
+    },
+    "@cutting/devtools": {
+      "tarball": "https://registry.npmjs.org/@cutting/devtools/-/devtools-4.28.3.tgz"
+    },
+    "can": {
+      "tarball": "https://registry.npmjs.org/can/-/can-6.6.1.tgz"
+    },
+    "react-nmvc": {
+      "tarball": "https://registry.npmjs.org/react-nmvc/-/react-nmvc-1.0.6.tgz"
+    },
+    "insights-core": {
+      "tarball": "https://registry.npmjs.org/insights-core/-/insights-core-0.0.40.tgz"
+    },
+    "react-v2": {
+      "tarball": "https://registry.npmjs.org/react-v2/-/react-v2-0.0.1.tgz"
+    },
+    "@brydget/restify": {
+      "tarball": "https://registry.npmjs.org/@brydget/restify/-/restify-1.0.0.tgz"
+    },
+    "rd-te-reports": {
+      "tarball": "https://registry.npmjs.org/rd-te-reports/-/rd-te-reports-1.0.37.tgz"
+    },
+    "maha": {
+      "tarball": "https://registry.npmjs.org/maha/-/maha-0.5.0.tgz"
+    },
+    "rd-te-dashboard": {
+      "tarball": "https://registry.npmjs.org/rd-te-dashboard/-/rd-te-dashboard-1.0.27.tgz"
+    },
+    "sku": {
+      "tarball": "https://registry.npmjs.org/sku/-/sku-11.0.4.tgz"
+    },
+    "ipfs-ci-test": {
+      "tarball": "https://registry.npmjs.org/ipfs-ci-test/-/ipfs-ci-test-0.33.0-rc.2.tgz"
+    },
+    "pd-react-scripts": {
+      "tarball": "https://registry.npmjs.org/pd-react-scripts/-/pd-react-scripts-2.1.0.tgz"
+    },
+    "rd-te-invoice": {
+      "tarball": "https://registry.npmjs.org/rd-te-invoice/-/rd-te-invoice-1.0.0.tgz"
+    },
+    "easycommands-beta": {
+      "tarball": "https://registry.npmjs.org/easycommands-beta/-/easycommands-beta-1.0.2.tgz"
+    },
+    "@atlaskit/editor-core": {
+      "tarball": "https://registry.npmjs.org/@atlaskit/editor-core/-/editor-core-150.0.0.tgz"
+    },
+    "@pegakit/build-tools": {
+      "tarball": "https://registry.npmjs.org/@pegakit/build-tools/-/build-tools-1.0.3.tgz"
+    },
+    "vue-cvs": {
+      "tarball": "https://registry.npmjs.org/vue-cvs/-/vue-cvs-1.0.1.tgz"
+    },
+    "rd-te-quotes": {
+      "tarball": "https://registry.npmjs.org/rd-te-quotes/-/rd-te-quotes-1.0.36.tgz"
+    },
+    "formsg": {
+      "tarball": "https://registry.npmjs.org/formsg/-/formsg-5.99.81.tgz"
+    },
+    "@mercateo/ws": {
+      "tarball": "https://registry.npmjs.org/@mercateo/ws/-/ws-2.11.2.tgz"
+    },
+    "sprinttek-templates-cards": {
+      "tarball": "https://registry.npmjs.org/sprinttek-templates-cards/-/sprinttek-templates-cards-8.3.4246.tgz"
+    },
+    "editor-core-func": {
+      "tarball": "https://registry.npmjs.org/editor-core-func/-/editor-core-func-149.0.0.tgz"
+    },
+    "@geppettoengine/geppetto-client": {
+      "tarball": "https://registry.npmjs.org/@geppettoengine/geppetto-client/-/geppetto-client-1.0.0.tgz"
+    },
+    "rd-te-shipments": {
+      "tarball": "https://registry.npmjs.org/rd-te-shipments/-/rd-te-shipments-1.0.40.tgz"
+    },
+    "hornet-js-builder-new": {
+      "tarball": "https://registry.npmjs.org/hornet-js-builder-new/-/hornet-js-builder-new-2.0.0-RC1.tgz"
+    },
+    "cra-template-vulcan": {
+      "tarball": "https://registry.npmjs.org/cra-template-vulcan/-/cra-template-vulcan-0.0.3.tgz"
+    },
+    "@cozy/editor-core": {
+      "tarball": "https://registry.npmjs.org/@cozy/editor-core/-/editor-core-147.0.2.tgz"
+    },
+    "cx-builder": {
+      "tarball": "https://registry.npmjs.org/cx-builder/-/cx-builder-0.0.52.tgz"
+    },
+    "vchat": {
+      "tarball": "https://registry.npmjs.org/vchat/-/vchat-0.9.12.tgz"
+    },
+    "bookstroy": {
+      "tarball": "https://registry.npmjs.org/bookstroy/-/bookstroy-3.0.1.tgz"
+    },
+    "rd-te-example": {
+      "tarball": "https://registry.npmjs.org/rd-te-example/-/rd-te-example-1.0.53.tgz"
+    },
+    "@meniga/cli": {
+      "tarball": "https://registry.npmjs.org/@meniga/cli/-/cli-4.11.0.tgz"
+    },
+    "visual-interface-poject": {
+      "tarball": "https://registry.npmjs.org/visual-interface-poject/-/visual-interface-poject-0.3.8.tgz"
+    },
+    "pangea": {
+      "tarball": "https://registry.npmjs.org/pangea/-/pangea-2.12.6.tgz"
+    },
+    "@rockinblocks/rockinblocks": {
+      "tarball": "https://registry.npmjs.org/@rockinblocks/rockinblocks/-/rockinblocks-0.2.1.tgz"
+    },
+    "@spatial/turf": {
+      "tarball": "https://registry.npmjs.org/@spatial/turf/-/turf-1.0.5.tgz"
+    },
+    "sprinttek-templates-red": {
+      "tarball": "https://registry.npmjs.org/sprinttek-templates-red/-/sprinttek-templates-red-8.3.2846.tgz"
+    },
+    "acklen-keystone": {
+      "tarball": "https://registry.npmjs.org/acklen-keystone/-/acklen-keystone-1.0.263.tgz"
+    },
+    "rd-te-quoting": {
+      "tarball": "https://registry.npmjs.org/rd-te-quoting/-/rd-te-quoting-1.0.11.tgz"
+    },
+    "@shopify/sewing-kit": {
+      "tarball": "https://registry.npmjs.org/@shopify/sewing-kit/-/sewing-kit-4.1.0.tgz"
+    },
+    "capstonejs": {
+      "tarball": "https://registry.npmjs.org/capstonejs/-/capstonejs-4.2.23.tgz"
+    },
+    "@igames/ghost": {
+      "tarball": "https://registry.npmjs.org/@igames/ghost/-/ghost-3.41.8.tgz"
+    },
+    "sewing-web-test": {
+      "tarball": "https://registry.npmjs.org/sewing-web-test/-/sewing-web-test-1.0.0.tgz"
+    },
+    "epns-frontend-sdk-staging": {
+      "tarball": "https://registry.npmjs.org/epns-frontend-sdk-staging/-/epns-frontend-sdk-staging-2.1.0.tgz"
+    },
+    "palo-express": {
+      "tarball": "https://registry.npmjs.org/palo-express/-/palo-express-0.1.1.tgz"
+    },
+    "passbolt-appjs": {
+      "tarball": "https://registry.npmjs.org/passbolt-appjs/-/passbolt-appjs-2.13.9.tgz"
+    },
+    "datoit-admin": {
+      "tarball": "https://registry.npmjs.org/datoit-admin/-/datoit-admin-0.0.8.tgz"
+    },
+    "strapi-admin": {
+      "tarball": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.6.8.tgz"
+    },
+    "streamsoftco-development": {
+      "tarball": "https://registry.npmjs.org/streamsoftco-development/-/streamsoftco-development-2.0.26.tgz"
+    },
+    "@zrf9018/marvel-cli": {
+      "tarball": "https://registry.npmjs.org/@zrf9018/marvel-cli/-/marvel-cli-0.0.15.tgz"
+    },
+    "@frdl/legacy-and-deprecations-fallback": {
+      "tarball": "https://registry.npmjs.org/@frdl/legacy-and-deprecations-fallback/-/legacy-and-deprecations-fallback-4.0.7-delta2alpha.tgz"
+    },
+    "@griddo/ax": {
+      "tarball": "https://registry.npmjs.org/@griddo/ax/-/ax-1.49.43.tgz"
+    },
+    "xes-webpack-core": {
+      "tarball": "https://registry.npmjs.org/xes-webpack-core/-/xes-webpack-core-0.10.0.tgz"
+    },
+    "a8k": {
+      "tarball": "https://registry.npmjs.org/a8k/-/a8k-2.5.4.tgz"
+    },
+    "@chialab/rna-cli": {
+      "tarball": "https://registry.npmjs.org/@chialab/rna-cli/-/rna-cli-3.13.7.tgz"
+    },
+    "sample-frontend-sdk": {
+      "tarball": "https://registry.npmjs.org/sample-frontend-sdk/-/sample-frontend-sdk-2.0.0.tgz"
+    },
+    "@nail-cli/core": {
+      "tarball": "https://registry.npmjs.org/@nail-cli/core/-/core-1.7.15.tgz"
+    },
+    "cozy-editor-core": {
+      "tarball": "https://registry.npmjs.org/cozy-editor-core/-/cozy-editor-core-134.0.3.tgz"
+    },
+    "plate-model": {
+      "tarball": "https://registry.npmjs.org/plate-model/-/plate-model-1.0.16.tgz"
+    },
+    "pegakit-build-tools": {
+      "tarball": "https://registry.npmjs.org/pegakit-build-tools/-/pegakit-build-tools-1.0.0.tgz"
+    },
+    "glui-cli": {
+      "tarball": "https://registry.npmjs.org/glui-cli/-/glui-cli-0.18.2.tgz"
+    },
+    "@stdlib/math-iter-special": {
+      "tarball": "https://registry.npmjs.org/@stdlib/math-iter-special/-/math-iter-special-0.0.5.tgz"
+    },
+    "kibana-123": {
+      "tarball": "https://registry.npmjs.org/kibana-123/-/kibana-123-5.2.1.tgz"
+    },
+    "yourttoo.kernel.exodus": {
+      "tarball": "https://registry.npmjs.org/yourttoo.kernel.exodus/-/yourttoo.kernel.exodus-11.2.1.tgz"
+    },
+    "gatsby-theme-nestx": {
+      "tarball": "https://registry.npmjs.org/gatsby-theme-nestx/-/gatsby-theme-nestx-1.1.1.tgz"
+    },
+    "edgestack": {
+      "tarball": "https://registry.npmjs.org/edgestack/-/edgestack-0.19.12.tgz"
+    },
+    "zero.lib": {
+      "tarball": "https://registry.npmjs.org/zero.lib/-/zero.lib-0.0.3.tgz"
+    },
+    "program_leader_portal_py": {
+      "tarball": "https://registry.npmjs.org/program_leader_portal_py/-/program_leader_portal_py-1.0.0.tgz"
+    },
+    "@bolt/uikit-workshop": {
+      "tarball": "https://registry.npmjs.org/@bolt/uikit-workshop/-/uikit-workshop-4.2.0.tgz"
+    },
+    "ldx-home-plate": {
+      "tarball": "https://registry.npmjs.org/ldx-home-plate/-/ldx-home-plate-4.0.1.tgz"
+    },
+    "ficklebeans-create-admin-panel-app": {
+      "tarball": "https://registry.npmjs.org/ficklebeans-create-admin-panel-app/-/ficklebeans-create-admin-panel-app-3.0.1.tgz"
+    },
+    "sewing-kitten": {
+      "tarball": "https://registry.npmjs.org/sewing-kitten/-/sewing-kitten-1.0.0.tgz"
+    },
+    "gallifrey-ui-boot": {
+      "tarball": "https://registry.npmjs.org/gallifrey-ui-boot/-/gallifrey-ui-boot-1.0.5.tgz"
+    },
+    "@beisen/talent-core-build": {
+      "tarball": "https://registry.npmjs.org/@beisen/talent-core-build/-/talent-core-build-0.1.0.tgz"
+    },
+    "fm-egg-plus": {
+      "tarball": "https://registry.npmjs.org/fm-egg-plus/-/fm-egg-plus-1.3.2.tgz"
+    },
+    "cups_zm": {
+      "tarball": "https://registry.npmjs.org/cups_zm/-/cups_zm-1.0.0.tgz"
+    },
+    "openmrs-react-scripts-example": {
+      "tarball": "https://registry.npmjs.org/openmrs-react-scripts-example/-/openmrs-react-scripts-example-3.0.19.tgz"
+    },
+    "hippo-fw": {
+      "tarball": "https://registry.npmjs.org/hippo-fw/-/hippo-fw-0.9.9.tgz"
+    },
+    "custom-strapi-admin": {
+      "tarball": "https://registry.npmjs.org/custom-strapi-admin/-/custom-strapi-admin-0.0.7.tgz"
+    },
+    "@bolt/build-tools": {
+      "tarball": "https://registry.npmjs.org/@bolt/build-tools/-/build-tools-4.1.1.tgz"
+    },
+    "fervor": {
+      "tarball": "https://registry.npmjs.org/fervor/-/fervor-2.3.1.tgz"
+    },
+    "roderic": {
+      "tarball": "https://registry.npmjs.org/roderic/-/roderic-0.1.163.tgz"
+    },
+    "@iotschema/iotschema-capability": {
+      "tarball": "https://registry.npmjs.org/@iotschema/iotschema-capability/-/iotschema-capability-1.0.0-beta2.tgz"
+    },
+    "my-chakra-ui": {
+      "tarball": "https://registry.npmjs.org/my-chakra-ui/-/my-chakra-ui-1.0.0.tgz"
+    },
+    "dcapp-base": {
+      "tarball": "https://registry.npmjs.org/dcapp-base/-/dcapp-base-1.7.35.tgz"
+    },
+    "strapi-admin-kosmos": {
+      "tarball": "https://registry.npmjs.org/strapi-admin-kosmos/-/strapi-admin-kosmos-3.5.2.tgz"
+    },
+    "keystone-nestedlist": {
+      "tarball": "https://registry.npmjs.org/keystone-nestedlist/-/keystone-nestedlist-1.3.0.tgz"
+    },
+    "@zohodesk/react-cli": {
+      "tarball": "https://registry.npmjs.org/@zohodesk/react-cli/-/react-cli-0.0.1-beta.158.tgz"
+    },
+    "saas-plat-native": {
+      "tarball": "https://registry.npmjs.org/saas-plat-native/-/saas-plat-native-1.1.15.tgz"
+    },
+    "ezcore": {
+      "tarball": "https://registry.npmjs.org/ezcore/-/ezcore-1.6.2.tgz"
+    },
+    "@isle-project/components": {
+      "tarball": "https://registry.npmjs.org/@isle-project/components/-/components-0.50.6.tgz"
+    },
+    "mixup-vc-tools": {
+      "tarball": "https://registry.npmjs.org/mixup-vc-tools/-/mixup-vc-tools-2.0.2.tgz"
+    },
+    "azure": {
+      "tarball": "https://registry.npmjs.org/azure/-/azure-0.10.6.tgz"
+    },
+    "tradebase": {
+      "tarball": "https://registry.npmjs.org/tradebase/-/tradebase-1.0.0.tgz"
+    },
+    "azure-fwd": {
+      "tarball": "https://registry.npmjs.org/azure-fwd/-/azure-fwd-0.0.3.tgz"
+    },
+    "koa-react-isomorphic": {
+      "tarball": "https://registry.npmjs.org/koa-react-isomorphic/-/koa-react-isomorphic-4.4.0.tgz"
+    },
+    "@ant-design-vue/tools": {
+      "tarball": "https://registry.npmjs.org/@ant-design-vue/tools/-/tools-3.1.2.tgz"
+    },
+    "easynode": {
+      "tarball": "https://registry.npmjs.org/easynode/-/easynode-0.1.35.tgz"
+    },
+    "@sanjeevdhangar89/custom-strapi-admin": {
+      "tarball": "https://registry.npmjs.org/@sanjeevdhangar89/custom-strapi-admin/-/custom-strapi-admin-0.0.1.tgz"
+    },
+    "nanachi-cli": {
+      "tarball": "https://registry.npmjs.org/nanachi-cli/-/nanachi-cli-1.8.6.tgz"
+    },
+    "keystone": {
+      "tarball": "https://registry.npmjs.org/keystone/-/keystone-4.2.1.tgz"
+    },
+    "@pearlmorissette/keystone": {
+      "tarball": "https://registry.npmjs.org/@pearlmorissette/keystone/-/keystone-4.3.2.tgz"
+    },
+    "build-boiler-plus": {
+      "tarball": "https://registry.npmjs.org/build-boiler-plus/-/build-boiler-plus-2.3.8.tgz"
+    },
+    "keystone-aceinna": {
+      "tarball": "https://registry.npmjs.org/keystone-aceinna/-/keystone-aceinna-4.2.1.tgz"
+    },
+    "sprinttek-dev-templates": {
+      "tarball": "https://registry.npmjs.org/sprinttek-dev-templates/-/sprinttek-dev-templates-8.3.4940.tgz"
+    },
+    "abp-zero-templates-cards": {
+      "tarball": "https://registry.npmjs.org/abp-zero-templates-cards/-/abp-zero-templates-cards-8.3.1241.tgz"
+    },
+    "tasegir": {
+      "tarball": "https://registry.npmjs.org/tasegir/-/tasegir-1.9.3.tgz"
+    },
+    "@moritzdachwald/keystone": {
+      "tarball": "https://registry.npmjs.org/@moritzdachwald/keystone/-/keystone-4.2.1.tgz"
+    },
+    "cobalt-cli": {
+      "tarball": "https://registry.npmjs.org/cobalt-cli/-/cobalt-cli-2.5.8.tgz"
+    },
+    "@jimpick/ipfs": {
+      "tarball": "https://registry.npmjs.org/@jimpick/ipfs/-/ipfs-0.33.1-1.tgz"
+    },
+    "sprinttek-dev-templates-cards": {
+      "tarball": "https://registry.npmjs.org/sprinttek-dev-templates-cards/-/sprinttek-dev-templates-cards-8.3.4942.tgz"
+    },
+    "abp-zero-cards": {
+      "tarball": "https://registry.npmjs.org/abp-zero-cards/-/abp-zero-cards-8.3.1004.tgz"
+    },
+    "modular-scripts": {
+      "tarball": "https://registry.npmjs.org/modular-scripts/-/modular-scripts-1.3.2.tgz"
+    },
+    "sprinttektest1": {
+      "tarball": "https://registry.npmjs.org/sprinttektest1/-/sprinttektest1-8.3.1251.tgz"
+    },
+    "sprinttek-cards": {
+      "tarball": "https://registry.npmjs.org/sprinttek-cards/-/sprinttek-cards-8.3.1270.tgz"
+    },
+    "sprinttek-dev-templates-red": {
+      "tarball": "https://registry.npmjs.org/sprinttek-dev-templates-red/-/sprinttek-dev-templates-red-8.3.4788.tgz"
+    },
+    "sprinttek-templatesx1": {
+      "tarball": "https://registry.npmjs.org/sprinttek-templatesx1/-/sprinttek-templatesx1-8.3.1467.tgz"
+    },
+    "sprinttektest": {
+      "tarball": "https://registry.npmjs.org/sprinttektest/-/sprinttektest-8.3.1251.tgz"
+    },
+    "abp-zero-templates-red": {
+      "tarball": "https://registry.npmjs.org/abp-zero-templates-red/-/abp-zero-templates-red-8.3.1245.tgz"
+    },
+    "sprinttek-templates0cards": {
+      "tarball": "https://registry.npmjs.org/sprinttek-templates0cards/-/sprinttek-templates0cards-8.3.2397.tgz"
+    },
+    "netlify-cli-fork": {
+      "tarball": "https://registry.npmjs.org/netlify-cli-fork/-/netlify-cli-fork-3.13.11.tgz"
+    },
+    "sprinttek-red": {
+      "tarball": "https://registry.npmjs.org/sprinttek-red/-/sprinttek-red-8.3.1237.tgz"
+    },
+    "sprinttek-templatessx": {
+      "tarball": "https://registry.npmjs.org/sprinttek-templatessx/-/sprinttek-templatessx-8.3.1469.tgz"
+    },
+    "datawheel-canon": {
+      "tarball": "https://registry.npmjs.org/datawheel-canon/-/datawheel-canon-0.15.21.tgz"
+    },
+    "zombie-ghost-cms": {
+      "tarball": "https://registry.npmjs.org/zombie-ghost-cms/-/zombie-ghost-cms-1.0.9.tgz"
+    },
+    "tommy-test": {
+      "tarball": "https://registry.npmjs.org/tommy-test/-/tommy-test-0.3.4.tgz"
+    },
+    "sprinttek-templatess": {
+      "tarball": "https://registry.npmjs.org/sprinttek-templatess/-/sprinttek-templatess-8.3.1469.tgz"
+    },
+    "com.meenrios.sample": {
+      "tarball": "https://registry.npmjs.org/com.meenrios.sample/-/com.meenrios.sample-1.0.0.tgz"
+    },
+    "create-react-ts-web-starter": {
+      "tarball": "https://registry.npmjs.org/create-react-ts-web-starter/-/create-react-ts-web-starter-0.0.2-alpha.1.tgz"
+    },
+    "@copy202/keystone": {
+      "tarball": "https://registry.npmjs.org/@copy202/keystone/-/keystone-4.3.1.tgz"
+    },
+    "@davids-devel/rocket-translator": {
+      "tarball": "https://registry.npmjs.org/@davids-devel/rocket-translator/-/rocket-translator-1.0.0.tgz"
+    },
+    "sprinttek-templates": {
+      "tarball": "https://registry.npmjs.org/sprinttek-templates/-/sprinttek-templates-8.3.1468.tgz"
+    },
+    "sprinttek-templates-1": {
+      "tarball": "https://registry.npmjs.org/sprinttek-templates-1/-/sprinttek-templates-1-8.3.4083.tgz"
+    },
+    "hao-base": {
+      "tarball": "https://registry.npmjs.org/hao-base/-/hao-base-1.7.3.tgz"
+    },
+    "feds-cli": {
+      "tarball": "https://registry.npmjs.org/feds-cli/-/feds-cli-1.0.6.tgz"
+    },
+    "react-admin-liger": {
+      "tarball": "https://registry.npmjs.org/react-admin-liger/-/react-admin-liger-3.0.0.tgz"
+    },
+    "abp-zero-manual": {
+      "tarball": "https://registry.npmjs.org/abp-zero-manual/-/abp-zero-manual-8.3.1281.tgz"
+    },
+    "@eservices/servicebot": {
+      "tarball": "https://registry.npmjs.org/@eservices/servicebot/-/servicebot-0.11.50.tgz"
+    },
+    "@formbird/core": {
+      "tarball": "https://registry.npmjs.org/@formbird/core/-/core-3.3.1.tgz"
+    },
+    "carlover-react": {
+      "tarball": "https://registry.npmjs.org/carlover-react/-/carlover-react-1.0.0.tgz"
+    },
+    "abp-zero-templates-local": {
+      "tarball": "https://registry.npmjs.org/abp-zero-templates-local/-/abp-zero-templates-local-8.3.918.tgz"
+    },
+    "eyezon": {
+      "tarball": "https://registry.npmjs.org/eyezon/-/eyezon-0.0.1.tgz"
+    },
+    "yss-perseus": {
+      "tarball": "https://registry.npmjs.org/yss-perseus/-/yss-perseus-1.0.0.tgz"
+    },
+    "@atk/pantry": {
+      "tarball": "https://registry.npmjs.org/@atk/pantry/-/pantry-1.3.0.tgz"
+    },
+    "ensemblejs": {
+      "tarball": "https://registry.npmjs.org/ensemblejs/-/ensemblejs-6.2.4.tgz"
+    },
+    "@fev/fev": {
+      "tarball": "https://registry.npmjs.org/@fev/fev/-/fev-0.1.10.tgz"
+    },
+    "readytest-tc": {
+      "tarball": "https://registry.npmjs.org/readytest-tc/-/readytest-tc-1.10.27.tgz"
+    },
+    "react-tools-collection": {
+      "tarball": "https://registry.npmjs.org/react-tools-collection/-/react-tools-collection-1.0.1.tgz"
+    },
+    "editor-docuwalk": {
+      "tarball": "https://registry.npmjs.org/editor-docuwalk/-/editor-docuwalk-0.1.7.tgz"
+    },
+    "feflow-devkit-xbc-webpack4": {
+      "tarball": "https://registry.npmjs.org/feflow-devkit-xbc-webpack4/-/feflow-devkit-xbc-webpack4-0.1.5.tgz"
+    },
+    "mobiage": {
+      "tarball": "https://registry.npmjs.org/mobiage/-/mobiage-2.3.4.tgz"
+    },
+    "npm5": {
+      "tarball": "https://registry.npmjs.org/npm5/-/npm5-5.0.0-beta.69.tgz"
+    },
+    "@unaussprechlich/keystone": {
+      "tarball": "https://registry.npmjs.org/@unaussprechlich/keystone/-/keystone-4.2.3.tgz"
+    },
+    "wix-gruntfile": {
+      "tarball": "https://registry.npmjs.org/wix-gruntfile/-/wix-gruntfile-0.1.1235.tgz"
+    },
+    "superdesk-core": {
+      "tarball": "https://registry.npmjs.org/superdesk-core/-/superdesk-core-2.3.1.tgz"
+    },
+    "canes": {
+      "tarball": "https://registry.npmjs.org/canes/-/canes-5.16.1.tgz"
+    },
+    "mfe-runtime": {
+      "tarball": "https://registry.npmjs.org/mfe-runtime/-/mfe-runtime-0.0.2.tgz"
+    },
+    "dineeasy-pwa": {
+      "tarball": "https://registry.npmjs.org/dineeasy-pwa/-/dineeasy-pwa-0.1.0.tgz"
+    },
+    "@instructure/quiz-core": {
+      "tarball": "https://registry.npmjs.org/@instructure/quiz-core/-/quiz-core-17.17.2.tgz"
+    },
+    "testcafe-technovert": {
+      "tarball": "https://registry.npmjs.org/testcafe-technovert/-/testcafe-technovert-1.10.24.tgz"
+    },
+    "@stdlib/stats-incr": {
+      "tarball": "https://registry.npmjs.org/@stdlib/stats-incr/-/stats-incr-0.0.5.tgz"
+    },
+    "vc-tools": {
+      "tarball": "https://registry.npmjs.org/vc-tools/-/vc-tools-3.0.0.tgz"
+    },
+    "@molejs/mole-dev-utils": {
+      "tarball": "https://registry.npmjs.org/@molejs/mole-dev-utils/-/mole-dev-utils-1.1.3.tgz"
+    },
+    "redux-grid-example": {
+      "tarball": "https://registry.npmjs.org/redux-grid-example/-/redux-grid-example-0.5.8.tgz"
+    },
+    "kibana": {
+      "tarball": "https://registry.npmjs.org/kibana/-/kibana-5.1.1.tgz"
+    },
+    "amplify-provider-awscloudformation": {
+      "tarball": "https://registry.npmjs.org/amplify-provider-awscloudformation/-/amplify-provider-awscloudformation-4.60.1.tgz"
+    },
+    "haste-preset-yoshi": {
+      "tarball": "https://registry.npmjs.org/haste-preset-yoshi/-/haste-preset-yoshi-1.2.1.tgz"
+    },
+    "@redisrupt/testcafe": {
+      "tarball": "https://registry.npmjs.org/@redisrupt/testcafe/-/testcafe-1.7.1.tgz"
+    },
+    "abp-zero-template-cards": {
+      "tarball": "https://registry.npmjs.org/abp-zero-template-cards/-/abp-zero-template-cards-8.3.745.tgz"
+    },
+    "arch-keystone": {
+      "tarball": "https://registry.npmjs.org/arch-keystone/-/arch-keystone-0.5.50.tgz"
+    },
+    "au-base": {
+      "tarball": "https://registry.npmjs.org/au-base/-/au-base-1.44.0.tgz"
+    },
+    "webpackcc": {
+      "tarball": "https://registry.npmjs.org/webpackcc/-/webpackcc-2.1.6.tgz"
+    },
+    "cyb-cli-s": {
+      "tarball": "https://registry.npmjs.org/cyb-cli-s/-/cyb-cli-s-0.0.1.tgz"
+    },
+    "cantara": {
+      "tarball": "https://registry.npmjs.org/cantara/-/cantara-3.12.4.tgz"
+    },
+    "gatsby-theme-zh": {
+      "tarball": "https://registry.npmjs.org/gatsby-theme-zh/-/gatsby-theme-zh-0.2.4.tgz"
+    },
+    "@brite-inc/p5.js-web-editor-component": {
+      "tarball": "https://registry.npmjs.org/@brite-inc/p5.js-web-editor-component/-/p5.js-web-editor-component-2.0.5.tgz"
+    },
+    "build-plugin-component-multiple": {
+      "tarball": "https://registry.npmjs.org/build-plugin-component-multiple/-/build-plugin-component-multiple-1.0.0-beta.40.tgz"
+    },
+    "@builtbypixel/nucleus-core": {
+      "tarball": "https://registry.npmjs.org/@builtbypixel/nucleus-core/-/nucleus-core-2.0.2.tgz"
+    },
+    "abp-zero-template-red": {
+      "tarball": "https://registry.npmjs.org/abp-zero-template-red/-/abp-zero-template-red-8.3.799.tgz"
+    },
+    "@conneryn/cli": {
+      "tarball": "https://registry.npmjs.org/@conneryn/cli/-/cli-0.2.23.tgz"
+    },
+    "@keystone-next/keystone": {
+      "tarball": "https://registry.npmjs.org/@keystone-next/keystone/-/keystone-25.0.4.tgz"
+    },
+    "@rexlabs/plz-cli": {
+      "tarball": "https://registry.npmjs.org/@rexlabs/plz-cli/-/plz-cli-3.2.14.tgz"
+    },
+    "not-bundled-npm": {
+      "tarball": "https://registry.npmjs.org/not-bundled-npm/-/not-bundled-npm-5.5.1.tgz"
+    },
+    "ng-cli-2": {
+      "tarball": "https://registry.npmjs.org/ng-cli-2/-/ng-cli-2-0.0.24.tgz"
+    },
+    "balena-cli": {
+      "tarball": "https://registry.npmjs.org/balena-cli/-/balena-cli-12.48.15.tgz"
+    },
+    "gatsby-theme-consumer-site": {
+      "tarball": "https://registry.npmjs.org/gatsby-theme-consumer-site/-/gatsby-theme-consumer-site-1.0.3.tgz"
+    },
+    "cyb-cli": {
+      "tarball": "https://registry.npmjs.org/cyb-cli/-/cyb-cli-1.9.1.tgz"
+    },
+    "mrm-ui": {
+      "tarball": "https://registry.npmjs.org/mrm-ui/-/mrm-ui-1.0.0.tgz"
+    },
+    "@twreporter/keystone": {
+      "tarball": "https://registry.npmjs.org/@twreporter/keystone/-/keystone-0.9.4.tgz"
+    },
+    "abp-zero-template-reds": {
+      "tarball": "https://registry.npmjs.org/abp-zero-template-reds/-/abp-zero-template-reds-8.3.525.tgz"
+    },
+    "tinypulse-coach-app": {
+      "tarball": "https://registry.npmjs.org/tinypulse-coach-app/-/tinypulse-coach-app-1.7.3.tgz"
+    },
+    "sprinttek": {
+      "tarball": "https://registry.npmjs.org/sprinttek/-/sprinttek-8.3.680.tgz"
+    },
+    "nucleus-core": {
+      "tarball": "https://registry.npmjs.org/nucleus-core/-/nucleus-core-2.0.1.tgz"
+    },
+    "trv-expo": {
+      "tarball": "https://registry.npmjs.org/trv-expo/-/trv-expo-34.0.0.tgz"
+    },
+    "@enact/cli": {
+      "tarball": "https://registry.npmjs.org/@enact/cli/-/cli-4.1.1.tgz"
+    },
+    "@fomobro/fomo-core": {
+      "tarball": "https://registry.npmjs.org/@fomobro/fomo-core/-/fomo-core-1.0.5.tgz"
+    },
+    "exportable-components-pkg": {
+      "tarball": "https://registry.npmjs.org/exportable-components-pkg/-/exportable-components-pkg-2.3.0-alpha.0.tgz"
+    },
+    "@aliyun-sls/build-tool": {
+      "tarball": "https://registry.npmjs.org/@aliyun-sls/build-tool/-/build-tool-0.1.6.tgz"
+    },
+    "kxg": {
+      "tarball": "https://registry.npmjs.org/kxg/-/kxg-0.1.7.tgz"
+    },
+    "@smallstack/cloud-api": {
+      "tarball": "https://registry.npmjs.org/@smallstack/cloud-api/-/cloud-api-1.43.7.tgz"
+    },
+    "@credbayswap/default-token-list": {
+      "tarball": "https://registry.npmjs.org/@credbayswap/default-token-list/-/default-token-list-1.0.13.tgz"
+    },
+    "@leontastic/gatsby": {
+      "tarball": "https://registry.npmjs.org/@leontastic/gatsby/-/gatsby-1.0.0-alpha10.0.tgz"
+    },
+    "pro-admin-subapp": {
+      "tarball": "https://registry.npmjs.org/pro-admin-subapp/-/pro-admin-subapp-0.2.100.tgz"
+    },
+    "edencms": {
+      "tarball": "https://registry.npmjs.org/edencms/-/edencms-1.0.0-beta.3.tgz"
+    },
+    "expo-torq": {
+      "tarball": "https://registry.npmjs.org/expo-torq/-/expo-torq-33.0.0-alpha.torq.1.tgz"
+    },
+    "astrazeneca-vdc": {
+      "tarball": "https://registry.npmjs.org/astrazeneca-vdc/-/astrazeneca-vdc-0.0.1.tgz"
+    },
+    "gda-scripts": {
+      "tarball": "https://registry.npmjs.org/gda-scripts/-/gda-scripts-0.4.1.tgz"
+    },
+    "dinosaur-md": {
+      "tarball": "https://registry.npmjs.org/dinosaur-md/-/dinosaur-md-1.0.23.tgz"
+    },
+    "@c6o/cli": {
+      "tarball": "https://registry.npmjs.org/@c6o/cli/-/cli-1.1.0.tgz"
+    },
+    "@9188/doso": {
+      "tarball": "https://registry.npmjs.org/@9188/doso/-/doso-1.0.10.tgz"
+    },
+    "ignite": {
+      "tarball": "https://registry.npmjs.org/ignite/-/ignite-1.11.2.tgz"
+    },
+    "fowler-chat-reactnative": {
+      "tarball": "https://registry.npmjs.org/fowler-chat-reactnative/-/fowler-chat-reactnative-0.0.1.tgz"
+    },
+    "@weareglow/media-cli": {
+      "tarball": "https://registry.npmjs.org/@weareglow/media-cli/-/media-cli-0.2.43.tgz"
+    },
+    "@eohjsc/react-native-smart-city": {
+      "tarball": "https://registry.npmjs.org/@eohjsc/react-native-smart-city/-/react-native-smart-city-0.2.23.tgz"
+    },
+    "@interaktiv/dia-scripts": {
+      "tarball": "https://registry.npmjs.org/@interaktiv/dia-scripts/-/dia-scripts-2.2.6.tgz"
+    },
+    "apostrophe": {
+      "tarball": "https://registry.npmjs.org/apostrophe/-/apostrophe-3.4.1.tgz"
+    },
+    "@kfox/expo": {
+      "tarball": "https://registry.npmjs.org/@kfox/expo/-/expo-33.0.0-rc1.tgz"
+    },
+    "stormrage": {
+      "tarball": "https://registry.npmjs.org/stormrage/-/stormrage-2.9.3.tgz"
+    },
+    "strapi-admin-eezy": {
+      "tarball": "https://registry.npmjs.org/strapi-admin-eezy/-/strapi-admin-eezy-1.0.0.tgz"
+    },
+    "@quantlab/application-top": {
+      "tarball": "https://registry.npmjs.org/@quantlab/application-top/-/application-top-0.1.0.tgz"
+    },
+    "twreporter-keystone": {
+      "tarball": "https://registry.npmjs.org/twreporter-keystone/-/twreporter-keystone-0.5.36.tgz"
+    },
+    "@knapsack-cloud/msk-design-system": {
+      "tarball": "https://registry.npmjs.org/@knapsack-cloud/msk-design-system/-/msk-design-system-6.150.2.tgz"
+    },
+    "snapp": {
+      "tarball": "https://registry.npmjs.org/snapp/-/snapp-0.0.4.tgz"
+    },
+    "@nemvts/ds-scripts": {
+      "tarball": "https://registry.npmjs.org/@nemvts/ds-scripts/-/ds-scripts-3.3.8.tgz"
+    },
+    "lms-react-sdk": {
+      "tarball": "https://registry.npmjs.org/lms-react-sdk/-/lms-react-sdk-1.0.1.tgz"
+    },
+    "@rai/react-components": {
+      "tarball": "https://registry.npmjs.org/@rai/react-components/-/react-components-0.1.5.tgz"
+    },
+    "rc-ts-tools": {
+      "tarball": "https://registry.npmjs.org/rc-ts-tools/-/rc-ts-tools-0.0.1.tgz"
+    },
+    "@amorist/gatsby-theme-antd": {
+      "tarball": "https://registry.npmjs.org/@amorist/gatsby-theme-antd/-/gatsby-theme-antd-1.0.0.tgz"
+    },
+    "@evlop/cli": {
+      "tarball": "https://registry.npmjs.org/@evlop/cli/-/cli-1.0.36.tgz"
+    },
+    "lithium-sdk": {
+      "tarball": "https://registry.npmjs.org/lithium-sdk/-/lithium-sdk-1.9.0.tgz"
+    },
+    "@adapttive/strapi-admin": {
+      "tarball": "https://registry.npmjs.org/@adapttive/strapi-admin/-/strapi-admin-3.3.4.tgz"
+    },
+    "bookingbug-studio": {
+      "tarball": "https://registry.npmjs.org/bookingbug-studio/-/bookingbug-studio-5.14.0.tgz"
+    },
+    "enact-dev": {
+      "tarball": "https://registry.npmjs.org/enact-dev/-/enact-dev-0.9.5.tgz"
+    },
+    "@netbeifeng/ilv-interactive-video-authoring-tool": {
+      "tarball": "https://registry.npmjs.org/@netbeifeng/ilv-interactive-video-authoring-tool/-/ilv-interactive-video-authoring-tool-0.2.6.tgz"
+    },
+    "find-antd": {
+      "tarball": "https://registry.npmjs.org/find-antd/-/find-antd-1.0.2.tgz"
+    },
+    "quiq-scripts": {
+      "tarball": "https://registry.npmjs.org/quiq-scripts/-/quiq-scripts-1.9.19.tgz"
+    },
+    "feflow-devkit-xbc-webpack4-react": {
+      "tarball": "https://registry.npmjs.org/feflow-devkit-xbc-webpack4-react/-/feflow-devkit-xbc-webpack4-react-1.0.9.tgz"
+    },
+    "@rockpack/compiler": {
+      "tarball": "https://registry.npmjs.org/@rockpack/compiler/-/compiler-1.9.0.tgz"
+    },
+    "backoffice-front": {
+      "tarball": "https://registry.npmjs.org/backoffice-front/-/backoffice-front-0.6.14.tgz"
+    },
+    "find-super-antd": {
+      "tarball": "https://registry.npmjs.org/find-super-antd/-/find-super-antd-1.0.0.tgz"
+    },
+    "ghs-umami-tonkotsu-curator-devtools": {
+      "tarball": "https://registry.npmjs.org/ghs-umami-tonkotsu-curator-devtools/-/ghs-umami-tonkotsu-curator-devtools-6.0.1.tgz"
+    },
+    "yunxi-choerodon-front-boot": {
+      "tarball": "https://registry.npmjs.org/yunxi-choerodon-front-boot/-/yunxi-choerodon-front-boot-0.0.28.tgz"
+    },
+    "@nghiepuit/react-sdk": {
+      "tarball": "https://registry.npmjs.org/@nghiepuit/react-sdk/-/react-sdk-1.0.5.tgz"
+    },
+    "webdevkit-gug": {
+      "tarball": "https://registry.npmjs.org/webdevkit-gug/-/webdevkit-gug-0.0.1.tgz"
+    },
+    "exgraal": {
+      "tarball": "https://registry.npmjs.org/exgraal/-/exgraal-1.0.2.tgz"
+    },
+    "@cratosw/gatsby-antd": {
+      "tarball": "https://registry.npmjs.org/@cratosw/gatsby-antd/-/gatsby-antd-0.0.1.tgz"
+    },
+    "@mrauhu/npm": {
+      "tarball": "https://registry.npmjs.org/@mrauhu/npm/-/npm-5.3.0.tgz"
+    },
+    "@whey/gatsby-theme-whey": {
+      "tarball": "https://registry.npmjs.org/@whey/gatsby-theme-whey/-/gatsby-theme-whey-0.10.62.tgz"
+    },
+    "choerodon-hap-front-boot": {
+      "tarball": "https://registry.npmjs.org/choerodon-hap-front-boot/-/choerodon-hap-front-boot-0.7.1.tgz"
+    },
+    "@linkstec/react-component": {
+      "tarball": "https://registry.npmjs.org/@linkstec/react-component/-/react-component-0.0.1.tgz"
+    },
+    "odin2.0": {
+      "tarball": "https://registry.npmjs.org/odin2.0/-/odin2.0-0.1.0.tgz"
+    },
+    "dev1-front-boot": {
+      "tarball": "https://registry.npmjs.org/dev1-front-boot/-/dev1-front-boot-0.10.1.tgz"
+    },
+    "@loftysoul/soul": {
+      "tarball": "https://registry.npmjs.org/@loftysoul/soul/-/soul-2.19.8.tgz"
+    },
+    "@fishawack/config-grunt": {
+      "tarball": "https://registry.npmjs.org/@fishawack/config-grunt/-/config-grunt-4.9.1.tgz"
+    },
+    "electrode-archetype-react-app-dev": {
+      "tarball": "https://registry.npmjs.org/electrode-archetype-react-app-dev/-/electrode-archetype-react-app-dev-7.0.7.tgz"
+    },
+    "ember-cli": {
+      "tarball": "https://registry.npmjs.org/ember-cli/-/ember-cli-3.28.0.tgz"
+    },
+    "app.io": {
+      "tarball": "https://registry.npmjs.org/app.io/-/app.io-1.0.25.tgz"
+    },
+    "@onzag/itemize": {
+      "tarball": "https://registry.npmjs.org/@onzag/itemize/-/itemize-0.0.163.tgz"
+    },
+    "react-scripts-pro": {
+      "tarball": "https://registry.npmjs.org/react-scripts-pro/-/react-scripts-pro-1.6.1.tgz"
+    },
+    "basenji": {
+      "tarball": "https://registry.npmjs.org/basenji/-/basenji-1.1.6.tgz"
+    },
+    "@module-federation/next": {
+      "tarball": "https://registry.npmjs.org/@module-federation/next/-/next-9.3.2-beta.3.tgz"
+    },
+    "formily-ant-mobile-components": {
+      "tarball": "https://registry.npmjs.org/formily-ant-mobile-components/-/formily-ant-mobile-components-1.0.2.tgz"
+    },
+    "furtherjs": {
+      "tarball": "https://registry.npmjs.org/furtherjs/-/furtherjs-0.0.2.tgz"
+    },
+    "yh-choerodon-front-boot-test": {
+      "tarball": "https://registry.npmjs.org/yh-choerodon-front-boot-test/-/yh-choerodon-front-boot-test-1.0.2.tgz"
+    },
+    "@100tal-seg/seg-react": {
+      "tarball": "https://registry.npmjs.org/@100tal-seg/seg-react/-/seg-react-0.0.2.tgz"
+    },
+    "@jupyterlab/metapackage": {
+      "tarball": "https://registry.npmjs.org/@jupyterlab/metapackage/-/metapackage-3.1.13.tgz"
+    },
+    "wx-api-generator": {
+      "tarball": "https://registry.npmjs.org/wx-api-generator/-/wx-api-generator-2.0.1.tgz"
+    },
+    "@useweb/lib": {
+      "tarball": "https://registry.npmjs.org/@useweb/lib/-/lib-0.27.0.tgz"
+    },
+    "gulpfile.js": {
+      "tarball": "https://registry.npmjs.org/gulpfile.js/-/gulpfile.js-3.2.5.tgz"
+    },
+    "@neotracker/core": {
+      "tarball": "https://registry.npmjs.org/@neotracker/core/-/core-1.4.1.tgz"
+    },
+    "byted-react-scripts": {
+      "tarball": "https://registry.npmjs.org/byted-react-scripts/-/byted-react-scripts-5.0.0.tgz"
+    },
+    "yh-choerodon-front-boot": {
+      "tarball": "https://registry.npmjs.org/yh-choerodon-front-boot/-/yh-choerodon-front-boot-2.3.6.tgz"
+    },
+    "event-sdk": {
+      "tarball": "https://registry.npmjs.org/event-sdk/-/event-sdk-0.1.20.tgz"
+    },
+    "kevio": {
+      "tarball": "https://registry.npmjs.org/kevio/-/kevio-0.0.2.tgz"
+    },
+    "@fomobro/fomobot": {
+      "tarball": "https://registry.npmjs.org/@fomobro/fomobot/-/fomobot-1.0.26.tgz"
+    },
+    "meteo-server-test": {
+      "tarball": "https://registry.npmjs.org/meteo-server-test/-/meteo-server-test-1.0.4.tgz"
+    },
+    "cram.ui": {
+      "tarball": "https://registry.npmjs.org/cram.ui/-/cram.ui-1.0.2.tgz"
+    },
+    "ghost_zh_cjs": {
+      "tarball": "https://registry.npmjs.org/ghost_zh_cjs/-/ghost_zh_cjs-3.17.5.tgz"
+    },
+    "@avrora/engine": {
+      "tarball": "https://registry.npmjs.org/@avrora/engine/-/engine-1.0.20.tgz"
+    },
+    "@roots/budpack": {
+      "tarball": "https://registry.npmjs.org/@roots/budpack/-/budpack-0.0.39.tgz"
+    },
+    "mesh-dev-cli": {
+      "tarball": "https://registry.npmjs.org/mesh-dev-cli/-/mesh-dev-cli-1.2.54.tgz"
+    },
+    "bruce-cli": {
+      "tarball": "https://registry.npmjs.org/bruce-cli/-/bruce-cli-0.6.3.tgz"
+    },
+    "update-modules-for-lnpm": {
+      "tarball": "https://registry.npmjs.org/update-modules-for-lnpm/-/update-modules-for-lnpm-1.0.9.tgz"
+    },
+    "gatsby-theme-cone": {
+      "tarball": "https://registry.npmjs.org/gatsby-theme-cone/-/gatsby-theme-cone-0.0.6.tgz"
+    },
+    "yummy-flow": {
+      "tarball": "https://registry.npmjs.org/yummy-flow/-/yummy-flow-0.1.2.tgz"
+    },
+    "choerodon-front-boot": {
+      "tarball": "https://registry.npmjs.org/choerodon-front-boot/-/choerodon-front-boot-0.10.11.tgz"
+    },
+    "syue-cli": {
+      "tarball": "https://registry.npmjs.org/syue-cli/-/syue-cli-0.3.15.tgz"
+    },
+    "tn-shared": {
+      "tarball": "https://registry.npmjs.org/tn-shared/-/tn-shared-1.0.26.tgz"
+    },
+    "nail-cli": {
+      "tarball": "https://registry.npmjs.org/nail-cli/-/nail-cli-0.7.7.tgz"
+    },
+    "angular-devkit-web3": {
+      "tarball": "https://registry.npmjs.org/angular-devkit-web3/-/angular-devkit-web3-0.0.0.tgz"
+    },
+    "auspice": {
+      "tarball": "https://registry.npmjs.org/auspice/-/auspice-2.31.0.tgz"
+    },
+    "@godbayd/test-npm-lib": {
+      "tarball": "https://registry.npmjs.org/@godbayd/test-npm-lib/-/test-npm-lib-1.0.2.tgz"
+    },
+    "bnsights-library-pages": {
+      "tarball": "https://registry.npmjs.org/bnsights-library-pages/-/bnsights-library-pages-19.0.6.tgz"
+    },
+    "@omnia/tooling-vue": {
+      "tarball": "https://registry.npmjs.org/@omnia/tooling-vue/-/tooling-vue-6.3.9.tgz"
+    },
+    "twitterfollowerexplorer": {
+      "tarball": "https://registry.npmjs.org/twitterfollowerexplorer/-/twitterfollowerexplorer-3.1.11.tgz"
+    },
+    "strapi-helper-plugin-test": {
+      "tarball": "https://registry.npmjs.org/strapi-helper-plugin-test/-/strapi-helper-plugin-test-2.0.1.tgz"
+    },
+    "nanachi-webpack": {
+      "tarball": "https://registry.npmjs.org/nanachi-webpack/-/nanachi-webpack-0.1.4.tgz"
+    },
+    "paas-front-boot-dev": {
+      "tarball": "https://registry.npmjs.org/paas-front-boot-dev/-/paas-front-boot-dev-0.9.4.tgz"
+    },
+    "gatsby-theme-hansin": {
+      "tarball": "https://registry.npmjs.org/gatsby-theme-hansin/-/gatsby-theme-hansin-0.0.6.tgz"
+    },
+    "hiocs-front-boot": {
+      "tarball": "https://registry.npmjs.org/hiocs-front-boot/-/hiocs-front-boot-1.1.0.tgz"
+    },
+    "@omgjs/turbo": {
+      "tarball": "https://registry.npmjs.org/@omgjs/turbo/-/turbo-1.5.2.tgz"
+    },
+    "ksr": {
+      "tarball": "https://registry.npmjs.org/ksr/-/ksr-4.1.2.tgz"
+    },
+    "@modelo.io/apiui": {
+      "tarball": "https://registry.npmjs.org/@modelo.io/apiui/-/apiui-0.0.23.tgz"
+    },
+    "oswedev": {
+      "tarball": "https://registry.npmjs.org/oswedev/-/oswedev-0.22.8.tgz"
+    },
+    "coinstac-ui": {
+      "tarball": "https://registry.npmjs.org/coinstac-ui/-/coinstac-ui-5.3.7.tgz"
+    },
+    "@bossswap/default-token-list": {
+      "tarball": "https://registry.npmjs.org/@bossswap/default-token-list/-/default-token-list-4.0.0.tgz"
+    },
+    "altiore-react": {
+      "tarball": "https://registry.npmjs.org/altiore-react/-/altiore-react-1.0.4.tgz"
+    },
+    "passbolt-mad": {
+      "tarball": "https://registry.npmjs.org/passbolt-mad/-/passbolt-mad-2.12.0.tgz"
+    },
+    "myinvisalign": {
+      "tarball": "https://registry.npmjs.org/myinvisalign/-/myinvisalign-1.0.0.tgz"
+    },
+    "generator-white-label": {
+      "tarball": "https://registry.npmjs.org/generator-white-label/-/generator-white-label-3.2.0.tgz"
+    },
+    "jh-ui-tshook": {
+      "tarball": "https://registry.npmjs.org/jh-ui-tshook/-/jh-ui-tshook-0.1.4.tgz"
+    },
+    "jw-components": {
+      "tarball": "https://registry.npmjs.org/jw-components/-/jw-components-0.0.31.tgz"
+    },
+    "arui-scripts": {
+      "tarball": "https://registry.npmjs.org/arui-scripts/-/arui-scripts-11.6.5.tgz"
+    },
+    "ngx-amrs": {
+      "tarball": "https://registry.npmjs.org/ngx-amrs/-/ngx-amrs-2.12.0-SNAPSHOT.tgz"
+    },
+    "@abtnode/cli": {
+      "tarball": "https://registry.npmjs.org/@abtnode/cli/-/cli-1.5.0.tgz"
+    },
+    "dguardcloudbe": {
+      "tarball": "https://registry.npmjs.org/dguardcloudbe/-/dguardcloudbe-0.1.0.tgz"
+    },
+    "jw-components-mobile": {
+      "tarball": "https://registry.npmjs.org/jw-components-mobile/-/jw-components-mobile-0.0.37.tgz"
+    },
+    "directus": {
+      "tarball": "https://registry.npmjs.org/directus/-/directus-9.0.0-rc.93.tgz"
+    },
+    "@corva/ui": {
+      "tarball": "https://registry.npmjs.org/@corva/ui/-/ui-0.16.0.tgz"
+    },
+    "crowi": {
+      "tarball": "https://registry.npmjs.org/crowi/-/crowi-1.7.9.tgz"
+    },
+    "ts-string-functions": {
+      "tarball": "https://registry.npmjs.org/ts-string-functions/-/ts-string-functions-1.0.1.tgz"
+    },
+    "crpcg-yqcloud-front-boot": {
+      "tarball": "https://registry.npmjs.org/crpcg-yqcloud-front-boot/-/crpcg-yqcloud-front-boot-0.3.5.tgz"
+    },
+    "horizontec-keystone": {
+      "tarball": "https://registry.npmjs.org/horizontec-keystone/-/horizontec-keystone-4.0.6.tgz"
+    },
+    "lightsight": {
+      "tarball": "https://registry.npmjs.org/lightsight/-/lightsight-1.0.5.tgz"
+    },
+    "luck-design": {
+      "tarball": "https://registry.npmjs.org/luck-design/-/luck-design-0.0.97.tgz"
+    },
+    "cherry-design": {
+      "tarball": "https://registry.npmjs.org/cherry-design/-/cherry-design-1.0.2.tgz"
+    },
+    "ux-box": {
+      "tarball": "https://registry.npmjs.org/ux-box/-/ux-box-1.1.9.tgz"
+    },
+    "yii-steroids": {
+      "tarball": "https://registry.npmjs.org/yii-steroids/-/yii-steroids-1.16.13.tgz"
+    },
+    "jwtbutler": {
+      "tarball": "https://registry.npmjs.org/jwtbutler/-/jwtbutler-1.6.8.tgz"
+    },
+    "aitomic-docs": {
+      "tarball": "https://registry.npmjs.org/aitomic-docs/-/aitomic-docs-1.0.8.tgz"
+    },
+    "grossjs": {
+      "tarball": "https://registry.npmjs.org/grossjs/-/grossjs-1.0.2.tgz"
+    },
+    "frameworkstein-base-webapp": {
+      "tarball": "https://registry.npmjs.org/frameworkstein-base-webapp/-/frameworkstein-base-webapp-6.19.0.tgz"
+    },
+    "chameleon-tool": {
+      "tarball": "https://registry.npmjs.org/chameleon-tool/-/chameleon-tool-1.0.8.tgz"
+    },
+    "@ijjk/next": {
+      "tarball": "https://registry.npmjs.org/@ijjk/next/-/next-0.0.1.tgz"
+    },
+    "@decoupled/netlify-cli": {
+      "tarball": "https://registry.npmjs.org/@decoupled/netlify-cli/-/netlify-cli-2.59.1-alpha.3.tgz"
+    },
+    "@ofm/build-tool": {
+      "tarball": "https://registry.npmjs.org/@ofm/build-tool/-/build-tool-1.7.21.tgz"
+    },
+    "beedeez-webapp-pro": {
+      "tarball": "https://registry.npmjs.org/beedeez-webapp-pro/-/beedeez-webapp-pro-9.4.131.tgz"
+    },
+    "arui-scripts-akitov": {
+      "tarball": "https://registry.npmjs.org/arui-scripts-akitov/-/arui-scripts-akitov-10.2.1.tgz"
+    },
+    "uwf": {
+      "tarball": "https://registry.npmjs.org/uwf/-/uwf-0.0.1.tgz"
+    },
+    "ruiramos-netlify-cli": {
+      "tarball": "https://registry.npmjs.org/ruiramos-netlify-cli/-/ruiramos-netlify-cli-2.58.0.tgz"
+    },
+    "node-angular-app-template": {
+      "tarball": "https://registry.npmjs.org/node-angular-app-template/-/node-angular-app-template-0.0.1.tgz"
+    },
+    "@xqy/keystone": {
+      "tarball": "https://registry.npmjs.org/@xqy/keystone/-/keystone-4.0.0-beta.10.tgz"
+    },
+    "kununu-electrode-archetype-react-app-dev": {
+      "tarball": "https://registry.npmjs.org/kununu-electrode-archetype-react-app-dev/-/kununu-electrode-archetype-react-app-dev-2.0.2.tgz"
+    },
+    "faw-op-yqcloud-front-boot": {
+      "tarball": "https://registry.npmjs.org/faw-op-yqcloud-front-boot/-/faw-op-yqcloud-front-boot-0.0.1.tgz"
+    },
+    "@mnemotix/weever-core": {
+      "tarball": "https://registry.npmjs.org/@mnemotix/weever-core/-/weever-core-1.3.10.tgz"
+    },
+    "testcafe": {
+      "tarball": "https://registry.npmjs.org/testcafe/-/testcafe-15.1.317922.tgz"
+    },
+    "liverecord": {
+      "tarball": "https://registry.npmjs.org/liverecord/-/liverecord-0.0.1.tgz"
+    },
+    "nodecg": {
+      "tarball": "https://registry.npmjs.org/nodecg/-/nodecg-1.8.1.tgz"
+    },
+    "pipenet-tools": {
+      "tarball": "https://registry.npmjs.org/pipenet-tools/-/pipenet-tools-2.3.3.tgz"
+    },
+    "gulp-dev-tools": {
+      "tarball": "https://registry.npmjs.org/gulp-dev-tools/-/gulp-dev-tools-1.0.7.tgz"
+    },
+    "keystone-impatient": {
+      "tarball": "https://registry.npmjs.org/keystone-impatient/-/keystone-impatient-0.4.7.tgz"
+    },
+    "cloudlify-keystone": {
+      "tarball": "https://registry.npmjs.org/cloudlify-keystone/-/cloudlify-keystone-4.0.0.tgz"
+    },
+    "statefullapicjslibrary": {
+      "tarball": "https://registry.npmjs.org/statefullapicjslibrary/-/statefullapicjslibrary-1.1.0.tgz"
+    },
+    "ipfs-hd": {
+      "tarball": "https://registry.npmjs.org/ipfs-hd/-/ipfs-hd-0.28.8.tgz"
+    },
+    "@eliperelman/netlify-cli": {
+      "tarball": "https://registry.npmjs.org/@eliperelman/netlify-cli/-/netlify-cli-2.58.0.tgz"
+    },
+    "@zerothstack/toolchain": {
+      "tarball": "https://registry.npmjs.org/@zerothstack/toolchain/-/toolchain-1.0.1.tgz"
+    },
+    "choerodon-hap-test-front-boot": {
+      "tarball": "https://registry.npmjs.org/choerodon-hap-test-front-boot/-/choerodon-hap-test-front-boot-0.0.1.tgz"
+    },
+    "v-ii-fe-core": {
+      "tarball": "https://registry.npmjs.org/v-ii-fe-core/-/v-ii-fe-core-0.0.5.tgz"
+    },
+    "yqcloud-front-boot": {
+      "tarball": "https://registry.npmjs.org/yqcloud-front-boot/-/yqcloud-front-boot-1.0.51.tgz"
+    },
+    "@peterpme/keystone": {
+      "tarball": "https://registry.npmjs.org/@peterpme/keystone/-/keystone-4.5.0-beta.7.tgz"
+    },
+    "@v4fire/client": {
+      "tarball": "https://registry.npmjs.org/@v4fire/client/-/client-3.5.1.tgz"
+    },
+    "@backstage/cli": {
+      "tarball": "https://registry.npmjs.org/@backstage/cli/-/cli-0.7.12.tgz"
+    },
+    "@things-factory/shell": {
+      "tarball": "https://registry.npmjs.org/@things-factory/shell/-/shell-3.6.13.tgz"
+    },
+    "siemens-op-yqcloud-front-boot": {
+      "tarball": "https://registry.npmjs.org/siemens-op-yqcloud-front-boot/-/siemens-op-yqcloud-front-boot-0.2.6.tgz"
+    },
+    "keystone-nthrive": {
+      "tarball": "https://registry.npmjs.org/keystone-nthrive/-/keystone-nthrive-1.0.5.tgz"
+    },
+    "@fishawack/core": {
+      "tarball": "https://registry.npmjs.org/@fishawack/core/-/core-7.5.1.tgz"
+    },
+    "@ubiquits/toolchain": {
+      "tarball": "https://registry.npmjs.org/@ubiquits/toolchain/-/toolchain-0.3.3.tgz"
+    },
+    "webpack-marauder": {
+      "tarball": "https://registry.npmjs.org/webpack-marauder/-/webpack-marauder-1.21.1.tgz"
+    },
+    "dssg": {
+      "tarball": "https://registry.npmjs.org/dssg/-/dssg-1.0.0.tgz"
+    },
+    "micrpkey": {
+      "tarball": "https://registry.npmjs.org/micrpkey/-/micrpkey-4.0.0-beta.8.tgz"
+    },
+    "@lsby/log_manage": {
+      "tarball": "https://registry.npmjs.org/@lsby/log_manage/-/log_manage-0.0.2.tgz"
+    },
+    "keystone-rus": {
+      "tarball": "https://registry.npmjs.org/keystone-rus/-/keystone-rus-4.0.0-rc.1-master.translate.0.1.6.tgz"
+    },
+    "codelane-react-scripts": {
+      "tarball": "https://registry.npmjs.org/codelane-react-scripts/-/codelane-react-scripts-3.0.101.tgz"
+    },
+    "@eklogvinov/keystone": {
+      "tarball": "https://registry.npmjs.org/@eklogvinov/keystone/-/keystone-4.0.0-beta.8.tgz"
+    },
+    "@plurall-boss/components": {
+      "tarball": "https://registry.npmjs.org/@plurall-boss/components/-/components-1.0.11.tgz"
+    },
+    "grumbler-scripts": {
+      "tarball": "https://registry.npmjs.org/grumbler-scripts/-/grumbler-scripts-4.0.4.tgz"
+    },
+    "@movinliao/mlb": {
+      "tarball": "https://registry.npmjs.org/@movinliao/mlb/-/mlb-0.0.1.tgz"
+    },
+    "@helio-training/babel-preset-helio": {
+      "tarball": "https://registry.npmjs.org/@helio-training/babel-preset-helio/-/babel-preset-helio-1.0.0.tgz"
+    },
+    "rc_ghost": {
+      "tarball": "https://registry.npmjs.org/rc_ghost/-/rc_ghost-2.23.49.tgz"
+    },
+    "@corpecca/qp-npm": {
+      "tarball": "https://registry.npmjs.org/@corpecca/qp-npm/-/qp-npm-0.1.3.tgz"
+    },
+    "@kununu/electrode-archetype-react-app-dev": {
+      "tarball": "https://registry.npmjs.org/@kununu/electrode-archetype-react-app-dev/-/electrode-archetype-react-app-dev-2.0.2.tgz"
+    },
+    "resin-cli": {
+      "tarball": "https://registry.npmjs.org/resin-cli/-/resin-cli-8.1.3.tgz"
+    },
+    "@redocly/developer-portal": {
+      "tarball": "https://registry.npmjs.org/@redocly/developer-portal/-/developer-portal-1.1.0-beta.50.tgz"
+    },
+    "@belym.a.2105/testcafe": {
+      "tarball": "https://registry.npmjs.org/@belym.a.2105/testcafe/-/testcafe-1.15.0-alpha.4.tgz"
+    },
+    "fj": {
+      "tarball": "https://registry.npmjs.org/fj/-/fj-0.5.0.tgz"
+    },
+    "keystone-z": {
+      "tarball": "https://registry.npmjs.org/keystone-z/-/keystone-z-4.0.0-beta.51.tgz"
+    },
+    "@biotope/build": {
+      "tarball": "https://registry.npmjs.org/@biotope/build/-/build-7.4.2.tgz"
+    },
+    "tarantul": {
+      "tarball": "https://registry.npmjs.org/tarantul/-/tarantul-0.8.148.tgz"
+    },
+    "@eybo/keystone": {
+      "tarball": "https://registry.npmjs.org/@eybo/keystone/-/keystone-4.0.3.tgz"
+    },
+    "@triply/ldwizard-core": {
+      "tarball": "https://registry.npmjs.org/@triply/ldwizard-core/-/ldwizard-core-0.0.8.tgz"
+    },
+    "wedmaster": {
+      "tarball": "https://registry.npmjs.org/wedmaster/-/wedmaster-4.1.2.tgz"
+    },
+    "qhc_job_ui": {
+      "tarball": "https://registry.npmjs.org/qhc_job_ui/-/qhc_job_ui-1.0.0.tgz"
+    },
+    "@mauriciora/heroicons": {
+      "tarball": "https://registry.npmjs.org/@mauriciora/heroicons/-/heroicons-1.0.1.tgz"
+    },
+    "dd-rn-packager": {
+      "tarball": "https://registry.npmjs.org/dd-rn-packager/-/dd-rn-packager-0.46.9.tgz"
+    },
+    "slim-cli": {
+      "tarball": "https://registry.npmjs.org/slim-cli/-/slim-cli-3.1.8.tgz"
+    },
+    "gastropod": {
+      "tarball": "https://registry.npmjs.org/gastropod/-/gastropod-1.2.1.tgz"
+    },
+    "react-basis": {
+      "tarball": "https://registry.npmjs.org/react-basis/-/react-basis-0.0.1-beta.0.tgz"
+    },
+    "@bundy-lmw/magic_script": {
+      "tarball": "https://registry.npmjs.org/@bundy-lmw/magic_script/-/magic_script-1.0.2.tgz"
+    },
+    "kepler.gl": {
+      "tarball": "https://registry.npmjs.org/kepler.gl/-/kepler.gl-2.5.5.tgz"
+    },
+    "@carto/kepler.gl": {
+      "tarball": "https://registry.npmjs.org/@carto/kepler.gl/-/kepler.gl-0.0.7.tgz"
+    },
+    "fauxton": {
+      "tarball": "https://registry.npmjs.org/fauxton/-/fauxton-1.2.6.tgz"
+    }
+  }
+}
