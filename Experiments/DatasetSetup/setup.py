@@ -4,7 +4,7 @@ from tqdm import tqdm
 import json
 
 def get_latest_version(con, package_id):
-  query = f"""
+  largeset_non_pre_query = f"""
     SELECT id, major, minor, bug, tarball 
     FROM version 
     WHERE package_id = {package_id} 
@@ -16,7 +16,23 @@ def get_latest_version(con, package_id):
       bug DESC LIMIT(1);
   """
 
-  return pd.read_sql_query(query, con).iloc[0]
+  latest_query = f"""
+    SELECT 
+      version.id AS id, 
+      version.major AS major, 
+      version.minor AS minor, 
+      version.bug AS bug, 
+      version.tarball AS tarball
+    FROM version 
+    JOIN package ON package.latest_version = version.id AND package.id = {package_id}
+    LIMIT(1);
+  """
+
+  largeset_non_pre_df = pd.read_sql_query(largeset_non_pre_query, con)
+  if largeset_non_pre_df.shape[0] > 0:
+    return largeset_non_pre_df.iloc[0]
+  else:
+    return pd.read_sql_query(latest_query, con).iloc[0]
 
 
 def write_df_to_json(df, dataset_name):
