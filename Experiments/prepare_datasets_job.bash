@@ -5,4 +5,5 @@
 #SBATCH --partition=short
 #SBATCH --mem=16G
 
-time python3 DatasetSetup/main.py --sqlite-path /work/arjunguha-research-group/packages/npm_db.sqlite3
+module load python/3.8.1
+time python DatasetSetup/main.py --sqlite-path /work/arjunguha-research-group/packages/npm_db.sqlite3
