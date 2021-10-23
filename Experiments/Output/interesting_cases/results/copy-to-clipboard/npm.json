@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 9.259887933731079,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/toggle-selection": {
+      "version": "1.0.6",
+      "resolved": "https://registry.npmjs.org/toggle-selection/-/toggle-selection-1.0.6.tgz",
+      "integrity": "sha1-bkWxJj8gF/oKzH2J14sVuL932jI="
+    }
+  }
+}

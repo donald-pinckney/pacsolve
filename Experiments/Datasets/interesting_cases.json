@@ -1,5 +1,8 @@
 {
   "projects": {
+    "copy-to-clipboard": {
+      "tarball": "https://registry.npmjs.org/copy-to-clipboard/-/copy-to-clipboard-3.3.1.tgz"
+    },
     "to-width": {
       "tarball": "https://registry.npmjs.org/to-width/-/to-width-1.1.0.tgz"
     },

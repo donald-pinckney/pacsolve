@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.6416587829589844,
+  "install_time": 3.4743449687957764,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/cnd": {

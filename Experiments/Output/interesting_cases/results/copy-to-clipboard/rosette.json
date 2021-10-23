@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 3.274596691131592,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/toggle-selection": {
+      "version": "1.0.6",
+      "integrity": "sha1-bkWxJj8gF/oKzH2J14sVuL932jI="
+    }
+  }
+}
