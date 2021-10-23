@@ -172,7 +172,7 @@ def preinstall(wd, options):
     if options.pre_install is not None:
       run_subprocess(options.pre_install, shell=True, cwd=wd, check=True, capture_output=True, log=True)
     
-    run_subprocess(["rm", "-rf", "package-lock.json", "node_modules/"], cwd=wd, log=True)
+    run_subprocess(["rm", "-rf", "package-lock.json", "pnpm-lock.yaml", "yarn.lock", "node_modules/"], cwd=wd, log=True)
 
 def install(wd, config, timeout):
   with log_section("Install"):
