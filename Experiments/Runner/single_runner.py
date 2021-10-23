@@ -174,12 +174,12 @@ def preinstall(wd, options):
     
     run_subprocess(["rm", "-rf", "package-lock.json", "node_modules/"], cwd=wd, log=True)
 
-def install(wd, config):
+def install(wd, config, timeout):
   with log_section("Install"):
     install_command = config[1]
 
     try:
-      run_subprocess(install_command, cwd=wd, check=True, capture_output=True, log=True, shell=True, timeout=600)
+      run_subprocess(install_command, cwd=wd, check=True, capture_output=True, log=True, shell=True, timeout=timeout)
     except subprocess.CalledProcessError as e:
       raise TestingError("install", e.cmd, e.returncode, e.stdout, e.stderr)
     except subprocess.TimeoutExpired as e:
@@ -249,7 +249,7 @@ def run(options):
         preinstall(wd, options)
         try:
           t0 = time.time()
-          install(wd, config)
+          install(wd, config, options.timeout)
           install_time = time.time() - t0
         except TestingError as e:
           install_time = time.time() - t0

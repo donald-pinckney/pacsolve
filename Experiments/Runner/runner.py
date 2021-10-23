@@ -4,17 +4,7 @@ import json
 import argparse
 import single_runner
 
-# parser = argparse.ArgumentParser(description='Runs the install process for a given repo')
-#   parser.add_argument('--name', help='The unique name of the project to run')
-#   parser.add_argument('--repo', help='The URL to the repo to clone')
-#   parser.add_argument('--path', help='The path to a JS project')
-#   parser.add_argument('--pre-install', help='The pre-install command to run')
-#   parser.add_argument('--post-install', help='The post-install command to run')
-#   parser.add_argument('--out', help='The output directory for all lockfiles')
-#   parser.add_argument('--configs', nargs='+', help='The list of install configurations to try')
-#   args = parser.parse_args()
-
-def run_single(out, name, maybePath, maybeRepo, maybeTarball, configs, subdirectory, preinstall, postinstall, cleanup, verbosity):
+def run_single(out, name, maybePath, maybeRepo, maybeTarball, configs, subdirectory, preinstall, postinstall, cleanup, verbosity, timeout):
   options = argparse.Namespace(
     name=name, 
     repo=maybeRepo, 
@@ -26,7 +16,8 @@ def run_single(out, name, maybePath, maybeRepo, maybeTarball, configs, subdirect
     out=out, 
     configs=configs,
     cleanup=cleanup,
-    verbosity=verbosity
+    verbosity=verbosity,
+    timeout=timeout
   )
   single_runner.run(options)
 
@@ -87,7 +78,8 @@ def run(options):
       project_options.get("pre-install"), 
       project_options.get("post-install"),
       options.cleanup,
-      options.verbosity
+      options.verbosity,
+      options.timeout
     )
 
 

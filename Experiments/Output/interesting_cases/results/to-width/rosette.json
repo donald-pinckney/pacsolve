@@ -1,0 +1,70 @@
+{
+  "install-success": true,
+  "install_time": 3.6416587829589844,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/cnd": {
+      "version": "9.2.1",
+      "integrity": "sha512-JszZtSlOCxkIvNPKpw1PmIcQUjYO+pBqVoKVH2STHLtG4JHHJ1NHowv39lhyxzlPxUTZk7pZ3qO7CfrfJ8ZSKw==",
+      "bin": {
+        "nodexh": "bin/nodexh"
+      }
+    },
+    "node_modules/string-width": {
+      "version": "4.2.1",
+      "integrity": "sha512-LL0OLyN6AnfV9xqGQpDBwedT2Rt63737LxvsRxbcwpa2aIeynBApG2Sm//F3TaLHIR1aJBN52DWklc06b94o5Q==",
+      "dependencies": {
+        "emoji-regex": "^8.0.0",
+        "is-fullwidth-code-point": "^3.0.0",
+        "strip-ansi": "^6.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/string-width/node_modules/emoji-regex": {
+      "version": "8.0.0",
+      "integrity": "sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A=="
+    },
+    "node_modules/string-width/node_modules/is-fullwidth-code-point": {
+      "version": "3.0.0",
+      "integrity": "sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/string-width/node_modules/strip-ansi": {
+      "version": "6.0.1",
+      "integrity": "sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==",
+      "dependencies": {
+        "ansi-regex": "^5.0.1"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex": {
+      "version": "5.0.1",
+      "integrity": "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/wcstring": {
+      "version": "2.1.1",
+      "integrity": "sha1-3tUtdFycceJNCkidKCbSKjZe0Gc=",
+      "dependencies": {
+        "varsize-string": "^2.2.1",
+        "wcsize": "^1.0.0"
+      }
+    },
+    "node_modules/wcstring/node_modules/varsize-string": {
+      "version": "2.2.2",
+      "integrity": "sha1-7xs7bHLbCDXqL4TN+R/sMMUgaIs="
+    },
+    "node_modules/wcstring/node_modules/wcsize": {
+      "version": "1.0.0",
+      "integrity": "sha1-qKLhXmqKdHkdulgPaaV9J+hQ6h4="
+    }
+  }
+}
