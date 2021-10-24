@@ -1,4 +1,4 @@
-#lang racket
+#lang rosette
 
 (require "graph.rkt")
 (require "query.rkt")
@@ -9,7 +9,7 @@
 
 (define (flatten-graph-idx e p-counts v-counts)
   (define p-idx (edge-package-idx e))
-  (define v-idx (edge-version-idx e))
+  (define v-idx (bitvector->natural (edge-version-idx e)))
   
   (define prev-p-sum 
     (apply + 

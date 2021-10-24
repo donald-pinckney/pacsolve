@@ -1,7 +1,7 @@
 #lang rosette
 
 (current-bitwidth 18) ; 32
-(output-smt "z3-debugging/")
+; (output-smt "z3-debugging/")
 
 (require "load-query.rkt")
 (require "graph-sketching.rkt")
@@ -34,13 +34,6 @@
   (optimize
    #:minimize (optimize-graph QUERY G)
    #:guarantee (check-graph QUERY G)))
-
-; (print (check-graph QUERY G))
-
-; (print sol)
-; (display "\n")
-; (print G)
-
 
 (write-solution QUERY (rosette-sol->solution sol))
 

@@ -12,13 +12,26 @@
 (provide graph*)
 
 
+
+; fin* generates a symbolic integer x such that 0 <= x < n
+
 ;; TODO: Explore an alternative encoding.
 ;; This encoding generates (n-1) booleans
 ;; Instead we could generate a single
 ;; integer / bitvector, and put an upper bound
 ;; assertion on it
 (define (fin* n)
-  (apply choose* (range n))) ;; TODO: play with representation
+  (if 
+    (= n 1)
+    (bv 0 (bitvector 1))
+    (begin
+      (define num-bits (integer-length (- n 1)))
+      (define bv-n (bv n (bitvector num-bits)))
+      (define-symbolic* x (bitvector num-bits))
+      (assert (bvule x bv-n))
+      x)))
+
+  ; (apply choose* (range n))) ;; TODO: play with representation
 
 
 (define (edge* query p-idx)

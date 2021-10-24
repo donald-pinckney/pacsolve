@@ -22,7 +22,7 @@
       (define dv-idx (edge-version-idx e)) ; symbolic
 
       (define dp-group (list-ref (graph-package-groups-list g) dp-idx))
-      (define dv-node (vector-ref (package-group-version-nodes-vec dp-group) dv-idx))
+      (define dv-node (vector-ref-bv (package-group-version-nodes-vec dp-group) dv-idx))
       
       (assert (< (node-top-order src-node) (node-top-order (version-node dv-node)))))))
                                              
@@ -41,7 +41,7 @@
         (define dv-idx (edge-version-idx e)) ; symbolic
 
         (define dp-group (list-ref (graph-package-groups-list g) dp-idx))
-        (define dv-node (vector-ref (package-group-version-nodes-vec dp-group) dv-idx))
+        (define dv-node (vector-ref-bv (package-group-version-nodes-vec dp-group) dv-idx))
 
         (define dest-version (version-node-version dv-node))
 
