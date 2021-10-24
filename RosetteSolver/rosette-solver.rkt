@@ -1,6 +1,6 @@
 #lang rosette
 
-(current-bitwidth 18) ; 32
+; (current-bitwidth 18) ; 32
 ; (output-smt "z3-debugging/")
 
 (require "load-query.rkt")
