@@ -15,7 +15,7 @@
       "tarball": "https://registry.npmjs.org/rxjs/-/rxjs-7.3.0.tgz"
     },
     "@babel/plugin-transform-regenerator": {
-      "comment": "non-optimal solve with bitvector encoding",
+      "comment": "non-optimal solve with bitvector encoding. graph with 4 nodes is possible (including root), see npm solve, but rosette gives 5",
       "tarball": "https://registry.npmjs.org/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.14.5.tgz"
     },
     "fs-extra": {
