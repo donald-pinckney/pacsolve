@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 2.666093587875366,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/loose-envify": {
+      "version": "1.2.0",
+      "integrity": "sha1-aaZarT3lQs9O4PT+dOjjPHCcyw8=",
+      "dependencies": {
+        "js-tokens": "^1.0.1"
+      },
+      "bin": {
+        "loose-envify": "cli.js"
+      }
+    },
+    "node_modules/loose-envify/node_modules/js-tokens": {
+      "version": "1.0.1",
+      "integrity": "sha1-zENaXIuUrRWst5gxQPyAGCyJrq4="
+    }
+  }
+}

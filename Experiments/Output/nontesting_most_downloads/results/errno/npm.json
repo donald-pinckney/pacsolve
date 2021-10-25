@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 1.5878241062164307,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/prr": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/prr/-/prr-1.0.1.tgz",
+      "integrity": "sha1-0/wRS6BplaRexok/SEzrHXj19HY="
+    }
+  }
+}

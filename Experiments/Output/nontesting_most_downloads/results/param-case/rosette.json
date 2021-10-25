@@ -1,0 +1,46 @@
+{
+  "install-success": true,
+  "install_time": 2.482264757156372,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/dot-case": {
+      "version": "3.0.4",
+      "integrity": "sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==",
+      "dependencies": {
+        "no-case": "^3.0.4",
+        "tslib": "^2.0.3"
+      }
+    },
+    "node_modules/dot-case/node_modules/no-case": {
+      "version": "3.0.4",
+      "integrity": "sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==",
+      "dependencies": {
+        "lower-case": "^2.0.2",
+        "tslib": "^2.0.3"
+      }
+    },
+    "node_modules/dot-case/node_modules/no-case/node_modules/lower-case": {
+      "version": "2.0.2",
+      "integrity": "sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==",
+      "dependencies": {
+        "tslib": "^2.0.3"
+      }
+    },
+    "node_modules/dot-case/node_modules/no-case/node_modules/lower-case/node_modules/tslib": {
+      "resolved": "node_modules/tslib",
+      "link": true
+    },
+    "node_modules/dot-case/node_modules/no-case/node_modules/tslib": {
+      "resolved": "node_modules/tslib",
+      "link": true
+    },
+    "node_modules/dot-case/node_modules/tslib": {
+      "resolved": "node_modules/tslib",
+      "link": true
+    },
+    "node_modules/tslib": {
+      "version": "2.2.0",
+      "integrity": "sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w=="
+    }
+  }
+}

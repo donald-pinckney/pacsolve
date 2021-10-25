@@ -1,0 +1,22 @@
+{
+  "install-success": true,
+  "install_time": 10.46324872970581,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/asap": {
+      "version": "2.0.6",
+      "resolved": "https://registry.npmjs.org/asap/-/asap-2.0.6.tgz",
+      "integrity": "sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY="
+    },
+    "node_modules/pop-iterate": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/pop-iterate/-/pop-iterate-1.0.1.tgz",
+      "integrity": "sha1-zqz9q0q/NT16DyqqLB/Hs/lBO6M="
+    },
+    "node_modules/weak-map": {
+      "version": "1.0.5",
+      "resolved": "https://registry.npmjs.org/weak-map/-/weak-map-1.0.5.tgz",
+      "integrity": "sha1-eWkVhNmGB/UHC9O3CkDmuyLkAes="
+    }
+  }
+}

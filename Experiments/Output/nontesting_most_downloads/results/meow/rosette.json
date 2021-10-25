@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 3.892796754837036,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette --ignore-scripts",
+    "retcode": 1,
+    "stdout": "0 / 1\n100 / 43\n200 / 25\nSending query to rosette: /tmp/tmp-31971-jnw5QULfK7Zh\nGot: /tmp/tmp-31971-rjKAVRtzf7QM\nDecoding Rosette answer: [object Object]\n",
+    "stderr": "npm ERR! Failed to solve constraints :(\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T02_13_44_335Z-debug.log\n"
+  }
+}

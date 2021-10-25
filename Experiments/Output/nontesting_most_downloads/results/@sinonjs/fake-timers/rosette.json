@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 3.0371525287628174,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@sinonjs/commons": {
+      "version": "1.8.1",
+      "integrity": "sha512-892K+kWUUi3cl+LlqEWIDrhvLgdL79tECi8JZUyq6IviKy/DNhuzCRlbHUjxK89f4ypPMMaFnFuR9Ie6DoIMsw==",
+      "dependencies": {
+        "type-detect": "4.0.8"
+      }
+    },
+    "node_modules/@sinonjs/commons/node_modules/type-detect": {
+      "version": "4.0.8",
+      "integrity": "sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==",
+      "engines": {
+        "node": ">=4"
+      }
+    }
+  }
+}

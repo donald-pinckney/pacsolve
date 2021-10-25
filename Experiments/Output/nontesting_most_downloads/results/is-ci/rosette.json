@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.55922269821167,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ci-info": {
+      "version": "3.1.1",
+      "integrity": "sha512-kdRWLBIJwdsYJWYJFtAFFYxybguqeF91qpZaggjG5Nf8QKdizFG2hjqvaTXbxFIcYbSaD74KpAXv6BSm17DHEQ=="
+    }
+  }
+}

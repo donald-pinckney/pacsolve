@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 2.549614191055298,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/runtime": {
+      "version": "7.8.4",
+      "integrity": "sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==",
+      "dependencies": {
+        "regenerator-runtime": "^0.13.2"
+      }
+    },
+    "node_modules/@babel/runtime/node_modules/regenerator-runtime": {
+      "version": "0.13.2",
+      "integrity": "sha512-S/TQAZJO+D3m9xeN1WTI8dLKBBiRgXBlTJvbWjCThHWZj9EvHK70Ff50/tYj2J/fvBY6JtFVwRuazHN2E7M9BA=="
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "install-success": true,
+  "install_time": 2.703120231628418,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/pkg-dir": {
+      "version": "4.2.0",
+      "integrity": "sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==",
+      "dependencies": {
+        "find-up": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/pkg-dir/node_modules/find-up": {
+      "version": "4.0.0",
+      "integrity": "sha512-zoH7ZWPkRdgwYCDVoQTzqjG8JSPANhtvLhh4KVUHyKnaUJJrNeFmWIkTcNuJmR3GLMEmGYEf2S2bjgx26JTF+Q==",
+      "dependencies": {
+        "locate-path": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path": {
+      "version": "5.0.0",
+      "integrity": "sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==",
+      "dependencies": {
+        "p-locate": "^4.1.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path/node_modules/p-locate": {
+      "version": "4.1.0",
+      "integrity": "sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A==",
+      "dependencies": {
+        "p-limit": "^2.2.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path/node_modules/p-locate/node_modules/p-limit": {
+      "version": "2.2.0",
+      "integrity": "sha512-pZbTJpoUsCzV48Mc9Nh51VbwO0X9cuPFE8gYwx9BTCt9SF8/b7Zljd2fVgOxhIF/HDTKgpVzs+GPhyKfjLLFRQ==",
+      "dependencies": {
+        "p-try": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/pkg-dir/node_modules/find-up/node_modules/locate-path/node_modules/p-locate/node_modules/p-limit/node_modules/p-try": {
+      "version": "2.2.0",
+      "integrity": "sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==",
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/resolve-cwd": {
+      "version": "3.0.0",
+      "integrity": "sha512-OrZaX2Mb+rJCpH/6CpSqt9xFVpN++x01XnN2ie9g6P5/3xelLAkXWVADpdz1IHD/KFfEXyE6V0U01OQ3UO2rEg==",
+      "dependencies": {
+        "resolve-from": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/resolve-cwd/node_modules/resolve-from": {
+      "version": "5.0.0",
+      "integrity": "sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

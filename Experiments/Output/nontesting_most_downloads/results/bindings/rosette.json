@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.304813861846924,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/file-uri-to-path": {
+      "version": "1.0.0",
+      "integrity": "sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw=="
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 3.6979804039001465,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/boolbase": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz",
+      "integrity": "sha1-aN/1++YMUes3cl6p4+0xDcwed24="
+    }
+  }
+}

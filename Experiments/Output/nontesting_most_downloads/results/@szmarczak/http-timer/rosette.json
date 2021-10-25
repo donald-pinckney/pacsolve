@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3156566619873047,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/defer-to-connect": {
+      "version": "2.0.1",
+      "integrity": "sha512-4tvttepXG1VaYGrRibk5EwJd1t4udunSOVMdLSAL6mId1ix438oPwPZMALY41FCijukO1L0twNcGsdzS7dHgDg==",
+      "engines": {
+        "node": ">=10"
+      }
+    }
+  }
+}

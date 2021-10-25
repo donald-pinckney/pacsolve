@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.544546604156494,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/node-int64": {
+      "version": "0.4.0",
+      "integrity": "sha1-h6kGXNs1XTGC2PlM4RGIuCXGijs="
+    }
+  }
+}

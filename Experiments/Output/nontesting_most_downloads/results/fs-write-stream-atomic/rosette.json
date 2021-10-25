@@ -1,0 +1,29 @@
+{
+  "install-success": true,
+  "install_time": 8.579578638076782,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/graceful-fs": {
+      "version": "4.1.11",
+      "integrity": "sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg=",
+      "engines": {
+        "node": ">=0.4.0"
+      }
+    },
+    "node_modules/iferr": {
+      "version": "0.1.5",
+      "integrity": "sha1-xg7taebY/bazEEofy8ocGS3FtQE="
+    },
+    "node_modules/imurmurhash": {
+      "version": "0.1.4",
+      "integrity": "sha1-khi5srkoojixPcT7a21XbyMUU+o=",
+      "engines": {
+        "node": ">=0.8.19"
+      }
+    },
+    "node_modules/readable-stream": {
+      "version": "1.0.1",
+      "integrity": "sha1-BPmd5MBpfIarZWeTMLDJ0WeyubM="
+    }
+  }
+}

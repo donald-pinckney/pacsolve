@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3063368797302246,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/punycode": {
+      "version": "2.1.1",
+      "integrity": "sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==",
+      "engines": {
+        "node": ">=6"
+      }
+    }
+  }
+}

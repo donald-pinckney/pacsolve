@@ -1,0 +1,34 @@
+{
+  "install-success": true,
+  "install_time": 2.936495542526245,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/bn.js": {
+      "version": "4.2.0",
+      "integrity": "sha1-Z/6OLmY3rku4RHh2yFYqin2cpAI="
+    },
+    "node_modules/miller-rabin": {
+      "version": "4.0.0",
+      "integrity": "sha1-SmL7HUKTPAVYOYL0xxb2+55sbT0=",
+      "dependencies": {
+        "bn.js": "^4.0.0",
+        "brorand": "^1.0.1"
+      },
+      "bin": {
+        "miller-rabin": "bin/miller-rabin"
+      }
+    },
+    "node_modules/miller-rabin/node_modules/bn.js": {
+      "resolved": "node_modules/bn.js",
+      "link": true
+    },
+    "node_modules/miller-rabin/node_modules/brorand": {
+      "version": "1.0.3",
+      "integrity": "sha1-A9KArpqTaV8saxOu1xDPF6euaWI="
+    },
+    "node_modules/randombytes": {
+      "version": "2.0.0",
+      "integrity": "sha1-5Z1HHGbjU3+F4couKwUR6cwhFbY="
+    }
+  }
+}

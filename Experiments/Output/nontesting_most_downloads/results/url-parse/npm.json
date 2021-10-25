@@ -1,0 +1,17 @@
+{
+  "install-success": true,
+  "install_time": 9.243388652801514,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/querystringify": {
+      "version": "2.2.0",
+      "resolved": "https://registry.npmjs.org/querystringify/-/querystringify-2.2.0.tgz",
+      "integrity": "sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ=="
+    },
+    "node_modules/requires-port": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/requires-port/-/requires-port-1.0.0.tgz",
+      "integrity": "sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8="
+    }
+  }
+}

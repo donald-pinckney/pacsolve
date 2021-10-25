@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3177342414855957,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/kind-of": {
+      "version": "6.0.2",
+      "integrity": "sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "install-success": true,
+  "install_time": 2.7593326568603516,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/end-of-stream": {
+      "version": "1.4.1",
+      "integrity": "sha512-1MkrZNvWTKCaigbn+W15elq2BB/L22nqrSY5DKlo3X6+vclJm8Bb5djXJBmEX6fS3+zCh/F4VBK5Z2KxJt4s2Q==",
+      "dependencies": {
+        "once": "^1.4.0"
+      }
+    },
+    "node_modules/end-of-stream/node_modules/once": {
+      "version": "1.4.0",
+      "integrity": "sha1-WDsap3WWHUsROsF9nFC6753Xa9E=",
+      "dependencies": {
+        "wrappy": "1"
+      }
+    },
+    "node_modules/end-of-stream/node_modules/once/node_modules/wrappy": {
+      "version": "1.0.2",
+      "integrity": "sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8="
+    },
+    "node_modules/inherits": {
+      "version": "2.0.3",
+      "integrity": "sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4="
+    },
+    "node_modules/readable-stream": {
+      "version": "3.4.0",
+      "integrity": "sha512-jItXPLmrSR8jmTRmRWJXCnGJsfy85mB3Wd/uINMXA65yrnFo0cPClFIUWzo2najVNSl+mx7/4W8ttlLWJe99pQ==",
+      "dependencies": {
+        "inherits": "^2.0.3",
+        "string_decoder": "^1.1.1",
+        "util-deprecate": "^1.0.1"
+      },
+      "engines": {
+        "node": ">= 6"
+      }
+    },
+    "node_modules/readable-stream/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/readable-stream/node_modules/string_decoder": {
+      "version": "1.2.0",
+      "integrity": "sha512-6YqyX6ZWEYguAxgZzHGL7SsCeGx3V2TtOTqZz1xSTSWnqsbWwbptafNyvf/ACquZUXV3DANr5BDIwNYe1mN42w==",
+      "dependencies": {
+        "safe-buffer": "~5.1.0"
+      }
+    },
+    "node_modules/readable-stream/node_modules/string_decoder/node_modules/safe-buffer": {
+      "version": "5.1.0",
+      "integrity": "sha512-aSLEDudu6OoRr/2rU609gRmnYboRLxgDG1z9o2Q0os7236FwvcqIOO8r8U5JUEwivZOhDaKlFO4SbPTJYyBEyQ=="
+    },
+    "node_modules/readable-stream/node_modules/util-deprecate": {
+      "version": "1.0.1",
+      "integrity": "sha1-NVaj0TxMaqeYPX4kJUeBlxmbeIE="
+    },
+    "node_modules/stream-shift": {
+      "version": "1.0.0",
+      "integrity": "sha1-1cdSgl5TZ+eG944Y5EXqIjoVWVI="
+    }
+  }
+}

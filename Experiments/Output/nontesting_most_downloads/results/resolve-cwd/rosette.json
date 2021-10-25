@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3166236877441406,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/resolve-from": {
+      "version": "5.0.0",
+      "integrity": "sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

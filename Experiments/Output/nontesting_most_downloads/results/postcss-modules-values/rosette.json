@@ -1,0 +1,17 @@
+{
+  "install-success": true,
+  "install_time": 2.583723545074463,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/icss-utils": {
+      "version": "5.0.0",
+      "integrity": "sha512-aF2Cf/CkEZrI/vsu5WI/I+akFgdbwQHVE9YRZxATrhH4PVIe6a3BIjwjEcW+z+jP/hNh+YvM3lAAn1wJQ6opSg==",
+      "engines": {
+        "node": "^10 || ^12 || >= 14"
+      },
+      "peerDependencies": {
+        "postcss": "^8.1.0"
+      }
+    }
+  }
+}

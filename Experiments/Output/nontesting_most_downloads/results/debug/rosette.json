@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.3511085510253906,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ms": {
+      "version": "2.1.2",
+      "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "install-success": true,
+  "install_time": 3.2944958209991455,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/async": {
+      "version": "2.6.2",
+      "integrity": "sha512-H1qVYh1MYhEEFLsP97cVKqCGo7KfCyTt6uEWqsTBr9SO84oK9Uwbyd/yCW+6rKJLHksBNUVWZDAjfS+Ccx0Bbg==",
+      "dependencies": {
+        "lodash": "^4.17.11"
+      }
+    },
+    "node_modules/async/node_modules/lodash": {
+      "version": "4.17.15",
+      "integrity": "sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A=="
+    },
+    "node_modules/debug": {
+      "version": "3.2.0",
+      "integrity": "sha512-Ii8hOmyHANEZ4wnsj5ZKeWUQRLt+ZD6WSb1e+/RK0BNIrVaZQrN0r2qxl8ZvnFgb4TQpd9nsjGUxdPIUXo6Snw==",
+      "deprecated": "Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)",
+      "dependencies": {
+        "ms": "^2.1.1"
+      }
+    },
+    "node_modules/debug/node_modules/ms": {
+      "version": "2.1.1",
+      "integrity": "sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg=="
+    },
+    "node_modules/mkdirp": {
+      "version": "0.5.5",
+      "integrity": "sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==",
+      "dependencies": {
+        "minimist": "^1.2.5"
+      },
+      "bin": {
+        "mkdirp": "bin/cmd.js"
+      }
+    },
+    "node_modules/mkdirp/node_modules/minimist": {
+      "version": "1.2.5",
+      "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw=="
+    }
+  }
+}

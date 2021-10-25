@@ -1,0 +1,16 @@
+{
+  "install-success": true,
+  "install_time": 2.595158815383911,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/core-js": {
+      "version": "2.5.0",
+      "integrity": "sha1-VpwFCRi+ZIazg3VSAorgRmtxcIY=",
+      "deprecated": "core-js@<3.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js."
+    },
+    "node_modules/regenerator-runtime": {
+      "version": "0.11.0",
+      "integrity": "sha512-/aA0kLeRb5N9K0d4fw7ooEbI+xDe+DKD499EQqygGqeS8N3xto15p09uY2xj7ixP81sNPXvRLnAQIqdVStgb1A=="
+    }
+  }
+}

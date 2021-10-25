@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 0.6257169246673584,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/assert-plus": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz",
+      "integrity": "sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=",
+      "engines": {
+        "node": ">=0.8"
+      }
+    }
+  }
+}

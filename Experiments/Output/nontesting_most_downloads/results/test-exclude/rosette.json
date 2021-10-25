@@ -1,0 +1,94 @@
+{
+  "install-success": true,
+  "install_time": 2.5809829235076904,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@istanbuljs/schema": {
+      "version": "0.1.2",
+      "integrity": "sha512-tsAQNx32a8CoFhjhijUIhI4kccIAgmGhy8LZMZgGfmXcpMbPRUqn5LWmgRttILi6yeGmBJd2xsPkFMs0PzgPCw==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/glob": {
+      "version": "7.1.4",
+      "integrity": "sha512-hkLPepehmnKk41pUGm3sYxoFs/umurYfYJCerbXEyFIWcAzvpipAgVkBqqT9RBKMGjnq6kMuyYwha6csxbiM1A==",
+      "dependencies": {
+        "fs.realpath": "^1.0.0",
+        "inflight": "^1.0.4",
+        "inherits": "2",
+        "minimatch": "^3.0.4",
+        "once": "^1.3.0",
+        "path-is-absolute": "^1.0.0"
+      },
+      "engines": {
+        "node": "*"
+      }
+    },
+    "node_modules/glob/node_modules/fs.realpath": {
+      "version": "1.0.0",
+      "integrity": "sha1-FQStJSMVjKpA20onh8sBQRmU6k8="
+    },
+    "node_modules/glob/node_modules/inflight": {
+      "version": "1.0.6",
+      "integrity": "sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=",
+      "dependencies": {
+        "once": "^1.3.0",
+        "wrappy": "1"
+      }
+    },
+    "node_modules/glob/node_modules/inflight/node_modules/once": {
+      "resolved": "node_modules/glob/node_modules/once",
+      "link": true
+    },
+    "node_modules/glob/node_modules/inflight/node_modules/wrappy": {
+      "version": "1.0.0",
+      "integrity": "sha1-iq5PxrTNa+MqRVOYW88ys+4THk4="
+    },
+    "node_modules/glob/node_modules/inherits": {
+      "version": "2.0.0",
+      "integrity": "sha1-dsgbOxwQ3e46YL8sJHFivDafi6g="
+    },
+    "node_modules/glob/node_modules/minimatch": {
+      "resolved": "node_modules/minimatch",
+      "link": true
+    },
+    "node_modules/glob/node_modules/once": {
+      "version": "1.3.0",
+      "integrity": "sha1-FRr4a/wfCMS58H0GqyUP/L61ZYE="
+    },
+    "node_modules/glob/node_modules/path-is-absolute": {
+      "version": "1.0.0",
+      "integrity": "sha1-Jj2tpmqz8vsQv3+dJN2PPlcO+RI=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/minimatch": {
+      "version": "3.0.4",
+      "integrity": "sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==",
+      "dependencies": {
+        "brace-expansion": "^1.1.7"
+      },
+      "engines": {
+        "node": "*"
+      }
+    },
+    "node_modules/minimatch/node_modules/brace-expansion": {
+      "version": "1.1.10",
+      "integrity": "sha512-u0KjSZq9NOEh36yRmKT/pIYOu0rpGAyUTeUmJgNd1K2tpAaUomh092TZ0fqbBGQc4hz85BVngAiB2mqekvQvIw==",
+      "dependencies": {
+        "balanced-match": "^1.0.0",
+        "concat-map": "0.0.1"
+      }
+    },
+    "node_modules/minimatch/node_modules/brace-expansion/node_modules/balanced-match": {
+      "version": "1.0.0",
+      "integrity": "sha1-ibTRmasr7kneFk6gK4nORi1xt2c="
+    },
+    "node_modules/minimatch/node_modules/brace-expansion/node_modules/concat-map": {
+      "version": "0.0.1",
+      "integrity": "sha1-2Klr13/Wjfd5OnMDajug1UBdR3s="
+    }
+  }
+}

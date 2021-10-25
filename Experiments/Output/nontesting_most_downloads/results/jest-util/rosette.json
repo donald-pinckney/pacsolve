@@ -1,0 +1,156 @@
+{
+  "install-success": true,
+  "install_time": 6.618583679199219,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@jest/types": {
+      "version": "27.1.1",
+      "integrity": "sha512-yqJPDDseb0mXgKqmNqypCsb85C22K1aY5+LUxh7syIM9n/b0AsaltxNy+o6tt29VcfGDpYEve175bm3uOhcehA==",
+      "dependencies": {
+        "@types/istanbul-lib-coverage": "^2.0.0",
+        "@types/istanbul-reports": "^3.0.0",
+        "@types/node": "*",
+        "@types/yargs": "^16.0.0",
+        "chalk": "^4.0.0"
+      },
+      "engines": {
+        "node": "^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0"
+      }
+    },
+    "node_modules/@jest/types/node_modules/@types/istanbul-lib-coverage": {
+      "version": "2.0.2",
+      "integrity": "sha512-rsZg7eL+Xcxsxk2XlBt9KcG8nOp9iYdKCOikY9x2RFJCyOdNj4MKPQty0e8oZr29vVAzKXr1BmR+kZauti3o1w=="
+    },
+    "node_modules/@jest/types/node_modules/@types/istanbul-reports": {
+      "version": "3.0.0",
+      "integrity": "sha512-nwKNbvnwJ2/mndE9ItP/zc2TCzw6uuodnF4EHYWD+gCQDVBuRQL5UzbZD0/ezy1iKsFU2ZQiDqg4M9dN4+wZgA==",
+      "dependencies": {
+        "@types/istanbul-lib-report": "*"
+      }
+    },
+    "node_modules/@jest/types/node_modules/@types/istanbul-reports/node_modules/@types/istanbul-lib-report": {
+      "version": "3.0.0",
+      "integrity": "sha512-plGgXAPfVKFoYfa9NpYDAkseG+g6Jr294RqeqcqDixSbU34MZVJRi/P+7Y8GDpzkEwLaGZZOpKIEmeVZNtKsrg==",
+      "dependencies": {
+        "@types/istanbul-lib-coverage": "*"
+      }
+    },
+    "node_modules/@jest/types/node_modules/@types/istanbul-reports/node_modules/@types/istanbul-lib-report/node_modules/@types/istanbul-lib-coverage": {
+      "resolved": "node_modules/@jest/types/node_modules/@types/istanbul-lib-coverage",
+      "link": true
+    },
+    "node_modules/@jest/types/node_modules/@types/node": {
+      "resolved": "node_modules/@types/node",
+      "link": true
+    },
+    "node_modules/@jest/types/node_modules/@types/yargs": {
+      "version": "16.0.4",
+      "integrity": "sha512-T8Yc9wt/5LbJyCaLiHPReJa0kApcIgJ7Bn735GjItUfh08Z1pJvu8QZqb9s+mMvKV6WUQRV7K2R46YbjMXTTJw==",
+      "dependencies": {
+        "@types/yargs-parser": "*"
+      }
+    },
+    "node_modules/@jest/types/node_modules/@types/yargs/node_modules/@types/yargs-parser": {
+      "version": "11.0.1",
+      "integrity": "sha512-iLm59ELvdPCqdDAIpxsauiDFob7R2MNV7VivMfdmcrJwz+y7xlPYNvtp9rrBlvuBoeOOtH0hPFokknoSuW5lOQ==",
+      "dependencies": {
+        "@types/yargs": "*"
+      }
+    },
+    "node_modules/@jest/types/node_modules/@types/yargs/node_modules/@types/yargs-parser/node_modules/@types/yargs": {
+      "resolved": "node_modules/@jest/types/node_modules/@types/yargs",
+      "link": true
+    },
+    "node_modules/@jest/types/node_modules/chalk": {
+      "resolved": "node_modules/chalk",
+      "link": true
+    },
+    "node_modules/@types/node": {
+      "version": "6.0.35",
+      "integrity": "sha1-3dHedI43QfUm/tjqc3+9p16mBRg="
+    },
+    "node_modules/chalk": {
+      "version": "4.0.0",
+      "integrity": "sha512-N9oWFcegS0sFr9oh1oz2d7Npos6vNoWW9HvtCg5N1KRFpUhaAhvTv5Y58g880fZaEYSNm3qDz8SU1UrGvp+n7A==",
+      "dependencies": {
+        "ansi-styles": "^4.1.0",
+        "supports-color": "^7.1.0"
+      },
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/chalk/chalk?sponsor=1"
+      }
+    },
+    "node_modules/chalk/node_modules/ansi-styles": {
+      "version": "4.1.0",
+      "integrity": "sha512-Qts4KCLKG+waHc9C4m07weIY8qyeixoS0h6RnbsNVD6Fw+pEZGW3vTyObL3WXpE09Mq4Oi7/lBEyLmOiLtlYWQ==",
+      "dependencies": {
+        "color-convert": "^2.0.1"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
+      "version": "2.0.1",
+      "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",
+      "dependencies": {
+        "color-name": "~1.1.4"
+      },
+      "engines": {
+        "node": ">=7.0.0"
+      }
+    },
+    "node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert/node_modules/color-name": {
+      "version": "1.1.4",
+      "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
+    },
+    "node_modules/chalk/node_modules/supports-color": {
+      "version": "7.1.0",
+      "integrity": "sha512-oRSIpR8pxT1Wr2FquTNnGet79b3BWljqOuoW/h4oBhxJ/HUbX5nX6JSruTkvXDCFMwDPvsaTTbvMLKZWSy0R5g==",
+      "dependencies": {
+        "has-flag": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/chalk/node_modules/supports-color/node_modules/has-flag": {
+      "version": "4.0.0",
+      "integrity": "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/graceful-fs": {
+      "version": "4.2.6",
+      "integrity": "sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ=="
+    },
+    "node_modules/is-ci": {
+      "version": "3.0.0",
+      "integrity": "sha512-kDXyttuLeslKAHYL/K28F2YkM3x5jvFPEw3yXbRptXydjD9rpLEz+C5K5iutY9ZiUu6AP41JdvRQwF4Iqs4ZCQ==",
+      "dependencies": {
+        "ci-info": "^3.1.1"
+      },
+      "bin": {
+        "is-ci": "bin.js"
+      }
+    },
+    "node_modules/is-ci/node_modules/ci-info": {
+      "version": "3.1.1",
+      "integrity": "sha512-kdRWLBIJwdsYJWYJFtAFFYxybguqeF91qpZaggjG5Nf8QKdizFG2hjqvaTXbxFIcYbSaD74KpAXv6BSm17DHEQ=="
+    },
+    "node_modules/picomatch": {
+      "version": "2.2.3",
+      "integrity": "sha512-KpELjfwcCDUb9PeigTs2mBJzXUPzAuP2oPcA989He8Rte0+YUAjw1JVedDhuTKPkHjSYzMN3npC9luThGYEKdg==",
+      "engines": {
+        "node": ">=8.6"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/jonschlinkert"
+      }
+    }
+  }
+}

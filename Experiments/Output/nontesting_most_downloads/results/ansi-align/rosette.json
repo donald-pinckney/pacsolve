@@ -1,0 +1,47 @@
+{
+  "install-success": true,
+  "install_time": 2.649718999862671,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/string-width": {
+      "version": "3.0.0",
+      "integrity": "sha512-rr8CUxBbvOZDUvc5lNIJ+OC1nPVpz+Siw9VBtUjB9b6jZehZLFt0JMCZzShFHIsI8cbhm0EsNIfWJMFV3cu3Ew==",
+      "dependencies": {
+        "emoji-regex": "^7.0.1",
+        "is-fullwidth-code-point": "^2.0.0",
+        "strip-ansi": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/string-width/node_modules/emoji-regex": {
+      "version": "7.0.3",
+      "integrity": "sha512-CwBLREIQ7LvYFB0WyRvwhq5N5qPhc6PMjD6bYggFlI5YyDgl+0vxq5VHbMOFqLg7hfWzmu8T5Z1QofhmTIhItA=="
+    },
+    "node_modules/string-width/node_modules/is-fullwidth-code-point": {
+      "version": "2.0.0",
+      "integrity": "sha1-o7MKXE8ZkYMWeqq5O+764937ZU8=",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/string-width/node_modules/strip-ansi": {
+      "version": "5.0.0",
+      "integrity": "sha512-Uu7gQyZI7J7gn5qLn1Np3G9vcYGTVqB+lFTytnDJv83dd8T22aGH451P3jueT2/QemInJDfxHB5Tde5OzgG1Ow==",
+      "dependencies": {
+        "ansi-regex": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex": {
+      "version": "4.0.0",
+      "integrity": "sha512-iB5Dda8t/UqpPI/IjsejXu5jOGDrzn41wJyljwPH65VCIbk6+1BzFIMJGFwTNrYXT1CrD+B4l19U7awiQ8rk7w==",
+      "engines": {
+        "node": ">=6"
+      }
+    }
+  }
+}

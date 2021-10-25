@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3143839836120605,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/is-wsl": {
+      "version": "1.1.0",
+      "integrity": "sha1-HxbkqiKwTRM2tmGIpmrzxgDDpm0=",
+      "engines": {
+        "node": ">=4"
+      }
+    }
+  }
+}

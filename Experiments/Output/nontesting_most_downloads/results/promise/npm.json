@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 3.10136342048645,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/asap": {
+      "version": "2.0.6",
+      "resolved": "https://registry.npmjs.org/asap/-/asap-2.0.6.tgz",
+      "integrity": "sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY="
+    }
+  }
+}

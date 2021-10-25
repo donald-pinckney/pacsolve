@@ -1,0 +1,23 @@
+{
+  "install-success": true,
+  "install_time": 2.3579347133636475,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/brace-expansion": {
+      "version": "1.1.10",
+      "integrity": "sha512-u0KjSZq9NOEh36yRmKT/pIYOu0rpGAyUTeUmJgNd1K2tpAaUomh092TZ0fqbBGQc4hz85BVngAiB2mqekvQvIw==",
+      "dependencies": {
+        "balanced-match": "^1.0.0",
+        "concat-map": "0.0.1"
+      }
+    },
+    "node_modules/brace-expansion/node_modules/balanced-match": {
+      "version": "1.0.2",
+      "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
+    },
+    "node_modules/brace-expansion/node_modules/concat-map": {
+      "version": "0.0.1",
+      "integrity": "sha1-2Klr13/Wjfd5OnMDajug1UBdR3s="
+    }
+  }
+}

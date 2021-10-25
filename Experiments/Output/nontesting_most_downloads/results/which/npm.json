@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 4.763062000274658,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/isexe": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz",
+      "integrity": "sha1-6PvzdNxVb/iUehDcsFctYz8s+hA="
+    }
+  }
+}

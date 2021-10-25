@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 2.8647634983062744,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/sax": {
+      "version": "1.1.0",
+      "integrity": "sha1-rv+OX2AzTRILzosgueV/HY345ZA="
+    },
+    "node_modules/xmlbuilder": {
+      "version": "11.0.0",
+      "integrity": "sha512-LzeAc96zUlknAk0F+xOXC8hO1D4ISG1ivov9UBjFkPcbSk6jVGhm9J8pTQp1ksZp9YbOws8pae8tVs+hwQl12w==",
+      "engines": {
+        "node": ">=4.0"
+      }
+    }
+  }
+}

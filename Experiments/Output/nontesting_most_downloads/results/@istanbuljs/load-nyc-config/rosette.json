@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 49.58278942108154,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette --ignore-scripts",
+    "retcode": 1,
+    "stdout": "0 / 1\n100 / 137\n200 / 95\n300 / 729\n400 / 1548\n500 / 1473\n600 / 1373\n700 / 1273\n800 / 1181\n900 / 1081\n1000 / 1088\n1100 / 1015\n1200 / 923\n1300 / 823\n1400 / 723\n1500 / 623\n1600 / 523\n1700 / 423\n1800 / 323\n1900 / 223\n2000 / 126\n2100 / 143\n2200 / 132\n2300 / 41\nSending query to rosette: /tmp/tmp-50659-EDLNmQ6cyw0W\n",
+    "stderr": "npm ERR! code 1\nnpm ERR! Command failed: racket /home/donald/dependency-runner/RosetteSolver/rosette-solver.rkt /tmp/tmp-50659-EDLNmQ6cyw0W /tmp/tmp-50659-ObE7DH3rXxO2\nnpm ERR! read-solution: unrecognized solver output: #<eof>\nnpm ERR!   context...:\nnpm ERR!    /home/donald/.local/share/racket/8.2/pkgs/rosette/rosette/solver/smt/base-solver.rkt:92:0: solver-check\nnpm ERR!    /home/donald/.local/share/racket/8.2/pkgs/rosette/rosette/query/core.rkt:27:0: \u2203-solve\nnpm ERR!    body of \"/home/donald/dependency-runner/RosetteSolver/rosette-solver.rkt\"\nnpm ERR! \nnpm ERR! read-solution: unrecognized solver output: #<eof>\nnpm ERR!   context...:\nnpm ERR!    /home/donald/.local/share/racket/8.2/pkgs/rosette/rosette/solver/smt/base-solver.rkt:92:0: solver-check\nnpm ERR!    /home/donald/.local/share/racket/8.2/pkgs/rosette/rosette/query/core.rkt:27:0: \u2203-solve\nnpm ERR!    body of \"/home/donald/dependency-runner/RosetteSolver/rosette-solver.rkt\"\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T05_33_20_235Z-debug.log\n"
+  }
+}

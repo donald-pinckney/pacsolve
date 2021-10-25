@@ -1,0 +1,42 @@
+{
+  "install-success": true,
+  "install_time": 2.4431886672973633,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/cipher-base": {
+      "version": "1.0.1",
+      "integrity": "sha1-txSIjoEFGRBrOwOZSOT8nicYxWM=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/cipher-base/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/des.js": {
+      "version": "1.0.0",
+      "integrity": "sha1-wHTS4qpqipoH29YfmhXCzYPsjsw=",
+      "dependencies": {
+        "inherits": "^2.0.1",
+        "minimalistic-assert": "^1.0.0"
+      }
+    },
+    "node_modules/des.js/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/des.js/node_modules/minimalistic-assert": {
+      "version": "1.0.0",
+      "integrity": "sha1-cCvi3aazf0g2vLP121ZkG2Sh09M="
+    },
+    "node_modules/inherits": {
+      "version": "2.0.4",
+      "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+    },
+    "node_modules/safe-buffer": {
+      "version": "5.1.2",
+      "integrity": "sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g=="
+    }
+  }
+}

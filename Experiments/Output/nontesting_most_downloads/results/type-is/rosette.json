@@ -1,0 +1,31 @@
+{
+  "install-success": true,
+  "install_time": 2.672276258468628,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/media-typer": {
+      "version": "0.3.0",
+      "integrity": "sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    },
+    "node_modules/mime-types": {
+      "version": "2.1.33",
+      "integrity": "sha512-plLElXp7pRDd0bNZHw+nMd52vRYjLwQjygaNg7ddJ2uJtTlmnTCjWuPKxVu6//AdaRuME84SvLW91sIkBqGT0g==",
+      "dependencies": {
+        "mime-db": "1.50.0"
+      },
+      "engines": {
+        "node": ">= 0.6"
+      }
+    },
+    "node_modules/mime-types/node_modules/mime-db": {
+      "version": "1.50.0",
+      "integrity": "sha512-9tMZCDlYHqeERXEHO9f/hKfNXhre5dK2eE/krIvUjZbS2KPcqGDfNShIWS1uW9XOTKQKqK6qbeOci18rbfW77A==",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    }
+  }
+}

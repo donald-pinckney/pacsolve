@@ -1,0 +1,20 @@
+{
+  "install-success": true,
+  "install_time": 2.6232666969299316,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/asap": {
+      "version": "2.0.2",
+      "integrity": "sha1-SgKLdGwaByAVHCZQwWbBfKAyou8=",
+      "deprecated": "critical race condition fixed in 2.0.3, update now"
+    },
+    "node_modules/pop-iterate": {
+      "version": "1.0.1",
+      "integrity": "sha1-zqz9q0q/NT16DyqqLB/Hs/lBO6M="
+    },
+    "node_modules/weak-map": {
+      "version": "1.0.5",
+      "integrity": "sha1-eWkVhNmGB/UHC9O3CkDmuyLkAes="
+    }
+  }
+}

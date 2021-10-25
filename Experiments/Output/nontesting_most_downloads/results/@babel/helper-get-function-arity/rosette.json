@@ -1,0 +1,32 @@
+{
+  "install-success": true,
+  "install_time": 2.789578914642334,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/types": {
+      "version": "7.15.4",
+      "integrity": "sha512-0f1HJFuGmmbrKTCZtbm3cU+b/AqdEYk5toj5iQur58xkVMlS0JWaKxTBSmCXd47uiN7vbcozAupm6Mvs80GNhw==",
+      "dependencies": {
+        "@babel/helper-validator-identifier": "^7.14.9",
+        "to-fast-properties": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/types/node_modules/@babel/helper-validator-identifier": {
+      "version": "7.14.9",
+      "integrity": "sha512-pQYxPY0UP6IHISRitNe8bsijHex4TWZXi2HwKVsjPiltzlhse2znVcm9Ace510VT1kxIHjGJCZZQBX2gJDbo0g==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/types/node_modules/to-fast-properties": {
+      "version": "2.0.0",
+      "integrity": "sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=",
+      "engines": {
+        "node": ">=4"
+      }
+    }
+  }
+}

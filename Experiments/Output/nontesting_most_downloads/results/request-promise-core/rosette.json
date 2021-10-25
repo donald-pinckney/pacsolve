@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.5461437702178955,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/lodash": {
+      "version": "4.17.21",
+      "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
+    }
+  }
+}

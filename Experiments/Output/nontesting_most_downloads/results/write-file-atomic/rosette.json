@@ -1,0 +1,33 @@
+{
+  "install-success": true,
+  "install_time": 2.8618788719177246,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/imurmurhash": {
+      "version": "0.1.4",
+      "integrity": "sha1-khi5srkoojixPcT7a21XbyMUU+o=",
+      "engines": {
+        "node": ">=0.8.19"
+      }
+    },
+    "node_modules/is-typedarray": {
+      "version": "1.0.0",
+      "integrity": "sha1-5HnICFjfDBsR3dppQPlgEfzaSpo="
+    },
+    "node_modules/signal-exit": {
+      "version": "3.0.2",
+      "integrity": "sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0="
+    },
+    "node_modules/typedarray-to-buffer": {
+      "version": "3.1.5",
+      "integrity": "sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==",
+      "dependencies": {
+        "is-typedarray": "^1.0.0"
+      }
+    },
+    "node_modules/typedarray-to-buffer/node_modules/is-typedarray": {
+      "resolved": "node_modules/is-typedarray",
+      "link": true
+    }
+  }
+}

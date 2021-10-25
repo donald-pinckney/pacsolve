@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.286746025085449,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/universalify": {
+      "version": "2.0.0",
+      "integrity": "sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==",
+      "engines": {
+        "node": ">= 10.0.0"
+      }
+    }
+  }
+}

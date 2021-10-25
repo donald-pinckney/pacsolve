@@ -1,0 +1,24 @@
+{
+  "install-success": true,
+  "install_time": 2.8997280597686768,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/websocket-driver": {
+      "version": "0.6.3",
+      "integrity": "sha1-/SGRG7Rt7jSthb28Vna/kCTtCHs=",
+      "dependencies": {
+        "websocket-extensions": ">=0.1.1"
+      },
+      "engines": {
+        "node": ">=0.6.0"
+      }
+    },
+    "node_modules/websocket-driver/node_modules/websocket-extensions": {
+      "version": "0.1.2",
+      "integrity": "sha1-Dhh4HeYpoYMIzhSBZQ9n/6JpOl0=",
+      "engines": {
+        "node": ">=0.8.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "install-success": true,
+  "install_time": 2.358242988586426,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/get-value": {
+      "version": "3.0.1",
+      "integrity": "sha512-mKZj9JLQrwMBtj5wxi6MH8Z5eSKaERpAwjg43dPtlGI1ZVEgH/qC7T8/6R2OBSUA+zzHBZgICsVJaEIV2tKTDA==",
+      "dependencies": {
+        "isobject": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=6.0"
+      }
+    },
+    "node_modules/get-value/node_modules/isobject": {
+      "version": "3.0.1",
+      "integrity": "sha1-TkMekrEalzFjaqH5yNHMvP2reN8=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/set-value": {
+      "version": "3.0.2",
+      "integrity": "sha512-npjkVoz+ank0zjlV9F47Fdbjfj/PfXyVhZvGALWsyIYU/qrMzpi6avjKW3/7KeSU2Df3I46BrN1xOI1+6vW0hA==",
+      "dependencies": {
+        "is-plain-object": "^2.0.4"
+      },
+      "engines": {
+        "node": ">=6.0"
+      }
+    },
+    "node_modules/set-value/node_modules/is-plain-object": {
+      "version": "2.0.4",
+      "integrity": "sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==",
+      "dependencies": {
+        "isobject": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/set-value/node_modules/is-plain-object/node_modules/isobject": {
+      "resolved": "node_modules/get-value/node_modules/isobject",
+      "link": true
+    }
+  }
+}

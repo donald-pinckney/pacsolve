@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 2.4724740982055664,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code EBADPLATFORM\nnpm ERR! notsup Unsupported platform for fsevents@2.3.2: wanted {\"os\":\"darwin\"} (current: {\"os\":\"linux\",\"arch\":\"x64\"})\nnpm ERR! notsup Valid OS:    darwin\nnpm ERR! notsup Valid Arch:  undefined\nnpm ERR! notsup Actual OS:   linux\nnpm ERR! notsup Actual Arch: x64\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T01_17_03_620Z-debug.log\n"
+  }
+}

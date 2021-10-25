@@ -1,0 +1,22 @@
+{
+  "install-success": true,
+  "install_time": 2.7530510425567627,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/hash-base": {
+      "version": "3.0.3",
+      "integrity": "sha1-h+xIc0v+NUJ1U1FQsUghVmsIOAc=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/hash-base/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/inherits": {
+      "version": "2.0.4",
+      "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 15.90095329284668,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/node-modules-regexp": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/node-modules-regexp/-/node-modules-regexp-1.0.0.tgz",
+      "integrity": "sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "install-success": true,
+  "install_time": 2.690030097961426,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/istanbul-lib-coverage": {
+      "version": "3.0.2",
+      "integrity": "sha512-o5+eTUYzCJ11/+JhW5/FUCdfsdoYVdQ/8I/OveE2XsjehYn5DdeSnNQAbjYaO8gQ6hvGTN6GM6ddQqpTVG5j8g==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/make-dir": {
+      "version": "3.0.0",
+      "integrity": "sha512-grNJDhb8b1Jm1qeqW5R/O63wUo4UXo2v2HMic6YT9i/HBlF93S8jkMgH7yugvY9ABDShH4VZMn8I+U8+fCNegw==",
+      "dependencies": {
+        "semver": "^6.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/make-dir/node_modules/semver": {
+      "version": "6.1.1",
+      "integrity": "sha512-rWYq2e5iYW+fFe/oPPtYJxYgjBm8sC4rmoGdUOgBB7VnwKt6HrL793l2voH1UlsyYZpJ4g0wfjnTEO1s1NP2eQ==",
+      "bin": {
+        "semver": "bin/semver"
+      }
+    },
+    "node_modules/supports-color": {
+      "version": "7.1.0",
+      "integrity": "sha512-oRSIpR8pxT1Wr2FquTNnGet79b3BWljqOuoW/h4oBhxJ/HUbX5nX6JSruTkvXDCFMwDPvsaTTbvMLKZWSy0R5g==",
+      "dependencies": {
+        "has-flag": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/supports-color/node_modules/has-flag": {
+      "version": "4.0.0",
+      "integrity": "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

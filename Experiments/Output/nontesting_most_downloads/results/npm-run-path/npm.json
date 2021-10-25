@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 3.616464614868164,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/path-key": {
+      "version": "3.1.1",
+      "resolved": "https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz",
+      "integrity": "sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "install-success": true,
+  "install_time": 2.6956067085266113,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/nanocolors": {
+      "version": "0.1.5",
+      "integrity": "sha512-8qaMI2gVxDmSUgoSXwWwkDDKxVePjhYaPIoy0e1xRMP52EAQINxGJ04GfyUPs+Z2g83RPwuHx+mBiaUFJGfTCA==",
+      "engines": {
+        "node": "^8.0.0 || ^10.0.0 || ^12.0.0 || ^14.0.0 || >=16.0.0"
+      }
+    },
+    "node_modules/nanoid": {
+      "version": "3.1.25",
+      "integrity": "sha512-rdwtIXaXCLFAQbnfqDRnI6jaRHp9fTcYBjtFKE8eezcZ7LuLjhUaQGNeMXf1HmRoCH32CLz6XwX0TtxEOS/A3Q==",
+      "bin": {
+        "nanoid": "bin/nanoid.cjs"
+      },
+      "engines": {
+        "node": "^10 || ^12 || ^13.7 || ^14 || >=15.0.1"
+      }
+    },
+    "node_modules/source-map-js": {
+      "version": "0.6.2",
+      "integrity": "sha512-/3GptzWzu0+0MBQFrDKzw/DvvMTUORvgY6k6jd/VS6iCR4RDTKWH6v6WPwQoUO8667uQEf9Oe38DxAYWY5F/Ug==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

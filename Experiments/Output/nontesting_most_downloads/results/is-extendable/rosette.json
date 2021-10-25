@@ -1,0 +1,24 @@
+{
+  "install-success": true,
+  "install_time": 2.4709525108337402,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/is-plain-object": {
+      "version": "2.0.4",
+      "integrity": "sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==",
+      "dependencies": {
+        "isobject": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/is-plain-object/node_modules/isobject": {
+      "version": "3.0.1",
+      "integrity": "sha1-TkMekrEalzFjaqH5yNHMvP2reN8=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

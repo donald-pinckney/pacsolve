@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 2.828211784362793,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/inherits": {
+      "version": "2.0.3",
+      "integrity": "sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4="
+    },
+    "node_modules/minimalistic-assert": {
+      "version": "1.0.1",
+      "integrity": "sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A=="
+    }
+  }
+}

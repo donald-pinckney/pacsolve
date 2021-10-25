@@ -1,0 +1,26 @@
+{
+  "install-success": true,
+  "install_time": 3.8399269580841064,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/hash.js": {
+      "version": "1.0.3",
+      "integrity": "sha1-EzL/ABVsCg/92CNgE9B7d6BFFXM=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/hash.js/node_modules/inherits": {
+      "version": "2.0.1",
+      "integrity": "sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE="
+    },
+    "node_modules/minimalistic-assert": {
+      "version": "1.0.0",
+      "integrity": "sha1-cCvi3aazf0g2vLP121ZkG2Sh09M="
+    },
+    "node_modules/minimalistic-crypto-utils": {
+      "version": "1.0.1",
+      "integrity": "sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo="
+    }
+  }
+}

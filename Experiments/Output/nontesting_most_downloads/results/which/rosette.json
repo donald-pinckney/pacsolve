@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.5661885738372803,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/isexe": {
+      "version": "2.0.0",
+      "integrity": "sha1-6PvzdNxVb/iUehDcsFctYz8s+hA="
+    }
+  }
+}

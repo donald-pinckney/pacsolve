@@ -1,0 +1,25 @@
+{
+  "install-success": true,
+  "install_time": 2.5641071796417236,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/queue-microtask": {
+      "version": "1.2.2",
+      "integrity": "sha512-dB15eXv3p2jDlbOiNLyMabYg1/sXvppd8DP2J3EOCQ0AkuSXCW2tP7mnVouVLJKgUMY6yP0kcQDVpLCN13h4Xg==",
+      "funding": [
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/feross"
+        },
+        {
+          "type": "patreon",
+          "url": "https://www.patreon.com/feross"
+        },
+        {
+          "type": "consulting",
+          "url": "https://feross.org/support"
+        }
+      ]
+    }
+  }
+}

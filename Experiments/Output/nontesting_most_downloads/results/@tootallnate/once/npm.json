@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 3.258787155151367,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! Found: eslint-plugin-import@2.16.0\nnpm ERR! node_modules/eslint-plugin-import\nnpm ERR!   dev eslint-plugin-import@\"2.16.0\" from the root project\nnpm ERR!   peer eslint-plugin-import@\"^2.14.0\" from eslint-config-airbnb@17.1.0\nnpm ERR!   node_modules/eslint-config-airbnb\nnpm ERR!     dev eslint-config-airbnb@\"17.1.0\" from the root project\nnpm ERR!   1 more (eslint-import-resolver-typescript)\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer eslint-plugin-import@\"^2.17.2\" from eslint-config-airbnb-base@13.2.0\nnpm ERR! node_modules/eslint-config-airbnb/node_modules/eslint-config-airbnb-base\nnpm ERR!   eslint-config-airbnb-base@\"^13.1.0\" from eslint-config-airbnb@17.1.0\nnpm ERR!   node_modules/eslint-config-airbnb\nnpm ERR!     dev eslint-config-airbnb@\"17.1.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /home/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T05_51_37_202Z-debug.log\n"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "install-success": true,
+  "install_time": 2.483363628387451,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/inherits": {
+      "version": "2.0.3",
+      "integrity": "sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4="
+    },
+    "node_modules/readable-stream": {
+      "version": "3.3.0",
+      "integrity": "sha512-EsI+s3k3XsW+fU8fQACLN59ky34AZ14LoeVZpYwmZvldCFo0r0gnelwF2TcMjLor/BTL5aDJVBMkss0dthToPw==",
+      "dependencies": {
+        "inherits": "^2.0.3",
+        "string_decoder": "^1.1.1",
+        "util-deprecate": "^1.0.1"
+      },
+      "engines": {
+        "node": ">= 6"
+      }
+    },
+    "node_modules/readable-stream/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/readable-stream/node_modules/string_decoder": {
+      "version": "1.1.1",
+      "integrity": "sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==",
+      "dependencies": {
+        "safe-buffer": "~5.1.0"
+      }
+    },
+    "node_modules/readable-stream/node_modules/string_decoder/node_modules/safe-buffer": {
+      "version": "5.1.1",
+      "integrity": "sha512-kKvNJn6Mm93gAczWVJg7wH+wGYWNrDHdWvpUmHyEsgCtIwwo3bqPtV4tR5tuPaUhTOo/kvhVwd8XwwOllGYkbg=="
+    },
+    "node_modules/readable-stream/node_modules/util-deprecate": {
+      "version": "1.0.1",
+      "integrity": "sha1-NVaj0TxMaqeYPX4kJUeBlxmbeIE="
+    }
+  }
+}

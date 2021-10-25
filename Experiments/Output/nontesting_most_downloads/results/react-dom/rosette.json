@@ -1,0 +1,41 @@
+{
+  "install-success": true,
+  "install_time": 2.5083565711975098,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/loose-envify": {
+      "version": "1.1.0",
+      "integrity": "sha1-UnWC1iz/TgTaP5l2xxENM5Lsfgw=",
+      "dependencies": {
+        "js-tokens": "^1.0.1"
+      }
+    },
+    "node_modules/loose-envify/node_modules/js-tokens": {
+      "version": "1.0.1",
+      "integrity": "sha1-zENaXIuUrRWst5gxQPyAGCyJrq4="
+    },
+    "node_modules/object-assign": {
+      "version": "4.1.1",
+      "integrity": "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/scheduler": {
+      "version": "0.20.2",
+      "integrity": "sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==",
+      "dependencies": {
+        "loose-envify": "^1.1.0",
+        "object-assign": "^4.1.1"
+      }
+    },
+    "node_modules/scheduler/node_modules/loose-envify": {
+      "resolved": "node_modules/loose-envify",
+      "link": true
+    },
+    "node_modules/scheduler/node_modules/object-assign": {
+      "resolved": "node_modules/object-assign",
+      "link": true
+    }
+  }
+}

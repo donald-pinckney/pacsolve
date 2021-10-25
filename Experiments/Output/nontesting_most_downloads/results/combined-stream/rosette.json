@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3187618255615234,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/delayed-stream": {
+      "version": "1.0.0",
+      "integrity": "sha1-3zrhmayt+31ECqrgsp4icrJOxhk=",
+      "engines": {
+        "node": ">=0.4.0"
+      }
+    }
+  }
+}

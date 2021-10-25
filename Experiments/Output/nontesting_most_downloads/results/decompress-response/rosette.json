@@ -1,0 +1,17 @@
+{
+  "install-success": true,
+  "install_time": 2.5644869804382324,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/mimic-response": {
+      "version": "3.1.0",
+      "integrity": "sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==",
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    }
+  }
+}

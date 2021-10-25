@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 0.579890251159668,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/jsbn": {
+      "version": "0.1.1",
+      "resolved": "https://registry.npmjs.org/jsbn/-/jsbn-0.1.1.tgz",
+      "integrity": "sha1-peZUwuWi3rXyAdls77yoDA7y9RM="
+    }
+  }
+}

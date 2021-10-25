@@ -1,0 +1,86 @@
+{
+  "install-success": true,
+  "install_time": 2.777672529220581,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/copy-descriptor": {
+      "version": "0.1.1",
+      "integrity": "sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property": {
+      "version": "1.0.0",
+      "integrity": "sha1-dp66rz9KY6rTr56NMEybvnm/sOY=",
+      "dependencies": {
+        "is-descriptor": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor": {
+      "version": "1.0.1",
+      "integrity": "sha512-G3fFVFTqfaqu7r4YuSBHKBAuOaLz8Sy7ekklUpFEliaLMP1Y2ZjoN9jS62YWCAPQrQpMUQSitRlrzibbuCZjdA==",
+      "dependencies": {
+        "is-accessor-descriptor": "^0.1.6",
+        "is-data-descriptor": "^0.1.4",
+        "kind-of": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor": {
+      "version": "0.1.6",
+      "integrity": "sha1-qeEss66Nh2cn7u84Q/igiXtcmNY=",
+      "dependencies": {
+        "kind-of": "^3.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor/node_modules/kind-of": {
+      "version": "3.0.2",
+      "integrity": "sha1-GH20JwRufpCUVpLmdoZovWkA3qA=",
+      "dependencies": {
+        "is-buffer": "^1.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor/node_modules/kind-of/node_modules/is-buffer": {
+      "version": "1.0.2",
+      "integrity": "sha1-9cbAUdc/hvEbTuFCZ8wQKfziYdA=",
+      "deprecated": "This version of 'is-buffer' is out-of-date. You must update to v1.1.6 or newer"
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-data-descriptor": {
+      "version": "0.1.4",
+      "integrity": "sha1-C17mSDiOLIYCgueT8YVv7D8wG1Y=",
+      "dependencies": {
+        "kind-of": "^3.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-data-descriptor/node_modules/kind-of": {
+      "resolved": "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor/node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/kind-of": {
+      "resolved": "node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/kind-of": {
+      "version": "5.0.2",
+      "integrity": "sha512-ru8+TQHbN8956c7ZlkgK5Imjx0GMat3jN45GNIthpPeb+SzLrqSg/NG7llQtIqUTbrdu5Oi0lSnIoJmDTwwSzw==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "install-success": true,
+  "install_time": 2.35880184173584,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/assert-plus": {
+      "version": "1.0.0",
+      "integrity": "sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=",
+      "engines": {
+        "node": ">=0.8"
+      }
+    },
+    "node_modules/core-util-is": {
+      "version": "1.0.2",
+      "integrity": "sha1-tf1UIgqivFq1eqtxQMlAdUUDwac="
+    },
+    "node_modules/extsprintf": {
+      "version": "1.2.0",
+      "integrity": "sha1-WtlGwi9bMrp/jNdCZxHG6KP8JSk=",
+      "engines": [
+        "node >=0.6.0"
+      ]
+    }
+  }
+}

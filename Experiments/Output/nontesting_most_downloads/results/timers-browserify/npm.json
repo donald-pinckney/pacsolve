@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 3.337538957595825,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/setimmediate": {
+      "version": "1.0.5",
+      "resolved": "https://registry.npmjs.org/setimmediate/-/setimmediate-1.0.5.tgz",
+      "integrity": "sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU="
+    }
+  }
+}

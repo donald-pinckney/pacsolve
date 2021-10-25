@@ -1,0 +1,61 @@
+{
+  "install-success": true,
+  "install_time": 2.834038019180298,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/dom-serializer": {
+      "version": "1.3.0",
+      "integrity": "sha512-1p5P1tu8dgmLAgRMpk8xkYirLYmy/EuWQ/7P3rJBVBIEd6nAQDfeCXIF5GbUdetf4o1Q1DNsc27F7VSWmJiP8g==",
+      "dependencies": {
+        "domelementtype": "^2.0.1",
+        "domhandler": "^4.0.0",
+        "entities": "^2.0.0"
+      },
+      "funding": {
+        "url": "https://github.com/cheeriojs/dom-serializer?sponsor=1"
+      }
+    },
+    "node_modules/dom-serializer/node_modules/domelementtype": {
+      "resolved": "node_modules/domelementtype",
+      "link": true
+    },
+    "node_modules/dom-serializer/node_modules/domhandler": {
+      "resolved": "node_modules/domhandler",
+      "link": true
+    },
+    "node_modules/dom-serializer/node_modules/entities": {
+      "version": "2.1.0",
+      "integrity": "sha512-hCx1oky9PFrJ611mf0ifBLBRW8lUUVRlFolb5gWRfIELabBlbp9xZvrqZLZAs+NxFnbfQoeGd8wDkygjg7U85w==",
+      "funding": {
+        "url": "https://github.com/fb55/entities?sponsor=1"
+      }
+    },
+    "node_modules/domelementtype": {
+      "version": "2.2.0",
+      "integrity": "sha512-DtBMo82pv1dFtUmHyr48beiuq792Sxohr+8Hm9zoxklYPfa6n0Z3Byjj2IV7bmr2IyqClnqEQhfgHJJ5QF0R5A==",
+      "funding": [
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/fb55"
+        }
+      ]
+    },
+    "node_modules/domhandler": {
+      "version": "4.2.0",
+      "integrity": "sha512-zk7sgt970kzPks2Bf+dwT/PLzghLnsivb9CcxkvR8Mzr66Olr0Ofd8neSbglHJHaHa2MadfoSdNlKYAaafmWfA==",
+      "dependencies": {
+        "domelementtype": "^2.2.0"
+      },
+      "engines": {
+        "node": ">= 4"
+      },
+      "funding": {
+        "url": "https://github.com/fb55/domhandler?sponsor=1"
+      }
+    },
+    "node_modules/domhandler/node_modules/domelementtype": {
+      "resolved": "node_modules/domelementtype",
+      "link": true
+    }
+  }
+}

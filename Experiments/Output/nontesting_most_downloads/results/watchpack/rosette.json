@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 2.360640287399292,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/glob-to-regexp": {
+      "version": "0.4.1",
+      "integrity": "sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw=="
+    },
+    "node_modules/graceful-fs": {
+      "version": "4.1.6",
+      "integrity": "sha1-UUw4dysxvuLgi+3CGgrrOr9UwZ4=",
+      "engines": {
+        "node": ">=0.4.0"
+      }
+    }
+  }
+}

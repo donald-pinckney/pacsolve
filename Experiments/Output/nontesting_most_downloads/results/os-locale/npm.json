@@ -1,0 +1,29 @@
+{
+  "install-success": true,
+  "install_time": 9.092331171035767,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/invert-kv": {
+      "version": "3.0.1",
+      "resolved": "https://registry.npmjs.org/invert-kv/-/invert-kv-3.0.1.tgz",
+      "integrity": "sha512-CYdFeFexxhv/Bcny+Q0BfOV+ltRlJcd4BBZBYFX/O0u4npJrgZtIcjokegtiSMAvlMTJ+Koq0GBCc//3bueQxw==",
+      "engines": {
+        "node": ">=8"
+      },
+      "funding": {
+        "url": "https://github.com/sindresorhus/invert-kv?sponsor=1"
+      }
+    },
+    "node_modules/lcid": {
+      "version": "3.1.1",
+      "resolved": "https://registry.npmjs.org/lcid/-/lcid-3.1.1.tgz",
+      "integrity": "sha512-M6T051+5QCGLBQb8id3hdvIW8+zeFV2FyBGFS9IEK5H9Wt4MueD4bW1eWikpHgZp+5xR3l5c8pZUkQsIA0BFZg==",
+      "dependencies": {
+        "invert-kv": "^3.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

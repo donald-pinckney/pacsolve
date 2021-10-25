@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.328367233276367,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@xtuc/long": {
+      "version": "4.2.2",
+      "integrity": "sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ=="
+    }
+  }
+}

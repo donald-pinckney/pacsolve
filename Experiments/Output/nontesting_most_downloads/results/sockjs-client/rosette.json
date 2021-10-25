@@ -1,0 +1,91 @@
+{
+  "install-success": true,
+  "install_time": 2.777426242828369,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/debug": {
+      "version": "3.2.6",
+      "integrity": "sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==",
+      "deprecated": "Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)",
+      "dependencies": {
+        "ms": "^2.1.1"
+      }
+    },
+    "node_modules/debug/node_modules/ms": {
+      "version": "2.1.3",
+      "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
+    },
+    "node_modules/eventsource": {
+      "version": "1.0.7",
+      "integrity": "sha512-4Ln17+vVT0k8aWq+t/bF5arcS3EpT9gYtW66EPacdj/mAFevznsnyoHLPy2BA8gbIQeIHoPsvwmfBftfcG//BQ==",
+      "dependencies": {
+        "original": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=0.12.0"
+      }
+    },
+    "node_modules/eventsource/node_modules/original": {
+      "version": "1.0.2",
+      "integrity": "sha512-hyBVl6iqqUOJ8FqRe+l/gS8H+kKYjrEndd5Pm1MfBtsEKA038HkkdbAl/72EAXGyonD/PFsvmVG+EvcIpliMBg==",
+      "dependencies": {
+        "url-parse": "^1.4.3"
+      }
+    },
+    "node_modules/eventsource/node_modules/original/node_modules/url-parse": {
+      "resolved": "node_modules/url-parse",
+      "link": true
+    },
+    "node_modules/faye-websocket": {
+      "version": "0.11.3",
+      "integrity": "sha512-D2y4bovYpzziGgbHYtGCMjlJM36vAl/y+xUyn1C+FVx8szd1E+86KwVw6XvYSzOP8iMpm1X0I4xJD+QtUb36OA==",
+      "dependencies": {
+        "websocket-driver": ">=0.5.1"
+      },
+      "engines": {
+        "node": ">=0.8.0"
+      }
+    },
+    "node_modules/faye-websocket/node_modules/websocket-driver": {
+      "version": "0.6.0",
+      "integrity": "sha1-DZ4ODqZuOS8MYTxTXYBuB2tC/10=",
+      "dependencies": {
+        "websocket-extensions": ">=0.1.1"
+      },
+      "engines": {
+        "node": ">=0.6.0"
+      }
+    },
+    "node_modules/faye-websocket/node_modules/websocket-driver/node_modules/websocket-extensions": {
+      "version": "0.1.4",
+      "integrity": "sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==",
+      "engines": {
+        "node": ">=0.8.0"
+      }
+    },
+    "node_modules/inherits": {
+      "version": "2.0.4",
+      "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+    },
+    "node_modules/json3": {
+      "version": "3.3.3",
+      "integrity": "sha512-c7/8mbUsKigAbLkD5B010BK4D9LZm7A1pNItkEwiUZRpIN66exu/e7YQWysGun+TRKaJp8MhemM+VkfWv42aCA=="
+    },
+    "node_modules/url-parse": {
+      "version": "1.5.3",
+      "integrity": "sha512-IIORyIQD9rvj0A4CLWsHkBBJuNqWpFQe224b6j9t/ABmquIS0qDU2pY6kl6AuOrL5OkCXHMCFNe1jBcuAggjvQ==",
+      "dependencies": {
+        "querystringify": "^2.1.1",
+        "requires-port": "^1.0.0"
+      }
+    },
+    "node_modules/url-parse/node_modules/querystringify": {
+      "version": "2.2.0",
+      "integrity": "sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ=="
+    },
+    "node_modules/url-parse/node_modules/requires-port": {
+      "version": "1.0.0",
+      "integrity": "sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8="
+    }
+  }
+}

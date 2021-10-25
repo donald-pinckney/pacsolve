@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 4.502971172332764,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/tslib": {
+      "version": "2.3.1",
+      "resolved": "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz",
+      "integrity": "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
+    }
+  }
+}

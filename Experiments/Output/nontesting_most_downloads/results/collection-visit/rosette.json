@@ -1,0 +1,38 @@
+{
+  "install-success": true,
+  "install_time": 2.580885410308838,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/map-visit": {
+      "version": "1.0.0",
+      "integrity": "sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=",
+      "dependencies": {
+        "object-visit": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/map-visit/node_modules/object-visit": {
+      "resolved": "node_modules/object-visit",
+      "link": true
+    },
+    "node_modules/object-visit": {
+      "version": "1.0.0",
+      "integrity": "sha1-Yy945QZj0WHkeAz01KxegG711UE=",
+      "dependencies": {
+        "isobject": "^3.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/object-visit/node_modules/isobject": {
+      "version": "3.0.0",
+      "integrity": "sha1-OVZSF/NmF4nooKDAgNX35rxG4aA=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

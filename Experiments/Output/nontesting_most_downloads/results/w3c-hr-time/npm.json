@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 8.289113998413086,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/browser-process-hrtime": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/browser-process-hrtime/-/browser-process-hrtime-1.0.0.tgz",
+      "integrity": "sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow=="
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 0.6764893531799316,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/tmpl": {
+      "version": "1.0.5",
+      "resolved": "https://registry.npmjs.org/tmpl/-/tmpl-1.0.5.tgz",
+      "integrity": "sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw=="
+    }
+  }
+}

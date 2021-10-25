@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.299433946609497,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/is-obj": {
+      "version": "2.0.0",
+      "integrity": "sha512-drqDG3cbczxxEJRoOXcOjtdp1J/lyp1mNn0xaznRs8+muBhgQcrnbspox5X5fOw0HnMnbfDzvnEMEtqDEJEo8w==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

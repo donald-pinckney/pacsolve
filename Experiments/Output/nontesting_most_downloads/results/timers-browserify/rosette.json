@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.2907066345214844,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/setimmediate": {
+      "version": "1.0.4",
+      "integrity": "sha1-IOgd5iLUoCWIzgyNqJc8vPHTE48="
+    }
+  }
+}

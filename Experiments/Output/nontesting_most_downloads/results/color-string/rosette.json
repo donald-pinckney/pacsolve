@@ -1,0 +1,22 @@
+{
+  "install-success": true,
+  "install_time": 2.360928773880005,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/color-name": {
+      "version": "1.0.1",
+      "integrity": "sha1-azSyspt3FgE5crC51b7c+7Zxjfg="
+    },
+    "node_modules/simple-swizzle": {
+      "version": "0.2.2",
+      "integrity": "sha1-pNprY1/8zMoz9w0Xy5JZLeleVXo=",
+      "dependencies": {
+        "is-arrayish": "^0.3.1"
+      }
+    },
+    "node_modules/simple-swizzle/node_modules/is-arrayish": {
+      "version": "0.3.1",
+      "integrity": "sha1-wt/DhquqDD4zxI2z/ocFnmkGXv0="
+    }
+  }
+}

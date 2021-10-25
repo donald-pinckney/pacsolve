@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.5756466388702393,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/prr": {
+      "version": "1.0.1",
+      "integrity": "sha1-0/wRS6BplaRexok/SEzrHXj19HY="
+    }
+  }
+}

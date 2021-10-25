@@ -1,0 +1,54 @@
+{
+  "install-success": true,
+  "install_time": 2.6573715209960938,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/aggregate-error": {
+      "version": "4.0.0",
+      "integrity": "sha512-8DGp7zUt1E9k0NE2q4jlXHk+V3ORErmwolEdRz9iV+LKJ40WhMHh92cxAvhqV2I+zEn/gotIoqoMs0NjF3xofg==",
+      "dependencies": {
+        "clean-stack": "^4.0.0",
+        "indent-string": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/aggregate-error/node_modules/clean-stack": {
+      "version": "4.0.1",
+      "integrity": "sha512-LJYF2LDkag7svHYnzWnlWHrnlxhBGtE5o+xRwRZdN+B6Gw0WRlC7oAdKuCAly5CGF9OMNO+nlwR/Ru57kzzbvQ==",
+      "dependencies": {
+        "escape-string-regexp": "5.0.0"
+      },
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/aggregate-error/node_modules/clean-stack/node_modules/escape-string-regexp": {
+      "version": "5.0.0",
+      "integrity": "sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/aggregate-error/node_modules/indent-string": {
+      "version": "5.0.0",
+      "integrity": "sha512-m6FAo/spmsW2Ab2fU35JTYwtOKa2yAwXSwgjSv1TJzh4Mh7mC3lzAOVLBprb72XsTrgkEIsl7YrFNAiDiRhIGg==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    }
+  }
+}

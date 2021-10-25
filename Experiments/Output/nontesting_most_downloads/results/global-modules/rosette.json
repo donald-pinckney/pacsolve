@@ -1,0 +1,48 @@
+{
+  "install-success": true,
+  "install_time": 2.357910394668579,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/global-prefix": {
+      "version": "3.0.0",
+      "integrity": "sha512-awConJSVCHVGND6x3tmMaKcQvwXLhjdkmomy2W+Goaui8YPgYgXJZewhg3fWC+DlfqqQuWg8AwqjGTD2nAPVWg==",
+      "dependencies": {
+        "ini": "^1.3.5",
+        "kind-of": "^6.0.2",
+        "which": "^1.3.1"
+      },
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/global-prefix/node_modules/ini": {
+      "version": "1.3.5",
+      "integrity": "sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==",
+      "deprecated": "Please update to ini >=1.3.6 to avoid a prototype pollution issue",
+      "engines": {
+        "node": "*"
+      }
+    },
+    "node_modules/global-prefix/node_modules/kind-of": {
+      "version": "6.0.2",
+      "integrity": "sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/global-prefix/node_modules/which": {
+      "version": "1.3.1",
+      "integrity": "sha512-HxJdYWq1MTIQbJ3nw0cqssHoTNU267KlrDuGZ1WYlxDStUtKUhOaJmh112/TZmHxxUfuJqPXSOm7tDyas0OSIQ==",
+      "dependencies": {
+        "isexe": "^2.0.0"
+      },
+      "bin": {
+        "which": "bin/which"
+      }
+    },
+    "node_modules/global-prefix/node_modules/which/node_modules/isexe": {
+      "version": "2.0.0",
+      "integrity": "sha1-6PvzdNxVb/iUehDcsFctYz8s+hA="
+    }
+  }
+}

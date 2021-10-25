@@ -1,0 +1,20 @@
+{
+  "install-success": true,
+  "install_time": 15.583446741104126,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/lower-case": {
+      "version": "2.0.2",
+      "resolved": "https://registry.npmjs.org/lower-case/-/lower-case-2.0.2.tgz",
+      "integrity": "sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==",
+      "dependencies": {
+        "tslib": "^2.0.3"
+      }
+    },
+    "node_modules/tslib": {
+      "version": "2.3.1",
+      "resolved": "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz",
+      "integrity": "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
+    }
+  }
+}

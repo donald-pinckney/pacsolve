@@ -1,0 +1,121 @@
+{
+  "install-success": true,
+  "install_time": 2.805877447128296,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/function-bind": {
+      "version": "1.1.1",
+      "integrity": "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
+    },
+    "node_modules/has-bigints": {
+      "version": "1.0.1",
+      "integrity": "sha512-LSBS2LjbNBTf6287JEbEzvJgftkF5qFkmCo9hDRpAzKhUOlJ+hx8dd4USs00SgsUNwc4617J9ki5YtEClM2ffA==",
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/has-symbols": {
+      "version": "1.0.2",
+      "integrity": "sha512-chXa79rL/UC2KlX17jo3vRGz0azaWEx5tGqZg5pO3NUyEJVB17dMruQlzCCOfUvElghKcm5194+BCRvi2Rv/Gw==",
+      "engines": {
+        "node": ">= 0.4"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/which-boxed-primitive": {
+      "version": "1.0.2",
+      "integrity": "sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==",
+      "dependencies": {
+        "is-bigint": "^1.0.1",
+        "is-boolean-object": "^1.1.0",
+        "is-number-object": "^1.0.4",
+        "is-string": "^1.0.5",
+        "is-symbol": "^1.0.3"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/which-boxed-primitive/node_modules/is-bigint": {
+      "version": "1.0.1",
+      "integrity": "sha512-J0ELF4yHFxHy0cmSxZuheDOz2luOdVvqjwmEcj8H/L1JHeuEDSDbeRP+Dk9kFVk5RTFzbucJ2Kb9F7ixY2QaCg==",
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/which-boxed-primitive/node_modules/is-boolean-object": {
+      "version": "1.1.0",
+      "integrity": "sha512-a7Uprx8UtD+HWdyYwnD1+ExtTgqQtD2k/1yJgtXP6wnMm8byhkoTZRl+95LLThpzNZJ5aEvi46cdH+ayMFRwmA==",
+      "dependencies": {
+        "call-bind": "^1.0.0"
+      },
+      "engines": {
+        "node": ">= 0.4"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/which-boxed-primitive/node_modules/is-boolean-object/node_modules/call-bind": {
+      "version": "1.0.0",
+      "integrity": "sha512-AEXsYIyyDY3MCzbwdhzG3Jx1R0J2wetQyUynn6dYHAO+bg8l1k7jwZtRv4ryryFs7EP+NDlikJlVe59jr0cM2w==",
+      "dependencies": {
+        "function-bind": "^1.1.1",
+        "get-intrinsic": "^1.0.0"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/which-boxed-primitive/node_modules/is-boolean-object/node_modules/call-bind/node_modules/function-bind": {
+      "resolved": "node_modules/function-bind",
+      "link": true
+    },
+    "node_modules/which-boxed-primitive/node_modules/is-boolean-object/node_modules/call-bind/node_modules/get-intrinsic": {
+      "version": "1.0.0",
+      "integrity": "sha512-EMuu0ud8uAP4Zs6tQqMeHiY1PbIBDcZ92QVxqeLfqTMbyvqcDbrtHjfu0RWh8QaUNJ3lP1DSX3J2okgj9JE47g==",
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/which-boxed-primitive/node_modules/is-number-object": {
+      "version": "1.0.4",
+      "integrity": "sha512-zohwelOAur+5uXtk8O3GPQ1eAcu4ZX3UwxQhUlfFFMNpUd83gXgjbhJh6HmB6LUNV/ieOLQuDwJO3dWJosUeMw==",
+      "engines": {
+        "node": ">= 0.4"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/which-boxed-primitive/node_modules/is-string": {
+      "version": "1.0.5",
+      "integrity": "sha512-buY6VNRjhQMiF1qWDouloZlQbRhDPCebwxSjxMjxgemYT46YMd2NR0/H+fBhEfWX4A/w9TBJ+ol+okqJKFE6vQ==",
+      "engines": {
+        "node": ">= 0.4"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/which-boxed-primitive/node_modules/is-symbol": {
+      "version": "1.0.3",
+      "integrity": "sha512-OwijhaRSgqvhm/0ZdAcXNZt9lYdKFpcRDT5ULUuYXPoT794UNOdU+gpT6Rzo7b4V2HUl/op6GqY894AZwv9faQ==",
+      "dependencies": {
+        "has-symbols": "^1.0.1"
+      },
+      "engines": {
+        "node": ">= 0.4"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/which-boxed-primitive/node_modules/is-symbol/node_modules/has-symbols": {
+      "resolved": "node_modules/has-symbols",
+      "link": true
+    }
+  }
+}

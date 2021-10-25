@@ -1,0 +1,57 @@
+{
+  "install-success": true,
+  "install_time": 8.554086208343506,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/errno": {
+      "version": "0.1.4",
+      "integrity": "sha1-uJbiOp5ei6M4cfyZar02NfyaHH0=",
+      "dependencies": {
+        "prr": "~0.0.0"
+      },
+      "bin": {
+        "errno": "cli.js"
+      }
+    },
+    "node_modules/errno/node_modules/prr": {
+      "version": "0.0.0",
+      "integrity": "sha1-GoS4WQgyVQFBGFPQCB7j+obikmo="
+    },
+    "node_modules/readable-stream": {
+      "version": "2.0.2",
+      "integrity": "sha1-vsgb6ujPRVFovC5bKzH1vPrtmxs=",
+      "dependencies": {
+        "core-util-is": "~1.0.0",
+        "inherits": "~2.0.1",
+        "isarray": "0.0.1",
+        "process-nextick-args": "~1.0.0",
+        "string_decoder": "~0.10.x",
+        "util-deprecate": "~1.0.1"
+      }
+    },
+    "node_modules/readable-stream/node_modules/core-util-is": {
+      "version": "1.0.0",
+      "integrity": "sha1-dAx0xADnJwe5XMddUJVD+K1/g94="
+    },
+    "node_modules/readable-stream/node_modules/inherits": {
+      "version": "2.0.1",
+      "integrity": "sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE="
+    },
+    "node_modules/readable-stream/node_modules/isarray": {
+      "version": "0.0.1",
+      "integrity": "sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8="
+    },
+    "node_modules/readable-stream/node_modules/process-nextick-args": {
+      "version": "1.0.2",
+      "integrity": "sha1-i00/xYZmi9W2Vz5zLt8rccHB2Ko="
+    },
+    "node_modules/readable-stream/node_modules/string_decoder": {
+      "version": "0.10.24",
+      "integrity": "sha1-aQKr9752816ckiklgzKLpMB+hsM="
+    },
+    "node_modules/readable-stream/node_modules/util-deprecate": {
+      "version": "1.0.1",
+      "integrity": "sha1-NVaj0TxMaqeYPX4kJUeBlxmbeIE="
+    }
+  }
+}

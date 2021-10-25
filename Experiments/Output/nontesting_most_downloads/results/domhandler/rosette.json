@@ -1,0 +1,17 @@
+{
+  "install-success": true,
+  "install_time": 2.3135340213775635,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/domelementtype": {
+      "version": "2.2.0",
+      "integrity": "sha512-DtBMo82pv1dFtUmHyr48beiuq792Sxohr+8Hm9zoxklYPfa6n0Z3Byjj2IV7bmr2IyqClnqEQhfgHJJ5QF0R5A==",
+      "funding": [
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/fb55"
+        }
+      ]
+    }
+  }
+}

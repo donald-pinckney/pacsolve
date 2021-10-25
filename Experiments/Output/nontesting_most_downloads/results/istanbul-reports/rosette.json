@@ -1,0 +1,64 @@
+{
+  "install-success": true,
+  "install_time": 3.141512870788574,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/html-escaper": {
+      "version": "2.0.2",
+      "integrity": "sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg=="
+    },
+    "node_modules/istanbul-lib-report": {
+      "version": "3.0.0",
+      "integrity": "sha512-wcdi+uAKzfiGT2abPpKZ0hSU1rGQjUQnLvtY5MpQ7QCTahD3VODhcu4wcfY1YtkGaDD5yuydOLINXsfbus9ROw==",
+      "dependencies": {
+        "istanbul-lib-coverage": "^3.0.0",
+        "make-dir": "^3.0.0",
+        "supports-color": "^7.1.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/istanbul-lib-report/node_modules/istanbul-lib-coverage": {
+      "version": "3.0.2",
+      "integrity": "sha512-o5+eTUYzCJ11/+JhW5/FUCdfsdoYVdQ/8I/OveE2XsjehYn5DdeSnNQAbjYaO8gQ6hvGTN6GM6ddQqpTVG5j8g==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/istanbul-lib-report/node_modules/make-dir": {
+      "version": "3.0.0",
+      "integrity": "sha512-grNJDhb8b1Jm1qeqW5R/O63wUo4UXo2v2HMic6YT9i/HBlF93S8jkMgH7yugvY9ABDShH4VZMn8I+U8+fCNegw==",
+      "dependencies": {
+        "semver": "^6.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/istanbul-lib-report/node_modules/make-dir/node_modules/semver": {
+      "version": "6.1.1",
+      "integrity": "sha512-rWYq2e5iYW+fFe/oPPtYJxYgjBm8sC4rmoGdUOgBB7VnwKt6HrL793l2voH1UlsyYZpJ4g0wfjnTEO1s1NP2eQ==",
+      "bin": {
+        "semver": "bin/semver"
+      }
+    },
+    "node_modules/istanbul-lib-report/node_modules/supports-color": {
+      "version": "7.1.0",
+      "integrity": "sha512-oRSIpR8pxT1Wr2FquTNnGet79b3BWljqOuoW/h4oBhxJ/HUbX5nX6JSruTkvXDCFMwDPvsaTTbvMLKZWSy0R5g==",
+      "dependencies": {
+        "has-flag": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/istanbul-lib-report/node_modules/supports-color/node_modules/has-flag": {
+      "version": "4.0.0",
+      "integrity": "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3017959594726562,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/callsites": {
+      "version": "3.1.0",
+      "integrity": "sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==",
+      "engines": {
+        "node": ">=6"
+      }
+    }
+  }
+}

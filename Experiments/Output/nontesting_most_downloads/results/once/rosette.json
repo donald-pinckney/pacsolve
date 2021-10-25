@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.572421073913574,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/wrappy": {
+      "version": "1.0.2",
+      "integrity": "sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8="
+    }
+  }
+}

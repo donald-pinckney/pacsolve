@@ -1,0 +1,17 @@
+{
+  "install-success": true,
+  "install_time": 0.7187404632568359,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@types/node": {
+      "version": "16.11.4",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-16.11.4.tgz",
+      "integrity": "sha512-TMgXmy0v2xWyuCSCJM6NCna2snndD8yvQF67J29ipdzMcsPa9u+o0tjF5+EQNdhcuZplYuouYqpc4zcd5I6amQ=="
+    },
+    "node_modules/graceful-fs": {
+      "version": "4.2.8",
+      "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.8.tgz",
+      "integrity": "sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg=="
+    }
+  }
+}

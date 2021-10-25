@@ -1,0 +1,24 @@
+{
+  "install-success": true,
+  "install_time": 2.3123245239257812,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/lcid": {
+      "version": "3.1.1",
+      "integrity": "sha512-M6T051+5QCGLBQb8id3hdvIW8+zeFV2FyBGFS9IEK5H9Wt4MueD4bW1eWikpHgZp+5xR3l5c8pZUkQsIA0BFZg==",
+      "dependencies": {
+        "invert-kv": "^3.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/lcid/node_modules/invert-kv": {
+      "version": "3.0.0",
+      "integrity": "sha512-JzF8q2BeZA1ZkE3XROwRpoMQ9ObMgTtp0JH8EXewlbkikuOj2GPLIpUipdO+VL8QsTr2teAJD02EFGGL5cO7uw==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

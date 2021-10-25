@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 2.334899663925171,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/kleur": {
+      "version": "3.0.3",
+      "integrity": "sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==",
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/sisteransi": {
+      "version": "1.0.5",
+      "integrity": "sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg=="
+    }
+  }
+}

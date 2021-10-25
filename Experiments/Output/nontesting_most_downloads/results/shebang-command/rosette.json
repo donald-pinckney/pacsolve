@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.396563768386841,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/shebang-regex": {
+      "version": "3.0.0",
+      "integrity": "sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

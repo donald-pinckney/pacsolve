@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 2.018824338912964,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ansi-colors": {
+      "version": "4.1.1",
+      "resolved": "https://registry.npmjs.org/ansi-colors/-/ansi-colors-4.1.1.tgz",
+      "integrity": "sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA==",
+      "engines": {
+        "node": ">=6"
+      }
+    }
+  }
+}

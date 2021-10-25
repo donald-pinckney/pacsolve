@@ -1,0 +1,45 @@
+{
+  "install-success": true,
+  "install_time": 2.6855921745300293,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/is-plain-object": {
+      "version": "2.0.4",
+      "integrity": "sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==",
+      "dependencies": {
+        "isobject": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/is-plain-object/node_modules/isobject": {
+      "version": "3.0.1",
+      "integrity": "sha1-TkMekrEalzFjaqH5yNHMvP2reN8=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/kind-of": {
+      "version": "6.0.2",
+      "integrity": "sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/shallow-clone": {
+      "version": "3.0.0",
+      "integrity": "sha512-Drg+nOI+ofeuslBf0nulyWLZhK1BZprqNvPJaiB4VvES+9gC6GG+qOVAfuO12zVSgxq9SKevcme7S3uDT6Be8w==",
+      "dependencies": {
+        "kind-of": "^6.0.2"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/shallow-clone/node_modules/kind-of": {
+      "resolved": "node_modules/kind-of",
+      "link": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 2.656639575958252,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/lru-cache": {
+      "version": "6.0.0",
+      "integrity": "sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==",
+      "dependencies": {
+        "yallist": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=10"
+      }
+    },
+    "node_modules/lru-cache/node_modules/yallist": {
+      "version": "4.0.0",
+      "integrity": "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="
+    }
+  }
+}

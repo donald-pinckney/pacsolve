@@ -1,0 +1,29 @@
+{
+  "install-success": true,
+  "install_time": 6.1634299755096436,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ansi-styles": {
+      "version": "6.1.0",
+      "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-6.1.0.tgz",
+      "integrity": "sha512-VbqNsoz55SYGczauuup0MFUyXNQviSpFTj1RQtFzmQLk18qbVSpTFFGMT293rmDaQuKCT6InmbuEyUne4mTuxQ==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/chalk/ansi-styles?sponsor=1"
+      }
+    },
+    "node_modules/is-fullwidth-code-point": {
+      "version": "4.0.0",
+      "resolved": "https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-4.0.0.tgz",
+      "integrity": "sha512-O4L094N2/dZ7xqVdrXhh9r1KODPJpFms8B5sGdJLPy664AgvXsreZUyCQQNItZRDlYug4xStLjNp/sz3HvBowQ==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    }
+  }
+}

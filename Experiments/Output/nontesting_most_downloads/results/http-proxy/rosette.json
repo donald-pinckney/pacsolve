@@ -1,0 +1,33 @@
+{
+  "install-success": true,
+  "install_time": 3.3186891078948975,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/eventemitter3": {
+      "version": "4.0.0",
+      "integrity": "sha512-qerSRB0p+UDEssxTtm6EDKcE7W4OaoisfIMl4CngyEhjpYglocpNg6UEqCvemdGhosAsg4sO2dXJOdyBifPGCg=="
+    },
+    "node_modules/follow-redirects": {
+      "version": "1.14.0",
+      "integrity": "sha512-0vRwd7RKQBTt+mgu87mtYeofLFZpTas2S9zY+jIeuLJMNvudIgF52nr19q40HOwH5RrhWIPuj9puybzSJiRrVg==",
+      "funding": [
+        {
+          "type": "individual",
+          "url": "https://github.com/sponsors/RubenVerborgh"
+        }
+      ],
+      "engines": {
+        "node": ">=4.0"
+      },
+      "peerDependenciesMeta": {
+        "debug": {
+          "optional": true
+        }
+      }
+    },
+    "node_modules/requires-port": {
+      "version": "1.0.0",
+      "integrity": "sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8="
+    }
+  }
+}

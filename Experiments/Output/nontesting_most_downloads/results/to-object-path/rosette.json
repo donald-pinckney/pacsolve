@@ -1,0 +1,22 @@
+{
+  "install-success": true,
+  "install_time": 2.389207601547241,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/kind-of": {
+      "version": "3.0.4",
+      "integrity": "sha1-e47PGKThf4Jp1ztQHJ8jLJaIenQ=",
+      "dependencies": {
+        "is-buffer": "^1.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/kind-of/node_modules/is-buffer": {
+      "version": "1.0.2",
+      "integrity": "sha1-9cbAUdc/hvEbTuFCZ8wQKfziYdA=",
+      "deprecated": "This version of 'is-buffer' is out-of-date. You must update to v1.1.6 or newer"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "install-success": true,
+  "install_time": 2.4689133167266846,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/postcss-selector-parser": {
+      "version": "6.0.5",
+      "integrity": "sha512-aFYPoYmXbZ1V6HZaSvat08M97A8HqO6Pjz+PiNpw/DhuRrC72XWAdp3hL6wusDCN31sSmcZyMGa2hZEuX+Xfhg==",
+      "dependencies": {
+        "cssesc": "^3.0.0",
+        "util-deprecate": "^1.0.2"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/postcss-selector-parser/node_modules/cssesc": {
+      "version": "3.0.0",
+      "integrity": "sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==",
+      "bin": {
+        "cssesc": "bin/cssesc"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/postcss-selector-parser/node_modules/util-deprecate": {
+      "version": "1.0.2",
+      "integrity": "sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8="
+    }
+  }
+}

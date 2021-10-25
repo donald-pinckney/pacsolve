@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 3.4373791217803955,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/js-tokens": {
+      "version": "4.0.0",
+      "resolved": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz",
+      "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.354149103164673,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/safe-buffer": {
+      "version": "5.2.0",
+      "integrity": "sha512-fZEwUGbVl7kouZs1jCdMLdt95hdIv0ZeHg6L7qPeciMZhZ+/gdesW4wgTARkrFWEpspjEATAzUGPG8N2jJiwbg=="
+    }
+  }
+}

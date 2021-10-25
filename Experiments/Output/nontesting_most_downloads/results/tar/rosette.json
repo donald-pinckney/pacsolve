@@ -1,0 +1,75 @@
+{
+  "install-success": true,
+  "install_time": 2.5120155811309814,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/chownr": {
+      "version": "2.0.0",
+      "integrity": "sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==",
+      "engines": {
+        "node": ">=10"
+      }
+    },
+    "node_modules/fs-minipass": {
+      "version": "2.1.0",
+      "integrity": "sha512-V/JgOLFCS+R6Vcq0slCuaeWEdNC3ouDlJMNIsacH2VtALiu9mV4LPrHc5cDl8k5aw6J8jwgWWpiTo5RYhmIzvg==",
+      "dependencies": {
+        "minipass": "^3.0.0"
+      },
+      "engines": {
+        "node": ">= 8"
+      }
+    },
+    "node_modules/fs-minipass/node_modules/minipass": {
+      "resolved": "node_modules/minipass",
+      "link": true
+    },
+    "node_modules/minipass": {
+      "version": "3.0.0",
+      "integrity": "sha512-FKNU4XrAPDX0+ynwns7njVu4RolyG1mUKSlT6n6GwGXLtYSYh2Znc0S83Rl6zEr1zgFfXvAzIBabnmItm+n19g==",
+      "dependencies": {
+        "yallist": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/minipass/node_modules/yallist": {
+      "resolved": "node_modules/yallist",
+      "link": true
+    },
+    "node_modules/minizlib": {
+      "version": "2.1.1",
+      "integrity": "sha512-JDuq+CU5UgBMfeExTb0iQpxCiH3EsPf4ypyLBQaBqY1EMwwp39mapJM2kwTQC0tf+dp5Cs3Mwy/N4CrrdvZzQw==",
+      "dependencies": {
+        "minipass": "^3.0.0",
+        "yallist": "^4.0.0"
+      },
+      "engines": {
+        "node": ">= 8"
+      }
+    },
+    "node_modules/minizlib/node_modules/minipass": {
+      "resolved": "node_modules/minipass",
+      "link": true
+    },
+    "node_modules/minizlib/node_modules/yallist": {
+      "resolved": "node_modules/yallist",
+      "link": true
+    },
+    "node_modules/mkdirp": {
+      "version": "1.0.3",
+      "integrity": "sha512-6uCP4Qc0sWsgMLy1EOqqS/3rjDHOEnsStVr/4vtAIK2Y5i2kA7lFFejYrpIyiN9w0pYf4ckeCYT9f1r1P9KX5g==",
+      "bin": {
+        "mkdirp": "bin/cmd.js"
+      },
+      "engines": {
+        "node": ">=10"
+      }
+    },
+    "node_modules/yallist": {
+      "version": "4.0.0",
+      "integrity": "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="
+    }
+  }
+}

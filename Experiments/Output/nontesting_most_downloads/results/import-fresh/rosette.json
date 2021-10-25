@@ -1,0 +1,31 @@
+{
+  "install-success": true,
+  "install_time": 2.3582849502563477,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/parent-module": {
+      "version": "1.0.0",
+      "integrity": "sha512-8Mf5juOMmiE4FcmzYc4IaiS9L3+9paz2KOiXzkRviCP6aDmN49Hz6EMWz0lGNp9pX80GvvAuLADtyGfW/Em3TA==",
+      "dependencies": {
+        "callsites": "^3.0.0"
+      },
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/parent-module/node_modules/callsites": {
+      "version": "3.0.0",
+      "integrity": "sha512-tWnkwu9YEq2uzlBDI4RcLn8jrFvF9AOi8PxDNU3hZZjJcjkcRAq3vCI+vZcg1SuxISDYe86k9VZFwAxDiJGoAw==",
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/resolve-from": {
+      "version": "4.0.0",
+      "integrity": "sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==",
+      "engines": {
+        "node": ">=4"
+      }
+    }
+  }
+}

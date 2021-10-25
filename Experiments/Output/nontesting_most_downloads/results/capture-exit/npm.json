@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 1.5000982284545898,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/rsvp": {
+      "version": "4.8.5",
+      "resolved": "https://registry.npmjs.org/rsvp/-/rsvp-4.8.5.tgz",
+      "integrity": "sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==",
+      "engines": {
+        "node": "6.* || >= 7.*"
+      }
+    }
+  }
+}

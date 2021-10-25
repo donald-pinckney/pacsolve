@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 6.952426195144653,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/cssom": {
+      "version": "0.3.8",
+      "resolved": "https://registry.npmjs.org/cssom/-/cssom-0.3.8.tgz",
+      "integrity": "sha512-b0tGHbfegbhPJpxpiBPU2sCkigAqtM9O121le6bbOlgyV+NyGyCmVfJ6QW9eRjz8CpNfWEOYBIMIGRYkLwsIYg=="
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "install-success": true,
+  "install_time": 5.479090690612793,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/bn.js": {
+      "version": "4.5.1",
+      "integrity": "sha1-2elzsQGoLIb7KJxR5BbhiIU47hY="
+    },
+    "node_modules/browserify-rsa": {
+      "version": "4.0.0",
+      "integrity": "sha1-pyxeM4M/1XbDzNPR1f5hxI/dl00=",
+      "dependencies": {
+        "bn.js": "^4.1.0",
+        "randombytes": "^2.0.1"
+      }
+    },
+    "node_modules/browserify-rsa/node_modules/bn.js": {
+      "resolved": "node_modules/bn.js",
+      "link": true
+    },
+    "node_modules/browserify-rsa/node_modules/randombytes": {
+      "resolved": "node_modules/randombytes",
+      "link": true
+    },
+    "node_modules/create-hash": {
+      "version": "1.1.1",
+      "integrity": "sha1-pVQk+XtTab+yqX5TvZt6GqbdOhc=",
+      "dependencies": {
+        "inherits": "^2.0.1",
+        "ripemd160": "^1.0.0",
+        "sha.js": "^2.3.6"
+      }
+    },
+    "node_modules/create-hash/node_modules/inherits": {
+      "version": "2.0.1",
+      "integrity": "sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE="
+    },
+    "node_modules/create-hash/node_modules/ripemd160": {
+      "version": "1.0.1",
+      "integrity": "sha1-k6S71JQrxXS2mo+lfHHeEOzKfW4="
+    },
+    "node_modules/create-hash/node_modules/sha.js": {
+      "version": "2.4.3",
+      "integrity": "sha1-VgdGn8hUQzbNOph3c/r51Vttr3s=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      },
+      "bin": {
+        "sha.js": "bin.js"
+      }
+    },
+    "node_modules/create-hash/node_modules/sha.js/node_modules/inherits": {
+      "resolved": "node_modules/create-hash/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/parse-asn1": {
+      "version": "5.0.0",
+      "integrity": "sha1-NQYPbVAV03Yox3D04JGgtaJ4vCM=",
+      "dependencies": {
+        "asn1.js": "^4.0.0",
+        "browserify-aes": "^1.0.0",
+        "create-hash": "^1.1.0",
+        "evp_bytestokey": "^1.0.0",
+        "pbkdf2": "^3.0.3"
+      }
+    },
+    "node_modules/parse-asn1/node_modules/asn1.js": {
+      "version": "4.5.2",
+      "integrity": "sha1-F0kr39S7Xx1+VqtrCFKX/unmQOk=",
+      "dependencies": {
+        "bn.js": "^4.0.0",
+        "inherits": "^2.0.1",
+        "minimalistic-assert": "^1.0.0"
+      }
+    },
+    "node_modules/parse-asn1/node_modules/asn1.js/node_modules/bn.js": {
+      "resolved": "node_modules/bn.js",
+      "link": true
+    },
+    "node_modules/parse-asn1/node_modules/asn1.js/node_modules/inherits": {
+      "resolved": "node_modules/create-hash/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/parse-asn1/node_modules/asn1.js/node_modules/minimalistic-assert": {
+      "version": "1.0.0",
+      "integrity": "sha1-cCvi3aazf0g2vLP121ZkG2Sh09M="
+    },
+    "node_modules/parse-asn1/node_modules/browserify-aes": {
+      "version": "1.0.1",
+      "integrity": "sha1-eWVDurhrhGiMtY2x3uFkvRuyryc=",
+      "dependencies": {
+        "create-hash": "^1.1.0",
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/parse-asn1/node_modules/browserify-aes/node_modules/create-hash": {
+      "resolved": "node_modules/create-hash",
+      "link": true
+    },
+    "node_modules/parse-asn1/node_modules/browserify-aes/node_modules/inherits": {
+      "resolved": "node_modules/create-hash/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/parse-asn1/node_modules/create-hash": {
+      "resolved": "node_modules/create-hash",
+      "link": true
+    },
+    "node_modules/parse-asn1/node_modules/evp_bytestokey": {
+      "version": "1.0.0",
+      "integrity": "sha1-SXtmrZ/vZc18CKYYCCS6FHa2blM=",
+      "dependencies": {
+        "create-hash": "^1.1.1"
+      }
+    },
+    "node_modules/parse-asn1/node_modules/evp_bytestokey/node_modules/create-hash": {
+      "resolved": "node_modules/create-hash",
+      "link": true
+    },
+    "node_modules/parse-asn1/node_modules/pbkdf2": {
+      "version": "3.0.4",
+      "integrity": "sha1-Esi/r5IFQ3hqhRULA/aNXxqpgvw=",
+      "dependencies": {
+        "create-hmac": "^1.1.2"
+      }
+    },
+    "node_modules/parse-asn1/node_modules/pbkdf2/node_modules/create-hmac": {
+      "version": "1.1.3",
+      "integrity": "sha1-KYQ+nBkbpBKrABvFWsi4ua5UtnA=",
+      "dependencies": {
+        "create-hash": "^1.1.0",
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/parse-asn1/node_modules/pbkdf2/node_modules/create-hmac/node_modules/create-hash": {
+      "resolved": "node_modules/create-hash",
+      "link": true
+    },
+    "node_modules/parse-asn1/node_modules/pbkdf2/node_modules/create-hmac/node_modules/inherits": {
+      "resolved": "node_modules/create-hash/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/randombytes": {
+      "version": "2.1.0",
+      "integrity": "sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==",
+      "dependencies": {
+        "safe-buffer": "^5.1.0"
+      }
+    },
+    "node_modules/randombytes/node_modules/safe-buffer": {
+      "resolved": "node_modules/safe-buffer",
+      "link": true
+    },
+    "node_modules/safe-buffer": {
+      "version": "5.2.1",
+      "integrity": "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==",
+      "funding": [
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/feross"
+        },
+        {
+          "type": "patreon",
+          "url": "https://www.patreon.com/feross"
+        },
+        {
+          "type": "consulting",
+          "url": "https://feross.org/support"
+        }
+      ]
+    }
+  }
+}

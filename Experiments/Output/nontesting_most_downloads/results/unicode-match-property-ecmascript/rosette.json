@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 2.4735710620880127,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/unicode-canonical-property-names-ecmascript": {
+      "version": "2.0.0",
+      "integrity": "sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/unicode-property-aliases-ecmascript": {
+      "version": "2.0.0",
+      "integrity": "sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==",
+      "engines": {
+        "node": ">=4"
+      }
+    }
+  }
+}

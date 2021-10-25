@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 2.9191272258758545,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/forwarded": {
+      "version": "0.2.0",
+      "integrity": "sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    },
+    "node_modules/ipaddr.js": {
+      "version": "1.9.1",
+      "integrity": "sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==",
+      "engines": {
+        "node": ">= 0.10"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.307725191116333,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/xml-name-validator": {
+      "version": "4.0.0",
+      "integrity": "sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==",
+      "engines": {
+        "node": ">=12"
+      }
+    }
+  }
+}

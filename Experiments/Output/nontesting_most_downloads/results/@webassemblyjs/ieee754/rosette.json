@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.29665207862854,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@xtuc/ieee754": {
+      "version": "1.2.0",
+      "integrity": "sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA=="
+    }
+  }
+}

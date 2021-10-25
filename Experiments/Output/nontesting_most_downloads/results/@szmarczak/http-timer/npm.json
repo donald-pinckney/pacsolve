@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 10.678515911102295,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/defer-to-connect": {
+      "version": "2.0.1",
+      "resolved": "https://registry.npmjs.org/defer-to-connect/-/defer-to-connect-2.0.1.tgz",
+      "integrity": "sha512-4tvttepXG1VaYGrRibk5EwJd1t4udunSOVMdLSAL6mId1ix438oPwPZMALY41FCijukO1L0twNcGsdzS7dHgDg==",
+      "engines": {
+        "node": ">=10"
+      }
+    }
+  }
+}

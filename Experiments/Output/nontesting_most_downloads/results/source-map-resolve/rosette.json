@@ -1,0 +1,24 @@
+{
+  "install-success": true,
+  "install_time": 2.315328598022461,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/atob": {
+      "version": "2.1.2",
+      "integrity": "sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==",
+      "bin": {
+        "atob": "bin/atob.js"
+      },
+      "engines": {
+        "node": ">= 4.5.0"
+      }
+    },
+    "node_modules/decode-uri-component": {
+      "version": "0.2.0",
+      "integrity": "sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=",
+      "engines": {
+        "node": ">=0.10"
+      }
+    }
+  }
+}

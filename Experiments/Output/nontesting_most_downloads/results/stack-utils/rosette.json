@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.5419185161590576,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/escape-string-regexp": {
+      "version": "2.0.0",
+      "integrity": "sha512-UpzcLCXolUWcNu5HtVMHYdXJjArjsF9C0aNnquZYY4uW/Vu0miy5YoWvbV345HauVvcAUnpRuhMMcqTcGOY2+w==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

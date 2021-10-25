@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 0.9231932163238525,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ee-first": {
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz",
+      "integrity": "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
+    }
+  }
+}

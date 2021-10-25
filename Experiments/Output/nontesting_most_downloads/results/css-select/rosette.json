@@ -1,0 +1,102 @@
+{
+  "install-success": true,
+  "install_time": 2.8601715564727783,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/boolbase": {
+      "version": "1.0.0",
+      "integrity": "sha1-aN/1++YMUes3cl6p4+0xDcwed24="
+    },
+    "node_modules/css-what": {
+      "version": "5.1.0",
+      "integrity": "sha512-arSMRWIIFY0hV8pIxZMEfmMI47Wj3R/aWpZDDxWYCPEiOMv6tfOrnpDtgxBYPEQD4V0Y/958+1TdC3iWTFcUPw==",
+      "engines": {
+        "node": ">= 6"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/fb55"
+      }
+    },
+    "node_modules/domhandler": {
+      "version": "4.2.2",
+      "integrity": "sha512-PzE9aBMsdZO8TK4BnuJwH0QT41wgMbRzuZrHUcpYncEjmQazq8QEaBWgLG7ZyC/DAZKEgglpIA6j4Qn/HmxS3w==",
+      "dependencies": {
+        "domelementtype": "^2.2.0"
+      },
+      "engines": {
+        "node": ">= 4"
+      },
+      "funding": {
+        "url": "https://github.com/fb55/domhandler?sponsor=1"
+      }
+    },
+    "node_modules/domhandler/node_modules/domelementtype": {
+      "version": "2.2.0",
+      "integrity": "sha512-DtBMo82pv1dFtUmHyr48beiuq792Sxohr+8Hm9zoxklYPfa6n0Z3Byjj2IV7bmr2IyqClnqEQhfgHJJ5QF0R5A==",
+      "funding": [
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/fb55"
+        }
+      ]
+    },
+    "node_modules/domutils": {
+      "version": "2.6.0",
+      "integrity": "sha512-y0BezHuy4MDYxh6OvolXYsH+1EMGmFbwv5FKW7ovwMG6zTPWqNPq3WF9ayZssFq+UlKdffGLbOEaghNdaOm1WA==",
+      "dependencies": {
+        "dom-serializer": "^1.0.1",
+        "domelementtype": "^2.2.0",
+        "domhandler": "^4.2.0"
+      },
+      "funding": {
+        "url": "https://github.com/fb55/domutils?sponsor=1"
+      }
+    },
+    "node_modules/domutils/node_modules/dom-serializer": {
+      "version": "1.2.0",
+      "integrity": "sha512-n6kZFH/KlCrqs/1GHMOd5i2fd/beQHuehKdWvNNffbGHTr/almdhuVvTVFb3V7fglz+nC50fFusu3lY33h12pA==",
+      "dependencies": {
+        "domelementtype": "^2.0.1",
+        "domhandler": "^4.0.0",
+        "entities": "^2.0.0"
+      },
+      "funding": {
+        "url": "https://github.com/cheeriojs/dom-serializer?sponsor=1"
+      }
+    },
+    "node_modules/domutils/node_modules/dom-serializer/node_modules/domelementtype": {
+      "resolved": "node_modules/domhandler/node_modules/domelementtype",
+      "link": true
+    },
+    "node_modules/domutils/node_modules/dom-serializer/node_modules/domhandler": {
+      "resolved": "node_modules/domhandler",
+      "link": true
+    },
+    "node_modules/domutils/node_modules/dom-serializer/node_modules/entities": {
+      "version": "2.0.2",
+      "integrity": "sha512-dmD3AvJQBUjKpcNkoqr+x+IF0SdRtPz9Vk0uTy4yWqga9ibB6s4v++QFWNohjiUGoMlF552ZvNyXDxz5iW0qmw=="
+    },
+    "node_modules/domutils/node_modules/domelementtype": {
+      "resolved": "node_modules/domhandler/node_modules/domelementtype",
+      "link": true
+    },
+    "node_modules/domutils/node_modules/domhandler": {
+      "resolved": "node_modules/domhandler",
+      "link": true
+    },
+    "node_modules/nth-check": {
+      "version": "2.0.0",
+      "integrity": "sha512-i4sc/Kj8htBrAiH1viZ0TgU8Y5XqCaV/FziYK6TBczxmeKm3AEFWqqF3195yKudrarqy7Zu80Ra5dobFjn9X/Q==",
+      "dependencies": {
+        "boolbase": "^1.0.0"
+      },
+      "funding": {
+        "url": "https://github.com/fb55/nth-check?sponsor=1"
+      }
+    },
+    "node_modules/nth-check/node_modules/boolbase": {
+      "resolved": "node_modules/boolbase",
+      "link": true
+    }
+  }
+}

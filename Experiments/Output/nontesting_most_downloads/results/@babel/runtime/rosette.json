@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.6132681369781494,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/regenerator-runtime": {
+      "version": "0.13.6",
+      "integrity": "sha512-GmwlGiazQEbOwQWDdbbaP10i15pGtScYWLbMZuu+RKRz0cZ+g8IUONazBnaZqe7j1670IV1HgE4/8iy7CQPf4Q=="
+    }
+  }
+}

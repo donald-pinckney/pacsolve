@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.310147762298584,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/browser-process-hrtime": {
+      "version": "1.0.0",
+      "integrity": "sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow=="
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "install-success": true,
+  "install_time": 2.6081953048706055,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@types/json5": {
+      "version": "0.0.29",
+      "integrity": "sha1-7ihweulOEdK4J7y+UnC86n8+ce4="
+    },
+    "node_modules/json5": {
+      "version": "1.0.1",
+      "integrity": "sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==",
+      "dependencies": {
+        "minimist": "^1.2.0"
+      },
+      "bin": {
+        "json5": "lib/cli.js"
+      }
+    },
+    "node_modules/json5/node_modules/minimist": {
+      "resolved": "node_modules/minimist",
+      "link": true
+    },
+    "node_modules/minimist": {
+      "version": "1.2.1",
+      "integrity": "sha512-MxgrjJPBtptee4aL2EExBK3tS4KUc1RtuRluaHZCmxKII8SBkvUP6z7XDmxEaUxdvpp++waKrqvSzuFXTRntVg=="
+    },
+    "node_modules/strip-bom": {
+      "version": "3.0.0",
+      "integrity": "sha1-IzTBjpx1n3vdVv3vfprj1YjmjtM=",
+      "engines": {
+        "node": ">=4"
+      }
+    }
+  }
+}

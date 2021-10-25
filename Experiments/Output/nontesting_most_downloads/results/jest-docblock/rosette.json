@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3179585933685303,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/detect-newline": {
+      "version": "3.0.0",
+      "integrity": "sha512-JAP22dVPAqvhdRFFxK1G5GViIokyUn0UWXRNW0ztK96fsqi9cuM8w8ESbSk+T2w5OVorcMcL6m7yUg1RrX+2CA==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

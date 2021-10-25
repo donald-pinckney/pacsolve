@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.366239547729492,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/tslib": {
+      "version": "2.0.3",
+      "integrity": "sha512-uZtkfKblCEQtZKBF6EBXVZeQNl82yqtDQdv+eck8u7tdPxjLu2/lp5/uPW+um2tpuxINHWy3GhiccY7QgEaVHQ=="
+    }
+  }
+}

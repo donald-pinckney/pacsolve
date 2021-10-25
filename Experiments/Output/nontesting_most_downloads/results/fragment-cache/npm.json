@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 2.8844151496887207,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/map-cache": {
+      "version": "0.2.2",
+      "resolved": "https://registry.npmjs.org/map-cache/-/map-cache-0.2.2.tgz",
+      "integrity": "sha1-wyq9C9ZSXZsFFkW7TyasXcmKDb8=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

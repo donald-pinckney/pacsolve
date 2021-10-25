@@ -1,0 +1,79 @@
+{
+  "install-success": true,
+  "install_time": 2.364337205886841,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/call-bind": {
+      "version": "1.0.2",
+      "integrity": "sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA==",
+      "dependencies": {
+        "function-bind": "^1.1.1",
+        "get-intrinsic": "^1.0.2"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/call-bind/node_modules/function-bind": {
+      "version": "1.1.1",
+      "integrity": "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
+    },
+    "node_modules/call-bind/node_modules/get-intrinsic": {
+      "version": "1.1.1",
+      "integrity": "sha512-kWZrnVM42QCiEA2Ig1bG8zjoIMOgxWwYCEeNdwY6Tv/cOSeGpcoX4pXHfKUxNKVoArnrEr2e9srnAxxGIraS9Q==",
+      "dependencies": {
+        "function-bind": "^1.1.1",
+        "has": "^1.0.3",
+        "has-symbols": "^1.0.1"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/call-bind/node_modules/get-intrinsic/node_modules/function-bind": {
+      "resolved": "node_modules/call-bind/node_modules/function-bind",
+      "link": true
+    },
+    "node_modules/call-bind/node_modules/get-intrinsic/node_modules/has": {
+      "version": "1.0.3",
+      "integrity": "sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==",
+      "dependencies": {
+        "function-bind": "^1.1.1"
+      },
+      "engines": {
+        "node": ">= 0.4.0"
+      }
+    },
+    "node_modules/call-bind/node_modules/get-intrinsic/node_modules/has-symbols": {
+      "resolved": "node_modules/has-tostringtag/node_modules/has-symbols",
+      "link": true
+    },
+    "node_modules/call-bind/node_modules/get-intrinsic/node_modules/has/node_modules/function-bind": {
+      "resolved": "node_modules/call-bind/node_modules/function-bind",
+      "link": true
+    },
+    "node_modules/has-tostringtag": {
+      "version": "1.0.0",
+      "integrity": "sha512-kFjcSNhnlGV1kyoGk7OXKSawH5JOb/LzUc5w9B02hOTO0dfFRjbHQKvg1d6cf3HbeUmtU9VbbV3qzZ2Teh97WQ==",
+      "dependencies": {
+        "has-symbols": "^1.0.2"
+      },
+      "engines": {
+        "node": ">= 0.4"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/has-tostringtag/node_modules/has-symbols": {
+      "version": "1.0.2",
+      "integrity": "sha512-chXa79rL/UC2KlX17jo3vRGz0azaWEx5tGqZg5pO3NUyEJVB17dMruQlzCCOfUvElghKcm5194+BCRvi2Rv/Gw==",
+      "engines": {
+        "node": ">= 0.4"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    }
+  }
+}

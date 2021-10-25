@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.6653943061828613,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/imurmurhash": {
+      "version": "0.1.4",
+      "integrity": "sha1-khi5srkoojixPcT7a21XbyMUU+o=",
+      "engines": {
+        "node": ">=0.8.19"
+      }
+    }
+  }
+}

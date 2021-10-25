@@ -1,0 +1,77 @@
+{
+  "install-success": true,
+  "install_time": 2.817030668258667,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/asn1": {
+      "version": "0.2.3",
+      "integrity": "sha1-2sh4dxPJlmhJ/IGAd36+nB3fO4Y="
+    },
+    "node_modules/assert-plus": {
+      "version": "1.0.0",
+      "integrity": "sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=",
+      "engines": {
+        "node": ">=0.8"
+      }
+    },
+    "node_modules/bcrypt-pbkdf": {
+      "version": "1.0.2",
+      "integrity": "sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=",
+      "dependencies": {
+        "tweetnacl": "^0.14.3"
+      }
+    },
+    "node_modules/bcrypt-pbkdf/node_modules/tweetnacl": {
+      "resolved": "node_modules/tweetnacl",
+      "link": true
+    },
+    "node_modules/dashdash": {
+      "version": "1.14.0",
+      "integrity": "sha1-KeSGxUGL8PNWA0qZPVFoajPoQUE=",
+      "dependencies": {
+        "assert-plus": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=0.10"
+      }
+    },
+    "node_modules/dashdash/node_modules/assert-plus": {
+      "resolved": "node_modules/assert-plus",
+      "link": true
+    },
+    "node_modules/ecc-jsbn": {
+      "version": "0.1.1",
+      "integrity": "sha1-D8c6ntXw1Tw4GTOYUj735UN3dQU=",
+      "dependencies": {
+        "jsbn": "~0.1.0"
+      }
+    },
+    "node_modules/ecc-jsbn/node_modules/jsbn": {
+      "resolved": "node_modules/jsbn",
+      "link": true
+    },
+    "node_modules/getpass": {
+      "version": "0.1.3",
+      "integrity": "sha1-ScCFooj4sb4QnU9KXrrIOcV5+vs=",
+      "dependencies": {
+        "assert-plus": "^1.0.0"
+      }
+    },
+    "node_modules/getpass/node_modules/assert-plus": {
+      "resolved": "node_modules/assert-plus",
+      "link": true
+    },
+    "node_modules/jsbn": {
+      "version": "0.1.0",
+      "integrity": "sha1-ZQmH2g3XT06/WhE3eiqi0nPpff0="
+    },
+    "node_modules/safer-buffer": {
+      "version": "2.0.2",
+      "integrity": "sha512-n7d2A1kx/NW7bow4A2jx111qpYsF0qDhvfHssl+FIuXY8skGswVCIXoo8AUt72d8vK6R3teMjHIV1Yt7Q/m08A=="
+    },
+    "node_modules/tweetnacl": {
+      "version": "0.14.4",
+      "integrity": "sha1-jJ2/tSeVaG8WbNICN5S88QPRPCs="
+    }
+  }
+}

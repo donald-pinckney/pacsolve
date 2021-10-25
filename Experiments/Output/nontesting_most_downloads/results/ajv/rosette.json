@@ -1,0 +1,36 @@
+{
+  "install-success": true,
+  "install_time": 3.027420997619629,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/fast-deep-equal": {
+      "version": "3.1.1",
+      "integrity": "sha512-8UEa58QDLauDNfpbrX55Q9jrGHThw2ZMdOky5Gl1CDtVeJDPVrG4Jxx1N8jw2gkWaff5UUuX1KJd+9zGe2B+ZA=="
+    },
+    "node_modules/json-schema-traverse": {
+      "version": "1.0.0",
+      "integrity": "sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug=="
+    },
+    "node_modules/require-from-string": {
+      "version": "2.0.2",
+      "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/uri-js": {
+      "version": "4.2.2",
+      "integrity": "sha512-KY9Frmirql91X2Qgjry0Wd4Y+YTdrdZheS8TFwvkbLWf/G5KNJDCh6pKL5OZctEW4+0Baa5idK2ZQuELRwPznQ==",
+      "dependencies": {
+        "punycode": "^2.1.0"
+      }
+    },
+    "node_modules/uri-js/node_modules/punycode": {
+      "version": "2.1.0",
+      "integrity": "sha1-X4Y+3Im5bbCQdLrXlHvwkFbKTn0=",
+      "engines": {
+        "node": ">=6"
+      }
+    }
+  }
+}

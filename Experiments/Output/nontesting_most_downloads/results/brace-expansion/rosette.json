@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.321667432785034,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/balanced-match": {
+      "version": "1.0.2",
+      "integrity": "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="
+    }
+  }
+}

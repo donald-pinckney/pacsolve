@@ -1,0 +1,43 @@
+{
+  "install-success": true,
+  "install_time": 2.422133445739746,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/inherits": {
+      "version": "2.0.4",
+      "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+    },
+    "node_modules/source-map": {
+      "version": "0.6.1",
+      "integrity": "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/source-map-resolve": {
+      "version": "0.6.0",
+      "integrity": "sha512-KXBr9d/fO/bWo97NXsPIAW1bFSBOuCnjbNTBMO7N59hsv5i9yzRDfcYwwt0l04+VqnKC+EwzvJZIP/qkuMgR/w==",
+      "dependencies": {
+        "atob": "^2.1.2",
+        "decode-uri-component": "^0.2.0"
+      }
+    },
+    "node_modules/source-map-resolve/node_modules/atob": {
+      "version": "2.1.2",
+      "integrity": "sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==",
+      "bin": {
+        "atob": "bin/atob.js"
+      },
+      "engines": {
+        "node": ">= 4.5.0"
+      }
+    },
+    "node_modules/source-map-resolve/node_modules/decode-uri-component": {
+      "version": "0.2.0",
+      "integrity": "sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=",
+      "engines": {
+        "node": ">=0.10"
+      }
+    }
+  }
+}

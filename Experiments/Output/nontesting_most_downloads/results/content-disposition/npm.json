@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 5.418470144271851,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/safe-buffer": {
+      "version": "5.1.2",
+      "resolved": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz",
+      "integrity": "sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g=="
+    }
+  }
+}

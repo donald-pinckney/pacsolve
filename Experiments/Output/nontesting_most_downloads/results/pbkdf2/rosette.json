@@ -1,0 +1,97 @@
+{
+  "install-success": true,
+  "install_time": 2.8437745571136475,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/create-hash": {
+      "version": "1.1.3",
+      "integrity": "sha1-YGBCrIuSYnUPSDyt2rD1gZFy2P0=",
+      "dependencies": {
+        "cipher-base": "^1.0.1",
+        "inherits": "^2.0.1",
+        "ripemd160": "^2.0.0",
+        "sha.js": "^2.4.0"
+      }
+    },
+    "node_modules/create-hash/node_modules/cipher-base": {
+      "version": "1.0.3",
+      "integrity": "sha1-7qvxlEGc6QDaMBjCB9IS8qbfCgc=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/create-hash/node_modules/cipher-base/node_modules/inherits": {
+      "resolved": "node_modules/create-hash/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/create-hash/node_modules/inherits": {
+      "version": "2.0.3",
+      "integrity": "sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4="
+    },
+    "node_modules/create-hash/node_modules/ripemd160": {
+      "resolved": "node_modules/ripemd160",
+      "link": true
+    },
+    "node_modules/create-hash/node_modules/sha.js": {
+      "resolved": "node_modules/sha.js",
+      "link": true
+    },
+    "node_modules/create-hmac": {
+      "version": "1.1.4",
+      "integrity": "sha1-0/tLolPriz9W456i+8uK90e9MXA=",
+      "dependencies": {
+        "create-hash": "^1.1.0",
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/create-hmac/node_modules/create-hash": {
+      "resolved": "node_modules/create-hash",
+      "link": true
+    },
+    "node_modules/create-hmac/node_modules/inherits": {
+      "resolved": "node_modules/create-hash/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/ripemd160": {
+      "version": "2.0.2",
+      "integrity": "sha512-ii4iagi25WusVoiC4B4lq7pbXfAp3D9v5CwfkY33vffw2+pkDjY1D8GaN7spsxvCSx8dkPqOZCEZyfxcmJG2IA==",
+      "dependencies": {
+        "hash-base": "^3.0.0",
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/ripemd160/node_modules/hash-base": {
+      "version": "3.0.3",
+      "integrity": "sha1-h+xIc0v+NUJ1U1FQsUghVmsIOAc=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/ripemd160/node_modules/hash-base/node_modules/inherits": {
+      "resolved": "node_modules/create-hash/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/ripemd160/node_modules/inherits": {
+      "resolved": "node_modules/create-hash/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/safe-buffer": {
+      "version": "5.1.0",
+      "integrity": "sha512-aSLEDudu6OoRr/2rU609gRmnYboRLxgDG1z9o2Q0os7236FwvcqIOO8r8U5JUEwivZOhDaKlFO4SbPTJYyBEyQ=="
+    },
+    "node_modules/sha.js": {
+      "version": "2.4.8",
+      "integrity": "sha1-NwaMLEdra69ALRSknGf1l5IfY08=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      },
+      "bin": {
+        "sha.js": "bin.js"
+      }
+    },
+    "node_modules/sha.js/node_modules/inherits": {
+      "resolved": "node_modules/create-hash/node_modules/inherits",
+      "link": true
+    }
+  }
+}

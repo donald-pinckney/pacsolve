@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.9784762859344482,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/node-modules-regexp": {
+      "version": "1.0.0",
+      "integrity": "sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.304588794708252,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/jsbn": {
+      "version": "0.1.0",
+      "integrity": "sha1-ZQmH2g3XT06/WhE3eiqi0nPpff0="
+    }
+  }
+}

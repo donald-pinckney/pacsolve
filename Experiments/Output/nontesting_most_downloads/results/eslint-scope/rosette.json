@@ -1,0 +1,28 @@
+{
+  "install-success": true,
+  "install_time": 2.3599987030029297,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/esrecurse": {
+      "version": "4.3.0",
+      "integrity": "sha512-KmfKL3b6G+RXvP8N1vr3Tq1kL/oCFgn2NYXEtqP8/L3pKapUA4G8cFVaoF3SU323CD4XypR/ffioHmkti6/Tag==",
+      "dependencies": {
+        "estraverse": "^5.2.0"
+      },
+      "engines": {
+        "node": ">=4.0"
+      }
+    },
+    "node_modules/esrecurse/node_modules/estraverse": {
+      "resolved": "node_modules/estraverse",
+      "link": true
+    },
+    "node_modules/estraverse": {
+      "version": "5.2.0",
+      "integrity": "sha512-BxbNGGNm0RyRYvUdHpIwv9IWzeM9XClbOxwoATuFdOE7ZE6wHL+HQ5T8hoPM+zHvmKzzsEqhgy0GrQ5X13afiQ==",
+      "engines": {
+        "node": ">=4.0"
+      }
+    }
+  }
+}

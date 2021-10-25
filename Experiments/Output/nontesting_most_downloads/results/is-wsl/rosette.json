@@ -1,0 +1,20 @@
+{
+  "install-success": true,
+  "install_time": 2.285566568374634,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/is-docker": {
+      "version": "2.1.1",
+      "integrity": "sha512-ZOoqiXfEwtGknTiuDEy8pN2CfE3TxMHprvNer1mXiqwkOT77Rw3YVrUQ52EqAOU3QAWDQ+bQdx7HJzrv7LS2Hw==",
+      "bin": {
+        "is-docker": "cli.js"
+      },
+      "engines": {
+        "node": ">=8"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    }
+  }
+}

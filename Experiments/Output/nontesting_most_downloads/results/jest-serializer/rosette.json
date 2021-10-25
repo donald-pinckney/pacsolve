@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 4.749034881591797,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@types/node": {
+      "version": "14.17.7",
+      "integrity": "sha512-SYTdMaW47se8499q8m0fYKZZRlmq0RaRv6oYmlVm6DUm31l0fhOl1D03X8hGxohCKTI2Bg6w7W0TiYB51aJzag=="
+    },
+    "node_modules/graceful-fs": {
+      "version": "4.2.6",
+      "integrity": "sha512-nTnJ528pbqxYanhpDYsi4Rd8MAeaBA67+RZ10CM1m3bTAVFEDcd5AuA4a6W5YkGZ1iNXHzZz8T6TBKLeBuNriQ=="
+    }
+  }
+}

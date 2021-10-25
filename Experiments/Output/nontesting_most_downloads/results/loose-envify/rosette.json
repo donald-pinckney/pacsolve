@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.624624252319336,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/js-tokens": {
+      "version": "3.0.0",
+      "integrity": "sha1-ovKpacquFC+zzVYig1jIk2aVe9E="
+    }
+  }
+}

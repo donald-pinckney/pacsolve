@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 2.7966930866241455,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/bn.js": {
+      "version": "4.1.0",
+      "integrity": "sha1-NRBavggJwIIAd0RlC4I0svnJraM="
+    },
+    "node_modules/brorand": {
+      "version": "1.0.3",
+      "integrity": "sha1-A9KArpqTaV8saxOu1xDPF6euaWI="
+    }
+  }
+}

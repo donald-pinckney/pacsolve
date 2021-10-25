@@ -1,0 +1,48 @@
+{
+  "install-success": true,
+  "install_time": 2.409167766571045,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/path-key": {
+      "version": "3.1.0",
+      "integrity": "sha512-8cChqz0RP6SHJkMt48FW0A7+qUOn+OsnOsVtzI59tZ8m+5bCSk7hzwET0pulwOM2YMn9J1efb07KB9l9f30SGg==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/shebang-command": {
+      "version": "2.0.0",
+      "integrity": "sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==",
+      "dependencies": {
+        "shebang-regex": "^3.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/shebang-command/node_modules/shebang-regex": {
+      "version": "3.0.0",
+      "integrity": "sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==",
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/which": {
+      "version": "2.0.1",
+      "integrity": "sha512-N7GBZOTswtB9lkQBZA4+zAXrjEIWAUOB93AvzUiudRzRxhUdLURQ7D/gAIMY1gatT/LTbmbcv8SiYazy3eYB7w==",
+      "dependencies": {
+        "isexe": "^2.0.0"
+      },
+      "bin": {
+        "which": "bin/which"
+      },
+      "engines": {
+        "node": ">= 8"
+      }
+    },
+    "node_modules/which/node_modules/isexe": {
+      "version": "2.0.0",
+      "integrity": "sha1-6PvzdNxVb/iUehDcsFctYz8s+hA="
+    }
+  }
+}

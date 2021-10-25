@@ -1,0 +1,83 @@
+{
+  "install-success": true,
+  "install_time": 3.6808550357818604,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/regenerate": {
+      "version": "1.4.2",
+      "resolved": "https://registry.npmjs.org/regenerate/-/regenerate-1.4.2.tgz",
+      "integrity": "sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A=="
+    },
+    "node_modules/regenerate-unicode-properties": {
+      "version": "9.0.0",
+      "resolved": "https://registry.npmjs.org/regenerate-unicode-properties/-/regenerate-unicode-properties-9.0.0.tgz",
+      "integrity": "sha512-3E12UeNSPfjrgwjkR81m5J7Aw/T55Tu7nUyZVQYCKEOs+2dkxEY+DpPtZzO4YruuiPb7NkYLVcyJC4+zCbk5pA==",
+      "dependencies": {
+        "regenerate": "^1.4.2"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/regjsgen": {
+      "version": "0.5.2",
+      "resolved": "https://registry.npmjs.org/regjsgen/-/regjsgen-0.5.2.tgz",
+      "integrity": "sha512-OFFT3MfrH90xIW8OOSyUrk6QHD5E9JOTeGodiJeBS3J6IwlgzJMNE/1bZklWz5oTg+9dCMyEetclvCVXOPoN3A=="
+    },
+    "node_modules/regjsparser": {
+      "version": "0.7.0",
+      "resolved": "https://registry.npmjs.org/regjsparser/-/regjsparser-0.7.0.tgz",
+      "integrity": "sha512-A4pcaORqmNMDVwUjWoTzuhwMGpP+NykpfqAsEgI1FSH/EzC7lrN5TMd+kN8YCovX+jMpu8eaqXgXPCa0g8FQNQ==",
+      "dependencies": {
+        "jsesc": "~0.5.0"
+      },
+      "bin": {
+        "regjsparser": "bin/parser"
+      }
+    },
+    "node_modules/regjsparser/node_modules/jsesc": {
+      "version": "0.5.0",
+      "resolved": "https://registry.npmjs.org/jsesc/-/jsesc-0.5.0.tgz",
+      "integrity": "sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=",
+      "bin": {
+        "jsesc": "bin/jsesc"
+      }
+    },
+    "node_modules/unicode-canonical-property-names-ecmascript": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-2.0.0.tgz",
+      "integrity": "sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/unicode-match-property-ecmascript": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/unicode-match-property-ecmascript/-/unicode-match-property-ecmascript-2.0.0.tgz",
+      "integrity": "sha512-5kaZCrbp5mmbz5ulBkDkbY0SsPOjKqVS35VpL9ulMPfSl0J0Xsm+9Evphv9CoIZFwre7aJoa94AY6seMKGVN5Q==",
+      "dependencies": {
+        "unicode-canonical-property-names-ecmascript": "^2.0.0",
+        "unicode-property-aliases-ecmascript": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/unicode-match-property-value-ecmascript": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/unicode-match-property-value-ecmascript/-/unicode-match-property-value-ecmascript-2.0.0.tgz",
+      "integrity": "sha512-7Yhkc0Ye+t4PNYzOGKedDhXbYIBe1XEQYQxOPyhcXNMJ0WCABqqj6ckydd6pWRZTHV4GuCPKdBAUiMc60tsKVw==",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/unicode-property-aliases-ecmascript": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-2.0.0.tgz",
+      "integrity": "sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==",
+      "engines": {
+        "node": ">=4"
+      }
+    }
+  }
+}

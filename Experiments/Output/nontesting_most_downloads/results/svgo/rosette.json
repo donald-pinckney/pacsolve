@@ -1,0 +1,174 @@
+{
+  "install-success": true,
+  "install_time": 2.895092725753784,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@trysound/sax": {
+      "version": "0.2.0",
+      "integrity": "sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==",
+      "engines": {
+        "node": ">=10.13.0"
+      }
+    },
+    "node_modules/colorette": {
+      "version": "1.4.0",
+      "integrity": "sha512-Y2oEozpomLn7Q3HFP7dpww7AtMJplbM9lGZP6RDfHqmbeRjiwRg4n6VM6j4KLmRke85uWEI7JqF17f3pqdRA0g=="
+    },
+    "node_modules/commander": {
+      "version": "7.2.0",
+      "integrity": "sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==",
+      "engines": {
+        "node": ">= 10"
+      }
+    },
+    "node_modules/css-select": {
+      "version": "4.1.3",
+      "integrity": "sha512-gT3wBNd9Nj49rAbmtFHj1cljIAOLYSX1nZ8CB7TBO3INYckygm5B7LISU/szY//YmdiSLbJvDLOx9VnMVpMBxA==",
+      "dependencies": {
+        "boolbase": "^1.0.0",
+        "css-what": "^5.0.0",
+        "domhandler": "^4.2.0",
+        "domutils": "^2.6.0",
+        "nth-check": "^2.0.0"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/fb55"
+      }
+    },
+    "node_modules/css-select/node_modules/boolbase": {
+      "version": "1.0.0",
+      "integrity": "sha1-aN/1++YMUes3cl6p4+0xDcwed24="
+    },
+    "node_modules/css-select/node_modules/css-what": {
+      "version": "5.1.0",
+      "integrity": "sha512-arSMRWIIFY0hV8pIxZMEfmMI47Wj3R/aWpZDDxWYCPEiOMv6tfOrnpDtgxBYPEQD4V0Y/958+1TdC3iWTFcUPw==",
+      "engines": {
+        "node": ">= 6"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/fb55"
+      }
+    },
+    "node_modules/css-select/node_modules/domhandler": {
+      "version": "4.2.1",
+      "integrity": "sha512-Z3lL82wPfQYi7PcOePzqAlXPkFI9ICw8cAH41B/MOqwO20W4aQaCRN2PLeIC1UmYFPlszNQtphORFPfyit+H5g==",
+      "dependencies": {
+        "domelementtype": "^2.2.0"
+      },
+      "engines": {
+        "node": ">= 4"
+      },
+      "funding": {
+        "url": "https://github.com/fb55/domhandler?sponsor=1"
+      }
+    },
+    "node_modules/css-select/node_modules/domhandler/node_modules/domelementtype": {
+      "version": "2.2.0",
+      "integrity": "sha512-DtBMo82pv1dFtUmHyr48beiuq792Sxohr+8Hm9zoxklYPfa6n0Z3Byjj2IV7bmr2IyqClnqEQhfgHJJ5QF0R5A==",
+      "funding": [
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/fb55"
+        }
+      ]
+    },
+    "node_modules/css-select/node_modules/domutils": {
+      "version": "2.7.0",
+      "integrity": "sha512-8eaHa17IwJUPAiB+SoTYBo5mCdeMgdcAoXJ59m6DT1vw+5iLS3gNoqYaRowaBKtGVrOF1Jz4yDTgYKLK2kvfJg==",
+      "dependencies": {
+        "dom-serializer": "^1.0.1",
+        "domelementtype": "^2.2.0",
+        "domhandler": "^4.2.0"
+      },
+      "funding": {
+        "url": "https://github.com/fb55/domutils?sponsor=1"
+      }
+    },
+    "node_modules/css-select/node_modules/domutils/node_modules/dom-serializer": {
+      "version": "1.2.0",
+      "integrity": "sha512-n6kZFH/KlCrqs/1GHMOd5i2fd/beQHuehKdWvNNffbGHTr/almdhuVvTVFb3V7fglz+nC50fFusu3lY33h12pA==",
+      "dependencies": {
+        "domelementtype": "^2.0.1",
+        "domhandler": "^4.0.0",
+        "entities": "^2.0.0"
+      },
+      "funding": {
+        "url": "https://github.com/cheeriojs/dom-serializer?sponsor=1"
+      }
+    },
+    "node_modules/css-select/node_modules/domutils/node_modules/dom-serializer/node_modules/domelementtype": {
+      "resolved": "node_modules/css-select/node_modules/domhandler/node_modules/domelementtype",
+      "link": true
+    },
+    "node_modules/css-select/node_modules/domutils/node_modules/dom-serializer/node_modules/domhandler": {
+      "resolved": "node_modules/css-select/node_modules/domhandler",
+      "link": true
+    },
+    "node_modules/css-select/node_modules/domutils/node_modules/dom-serializer/node_modules/entities": {
+      "version": "2.0.0",
+      "integrity": "sha512-D9f7V0JSRwIxlRI2mjMqufDrRDnx8p+eEOz7aUM9SuvF8gsBzra0/6tbjl1m8eQHrZlYj6PxqE00hZ1SAIKPLw=="
+    },
+    "node_modules/css-select/node_modules/domutils/node_modules/domelementtype": {
+      "resolved": "node_modules/css-select/node_modules/domhandler/node_modules/domelementtype",
+      "link": true
+    },
+    "node_modules/css-select/node_modules/domutils/node_modules/domhandler": {
+      "resolved": "node_modules/css-select/node_modules/domhandler",
+      "link": true
+    },
+    "node_modules/css-select/node_modules/nth-check": {
+      "version": "2.0.0",
+      "integrity": "sha512-i4sc/Kj8htBrAiH1viZ0TgU8Y5XqCaV/FziYK6TBczxmeKm3AEFWqqF3195yKudrarqy7Zu80Ra5dobFjn9X/Q==",
+      "dependencies": {
+        "boolbase": "^1.0.0"
+      },
+      "funding": {
+        "url": "https://github.com/fb55/nth-check?sponsor=1"
+      }
+    },
+    "node_modules/css-select/node_modules/nth-check/node_modules/boolbase": {
+      "resolved": "node_modules/css-select/node_modules/boolbase",
+      "link": true
+    },
+    "node_modules/css-tree": {
+      "version": "1.1.3",
+      "integrity": "sha512-tRpdppF7TRazZrjJ6v3stzv93qxRcSsFmW6cX0Zm2NVKpxE1WV1HblnghVv9TreireHkqI/VDEsfolRF1p6y7Q==",
+      "dependencies": {
+        "mdn-data": "2.0.14",
+        "source-map": "^0.6.1"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      }
+    },
+    "node_modules/css-tree/node_modules/mdn-data": {
+      "version": "2.0.14",
+      "integrity": "sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow=="
+    },
+    "node_modules/css-tree/node_modules/source-map": {
+      "version": "0.6.1",
+      "integrity": "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/csso": {
+      "version": "4.2.0",
+      "integrity": "sha512-wvlcdIbf6pwKEk7vHj8/Bkc0B4ylXZruLvOgs9doS5eOsOpuodOV2zJChSpkp+pRpYQLQMeF04nr3Z68Sta9jA==",
+      "dependencies": {
+        "css-tree": "^1.1.2"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      }
+    },
+    "node_modules/csso/node_modules/css-tree": {
+      "resolved": "node_modules/css-tree",
+      "link": true
+    },
+    "node_modules/stable": {
+      "version": "0.1.8",
+      "integrity": "sha512-ji9qxRnOVfcuLDySj9qzhGSEFVobyt1kIOSkj1qZzYLzq7Tos/oUUWvotUPQLlrsidqsK6tBH89Bc9kL5zHA6w=="
+    }
+  }
+}

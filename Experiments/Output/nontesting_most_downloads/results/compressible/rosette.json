@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3134379386901855,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/mime-db": {
+      "version": "1.43.0",
+      "integrity": "sha512-+5dsGEEovYbT8UY9yD7eE4XTc4UwJ1jBYlgaQQF38ENsKR3wj/8q8RFZrF9WIZpB2V1ArTVFUva8sAul1NzRzQ==",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    }
+  }
+}

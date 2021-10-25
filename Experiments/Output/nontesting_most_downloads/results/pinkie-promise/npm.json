@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 0.9997012615203857,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/pinkie": {
+      "version": "2.0.4",
+      "resolved": "https://registry.npmjs.org/pinkie/-/pinkie-2.0.4.tgz",
+      "integrity": "sha1-clVrgM+g1IqXToDnckjoDtT3+HA=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

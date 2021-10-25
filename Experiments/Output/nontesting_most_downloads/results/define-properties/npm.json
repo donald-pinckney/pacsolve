@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 4.604283809661865,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/object-keys": {
+      "version": "1.1.1",
+      "resolved": "https://registry.npmjs.org/object-keys/-/object-keys-1.1.1.tgz",
+      "integrity": "sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==",
+      "engines": {
+        "node": ">= 0.4"
+      }
+    }
+  }
+}

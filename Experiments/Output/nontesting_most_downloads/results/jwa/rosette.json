@@ -1,0 +1,26 @@
+{
+  "install-success": true,
+  "install_time": 2.3410346508026123,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/buffer-equal-constant-time": {
+      "version": "1.0.1",
+      "integrity": "sha1-+OcRMvf/5uAaXJaXpMbz5I1cyBk="
+    },
+    "node_modules/ecdsa-sig-formatter": {
+      "version": "1.0.11",
+      "integrity": "sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==",
+      "dependencies": {
+        "safe-buffer": "^5.0.1"
+      }
+    },
+    "node_modules/ecdsa-sig-formatter/node_modules/safe-buffer": {
+      "resolved": "node_modules/safe-buffer",
+      "link": true
+    },
+    "node_modules/safe-buffer": {
+      "version": "5.1.1",
+      "integrity": "sha512-kKvNJn6Mm93gAczWVJg7wH+wGYWNrDHdWvpUmHyEsgCtIwwo3bqPtV4tR5tuPaUhTOo/kvhVwd8XwwOllGYkbg=="
+    }
+  }
+}

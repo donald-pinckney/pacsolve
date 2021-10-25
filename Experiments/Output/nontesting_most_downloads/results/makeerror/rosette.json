@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.670016050338745,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/tmpl": {
+      "version": "1.0.3",
+      "integrity": "sha1-WSQvkcPxKp7i8x1IkXbK8WwS1Tw=",
+      "engines": {
+        "node": "0.6.x"
+      }
+    }
+  }
+}

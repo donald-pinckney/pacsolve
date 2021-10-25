@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 2.0971338748931885,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ci-info": {
+      "version": "3.2.0",
+      "resolved": "https://registry.npmjs.org/ci-info/-/ci-info-3.2.0.tgz",
+      "integrity": "sha512-dVqRX7fLUm8J6FgHJ418XuIgDLZDkYcDFTeL6TA2gt5WlIZUQrrH6EZrNClwT/H0FateUsZkGIOPRrLbP+PR9A=="
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "install-success": true,
+  "install_time": 2.6314167976379395,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/helper-validator-identifier": {
+      "version": "7.14.5",
+      "integrity": "sha512-5lsetuxCLilmVGyiLEfoHBRX8UCFD+1m2x3Rj97WrW3V7H3u4RWRXA4evMjImCsin2J2YT0QaVDGf+z8ondbAg==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/chalk": {
+      "version": "2.3.0",
+      "integrity": "sha512-Az5zJR2CBujap2rqXGaJKaPHyJ0IrUimvYNX+ncCy8PJP4ltOGTrHUIo097ZaL2zMeKYpiCdqDvS6zdrTFok3Q==",
+      "dependencies": {
+        "ansi-styles": "^3.1.0",
+        "escape-string-regexp": "^1.0.5",
+        "supports-color": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/chalk/node_modules/ansi-styles": {
+      "version": "3.1.0",
+      "integrity": "sha1-CcIC1ckX7CMYjKpcnLkXnNlUd1A=",
+      "dependencies": {
+        "color-convert": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
+      "version": "1.5.0",
+      "integrity": "sha1-eitO+0SI34W8pkQ8sDi3EA++feE="
+    },
+    "node_modules/chalk/node_modules/escape-string-regexp": {
+      "version": "1.0.5",
+      "integrity": "sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=",
+      "engines": {
+        "node": ">=0.8.0"
+      }
+    },
+    "node_modules/chalk/node_modules/supports-color": {
+      "version": "4.2.0",
+      "integrity": "sha512-Ts0Mu/A1S1aZxEJNG88I4Oc9rcZSBFNac5e27yh4j2mqbhZSSzR1Ah79EYwSn9Zuh7lrlGD2cVGzw1RKGzyLSg==",
+      "dependencies": {
+        "has-flag": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/chalk/node_modules/supports-color/node_modules/has-flag": {
+      "version": "2.0.0",
+      "integrity": "sha1-6CB68cx7MNRGzHC3NLXovhj4jVE=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/js-tokens": {
+      "version": "4.0.0",
+      "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 0.5592861175537109,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/regenerator-runtime": {
+      "version": "0.13.9",
+      "resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz",
+      "integrity": "sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA=="
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 15.06722354888916,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/json-buffer": {
+      "version": "3.0.1",
+      "resolved": "https://registry.npmjs.org/json-buffer/-/json-buffer-3.0.1.tgz",
+      "integrity": "sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ=="
+    }
+  }
+}

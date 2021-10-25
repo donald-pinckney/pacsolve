@@ -1,0 +1,382 @@
+{
+  "install-success": true,
+  "install_time": 3.1569671630859375,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/cache-base": {
+      "version": "4.0.0",
+      "integrity": "sha512-Ou2dop27F3N1xwvdO0Y3QYM1uuhSgpHezJqIItIVmWtWhOXkRAM0k56gJZjTV+wbJwwA+hI4iq0Tl6HmFm0IzQ==",
+      "dependencies": {
+        "@sellside/emitter": "^1.2.1",
+        "collection-visit": "^1.0.0",
+        "get-value": "^3.0.1",
+        "has-own-deep": "^1.1.0",
+        "kind-of": "^6.0.2",
+        "set-value": "^3.0.0",
+        "union-value": "^1.0.0",
+        "unset-value": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/cache-base/node_modules/@sellside/emitter": {
+      "version": "1.2.1",
+      "integrity": "sha512-P1rUad4vDnp4d5HB7NEJ/MDf4zg3pM2Q8ZXJ2xgGkGo5yckyDn56YPAvUGH+1VsOud5dbli8MZu14j/EcNZCGw==",
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/cache-base/node_modules/collection-visit": {
+      "version": "1.0.0",
+      "integrity": "sha1-S8A3PBZLwykbTTaMgpzxqApZ3KA=",
+      "dependencies": {
+        "map-visit": "^1.0.0",
+        "object-visit": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/collection-visit/node_modules/map-visit": {
+      "version": "1.0.0",
+      "integrity": "sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=",
+      "dependencies": {
+        "object-visit": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/collection-visit/node_modules/map-visit/node_modules/object-visit": {
+      "resolved": "node_modules/cache-base/node_modules/collection-visit/node_modules/object-visit",
+      "link": true
+    },
+    "node_modules/cache-base/node_modules/collection-visit/node_modules/object-visit": {
+      "version": "1.0.0",
+      "integrity": "sha1-Yy945QZj0WHkeAz01KxegG711UE=",
+      "dependencies": {
+        "isobject": "^3.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/collection-visit/node_modules/object-visit/node_modules/isobject": {
+      "resolved": "node_modules/define-property/node_modules/isobject",
+      "link": true
+    },
+    "node_modules/cache-base/node_modules/get-value": {
+      "version": "3.0.1",
+      "integrity": "sha512-mKZj9JLQrwMBtj5wxi6MH8Z5eSKaERpAwjg43dPtlGI1ZVEgH/qC7T8/6R2OBSUA+zzHBZgICsVJaEIV2tKTDA==",
+      "dependencies": {
+        "isobject": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=6.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/get-value/node_modules/isobject": {
+      "resolved": "node_modules/define-property/node_modules/isobject",
+      "link": true
+    },
+    "node_modules/cache-base/node_modules/has-own-deep": {
+      "version": "1.1.0",
+      "integrity": "sha512-L/DJZjD6am57lgeULwqH2S1G9MDUltYLC/qkY18sFIphd/6ONhZJq+SSlCBniPoT2BS73t1O3sgepbDIZly3gg==",
+      "dependencies": {
+        "isobject": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=6.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/has-own-deep/node_modules/isobject": {
+      "resolved": "node_modules/define-property/node_modules/isobject",
+      "link": true
+    },
+    "node_modules/cache-base/node_modules/kind-of": {
+      "resolved": "node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/cache-base/node_modules/set-value": {
+      "version": "3.0.1",
+      "integrity": "sha512-w6n3GUPYAWQj4ZyHWzD7K2FnFXHx9OTwJYbWg+6nXjG8sCLfs9DGv+KlqglKIIJx+ks7MlFuwFW2RBPb+8V+xg==",
+      "dependencies": {
+        "is-plain-object": "^2.0.4"
+      },
+      "engines": {
+        "node": ">=6.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/set-value/node_modules/is-plain-object": {
+      "version": "2.0.4",
+      "integrity": "sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==",
+      "dependencies": {
+        "isobject": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/set-value/node_modules/is-plain-object/node_modules/isobject": {
+      "resolved": "node_modules/define-property/node_modules/isobject",
+      "link": true
+    },
+    "node_modules/cache-base/node_modules/union-value": {
+      "version": "1.0.0",
+      "integrity": "sha1-XHHDTLW61dzr4+oM0IIHulqhrqQ=",
+      "dependencies": {
+        "arr-union": "^3.1.0",
+        "get-value": "^2.0.6",
+        "is-extendable": "^0.1.1",
+        "set-value": "^0.4.3"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/arr-union": {
+      "version": "3.1.0",
+      "integrity": "sha1-45sJrqne+Gao8gbiiK9jkZuuOcQ=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/get-value": {
+      "version": "2.0.6",
+      "integrity": "sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/is-extendable": {
+      "version": "0.1.1",
+      "integrity": "sha1-YrEQ4omkcUGOPsNqYX1HLjAd/Ik=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/set-value": {
+      "version": "0.4.3",
+      "integrity": "sha1-fbCPnT0i3H945Trzw79GZuzfzPE=",
+      "deprecated": "Critical bug fixed in v3.0.1, please upgrade to the latest version.",
+      "dependencies": {
+        "extend-shallow": "^2.0.1",
+        "is-extendable": "^0.1.1",
+        "is-plain-object": "^2.0.1",
+        "to-object-path": "^0.3.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/set-value/node_modules/extend-shallow": {
+      "version": "2.0.1",
+      "integrity": "sha1-Ua99YUrZqfYQ6huvu5idaxxWiQ8=",
+      "dependencies": {
+        "is-extendable": "^0.1.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/set-value/node_modules/extend-shallow/node_modules/is-extendable": {
+      "resolved": "node_modules/cache-base/node_modules/union-value/node_modules/is-extendable",
+      "link": true
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/set-value/node_modules/is-extendable": {
+      "resolved": "node_modules/cache-base/node_modules/union-value/node_modules/is-extendable",
+      "link": true
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/set-value/node_modules/is-plain-object": {
+      "resolved": "node_modules/cache-base/node_modules/set-value/node_modules/is-plain-object",
+      "link": true
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/set-value/node_modules/to-object-path": {
+      "version": "0.3.0",
+      "integrity": "sha1-KXWIt7Dn4KwI4E5nL4XB9JmeF68=",
+      "dependencies": {
+        "kind-of": "^3.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/set-value/node_modules/to-object-path/node_modules/kind-of": {
+      "version": "3.0.3",
+      "integrity": "sha1-xhYIdH2BWwNiVW2zJ2Nip6OK3tM=",
+      "dependencies": {
+        "is-buffer": "^1.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/union-value/node_modules/set-value/node_modules/to-object-path/node_modules/kind-of/node_modules/is-buffer": {
+      "version": "1.0.2",
+      "integrity": "sha1-9cbAUdc/hvEbTuFCZ8wQKfziYdA=",
+      "deprecated": "This version of 'is-buffer' is out-of-date. You must update to v1.1.6 or newer"
+    },
+    "node_modules/cache-base/node_modules/unset-value": {
+      "version": "1.0.0",
+      "integrity": "sha1-g3aHP30jNRef+x5vw6jtDfyKtVk=",
+      "dependencies": {
+        "has-value": "^0.3.1",
+        "isobject": "^3.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/unset-value/node_modules/has-value": {
+      "version": "0.3.1",
+      "integrity": "sha1-ex9YutpiyoJ+wKIHgCVlSEWZXh8=",
+      "dependencies": {
+        "get-value": "^2.0.3",
+        "has-values": "^0.1.4",
+        "isobject": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/unset-value/node_modules/has-value/node_modules/get-value": {
+      "resolved": "node_modules/cache-base/node_modules/union-value/node_modules/get-value",
+      "link": true
+    },
+    "node_modules/cache-base/node_modules/unset-value/node_modules/has-value/node_modules/has-values": {
+      "version": "0.1.4",
+      "integrity": "sha1-bWHeldkd/Km5oCCJrThL/49it3E=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/unset-value/node_modules/has-value/node_modules/isobject": {
+      "version": "2.0.0",
+      "integrity": "sha1-II3ocr1zeMKpKvlCij9W65GhIsQ=",
+      "dependencies": {
+        "isarray": "0.0.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/cache-base/node_modules/unset-value/node_modules/has-value/node_modules/isobject/node_modules/isarray": {
+      "version": "0.0.1",
+      "integrity": "sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8="
+    },
+    "node_modules/cache-base/node_modules/unset-value/node_modules/isobject": {
+      "resolved": "node_modules/define-property/node_modules/isobject",
+      "link": true
+    },
+    "node_modules/define-property": {
+      "version": "2.0.2",
+      "integrity": "sha512-jwK2UV4cnPpbcG7+VRARKTZPUWowwXA8bzH5NP6ud0oeAxyYPuGZUAC7hMugpCdz4BeSZl2Dl9k66CHJ/46ZYQ==",
+      "dependencies": {
+        "is-descriptor": "^1.0.2",
+        "isobject": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor": {
+      "version": "1.0.2",
+      "integrity": "sha512-2eis5WqQGV7peooDyLmNEPUrps9+SXX5c9pL3xEB+4e9HnGuDa7mB7kHxHw4CbqS9k1T2hOH3miL8n8WtiYVtg==",
+      "dependencies": {
+        "is-accessor-descriptor": "^1.0.0",
+        "is-data-descriptor": "^1.0.0",
+        "kind-of": "^6.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor": {
+      "version": "1.0.0",
+      "integrity": "sha512-m5hnHTkcVsPfqx3AKlyttIPb7J+XykHvJP2B9bZDjlhLIoEq4XoK64Vg7boZlVWYK6LUY94dYPEE7Lh0ZkZKcQ==",
+      "dependencies": {
+        "kind-of": "^6.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor/node_modules/kind-of": {
+      "resolved": "node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-data-descriptor": {
+      "version": "1.0.0",
+      "integrity": "sha512-jbRXy1FmtAoCjQkVmIVYwuuqDFUbaOeDjmed1tOGPrsMhtJA4rD9tkgA0F1qJ3gRFRXcHYVkdeaP50Q5rE/jLQ==",
+      "dependencies": {
+        "kind-of": "^6.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-data-descriptor/node_modules/kind-of": {
+      "resolved": "node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/kind-of": {
+      "resolved": "node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/define-property/node_modules/isobject": {
+      "version": "3.0.1",
+      "integrity": "sha1-TkMekrEalzFjaqH5yNHMvP2reN8=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/kind-of": {
+      "version": "6.0.2",
+      "integrity": "sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/mixin-deep": {
+      "version": "1.3.1",
+      "integrity": "sha512-8ZItLHeEgaqEvd5lYBXfm4EZSFCX29Jb9K+lAHhDKzReKBQKj3R+7NOF6tjqYi9t4oI8VUfaWITJQm86wnXGNQ==",
+      "deprecated": "Critical bug fixed in v2.0.1, please upgrade to the latest version.",
+      "dependencies": {
+        "for-in": "^1.0.2",
+        "is-extendable": "^1.0.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/mixin-deep/node_modules/for-in": {
+      "version": "1.0.2",
+      "integrity": "sha1-gQaNKVqBQuwKxybG4iAMMPttXoA=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/mixin-deep/node_modules/is-extendable": {
+      "version": "1.0.1",
+      "integrity": "sha512-arnXMxT1hhoKo9k1LZdmlNyJdDDfy2v0fXjFlmok4+i8ul/6WlbVge9bhM74OpNPQPMGUToDtz+KXa1PneJxOA==",
+      "dependencies": {
+        "is-plain-object": "^2.0.4"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/mixin-deep/node_modules/is-extendable/node_modules/is-plain-object": {
+      "resolved": "node_modules/cache-base/node_modules/set-value/node_modules/is-plain-object",
+      "link": true
+    },
+    "node_modules/pascalcase": {
+      "version": "0.1.1",
+      "integrity": "sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

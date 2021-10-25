@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.5803260803222656,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/function-bind": {
+      "version": "1.1.1",
+      "integrity": "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
+    }
+  }
+}

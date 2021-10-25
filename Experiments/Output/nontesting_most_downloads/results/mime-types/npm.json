@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 4.457671880722046,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/mime-db": {
+      "version": "1.49.0",
+      "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.49.0.tgz",
+      "integrity": "sha512-CIc8j9URtOVApSFCQIF+VBkX1RwXp/oMMOrqdyXSBXq5RWNEsRfyj1kiRnQgmNXmHxPoFIxOroKA3zcU9P+nAA==",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    }
+  }
+}

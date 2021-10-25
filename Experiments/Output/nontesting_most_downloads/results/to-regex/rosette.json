@@ -1,0 +1,147 @@
+{
+  "install-success": true,
+  "install_time": 2.6842072010040283,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/define-property": {
+      "version": "2.0.2",
+      "integrity": "sha512-jwK2UV4cnPpbcG7+VRARKTZPUWowwXA8bzH5NP6ud0oeAxyYPuGZUAC7hMugpCdz4BeSZl2Dl9k66CHJ/46ZYQ==",
+      "dependencies": {
+        "is-descriptor": "^1.0.2",
+        "isobject": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor": {
+      "version": "1.0.2",
+      "integrity": "sha512-2eis5WqQGV7peooDyLmNEPUrps9+SXX5c9pL3xEB+4e9HnGuDa7mB7kHxHw4CbqS9k1T2hOH3miL8n8WtiYVtg==",
+      "dependencies": {
+        "is-accessor-descriptor": "^1.0.0",
+        "is-data-descriptor": "^1.0.0",
+        "kind-of": "^6.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor": {
+      "version": "1.0.0",
+      "integrity": "sha512-m5hnHTkcVsPfqx3AKlyttIPb7J+XykHvJP2B9bZDjlhLIoEq4XoK64Vg7boZlVWYK6LUY94dYPEE7Lh0ZkZKcQ==",
+      "dependencies": {
+        "kind-of": "^6.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor/node_modules/kind-of": {
+      "resolved": "node_modules/define-property/node_modules/is-descriptor/node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-data-descriptor": {
+      "version": "1.0.0",
+      "integrity": "sha512-jbRXy1FmtAoCjQkVmIVYwuuqDFUbaOeDjmed1tOGPrsMhtJA4rD9tkgA0F1qJ3gRFRXcHYVkdeaP50Q5rE/jLQ==",
+      "dependencies": {
+        "kind-of": "^6.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-data-descriptor/node_modules/kind-of": {
+      "resolved": "node_modules/define-property/node_modules/is-descriptor/node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/kind-of": {
+      "version": "6.0.2",
+      "integrity": "sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/isobject": {
+      "version": "3.0.1",
+      "integrity": "sha1-TkMekrEalzFjaqH5yNHMvP2reN8=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/extend-shallow": {
+      "version": "3.0.2",
+      "integrity": "sha1-Jqcarwc7OfshJxcnRhMcJwQCjbg=",
+      "dependencies": {
+        "assign-symbols": "^1.0.0",
+        "is-extendable": "^1.0.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/extend-shallow/node_modules/assign-symbols": {
+      "version": "1.0.0",
+      "integrity": "sha1-WWZ/QfrdTyDMvCu5a41Pf3jsA2c=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/extend-shallow/node_modules/is-extendable": {
+      "version": "1.0.1",
+      "integrity": "sha512-arnXMxT1hhoKo9k1LZdmlNyJdDDfy2v0fXjFlmok4+i8ul/6WlbVge9bhM74OpNPQPMGUToDtz+KXa1PneJxOA==",
+      "dependencies": {
+        "is-plain-object": "^2.0.4"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/extend-shallow/node_modules/is-extendable/node_modules/is-plain-object": {
+      "version": "2.0.4",
+      "integrity": "sha512-h5PpgXkWitc38BBMYawTYMWJHFZJVnBquFE57xFpjB8pJFiF6gZ+bU+WyI/yqXiFR5mdLsgYNaPe8uao6Uv9Og==",
+      "dependencies": {
+        "isobject": "^3.0.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/extend-shallow/node_modules/is-extendable/node_modules/is-plain-object/node_modules/isobject": {
+      "resolved": "node_modules/define-property/node_modules/isobject",
+      "link": true
+    },
+    "node_modules/regex-not": {
+      "version": "1.0.2",
+      "integrity": "sha512-J6SDjUgDxQj5NusnOtdFxDwN/+HWykR8GELwctJ7mdqhcyy1xEc4SRFHUXvxTp661YaVKAjfRLZ9cCqS6tn32A==",
+      "dependencies": {
+        "extend-shallow": "^3.0.2",
+        "safe-regex": "^1.1.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/regex-not/node_modules/extend-shallow": {
+      "resolved": "node_modules/extend-shallow",
+      "link": true
+    },
+    "node_modules/regex-not/node_modules/safe-regex": {
+      "resolved": "node_modules/safe-regex",
+      "link": true
+    },
+    "node_modules/safe-regex": {
+      "version": "1.1.0",
+      "integrity": "sha1-QKNmnzsHfR6UPURinhV91IAjvy4=",
+      "dependencies": {
+        "ret": "~0.1.10"
+      }
+    },
+    "node_modules/safe-regex/node_modules/ret": {
+      "version": "0.1.15",
+      "integrity": "sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==",
+      "engines": {
+        "node": ">=0.12"
+      }
+    }
+  }
+}

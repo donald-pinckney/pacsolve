@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.323758363723755,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/is-number": {
+      "version": "7.0.0",
+      "integrity": "sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==",
+      "engines": {
+        "node": ">=0.12.0"
+      }
+    }
+  }
+}

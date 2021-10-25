@@ -1,0 +1,96 @@
+{
+  "install-success": true,
+  "install_time": 3.109419584274292,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/buffer-xor": {
+      "version": "1.0.3",
+      "integrity": "sha1-JuYe0UIvtw3ULm42cp7VHYVf6Nk="
+    },
+    "node_modules/cipher-base": {
+      "version": "1.0.3",
+      "integrity": "sha1-7qvxlEGc6QDaMBjCB9IS8qbfCgc=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/cipher-base/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/create-hash": {
+      "version": "1.1.1",
+      "integrity": "sha1-pVQk+XtTab+yqX5TvZt6GqbdOhc=",
+      "dependencies": {
+        "inherits": "^2.0.1",
+        "ripemd160": "^1.0.0",
+        "sha.js": "^2.3.6"
+      }
+    },
+    "node_modules/create-hash/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/create-hash/node_modules/ripemd160": {
+      "version": "1.0.1",
+      "integrity": "sha1-k6S71JQrxXS2mo+lfHHeEOzKfW4="
+    },
+    "node_modules/create-hash/node_modules/sha.js": {
+      "version": "2.3.6",
+      "integrity": "sha1-EFhaP3/Y8dpxWtrG+dVFFtoGcMw=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      },
+      "bin": {
+        "sha.js": "bin.js"
+      }
+    },
+    "node_modules/create-hash/node_modules/sha.js/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/evp_bytestokey": {
+      "version": "1.0.3",
+      "integrity": "sha512-/f2Go4TognH/KvCISP7OUsHn85hT9nUkxxA9BEWxFn+Oj9o8ZNLm/40hdlgSLyuOimsrTKLUMEorQexp/aPQeA==",
+      "dependencies": {
+        "md5.js": "^1.3.4",
+        "safe-buffer": "^5.1.1"
+      }
+    },
+    "node_modules/evp_bytestokey/node_modules/md5.js": {
+      "version": "1.3.4",
+      "integrity": "sha1-6b296UogpawYsENA/Fdk1bCdkB0=",
+      "dependencies": {
+        "hash-base": "^3.0.0",
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/evp_bytestokey/node_modules/md5.js/node_modules/hash-base": {
+      "version": "3.0.1",
+      "integrity": "sha1-4VH6w5zq5jthKa2FeSLhE/pm6z0=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/evp_bytestokey/node_modules/md5.js/node_modules/hash-base/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/evp_bytestokey/node_modules/md5.js/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/evp_bytestokey/node_modules/safe-buffer": {
+      "resolved": "node_modules/safe-buffer",
+      "link": true
+    },
+    "node_modules/inherits": {
+      "version": "2.0.3",
+      "integrity": "sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4="
+    },
+    "node_modules/safe-buffer": {
+      "version": "5.1.1",
+      "integrity": "sha512-kKvNJn6Mm93gAczWVJg7wH+wGYWNrDHdWvpUmHyEsgCtIwwo3bqPtV4tR5tuPaUhTOo/kvhVwd8XwwOllGYkbg=="
+    }
+  }
+}

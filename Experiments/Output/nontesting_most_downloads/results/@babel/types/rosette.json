@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 2.3476626873016357,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/helper-validator-identifier": {
+      "version": "7.14.9",
+      "integrity": "sha512-pQYxPY0UP6IHISRitNe8bsijHex4TWZXi2HwKVsjPiltzlhse2znVcm9Ace510VT1kxIHjGJCZZQBX2gJDbo0g==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/to-fast-properties": {
+      "version": "2.0.0",
+      "integrity": "sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=",
+      "engines": {
+        "node": ">=4"
+      }
+    }
+  }
+}

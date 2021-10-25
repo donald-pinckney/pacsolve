@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3754031658172607,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/rsvp": {
+      "version": "4.8.4",
+      "integrity": "sha512-6FomvYPfs+Jy9TfXmBpBuMWNH94SgCsZmJKcanySzgNNP6LjWxBvyLTa9KaMfDDM5oxRfrKDB0r/qeRsLwnBfA==",
+      "engines": {
+        "node": "0.12.* || 4.* || 6.* || >= 7.*"
+      }
+    }
+  }
+}

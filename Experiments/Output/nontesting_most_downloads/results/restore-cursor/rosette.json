@@ -1,0 +1,31 @@
+{
+  "install-success": true,
+  "install_time": 2.3829824924468994,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/onetime": {
+      "version": "5.1.2",
+      "integrity": "sha512-kbpaSSGJTWdAY5KPVeMOKXSrPtr8C8C7wodJbcsd51jRnmD+GZu8Y0VoU6Dm5Z4vWr0Ig/1NKuWRKf7j5aaYSg==",
+      "dependencies": {
+        "mimic-fn": "^2.1.0"
+      },
+      "engines": {
+        "node": ">=6"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/onetime/node_modules/mimic-fn": {
+      "version": "2.1.0",
+      "integrity": "sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==",
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/signal-exit": {
+      "version": "3.0.2",
+      "integrity": "sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0="
+    }
+  }
+}

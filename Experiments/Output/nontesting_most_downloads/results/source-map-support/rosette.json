@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 3.006575584411621,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/buffer-from": {
+      "version": "1.0.0",
+      "integrity": "sha512-83apNb8KK0Se60UE1+4Ukbe3HbfELJ6UlI4ldtOGs7So4KD26orJM8hIY9lxdzP+UpItH1Yh/Y8GUvNFWFFRxA=="
+    },
+    "node_modules/source-map": {
+      "version": "0.6.0",
+      "integrity": "sha512-mTozplhTX4tLKIHYji92OTZzVyZvi+Z1qRZDeBvQFI2XUB89wrRoj/xXad3c9NZ1GPJXXRvB+k41PQCPTMC+aA==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

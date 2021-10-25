@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 3.1347413063049316,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/react-is": {
+      "version": "16.7.0",
+      "integrity": "sha512-Z0VRQdF4NPDoI0tsXVMLkJLiwEBa+RP66g0xDHxgxysxSoCUccSten4RTF/UFvZF1dZvZ9Zu1sx+MDXwcOR34g=="
+    }
+  }
+}

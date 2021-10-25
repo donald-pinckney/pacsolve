@@ -1,0 +1,17 @@
+{
+  "install-success": true,
+  "install_time": 2.5986080169677734,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/type-fest": {
+      "version": "1.1.1",
+      "integrity": "sha512-RPDKc5KrIyKTP7Fk75LruUagqG6b+OTgXlCR2Z0aQDJFeIvL4/mhahSEtHmmVzXu4gmA0srkF/8FCH3WOWxTWA==",
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    }
+  }
+}

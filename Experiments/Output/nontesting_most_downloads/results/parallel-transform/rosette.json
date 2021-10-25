@@ -1,0 +1,56 @@
+{
+  "install-success": true,
+  "install_time": 3.652907371520996,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/cyclist": {
+      "version": "1.0.1",
+      "integrity": "sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk="
+    },
+    "node_modules/inherits": {
+      "version": "2.0.3",
+      "integrity": "sha1-Yzwsg+PaQqUC9SRmAiSA9CCCYd4="
+    },
+    "node_modules/readable-stream": {
+      "version": "2.2.3",
+      "integrity": "sha1-nPSUY5hd8BbIrogTCXqSk6mzNyk=",
+      "dependencies": {
+        "buffer-shims": "^1.0.0",
+        "core-util-is": "~1.0.0",
+        "inherits": "~2.0.1",
+        "isarray": "~1.0.0",
+        "process-nextick-args": "~1.0.6",
+        "string_decoder": "~0.10.x",
+        "util-deprecate": "~1.0.1"
+      }
+    },
+    "node_modules/readable-stream/node_modules/buffer-shims": {
+      "version": "1.0.0",
+      "integrity": "sha1-mXjOMXOIxkmth5MCjDR37wRKi1E="
+    },
+    "node_modules/readable-stream/node_modules/core-util-is": {
+      "version": "1.0.0",
+      "integrity": "sha1-dAx0xADnJwe5XMddUJVD+K1/g94="
+    },
+    "node_modules/readable-stream/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/readable-stream/node_modules/isarray": {
+      "version": "1.0.0",
+      "integrity": "sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE="
+    },
+    "node_modules/readable-stream/node_modules/process-nextick-args": {
+      "version": "1.0.6",
+      "integrity": "sha1-D5awAc6pCxJZLOVm7bl+wR5pvQU="
+    },
+    "node_modules/readable-stream/node_modules/string_decoder": {
+      "version": "0.10.24",
+      "integrity": "sha1-aQKr9752816ckiklgzKLpMB+hsM="
+    },
+    "node_modules/readable-stream/node_modules/util-deprecate": {
+      "version": "1.0.1",
+      "integrity": "sha1-NVaj0TxMaqeYPX4kJUeBlxmbeIE="
+    }
+  }
+}

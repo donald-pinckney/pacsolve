@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.348792552947998,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/regenerate": {
+      "version": "1.4.2",
+      "integrity": "sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A=="
+    }
+  }
+}

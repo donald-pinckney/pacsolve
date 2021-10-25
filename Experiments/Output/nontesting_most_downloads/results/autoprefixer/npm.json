@@ -1,0 +1,91 @@
+{
+  "install-success": true,
+  "install_time": 1.439988613128662,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/browserslist": {
+      "version": "4.17.5",
+      "resolved": "https://registry.npmjs.org/browserslist/-/browserslist-4.17.5.tgz",
+      "integrity": "sha512-I3ekeB92mmpctWBoLXe0d5wPS2cBuRvvW0JyyJHMrk9/HmP2ZjrTboNAZ8iuGqaEIlKguljbQY32OkOJIRrgoA==",
+      "dependencies": {
+        "caniuse-lite": "^1.0.30001271",
+        "electron-to-chromium": "^1.3.878",
+        "escalade": "^3.1.1",
+        "node-releases": "^2.0.1",
+        "picocolors": "^1.0.0"
+      },
+      "bin": {
+        "browserslist": "cli.js"
+      },
+      "engines": {
+        "node": "^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/browserslist"
+      }
+    },
+    "node_modules/caniuse-lite": {
+      "version": "1.0.30001271",
+      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001271.tgz",
+      "integrity": "sha512-BBruZFWmt3HFdVPS8kceTBIguKxu4f99n5JNp06OlPD/luoAMIaIK5ieV5YjnBLH3Nysai9sxj9rpJj4ZisXOA==",
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/browserslist"
+      }
+    },
+    "node_modules/electron-to-chromium": {
+      "version": "1.3.878",
+      "resolved": "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.878.tgz",
+      "integrity": "sha512-O6yxWCN9ph2AdspAIszBnd9v8s11hQx8ub9w4UGApzmNRnoKhbulOWqbO8THEQec/aEHtvy+donHZMlh6l1rbA=="
+    },
+    "node_modules/escalade": {
+      "version": "3.1.1",
+      "resolved": "https://registry.npmjs.org/escalade/-/escalade-3.1.1.tgz",
+      "integrity": "sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==",
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/fraction.js": {
+      "version": "4.1.1",
+      "resolved": "https://registry.npmjs.org/fraction.js/-/fraction.js-4.1.1.tgz",
+      "integrity": "sha512-MHOhvvxHTfRFpF1geTK9czMIZ6xclsEor2wkIGYYq+PxcQqT7vStJqjhe6S1TenZrMZzo+wlqOufBDVepUEgPg==",
+      "engines": {
+        "node": "*"
+      },
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/infusion"
+      }
+    },
+    "node_modules/nanocolors": {
+      "version": "0.1.12",
+      "resolved": "https://registry.npmjs.org/nanocolors/-/nanocolors-0.1.12.tgz",
+      "integrity": "sha512-2nMHqg1x5PU+unxX7PGY7AuYxl2qDx7PSrTRjizr8sxdd3l/3hBuWWaki62qmtYm2U5i4Z5E7GbjlyDFhs9/EQ=="
+    },
+    "node_modules/node-releases": {
+      "version": "2.0.1",
+      "resolved": "https://registry.npmjs.org/node-releases/-/node-releases-2.0.1.tgz",
+      "integrity": "sha512-CqyzN6z7Q6aMeF/ktcMVTzhAHCEpf8SOarwpzpf8pNBY2k5/oM34UHldUwp8VKI7uxct2HxSRdJjBaZeESzcxA=="
+    },
+    "node_modules/normalize-range": {
+      "version": "0.1.2",
+      "resolved": "https://registry.npmjs.org/normalize-range/-/normalize-range-0.1.2.tgz",
+      "integrity": "sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/picocolors": {
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz",
+      "integrity": "sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ=="
+    },
+    "node_modules/postcss-value-parser": {
+      "version": "4.1.0",
+      "resolved": "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz",
+      "integrity": "sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ=="
+    }
+  }
+}

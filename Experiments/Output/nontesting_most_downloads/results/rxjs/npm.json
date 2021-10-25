@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 9.50367021560669,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: rxjs@7.3.0\nnpm ERR! Found: typescript@4.2.4\nnpm ERR! node_modules/typescript\nnpm ERR!   dev typescript@\"~4.2.2\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer typescript@\"~3.7.4\" from ts-api-guardian@0.5.0\nnpm ERR! node_modules/ts-api-guardian\nnpm ERR!   dev ts-api-guardian@\"^0.5.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /home/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T01_29_29_058Z-debug.log\n"
+  }
+}

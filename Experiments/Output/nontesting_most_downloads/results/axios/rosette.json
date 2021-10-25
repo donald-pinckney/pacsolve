@@ -1,0 +1,25 @@
+{
+  "install-success": true,
+  "install_time": 2.32123064994812,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/follow-redirects": {
+      "version": "1.14.2",
+      "integrity": "sha512-yLR6WaE2lbF0x4K2qE2p9PEXKLDjUjnR/xmjS3wHAYxtlsI9MLLBJUZirAHKzUZDGLxje7w/cXR49WOUo4rbsA==",
+      "funding": [
+        {
+          "type": "individual",
+          "url": "https://github.com/sponsors/RubenVerborgh"
+        }
+      ],
+      "engines": {
+        "node": ">=4.0"
+      },
+      "peerDependenciesMeta": {
+        "debug": {
+          "optional": true
+        }
+      }
+    }
+  }
+}

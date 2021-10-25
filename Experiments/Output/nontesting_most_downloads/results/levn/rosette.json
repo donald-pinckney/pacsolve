@@ -1,0 +1,28 @@
+{
+  "install-success": true,
+  "install_time": 2.31203031539917,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/prelude-ls": {
+      "version": "1.2.1",
+      "integrity": "sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==",
+      "engines": {
+        "node": ">= 0.8.0"
+      }
+    },
+    "node_modules/type-check": {
+      "version": "0.4.0",
+      "integrity": "sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==",
+      "dependencies": {
+        "prelude-ls": "^1.2.1"
+      },
+      "engines": {
+        "node": ">= 0.8.0"
+      }
+    },
+    "node_modules/type-check/node_modules/prelude-ls": {
+      "resolved": "node_modules/prelude-ls",
+      "link": true
+    }
+  }
+}

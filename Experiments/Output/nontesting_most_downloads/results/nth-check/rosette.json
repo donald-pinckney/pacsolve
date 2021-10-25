@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.3146893978118896,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/boolbase": {
+      "version": "1.0.0",
+      "integrity": "sha1-aN/1++YMUes3cl6p4+0xDcwed24="
+    }
+  }
+}

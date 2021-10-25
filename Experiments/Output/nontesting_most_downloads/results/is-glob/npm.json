@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 3.622175931930542,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/is-extglob": {
+      "version": "2.1.1",
+      "resolved": "https://registry.npmjs.org/is-extglob/-/is-extglob-2.1.1.tgz",
+      "integrity": "sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

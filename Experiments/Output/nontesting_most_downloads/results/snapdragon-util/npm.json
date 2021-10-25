@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 5.901000499725342,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/kind-of": {
+      "version": "6.0.3",
+      "resolved": "https://registry.npmjs.org/kind-of/-/kind-of-6.0.3.tgz",
+      "integrity": "sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

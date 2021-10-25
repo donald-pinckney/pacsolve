@@ -1,0 +1,60 @@
+{
+  "install-success": true,
+  "install_time": 4.699199438095093,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/object.assign": {
+      "version": "4.1.0",
+      "integrity": "sha512-exHJeq6kBKj58mqGyTQ9DFvrZC/eR6OwxzoM9YRoGBqrXYonaFyGiFMuc9VZrXf7DarreEwMpurG3dd+CNyW5w==",
+      "dependencies": {
+        "define-properties": "^1.1.2",
+        "function-bind": "^1.1.1",
+        "has-symbols": "^1.0.0",
+        "object-keys": "^1.0.11"
+      },
+      "engines": {
+        "node": ">= 0.4"
+      }
+    },
+    "node_modules/object.assign/node_modules/define-properties": {
+      "version": "1.1.2",
+      "integrity": "sha1-g6c/L+pWmJj7c3GTyPhzyvbUXJQ=",
+      "dependencies": {
+        "foreach": "^2.0.5",
+        "object-keys": "^1.0.8"
+      },
+      "engines": {
+        "node": ">= 0.4"
+      }
+    },
+    "node_modules/object.assign/node_modules/define-properties/node_modules/foreach": {
+      "version": "2.0.5",
+      "integrity": "sha1-C+4AUBiusmDQo6865ljdATbsG5k="
+    },
+    "node_modules/object.assign/node_modules/define-properties/node_modules/object-keys": {
+      "resolved": "node_modules/object.assign/node_modules/object-keys",
+      "link": true
+    },
+    "node_modules/object.assign/node_modules/function-bind": {
+      "version": "1.1.1",
+      "integrity": "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
+    },
+    "node_modules/object.assign/node_modules/has-symbols": {
+      "version": "1.0.2",
+      "integrity": "sha512-chXa79rL/UC2KlX17jo3vRGz0azaWEx5tGqZg5pO3NUyEJVB17dMruQlzCCOfUvElghKcm5194+BCRvi2Rv/Gw==",
+      "engines": {
+        "node": ">= 0.4"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    },
+    "node_modules/object.assign/node_modules/object-keys": {
+      "version": "1.0.12",
+      "integrity": "sha512-FTMyFUm2wBcGHnH2eXmz7tC6IwlqQZ6mVZ+6dm6vZ4IQIHjs6FdNsQBuKGPuUUUY6NfJw2PshC08Tn6LzLDOag==",
+      "engines": {
+        "node": ">= 0.4"
+      }
+    }
+  }
+}

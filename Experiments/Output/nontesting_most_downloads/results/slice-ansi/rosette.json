@@ -1,0 +1,27 @@
+{
+  "install-success": true,
+  "install_time": 2.628135919570923,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ansi-styles": {
+      "version": "6.0.0",
+      "integrity": "sha512-4nUCKPhvbhgqc4a1S0w446veDod0i6krCOMF/bPBbBq9eP11BKztPS4Mp5yxUXhr1PFEe6mYcUSAv1jfoMUuOg==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/chalk/ansi-styles?sponsor=1"
+      }
+    },
+    "node_modules/is-fullwidth-code-point": {
+      "version": "4.0.0",
+      "integrity": "sha512-O4L094N2/dZ7xqVdrXhh9r1KODPJpFms8B5sGdJLPy664AgvXsreZUyCQQNItZRDlYug4xStLjNp/sz3HvBowQ==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    }
+  }
+}

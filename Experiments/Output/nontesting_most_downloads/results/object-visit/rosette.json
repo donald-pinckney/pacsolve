@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3378288745880127,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/isobject": {
+      "version": "3.0.0",
+      "integrity": "sha1-OVZSF/NmF4nooKDAgNX35rxG4aA=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

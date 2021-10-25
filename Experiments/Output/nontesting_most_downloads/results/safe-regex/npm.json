@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 5.602407932281494,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/regexp-tree": {
+      "version": "0.1.24",
+      "resolved": "https://registry.npmjs.org/regexp-tree/-/regexp-tree-0.1.24.tgz",
+      "integrity": "sha512-s2aEVuLhvnVJW6s/iPgEGK6R+/xngd2jNQ+xy4bXNDKxZKJH6jpPHY6kVeVv1IeLCHgswRj+Kl3ELaDjG6V1iw==",
+      "bin": {
+        "regexp-tree": "bin/regexp-tree"
+      }
+    }
+  }
+}

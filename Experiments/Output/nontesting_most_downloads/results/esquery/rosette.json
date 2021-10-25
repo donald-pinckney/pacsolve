@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3434057235717773,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/estraverse": {
+      "version": "5.1.0",
+      "integrity": "sha512-FyohXK+R0vE+y1nHLoBM7ZTyqRpqAlhdZHCWIWEviFLiGB8b04H6bQs8G+XTthacvT8VuwvteiP7RJSxMs8UEw==",
+      "engines": {
+        "node": ">=4.0"
+      }
+    }
+  }
+}

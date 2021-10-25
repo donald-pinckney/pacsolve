@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.5863964557647705,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/source-map": {
+      "version": "0.6.0",
+      "integrity": "sha512-mTozplhTX4tLKIHYji92OTZzVyZvi+Z1qRZDeBvQFI2XUB89wrRoj/xXad3c9NZ1GPJXXRvB+k41PQCPTMC+aA==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

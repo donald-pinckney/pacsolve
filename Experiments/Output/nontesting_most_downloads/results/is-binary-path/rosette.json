@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3200583457946777,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/binary-extensions": {
+      "version": "2.2.0",
+      "integrity": "sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

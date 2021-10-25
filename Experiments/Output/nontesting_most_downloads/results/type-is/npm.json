@@ -1,0 +1,34 @@
+{
+  "install-success": true,
+  "install_time": 6.3679139614105225,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/media-typer": {
+      "version": "0.3.0",
+      "resolved": "https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz",
+      "integrity": "sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    },
+    "node_modules/mime-db": {
+      "version": "1.50.0",
+      "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.50.0.tgz",
+      "integrity": "sha512-9tMZCDlYHqeERXEHO9f/hKfNXhre5dK2eE/krIvUjZbS2KPcqGDfNShIWS1uW9XOTKQKqK6qbeOci18rbfW77A==",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    },
+    "node_modules/mime-types": {
+      "version": "2.1.33",
+      "resolved": "https://registry.npmjs.org/mime-types/-/mime-types-2.1.33.tgz",
+      "integrity": "sha512-plLElXp7pRDd0bNZHw+nMd52vRYjLwQjygaNg7ddJ2uJtTlmnTCjWuPKxVu6//AdaRuME84SvLW91sIkBqGT0g==",
+      "dependencies": {
+        "mime-db": "1.50.0"
+      },
+      "engines": {
+        "node": ">= 0.6"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 6.392392635345459,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/has-bigints": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/has-bigints/-/has-bigints-1.0.1.tgz",
+      "integrity": "sha512-LSBS2LjbNBTf6287JEbEzvJgftkF5qFkmCo9hDRpAzKhUOlJ+hx8dd4USs00SgsUNwc4617J9ki5YtEClM2ffA==",
+      "funding": {
+        "url": "https://github.com/sponsors/ljharb"
+      }
+    }
+  }
+}

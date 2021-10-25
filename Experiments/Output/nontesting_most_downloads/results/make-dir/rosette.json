@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.379002332687378,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/semver": {
+      "version": "6.1.1",
+      "integrity": "sha512-rWYq2e5iYW+fFe/oPPtYJxYgjBm8sC4rmoGdUOgBB7VnwKt6HrL793l2voH1UlsyYZpJ4g0wfjnTEO1s1NP2eQ==",
+      "bin": {
+        "semver": "bin/semver"
+      }
+    }
+  }
+}

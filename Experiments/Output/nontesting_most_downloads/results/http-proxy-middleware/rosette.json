@@ -1,0 +1,130 @@
+{
+  "install-success": true,
+  "install_time": 7.527239084243774,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@types/http-proxy": {
+      "version": "1.17.7",
+      "integrity": "sha512-9hdj6iXH64tHSLTY+Vt2eYOGzSogC+JQ2H7bdPWkuh7KXP5qLllWx++t+K9Wk556c3dkDdPws/SpMRi0sdCT1w==",
+      "dependencies": {
+        "@types/node": "*"
+      }
+    },
+    "node_modules/@types/http-proxy/node_modules/@types/node": {
+      "version": "10.11.3",
+      "integrity": "sha512-3AvcEJAh9EMatxs+OxAlvAEs7OTy6AG94mcH1iqyVDwVVndekLxzwkWQ/Z4SDbY6GO2oyUXyWW8tQ4rENSSQVQ=="
+    },
+    "node_modules/http-proxy": {
+      "version": "1.18.1",
+      "integrity": "sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==",
+      "dependencies": {
+        "eventemitter3": "^4.0.0",
+        "follow-redirects": "^1.0.0",
+        "requires-port": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=8.0.0"
+      }
+    },
+    "node_modules/http-proxy/node_modules/eventemitter3": {
+      "version": "4.0.0",
+      "integrity": "sha512-qerSRB0p+UDEssxTtm6EDKcE7W4OaoisfIMl4CngyEhjpYglocpNg6UEqCvemdGhosAsg4sO2dXJOdyBifPGCg=="
+    },
+    "node_modules/http-proxy/node_modules/follow-redirects": {
+      "version": "1.12.0",
+      "integrity": "sha512-JgawlbfBQKjbKegPn8vUsvJqplE7KHJuhGO4yPcb+ZOIYKSr+xobMVlfRBToZwZUUxy7lFiKBdFNloz9ui368Q==",
+      "engines": {
+        "node": ">=4.0"
+      },
+      "peerDependencies": {
+        "debug": "^3.0.0 || ^4.0.0"
+      }
+    },
+    "node_modules/http-proxy/node_modules/requires-port": {
+      "version": "1.0.0",
+      "integrity": "sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8="
+    },
+    "node_modules/is-glob": {
+      "version": "4.0.2",
+      "integrity": "sha512-ZZTOjRcDjuAAAv2cTBQP/lL59ZTArx77+7UzHdWW/XB1mrfp7DEaVpKmZ0XIzx+M7AxfhKcqV+nMetUQmFifwg==",
+      "dependencies": {
+        "is-extglob": "^2.1.1"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/is-glob/node_modules/is-extglob": {
+      "version": "2.1.1",
+      "integrity": "sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/is-plain-obj": {
+      "version": "3.0.0",
+      "integrity": "sha512-gwsOE28k+23GP1B6vFl1oVh/WOzmawBrKwo5Ev6wMKzPkaXaCDIQKzLnvsA42DRlbVTWorkgTKIviAKCWkfUwA==",
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/micromatch": {
+      "version": "4.0.2",
+      "integrity": "sha512-y7FpHSbMUMoyPbYUSzO6PaZ6FyRnQOpHuKwbo1G+Knck95XVU4QAiKdGEnj5wwoS7PlOgthX/09u5iFJ+aYf5Q==",
+      "dependencies": {
+        "braces": "^3.0.1",
+        "picomatch": "^2.0.5"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/micromatch/node_modules/braces": {
+      "version": "3.0.1",
+      "integrity": "sha512-Vmyh3JAr5DRUKCdRrC+WyAAsWBez8HLnBmVb6Ux2VYbvC8DjqMC228WHx24fiQG5BiDOVo+otK1scdkK5S6YNg==",
+      "dependencies": {
+        "fill-range": "^7.0.1"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/micromatch/node_modules/braces/node_modules/fill-range": {
+      "version": "7.0.1",
+      "integrity": "sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==",
+      "dependencies": {
+        "to-regex-range": "^5.0.1"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/micromatch/node_modules/braces/node_modules/fill-range/node_modules/to-regex-range": {
+      "version": "5.0.1",
+      "integrity": "sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==",
+      "dependencies": {
+        "is-number": "^7.0.0"
+      },
+      "engines": {
+        "node": ">=8.0"
+      }
+    },
+    "node_modules/micromatch/node_modules/braces/node_modules/fill-range/node_modules/to-regex-range/node_modules/is-number": {
+      "version": "7.0.0",
+      "integrity": "sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==",
+      "engines": {
+        "node": ">=0.12.0"
+      }
+    },
+    "node_modules/micromatch/node_modules/picomatch": {
+      "version": "2.0.7",
+      "integrity": "sha512-oLHIdio3tZ0qH76NybpeneBhYVj0QFTfXEFTc/B3zKQspYfYYkWYgFsmzo+4kvId/bQRcNkVeguI3y+CD22BtA==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.5838570594787598,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/pako": {
+      "version": "1.0.7",
+      "integrity": "sha512-3HNK5tW4x8o5mO8RuHZp3Ydw9icZXx0RANAOMzlMzx7LVXhMJ4mo3MOBpzyd7r/+RUu8BmndP47LXT+vzjtWcQ=="
+    }
+  }
+}

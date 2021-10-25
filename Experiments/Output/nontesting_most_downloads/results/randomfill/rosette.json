@@ -1,0 +1,22 @@
+{
+  "install-success": true,
+  "install_time": 2.332247495651245,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/randombytes": {
+      "version": "2.0.5",
+      "integrity": "sha512-8T7Zn1AhMsQ/HI1SjcCfT/t4ii3eAqco3yOcSzS4mozsOz69lHLsoMXmF9nZgnFanYscnSlUSgs8uZyKzpE6kg==",
+      "dependencies": {
+        "safe-buffer": "^5.1.0"
+      }
+    },
+    "node_modules/randombytes/node_modules/safe-buffer": {
+      "resolved": "node_modules/safe-buffer",
+      "link": true
+    },
+    "node_modules/safe-buffer": {
+      "version": "5.2.0",
+      "integrity": "sha512-fZEwUGbVl7kouZs1jCdMLdt95hdIv0ZeHg6L7qPeciMZhZ+/gdesW4wgTARkrFWEpspjEATAzUGPG8N2jJiwbg=="
+    }
+  }
+}

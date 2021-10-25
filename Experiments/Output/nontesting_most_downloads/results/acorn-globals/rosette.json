@@ -1,0 +1,24 @@
+{
+  "install-success": true,
+  "install_time": 2.936438798904419,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/acorn": {
+      "version": "7.3.0",
+      "integrity": "sha512-Q/reetejf1Yf8vY7wyZI8DOsrMr9r7RfnDYBVjIdE61Rk8atUkbV1Kyi/diJzgAWiDiHEPWpNoqpPb+2CUbudQ==",
+      "bin": {
+        "acorn": "bin/acorn"
+      },
+      "engines": {
+        "node": ">=0.4.0"
+      }
+    },
+    "node_modules/acorn-walk": {
+      "version": "7.1.1",
+      "integrity": "sha512-wdlPY2tm/9XBr7QkKlq0WQVgiuGTX6YWPyRyBviSoScBuLfTVQhvwg6wJ369GJ/1nPfTLMfnrFIfjqVg6d+jQQ==",
+      "engines": {
+        "node": ">=0.4.0"
+      }
+    }
+  }
+}

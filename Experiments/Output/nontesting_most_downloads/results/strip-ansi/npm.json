@@ -1,0 +1,18 @@
+{
+  "install-success": true,
+  "install_time": 5.26820969581604,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ansi-regex": {
+      "version": "6.0.1",
+      "resolved": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.0.1.tgz",
+      "integrity": "sha512-n5M855fKb2SsfMIiFFoVrABHJC8QtHwVx+mHWP3QcEqBHYienj5dHSgjbxtC0WEZXYt4wcD6zrQElDPhFuZgfA==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/chalk/ansi-regex?sponsor=1"
+      }
+    }
+  }
+}

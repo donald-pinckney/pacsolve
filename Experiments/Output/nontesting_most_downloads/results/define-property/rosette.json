@@ -1,0 +1,61 @@
+{
+  "install-success": true,
+  "install_time": 2.4609031677246094,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/is-descriptor": {
+      "version": "1.0.2",
+      "integrity": "sha512-2eis5WqQGV7peooDyLmNEPUrps9+SXX5c9pL3xEB+4e9HnGuDa7mB7kHxHw4CbqS9k1T2hOH3miL8n8WtiYVtg==",
+      "dependencies": {
+        "is-accessor-descriptor": "^1.0.0",
+        "is-data-descriptor": "^1.0.0",
+        "kind-of": "^6.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/is-descriptor/node_modules/is-accessor-descriptor": {
+      "version": "1.0.0",
+      "integrity": "sha512-m5hnHTkcVsPfqx3AKlyttIPb7J+XykHvJP2B9bZDjlhLIoEq4XoK64Vg7boZlVWYK6LUY94dYPEE7Lh0ZkZKcQ==",
+      "dependencies": {
+        "kind-of": "^6.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/is-descriptor/node_modules/is-accessor-descriptor/node_modules/kind-of": {
+      "resolved": "node_modules/is-descriptor/node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/is-descriptor/node_modules/is-data-descriptor": {
+      "version": "1.0.0",
+      "integrity": "sha512-jbRXy1FmtAoCjQkVmIVYwuuqDFUbaOeDjmed1tOGPrsMhtJA4rD9tkgA0F1qJ3gRFRXcHYVkdeaP50Q5rE/jLQ==",
+      "dependencies": {
+        "kind-of": "^6.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/is-descriptor/node_modules/is-data-descriptor/node_modules/kind-of": {
+      "resolved": "node_modules/is-descriptor/node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/is-descriptor/node_modules/kind-of": {
+      "version": "6.0.2",
+      "integrity": "sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/isobject": {
+      "version": "3.0.1",
+      "integrity": "sha1-TkMekrEalzFjaqH5yNHMvP2reN8=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

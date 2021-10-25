@@ -1,0 +1,19 @@
+{
+  "install-success": true,
+  "install_time": 2.3757810592651367,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/punycode": {
+      "version": "1.3.2",
+      "integrity": "sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0="
+    },
+    "node_modules/querystring": {
+      "version": "0.2.0",
+      "integrity": "sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=",
+      "deprecated": "The querystring API is considered Legacy. new code should use the URLSearchParams API instead.",
+      "engines": {
+        "node": ">=0.4.x"
+      }
+    }
+  }
+}

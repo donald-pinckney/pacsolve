@@ -1,0 +1,20 @@
+{
+  "install-success": true,
+  "install_time": 4.65346884727478,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/mdn-data": {
+      "version": "2.0.14",
+      "resolved": "https://registry.npmjs.org/mdn-data/-/mdn-data-2.0.14.tgz",
+      "integrity": "sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow=="
+    },
+    "node_modules/source-map": {
+      "version": "0.6.1",
+      "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+      "integrity": "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "install-success": true,
+  "install_time": 2.3114569187164307,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/is-plain-obj": {
+      "version": "4.0.0",
+      "integrity": "sha512-NXRbBtUdBioI73y/HmOhogw/U5msYPC9DAtGkJXeFcFWSFZw0mCUsPxk/snTuJHzNKA8kLBK4rH97RMB1BfCXw==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.945948362350464,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/helper-plugin-utils": {
+      "version": "7.8.0",
+      "integrity": "sha512-+hAlRGdf8fHQAyNnDBqTHQhwdLURLdrCROoWaEQYiQhk2sV9Rhs+GoFZZfMJExTq9HG8o2NX3uN2G90bFtmFdA=="
+    }
+  }
+}

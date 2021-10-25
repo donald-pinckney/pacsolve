@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.3416903018951416,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/esutils": {
+      "version": "2.0.2",
+      "integrity": "sha1-Cr9PHKpbyx96nYrMbepPqqBLrJs=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

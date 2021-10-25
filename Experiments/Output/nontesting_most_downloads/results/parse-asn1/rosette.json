@@ -1,0 +1,117 @@
+{
+  "install-success": true,
+  "install_time": 4.144282102584839,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/asn1.js": {
+      "version": "5.2.0",
+      "integrity": "sha512-Q7hnYGGNYbcmGrCPulXfkEw7oW7qjWeM4ZTALmgpuIcZLxyqqKYWxCZg2UBm8bklrnB4m2mGyJPWfoktdORD8A==",
+      "dependencies": {
+        "bn.js": "^4.0.0",
+        "inherits": "^2.0.1",
+        "minimalistic-assert": "^1.0.0"
+      }
+    },
+    "node_modules/asn1.js/node_modules/bn.js": {
+      "version": "4.8.1",
+      "integrity": "sha1-6MscQ6Caby9VQbkg9xTyaDB+1z8="
+    },
+    "node_modules/asn1.js/node_modules/inherits": {
+      "version": "2.0.4",
+      "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+    },
+    "node_modules/asn1.js/node_modules/minimalistic-assert": {
+      "version": "1.0.0",
+      "integrity": "sha1-cCvi3aazf0g2vLP121ZkG2Sh09M="
+    },
+    "node_modules/browserify-aes": {
+      "version": "1.0.0",
+      "integrity": "sha1-WC78MFYRZviYVfzclFtoaRmEi2I=",
+      "dependencies": {
+        "create-hash": "^1.1.0",
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/browserify-aes/node_modules/create-hash": {
+      "version": "1.1.1",
+      "integrity": "sha1-pVQk+XtTab+yqX5TvZt6GqbdOhc=",
+      "dependencies": {
+        "inherits": "^2.0.1",
+        "ripemd160": "^1.0.0",
+        "sha.js": "^2.3.6"
+      }
+    },
+    "node_modules/browserify-aes/node_modules/create-hash/node_modules/inherits": {
+      "resolved": "node_modules/asn1.js/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/browserify-aes/node_modules/create-hash/node_modules/ripemd160": {
+      "version": "1.0.0",
+      "integrity": "sha1-Ff0lHVbliEiEDz1YZKXPuyWRFMc="
+    },
+    "node_modules/browserify-aes/node_modules/create-hash/node_modules/sha.js": {
+      "version": "2.4.10",
+      "integrity": "sha512-vnwmrFDlOExK4Nm16J2KMWHLrp14lBrjxMxBJpu++EnsuBmpiYaM/MEs46Vxxm/4FvdP5yTwuCTO9it5FSjrqA==",
+      "dependencies": {
+        "inherits": "^2.0.1",
+        "safe-buffer": "^5.0.1"
+      },
+      "bin": {
+        "sha.js": "bin.js"
+      }
+    },
+    "node_modules/browserify-aes/node_modules/create-hash/node_modules/sha.js/node_modules/inherits": {
+      "resolved": "node_modules/asn1.js/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/browserify-aes/node_modules/create-hash/node_modules/sha.js/node_modules/safe-buffer": {
+      "resolved": "node_modules/safe-buffer",
+      "link": true
+    },
+    "node_modules/browserify-aes/node_modules/inherits": {
+      "resolved": "node_modules/asn1.js/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/evp_bytestokey": {
+      "version": "1.0.0",
+      "integrity": "sha1-SXtmrZ/vZc18CKYYCCS6FHa2blM=",
+      "dependencies": {
+        "create-hash": "^1.1.1"
+      }
+    },
+    "node_modules/evp_bytestokey/node_modules/create-hash": {
+      "resolved": "node_modules/browserify-aes/node_modules/create-hash",
+      "link": true
+    },
+    "node_modules/pbkdf2": {
+      "version": "3.0.8",
+      "integrity": "sha1-L4q/FuvsyCJ3lF10irodeHYfYeI=",
+      "dependencies": {
+        "create-hmac": "^1.1.2"
+      },
+      "engines": {
+        "node": ">=0.12"
+      }
+    },
+    "node_modules/pbkdf2/node_modules/create-hmac": {
+      "version": "1.1.4",
+      "integrity": "sha1-0/tLolPriz9W456i+8uK90e9MXA=",
+      "dependencies": {
+        "create-hash": "^1.1.0",
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/pbkdf2/node_modules/create-hmac/node_modules/create-hash": {
+      "resolved": "node_modules/browserify-aes/node_modules/create-hash",
+      "link": true
+    },
+    "node_modules/pbkdf2/node_modules/create-hmac/node_modules/inherits": {
+      "resolved": "node_modules/asn1.js/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/safe-buffer": {
+      "version": "5.2.0",
+      "integrity": "sha512-fZEwUGbVl7kouZs1jCdMLdt95hdIv0ZeHg6L7qPeciMZhZ+/gdesW4wgTARkrFWEpspjEATAzUGPG8N2jJiwbg=="
+    }
+  }
+}

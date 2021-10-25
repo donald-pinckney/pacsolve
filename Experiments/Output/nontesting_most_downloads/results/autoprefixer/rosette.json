@@ -1,0 +1,88 @@
+{
+  "install-success": true,
+  "install_time": 3.129534959793091,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/browserslist": {
+      "version": "4.17.1",
+      "integrity": "sha512-aLD0ZMDSnF4lUt4ZDNgqi5BUn9BZ7YdQdI/cYlILrhdSSZJLU9aNZoD5/NBmM4SK34APB2e83MOsRt1EnkuyaQ==",
+      "dependencies": {
+        "caniuse-lite": "^1.0.30001259",
+        "electron-to-chromium": "^1.3.846",
+        "escalade": "^3.1.1",
+        "nanocolors": "^0.1.5",
+        "node-releases": "^1.1.76"
+      },
+      "bin": {
+        "browserslist": "cli.js"
+      },
+      "engines": {
+        "node": "^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/browserslist"
+      }
+    },
+    "node_modules/browserslist/node_modules/caniuse-lite": {
+      "resolved": "node_modules/caniuse-lite",
+      "link": true
+    },
+    "node_modules/browserslist/node_modules/electron-to-chromium": {
+      "version": "1.3.855",
+      "integrity": "sha512-4g104x65rHM+Wv/0VPh36s6YRBXP4mebpLSNtwTOpUvxyzAmdQGPoxYdg4MiaxvQnJh2xxcAwDOXYa1SMRr2WQ=="
+    },
+    "node_modules/browserslist/node_modules/escalade": {
+      "version": "3.1.1",
+      "integrity": "sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==",
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/browserslist/node_modules/nanocolors": {
+      "resolved": "node_modules/nanocolors",
+      "link": true
+    },
+    "node_modules/browserslist/node_modules/node-releases": {
+      "version": "1.1.76",
+      "integrity": "sha512-9/IECtNr8dXNmPWmFXepT0/7o5eolGesHUa3mtr0KlgnCvnZxwh2qensKL42JJY2vQKC3nIBXetFAqR+PW1CmA=="
+    },
+    "node_modules/caniuse-lite": {
+      "version": "1.0.30001265",
+      "integrity": "sha512-YzBnspggWV5hep1m9Z6sZVLOt7vrju8xWooFAgN6BA5qvy98qPAPb7vNUzypFaoh2pb3vlfzbDO8tB57UPGbtw==",
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/browserslist"
+      }
+    },
+    "node_modules/fraction.js": {
+      "version": "4.1.1",
+      "integrity": "sha512-MHOhvvxHTfRFpF1geTK9czMIZ6xclsEor2wkIGYYq+PxcQqT7vStJqjhe6S1TenZrMZzo+wlqOufBDVepUEgPg==",
+      "engines": {
+        "node": "*"
+      },
+      "funding": {
+        "type": "patreon",
+        "url": "https://www.patreon.com/infusion"
+      }
+    },
+    "node_modules/nanocolors": {
+      "version": "0.1.5",
+      "integrity": "sha512-8qaMI2gVxDmSUgoSXwWwkDDKxVePjhYaPIoy0e1xRMP52EAQINxGJ04GfyUPs+Z2g83RPwuHx+mBiaUFJGfTCA==",
+      "engines": {
+        "node": "^8.0.0 || ^10.0.0 || ^12.0.0 || ^14.0.0 || >=16.0.0"
+      }
+    },
+    "node_modules/normalize-range": {
+      "version": "0.1.2",
+      "integrity": "sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/postcss-value-parser": {
+      "version": "4.1.0",
+      "integrity": "sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ=="
+    }
+  }
+}

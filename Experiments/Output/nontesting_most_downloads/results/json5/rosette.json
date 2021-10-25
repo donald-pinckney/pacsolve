@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.3693735599517822,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/minimist": {
+      "version": "1.2.5",
+      "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw=="
+    }
+  }
+}

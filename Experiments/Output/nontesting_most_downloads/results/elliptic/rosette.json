@@ -1,0 +1,59 @@
+{
+  "install-success": true,
+  "install_time": 6.096149921417236,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/bn.js": {
+      "version": "4.11.9",
+      "integrity": "sha512-E6QoYqCKZfgatHTdHzs1RRKP7ip4vvm+EyRUeE2RF0NblwVvb0p6jSVeNTOFxPn26QXN2o6SMfNxKp6kU8zQaw=="
+    },
+    "node_modules/brorand": {
+      "version": "1.1.0",
+      "integrity": "sha1-EsJe/kCkXjwyPrhnWgoM5XsiNx8="
+    },
+    "node_modules/hash.js": {
+      "version": "1.0.3",
+      "integrity": "sha1-EzL/ABVsCg/92CNgE9B7d6BFFXM=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/hash.js/node_modules/inherits": {
+      "resolved": "node_modules/inherits",
+      "link": true
+    },
+    "node_modules/hmac-drbg": {
+      "version": "1.0.1",
+      "integrity": "sha1-0nRXAQJabHdabFRXk+1QL8DGSaE=",
+      "dependencies": {
+        "hash.js": "^1.0.3",
+        "minimalistic-assert": "^1.0.0",
+        "minimalistic-crypto-utils": "^1.0.1"
+      }
+    },
+    "node_modules/hmac-drbg/node_modules/hash.js": {
+      "resolved": "node_modules/hash.js",
+      "link": true
+    },
+    "node_modules/hmac-drbg/node_modules/minimalistic-assert": {
+      "resolved": "node_modules/minimalistic-assert",
+      "link": true
+    },
+    "node_modules/hmac-drbg/node_modules/minimalistic-crypto-utils": {
+      "resolved": "node_modules/minimalistic-crypto-utils",
+      "link": true
+    },
+    "node_modules/inherits": {
+      "version": "2.0.4",
+      "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+    },
+    "node_modules/minimalistic-assert": {
+      "version": "1.0.1",
+      "integrity": "sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A=="
+    },
+    "node_modules/minimalistic-crypto-utils": {
+      "version": "1.0.1",
+      "integrity": "sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo="
+    }
+  }
+}

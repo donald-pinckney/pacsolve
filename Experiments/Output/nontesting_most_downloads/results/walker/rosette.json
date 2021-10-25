@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.679572582244873,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/makeerror": {
+      "version": "1.0.1",
+      "integrity": "sha1-gNADhfATXf4VYOMTQlDXOEF23/4=",
+      "engines": {
+        "node": ">= 0.4.1"
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "install-success": true,
+  "install_time": 2.5857229232788086,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/string-width": {
+      "version": "5.0.0",
+      "integrity": "sha512-zwXcRmLUdiWhMPrHz6EXITuyTgcEnUqDzspTkCLhQovxywWz6NP9VHgqfVg20V/1mUg0B95AKbXxNT+ALRmqCw==",
+      "dependencies": {
+        "emoji-regex": "^9.2.2",
+        "is-fullwidth-code-point": "^4.0.0",
+        "strip-ansi": "^7.0.0"
+      },
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/string-width/node_modules/emoji-regex": {
+      "version": "9.2.2",
+      "integrity": "sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg=="
+    },
+    "node_modules/string-width/node_modules/is-fullwidth-code-point": {
+      "version": "4.0.0",
+      "integrity": "sha512-O4L094N2/dZ7xqVdrXhh9r1KODPJpFms8B5sGdJLPy664AgvXsreZUyCQQNItZRDlYug4xStLjNp/sz3HvBowQ==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/string-width/node_modules/strip-ansi": {
+      "version": "7.0.0",
+      "integrity": "sha512-UhDTSnGF1dc0DRbUqr1aXwNoY3RgVkSWG8BrpnuFIxhP57IqbS7IRta2Gfiavds4yCxc5+fEAVVOgBZWnYkvzg==",
+      "dependencies": {
+        "ansi-regex": "^6.0.0"
+      },
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/chalk/strip-ansi?sponsor=1"
+      }
+    },
+    "node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex": {
+      "version": "6.0.0",
+      "integrity": "sha512-tAaOSrWCHF+1Ear1Z4wnJCXA9GGox4K6Ic85a5qalES2aeEwQGr7UC93mwef49536PkCYjzkp0zIxfFvexJ6zQ==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/chalk/ansi-regex?sponsor=1"
+      }
+    }
+  }
+}

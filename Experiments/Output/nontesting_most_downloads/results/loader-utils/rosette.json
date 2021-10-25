@@ -1,0 +1,38 @@
+{
+  "install-success": true,
+  "install_time": 2.662189483642578,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/big.js": {
+      "version": "5.2.2",
+      "integrity": "sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==",
+      "engines": {
+        "node": "*"
+      }
+    },
+    "node_modules/emojis-list": {
+      "version": "3.0.0",
+      "integrity": "sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==",
+      "engines": {
+        "node": ">= 4"
+      }
+    },
+    "node_modules/json5": {
+      "version": "2.2.0",
+      "integrity": "sha512-f+8cldu7X/y7RAJurMEJmdoKXGB/X550w2Nr3tTbezL6RwEE/iMcm+tZnXeoZtKuOq6ft8+CqzEkrIgx1fPoQA==",
+      "dependencies": {
+        "minimist": "^1.2.5"
+      },
+      "bin": {
+        "json5": "lib/cli.js"
+      },
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/json5/node_modules/minimist": {
+      "version": "1.2.5",
+      "integrity": "sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw=="
+    }
+  }
+}

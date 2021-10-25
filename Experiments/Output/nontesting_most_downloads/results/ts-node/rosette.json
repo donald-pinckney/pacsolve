@@ -1,0 +1,83 @@
+{
+  "install-success": true,
+  "install_time": 2.9455912113189697,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@cspotcode/source-map-support": {
+      "version": "0.6.1",
+      "integrity": "sha512-DX3Z+T5dt1ockmPdobJS/FAsQPW4V4SrWEhD2iYQT2Cb2tQsiMnYxrcUH9By/Z3B+v0S5LMBkQtV/XOBbpLEOg==",
+      "dependencies": {
+        "@cspotcode/source-map-consumer": "0.8.0"
+      },
+      "engines": {
+        "node": ">=12"
+      }
+    },
+    "node_modules/@cspotcode/source-map-support/node_modules/@cspotcode/source-map-consumer": {
+      "version": "0.8.0",
+      "integrity": "sha512-41qniHzTU8yAGbCp04ohlmSrZf8bkf/iJsl3V0dRGsQN/5GFfx+LbCSsCpp2gqrqjTVg/K6O8ycoV35JIwAzAg==",
+      "engines": {
+        "node": ">= 12"
+      }
+    },
+    "node_modules/@tsconfig/node10": {
+      "version": "1.0.7",
+      "integrity": "sha512-aBvUmXLQbayM4w3A8TrjwrXs4DZ8iduJnuJLLRGdkWlyakCf1q6uHZJBzXoRA/huAEknG5tcUyQxN3A+In5euQ=="
+    },
+    "node_modules/@tsconfig/node12": {
+      "version": "1.0.8",
+      "integrity": "sha512-LM6XwBhjZRls1qJGpiM/It09SntEwe9M0riXRfQ9s6XlJQG0JPGl92ET18LtGeYh/GuOtafIXqwZeqLOd0FNFQ=="
+    },
+    "node_modules/@tsconfig/node14": {
+      "version": "1.0.0",
+      "integrity": "sha512-RKkL8eTdPv6t5EHgFKIVQgsDapugbuOptNd9OOunN/HAkzmmTnZELx1kNCK0rSdUYGmiFMM3rRQMAWiyp023LQ=="
+    },
+    "node_modules/@tsconfig/node16": {
+      "version": "1.0.2",
+      "integrity": "sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA=="
+    },
+    "node_modules/acorn": {
+      "version": "8.4.1",
+      "integrity": "sha512-asabaBSkEKosYKMITunzX177CXxQ4Q8BSSzMTKD+FefUhipQC70gfW5SiUDhYQ3vk8G+81HqQk7Fv9OXwwn9KA==",
+      "bin": {
+        "acorn": "bin/acorn"
+      },
+      "engines": {
+        "node": ">=0.4.0"
+      }
+    },
+    "node_modules/acorn-walk": {
+      "version": "8.1.1",
+      "integrity": "sha512-FbJdceMlPHEAWJOILDk1fXD8lnTlEIWFkqtfk+MvmL5q/qlHfN7GEHcsFZWt/Tea9jRNPWUZG4G976nqAAmU9w==",
+      "engines": {
+        "node": ">=0.4.0"
+      }
+    },
+    "node_modules/arg": {
+      "version": "4.1.0",
+      "integrity": "sha512-ZWc51jO3qegGkVh8Hwpv636EkbesNV5ZNQPCtRa+0qytRYPEs9IYT9qITY9buezqUH5uqyzlWLcufrzU2rffdg=="
+    },
+    "node_modules/create-require": {
+      "version": "1.1.0",
+      "integrity": "sha512-yEFVS7dQjDXp5iOEtWisN4uFmL+pUTyIaEizKda9Eb77XX58p6pgFOLAPaBCP+IR6ZPZ1jgJLAuf+ABk0zXYBQ=="
+    },
+    "node_modules/diff": {
+      "version": "4.0.1",
+      "integrity": "sha512-s2+XdvhPCOF01LRQBC8hf4vhbVmI2CGS5aZnxLJlT5FtdhPCDFq80q++zK2KlrVorVDdL5BOGZ/VfLrVtYNF+Q==",
+      "engines": {
+        "node": ">=0.3.1"
+      }
+    },
+    "node_modules/make-error": {
+      "version": "1.2.1",
+      "integrity": "sha1-mm37SERCO58UWAZyjQXG6TVnDnU="
+    },
+    "node_modules/yn": {
+      "version": "3.1.1",
+      "integrity": "sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==",
+      "engines": {
+        "node": ">=6"
+      }
+    }
+  }
+}

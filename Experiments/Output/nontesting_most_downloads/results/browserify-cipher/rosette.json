@@ -1,0 +1,111 @@
+{
+  "install-success": true,
+  "install_time": 3.336972713470459,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/browserify-aes": {
+      "version": "1.0.4",
+      "integrity": "sha1-8jODjW8XWVmZYMChnoXKFjD0u24=",
+      "dependencies": {
+        "buffer-xor": "^1.0.2",
+        "create-hash": "^1.1.0",
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/browserify-aes/node_modules/buffer-xor": {
+      "version": "1.0.2",
+      "integrity": "sha1-Ix5EVx9kS94HiQJvYd5ukjFnEko="
+    },
+    "node_modules/browserify-aes/node_modules/create-hash": {
+      "version": "1.1.2",
+      "integrity": "sha1-USEAYte7dHn2xlu0GpIgix1hq60=",
+      "dependencies": {
+        "cipher-base": "^1.0.1",
+        "inherits": "^2.0.1",
+        "ripemd160": "^1.0.0",
+        "sha.js": "^2.3.6"
+      }
+    },
+    "node_modules/browserify-aes/node_modules/create-hash/node_modules/cipher-base": {
+      "resolved": "node_modules/browserify-des/node_modules/cipher-base",
+      "link": true
+    },
+    "node_modules/browserify-aes/node_modules/create-hash/node_modules/inherits": {
+      "resolved": "node_modules/browserify-aes/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/browserify-aes/node_modules/create-hash/node_modules/ripemd160": {
+      "version": "1.0.1",
+      "integrity": "sha1-k6S71JQrxXS2mo+lfHHeEOzKfW4="
+    },
+    "node_modules/browserify-aes/node_modules/create-hash/node_modules/sha.js": {
+      "version": "2.4.4",
+      "integrity": "sha1-2hsIj95Gye1PF+bSnyn0ko6Y4lE=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      },
+      "bin": {
+        "sha.js": "bin.js"
+      }
+    },
+    "node_modules/browserify-aes/node_modules/create-hash/node_modules/sha.js/node_modules/inherits": {
+      "resolved": "node_modules/browserify-aes/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/browserify-aes/node_modules/inherits": {
+      "version": "2.0.1",
+      "integrity": "sha1-sX0I0ya0Qj5Wjv9xn5GwscvfafE="
+    },
+    "node_modules/browserify-des": {
+      "version": "1.0.1",
+      "integrity": "sha512-zy0Cobe3hhgpiOM32Tj7KQ3Vl91m0njwsjzZQK1L+JDf11dzP9qIvjreVinsvXrgfjhStXwUWAEpB9D7Gwmayw==",
+      "dependencies": {
+        "cipher-base": "^1.0.1",
+        "des.js": "^1.0.0",
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/browserify-des/node_modules/cipher-base": {
+      "version": "1.0.2",
+      "integrity": "sha1-VKwdHr32obzTVZ5vNp1yaX8sq48=",
+      "dependencies": {
+        "inherits": "^2.0.1"
+      }
+    },
+    "node_modules/browserify-des/node_modules/cipher-base/node_modules/inherits": {
+      "resolved": "node_modules/browserify-aes/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/browserify-des/node_modules/des.js": {
+      "version": "1.0.0",
+      "integrity": "sha1-wHTS4qpqipoH29YfmhXCzYPsjsw=",
+      "dependencies": {
+        "inherits": "^2.0.1",
+        "minimalistic-assert": "^1.0.0"
+      }
+    },
+    "node_modules/browserify-des/node_modules/des.js/node_modules/inherits": {
+      "resolved": "node_modules/browserify-aes/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/browserify-des/node_modules/des.js/node_modules/minimalistic-assert": {
+      "version": "1.0.0",
+      "integrity": "sha1-cCvi3aazf0g2vLP121ZkG2Sh09M="
+    },
+    "node_modules/browserify-des/node_modules/inherits": {
+      "resolved": "node_modules/browserify-aes/node_modules/inherits",
+      "link": true
+    },
+    "node_modules/evp_bytestokey": {
+      "version": "1.0.0",
+      "integrity": "sha1-SXtmrZ/vZc18CKYYCCS6FHa2blM=",
+      "dependencies": {
+        "create-hash": "^1.1.1"
+      }
+    },
+    "node_modules/evp_bytestokey/node_modules/create-hash": {
+      "resolved": "node_modules/browserify-aes/node_modules/create-hash",
+      "link": true
+    }
+  }
+}

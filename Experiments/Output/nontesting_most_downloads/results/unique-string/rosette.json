@@ -1,0 +1,30 @@
+{
+  "install-success": true,
+  "install_time": 2.8480796813964844,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/crypto-random-string": {
+      "version": "4.0.0",
+      "integrity": "sha512-x8dy3RnvYdlUcPOjkEHqozhiwzKNSq7GcPuXFbnyMOCHxX8V3OgIg/pYuabl2sbUPfIJaeAQB7PMOK8DFIdoRA==",
+      "dependencies": {
+        "type-fest": "^1.0.1"
+      },
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    },
+    "node_modules/crypto-random-string/node_modules/type-fest": {
+      "version": "1.1.0",
+      "integrity": "sha512-FOsvVPp1WTW495bqemynRS6f6Izea0hKSuDGCxkisBi6KIFaIc8r+ZCs20VT8bySbjh3J9kmnu2eHG4NoZArMw==",
+      "engines": {
+        "node": ">=10"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    }
+  }
+}

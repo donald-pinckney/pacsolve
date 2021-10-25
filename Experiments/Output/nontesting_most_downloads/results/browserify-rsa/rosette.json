@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 2.7823026180267334,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/bn.js": {
+      "version": "5.1.0",
+      "integrity": "sha512-NiyuqJjtPhXcJDc8I+YeyZceSMViT39AvuFJCH3ieMcOsRvZsp2luMrGSnQaqN6HVJMvSgydLnkvw5N4xvuIoQ=="
+    },
+    "node_modules/randombytes": {
+      "version": "2.0.3",
+      "integrity": "sha1-Z0yZdgkBw8QRJ3GjHlIdw0nMCew="
+    }
+  }
+}

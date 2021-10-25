@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 2.907021999359131,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/minipass": {
+      "version": "3.0.0",
+      "integrity": "sha512-FKNU4XrAPDX0+ynwns7njVu4RolyG1mUKSlT6n6GwGXLtYSYh2Znc0S83Rl6zEr1zgFfXvAzIBabnmItm+n19g==",
+      "dependencies": {
+        "yallist": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=8"
+      }
+    },
+    "node_modules/minipass/node_modules/yallist": {
+      "version": "4.0.0",
+      "integrity": "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="
+    }
+  }
+}

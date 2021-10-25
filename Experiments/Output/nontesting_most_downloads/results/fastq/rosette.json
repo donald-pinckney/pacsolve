@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 2.32179594039917,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/reusify": {
+      "version": "1.0.4",
+      "integrity": "sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==",
+      "engines": {
+        "iojs": ">=1.0.0",
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

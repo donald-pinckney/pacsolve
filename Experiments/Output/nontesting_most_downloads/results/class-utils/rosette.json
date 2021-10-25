@@ -1,0 +1,103 @@
+{
+  "install-success": true,
+  "install_time": 3.119858503341675,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/arr-union": {
+      "version": "3.1.0",
+      "integrity": "sha1-45sJrqne+Gao8gbiiK9jkZuuOcQ=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property": {
+      "version": "0.2.5",
+      "integrity": "sha1-w1se+RjsPJkPmlvFe+BKrOxcgRY=",
+      "dependencies": {
+        "is-descriptor": "^0.1.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor": {
+      "version": "0.1.6",
+      "integrity": "sha512-avDYr0SB3DwO9zsMov0gKCESFYqCnE4hq/4z3TdUlukEy5t9C0YRq7HLrsN52NAcqXKaepeCD0n+B0arnVG3Hg==",
+      "dependencies": {
+        "is-accessor-descriptor": "^0.1.6",
+        "is-data-descriptor": "^0.1.4",
+        "kind-of": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor": {
+      "version": "0.1.6",
+      "integrity": "sha1-qeEss66Nh2cn7u84Q/igiXtcmNY=",
+      "dependencies": {
+        "kind-of": "^3.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor/node_modules/kind-of": {
+      "version": "3.0.4",
+      "integrity": "sha1-e47PGKThf4Jp1ztQHJ8jLJaIenQ=",
+      "dependencies": {
+        "is-buffer": "^1.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor/node_modules/kind-of/node_modules/is-buffer": {
+      "version": "1.0.2",
+      "integrity": "sha1-9cbAUdc/hvEbTuFCZ8wQKfziYdA=",
+      "deprecated": "This version of 'is-buffer' is out-of-date. You must update to v1.1.6 or newer"
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-data-descriptor": {
+      "version": "0.1.4",
+      "integrity": "sha1-C17mSDiOLIYCgueT8YVv7D8wG1Y=",
+      "dependencies": {
+        "kind-of": "^3.0.2"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/is-data-descriptor/node_modules/kind-of": {
+      "resolved": "node_modules/define-property/node_modules/is-descriptor/node_modules/is-accessor-descriptor/node_modules/kind-of",
+      "link": true
+    },
+    "node_modules/define-property/node_modules/is-descriptor/node_modules/kind-of": {
+      "version": "5.0.0",
+      "integrity": "sha512-3cdQgopAksY6yov9pwjIhZ46ZuQajM25YhFfbCX/tbIJ0ILpqOyz5tImIResGL8uaMSudk6pGzREGBk89T4BfQ==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/isobject": {
+      "version": "3.0.0",
+      "integrity": "sha1-OVZSF/NmF4nooKDAgNX35rxG4aA=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/static-extend": {
+      "version": "0.1.1",
+      "integrity": "sha1-fy+w1CoQIML1kZ2rxJO0KRI4AGA=",
+      "dependencies": {
+        "define-property": "^0.2.5"
+      },
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/static-extend/node_modules/define-property": {
+      "resolved": "node_modules/define-property",
+      "link": true
+    }
+  }
+}

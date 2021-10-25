@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.652970790863037,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ini": {
+      "version": "2.0.0",
+      "integrity": "sha512-7PnF4oN3CvZF23ADhA5wRaYEQpJ8qygSkbtTXWBeXWXmEVRXK+1ITciHWwHhsjv1TmW0MgacIv6hEi5pX5NQdA==",
+      "engines": {
+        "node": ">=10"
+      }
+    }
+  }
+}

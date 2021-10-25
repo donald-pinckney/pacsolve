@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 1.7693123817443848,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: abab@2.0.5\nnpm ERR! Found: webpack@4.46.0\nnpm ERR! node_modules/webpack\nnpm ERR!   dev webpack@\"^4.5.0\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer webpack@\"^2.0.0 || ^3.0.0\" from karma-webpack@3.0.5\nnpm ERR! node_modules/karma-webpack\nnpm ERR!   dev karma-webpack@\"^3.0.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /home/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T02_32_48_602Z-debug.log\n"
+  }
+}

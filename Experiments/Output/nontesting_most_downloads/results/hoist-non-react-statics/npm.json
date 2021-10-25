@@ -1,0 +1,12 @@
+{
+  "install-success": true,
+  "install_time": 6.130408048629761,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/react-is": {
+      "version": "16.13.1",
+      "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
+      "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.585592746734619,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/path-key": {
+      "version": "3.1.1",
+      "integrity": "sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

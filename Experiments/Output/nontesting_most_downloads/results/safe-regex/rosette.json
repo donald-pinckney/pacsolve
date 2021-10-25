@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 4.068187952041626,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/regexp-tree": {
+      "version": "0.1.9",
+      "integrity": "sha512-tmR40rXVRpdCsWBUec8pL4Qj5wAif5BLKsgV8hEhOwLU19Daz6x0FFA9VG0vaqx97sl4XYU+a2o0hEQRfWyvjQ==",
+      "bin": {
+        "regexp-tree": "bin/regexp-tree"
+      }
+    }
+  }
+}

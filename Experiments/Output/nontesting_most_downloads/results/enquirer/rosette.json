@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 2.7874135971069336,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ansi-colors": {
+      "version": "4.1.1",
+      "integrity": "sha512-JoX0apGbHaUJBNl6yF+p6JAFYZ666/hhCGKN5t9QFjbJQKUU/g8MNbFDbvfrgKXvI1QpZplPOnwIo99lX/AAmA==",
+      "engines": {
+        "node": ">=6"
+      }
+    }
+  }
+}

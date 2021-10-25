@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 2.5590291023254395,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/is-arrayish": {
+      "version": "0.3.1",
+      "integrity": "sha1-wt/DhquqDD4zxI2z/ocFnmkGXv0="
+    }
+  }
+}

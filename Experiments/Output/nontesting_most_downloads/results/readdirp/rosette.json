@@ -1,0 +1,17 @@
+{
+  "install-success": true,
+  "install_time": 2.3378069400787354,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/picomatch": {
+      "version": "2.2.1",
+      "integrity": "sha512-ISBaA8xQNmwELC7eOjqFKMESB2VIqt4PPDD0nsS95b/9dZXvVKOlz9keMSnoGGKcOHXfTvDD6WMaRoSc9UuhRA==",
+      "engines": {
+        "node": ">=8.6"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/jonschlinkert"
+      }
+    }
+  }
+}

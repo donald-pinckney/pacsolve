@@ -1,0 +1,17 @@
+{
+  "install-success": true,
+  "install_time": 2.666898250579834,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/yocto-queue": {
+      "version": "1.0.0",
+      "integrity": "sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==",
+      "engines": {
+        "node": ">=12.20"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    }
+  }
+}

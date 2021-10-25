@@ -1,0 +1,15 @@
+{
+  "install-success": true,
+  "install_time": 6.426684617996216,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/ini": {
+      "version": "2.0.0",
+      "resolved": "https://registry.npmjs.org/ini/-/ini-2.0.0.tgz",
+      "integrity": "sha512-7PnF4oN3CvZF23ADhA5wRaYEQpJ8qygSkbtTXWBeXWXmEVRXK+1ITciHWwHhsjv1TmW0MgacIv6hEi5pX5NQdA==",
+      "engines": {
+        "node": ">=10"
+      }
+    }
+  }
+}

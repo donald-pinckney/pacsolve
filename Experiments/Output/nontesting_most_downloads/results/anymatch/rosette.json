@@ -1,0 +1,21 @@
+{
+  "install-success": true,
+  "install_time": 2.780095100402832,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/normalize-path": {
+      "version": "3.0.0",
+      "integrity": "sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/picomatch": {
+      "version": "2.0.5",
+      "integrity": "sha512-Zisqgaq/4P05ZclrU/g5XrzFqVo7YiJx+EP4haeVI9S7kvtZmZgmQMZfcvjEus9JcMhqZfQZObimT5ZydvKJGA==",
+      "engines": {
+        "node": ">=8"
+      }
+    }
+  }
+}

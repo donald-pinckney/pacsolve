@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 2.321277141571045,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code EUNSUPPORTEDPROTOCOL\nnpm ERR! Unsupported URL Type \"link:\": link:./scripts/eslint-plugin\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T02_04_41_381Z-debug.log\n"
+  }
+}

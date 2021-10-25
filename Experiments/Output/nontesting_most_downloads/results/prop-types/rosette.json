@@ -1,0 +1,32 @@
+{
+  "install-success": true,
+  "install_time": 2.4497878551483154,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/loose-envify": {
+      "version": "1.4.0",
+      "integrity": "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==",
+      "dependencies": {
+        "js-tokens": "^3.0.0 || ^4.0.0"
+      },
+      "bin": {
+        "loose-envify": "cli.js"
+      }
+    },
+    "node_modules/loose-envify/node_modules/js-tokens": {
+      "version": "3.0.0",
+      "integrity": "sha1-ovKpacquFC+zzVYig1jIk2aVe9E="
+    },
+    "node_modules/object-assign": {
+      "version": "4.1.1",
+      "integrity": "sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/react-is": {
+      "version": "16.8.3",
+      "integrity": "sha512-Y4rC1ZJmsxxkkPuMLwvKvlL1Zfpbcu+Bf4ZigkHup3v9EfdYhAlWAaVyA19olXq2o2mGn0w+dFKvk3pVVlYcIA=="
+    }
+  }
+}

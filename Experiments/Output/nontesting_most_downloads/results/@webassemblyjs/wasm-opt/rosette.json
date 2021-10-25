@@ -1,0 +1,125 @@
+{
+  "install-success": true,
+  "install_time": 2.5359079837799072,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@webassemblyjs/ast": {
+      "version": "1.11.1",
+      "integrity": "sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw==",
+      "dependencies": {
+        "@webassemblyjs/helper-numbers": "1.11.1",
+        "@webassemblyjs/helper-wasm-bytecode": "1.11.1"
+      }
+    },
+    "node_modules/@webassemblyjs/ast/node_modules/@webassemblyjs/helper-numbers": {
+      "version": "1.11.1",
+      "integrity": "sha512-vDkbxiB8zfnPdNK9Rajcey5C0w+QJugEglN0of+kmO8l7lDb77AnlKYQF7aarZuCrv+l0UvqL+68gSDr3k9LPQ==",
+      "dependencies": {
+        "@webassemblyjs/floating-point-hex-parser": "1.11.1",
+        "@webassemblyjs/helper-api-error": "1.11.1",
+        "@xtuc/long": "4.2.2"
+      }
+    },
+    "node_modules/@webassemblyjs/ast/node_modules/@webassemblyjs/helper-numbers/node_modules/@webassemblyjs/floating-point-hex-parser": {
+      "version": "1.11.1",
+      "integrity": "sha512-iGRfyc5Bq+NnNuX8b5hwBrRjzf0ocrJPI6GWFodBFzmFnyvrQ83SHKhmilCU/8Jv67i4GJZBMhEzltxzcNagtQ=="
+    },
+    "node_modules/@webassemblyjs/ast/node_modules/@webassemblyjs/helper-numbers/node_modules/@webassemblyjs/helper-api-error": {
+      "resolved": "node_modules/@webassemblyjs/wasm-parser/node_modules/@webassemblyjs/helper-api-error",
+      "link": true
+    },
+    "node_modules/@webassemblyjs/ast/node_modules/@webassemblyjs/helper-numbers/node_modules/@xtuc/long": {
+      "version": "4.2.2",
+      "integrity": "sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ=="
+    },
+    "node_modules/@webassemblyjs/ast/node_modules/@webassemblyjs/helper-wasm-bytecode": {
+      "version": "1.11.1",
+      "integrity": "sha512-PvpoOGiJwXeTrSf/qfudJhwlvDQxFgelbMqtq52WWiXC6Xgg1IREdngmPN3bs4RoO83PnL/nFrxucXj1+BX62Q=="
+    },
+    "node_modules/@webassemblyjs/helper-buffer": {
+      "version": "1.11.1",
+      "integrity": "sha512-gwikF65aDNeeXa8JxXa2BAk+REjSyhrNC9ZwdT0f8jc4dQQeDQ7G4m0f2QCLPJiMTTO6wfDmRmj/pW0PsUvIcA=="
+    },
+    "node_modules/@webassemblyjs/wasm-gen": {
+      "version": "1.11.1",
+      "integrity": "sha512-F7QqKXwwNlMmsulj6+O7r4mmtAlCWfO/0HdgOxSklZfQcDu0TpLiD1mRt/zF25Bk59FIjEuGAIyn5ei4yMfLhA==",
+      "dependencies": {
+        "@webassemblyjs/ast": "1.11.1",
+        "@webassemblyjs/helper-wasm-bytecode": "1.11.1",
+        "@webassemblyjs/ieee754": "1.11.1",
+        "@webassemblyjs/leb128": "1.11.1",
+        "@webassemblyjs/utf8": "1.11.1"
+      }
+    },
+    "node_modules/@webassemblyjs/wasm-gen/node_modules/@webassemblyjs/ast": {
+      "resolved": "node_modules/@webassemblyjs/ast",
+      "link": true
+    },
+    "node_modules/@webassemblyjs/wasm-gen/node_modules/@webassemblyjs/helper-wasm-bytecode": {
+      "resolved": "node_modules/@webassemblyjs/ast/node_modules/@webassemblyjs/helper-wasm-bytecode",
+      "link": true
+    },
+    "node_modules/@webassemblyjs/wasm-gen/node_modules/@webassemblyjs/ieee754": {
+      "version": "1.11.1",
+      "integrity": "sha512-hJ87QIPtAMKbFq6CGTkZYJivEwZDbQUgYd3qKSadTNOhVY7p+gfP6Sr0lLRVTaG1JjFj+r3YchoqRYxNH3M0GQ==",
+      "dependencies": {
+        "@xtuc/ieee754": "^1.2.0"
+      }
+    },
+    "node_modules/@webassemblyjs/wasm-gen/node_modules/@webassemblyjs/ieee754/node_modules/@xtuc/ieee754": {
+      "version": "1.2.0",
+      "integrity": "sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA=="
+    },
+    "node_modules/@webassemblyjs/wasm-gen/node_modules/@webassemblyjs/leb128": {
+      "version": "1.11.1",
+      "integrity": "sha512-BJ2P0hNZ0u+Th1YZXJpzW6miwqQUGcIHT1G/sf72gLVD9DZ5AdYTqPNbHZh6K1M5VmKvFXwGSWZADz+qBWxeRw==",
+      "dependencies": {
+        "@xtuc/long": "4.2.2"
+      }
+    },
+    "node_modules/@webassemblyjs/wasm-gen/node_modules/@webassemblyjs/leb128/node_modules/@xtuc/long": {
+      "resolved": "node_modules/@webassemblyjs/ast/node_modules/@webassemblyjs/helper-numbers/node_modules/@xtuc/long",
+      "link": true
+    },
+    "node_modules/@webassemblyjs/wasm-gen/node_modules/@webassemblyjs/utf8": {
+      "version": "1.11.1",
+      "integrity": "sha512-9kqcxAEdMhiwQkHpkNiorZzqpGrodQQ2IGrHHxCy+Ozng0ofyMA0lTqiLkVs1uzTRejX+/O0EOT7KxqVPuXosQ=="
+    },
+    "node_modules/@webassemblyjs/wasm-parser": {
+      "version": "1.11.1",
+      "integrity": "sha512-rrBujw+dJu32gYB7/Lup6UhdkPx9S9SnobZzRVL7VcBH9Bt9bCBLEuX/YXOOtBsOZ4NQrRykKhffRWHvigQvOA==",
+      "dependencies": {
+        "@webassemblyjs/ast": "1.11.1",
+        "@webassemblyjs/helper-api-error": "1.11.1",
+        "@webassemblyjs/helper-wasm-bytecode": "1.11.1",
+        "@webassemblyjs/ieee754": "1.11.1",
+        "@webassemblyjs/leb128": "1.11.1",
+        "@webassemblyjs/utf8": "1.11.1"
+      }
+    },
+    "node_modules/@webassemblyjs/wasm-parser/node_modules/@webassemblyjs/ast": {
+      "resolved": "node_modules/@webassemblyjs/ast",
+      "link": true
+    },
+    "node_modules/@webassemblyjs/wasm-parser/node_modules/@webassemblyjs/helper-api-error": {
+      "version": "1.11.1",
+      "integrity": "sha512-RlhS8CBCXfRUR/cwo2ho9bkheSXG0+NwooXcc3PAILALf2QLdFyj7KGsKRbVc95hZnhnERon4kW/D3SZpp6Tcg=="
+    },
+    "node_modules/@webassemblyjs/wasm-parser/node_modules/@webassemblyjs/helper-wasm-bytecode": {
+      "resolved": "node_modules/@webassemblyjs/ast/node_modules/@webassemblyjs/helper-wasm-bytecode",
+      "link": true
+    },
+    "node_modules/@webassemblyjs/wasm-parser/node_modules/@webassemblyjs/ieee754": {
+      "resolved": "node_modules/@webassemblyjs/wasm-gen/node_modules/@webassemblyjs/ieee754",
+      "link": true
+    },
+    "node_modules/@webassemblyjs/wasm-parser/node_modules/@webassemblyjs/leb128": {
+      "resolved": "node_modules/@webassemblyjs/wasm-gen/node_modules/@webassemblyjs/leb128",
+      "link": true
+    },
+    "node_modules/@webassemblyjs/wasm-parser/node_modules/@webassemblyjs/utf8": {
+      "resolved": "node_modules/@webassemblyjs/wasm-gen/node_modules/@webassemblyjs/utf8",
+      "link": true
+    }
+  }
+}
