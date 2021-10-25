@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 0.8090078830718994,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: digital-keyboard-demos@1.0.1\nnpm ERR! Found: ajv@5.5.2\nnpm ERR! node_modules/ajv\nnpm ERR!   ajv@\"^5.5.2\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer ajv@\"^6.9.1\" from ajv-keywords@3.5.2\nnpm ERR! node_modules/ajv-keywords\nnpm ERR!   ajv-keywords@\"^3.2.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /mnt/data/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /mnt/data/donald/.npm/_logs/2021-10-20T20_03_48_258Z-debug.log\n"
+  }
+}

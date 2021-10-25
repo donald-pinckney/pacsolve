@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 3.3116164207458496,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: @ericmcornelius/ease@0.5.5\nnpm ERR! Found: react@16.14.0\nnpm ERR! node_modules/react\nnpm ERR!   bundled react@\"^16.8.6\" from the root project\nnpm ERR!   peer react@\"^15.0.0 || ^16.0.0 || ^17.0.0 \" from react-hot-loader@4.13.0\nnpm ERR!   node_modules/react-hot-loader\nnpm ERR!     bundled react-hot-loader@\"^4.8.8\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer react@\"17.0.2\" from react-dom@17.0.2\nnpm ERR! node_modules/react-dom\nnpm ERR!   peer react-dom@\"^15.0.0 || ^16.0.0 || ^17.0.0 \" from react-hot-loader@4.13.0\nnpm ERR!   node_modules/react-hot-loader\nnpm ERR!     bundled react-hot-loader@\"^4.8.8\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /mnt/data/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /mnt/data/donald/.npm/_logs/2021-10-20T20_21_20_921Z-debug.log\n"
+  }
+}

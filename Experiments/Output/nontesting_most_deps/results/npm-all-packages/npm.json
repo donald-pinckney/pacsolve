@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 84.63115382194519,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: npm-all-packages@1.0.0\nnpm ERR! Found: eslint-plugin-jsx-a11y@6.4.1\nnpm ERR! node_modules/eslint-plugin-jsx-a11y\nnpm ERR!   peer eslint-plugin-jsx-a11y@\"^6.4.1\" from eslint-config-airbnb@18.2.1\nnpm ERR!   node_modules/eslint-config-airbnb\nnpm ERR!     peer eslint-config-airbnb@\"^18.0.1\" from eslint-config-react-plugin@1.0.1\nnpm ERR!     node_modules/eslint-config-react-plugin\nnpm ERR!       eslint-config-react-plugin@\"latest\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer eslint-plugin-jsx-a11y@\"6.2.3\" from eslint-config-react-plugin@1.0.1\nnpm ERR! node_modules/eslint-config-react-plugin\nnpm ERR!   eslint-config-react-plugin@\"latest\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /mnt/data/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /mnt/data/donald/.npm/_logs/2021-10-20T20_03_22_227Z-debug.log\n"
+  }
+}

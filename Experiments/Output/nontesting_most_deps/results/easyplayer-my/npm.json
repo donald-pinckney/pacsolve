@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 30.036097764968872,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: easyplayer-my@3.3.9\nnpm ERR! Found: less@3.0.0-alpha.3\nnpm ERR! node_modules/less\nnpm ERR!   dev less@\"3.0.0-alpha.3\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer less@\"^2.3.1\" from less-loader@4.0.5\nnpm ERR! node_modules/less-loader\nnpm ERR!   dev less-loader@\"4.0.5\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /mnt/data/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /mnt/data/donald/.npm/_logs/2021-10-20T20_16_48_224Z-debug.log\n"
+  }
+}

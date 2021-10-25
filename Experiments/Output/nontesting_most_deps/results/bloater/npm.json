@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 600.1016020774841,
+  "error": {
+    "stage": "install timeout",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": null,
+    "stdout": null,
+    "stderr": null
+  }
+}

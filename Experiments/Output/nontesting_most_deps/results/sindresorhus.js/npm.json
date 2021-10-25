@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 4.58369517326355,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: sindresorhus.js@1.0.3\nnpm ERR! Found: ava@0.25.0\nnpm ERR! node_modules/ava\nnpm ERR!   ava@\"^0.25.0\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer ava@\"^1.0.0-beta.7\" from @ava/bucklescript@4.0.0-alpha.1\nnpm ERR! node_modules/@ava/bucklescript\nnpm ERR!   @ava/bucklescript@\"^4.0.0-alpha.1\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /mnt/data/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /mnt/data/donald/.npm/_logs/2021-10-20T19_01_02_737Z-debug.log\n"
+  }
+}

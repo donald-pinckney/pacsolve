@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 325.380490064621,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! Found: grunt@0.4.5\nnpm ERR! node_modules/grunt\nnpm ERR!   grunt@\"latest\" from the root project\nnpm ERR!   grunt@\"~0.4.5\" from 1-1-help-desk-system@0.0.7\nnpm ERR!   node_modules/1-1-help-desk-system\nnpm ERR!     1-1-help-desk-system@\"latest\" from the root project\nnpm ERR!   3 more (2ch, 3d-preview, grunt-autoprefixer)\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! grunt-bump@\"latest\" from the root project\nnpm ERR! \nnpm ERR! Conflicting peer dependency: grunt@1.4.1\nnpm ERR! node_modules/grunt\nnpm ERR!   peer grunt@\">=1.0.1\" from grunt-bump@0.8.0\nnpm ERR!   node_modules/grunt-bump\nnpm ERR!     grunt-bump@\"latest\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /mnt/data/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /mnt/data/donald/.npm/_logs/2021-10-20T20_01_48_616Z-debug.log\n"
+  }
+}

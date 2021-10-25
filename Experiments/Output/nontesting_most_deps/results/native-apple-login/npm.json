@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 14.916165351867676,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 251,
+    "stdout": "",
+    "stderr": "npm ERR! code EIO\nnpm ERR! syscall read\nnpm ERR! errno -5\nnpm ERR! EIO: i/o error, read\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /mnt/data/donald/.npm/_logs/2021-10-20T21_07_46_932Z-debug.log\n"
+  }
+}

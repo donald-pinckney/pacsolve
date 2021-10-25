@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 24.455976963043213,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette --ignore-scripts",
+    "retcode": 1,
+    "stdout": "0 / 1\nSending query to rosette: /tmp/tmp-133682-6hT3LN9gcmlx\n",
+    "stderr": "npm ERR! code 1\nnpm ERR! Command failed: racket /home/donald/dependency-runner/RosetteSolver/rosette-solver.rkt /tmp/tmp-133682-6hT3LN9gcmlx /tmp/tmp-133682-APLp2gI6Mw81\nnpm ERR! hash-ref: no value found for key\nnpm ERR!   key: \"this\"\nnpm ERR!   context...:\nnpm ERR!    /home/donald/dependency-runner/RosetteSolver/graph-sketching.rkt:57:4\nnpm ERR!    .../private/map.rkt:40:19: loop\nnpm ERR!    /home/donald/dependency-runner/RosetteSolver/graph-sketching.rkt:53:0: node*\nnpm ERR!    /home/donald/dependency-runner/RosetteSolver/graph-sketching.rkt:80:0: graph*\nnpm ERR!    body of \"/home/donald/dependency-runner/RosetteSolver/rosette-solver.rkt\"\nnpm ERR! \nnpm ERR! hash-ref: no value found for key\nnpm ERR!   key: \"this\"\nnpm ERR!   context...:\nnpm ERR!    /home/donald/dependency-runner/RosetteSolver/graph-sketching.rkt:57:4\nnpm ERR!    .../private/map.rkt:40:19: loop\nnpm ERR!    /home/donald/dependency-runner/RosetteSolver/graph-sketching.rkt:53:0: node*\nnpm ERR!    /home/donald/dependency-runner/RosetteSolver/graph-sketching.rkt:80:0: graph*\nnpm ERR!    body of \"/home/donald/dependency-runner/RosetteSolver/rosette-solver.rkt\"\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /mnt/data/donald/.npm/_logs/2021-10-20T20_03_46_679Z-debug.log\n"
+  }
+}
