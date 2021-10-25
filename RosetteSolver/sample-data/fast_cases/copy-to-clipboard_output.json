@@ -1,0 +1,1 @@
+{"graph":{"context_vertex":0,"out_edge_array":[[1],[]],"vertices":[{"type":"RootContextVertex"},{"package":"toggle-selection","type":"ResolvedPackageVertex","version":{"bug":6,"major":1,"minor":0,"prerelease":0}}]},"success":true}

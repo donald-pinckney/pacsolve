@@ -11,78 +11,70 @@
 
 (provide graph*)
 
-; A different version of the bounded recursion macro from:
-; https://docs.racket-lang.org/rosette-guide/ch_essentials.html?q=constant#%28part._sec~3anotes%29
-(define-syntax-rule
-  (define-bounded (id param ...) body ...)
-  (define id
-    (local
-      [(define fuel (make-parameter 0)) ; tmp value
-       (define (id param ...)
-         (assert (>= (fuel) 0) "Out of fuel.")
-         (parameterize ([fuel (sub1 (fuel))])
-           body ...))]
-      (lambda (max-fuel param ...)
-        (parameterize ([fuel max-fuel])
-          (id param ...))))))
 
 
-(define-bounded (range-s n)
-  (if (> n 0)
-      (cons (- n 1) (range-s (- n 1)))
-      '()))
+; fin* generates a symbolic integer x such that 0 <= x < n
 
-
-(define (range-s-not-bound n)
-  (if (> n 0)
-      (cons (- n 1) (range-s-not-bound (- n 1)))
-      '()))
-
+;; TODO: Explore an alternative encoding.
+;; This encoding generates (n-1) booleans
+;; Instead we could generate a single
+;; integer / bitvector, and put an upper bound
+;; assertion on it
 (define (fin* n)
-  (apply choose* (range n)))
+  (if 
+    (= n 1)
+    (bv 0 (bitvector 1))
+    (begin
+      (define num-bits (integer-length (- n 1)))
+      (define bv-n (bv n (bitvector num-bits)))
+      (define-symbolic* x (bitvector num-bits))
+      (assert (bvule x bv-n))
+      x)))
 
-(define (build-list-s* bound len-s f)
-  (map (lambda (_) (f)) (range-s bound len-s)))
+  ; (apply choose* (range n))) ;; TODO: play with representation
+
 
 (define (edge* query p-idx)
   (edge
    p-idx
-   (fin* (registry-num-versions query p-idx))
-   (fin* (options-max-duplicates (query-options query)))))
+   (fin* (registry-num-versions query p-idx))))
 
 (define (node* query deps)
-  (define-symbolic* ts integer?)
+  (define-symbolic* active boolean?) ;; TODO: play with representation
+  (define-symbolic* ts integer?) ;; TODO: play with representation
   (node
-   (map
-    (lambda (dep) (edge* query (package-index query (dep-package dep))))
-    deps)
-   ts))
+    active
+    (map
+      (lambda (dep) 
+        (edge* query (package-index query (dep-package dep))))
+      deps)
+    ts))
 
-(define (version-group* query version deps)
-  (define num-nodes (fin* (add1 (options-max-duplicates (query-options query)))))
-  (define nodes
-    (build-list-s* (options-max-duplicates (query-options query)) num-nodes (lambda () (node* query deps))))
-  (version-group version num-nodes nodes))
+(define (version-node* query version deps)
+  (version-node version (node* query deps)))
 
 (define (package-group* query package)
   (define p-idx (package-index query package))
   (define version-idxs (range (registry-num-versions query p-idx)))
   
-  (define version-groups
+  (define version-nodes
     (map
-     (lambda (version-idx)
-       (define version-pair (registry-ref query p-idx version-idx))
-       (version-group* query (car version-pair) (cdr version-pair)))
-     version-idxs))
+      (lambda (version-idx)
+        (define version-pair (registry-ref query p-idx version-idx))
+        (version-node* query (car version-pair) (cdr version-pair)))
+      version-idxs))
 
-  (package-group package (vector->immutable-vector (list->vector version-groups))))
+  (package-group 
+    package 
+    (vector->immutable-vector (list->vector version-nodes))))
 
 (define (graph* query)
   (define context-node (node* query (context-deps query)))
   (define p-idxs (range (registry-num-packages query)))
   (define package-groups
     (map
-     (lambda (p-idx) (package-group* query (registry-package-name query p-idx)))
-     p-idxs))
+      (lambda (p-idx) 
+        (package-group* query (registry-package-name query p-idx)))
+      p-idxs))
  
   (graph context-node package-groups))

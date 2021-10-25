@@ -10,11 +10,11 @@
 (require "query.rkt")
 
 (define (graph-num-vertices _query g)
-  (foldl/graph-version-groups
-   g
-   0
-   (lambda (v-group sum)
-     (+ sum (version-group-node-count v-group)))))
+  (foldl/graph-version-nodes
+    g
+    0
+    (lambda (v-node sum)
+      (+ sum (if (node-active (version-node-node v-node)) 1 0)))))
 
 (define (lookup-optim-fn name)
   (match name

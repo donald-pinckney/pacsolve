@@ -30,6 +30,7 @@ def main():
   parser.add_argument('--range', default=None, type=range_str, help='Index range of projects to test')
   parser.add_argument('--configs', default=[], nargs='+', help='Configurations to run')
   parser.add_argument('--cleanup', action='store_const', const=True, default=False, help='Cleanup work and src dirs')
+  parser.add_argument('--timeout', default=600, type=int, help='Timeout to apply in seconds, default 600')
   args = parser.parse_args()
   print(args)
   runner.run(args)

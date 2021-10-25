@@ -1,4 +1,4 @@
-#lang racket
+#lang rosette
 
 (require "graph.rkt")
 (require "query.rkt")
@@ -9,19 +9,27 @@
 
 (define (flatten-graph-idx e p-counts v-counts)
   (define p-idx (edge-package-idx e))
-  (define v-idx (edge-version-idx e))
-  (define n-idx (edge-node-idx e))
+  (define v-idx (bitvector->natural (edge-version-idx e)))
   
-  (define prev-p-sum (apply + (map (lambda (prev-p-idx) (list-ref p-counts prev-p-idx)) (range p-idx))))
-  (define vg-counts (list-ref v-counts p-idx))
-  (define prev-v-sum (apply + (map (lambda (prev-v-idx) (list-ref vg-counts prev-v-idx)) (range v-idx))))
-  (+ 1 prev-p-sum prev-v-sum n-idx))
+  (define prev-p-sum 
+    (apply + 
+      (map 
+        (lambda (prev-p-idx) (list-ref p-counts prev-p-idx)) 
+        (range p-idx))))
+  (define vn-counts (list-ref v-counts p-idx))
+  (define prev-v-sum 
+    (apply + 
+      (map 
+        (lambda (prev-v-idx) (list-ref vn-counts prev-v-idx)) 
+        (range v-idx))))
+  (+ 1 prev-p-sum prev-v-sum))
 
 (define (version->json query v) 
   (serialize-version query v))
 
 (define (resolved-vertex->json query p v) 
   (make-hash (list (cons 'type "ResolvedPackageVertex") (cons 'package p) (cons 'version (version->json query v)))))
+
 
 (struct temp-graph-node (vertex-data edge-data) #:transparent)
 
@@ -32,10 +40,10 @@
     (map
      (lambda (pg)
        (map
-        (lambda (vg-idx)
-          (define vg (vector-ref (package-group-version-groups-vec pg) vg-idx))
-          (version-group-node-count vg))
-        (range (vector-length (package-group-version-groups-vec pg)))))
+        (lambda (vn-idx)
+          (define vn (vector-ref (package-group-version-nodes-vec pg) vn-idx))
+          (if (node-active (version-node-node vn)) 1 0))
+        (range (vector-length (package-group-version-nodes-vec pg)))))
      p-groups))
   (define package-counts (map (lambda (xs) (apply + xs)) version-counts))
 
@@ -45,14 +53,15 @@
       (lambda (pg)
         (define p (package-group-package pg))
         (map
-         (lambda (vg-idx)
-           (define vg (vector-ref (package-group-version-groups-vec pg) vg-idx))
-           (define v (version-group-version vg))
-           (map
-            (lambda (n)
-              (temp-graph-node (resolved-vertex->json query p v) (node-edges n)))
-            (version-group-nodes-list vg)))
-         (range (vector-length (package-group-version-groups-vec pg)))))
+         (lambda (vn-idx)
+           (define vn (vector-ref (package-group-version-nodes-vec pg) vn-idx))
+           (define v (version-node-version vn))
+           (define n (version-node-node vn))
+           (if 
+            (node-active n)
+            (list (temp-graph-node (resolved-vertex->json query p v) (node-edges n)))
+            '()))
+         (range (vector-length (package-group-version-nodes-vec pg)))))
       p-groups)))
 
   (define vertices
