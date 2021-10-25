@@ -1,0 +1,33 @@
+{
+  "install-success": true,
+  "install_time": 2.6443092823028564,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/regenerator-transform": {
+      "version": "0.14.2",
+      "integrity": "sha512-V4+lGplCM/ikqi5/mkkpJ06e9Bujq1NFmNLvsCs56zg3ZbzrnUzAtizZ24TXxtRX/W2jcdScwQCnbL0CICTFkQ==",
+      "dependencies": {
+        "@babel/runtime": "^7.8.4",
+        "private": "^0.1.8"
+      }
+    },
+    "node_modules/regenerator-transform/node_modules/@babel/runtime": {
+      "version": "7.8.4",
+      "integrity": "sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==",
+      "dependencies": {
+        "regenerator-runtime": "^0.13.2"
+      }
+    },
+    "node_modules/regenerator-transform/node_modules/@babel/runtime/node_modules/regenerator-runtime": {
+      "version": "0.13.2",
+      "integrity": "sha512-S/TQAZJO+D3m9xeN1WTI8dLKBBiRgXBlTJvbWjCThHWZj9EvHK70Ff50/tYj2J/fvBY6JtFVwRuazHN2E7M9BA=="
+    },
+    "node_modules/regenerator-transform/node_modules/private": {
+      "version": "0.1.8",
+      "integrity": "sha512-VvivMrbvd2nKkiG38qjULzlc+4Vx4wm/whI9pQD35YrARNnhxeiRktSOhSukRLFNlzg6Br/cJPet5J/u19r/mg==",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    }
+  }
+}

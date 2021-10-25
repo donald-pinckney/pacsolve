@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.3390679359436035,
+  "install_time": 2.2586967945098877,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/toggle-selection": {

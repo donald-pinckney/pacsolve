@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.855696201324463,
+  "install_time": 3.859027624130249,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/ansi-regex": {

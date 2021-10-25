@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 10.688287019729614,
+  "install_time": 8.005956888198853,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/@jest/types": {
@@ -18,8 +18,8 @@
       }
     },
     "node_modules/@jest/types/node_modules/@types/istanbul-lib-coverage": {
-      "version": "2.0.0",
-      "integrity": "sha512-eAtOAFZefEnfJiRFQBGw1eYqa5GTLCZ1y86N0XSI/D6EB+E8z6VPV/UL7Gi5UEclFqoQk+6NRqEDsfmDLXn8sg=="
+      "version": "2.0.1",
+      "integrity": "sha512-hRJD2ahnnpLgsj6KWMYSrmXkM3rm2Dl1qkx6IOFD5FnuNPXJIG5L0dhgKXCYTRMGzU4n0wImQ/xfmRc4POUFlg=="
     },
     "node_modules/@jest/types/node_modules/@types/istanbul-reports": {
       "version": "3.0.0",
@@ -29,8 +29,8 @@
       }
     },
     "node_modules/@jest/types/node_modules/@types/istanbul-reports/node_modules/@types/istanbul-lib-report": {
-      "version": "1.1.1",
-      "integrity": "sha512-3BUTyMzbZa2DtDI2BkERNC6jJw2Mr2Y0oGI7mRxYNBPxppbtEK1F66u3bKwU2g+wxwWI7PAoRpJnOY1grJqzHg==",
+      "version": "1.1.0",
+      "integrity": "sha512-nW5QuzmMhr7fHPijtaGOemFFI8Ctrxb/dIXgouSlKmWT16RxWlGLEX/nGghIBOReKe9hPFZXoNh338nFQk2xcA==",
       "dependencies": {
         "@types/istanbul-lib-coverage": "*"
       }
@@ -51,8 +51,8 @@
       }
     },
     "node_modules/@jest/types/node_modules/@types/yargs/node_modules/@types/yargs-parser": {
-      "version": "15.0.0",
-      "integrity": "sha512-FA/BWv8t8ZWJ+gEOnLLd8ygxH/2UFbAvgEonyfN6yWGLKc7zVjbpl2Y4CTjid9h2RfgPP6SEt6uHwEOply00yw=="
+      "version": "11.0.4",
+      "integrity": "sha512-l+jxGV/WPsyrdpPi9+jUzZ/lKuL1oJ39MFfj/fiW/a2Dom7BqbZaGDtapIfR2eJMNCkLEZ45yoAarDlGjG4sqQ=="
     },
     "node_modules/@jest/types/node_modules/chalk": {
       "resolved": "node_modules/chalk",
@@ -73,16 +73,13 @@
       }
     },
     "node_modules/chalk/node_modules/ansi-styles": {
-      "version": "4.3.0",
-      "integrity": "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==",
+      "version": "4.1.0",
+      "integrity": "sha512-Qts4KCLKG+waHc9C4m07weIY8qyeixoS0h6RnbsNVD6Fw+pEZGW3vTyObL3WXpE09Mq4Oi7/lBEyLmOiLtlYWQ==",
       "dependencies": {
         "color-convert": "^2.0.1"
       },
       "engines": {
         "node": ">=8"
-      },
-      "funding": {
-        "url": "https://github.com/chalk/ansi-styles?sponsor=1"
       }
     },
     "node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
@@ -203,8 +200,8 @@
       }
     },
     "node_modules/pretty-format/node_modules/ansi-styles": {
-      "version": "5.0.0",
-      "integrity": "sha512-6564t0m0fuQMnockqBv7wJxo9T5C2V9JpYXyNScfRDPVLusOQQhkpMGrFC17QbiolraQ1sMXX+Y5nJpjqozL4g==",
+      "version": "5.1.0",
+      "integrity": "sha512-osxifZo3ar56+e8tdYreU6p8FZGciBHo5O0JoDAxMUqZuyNUb+yHEwYtJZ+Z32R459jEgtwVf1u8D7qYwU0l6w==",
       "engines": {
         "node": ">=10"
       },
