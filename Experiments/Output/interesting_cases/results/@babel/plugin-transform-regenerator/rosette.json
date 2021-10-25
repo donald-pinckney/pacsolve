@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 2.6443092823028564,
+  "install_time": 3.9277288913726807,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/regenerator-transform": {

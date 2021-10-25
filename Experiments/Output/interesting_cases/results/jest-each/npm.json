@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 1.072153091430664,
+  "install_time": 2.1818506717681885,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/@jest/types": {

@@ -1,6 +1,6 @@
 {
   "install-success": false,
-  "install_time": 600.1026084423065,
+  "install_time": 600.0253109931946,
   "error": {
     "stage": "install timeout",
     "command": "npm install --rosette --ignore-scripts",

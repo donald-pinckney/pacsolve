@@ -1,11 +1,11 @@
 {
   "install-success": false,
-  "install_time": 2.1979434490203857,
+  "install_time": 3.18287992477417,
   "error": {
     "stage": "install",
     "command": "npm install --rosette --ignore-scripts",
     "retcode": 1,
-    "stdout": "0 / 1\nSending query to rosette: /tmp/tmp-55397-7zpZ5twQDRiD\nGot: /tmp/tmp-55397-EkVaV8d6J7qJ\nDecoding Rosette answer: [object Object]\n",
-    "stderr": "npm ERR! Failed to solve constraints :(\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T19_28_53_668Z-debug.log\n"
+    "stdout": "0 / 1\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-14204-Maz4UJwIkMbw\nGot: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-14204-I0Teer1xtfPj\nDecoding Rosette answer: [object Object]\n",
+    "stderr": "npm ERR! Failed to solve constraints :(\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-10-25T19_42_01_535Z-debug.log\n"
   }
 }

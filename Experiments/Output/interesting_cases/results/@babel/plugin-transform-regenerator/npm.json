@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.6472575664520264,
+  "install_time": 4.41759467124939,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/@babel/runtime": {
