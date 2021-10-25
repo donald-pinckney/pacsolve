@@ -21,6 +21,10 @@
     "fs-extra": {
       "comment": "fails with bitvector encoding, succeeds with unary encoding",
       "tarball": "https://registry.npmjs.org/fs-extra/-/fs-extra-10.0.0.tgz"
+    },
+    "move-concurrently": {
+      "comment": "timesout with both unary and bitvector encoding",
+      "tarball": "https://registry.npmjs.org/move-concurrently/-/move-concurrently-1.0.1.tgz"
     }
   }
 }
