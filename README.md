@@ -16,8 +16,9 @@
     - node (I have `v15.2.1`)
     - any somewhat recent npm (the version really shouldn't matter)
     - Racket (I have `Racket v8.0 [cs]`)
-    - Rosette (Don't know how to check version of it)
-    - Z3 (I have `4.8.10 - 64 bit`). Actually, I'm unsure if installing Z3 is necessary, or if Rosette packages its own Z3 🤷‍♂️
+    - Rosette (Don't know how to check version of it).
+    - Rosette packages its own version of Z3. However, it can fail to install. If it does, fetch it yourself and follow the instructions that
+      print while Rosette is installing.
 
 ### Installing My Custom Npm
 
