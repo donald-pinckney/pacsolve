@@ -48,8 +48,8 @@
    ```
 
    These commands will take some time (nearly 30 mins each). You will see some
-   failures. Re-running won't repeat successful experiments, and may make
-   transient errors go away.
+   failures. Re-running won't repeat successful experiments, but will make
+   transient errors go away. *There will be transient errors on Discovery.*
 
 5. Gather the data from these experiments:
 
