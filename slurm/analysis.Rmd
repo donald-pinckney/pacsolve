@@ -1,0 +1,66 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+## Running on Discovery
+
+I recommend viewing this with a web-based Rstudio server on Discovery:
+
+https://ood.discovery.neu.edu/pun/sys/dashboard/batch_connect/sys/RStudio/session_contexts/new
+
+Note that you'll need to be on Northeastern's network, or on the Northeastern VPN
+(GlobalProtect).
+
+## Initialization
+
+```{r}
+library(tidyverse)
+```
+
+*You may want to change this directory.*
+
+```{r}
+setwd("/work/arjunguha-research-group/minnpm-slurm/experiment")
+```
+
+
+Load the data:
+
+```{r}
+data <- read_csv("results.csv") %>% select(c(Project, Solver, Time))
+data_wide <-pivot_wider(data, values_from=Time,names_from=Solver)
+```
+
+## Slowdown of Rosette
+
+This is Rosette Time / Vanilla Time. Note that these times are not reliable, since we can't really do a performance benchmark on Discovery.
+
+```{r}
+slowdowns <- data_wide %>%
+  na.omit() %>%
+  mutate(Slowdown = rosette / vanilla)
+ggplot(data = slowdowns, aes(x = Slowdown)) + stat_ecdf()
+
+```
+
+Median:
+
+```{r}
+median(slowdowns$Slowdown)
+```
+
+The median is shocking! Rosette is faster? Again, I don't think this is reliable.
+
+### Failures
+
+Analysis of failures.
+
+
+```{r}
+sum(is.na(data_wide$rosette))
+sum(is.na(data_wide$vanilla))
+```
