@@ -1,6 +1,7 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_notebook: default
 ---
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
@@ -17,14 +18,10 @@ Note that you'll need to be on Northeastern's network, or on the Northeastern VP
 
 ## Initialization
 
-```{r}
+*You probably want to change the directory below.*
+```{r setup}
 library(tidyverse)
-```
-
-*You may want to change this directory.*
-
-```{r}
-setwd("/work/arjunguha-research-group/minnpm-slurm/experiment")
+knitr::opts_knit$set(root.dir = "/work/arjunguha-research-group/minnpm-slurm/experiment")
 ```
 
 
