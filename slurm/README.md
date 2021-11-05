@@ -1,3 +1,8 @@
+# Prerequisites
+
+1. `minnpm` should be on your path.
+2. You should have z3 compiled with Spack.
+
 # Usage
 
 1. Start an interactive job for an experiment. Alternatively, I prefer this
