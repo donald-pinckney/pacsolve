@@ -26,7 +26,7 @@
     (bv 0 (bitvector 1))
     (begin
       (define num-bits (integer-length (- n 1)))
-      (define bv-n (bv n (bitvector num-bits)))
+      (define bv-n (bv (- n 1) (bitvector num-bits)))
       (define-symbolic* x (bitvector num-bits))
       (assert (bvule x bv-n))
       x)))
