@@ -1,6 +1,5 @@
 #lang rosette
 
-(require rosette/lib/angelic)
 (require "graph.rkt")
 (require "query.rkt")
 (require "query-access.rkt")
