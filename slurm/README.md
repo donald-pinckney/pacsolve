@@ -28,6 +28,7 @@
    
    ```
    export EXP=/scratch/$USER/`date +"%Y-%M-%d-%H%M`"
+   mkdir $EXP
    mkdir $EXP/rosette
    mkdir $EXP/vanilla
    ```
