@@ -1,35 +1,434 @@
 {
 	"registry": [
 		{
-			"package": "toggle-selection",
+			"package": "cnd",
+			"versions": [
+				{
+					"version": {
+						"major": 9,
+						"minor": 2,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				}
+			],
+			"cost_values": {
+				"package_cost_example": 0
+			}
+		},
+		{
+			"package": "wcstring",
+			"versions": [
+				{
+					"version": {
+						"major": 2,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "varsize-string",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 2,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "wcsize",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				}
+			],
+			"cost_values": {
+				"package_cost_example": 0
+			}
+		},
+		{
+			"package": "string-width",
+			"versions": [
+				{
+					"version": {
+						"major": 4,
+						"minor": 2,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "emoji-regex",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 9,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 8,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-fullwidth-code-point",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 4,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "strip-ansi",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 7,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 6,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				}
+			],
+			"cost_values": {
+				"package_cost_example": 0
+			}
+		},
+		{
+			"package": "wcsize",
 			"versions": [
 				{
 					"version": {
 						"major": 1,
 						"minor": 0,
-						"bug": 6,
+						"bug": 0,
 						"prerelease": 0
 					},
 					"dependencies": [],
 					"cost_values": {
-						"_unused": 0
+						"version_cost_example": 0
 					}
 				}
 			],
 			"cost_values": {
-				"_unused": 0
+				"package_cost_example": 0
+			}
+		},
+		{
+			"package": "varsize-string",
+			"versions": [
+				{
+					"version": {
+						"major": 2,
+						"minor": 2,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 2,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				}
+			],
+			"cost_values": {
+				"package_cost_example": 0
+			}
+		},
+		{
+			"package": "emoji-regex",
+			"versions": [
+				{
+					"version": {
+						"major": 8,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				}
+			],
+			"cost_values": {
+				"package_cost_example": 0
+			}
+		},
+		{
+			"package": "strip-ansi",
+			"versions": [
+				{
+					"version": {
+						"major": 6,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "ansi-regex",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 6,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 5,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				},
+				{
+					"version": {
+						"major": 6,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "ansi-regex",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 6,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 5,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				}
+			],
+			"cost_values": {
+				"package_cost_example": 0
+			}
+		},
+		{
+			"package": "is-fullwidth-code-point",
+			"versions": [
+				{
+					"version": {
+						"major": 3,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				}
+			],
+			"cost_values": {
+				"package_cost_example": 0
+			}
+		},
+		{
+			"package": "ansi-regex",
+			"versions": [
+				{
+					"version": {
+						"major": 5,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				},
+				{
+					"version": {
+						"major": 5,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_cost_example": 0
+					}
+				}
+			],
+			"cost_values": {
+				"package_cost_example": 0
 			}
 		}
 	],
 	"context_dependencies": [
 		{
-			"packageToDependOn": "toggle-selection",
+			"packageToDependOn": "cnd",
+			"constraint": {
+				"op": "=",
+				"version": {
+					"major": 9,
+					"minor": 2,
+					"bug": 1,
+					"prerelease": 0
+				}
+			}
+		},
+		{
+			"packageToDependOn": "string-width",
+			"constraint": {
+				"op": "=",
+				"version": {
+					"major": 4,
+					"minor": 2,
+					"bug": 1,
+					"prerelease": 0
+				}
+			}
+		},
+		{
+			"packageToDependOn": "wcstring",
 			"constraint": {
 				"&&": {
 					"lhs": {
 						"op": "<",
 						"version": {
-							"major": 2,
+							"major": 3,
 							"minor": 0,
 							"bug": 0,
 							"prerelease": 1
@@ -38,9 +437,9 @@
 					"rhs": {
 						"op": ">=",
 						"version": {
-							"major": 1,
-							"minor": 0,
-							"bug": 6,
+							"major": 2,
+							"minor": 1,
+							"bug": 1,
 							"prerelease": 0
 						}
 					}

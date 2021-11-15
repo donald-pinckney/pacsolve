@@ -60,13 +60,13 @@
      
      (for-each
       (lambda (v1-idx)
-        (define v1 (car (registry-ref query p-idx v1-idx)))
+        (define v1 (parsed-package-version-version (registry-ref query p-idx v1-idx)))
         (define v1-version-node (vector-ref (package-group-version-nodes-vec p-group) v1-idx)) ; the version node for v1
         (define v1-active (node-active (version-node-node v1-version-node)))
         
         (for-each
          (lambda (v2-idx)
-           (define v2 (car (registry-ref query p-idx v2-idx)))
+           (define v2 (parsed-package-version-version (registry-ref query p-idx v2-idx)))
            (define v2-version-node (vector-ref (package-group-version-nodes-vec p-group) v2-idx)) ; the version node for v2
            (define v2-active (node-active (version-node-node v2-version-node)))
 

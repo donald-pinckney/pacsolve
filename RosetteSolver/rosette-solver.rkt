@@ -30,6 +30,8 @@
     (solution #t (evaluate G sol))
     (solution #f "Failed to solve constraints :(")))
 
+; (pretty-display (optimize-graph QUERY G))
+
 (define sol
   (optimize
    #:minimize (optimize-graph QUERY G)

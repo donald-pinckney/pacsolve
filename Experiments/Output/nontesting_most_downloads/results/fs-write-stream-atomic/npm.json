@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 5.779249906539917,
+  "install_time": 6.7911858558654785,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/core-util-is": {

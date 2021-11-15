@@ -15536,7 +15536,14 @@
 		"max_duplicates": 1,
 		"check_acyclic": false,
 		"minimization_criteria": [
-			"graph-num-vertices"
+			{
+				"vertex_cost_key": "graph-num-vertices",
+				"package_cost_key": "graph-num-vertices",
+				"comment": "serialized function with type: Number -> Vector (Symb Number) -> Number",
+				"version_group_combiner": {},
+				"comment": "serialized function with type: Vector (Symb Number) -> Number",
+				"packages_combiner": {}
+			}
 		]
 	},
 	"functions": {

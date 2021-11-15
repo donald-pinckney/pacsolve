@@ -4,7 +4,7 @@ let program_PublishOutOfOrderBug = EcosystemProgram(declaredContexts: ["ctx"], o
     .publish(package: "a", version: "0.0.5", dependencies: []),
     .publish(package: "a", version: "0.0.2", dependencies: []),
     .publish(package: "a", version: "0.0.1", dependencies: []),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .any, depType: .prod)])
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .geq("0.0.1"), depType: .prod)])
 ])
 
 /*

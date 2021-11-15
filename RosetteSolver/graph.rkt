@@ -11,6 +11,7 @@
 (provide (struct-out package-group))
 (provide (struct-out graph))
 
+
 ; package-idx is NON symbolic
 ; version-idx is symbolic
 (struct edge (package-idx version-idx) #:transparent)
@@ -21,12 +22,14 @@
 (struct node (active edges top-order) #:transparent)
 
 ; version is NON symbolic
+; cost-values: [string : number]
 ; node is a node
-(struct version-node (version node) #:transparent)
+(struct version-node (version cost-values node) #:transparent)
 
 ; package is NON symbolic
+; cost-values: [string : number]
 ; version-nodes-vec is a vector of NON symbolic length, containing version-node
-(struct package-group (package version-nodes-vec) #:transparent)
+(struct package-group (package cost-values version-nodes-vec) #:transparent)
 
 ; context-node is a node
 ; package-groups is a list of NON symbolic length, containing package-group
@@ -78,7 +81,7 @@
       (define node (version-node-node v-node))
       (define v-idx (version-index query p-idx version))
 
-      (define deps (cdr (registry-ref query p-idx v-idx)))
+      (define deps (parsed-package-version-dep-vec (registry-ref query p-idx v-idx)))
       
       (for-each 
         (lambda (e dep)

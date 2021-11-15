@@ -1,14 +1,11 @@
 {
   "install-success": true,
-  "install_time": 8.579578638076782,
+  "install_time": 37.668773889541626,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/graceful-fs": {
-      "version": "4.1.11",
-      "integrity": "sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg=",
-      "engines": {
-        "node": ">=0.4.0"
-      }
+      "version": "4.1.15",
+      "integrity": "sha512-6uHUhOPEBgQ24HM+r6b/QwWfZq+yiFcipKFrOFiBEnWdy5sdzYoi+pJeQaPI5qOLRFqWmAXUPQNsielzdLoecA=="
     },
     "node_modules/iferr": {
       "version": "0.1.5",

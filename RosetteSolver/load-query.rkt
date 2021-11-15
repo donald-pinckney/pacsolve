@@ -28,48 +28,65 @@
     (hash-ref j 'packageToDependOn) 
     (parse-constraint fns (hash-ref j 'constraint))))
 (define (parse-dependencies fns j) (map (lambda (x) (parse-dependency fns x)) j))
+
+
 (define (parse-package-version fns j) 
-  (cons 
+  (parsed-package-version
     (parse-version fns (hash-ref j 'version)) 
+    (hash-ref j 'cost_values)
     (parse-dependencies fns (hash-ref j 'dependencies))))
 
+
 (define (parse-package fns j) 
-  (cons 
+  (parsed-package 
     (hash-ref j 'package) 
+    (hash-ref j 'cost_values)
     (vector->immutable-vector (list->vector (map (lambda (x) (parse-package-version fns x)) (hash-ref j 'versions))))))
-(define (parse-registry fns j) (vector->immutable-vector (list->vector (map (lambda (x) (parse-package fns x)) j))))
+
+(define (parse-registry fns j) 
+  (vector->immutable-vector (list->vector (map (lambda (x) (parse-package fns x)) j))))
 
 
 (define (make-registry-package-hash reg-vec)
   (define h (make-hash))
   (for-each
-   (lambda (p-idx) (hash-set! h (car (vector-ref reg-vec p-idx)) p-idx))
+   (lambda (p-idx) (hash-set! h (parsed-package-package (vector-ref reg-vec p-idx)) p-idx))
    (range (vector-length reg-vec)))
   h)
 
 (define (make-version-hash vers-vec)
   (define h (make-hash))
   (for-each
-   (lambda (v-idx) (hash-set! h (car (vector-ref vers-vec v-idx)) v-idx))
+   (lambda (v-idx) (hash-set! h (parsed-package-version-version (vector-ref vers-vec v-idx)) v-idx))
    (range (vector-length vers-vec)))
   h)
 
 (define (make-registry-version-hashes reg-vec)
-  (list->vector (map (lambda (p-idx) (make-version-hash (cdr (vector-ref reg-vec p-idx)))) (range (vector-length reg-vec)))))
+  (list->vector 
+    (map 
+      (lambda (p-idx) (make-version-hash (parsed-package-pv-vec (vector-ref reg-vec p-idx)))) 
+      (range (vector-length reg-vec)))))
 
 
-(define (check-supported-min-criteria s)
-  (if (member s (list "graph-num-vertices")) #t (error "Unsupported minimization criteria")))
+(define (parse-minimization-objective j)
+  (define v_cost_key (hash-ref j 'vertex_cost_key))
+  (define p_cost_key (hash-ref j 'package_cost_key))
+  (define version_group_combiner_name (hash-ref j 'version_group_combiner))
+  (define packages_combiner_name (hash-ref j 'packages_combiner))
+  (min-objective
+    v_cost_key
+    p_cost_key
+    version_group_combiner_name
+    packages_combiner_name))
+
 
 (define (parse-options j) 
-  (define crit (hash-ref j 'minimization_criteria))
-
-  (map check-supported-min-criteria crit)
+  (define min_objective_names (hash-ref j 'minimization_criteria))
 
   (options
     (hash-ref j 'max_duplicates)
     (hash-ref j 'check_acyclic)
-    crit))
+    min_objective_names))
 
 (define (parse-functions fns)
   (define parsed-fns-list (hash-map fns (lambda (name def) (cons name (parse-function def)))))
@@ -98,5 +115,4 @@
       c-deps
       options
       fns))))
-
 

@@ -49,22 +49,31 @@
       deps)
     ts))
 
-(define (version-node* query version deps)
-  (version-node version (node* query deps)))
+(define (version-node* query version cost-values deps)
+  (version-node 
+    version
+    cost-values
+    (node* query deps)))
 
 (define (package-group* query package)
   (define p-idx (package-index query package))
   (define version-idxs (range (registry-num-versions query p-idx)))
+  (define cost-values (registry-package-cost-values query p-idx))
   
   (define version-nodes
     (map
       (lambda (version-idx)
-        (define version-pair (registry-ref query p-idx version-idx))
-        (version-node* query (car version-pair) (cdr version-pair)))
+        (define parsed-pv (registry-ref query p-idx version-idx))
+        (version-node* 
+          query 
+          (parsed-package-version-version parsed-pv)
+          (parsed-package-version-cost-values parsed-pv) 
+          (parsed-package-version-dep-vec parsed-pv)))
       version-idxs))
 
   (package-group 
-    package 
+    package
+    cost-values
     (vector->immutable-vector (list->vector version-nodes))))
 
 (define (graph* query)
