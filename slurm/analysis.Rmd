@@ -21,15 +21,15 @@ Note that you'll need to be on Northeastern's network, or on the Northeastern VP
 *You probably want to change the directory below.*
 ```{r setup}
 library(tidyverse)
-knitr::opts_knit$set(root.dir = "/work/arjunguha-research-group/minnpm-slurm/experiment")
+knitr::opts_knit$set(root.dir = "/scratch/a.guha/11-11")
 ```
 
 
 Load the data:
 
 ```{r}
-data <- read_csv("results.csv") %>% select(c(Project, Solver, Time))
-data_wide <-pivot_wider(data, values_from=Time,names_from=Solver)
+data <- read_csv("results.csv") %>% select(c(Project, Solver, Time, NDeps))
+data_wide <-pivot_wider(data, values_from=c(Time, NDeps),names_from=Solver)
 ```
 
 ## Slowdown of Rosette
@@ -39,7 +39,7 @@ This is Rosette Time / Vanilla Time. Note that these times are not reliable, sin
 ```{r}
 slowdowns <- data_wide %>%
   na.omit() %>%
-  mutate(Slowdown = rosette / vanilla)
+  mutate(Slowdown = Time_rosette / Time_vanilla)
 ggplot(data = slowdowns, aes(x = Slowdown)) + stat_ecdf()
 
 ```
@@ -58,6 +58,18 @@ Analysis of failures.
 
 
 ```{r}
-sum(is.na(data_wide$rosette))
-sum(is.na(data_wide$vanilla))
+sum(is.na(data_wide$Time_rosette))
+sum(is.na(data_wide$Time_vanilla))
+```
+
+### Number of dependencies
+
+We are trying to minimize the number of dependencies. So, Rosette should produce fewer dependencies.
+
+```{r}
+deps <- data_wide %>% mutate(Compression = NDeps_vanilla / NDeps_rosette) %>% filter(!is.na(Compression))
+```
+
+```{r}
+ggplot(data = deps, aes(x = Compression)) + stat_ecdf()
 ```

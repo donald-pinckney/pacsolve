@@ -6,16 +6,17 @@ import time
 import argparse
 import sys
 import os
+import json
+import numpy as np
 import pandas as pd
+import concurrent.futures
 import cfut # Adrian Sampson's clusterfutures package.
-from more_itertools import grouper
+from more_itertools import grouper, chunked
+import itertools
 
 def main():
     parser = argparse.ArgumentParser(
         description='Manage MinNPM experiments on Discovery.')
-    # Commands:
-    # - run 
-    # - gather
     parser.add_argument(
         'command', 
         choices=['run', 'gather', 'prepare'],
@@ -28,13 +29,6 @@ def main():
     elif args.command == 'prepare':
         prepare(sys.argv[2:])
 
-def projects_for_solver(base: str, solver: str):
-    """
-    The projects on which a particular solver ran.
-    """
-    p = os.path.join(base, solver)
-    return {f for f in os.listdir(p) if os.path.isdir(os.path.join(p, f)) }
-
 def gather(argv):
     parser = argparse.ArgumentParser(
         description='Gather results after running an experiment')
@@ -42,27 +36,83 @@ def gather(argv):
         'directory',
         help='Directory to gather results from')
     args = parser.parse_args(argv)
-    directory = args.directory
-    
-    projects = projects_for_solver(directory, 'rosette').union(
-        projects_for_solver(directory, 'vanilla'))
+    Gather(args.directory).gather()
 
-    df = pd.DataFrame(columns=['Project', 'Solver', 'Time'])
-    for project in projects:
+class Gather(object):
+
+    def __init__(self, directory):
+        self.directory = directory
+
+    def projects_for_solver(self, solver: str):
+        """
+        The projects on which a particular solver ran.
+        """
+        p = os.path.join(self.directory, solver)
+        return {f for f in os.listdir(p) if os.path.isdir(os.path.join(p, f)) }
+
+    def num_deps(self, solver, project):
+        """
+        Calculates the number of dependencies. This function assumes that
+        'npm install' was sucessful. It is critical that the check is performed
+        correctly: if not, it will false report zero dependencies.
+        """
+        p = os.path.join(
+            self.directory,
+            solver,
+            project,
+            'package',
+            'node_modules',
+            '.package-lock.json')
+        # NPM does not create the node_modules directory for packages with
+        # zero dependencies. However, it also does not create node_modules for
+        # packages that fail to install.
+        if not os.path.isfile(p):
+            return 0
+        with open(p, 'r') as f:
+            data = json.load(f)
+            n = 0
+            for _, v in data['packages'].items():
+                if 'link' in v and v['link']:
+                    continue
+                n = n + 1
+            return n
+
+    def project_times(self, project: str):
+        """
+        Times with both solves for the project.
+        """
+        df = pd.DataFrame(columns=['Project', 'Solver', 'Time', 'NDeps'])
         solvers = ['rosette', 'vanilla']
         for solver in solvers:
-            p = os.path.join(directory, solver, project, 'package', 'experiment.time')
+            p = os.path.join(self.directory, solver, project, 'package', 'experiment.json')
             if not os.path.exists(p):
                 continue
-            with open(p) as f:
-                time = float(f.read())
+            p_result = read_json(p)
+            if p_result['status'] != 'success':
+                continue
             df = df.append(
-                {'Project': project, 'Solver': solver, 'Time': time},
+                {
+                    'Project': project, 
+                    'Solver': solver,
+                    'Time': p_result['time'],
+                    'NDeps': self.num_deps(solver, project)
+                },
                 ignore_index=True)
+        return df
 
-    output_path = os.path.join(directory, 'results.csv') 
-    df.to_csv(output_path)
-    print(f'See {output_path}')
+    def gather(self):
+        projects = self.projects_for_solver('rosette').union(
+                self.projects_for_solver('vanilla'))
+        df = pd.DataFrame(columns=['Project', 'Solver', 'Time', 'NDeps'])
+        # Process pool is faster than thread pool. This is a way of fudging
+        # nonblocking I/O. Why 100 workers? Why not?
+        with concurrent.futures.ProcessPoolExecutor(max_workers=100) as executor:
+            for df_project in executor.map(self.project_times, projects):
+                df = df.append(df_project)
+
+        output_path = os.path.join(self.directory, 'results.csv') 
+        df.to_csv(output_path)
+        print(f'See {output_path}')        
 
 def prepare(argv):
     parser = argparse.ArgumentParser(description='Prepare NPM packages for benchmarking MinNPM')
@@ -144,27 +194,30 @@ def run(argv):
       help='Directory with NPM projects')
     parser.add_argument('--timeout', type=int, default=600,
         help='Timeout for npm')
+    parser.add_argument('--cpus-per-task', type=int, default=24,
+       help='Number of CPUs to request on each node')
     args = parser.parse_args(argv)
     mode = os.path.basename(args.target)
     if mode == 'vanilla':
-        Run(args.target, False, args.timeout).run()
+        rosette = False
     elif mode == 'rosette':
-        Run(args.target, True, args.timeout).run()
+        rosette = True
     else:
         raise Exception('basename of target must be vanilla or rosette')
-
+    Run(args.target, rosette, args.timeout, args.cpus_per_task).run()
 
 class Run(object):
 
-    def __init__(self, target, rosette, timeout):
+    def __init__(self, target, rosette, timeout, cpus_per_task):
         self.target = target
         self.rosette = rosette
         self.timeout = timeout
+        self.cpus_per_task = cpus_per_task
         self.sbatch_lines = [
             "#SBATCH --time=00:12:00",
             "#SBATCH --partition=express",
             "#SBATCH --mem=8G",
-            "#SBATCH --cpus-per-task=4",
+            f'#SBATCH --cpus-per-task={cpus_per_task}',
             "module load discovery nodejs",
             "export PATH=$PATH:/work/arjunguha-research-group/software/bin",
             "eval `spack load --sh z3`"
@@ -172,14 +225,31 @@ class Run(object):
         self.NPM_COMMAND = 'minnpm install --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')
         self.MINNPM_COMMAND = 'minnpm install --rosette --ignore-scripts'.split(' ')
 
+    def run_chunk(self, pkgs):
+        print(f'Will handle {len(pkgs)}')
+        # Tip: Cannot use ProcessPoolExecutor with the ClusterFutures executor. It seems like
+        # ProcessPoolExector forks the process with the same command-line arguments, including
+        # loading ClusterFutures's remote library, and that makes things go awry.
+        errs = [ ]
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.cpus_per_task) as executor:
+            for err in suppressed_iterator(executor.map(self.run_minnpm, pkgs)):
+                if err is not None:
+                    errs.append(err)
+        if len(errs) == 0:
+            return None
+        return '\n'.join(errs)
+    
     def run(self):
         if not os.path.isdir(self.target):
             raise Exception(f'{self.target} directory does not exist')
 
+        print(f'Listing packages.')
         pkgs = self.list_pkg_paths()
+        print(f'Will run on {len(pkgs)} packages.')
+        pkg_chunks = chunked(pkgs, self.cpus_per_task)
         
-        with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines) as executor:
-            for err in executor.map(self.run_minnpm, pkgs):
+        with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines, keep_logs=True) as executor:
+            for err in suppressed_iterator(executor.map(self.run_chunk, pkg_chunks)):
                 if err is not None:
                     print(err)
 
@@ -188,24 +258,43 @@ class Run(object):
             for p in os.listdir(self.target) ]
         pending_packages = [ p 
             for p in all_packages 
-            if not os.path.isfile(os.path.join(p, "experiment.time")) ]
+            if not os.path.isfile(os.path.join(p, "experiment.json")) ]
         return pending_packages
+
+    def get_npmstatus(self, path):
+        with open(path, 'r') as out:
+            lines = [ line.strip() for line in out.readlines() ]
+        # The error code is usually on the first line. But, the MinNPM solver
+        # prints stuff that appears before it.
+        err_code = [ line for line in lines if line.startswith('npm ERR! code') ]
+        if len(err_code) != 1:
+            return None
+        pieces = err_code.split(' ')
+        if len(pieces) != 4:
+            return None
+        return pieces[3]
 
     def run_minnpm(self, pkg_path):
         start_time = time.time()
         cmd = self.NPM_COMMAND if not self.rosette else self.MINNPM_COMMAND
         try:
-            with open(f'{pkg_path}/experiment.out', 'wt') as out:
+            output_path = f'{pkg_path}/experiment.out'
+            with open(output_path, 'wt') as out:
                 exit_code = subprocess.Popen(cmd,
                     cwd=pkg_path,
                     stdout=out,
                     stderr=out).wait(self.timeout)
-                duration = time.time() - start_time
-                if exit_code != 0:
-                    return f'Failed: {pkg_path}'
-                with open(f'{pkg_path}/experiment.time', 'wt') as f:
-                    f.write(f'{duration}')
+            duration = time.time() - start_time
+            output_status_path = f'{pkg_path}/experiment.json'
+            if exit_code == 0:
+                write_json(output_status_path,
+                    { 'status': 'success', 'time': duration })
                 return None
+            status = self.get_npmstatus(output_path)
+            if status in [ 'ERESOLVE', 'ETARGET', 'EUNSUPPORTEDPROTOCOL', 'EBADPLATFORM' ]:
+                write_json(output_status_path, { 'status': 'cannot_install', 'reason': status })
+                return None
+            return f'Failed: {pkg_path}'
         except subprocess.TimeoutExpired:
             return f'Timeout: {pkg_path}'
 
@@ -213,6 +302,35 @@ class Run(object):
 def remove_nones(seq):
     return [x for x in seq if x is not None]
 
+class suppressed_iterator:
+    def __init__(self, wrapped_iter, skipped_exc = Exception):
+        self.wrapped_iter = wrapped_iter
+        self.skipped_exc  = skipped_exc
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        while True:
+            try:
+                return next(self.wrapped_iter)
+            except StopIteration:
+                raise
+            except self.skipped_exc as exn:
+                print(f'Skipped exception {exn}')
+                pass
+
+def write_json(path, data):
+    with open(path, 'wt') as out:
+        out.write(json.dumps(data))
+
+def read_json(path: str) -> any:
+    with open(path, 'r') as f_in:
+        return json.load(f_in)
 
 if __name__ == '__main__':
+    start = time.time()
     main()
+    end = time.time()
+    duration = int(end - start)
+    print(f'Time taken: {duration} seconds')
