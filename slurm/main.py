@@ -159,11 +159,20 @@ class Prepare(object):
         tarballs_and_targets = remove_nones([
             self.tarball_and_target_dir(f) for f in os.listdir(self.source)])
 
-        with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines) as executor:
-            jobs = grouper(tarballs_and_targets, self.tarballs_per_job)
-            for err in executor.map(self.unpack_tarballs, jobs):
-                if err is not None:
-                    print(err)
+
+
+        results = self.unpack_tarballs(tarballs_and_targets)
+        if results is not None:
+            print(results)
+
+        # I can't get this to work, it just hangings, and doesn't actually do any untaring:
+        # with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines) as executor:
+        #     jobs = grouper(tarballs_and_targets, self.tarballs_per_job)
+        #     for err in executor.map(self.unpack_tarballs, jobs):
+        #         if err is not None:
+        #             print(err)
+
+
 
     def target_dir(self, package_tgz):
         """
@@ -185,10 +194,10 @@ class Prepare(object):
         for (tgz, target) in tarballs_and_targets:
             try:
                 os.mkdir(target)
-                if os.system(f'tar -C {target} -xzf {tgz}') != 0:
+                if subprocess.call(['tar', '-C', target, '-xzf', tgz], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) != 0:
                     results.append(f'Error unpacking {tgz}')
-            except:
-                results.append(f'Error unpacking {tgz}')
+            except Exception as err:
+                results.append(f'Error unpacking {tgz}: {err}')
         if len(results) > 0:
             return "\n".join(results)
         else:
