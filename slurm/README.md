@@ -23,25 +23,33 @@
    you can SSH into it and start tmux. If you get disconnected, reconnect to
    tmux.
 
-2. Create a directory to hold your experiment, with subdirectories "vanilla"
-   and "rosette":
-   
+2. Create a directory to hold your experiment, with subdirectories based on what 
+experiments you want to run. Each subdirectory should be either of the form `vanilla` or 
+`rosette/<consistency>/<minimize>` where `<consistency>` and `<minimize>` are the command line flags
+that should be passed to MinNPM. For example:   
    ```
    export EXP=/scratch/$USER/`date +"%Y-%M-%d-%H%M`"
    mkdir $EXP
-   mkdir $EXP/rosette
    mkdir $EXP/vanilla
+   mkdir -p $EXP/rosette/npm/min_oldness,min_num_deps
+   mkdir -p $EXP/rosette/npm/min_num_deps,min_oldness
    ```
 
-3. Unpack all the projects to these directories:
+3. Unpack all the projects to these directories. Continuing the example:
 
    ```
-   ./main.py prepare \
-     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --target $EXP/rosette
    ./main.py prepare \
      --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
      --target $EXP/vanilla
+   ./main.py prepare \
+     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
+     --target $EXP/vanilla
+   ./main.py prepare \
+     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
+     --target $EXP/rosette/npm/min_oldness,min_num_deps
+   ./main.py prepare \
+     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
+     --target $EXP/rosette/npm/min_num_deps,min_oldness
    ```
 
    These don't take very long, and should present no output.
@@ -50,7 +58,8 @@
 
    ```
    ./main.py run --target $EXP/vanilla
-   ./main.py run --target $EXP/rosette
+   ./main.py run --target $EXP/rosette/npm/min_oldness,min_num_deps
+   ./main.py run --target $EXP/rosette/npm/min_num_deps,min_oldness
    ```
 
    These commands will take some time (nearly 30 mins each). You will see some
