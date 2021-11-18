@@ -28,7 +28,7 @@ experiments you want to run. Each subdirectory should be either of the form `van
 `rosette/<consistency>/<minimize>` where `<consistency>` and `<minimize>` are the command line flags
 that should be passed to MinNPM. For example:   
    ```
-   export EXP=/scratch/$USER/`date +"%Y-%M-%d-%H%M`"
+   export EXP=/scratch/$USER/`date +"%Y-%M-%d-%H%M"`
    mkdir $EXP
    mkdir $EXP/vanilla
    mkdir -p $EXP/rosette/npm/min_oldness,min_num_deps
