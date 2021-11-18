@@ -1,0 +1,4 @@
+numpy
+pandas
+clusterfutures
+more_itertools

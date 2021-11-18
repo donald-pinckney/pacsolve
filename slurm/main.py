@@ -74,7 +74,7 @@ class Gather(object):
             for _, v in data['packages'].items():
                 if 'link' in v and v['link']:
                     continue
-                n = n + 1
+                n += 1
             return n
 
     def project_times(self, project: str):
