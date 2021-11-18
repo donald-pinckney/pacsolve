@@ -21,7 +21,7 @@
 (struct parsed-package (package cost-values pv-vec) #:transparent)
 (struct registry (vec package-hash version-hashes) #:transparent)
 (struct min-objective (vertex_cost_key package_cost_key version_group_combiner_name packages_combiner_name) #:transparent)
-(struct options (max-duplicates check-acyclic min-objectives-names) #:transparent)
+(struct options (check-acyclic min-objectives-names) #:transparent)
 (struct query (registry context-deps options functions-hash) #:transparent)
 
 

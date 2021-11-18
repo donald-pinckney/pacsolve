@@ -84,7 +84,6 @@
   (define min_objective_names (hash-ref j 'minimization_criteria))
 
   (options
-    (hash-ref j 'max_duplicates)
     (hash-ref j 'check_acyclic)
     min_objective_names))
 

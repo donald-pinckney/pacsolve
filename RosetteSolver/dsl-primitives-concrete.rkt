@@ -11,4 +11,12 @@
   (cons "cons" cons)
   (cons "list" list)
   (cons "make-json-hash" make-json-hash)
+
+  (cons "&&" (lambda xs (andmap (lambda (x) x) xs)))
+  (cons "||" (lambda xs (ormap (lambda (x) x) xs)))
+  (cons "not" not)
+  (cons "<" <)
+  (cons "==" =)
+  (cons ">" >)
+  (cons "ite" (lambda (b x y) (if b x y)))
 )))

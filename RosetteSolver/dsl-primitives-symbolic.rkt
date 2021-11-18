@@ -42,11 +42,11 @@
 
 ; get-cost-val/version-node: version-node -> String -> Number
 (define (get-cost-val/version-node vn key)
-  (hash-ref (version-node-cost-values vn) key))
+  (hash-ref (version-node-cost-values vn) (string->symbol key)))
 
 ; get-cost-val/package-group: package-group -> String -> Number
-(define (get-cost-val/package-group pg key) 
-  (hash-ref (package-group-cost-values pg) key))
+(define (get-cost-val/package-group pg key)
+  (hash-ref (package-group-cost-values pg) (string->symbol key)))
 
 ;; Loaded for functions: "constraintInterpretation" and optimization functions
 (define DSL-PRIMITIVES-SYMBOLIC (make-immutable-hash (list
@@ -67,6 +67,8 @@
   ; ite: Boolean -> A -> A -> A
   (cons "ite" (lambda (b x y) (if b x y)))
   (cons "+" +)
+  (cons "*" *)
+  (cons "-" -)
   (cons "get-cost-val/version-node" get-cost-val/version-node)
   (cons "get-cost-val/package-group" get-cost-val/package-group)
 )))
