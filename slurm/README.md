@@ -29,10 +29,13 @@ experiments you want to run. Each subdirectory should be either of the form `van
 that should be passed to MinNPM. For example:   
    ```
    export EXP=/scratch/$USER/`date +"%Y-%M-%d-%H%M"`
-   mkdir $EXP
-   mkdir $EXP/vanilla
+   mkdir -p $EXP/vanilla
    mkdir -p $EXP/rosette/npm/min_oldness,min_num_deps
    mkdir -p $EXP/rosette/npm/min_num_deps,min_oldness
+   mkdir -p $EXP/rosette/npm/min_duplicates,min_oldness
+   mkdir -p $EXP/rosette/npm/min_oldness,min_duplicates
+   mkdir -p $EXP/rosette/pip/min_oldness,min_num_deps
+   mkdir -p $EXP/rosette/pip/min_num_deps,min_oldness
    ```
 
 3. Unpack all the projects to these directories. Continuing the example:
@@ -41,15 +44,26 @@ that should be passed to MinNPM. For example:
    ./main.py prepare \
      --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
      --target $EXP/vanilla
-   ./main.py prepare \
-     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --target $EXP/vanilla
+     
    ./main.py prepare \
      --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
      --target $EXP/rosette/npm/min_oldness,min_num_deps
    ./main.py prepare \
      --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
      --target $EXP/rosette/npm/min_num_deps,min_oldness
+   ./main.py prepare \
+     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
+     --target $EXP/rosette/npm/min_duplicates,min_oldness
+   ./main.py prepare \
+     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
+     --target $EXP/rosette/npm/min_oldness,min_duplicates
+     
+   ./main.py prepare \
+     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
+     --target $EXP/rosette/pip/min_oldness,min_num_deps
+   ./main.py prepare \
+     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
+     --target $EXP/rosette/pip/min_num_deps,min_oldness
    ```
 
    These don't take very long, and should present no output.
@@ -60,6 +74,10 @@ that should be passed to MinNPM. For example:
    ./main.py run --target $EXP/vanilla
    ./main.py run --target $EXP/rosette/npm/min_oldness,min_num_deps
    ./main.py run --target $EXP/rosette/npm/min_num_deps,min_oldness
+   ./main.py run --target $EXP/rosette/npm/min_duplicates,min_oldness
+   ./main.py run --target $EXP/rosette/npm/min_oldness,min_duplicates
+   ./main.py run --target $EXP/rosette/pip/min_oldness,min_num_deps
+   ./main.py run --target $EXP/rosette/pip/min_num_deps,min_oldness
    ```
 
    These commands will take some time (nearly 30 mins each). You will see some
