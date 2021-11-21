@@ -46,7 +46,7 @@ class Gather(object):
         self.solvers = [
             'vanilla'
         ] + [
-            os.sep.join(p.split(os.sep)[-3:]) 
+            os.sep.join(os.path.normpath(p).split(os.sep)[-3:]) 
             for p in glob.glob(f'{self.directory}/rosette/*/*/')
         ]
         print(f'Gathering results for the solvers: {self.solvers}')
@@ -108,7 +108,7 @@ class Gather(object):
         return df
 
     def gather(self):
-        projects = {prj for solver in solvers for prj in self.projects_for_solver(solver)}
+        projects = {prj for solver in self.solvers for prj in self.projects_for_solver(solver)}
 
         df = pd.DataFrame(columns=['Project', 'Solver', 'Time', 'NDeps'])
         # Process pool is faster than thread pool. This is a way of fudging
@@ -159,18 +159,15 @@ class Prepare(object):
         tarballs_and_targets = remove_nones([
             self.tarball_and_target_dir(f) for f in os.listdir(self.source)])
 
+#        results = self.unpack_tarballs(tarballs_and_targets)
+#        if results is not None:
+#            print(results)
 
-
-        results = self.unpack_tarballs(tarballs_and_targets)
-        if results is not None:
-            print(results)
-
-        # I can't get this to work, it just hangings, and doesn't actually do any untaring:
-        # with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines) as executor:
-        #     jobs = grouper(tarballs_and_targets, self.tarballs_per_job)
-        #     for err in executor.map(self.unpack_tarballs, jobs):
-        #         if err is not None:
-        #             print(err)
+        with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines) as executor:
+            jobs = grouper(tarballs_and_targets, self.tarballs_per_job)
+            for err in executor.map(self.unpack_tarballs, jobs):
+                if err is not None:
+                    print(err)
 
 
 
@@ -239,6 +236,7 @@ class Run(object):
         self.mode_configuration = mode_configuration
         self.timeout = timeout
         self.cpus_per_task = cpus_per_task
+        print(cpus_per_task)
         self.sbatch_lines = [
             "#SBATCH --time=00:12:00",
             "#SBATCH --partition=express",
@@ -280,7 +278,8 @@ class Run(object):
         pkgs = self.list_pkg_paths()
         print(f'Will run on {len(pkgs)} packages.')
         pkg_chunks = chunked(pkgs, self.cpus_per_task)
-        
+        # print(len(list(pkg_chunks)))
+
         with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines, keep_logs=True) as executor:
             for err in suppressed_iterator(executor.map(self.run_chunk, pkg_chunks)):
                 if err is not None:
