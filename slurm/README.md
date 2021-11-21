@@ -97,8 +97,8 @@ that should be passed to MinNPM. For example:
 
 1. Reserve a compute node for the experiments, same as step 1. above. 4 hours should be sufficient, but not less.
 2. When SSH'd into the compute node, run: `. run_full_experiment.sh`. This will prepare the experiment directory, and kick off 7 different experiment configurations parallelized with 2 tmux sessions.
-3. Monitor the experiments to see when they finish. You can:
+3. Monitor the experiments to see when they finish. You can do this in several ways:
    a. Read the logs in `logs/`
    b. See if the 2 tmux sessions are still alive (they will die when the experiments are complete): `tmux ls`
-   c. Check if there are still active jobs: `squeue -u pinckney.d`
+   c. Check if there are still active jobs: `squeue -u <USER>`
 4. When everything is all done, run `./main.py gather $EXP`.
