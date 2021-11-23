@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 16.924027919769287,
+  "install_time": 11.948976993560791,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/@gar/promisify": {
