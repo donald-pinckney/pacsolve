@@ -20,8 +20,16 @@
 (struct parsed-package-version (version cost-values dep-vec) #:transparent)
 (struct parsed-package (package cost-values pv-vec) #:transparent)
 (struct registry (vec package-hash version-hashes) #:transparent)
-(struct min-objective (vertex_cost_key package_cost_key version_group_combiner_name packages_combiner_name) #:transparent)
+
+;; An Options is a (options Bool [List-of String])
+;; - min-objective-names is a list of function names to use as minimization
+;;   objectives, in order.
+;; - check-acyclic is true if cycles are okay in the dependency graph.
 (struct options (check-acyclic min-objectives-names) #:transparent)
+
+;; A Query is a (query Registry ContextDeps Options [Hash String FunctionDef]))
+;;
+;; FunctionDef is defined in function-dsl.rkt.
 (struct query (registry context-deps options functions-hash) #:transparent)
 
 
