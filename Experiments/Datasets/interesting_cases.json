@@ -25,6 +25,10 @@
     "move-concurrently": {
       "comment": "timesout with both unary and bitvector encoding",
       "tarball": "https://registry.npmjs.org/move-concurrently/-/move-concurrently-1.0.1.tgz"
+    },
+    "cacache": {
+      "comment": "might be failing?",
+      "tarball": "https://registry.npmjs.org/cacache/-/cacache-15.3.0.tgz"
     }
   }
 }
