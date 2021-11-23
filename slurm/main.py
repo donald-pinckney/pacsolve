@@ -6,6 +6,7 @@ import time
 import argparse
 import sys
 import os
+import glob
 import json
 import numpy as np
 import pandas as pd
@@ -41,7 +42,14 @@ def gather(argv):
 class Gather(object):
 
     def __init__(self, directory):
-        self.directory = directory
+        self.directory = os.path.normpath(directory)
+        self.solvers = [
+            'vanilla'
+        ] + [
+            os.sep.join(os.path.normpath(p).split(os.sep)[-3:]) 
+            for p in glob.glob(f'{self.directory}/rosette/*/*/')
+        ]
+        print(f'Gathering results for the solvers: {self.solvers}')
 
     def projects_for_solver(self, solver: str):
         """
@@ -82,8 +90,7 @@ class Gather(object):
         Times with both solves for the project.
         """
         df = pd.DataFrame(columns=['Project', 'Solver', 'Time', 'NDeps'])
-        solvers = ['rosette', 'vanilla']
-        for solver in solvers:
+        for solver in self.solvers:
             p = os.path.join(self.directory, solver, project, 'package', 'experiment.json')
             if not os.path.exists(p):
                 continue
@@ -101,8 +108,8 @@ class Gather(object):
         return df
 
     def gather(self):
-        projects = self.projects_for_solver('rosette').union(
-                self.projects_for_solver('vanilla'))
+        projects = {prj for solver in self.solvers for prj in self.projects_for_solver(solver)}
+
         df = pd.DataFrame(columns=['Project', 'Solver', 'Time', 'NDeps'])
         # Process pool is faster than thread pool. This is a way of fudging
         # nonblocking I/O. Why 100 workers? Why not?
@@ -152,11 +159,17 @@ class Prepare(object):
         tarballs_and_targets = remove_nones([
             self.tarball_and_target_dir(f) for f in os.listdir(self.source)])
 
+#        results = self.unpack_tarballs(tarballs_and_targets)
+#        if results is not None:
+#            print(results)
+
         with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines) as executor:
             jobs = grouper(tarballs_and_targets, self.tarballs_per_job)
             for err in executor.map(self.unpack_tarballs, jobs):
                 if err is not None:
                     print(err)
+
+
 
     def target_dir(self, package_tgz):
         """
@@ -178,10 +191,10 @@ class Prepare(object):
         for (tgz, target) in tarballs_and_targets:
             try:
                 os.mkdir(target)
-                if os.system(f'tar -C {target} -xzf {tgz}') != 0:
+                if subprocess.call(['tar', '-C', target, '-xzf', tgz], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) != 0:
                     results.append(f'Error unpacking {tgz}')
-            except:
-                results.append(f'Error unpacking {tgz}')
+            except Exception as err:
+                results.append(f'Error unpacking {tgz}: {err}')
         if len(results) > 0:
             return "\n".join(results)
         else:
@@ -197,22 +210,33 @@ def run(argv):
     parser.add_argument('--cpus-per-task', type=int, default=24,
        help='Number of CPUs to request on each node')
     args = parser.parse_args(argv)
-    mode = os.path.basename(args.target)
-    if mode == 'vanilla':
-        rosette = False
-    elif mode == 'rosette':
-        rosette = True
+
+    target = os.path.normpath(args.target)
+    target_components = target.split(os.sep)
+
+    if 'vanilla' in target_components:
+        mode_configuration = {
+            'rosette': False
+        }
+    elif 'rosette' in target_components and target_components[-3] == 'rosette':
+        mode_configuration = {
+            'rosette': True,
+            'minimize': target_components[-1],
+            'consistency': target_components[-2]
+        }
     else:
-        raise Exception('basename of target must be vanilla or rosette')
-    Run(args.target, rosette, args.timeout, args.cpus_per_task).run()
+        raise Exception('target must be of the form: <stuff>/vanilla OR <stuff>/rosette/<consistency>/<min>')
+
+    Run(target, mode_configuration, args.timeout, args.cpus_per_task).run()
 
 class Run(object):
 
-    def __init__(self, target, rosette, timeout, cpus_per_task):
+    def __init__(self, target, mode_configuration, timeout, cpus_per_task):
         self.target = target
-        self.rosette = rosette
+        self.mode_configuration = mode_configuration
         self.timeout = timeout
         self.cpus_per_task = cpus_per_task
+        print(cpus_per_task)
         self.sbatch_lines = [
             "#SBATCH --time=00:12:00",
             "#SBATCH --partition=express",
@@ -222,8 +246,15 @@ class Run(object):
             "export PATH=$PATH:/work/arjunguha-research-group/software/bin",
             "eval `spack load --sh z3`"
         ]
-        self.NPM_COMMAND = 'minnpm install --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')
-        self.MINNPM_COMMAND = 'minnpm install --rosette --ignore-scripts'.split(' ')
+
+        if mode_configuration['rosette']:
+            self.SOLVE_COMMAND = [
+                'minnpm', 'install', '--rosette', '--ignore-scripts', 
+                '--consistency', mode_configuration['consistency'], 
+                '--minimize', mode_configuration['minimize']
+            ]
+        else:
+            self.SOLVE_COMMAND = 'minnpm install --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')
 
     def run_chunk(self, pkgs):
         print(f'Will handle {len(pkgs)}')
@@ -247,7 +278,8 @@ class Run(object):
         pkgs = self.list_pkg_paths()
         print(f'Will run on {len(pkgs)} packages.')
         pkg_chunks = chunked(pkgs, self.cpus_per_task)
-        
+        # print(len(list(pkg_chunks)))
+
         with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines, keep_logs=True) as executor:
             for err in suppressed_iterator(executor.map(self.run_chunk, pkg_chunks)):
                 if err is not None:
@@ -276,11 +308,10 @@ class Run(object):
 
     def run_minnpm(self, pkg_path):
         start_time = time.time()
-        cmd = self.NPM_COMMAND if not self.rosette else self.MINNPM_COMMAND
         try:
             output_path = f'{pkg_path}/experiment.out'
             with open(output_path, 'wt') as out:
-                exit_code = subprocess.Popen(cmd,
+                exit_code = subprocess.Popen(self.SOLVE_COMMAND,
                     cwd=pkg_path,
                     stdout=out,
                     stderr=out).wait(self.timeout)
