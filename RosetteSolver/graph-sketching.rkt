@@ -10,8 +10,6 @@
 
 (provide graph*)
 
-
-
 ; fin* generates a symbolic integer x such that 0 <= x < n
 
 ;; TODO: Explore an alternative encoding.
@@ -76,6 +74,7 @@
     cost-values
     (vector->immutable-vector (list->vector version-nodes))))
 
+;; graph* : Query -> Graph
 (define (graph* query)
   (define context-node (node* query (context-deps query)))
   (define p-idxs (range (registry-num-packages query)))

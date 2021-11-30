@@ -13,7 +13,7 @@ import pandas as pd
 import concurrent.futures
 import cfut # Adrian Sampson's clusterfutures package.
 from more_itertools import grouper, chunked
-import itertools
+from util import remove_nones, suppressed_iterator, write_json, read_json
 
 def main():
     parser = argparse.ArgumentParser(
@@ -328,36 +328,6 @@ class Run(object):
             return f'Failed: {pkg_path}'
         except subprocess.TimeoutExpired:
             return f'Timeout: {pkg_path}'
-
-
-def remove_nones(seq):
-    return [x for x in seq if x is not None]
-
-class suppressed_iterator:
-    def __init__(self, wrapped_iter, skipped_exc = Exception):
-        self.wrapped_iter = wrapped_iter
-        self.skipped_exc  = skipped_exc
-
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        while True:
-            try:
-                return next(self.wrapped_iter)
-            except StopIteration:
-                raise
-            except self.skipped_exc as exn:
-                print(f'Skipped exception {exn}')
-                pass
-
-def write_json(path, data):
-    with open(path, 'wt') as out:
-        out.write(json.dumps(data))
-
-def read_json(path: str) -> any:
-    with open(path, 'r') as f_in:
-        return json.load(f_in)
 
 if __name__ == '__main__':
     start = time.time()
