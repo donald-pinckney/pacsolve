@@ -8,7 +8,6 @@
 (provide (struct-out parsed-package))
 (provide (struct-out parsed-package-version))
 (provide (struct-out registry))
-(provide (struct-out min-objective))
 (provide (struct-out options))
 (provide (struct-out query))
 
