@@ -1,75 +1,193 @@
 ---
 title: "R Notebook"
 output:
+  html_document:
+    df_print: paged
   html_notebook: default
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-
-## Running on Discovery
+# Running on Discovery
 
 I recommend viewing this with a web-based Rstudio server on Discovery:
 
 https://ood.discovery.neu.edu/pun/sys/dashboard/batch_connect/sys/RStudio/session_contexts/new
 
-Note that you'll need to be on Northeastern's network, or on the Northeastern VPN
-(GlobalProtect).
+Press *Ctrl+Enter* to run a chunk.
 
-## Initialization
+# Initialization
 
-*You probably want to change the directory below.*
+*You may want to change the directory below.*
+
 ```{r setup}
 library(tidyverse)
-knitr::opts_knit$set(root.dir = "/scratch/a.guha/11-11")
+knitr::opts_knit$set(root.dir = "/scratch/a.guha/minnpm-exp")
 ```
-
 
 Load the data:
 
 ```{r}
-data <- read_csv("results.csv") %>% select(c(Project, Solver, Time, NDeps))
-data_wide <-pivot_wider(data, values_from=c(Time, NDeps),names_from=Solver)
+raw_data <- read_csv("results.csv",
+  col_types = cols(Status=col_factor(),
+                   Project=col_factor(),
+                   Rosette=col_logical(),
+                   Consistency=col_factor(),
+                   Minimize=col_factor(),
+                   Time=col_double(),
+                   NDeps=col_integer()),
+  show_col_types = FALSE)
+                   
 ```
 
-## Slowdown of Rosette
 
-This is Rosette Time / Vanilla Time. Note that these times are not reliable, since we can't really do a performance benchmark on Discovery.
+# Manual Verification Step
 
-```{r}
-slowdowns <- data_wide %>%
-  na.omit() %>%
-  mutate(Slowdown = Time_rosette / Time_vanilla)
-ggplot(data = slowdowns, aes(x = Slowdown)) + stat_ecdf()
+Check that these are the factors that appear below:
 
-```
-
-Median:
-
-```{r}
-median(slowdowns$Slowdown)
-```
-
-The median is shocking! Rosette is faster? Again, I don't think this is reliable.
-
-### Failures
-
-Analysis of failures.
-
+1. *success*: everything worked!
+2. *ERESOLVE*: depends on something that isn't in the repository
+3. *ETARGET*: requires some other target architecture **verify**
+4. *EBADPLATFORM*: requires some other platform (e.g., macOS)
+5. *EUNSUPPORTEDPROTOCOL:* a dependency is in a format that NPM does not support
+6. *unexpected*: something went wrong on Discovery. See experiment.out
+7. *unavailable*: something went wrong and we didn't even capture the result. 
+   See experiment.out
 
 ```{r}
-sum(is.na(data_wide$Time_rosette))
-sum(is.na(data_wide$Time_vanilla))
-```
-
-### Number of dependencies
-
-We are trying to minimize the number of dependencies. So, Rosette should produce fewer dependencies.
-
-```{r}
-deps <- data_wide %>% mutate(Compression = NDeps_vanilla / NDeps_rosette) %>% filter(!is.na(Compression))
+levels(raw_data$Status)
 ```
 
 ```{r}
-ggplot(data = deps, aes(x = Compression)) + stat_ecdf()
+levels(raw_data$Consistency)
 ```
+
+```{r}
+levels(raw_data$Minimize)
+```
+
+*The value in the Count column should be 1000 for every row:*
+
+```{r}
+raw_data %>% 
+  group_by(Rosette,Minimize,Consistency) %>%
+  summarize(Count = n())
+```
+
+# Failures
+
+How many failures occur for each configuration? We know we will see more failures than NPM, but hopefully not too many more.
+
+```{r}
+raw_data %>% 
+  filter(Status != "success") %>% 
+  group_by(Rosette,Minimize,Consistency) %>%
+  summarize(Count = n())
+```
+
+Let's rule out failures that are due to unsolvability on our platform:
+
+```{r}
+raw_data %>% 
+  filter(Status == "unexpected" | Status == "unavailable") %>%
+  group_by(Rosette,Minimize,Consistency) %>%
+  summarize(Count = n())
+```
+
+These are likely due to timeouts, Z3 crashing, etc.
+
+#  The Need for Tree-Solving
+
+NPM uses a tree-solver because its easy to resolve conflicts. But, how many conflicts do you see with MinNPM in PIP mode?
+
+<span style="color:red">TODO: Need to process output further to distinguish these errors.</span>
+
+#  Minimizing Number of Dependencies
+
+For each project, the number of dependencies with vanilla NPM, and with MinNPM configured to minimize #deps and oldness, in that order.
+
+```{r}
+min_dep_analysis <- bind_rows(raw_data %>% 
+            filter(Rosette == FALSE) %>% 
+            select(Project,NDeps) %>% 
+            mutate(Solver="NPM"),
+          raw_data %>% 
+            filter(Rosette == TRUE & Consistency == "npm" &
+                   Minimize == "min_num_deps,min_oldness") %>%
+            select(Project, NDeps) %>%
+            mutate(Solver="MinDeps")) %>%
+  pivot_wider(values_from=NDeps, names_from=Solver)
+```
+
+
+<span style="color: red">
+In theory, MinNPM should always produce a smaller solution. But, it seems like it doesn't always.
+</span>
+
+```{r}
+min_dep_analysis %>% mutate(Badness = MinDeps - NPM) %>% filter(Badness > 0)
+
+```
+
+<span style="color:red">The graph below is bogus, since I've filtered out the outliers.</span>
+
+```{r}
+min_dep_analysis %>% 
+  mutate(Shrinkage = MinDeps / NPM) %>% 
+  filter(Shrinkage <= 1.0) %>%
+  select(Shrinkage) %>%
+  ggplot(aes(Shrinkage)) +
+  stat_ecdf() +
+  ylab("Fraction of solves that shrink")
+```
+
+
+# Impact on Priorities
+
+<span style="color:red">Skip this? Not very informative.</span>
+
+```{r}
+bind_rows(
+  raw_data %>% 
+    filter(Rosette == TRUE & Consistency == "npm" &
+             Minimize == "min_num_deps,min_oldness") %>%
+    select(Project,NDeps) %>%
+    mutate(Solver="Deps,Oldness"),
+  raw_data %>% 
+    filter(Rosette == TRUE & Consistency == "npm" &
+             Minimize == "min_oldness,min_duplicates") %>%
+    select(Project,NDeps) %>%
+    mutate(Solver="Oldness,Deps"),
+  raw_data %>% 
+    filter(Rosette == TRUE & Consistency == "npm" &
+             Minimize == "min_duplicates,min_oldness") %>%
+    select(Project, NDeps) %>%
+    mutate(Solver="Dups,Oldness")) %>%
+  ggplot(aes(NDeps,color=Solver)) +
+  stat_ecdf()
+```
+
+# Slowdown of MinNPM
+
+<span style="color:red">These were run on different kinds of machines, etc. and in parallel. So timing is not reliable. But, we can assume the trends hold, and we have seen these trends over lots of experiment runs. Some questions:</span>
+
+1. Why is it that the Rosette solver is faster? It seems almost unbelievable that the NPM solver is slower to me.
+
+2. Should we somehow represent the timeouts on this graph?
+
+```{r}
+bind_rows(
+  raw_data %>%
+    filter(Rosette == FALSE) %>%
+    select(Project,Time) %>%
+    mutate(Solver="NPM"),
+  raw_data %>% 
+    filter(Rosette == TRUE & Consistency == "npm" &
+             Minimize == "min_num_deps,min_oldness") %>%
+    select(Project,Time) %>%
+    mutate(Solver="MinNPM")) %>%
+  pivot_wider(values_from=Time, names_from=Solver) %>%
+  mutate(DeltaTime = MinNPM- NPM) %>%
+  select(-NPM, -MinNPM) %>%
+  ggplot(aes(y=DeltaTime)) +
+  stat_bin()
+```
+

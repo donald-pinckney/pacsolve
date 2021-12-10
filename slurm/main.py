@@ -93,6 +93,7 @@ class Gather(object):
             print(f'No status for {dir}')
             p_result = { 'status': 'unavailable' }
 
+
         status = p_result['reason'] if 'reason' in p_result else p_result['status']
         time = p_result['time'] if 'time' in p_result else None
         return (time, self.num_deps(dir), status)
