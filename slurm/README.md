@@ -32,7 +32,7 @@
 
    ```
    ./main.py run \
-     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
+     --tarball-dir /work/arjunguha-research-group/minnpm-slurm/tarballs \
      --target /scratch/$USER/minnpm-exp`
    ```
 

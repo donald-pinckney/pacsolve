@@ -83,19 +83,25 @@ class Gather(object):
         """
         Times with both solves for the project.
         """
-        p = os.path.join(dir, 'package', 'experiment.json')
-        if not os.path.exists(p):
-            return None
-        p_result = read_json(p)
-        if p_result['status'] != 'success':
-            return None
-        return (p_result['time'], self.num_deps(dir))
+        durable_status_path = os.path.join(dir, 'package', 'experiment.json')
+        transient_status_path = os.path.join(dir, 'package', 'error.json')
+        if os.path.exists(durable_status_path):
+            p_result = read_json(durable_status_path)
+        elif os.path.exists(transient_status_path):
+            p_result = read_json(transient_status_path)
+        else:
+            print(f'No status for {dir}')
+            p_result = { 'status': 'unavailable' }
+
+        status = p_result['reason'] if 'reason' in p_result else p_result['status']
+        time = p_result['time'] if 'time' in p_result else None
+        return (time, self.num_deps(dir), status)
 
     def gather(self):
         output_path = os.path.join(self.directory, 'results.csv') 
         with open(output_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['Project','Rosette','Consistency','Minimize','Time','NDeps'])
+            writer.writerow(['Project','Rosette','Consistency','Minimize','Time','NDeps', 'Status'])
             for mode_configuration in MODE_CONFIGURATIONS:
                 mode_dir = mode_configuration_target(self.directory, mode_configuration)
                 print(f'Processing a mode ...', mode_dir)
@@ -103,7 +109,7 @@ class Gather(object):
                     for (p, result) in executor.map(lambda p: (p, self.project_times(os.path.join(mode_dir, p))),  self.projects_for_solver(mode_dir)):
                         if result is None:
                             continue
-                        (time, deps) = result
+                        (time, deps, status) = result
                         is_rosette = mode_configuration['rosette']
                         writer.writerow([
                             p,
@@ -111,7 +117,8 @@ class Gather(object):
                             mode_configuration['consistency'] if is_rosette else '',
                             mode_configuration['minimize'] if is_rosette else '',
                             time,
-                            deps])
+                            deps,
+                            status])
 
 MODE_CONFIGURATIONS = [
     { 'rosette': False },
@@ -170,9 +177,12 @@ class Run(object):
         self.cpus_per_task = cpus_per_task
         self.mode_configurations = mode_configurations
         self.sbatch_lines = [
-            "#SBATCH --time=00:12:00",
+            "#SBATCH --time=00:15:00",
             "#SBATCH --partition=express",
             "#SBATCH --mem=8G",
+            # This rules out the few nodes that are older than Haswell.
+            # https://rc-docs.northeastern.edu/en/latest/hardware/hardware_overview.html#using-the-constraint-flag
+            "$SBATCH --constraint=haswell|broadwell|skylake_avx512|zen2|zen|cascadelake",
             f'#SBATCH --cpus-per-task={cpus_per_task}',
             "module load discovery nodejs",
             "export PATH=$PATH:/home/a.guha/bin:/work/arjunguha-research-group/software/bin",
@@ -251,18 +261,31 @@ class Run(object):
                     stderr=out).wait(self.timeout)
             duration = time.time() - start_time
             output_status_path = f'{pkg_path}/experiment.json'
+            error_status_path = f'{pkg_path}/error.json'
             if exit_code == 0:
                 write_json(output_status_path,
                     { 'status': 'success', 'time': duration })
                 return None
             status = self.get_npmstatus(output_path)
             if status in [ 'ERESOLVE', 'ETARGET', 'EUNSUPPORTEDPROTOCOL', 'EBADPLATFORM' ]:
+                # TODO(arjun): This is for compatibility with older data. If
+                # we do a totally fresh run, can refactor to stick reason into
+                # status and remove the 'cannot_install' status.
                 write_json(output_status_path, { 'status': 'cannot_install', 'reason': status })
                 return None
+            write_json(error_status_path, { 
+                'status': 'unexpected', 
+                'detail': output_path
+             })
             return f'Failed: {pkg_path}'
         except subprocess.TimeoutExpired:
+            write_json(error_status_path, { 'status': 'timeout' })
             return f'Timeout: {pkg_path}'
-        except Exception as e:
+        except BaseException as e:
+            write_json(error_status_path, {
+                'status': 'unexpected',
+                'detail': e.__str__()
+            })                
             return f'Exception: {pkg_path} {e}'
 
 if __name__ == '__main__':

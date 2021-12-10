@@ -36,7 +36,7 @@ def chunked_or_distributed(
     max_groups: int,
     optimal_group_size: int) -> Iterable[Iterable[Any]]:
     """Divide *items* into at most *max_groups*. If possible, produces fewer
-    than *max_groups*, but with at most *optimial_group_size* items in each
+    than *max_groups*, but with at most *optimal_group_size* items in each
     group."""
     if len(items) / optimal_group_size <= max_groups:
         return chunked(items, optimal_group_size)
