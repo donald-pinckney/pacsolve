@@ -67,19 +67,6 @@
       (lambda (p-idx) (make-version-hash (parsed-package-pv-vec (vector-ref reg-vec p-idx)))) 
       (range (vector-length reg-vec)))))
 
-
-(define (parse-minimization-objective j)
-  (define v_cost_key (hash-ref j 'vertex_cost_key))
-  (define p_cost_key (hash-ref j 'package_cost_key))
-  (define version_group_combiner_name (hash-ref j 'version_group_combiner))
-  (define packages_combiner_name (hash-ref j 'packages_combiner))
-  (min-objective
-    v_cost_key
-    p_cost_key
-    version_group_combiner_name
-    packages_combiner_name))
-
-
 (define (parse-options j) 
   (define min_objective_names (hash-ref j 'minimization_criteria))
 

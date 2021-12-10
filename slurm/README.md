@@ -23,77 +23,33 @@
    you can SSH into it and start tmux. If you get disconnected, reconnect to
    tmux.
 
-2. Create a directory to hold your experiment, with subdirectories based on what 
-experiments you want to run. Each subdirectory should be either of the form `vanilla` or 
-`rosette/<consistency>/<minimize>` where `<consistency>` and `<minimize>` are the command line flags
-that should be passed to MinNPM. For example:   
+2. Create a directory to hold your experiment.
    ```
-   export EXP=/scratch/$USER/`date +"%Y-%M-%d-%H%M"`
-   mkdir -p $EXP/vanilla
-   mkdir -p $EXP/rosette/npm/min_oldness,min_num_deps
-   mkdir -p $EXP/rosette/npm/min_num_deps,min_oldness
-   mkdir -p $EXP/rosette/npm/min_duplicates,min_oldness
-   mkdir -p $EXP/rosette/npm/min_oldness,min_duplicates
-   mkdir -p $EXP/rosette/pip/min_oldness,min_num_deps
-   mkdir -p $EXP/rosette/pip/min_num_deps,min_oldness
+   mkdir /scratch/$USER/minnpm-exp`
    ```
 
-3. Unpack all the projects to these directories. Continuing the example:
+3. Run the experiment:
 
    ```
-   ./main.py prepare \
-     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --target $EXP/vanilla
-     
-   ./main.py prepare \
-     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --target $EXP/rosette/npm/min_oldness,min_num_deps
-   ./main.py prepare \
-     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --target $EXP/rosette/npm/min_num_deps,min_oldness
-   ./main.py prepare \
-     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --target $EXP/rosette/npm/min_duplicates,min_oldness
-   ./main.py prepare \
-     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --target $EXP/rosette/npm/min_oldness,min_duplicates
-     
-   ./main.py prepare \
-     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --target $EXP/rosette/pip/min_oldness,min_num_deps
-   ./main.py prepare \
-     --source /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --target $EXP/rosette/pip/min_num_deps,min_oldness
+   ./main.py run \
+     --tarball-dir /work/arjunguha-research-group/minnpm-slurm/tarballs \
+     --target /scratch/$USER/minnpm-exp`
    ```
 
-   These don't take very long, and should present no output.
-
-4. Run the experiments:
-
-   ```
-   ./main.py run --target $EXP/vanilla
-   ./main.py run --target $EXP/rosette/npm/min_oldness,min_num_deps
-   ./main.py run --target $EXP/rosette/npm/min_num_deps,min_oldness
-   ./main.py run --target $EXP/rosette/npm/min_duplicates,min_oldness
-   ./main.py run --target $EXP/rosette/npm/min_oldness,min_duplicates
-   ./main.py run --target $EXP/rosette/pip/min_oldness,min_num_deps
-   ./main.py run --target $EXP/rosette/pip/min_num_deps,min_oldness
-   ```
-
-   These commands will take some time (nearly 30 mins each). You will see some
+   This command will take some time (nearly 30 mins total). You will see some
    failures. Re-running won't repeat successful experiments, but will make
    transient errors go away. *There will be transient errors on Discovery.*
 
 5. Gather the data from these experiments:
 
    ```
-   ./main.py gather $EXP
+   ./main.py gather /scratch/$USER/minnpm-exp
    ```
 
-6. See `analysis.Rmd` for data analysis.
+6. See `analysis.Rmd` for data analysis (*Stale*)
 
 
-# Alternative Usage using Janky Automation Script
+# Alternative Usage using Janky Automation Script (*stale*)
 
 1. Reserve a compute node for the experiments, same as step 1. above. 4 hours should be sufficient, but not less.
 2. When SSH'd into the compute node, run: `. run_full_experiment.sh`. This will prepare the experiment directory, and kick off 7 different experiment configurations parallelized with 2 tmux sessions.

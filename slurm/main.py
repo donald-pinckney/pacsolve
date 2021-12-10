@@ -8,27 +8,23 @@ import sys
 import os
 import glob
 import json
-import numpy as np
-import pandas as pd
+import csv
 import concurrent.futures
 import cfut # Adrian Sampson's clusterfutures package.
-from more_itertools import grouper, chunked
-import itertools
+from util import suppressed_iterator, write_json, read_json, chunked_or_distributed
 
 def main():
     parser = argparse.ArgumentParser(
         description='Manage MinNPM experiments on Discovery.')
     parser.add_argument(
         'command', 
-        choices=['run', 'gather', 'prepare'],
+        choices=['run', 'gather'],
         help='Subcommand to run')
     args = parser.parse_args(sys.argv[1:2])
     if args.command == 'run':
         run(sys.argv[2:])
     elif args.command == 'gather':
         gather(sys.argv[2:])
-    elif args.command == 'prepare':
-        prepare(sys.argv[2:])
 
 def gather(argv):
     parser = argparse.ArgumentParser(
@@ -56,17 +52,15 @@ class Gather(object):
         The projects on which a particular solver ran.
         """
         p = os.path.join(self.directory, solver)
-        return {f for f in os.listdir(p) if os.path.isdir(os.path.join(p, f)) }
+        return [f for f in os.listdir(p) if os.path.isdir(os.path.join(p, f))]
 
-    def num_deps(self, solver, project):
+    def num_deps(self, project):
         """
         Calculates the number of dependencies. This function assumes that
         'npm install' was sucessful. It is critical that the check is performed
         correctly: if not, it will false report zero dependencies.
         """
         p = os.path.join(
-            self.directory,
-            solver,
             project,
             'package',
             'node_modules',
@@ -85,124 +79,63 @@ class Gather(object):
                 n += 1
             return n
 
-    def project_times(self, project: str):
+    def project_times(self, dir: str):
         """
         Times with both solves for the project.
         """
-        df = pd.DataFrame(columns=['Project', 'Solver', 'Time', 'NDeps'])
-        for solver in self.solvers:
-            p = os.path.join(self.directory, solver, project, 'package', 'experiment.json')
-            if not os.path.exists(p):
-                continue
-            p_result = read_json(p)
-            if p_result['status'] != 'success':
-                continue
-            df = df.append(
-                {
-                    'Project': project, 
-                    'Solver': solver,
-                    'Time': p_result['time'],
-                    'NDeps': self.num_deps(solver, project)
-                },
-                ignore_index=True)
-        return df
+        durable_status_path = os.path.join(dir, 'package', 'experiment.json')
+        transient_status_path = os.path.join(dir, 'package', 'error.json')
+        if os.path.exists(durable_status_path):
+            p_result = read_json(durable_status_path)
+        elif os.path.exists(transient_status_path):
+            p_result = read_json(transient_status_path)
+        else:
+            print(f'No status for {dir}')
+            p_result = { 'status': 'unavailable' }
+
+
+        status = p_result['reason'] if 'reason' in p_result else p_result['status']
+        time = p_result['time'] if 'time' in p_result else None
+        return (time, self.num_deps(dir), status)
 
     def gather(self):
-        projects = {prj for solver in self.solvers for prj in self.projects_for_solver(solver)}
-
-        df = pd.DataFrame(columns=['Project', 'Solver', 'Time', 'NDeps'])
-        # Process pool is faster than thread pool. This is a way of fudging
-        # nonblocking I/O. Why 100 workers? Why not?
-        with concurrent.futures.ProcessPoolExecutor(max_workers=100) as executor:
-            for df_project in executor.map(self.project_times, projects):
-                df = df.append(df_project)
-
         output_path = os.path.join(self.directory, 'results.csv') 
-        df.to_csv(output_path)
-        print(f'See {output_path}')        
+        with open(output_path, 'w', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow(['Project','Rosette','Consistency','Minimize','Time','NDeps', 'Status'])
+            for mode_configuration in MODE_CONFIGURATIONS:
+                mode_dir = mode_configuration_target(self.directory, mode_configuration)
+                print(f'Processing a mode ...', mode_dir)
+                with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+                    for (p, result) in executor.map(lambda p: (p, self.project_times(os.path.join(mode_dir, p))),  self.projects_for_solver(mode_dir)):
+                        if result is None:
+                            continue
+                        (time, deps, status) = result
+                        is_rosette = mode_configuration['rosette']
+                        writer.writerow([
+                            p,
+                            is_rosette,
+                            mode_configuration['consistency'] if is_rosette else '',
+                            mode_configuration['minimize'] if is_rosette else '',
+                            time,
+                            deps,
+                            status])
 
-def prepare(argv):
-    parser = argparse.ArgumentParser(description='Prepare NPM packages for benchmarking MinNPM')
-    parser.add_argument(
-        '--source',
-        required=True,
-        help='Directory with the downloaded packages')
-    parser.add_argument(
-        '--target',
-        required=True,
-        help='Directory to unpack the packages')
-    parser.add_argument(
-        '--tarballs_per_job',
-        default=100,
-        help='The number of tarballs to unpack in each job')
-    args = parser.parse_args(argv)
-    Prepare(args.source, args.target, args.tarballs_per_job).run()
-
-class Prepare(object):
-
-    def __init__(self, source, target, tarballs_per_job):
-        self.source = source
-        self.target = target
-        self.tarballs_per_job = tarballs_per_job
-        self.sbatch_lines = [
-            "#SBATCH --time=00:05:00",
-            "#SBATCH --partition=express",
-            "#SBATCH --mem=1G"
-        ]
-
-    def run(self):
-        if not os.path.isdir(self.source):
-            raise Exception(f'{self.source} does not exist')
-        if not os.path.isdir(self.target):
-            raise Exception(f'{self.target} does not exist')
-
-        tarballs_and_targets = remove_nones([
-            self.tarball_and_target_dir(f) for f in os.listdir(self.source)])
-
-#        results = self.unpack_tarballs(tarballs_and_targets)
-#        if results is not None:
-#            print(results)
-
-        with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines) as executor:
-            jobs = grouper(tarballs_and_targets, self.tarballs_per_job)
-            for err in executor.map(self.unpack_tarballs, jobs):
-                if err is not None:
-                    print(err)
-
-
-
-    def target_dir(self, package_tgz):
-        """
-        Given a target directory and a package tarball, returns the target directory
-        for the package.
-        """
-        return os.path.join(self.target, os.path.basename(package_tgz).replace('.tgz', ''))
-
-    def tarball_and_target_dir(self, package_tgz):
-        unpacked_package_dir = os.path.join(
-            self.target,
-            os.path.basename(package_tgz).replace('.tgz', ''))
-        if os.path.isdir(unpacked_package_dir):
-            return None
-        return (os.path.join(self.source, package_tgz), unpacked_package_dir)
-
-    def unpack_tarballs(self, tarballs_and_targets):
-        results = [ ]
-        for (tgz, target) in tarballs_and_targets:
-            try:
-                os.mkdir(target)
-                if subprocess.call(['tar', '-C', target, '-xzf', tgz], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) != 0:
-                    results.append(f'Error unpacking {tgz}')
-            except Exception as err:
-                results.append(f'Error unpacking {tgz}: {err}')
-        if len(results) > 0:
-            return "\n".join(results)
-        else:
-            return None
+MODE_CONFIGURATIONS = [
+    { 'rosette': False },
+    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps' },
+    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_num_deps,min_oldness' },
+    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_duplicates,min_oldness' },
+    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_duplicates' },
+    { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness,min_num_deps' },
+    { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_num_deps,min_oldness' }
+]
 
 def run(argv):
     parser = argparse.ArgumentParser(
         description='Benchmark MinNPM on a directory of NPM projects')
+    parser.add_argument('--tarball-dir', required=True,
+        help='Directory with tarballs of Node packages')
     parser.add_argument('--target', required=True,
       help='Directory with NPM projects')
     parser.add_argument('--timeout', type=int, default=600,
@@ -211,50 +144,51 @@ def run(argv):
        help='Number of CPUs to request on each node')
     args = parser.parse_args(argv)
 
+    tarball_dir = os.path.normpath(args.tarball_dir)
     target = os.path.normpath(args.target)
-    target_components = target.split(os.sep)
+    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task).run()
 
-    if 'vanilla' in target_components:
-        mode_configuration = {
-            'rosette': False
-        }
-    elif 'rosette' in target_components and target_components[-3] == 'rosette':
-        mode_configuration = {
-            'rosette': True,
-            'minimize': target_components[-1],
-            'consistency': target_components[-2]
-        }
+def solve_command(mode_configuration):
+    if mode_configuration['rosette']:
+        return ['minnpm', 'install', '--rosette',
+                '--ignore-scripts',
+                '--consistency', mode_configuration['consistency'], 
+                '--minimize', mode_configuration['minimize'] ]
     else:
-        raise Exception('target must be of the form: <stuff>/vanilla OR <stuff>/rosette/<consistency>/<min>')
+        return 'minnpm install --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')    
 
-    Run(target, mode_configuration, args.timeout, args.cpus_per_task).run()
+def mode_configuration_target(target_base, mode_configuration):
+    if mode_configuration['rosette']:
+        return os.path.join(target_base, 'rosette',
+            mode_configuration['consistency'],
+            mode_configuration['minimize'])
+    else:
+        return os.path.join(target_base, 'vanilla')
+
+
+def package_target(target_base, mode_configuration, package_name):
+    return os.path.join(mode_configuration_target(target_base, mode_configuration), package_name)
 
 class Run(object):
 
-    def __init__(self, target, mode_configuration, timeout, cpus_per_task):
+    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task):
         self.target = target
-        self.mode_configuration = mode_configuration
+        self.tarball_dir = tarball_dir
         self.timeout = timeout
         self.cpus_per_task = cpus_per_task
-        print(cpus_per_task)
+        self.mode_configurations = mode_configurations
         self.sbatch_lines = [
-            "#SBATCH --time=00:12:00",
+            "#SBATCH --time=00:15:00",
             "#SBATCH --partition=express",
             "#SBATCH --mem=8G",
+            # This rules out the few nodes that are older than Haswell.
+            # https://rc-docs.northeastern.edu/en/latest/hardware/hardware_overview.html#using-the-constraint-flag
+            "$SBATCH --constraint=haswell|broadwell|skylake_avx512|zen2|zen|cascadelake",
             f'#SBATCH --cpus-per-task={cpus_per_task}',
             "module load discovery nodejs",
-            "export PATH=$PATH:/work/arjunguha-research-group/software/bin",
+            "export PATH=$PATH:/home/a.guha/bin:/work/arjunguha-research-group/software/bin",
             "eval `spack load --sh z3`"
         ]
-
-        if mode_configuration['rosette']:
-            self.SOLVE_COMMAND = [
-                'minnpm', 'install', '--rosette', '--ignore-scripts', 
-                '--consistency', mode_configuration['consistency'], 
-                '--minimize', mode_configuration['minimize']
-            ]
-        else:
-            self.SOLVE_COMMAND = 'minnpm install --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')
 
     def run_chunk(self, pkgs):
         print(f'Will handle {len(pkgs)}')
@@ -271,14 +205,11 @@ class Run(object):
         return '\n'.join(errs)
     
     def run(self):
-        if not os.path.isdir(self.target):
-            raise Exception(f'{self.target} directory does not exist')
-
-        print(f'Listing packages.')
+        print(f'Listing package-configuration pairs ...')
         pkgs = self.list_pkg_paths()
-        print(f'Will run on {len(pkgs)} packages.')
-        pkg_chunks = chunked(pkgs, self.cpus_per_task)
-        # print(len(list(pkg_chunks)))
+        print(f'Will run on {len(pkgs)} configurations.')
+        pkg_chunks = chunked_or_distributed(pkgs,
+            max_groups=49, optimal_group_size=self.cpus_per_task)
 
         with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines, keep_logs=True) as executor:
             for err in suppressed_iterator(executor.map(self.run_chunk, pkg_chunks)):
@@ -286,12 +217,15 @@ class Run(object):
                     print(err)
 
     def list_pkg_paths(self):
-        all_packages = [ os.path.join(self.target, p, "package") 
-            for p in os.listdir(self.target) ]
-        pending_packages = [ p 
-            for p in all_packages 
-            if not os.path.isfile(os.path.join(p, "experiment.json")) ]
-        return pending_packages
+        results = [ ]
+        for package_tgz in os.listdir(self.tarball_dir):
+            package_name = os.path.basename(package_tgz).replace('.tgz', '')
+            for mode_configuration in self.mode_configurations:
+                t = package_target(self.target, mode_configuration, package_name)
+                result_file = os.path.join(t, "package", "experiment.json")
+                if not os.path.isfile(result_file):
+                    results.append((os.path.join(self.tarball_dir, package_tgz), t, mode_configuration))
+        return results
 
     def get_npmstatus(self, path):
         with open(path, 'r') as out:
@@ -301,63 +235,59 @@ class Run(object):
         err_code = [ line for line in lines if line.startswith('npm ERR! code') ]
         if len(err_code) != 1:
             return None
-        pieces = err_code.split(' ')
+        pieces = err_code[0].split(' ')
         if len(pieces) != 4:
             return None
         return pieces[3]
 
-    def run_minnpm(self, pkg_path):
+    def unpack_tarball_if_needed(self, tgz, target):
+        if os.path.isdir(os.path.join(target, 'package')):
+            return
+        
+        os.makedirs(target)
+        if subprocess.call(['tar', '-C', target, '-xzf', tgz], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) != 0:
+                return f'Error unpacking {tgz}'
+
+    def run_minnpm(self, pkg_info):
         start_time = time.time()
         try:
+            (tgz, pkg_target, mode_configuration) = pkg_info
+            pkg_path = f'{pkg_target}/package'
+            self.unpack_tarball_if_needed(tgz, pkg_target)
             output_path = f'{pkg_path}/experiment.out'
             with open(output_path, 'wt') as out:
-                exit_code = subprocess.Popen(self.SOLVE_COMMAND,
+                exit_code = subprocess.Popen(solve_command(mode_configuration),
                     cwd=pkg_path,
                     stdout=out,
                     stderr=out).wait(self.timeout)
             duration = time.time() - start_time
             output_status_path = f'{pkg_path}/experiment.json'
+            error_status_path = f'{pkg_path}/error.json'
             if exit_code == 0:
                 write_json(output_status_path,
                     { 'status': 'success', 'time': duration })
                 return None
             status = self.get_npmstatus(output_path)
             if status in [ 'ERESOLVE', 'ETARGET', 'EUNSUPPORTEDPROTOCOL', 'EBADPLATFORM' ]:
+                # TODO(arjun): This is for compatibility with older data. If
+                # we do a totally fresh run, can refactor to stick reason into
+                # status and remove the 'cannot_install' status.
                 write_json(output_status_path, { 'status': 'cannot_install', 'reason': status })
                 return None
+            write_json(error_status_path, { 
+                'status': 'unexpected', 
+                'detail': output_path
+             })
             return f'Failed: {pkg_path}'
         except subprocess.TimeoutExpired:
+            write_json(error_status_path, { 'status': 'timeout' })
             return f'Timeout: {pkg_path}'
-
-
-def remove_nones(seq):
-    return [x for x in seq if x is not None]
-
-class suppressed_iterator:
-    def __init__(self, wrapped_iter, skipped_exc = Exception):
-        self.wrapped_iter = wrapped_iter
-        self.skipped_exc  = skipped_exc
-
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        while True:
-            try:
-                return next(self.wrapped_iter)
-            except StopIteration:
-                raise
-            except self.skipped_exc as exn:
-                print(f'Skipped exception {exn}')
-                pass
-
-def write_json(path, data):
-    with open(path, 'wt') as out:
-        out.write(json.dumps(data))
-
-def read_json(path: str) -> any:
-    with open(path, 'r') as f_in:
-        return json.load(f_in)
+        except BaseException as e:
+            write_json(error_status_path, {
+                'status': 'unexpected',
+                'detail': e.__str__()
+            })                
+            return f'Exception: {pkg_path} {e}'
 
 if __name__ == '__main__':
     start = time.time()

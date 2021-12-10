@@ -8,22 +8,39 @@
 (struct LambdaExpr (param body) #:transparent) ; body must be a SimpleExpr
 (struct CallExpr (name args) #:transparent)
 
-;; SimpleExpr
+;; A SimpleExpr is one of:
+;; - (VarExpr String)
+;; - (ConstExpr Value) where Value is a Racket value
+;; - (PrimitiveOpExpr Prim [List-of Expr])
+;;
+;; See DSL-PRIMITIVES-CONCRETE for Prim.
 (struct VarExpr (varName) #:transparent)
 (struct ConstExpr (value) #:transparent)
 (struct PrimitiveOpExpr (op args) #:transparent)
 
-;; Pattern
+;; A Pattern is one of:
+;; - (WildcardPattern)
+;; - (ConstPattern Value) where Value is a Racket value
+;; - (BindingPattern String) where the String names a value
+;; - (VectorPattern [Vector-of Pattern]) match a vector of fixed length
+;; - (DictionaryPattern [Hash-of String Pattern]) match a dictionary with
+;;   fixed keys
 (struct WildcardPattern () #:transparent)
 (struct ConstPattern (value) #:transparent)
 (struct BindingPattern (name) #:transparent)
 (struct DictionaryPattern (namesPatternsHash) #:transparent)
 (struct VectorPattern (patterns) #:transparent)
 
-;; FunctionRule
+;; A FunctionRule is a (FunctionRule [List-of Pattern] ComplexExpr).
+;;
+;; The number of patterns must be exactly the number of parameters in the
+;; enclosing FunctionDef.
 (struct FunctionRule (patterns rhs) #:transparent)
 
-;; FunctionDef
+;; A FunctionDef is a (FunctionDef Nat [List-of FunctionRule]).
+;;
+;; A function that receives numParams parameters and produces the result of
+;; the first matching rule in rules.
 (struct FunctionDef (numParams rules) #:transparent)
 
 
