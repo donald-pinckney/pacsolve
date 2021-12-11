@@ -20,33 +20,56 @@ def strip_node_modules_from_name(package_name):
 def calculate_oldness(package_name, package_lock_path):
     packages = read_json(package_lock_path)['packages']
 
+
+    # Returns 3 things:
+    # - 'error' upon an error
+    # - 'ignored' if a node should be ignored on purpose (we found a link but we choose not to follow links)
+    # - A float
+    def oldness_of_node(node_name, follow_links=True):
+        # node_name is an unstripped key in packages.
+        metadata = packages[node_name]
+        if 'link' in metadata and metadata['link']:
+            if follow_links:
+                return oldness_of_node(metadata['resolved'], follow_links=follow_links)
+            else:
+                return 'ignored'
+        elif 'version' not in metadata:
+            print(f'Error (ignored): no version for {node_name} in {package_lock_path}', file=sys.stderr)
+            return 'error'
+        else:
+            version = metadata['version']
+            stripped_name = strip_node_modules_from_name(node_name)
+            try:
+                oldness = subprocess.check_output([
+                        '../version-oldness/version-oldness.sh', 
+                        stripped_name, 
+                        version],
+                        stderr=DUMP_ERRORS
+                    ).decode(
+                        'utf-8', 
+                        errors='ignore'
+                    ).strip()
+                return float(oldness)
+            except KeyboardInterrupt as e:
+                raise e
+            except BaseException as e:
+                print(f'Error (ignored): version-oldness {node_name} {version}', file=sys.stderr)
+                return 'error'
+
+
     aggregate_oldness = 0
     num_packages = 0
 
-    for name, metadata in packages.items():
-        unstripped_name = name
-        name = strip_node_modules_from_name(name)
-        if 'version' not in metadata:
-            if 'link' not in metadata:
-                print(f'Error (ignored): no version for {unstripped_name} in {package_lock_path}', file=sys.stderr)
-            continue
-        version = metadata['version']
-        try:
-            oldness = subprocess.check_output([
-                    '../version-oldness/version-oldness.sh', 
-                    name, 
-                    version],
-                    stderr=DUMP_ERRORS
-                ).decode(
-                    'utf-8', 
-                    errors='ignore'
-                ).strip()
-            aggregate_oldness += float(oldness)
+    for name in packages.keys():
+        oldness_maybe = oldness_of_node(name)
+        
+        if oldness_maybe == 'error':
+            pass # we already logged the error
+        elif oldness_maybe == 'ignored':
+            print(f'Warning (ignored): choose to ignore {name} in {package_lock_path}', file=sys.stderr)
+        else:
+            aggregate_oldness += oldness_maybe
             num_packages += 1
-        except KeyboardInterrupt as e:
-            raise e
-        except BaseException as e:
-            print(f'Error (ignored): version-oldness {name} {version}', file=sys.stderr)
 
     if num_packages == 0:
         return f'{package_name},0'
