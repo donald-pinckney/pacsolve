@@ -19,8 +19,42 @@ Press *Ctrl+Enter* to run a chunk.
 *You may want to change the directory below.*
 
 ```{r setup}
-library(tidyverse)
-knitr::opts_knit$set(root.dir = "/scratch/a.guha/minnpm-exp")
+suppressMessages(library(tidyverse))
+library(stringr)
+suppressMessages(library(extrafont))
+library(fontcm)
+knitr::opts_knit$set(root.dir = "/home/a.guha/repos/dependency-runner/slurm")
+```
+
+# Theme for output
+
+```{r}
+mytheme <- function() {
+  return(theme_bw() +
+           theme(
+             text = element_text(family = "CM Roman", size=10),
+              panel.grid.major = element_blank(),
+             # panel.grid.minor = element_blank(),
+             # panel.grid.major = element_line(colour="gray", size=0.1),
+             # panel.grid.minor =
+             #  element_line(colour="gray", size=0.1, linetype='dotted'),
+             axis.ticks = element_line(size=0.05),
+             axis.ticks.length=unit("-0.05", "in"),
+             axis.text.y = element_text(margin = margin(r = 5)),
+             axis.text.x = element_text(hjust=1, angle=45),
+             legend.key = element_rect(colour=NA),
+             legend.spacing = unit(0.001, "in"),
+             legend.key.size = unit(0.2, "in"),
+             legend.title = element_blank(),
+             legend.position = c(0.9, .7),
+             legend.background = element_blank()))
+}
+
+mysave <- function(filename) {
+  ggsave(filename, width=3, height=3, units=c("in"))
+  embed_font(filename)
+}
+
 ```
 
 Load the data:
@@ -197,5 +231,21 @@ oldness_data <- bind_rows(
 ```
 
 ```{r}
-oldness_data %>% group_by(Solver) %>% summarize(Mean = mean(Oldness))
+oldness_data %>% group_by(Solver) %>% summarize(Mean = mean(Oldness), Median = median(Oldness))
 ```
+
+```{r}
+oldness_data %>%
+  filter(!is.nan(Oldness)) %>%
+  pivot_wider(names_from=Solver, values_from=Oldness) %>%
+  ggplot(aes(x=NPM,y=MinNPM)) + 
+  geom_point(shape=4, size=1.5) + 
+  geom_segment(aes(x = 0, y = 0, xend = 1, yend = 1), size=0.02, color="red") +
+  xlab("Oldness with NPM") +
+  ylab("Oldness with MinNPM") +
+  mytheme()
+
+mysave("oldness_scatterplot.pdf")
+
+```
+
