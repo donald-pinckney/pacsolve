@@ -180,3 +180,22 @@ bind_rows(
   stat_bin()
 ```
 
+# How Old Are Dependencies?
+
+```{r}
+oldness_data <- bind_rows(
+  read_csv("oldness_vanilla.csv",
+    col_types = cols(Package=col_factor(),
+                     Oldness=col_double()),
+    show_col_types = FALSE) %>%
+    mutate(Solver = "NPM"),
+  read_csv("oldness_npm_oldness_deps.csv",
+    col_types = cols(Package=col_factor(),
+                     Oldness=col_double()),
+    show_col_types = FALSE) %>%
+    mutate(Solver = "MinNPM"))
+```
+
+```{r}
+oldness_data %>% group_by(Solver) %>% summarize(Mean = mean(Oldness))
+```

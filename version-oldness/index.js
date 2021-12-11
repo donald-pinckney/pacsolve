@@ -1,5 +1,6 @@
 const semver = require('semver')
 const pacote = require('pacote')
+const process = require('process');
 // const SemVer = require('semver/classes/semver')
 
 const args = process.argv.slice(2);
@@ -35,4 +36,7 @@ pacote.packument(name).then(manifest => {
     oldness = foundIndex / (sortedVersions.length - 1)
   }
   console.log(oldness)
-})
+}).catch(err => {
+  console.error(err);
+  process.exit(1);
+});
