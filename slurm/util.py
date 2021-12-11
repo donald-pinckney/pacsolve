@@ -41,4 +41,6 @@ def chunked_or_distributed(
     if len(items) / optimal_group_size <= max_groups:
         return chunked(items, optimal_group_size)
     else:
-        return distribute(items, max_groups)
+        print(type(items))
+        print(type(max_groups))
+        return distribute(max_groups, items)
