@@ -62,6 +62,7 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "WeirdGraph": program_WeirdGraph,
     "WeirdCycle": program_WeirdCycle,
     "ShareNode": program_ShareNode,
+    "AllThreeDifferent": program_AllThreeDifferent,
     "RandomExampleEmptyConstraints" : generateRandomExampleEmptyConstraints(numPackages: 3, numVersions: 5),
     "RandomExampleAnyConstraints" : generateRandomExampleAnyConstraints(numPackages: 3, numVersions: 5, numDeps: 2),
 ]
