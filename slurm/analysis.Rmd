@@ -83,17 +83,6 @@ raw_data %>%
   summarize(Count = n())
 ```
 
-Let's rule out failures that are due to unsolvability on our platform:
-
-```{r}
-raw_data %>% 
-  filter(Status == "unexpected" | Status == "unavailable") %>%
-  group_by(Rosette,Minimize,Consistency) %>%
-  summarize(Count = n())
-```
-
-These are likely due to timeouts, Z3 crashing, etc.
-
 #  The Need for Tree-Solving
 
 NPM uses a tree-solver because its easy to resolve conflicts. But, how many conflicts do you see with MinNPM in PIP mode?
