@@ -150,12 +150,12 @@ def run(argv):
 
 def solve_command(mode_configuration):
     if mode_configuration['rosette']:
-        return ['minnpm', 'install', '--rosette',
+        return ['minnpm', 'install', '--prefer-offline', '--no-audit', '--rosette',
                 '--ignore-scripts',
                 '--consistency', mode_configuration['consistency'], 
                 '--minimize', mode_configuration['minimize'] ]
     else:
-        return 'minnpm install --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')    
+        return 'minnpm install --prefer-offline --no-audit --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')    
 
 def mode_configuration_target(target_base, mode_configuration):
     if mode_configuration['rosette']:
