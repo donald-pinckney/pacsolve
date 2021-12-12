@@ -79,12 +79,15 @@ def calculate_oldness(package_name, package_lock_path):
 def check_and_calc_oldness(root, package_name):
     package_lock_path = os.path.join(root, package_name, 'package',
         'node_modules', '.package-lock.json')
+    experiment_status_path = os.path.join(root, package_name, 'package', 'experiment.json')
+    if not os.path.isfile(experiment_status_path):
+        return None
+    if read_json(experiment_status_path)['status'] != 'success':
+        return None
     if os.path.isfile(package_lock_path):
         return calculate_oldness(package_name, package_lock_path)
     else:
         return f'{package_name},0'
-    print(f'Failed on {package_lock_path}:\n{e}', file=sys.stderr)
-    return f'{package_name},'
 
 
 def calculate_oldness_all(root):
@@ -92,7 +95,8 @@ def calculate_oldness_all(root):
     print('Package,Oldness')
     with ThreadPoolExecutor(max_workers=250) as executor:
         for r in executor.map(lambda p: check_and_calc_oldness(root, p), all_packages):
-            print(r)
+            if r is not None:
+                print(r)
 
 
 def main():

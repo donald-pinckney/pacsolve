@@ -2,7 +2,6 @@ Package,Oldness
 async-each,0
 @babel_preset-react,0.07154789817388493
 typedarray,0
-https-proxy-agent,0
 istanbul-lib-instrument,0.0772796419017626
 flatted,0
 @eslint_eslintrc,0.11222524188000613
@@ -41,12 +40,10 @@ cli-boxes,0
 spdx-correct,0.0
 to-regex-range,0.0
 regenerator-runtime,0
-babel-jest,0
 posix-character-classes,0
 data-urls,0.06871008939974457
 source-map-resolve,0.0
 brorand,0
-jest-runtime,0
 cacache,0.07129785405647475
 core-js-compat,0.02424916926249889
 @babel_helper-create-regexp-features-plugin,0.09846502703645561
@@ -66,13 +63,11 @@ content-disposition,0.2
 is-symbol,0.0
 browserify-aes,0.038461538461538464
 is-wsl,0.125
-jest-matcher-utils,0
 merge2,0
 react,0.05882352941176471
 stream-each,0.0
 url-parse,0.0
 @babel_helper-skip-transparent-expression-wrappers,0.14285714285714285
-regexpp,0
 unicode-match-property-value-ecmascript,0
 jest-validate,0.07622453851756865
 commondir,0
@@ -87,7 +82,6 @@ has-unicode,0
 js-yaml,0.0
 p-finally,0
 @xtuc_long,0
-jest-haste-map,0
 uglify-js,0
 p-cancelable,0
 get-value,0.1
@@ -100,7 +94,6 @@ is-arguments,0.0
 w3c-hr-time,0.0
 unique-filename,0.0
 jest-changed-files,0.12614365978890354
-file-uri-to-path,0
 read-pkg,0.10761531546275797
 tough-cookie,0.16666666666666666
 eslint-module-utils,0.615499194847021
@@ -126,7 +119,6 @@ registry-auth-token,0.07777777777777777
 is-glob,0.0
 escodegen,0.07536999550157444
 jest-watcher,0.10865635598517805
-request,0
 source-map-support,0.03787878787878788
 spdx-license-ids,0
 text-table,0
@@ -146,12 +138,10 @@ has-values,0.0
 @webassemblyjs_helper-fsm,0
 pump,0.0
 q,0.0
-jest-diff,0
 @babel_plugin-transform-member-expression-literals,0.0
 node-libs-browser,0.09352713046136356
 emojis-list,0
 readable-stream,0.0
-date-fns,0
 stream-http,0.0
 duplexify,0.0
 @babel_plugin-transform-arrow-functions,0.0
@@ -159,8 +149,6 @@ esutils,0
 memory-fs,0.14052483097426915
 sort-keys,0.0
 esquery,0.0
-@tootallnate_once,0
-agent-base,0
 css-loader,0.001358695652173913
 process,0
 css-select,0.0125
@@ -221,7 +209,6 @@ strip-json-comments,0
 w3c-xmlserializer,0.0
 @webassemblyjs_helper-wasm-bytecode,0
 json-parse-better-errors,0
-saxes,0
 domutils,0.025
 decompress-response,0.16666666666666666
 isstream,0
@@ -294,7 +281,6 @@ flush-write-stream,0.0
 bcrypt-pbkdf,0.20833333333333334
 @babel_plugin-proposal-export-namespace-from,0.07856239799485404
 read-pkg-up,0.13418014058200156
-@jest_transform,0
 concat-stream,0.0
 @babel_plugin-transform-modules-systemjs,0.08477733302226212
 es6-symbol,0.07857142857142857
@@ -317,7 +303,6 @@ rsvp,0
 xml2js,0.04639175257731959
 @babel_code-frame,0.2415767505098006
 http-proxy-middleware,0.01830721747388414
-terser-webpack-plugin,0
 @babel_plugin-transform-modules-umd,0.10789842384651542
 execa,0.1889417989417989
 object-copy,0.11474747474747472
@@ -336,7 +321,7 @@ istanbul-reports,0.18108413325804631
 loader-utils,0.05
 jest-docblock,0.09090909090909091
 @babel_plugin-proposal-dynamic-import,0.07856239799485404
-serve-static,0.12268526260374087
+serve-static,0.1235473315692581
 css-tree,0.18787878787878787
 array-includes,0.02261772339636633
 ee-first,0
@@ -358,10 +343,8 @@ compressible,0.0
 decimal.js,0
 tty-browserify,0
 https-browserify,0
-http-proxy-agent,0
 string.prototype.trimend,0.0
 clean-css,0.07575757575757576
-fsevents,0
 strip-ansi,0.0
 @webassemblyjs_wasm-opt,0.0
 cssesc,0
@@ -372,7 +355,6 @@ csso,0.14652912099720608
 chokidar,0.015384615384615385
 asynckit,0
 function-bind,0
-jsdom,0
 istanbul-lib-report,0.15351778656126483
 param-case,0.0
 methods,0
@@ -393,9 +375,7 @@ inherits,0
 jws,0.0
 http-errors,0.14326923076923076
 range-parser,0
-@jest_reporters,0
 @babel_helper-define-polyfill-provider,0.07126150808998706
-tsutils,0
 neo-async,0
 glob,0.07083333333333333
 @babel_core,0.08043391299979373
@@ -427,7 +407,6 @@ boolbase,0
 has-flag,0
 brace-expansion,0.08333333333333333
 indent-string,0
-jest-environment-node,0
 cacheable-request,0.10501672240802676
 @babel_plugin-syntax-async-generators,0.0
 uri-js,0.038461538461538464
@@ -436,10 +415,8 @@ mime,0
 cliui,0.1411065553435545
 compression,0.09146903820816865
 jest-config,0.06742077757373359
-whatwg-fetch,0
 hoist-non-react-statics,0.238013698630137
 @nodelib_fs.stat,0
-decamelize,0
 natural-compare,0
 dir-glob,0.2
 strip-eof,0
@@ -459,7 +436,6 @@ capture-exit,0.0
 jest-get-type,0
 @babel_plugin-syntax-optional-chaining,0.0
 is-arrayish,0
-babel-loader,0
 domelementtype,0
 prr,0
 http-signature,0.10644300144300142
@@ -490,7 +466,6 @@ he,0
 flat-cache,0.05448717948717948
 ip-regex,0
 nth-check,0.0
-jest-snapshot,0
 core-js-pure,0
 urix,0
 @babel_plugin-transform-modules-commonjs,0.08477733302226212
@@ -514,7 +489,6 @@ keyv,0.0
 type-check,0.0
 trim-newlines,0
 pbkdf2,0.0
-@jest_core,0
 kleur,0
 glob-parent,0.0
 minizlib,0.008620689655172414
@@ -574,7 +548,6 @@ deep-equal,0.015581098339719027
 string-width,0.008928571428571428
 istanbul-lib-source-maps,0.08415678524374176
 spdx-exceptions,0
-jest-environment-jsdom,0
 pumpify,0.0
 is-absolute-url,0
 through,0
@@ -604,7 +577,6 @@ ws,0
 browser-process-hrtime,0
 is-buffer,0
 v8-to-istanbul,0.05378787878787879
-ts-node,0
 functional-red-black-tree,0
 es-abstract,0.0071839080459770105
 xtend,0
@@ -655,7 +627,6 @@ wrappy,0
 acorn-globals,0.2899159663865546
 expand-brackets,0.1584715075281113
 symbol-tree,0
-eslint-utils,0
 require-from-string,0
 sax,0
 arr-union,0
@@ -768,9 +739,8 @@ nanoid,0
 console-browserify,0
 from2,0.15929307116104868
 log-symbols,0.12202783191562995
-jest-resolve-dependencies,0
 object.entries,0.02261772339636633
-express,0.11140055301872713
+express,0.11175241790261173
 cross-spawn,0.1
 move-concurrently,0.11055198858569645
 arr-flatten,0
@@ -789,14 +759,12 @@ on-headers,0
 sprintf-js,0
 @babel_plugin-transform-property-literals,0.0
 is-plain-object,0
-jest-cli,0
 babel-plugin-polyfill-corejs3,0.07141847607229836
 @babel_plugin-transform-shorthand-properties,0.0
 randomfill,0.0
 @webassemblyjs_helper-buffer,0
 is-docker,0
 stream-shift,0
-@jest_console,0
 lodash.memoize,0
 locate-path,0.0
 atob,0
@@ -819,7 +787,6 @@ deep-is,0
 @istanbuljs_schema,0
 style-loader,0
 jest-leak-detector,0.07675742374967945
-expect,0
 statuses,0
 watchpack,0.0
 axios,0.018518518518518517
@@ -839,7 +806,6 @@ body-parser,0.13446097811888794
 psl,0
 minimalistic-assert,0
 @babel_helper-create-class-features-plugin,0.11868826623116696
-rxjs,0
 ansi-colors,0
 request-promise-core,0.0
 esprima,0
@@ -870,7 +836,6 @@ detect-node,0
 astral-regex,0
 fb-watchman,0.0
 @babel_helper-validator-identifier,0
-abab,0
 eventemitter3,0
 color-convert,0.0
 lowercase-keys,0
@@ -892,7 +857,6 @@ defer-to-connect,0
 resolve,0.0
 got,0.0966411335810942
 lines-and-columns,0
-fast-levenshtein,0
 ms,0
 @babel_helper-compilation-targets,0.020068194450542615
 slash,0
@@ -917,7 +881,6 @@ require-main-filename,0
 human-signals,0
 path-type,0
 jsprim,0.24909090909090909
-html-entities,0
 is-extendable,0.3
 ripemd160,0.0
 setprototypeof,0
@@ -985,7 +948,6 @@ lodash.sortby,0
 parse-asn1,0.027564102564102567
 which,0.0
 is-windows,0
-webpack,0
 util.promisify,0.021246952281435038
 buffer,0.0
 pseudomap,0
