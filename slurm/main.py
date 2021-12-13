@@ -89,6 +89,12 @@ class Gather(object):
             p_result = read_json(durable_status_path)
         elif os.path.exists(transient_status_path):
             p_result = read_json(transient_status_path)
+            # HACK(arjun): This bit of info should have been written into
+            # experiment.json.
+            with open(os.path.join(dir, 'package', 'experiment.out'), 'r') as f:
+                output_lines = f.readlines()
+            if 'npm ERR! Failed to solve constraints :(\n' in output_lines:
+                p_result['status'] = 'unsat'
         else:
             print(f'No status for {dir}')
             p_result = { 'status': 'unavailable' }
@@ -150,12 +156,12 @@ def run(argv):
 
 def solve_command(mode_configuration):
     if mode_configuration['rosette']:
-        return ['minnpm', 'install', '--rosette',
+        return ['minnpm', 'install', '--no-audit', '--prefer-offline', '--rosette',
                 '--ignore-scripts',
                 '--consistency', mode_configuration['consistency'], 
                 '--minimize', mode_configuration['minimize'] ]
     else:
-        return 'minnpm install --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')    
+        return 'npm install --prefer-offline --no-audit --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')    
 
 def mode_configuration_target(target_base, mode_configuration):
     if mode_configuration['rosette']:

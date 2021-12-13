@@ -1,4 +1,5 @@
 import json
+import sys
 from typing import List, Any, Iterable
 from more_itertools import chunked, distribute
 
@@ -42,3 +43,6 @@ def chunked_or_distributed(
         return chunked(items, optimal_group_size)
     else:
         return distribute(max_groups, items)
+
+def eprint(str):
+    print(str, file=sys.stderr)
