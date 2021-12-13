@@ -1,0 +1,29 @@
+Namespace(verbosity=1, dataset='nontesting_most_downloads', only=['snapdragon', 'unset-value', 'object-copy', 'serve-static', 'terser', 'jsdom', 'meow', 'send'], all=False, range=None, configs=['npm', 'npm install --omit dev --omit optional --omit peer --ignore-scripts', 'minnpm_pip', 'npm install --rosette --ignore-scripts --consistency pip --minimize min_oldness,min_num_deps', 'minnpm_npm', 'npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps', 'minnpm_min_dups', 'npm install --rosette --ignore-scripts --consistency npm --minimize min_duplicates'], cleanup=False, timeout=800)
+Running 295 / 1000
+* Project: terser
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (8.12 s)
+    + Post-install
+  - Run configuration: minnpm_pip (npm install --rosette --ignore-scripts --consistency pip --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency pip --minimize min_oldness,min_num_deps ❌ (3.77 s)
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (3.45 s)
+    + Post-install
+  - Run configuration: minnpm_min_dups (npm install --rosette --ignore-scripts --consistency npm --minimize min_duplicates)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_duplicates ✅ (3.24 s)
+    + Post-install
+Running 352 / 1000
+* Project: send
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.04 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts 
