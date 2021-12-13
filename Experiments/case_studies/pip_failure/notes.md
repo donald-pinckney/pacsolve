@@ -11,7 +11,7 @@
 
 `terser@.5.9.0` dependencies:
 
-```json
+```js
 dependencies: {
   commander: '^2.20.0',
   'source-map': '~0.7.2',
@@ -24,7 +24,7 @@ Based on `'source-map': '~0.7.2'`, the only versions we can choose of `source-ma
 Now let's look at `source-map-support`. The only versions
 we can choose of `source-map-support` are `0.5.20` and `0.5.21`. Both versions have a dependency of:
 
-```json
+```js
 'source-map': '^0.6.0'
 ```
 
@@ -46,7 +46,7 @@ support newer versions of `source-map`. However, if that is not possible,
 one could accept using an older version of `source-map` (`0.6.1`) *consistently*,
 by changng the root dependencies to allow older versions of `source-map`:
 
-```json
+```js
 'source-map': '~0.7.2',   ----(change to)---->  'source-map': '^0.6.0',
 ```
 
