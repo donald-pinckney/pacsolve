@@ -21,18 +21,18 @@ class Performance(object):
         target_pieces = target.split('/')
         if target_pieces[-1] == 'vanilla':
             self.mode_configuration =  { 'rosette': False }
-        elif target_pieces[-1] == 'rosette':
+        elif target_pieces[-3] == 'rosette':
             self.mode_configuration =  {
                 'rosette': True,
-                'minimize': target_pieces[-2],
-                'consistency': target_pieces[-3],
-            }
+                'minimize': target_pieces[-1],
+                'consistency': target_pieces[-2],
+           }
         assert(self.mode_configuration in MODE_CONFIGURATIONS)
 
-    def run_one(self, package_name: str, pkg_path: str):
+    def run_one(self, remaining: int, package_name: str, pkg_path: str):
         start_time = time.time()
         try:
-            eprint(f'Timing {package_name} ...')
+            eprint(f'Timing {package_name}. {remaining} remaining...')
             output_path = f'{pkg_path}/experiment.out'
             with open(output_path, 'wt') as out:
                 exit_code = subprocess.Popen(solve_command(self.mode_configuration),
@@ -43,8 +43,11 @@ class Performance(object):
             if exit_code == 0:
                 print(f'{package_name},{duration}',flush=True)
                 return
+            else:
+                print(f'{package_name},',flush=True)
             eprint(f'{package_name} failed with exit code {exit_code}')
         except subprocess.TimeoutExpired:
+            print(f'{package_name},',flush=True)
             eprint(f'{package_name} failed with timeout')
         except KeyboardInterrupt as e:
             eprint(f'{package_name} failed with keyboard interrupt')
@@ -53,7 +56,9 @@ class Performance(object):
             eprint(f'{package_name} failed with exception {e}')
 
     def run(self):
-        for package_name in os.listdir(self.target):
+        pkgs = os.listdir(self.target)
+        remaining = len(pkgs)
+        for package_name in pkgs:
             package_path = os.path.join(self.target, package_name, 'package')
             if not os.path.isdir(package_path):
                 eprint(f'Skipping {package_name} ({package_path} is not a directory)')
@@ -67,7 +72,8 @@ class Performance(object):
                 eprint(f'Skipping {package_name} (parallel experiment failed)')
                 continue
             for _ in range(0, self.trials):
-                self.run_one(package_name, package_path)
+                self.run_one(remaining, package_name, package_path)
+            remaining -= 1
 
 
 def main():
