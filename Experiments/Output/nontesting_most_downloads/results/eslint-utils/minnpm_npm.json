@@ -1,0 +1,14 @@
+{
+  "install-success": true,
+  "install_time": 3.2391281127929688,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/eslint-visitor-keys": {
+      "version": "2.1.0",
+      "integrity": "sha512-0rSmRBzXgDzIsD6mGdJgevzgezI534Cer5L/vyMX0kHzT/jiB43jRhd9YUlMGYLQy2zprNmoT8qasCGtY+QaKw==",
+      "engines": {
+        "node": ">=10"
+      }
+    }
+  }
+}

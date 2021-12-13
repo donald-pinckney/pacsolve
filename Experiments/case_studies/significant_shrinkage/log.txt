@@ -1,0 +1,105 @@
+Namespace(verbosity=1, dataset='nontesting_most_downloads', only=['@babel_plugin-proposal-export-namespace-from', '@babel_plugin-proposal-dynamic-import', '@babel_plugin-proposal-json-strings', '@babel_plugin-proposal-optional-catch-binding', '@babel_plugin-proposal-numeric-separator', '@babel_plugin-proposal-nullish-coalescing-operator', '@babel_plugin-proposal-logical-assignment-operators', '@babel_plugin-transform-react-jsx', '@babel_preset-modules', '@babel_plugin-transform-named-capturing-groups-regex', '@babel_plugin-transform-dotall-regex', '@babel_plugin-proposal-optional-chaining', '@babel_plugin-proposal-unicode-property-regex', '@babel_plugin-transform-unicode-regex', '@babel_preset-react', '@babel_plugin-proposal-object-rest-spread', 'nanomatch', 'assert', '@babel_plugin-proposal-async-generator-functions', '@babel_plugin-proposal-class-properties', '@babel_plugin-proposal-private-methods', 'expand-brackets', 'util', 'array.prototype.flat', 'object.getownpropertydescriptors', 'util.promisify', 'array-includes'], all=False, range=None, configs=['npm', 'npm install --omit dev --omit optional --omit peer --ignore-scripts', 'minnpm_min_deps', 'npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness'], cleanup=False, timeout=800)
+Running 156 / 1000
+* Project: util
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (15.49 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (10.58 s)
+    + Post-install
+Running 325 / 1000
+* Project: expand-brackets
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (7.35 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (5.60 s)
+    + Post-install
+Running 451 / 1000
+* Project: util.promisify
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (10.85 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (7.35 s)
+    + Post-install
+Running 462 / 1000
+* Project: nanomatch
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (6.96 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (9.91 s)
+    + Post-install
+Running 638 / 1000
+* Project: object.getownpropertydescriptors
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (6.13 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (5.56 s)
+    + Post-install
+Running 640 / 1000
+* Project: assert
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (13.53 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (14.87 s)
+    + Post-install
+Running 722 / 1000
+* Project: array-includes
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (10.51 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (6.17 s)
+    + Post-install
+Running 900 / 1000
+* Project: array.prototype.flat
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (10.36 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (7.48 s)
+    + Post-install

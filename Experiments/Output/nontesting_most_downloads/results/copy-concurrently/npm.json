@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 3.3082025051116943,
+  "install_time": 5.601615905761719,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/aproba": {

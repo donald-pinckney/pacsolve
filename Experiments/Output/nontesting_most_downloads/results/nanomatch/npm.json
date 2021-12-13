@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 5.00167179107666,
+  "install_time": 6.959776163101196,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/arr-diff": {

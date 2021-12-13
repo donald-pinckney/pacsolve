@@ -1,11 +1,11 @@
 {
   "install-success": false,
-  "install_time": 3.592515707015991,
+  "install_time": 6.069420099258423,
   "error": {
     "stage": "install",
     "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
     "retcode": 1,
     "stdout": "",
-    "stderr": "npm ERR! code E404\nnpm ERR! 404 Not Found - GET https://codeload.github.com/ariya/esprima/legacy.tar.gz/master\nnpm ERR! 404 \nnpm ERR! 404  'esprima@https://github.com/ariya/esprima/tarball/master' is not in the npm registry.\nnpm ERR! 404 You should bug the author to publish it (or use the name yourself!)\nnpm ERR! 404 \nnpm ERR! 404 Note that you can also install from a\nnpm ERR! 404 tarball, folder, http url, or git url.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T01_48_37_971Z-debug.log\n"
+    "stderr": "npm ERR! code E404\nnpm ERR! 404 Not Found - GET https://codeload.github.com/ariya/esprima/legacy.tar.gz/master\nnpm ERR! 404 \nnpm ERR! 404  'esprima@https://github.com/ariya/esprima/tarball/master' is not in the npm registry.\nnpm ERR! 404 You should bug the author to publish it (or use the name yourself!)\nnpm ERR! 404 \nnpm ERR! 404 Note that you can also install from a\nnpm ERR! 404 tarball, folder, http url, or git url.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-12-13T20_45_53_033Z-debug.log\n"
   }
 }

@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 1.7229795455932617,
+  "install_time": 7.353435277938843,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/assign-symbols": {
