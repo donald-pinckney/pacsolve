@@ -61,7 +61,9 @@ def calculate_oldness(package_name, package_lock_path):
     num_packages = 0
 
     for name in packages.keys():
-        oldness_maybe = oldness_of_node(name)
+        # NOTE(arjun, donald): This does not credit NPM appropriately for flattening the
+        # the tree and makes it look better than it is. For now, follow_links=False.
+        oldness_maybe = oldness_of_node(name, follow_links=False)
         
         if oldness_maybe == 'error':
             pass # we already logged the error
