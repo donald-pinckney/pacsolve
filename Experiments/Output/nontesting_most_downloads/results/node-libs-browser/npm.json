@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 1.3577032089233398,
+  "install_time": 3.55926513671875,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/asn1.js": {

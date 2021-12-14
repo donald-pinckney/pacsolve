@@ -1,0 +1,17 @@
+{
+  "install-success": true,
+  "install_time": 3.5937540531158447,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/has-flag": {
+      "version": "5.0.0",
+      "integrity": "sha512-dmhh9fPE7WRat4yiFvyhXh7LytudXDcE89VEdR3sxfWQKtFPr7jpXip5H402aeFfA36ucqSKecGEapc7N44k+g==",
+      "engines": {
+        "node": ">=12"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/sindresorhus"
+      }
+    }
+  }
+}

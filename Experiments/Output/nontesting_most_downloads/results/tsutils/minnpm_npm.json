@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 3.2999167442321777,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/tslib": {
+      "version": "1.14.1",
+      "integrity": "sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg=="
+    }
+  }
+}

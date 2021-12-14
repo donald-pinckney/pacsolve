@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 5.35391902923584,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/xmlchars": {
+      "version": "2.2.0",
+      "integrity": "sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw=="
+    }
+  }
+}

@@ -1,10 +1,11 @@
-let program_PublishOutOfOrderBug = EcosystemProgram(declaredContexts: ["ctx"], ops: [
+let program_PublishOutOfOrderBug = EcosystemProgram(declaredContexts: ["ctx1", "ctx2"], ops: [
     .publish(package: "a", version: "0.0.4", dependencies: []),
     .publish(package: "a", version: "0.0.3", dependencies: []),
     .publish(package: "a", version: "0.0.5", dependencies: []),
     .publish(package: "a", version: "0.0.2", dependencies: []),
     .publish(package: "a", version: "0.0.1", dependencies: []),
-    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .geq("0.0.1"), depType: .prod)])
+    .solve(inContext: "ctx1", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .leq("0.0.5"), depType: .prod)]),
+    .solve(inContext: "ctx2", constraints: [DependencyExpr(packageToDependOn: "a", constraint: .gt("0.0.1"), depType: .prod)])
 ])
 
 /*

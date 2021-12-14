@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 17.038827419281006,
+  "install_time": 18.41013503074646,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/has-flag": {

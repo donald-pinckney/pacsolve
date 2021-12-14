@@ -1,0 +1,37 @@
+{
+  "install-success": true,
+  "install_time": 3.388347864151001,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/commander": {
+      "version": "2.20.1",
+      "integrity": "sha512-cCuLsMhJeWQ/ZpsFTbE765kvVfoeSddc4nU3up4fV+fDBcfUXnbITJ+JzhkdjzOqhURjZgujxaioam4RM9yGUg=="
+    },
+    "node_modules/source-map": {
+      "version": "0.7.2",
+      "integrity": "sha512-NDJB/R2BS7YJG0tP9SbE4DKwKj1idLT5RJqfVYZ7dreFX7wulZT3xxVhbYKrQo9n0JkRptl51TrX/5VK3HodMA==",
+      "engines": {
+        "node": ">= 8"
+      }
+    },
+    "node_modules/source-map-support": {
+      "version": "0.5.21",
+      "integrity": "sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==",
+      "dependencies": {
+        "buffer-from": "^1.0.0",
+        "source-map": "^0.6.0"
+      }
+    },
+    "node_modules/source-map-support/node_modules/buffer-from": {
+      "version": "1.1.1",
+      "integrity": "sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A=="
+    },
+    "node_modules/source-map-support/node_modules/source-map": {
+      "version": "0.6.0",
+      "integrity": "sha512-mTozplhTX4tLKIHYji92OTZzVyZvi+Z1qRZDeBvQFI2XUB89wrRoj/xXad3c9NZ1GPJXXRvB+k41PQCPTMC+aA==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

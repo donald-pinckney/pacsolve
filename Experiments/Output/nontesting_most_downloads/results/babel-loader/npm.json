@@ -1,11 +1,11 @@
 {
   "install-success": false,
-  "install_time": 3.904391288757324,
+  "install_time": 2.5433499813079834,
   "error": {
     "stage": "install",
     "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
     "retcode": 1,
     "stdout": "",
-    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: babel-loader@8.2.2\nnpm ERR! Found: eslint-plugin-flowtype@5.10.0\nnpm ERR! node_modules/eslint-plugin-flowtype\nnpm ERR!   dev eslint-plugin-flowtype@\"^5.2.0\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer eslint-plugin-flowtype@\"^3.0.0\" from eslint-config-babel@9.0.0\nnpm ERR! node_modules/eslint-config-babel\nnpm ERR!   dev eslint-config-babel@\"^9.0.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /home/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T04_37_20_846Z-debug.log\n"
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: babel-loader@8.2.2\nnpm ERR! Found: eslint-plugin-flowtype@5.10.0\nnpm ERR! node_modules/eslint-plugin-flowtype\nnpm ERR!   dev eslint-plugin-flowtype@\"^5.2.0\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer eslint-plugin-flowtype@\"^3.0.0\" from eslint-config-babel@9.0.0\nnpm ERR! node_modules/eslint-config-babel\nnpm ERR!   dev eslint-config-babel@\"^9.0.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-12-13T20_47_31_009Z-debug.log\n"
   }
 }

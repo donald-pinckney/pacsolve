@@ -1,11 +1,11 @@
 {
   "install-success": false,
-  "install_time": 5.469391107559204,
+  "install_time": 6.298965930938721,
   "error": {
     "stage": "install",
     "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
     "retcode": 1,
     "stdout": "",
-    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: tsutils@3.21.0\nnpm ERR! Found: typescript@4.2.0-dev.20201230\nnpm ERR! node_modules/typescript\nnpm ERR!   dev typescript@\"4.2.0-dev.20201230\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer typescript@\">=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >=3.0.0-dev || >= 3.1.0-dev || >= 3.2.0-dev\" from tslint@5.20.1\nnpm ERR! node_modules/tslint\nnpm ERR!   dev tslint@\"^5.8.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /home/donald/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /home/donald/.npm/_logs/2021-10-25T02_16_41_187Z-debug.log\n"
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: tsutils@3.21.0\nnpm ERR! Found: typescript@4.2.0-dev.20201230\nnpm ERR! node_modules/typescript\nnpm ERR!   dev typescript@\"4.2.0-dev.20201230\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer typescript@\">=2.3.0-dev || >=2.4.0-dev || >=2.5.0-dev || >=2.6.0-dev || >=2.7.0-dev || >=2.8.0-dev || >=2.9.0-dev || >=3.0.0-dev || >= 3.1.0-dev || >= 3.2.0-dev\" from tslint@5.20.1\nnpm ERR! node_modules/tslint\nnpm ERR!   dev tslint@\"^5.8.0\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-12-13T20_47_13_709Z-debug.log\n"
   }
 }

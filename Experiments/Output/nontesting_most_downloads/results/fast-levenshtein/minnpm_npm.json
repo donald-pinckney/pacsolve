@@ -1,0 +1,11 @@
+{
+  "install-success": true,
+  "install_time": 3.6198880672454834,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/fastest-levenshtein": {
+      "version": "1.0.12",
+      "integrity": "sha512-On2N+BpYJ15xIC974QNVuYGMOlEVt4s0EOI3wwMqOmK1fdDY+FN/zltPV8vosq4ad4c/gJ1KHScUn/6AWIgiow=="
+    }
+  }
+}

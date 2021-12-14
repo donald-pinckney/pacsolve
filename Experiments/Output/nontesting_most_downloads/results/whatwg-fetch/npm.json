@@ -1,6 +1,11 @@
 {
-  "install-success": true,
-  "install_time": 6.489405155181885,
-  "post-install-success": true,
-  "installed_deps": {}
+  "install-success": false,
+  "install_time": 1.4818952083587646,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: whatwg-fetch@3.6.2\nnpm ERR! Found: eslint@7.32.0\nnpm ERR! node_modules/eslint\nnpm ERR!   dev eslint@\"^7.20.0\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer eslint@\"^8.0.1\" from eslint-plugin-github@4.3.5\nnpm ERR! node_modules/eslint-plugin-github\nnpm ERR!   dev eslint-plugin-github@\"^4.1.1\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-12-13T20_48_34_860Z-debug.log\n"
+  }
 }

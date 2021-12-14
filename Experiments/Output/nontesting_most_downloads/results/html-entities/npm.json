@@ -1,6 +1,11 @@
 {
-  "install-success": true,
-  "install_time": 7.8278703689575195,
-  "post-install-success": true,
-  "installed_deps": {}
+  "install-success": false,
+  "install_time": 10.024444103240967,
+  "error": {
+    "stage": "install",
+    "command": "npm install --omit dev --omit optional --omit peer --ignore-scripts",
+    "retcode": 1,
+    "stdout": "",
+    "stderr": "npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! Found: acorn@7.4.1\nnpm ERR! node_modules/acorn\nnpm ERR!   acorn@\"^7.4.0\" from espree@7.3.1\nnpm ERR!   node_modules/espree\nnpm ERR!     espree@\"^7.3.1\" from eslint@7.32.0\nnpm ERR!     node_modules/eslint\nnpm ERR!       dev eslint@\"^7.12.1\" from the root project\nnpm ERR!       7 more (@typescript-eslint/eslint-plugin, ...)\nnpm ERR!     espree@\"^7.3.0\" from @eslint/eslintrc@0.4.3\nnpm ERR!     node_modules/@eslint/eslintrc\nnpm ERR!       @eslint/eslintrc@\"^0.4.3\" from eslint@7.32.0\nnpm ERR!       node_modules/eslint\nnpm ERR!         dev eslint@\"^7.12.1\" from the root project\nnpm ERR!         7 more (@typescript-eslint/eslint-plugin, ...)\nnpm ERR!   peer acorn@\"^6.0.0 || ^7.0.0 || ^8.0.0\" from acorn-jsx@5.3.2\nnpm ERR!   node_modules/acorn-jsx\nnpm ERR!     acorn-jsx@\"^5.3.1\" from espree@7.3.1\nnpm ERR!     node_modules/espree\nnpm ERR!       espree@\"^7.3.1\" from eslint@7.32.0\nnpm ERR!       node_modules/eslint\nnpm ERR!         dev eslint@\"^7.12.1\" from the root project\nnpm ERR!         7 more (@typescript-eslint/eslint-plugin, ...)\nnpm ERR!       1 more (@eslint/eslintrc)\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peerOptional acorn@\"^8.5.0\" from terser@5.10.0\nnpm ERR! node_modules/terser\nnpm ERR!   dev terser@\"^5.6.1\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force, or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! See /Users/donaldpinckney/.npm/eresolve-report.txt for a full report.\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-12-13T20_48_21_119Z-debug.log\n"
+  }
 }

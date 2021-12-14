@@ -1,6 +1,6 @@
 {
   "install-success": true,
-  "install_time": 0.9095766544342041,
+  "install_time": 2.425041913986206,
   "post-install-success": true,
   "installed_deps": {
     "node_modules/buffer-from": {

@@ -1,0 +1,133 @@
+{
+  "install-success": true,
+  "install_time": 3.356905937194824,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/debug": {
+      "version": "2.6.9",
+      "integrity": "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==",
+      "dependencies": {
+        "ms": "2.0.0"
+      }
+    },
+    "node_modules/debug/node_modules/ms": {
+      "version": "2.0.0",
+      "integrity": "sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g="
+    },
+    "node_modules/depd": {
+      "version": "1.1.2",
+      "integrity": "sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    },
+    "node_modules/destroy": {
+      "version": "1.0.4",
+      "integrity": "sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA="
+    },
+    "node_modules/encodeurl": {
+      "version": "1.0.2",
+      "integrity": "sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=",
+      "engines": {
+        "node": ">= 0.8"
+      }
+    },
+    "node_modules/escape-html": {
+      "version": "1.0.3",
+      "integrity": "sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg="
+    },
+    "node_modules/etag": {
+      "version": "1.8.1",
+      "integrity": "sha1-Qa4u62XvpiJorr/qg6x9eSmbCIc=",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    },
+    "node_modules/fresh": {
+      "version": "0.5.2",
+      "integrity": "sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    },
+    "node_modules/http-errors": {
+      "version": "1.7.3",
+      "integrity": "sha512-ZTTX0MWrsQ2ZAhA1cejAwDLycFsd7I7nVtnkT3Ol0aqodaKW+0CTZDQ1uBv5whptCnc8e8HeRRJxRs0kmm/Qfw==",
+      "dependencies": {
+        "depd": "~1.1.2",
+        "inherits": "2.0.4",
+        "setprototypeof": "1.1.1",
+        "statuses": ">= 1.5.0 < 2",
+        "toidentifier": "1.0.0"
+      },
+      "engines": {
+        "node": ">= 0.6"
+      }
+    },
+    "node_modules/http-errors/node_modules/depd": {
+      "resolved": "node_modules/depd",
+      "link": true
+    },
+    "node_modules/http-errors/node_modules/inherits": {
+      "version": "2.0.4",
+      "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="
+    },
+    "node_modules/http-errors/node_modules/setprototypeof": {
+      "version": "1.1.1",
+      "integrity": "sha512-JvdAWfbXeIGaZ9cILp38HntZSFSo3mWg6xGcJJsd+d4aRMOqauag1C63dJfDw7OaMYwEbHMOxEZ1lqVRYP2OAw=="
+    },
+    "node_modules/http-errors/node_modules/statuses": {
+      "resolved": "node_modules/statuses",
+      "link": true
+    },
+    "node_modules/http-errors/node_modules/toidentifier": {
+      "version": "1.0.0",
+      "integrity": "sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==",
+      "engines": {
+        "node": ">=0.6"
+      }
+    },
+    "node_modules/mime": {
+      "version": "1.6.0",
+      "integrity": "sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==",
+      "bin": {
+        "mime": "cli.js"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/ms": {
+      "version": "2.1.1",
+      "integrity": "sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg=="
+    },
+    "node_modules/on-finished": {
+      "version": "2.3.0",
+      "integrity": "sha1-IPEzZIGwg811M3mSoWlxqi2QaUc=",
+      "dependencies": {
+        "ee-first": "1.1.1"
+      },
+      "engines": {
+        "node": ">= 0.8"
+      }
+    },
+    "node_modules/on-finished/node_modules/ee-first": {
+      "version": "1.1.1",
+      "integrity": "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
+    },
+    "node_modules/range-parser": {
+      "version": "1.2.1",
+      "integrity": "sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    },
+    "node_modules/statuses": {
+      "version": "1.5.0",
+      "integrity": "sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=",
+      "engines": {
+        "node": ">= 0.6"
+      }
+    }
+  }
+}

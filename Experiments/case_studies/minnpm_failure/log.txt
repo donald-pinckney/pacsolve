@@ -1,0 +1,238 @@
+Namespace(verbosity=1, dataset='nontesting_most_downloads', only=['istanbul-lib-instrument', '@eslint_eslintrc', '@babel_plugin-transform-runtime', 'jest-watcher', '@jest_test-result', '@istanbuljs_load-nyc-config', 'node-libs-browser', '@jest_fake-timers', 'nanomatch', 'babel-preset-jest', '@babel_preset-env', '@babel_helper-define-polyfill-provider', 'jest-message-util', 'jest-config', 'crypto-browserify', 'mississippi', 'babel-plugin-jest-hoist', 'jest', 'jest-runner', 'copy-concurrently', 'babel-plugin-istanbul', 'move-concurrently', 'babel-plugin-polyfill-corejs3', '@babel_plugin-transform-modules-amd', 'jest-resolve', '@jest_test-sequencer', '@jest_environment', 'eslint', 'jest-jasmine2'], all=False, range=None, configs=['npm', 'npm install --omit dev --omit optional --omit peer --ignore-scripts', 'minnpm_npm', 'npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps'], cleanup=False, timeout=800)
+Running 369 / 1000
+* Project: eslint
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (20.53 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ❌ (160.79 s)
+Running 450 / 1000
+* Project: istanbul-lib-instrument
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (17.21 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (107.21 s)
+    + Post-install
+Running 458 / 1000
+* Project: jest-resolve
+  - Kill Processes
+    > pkill -f z3 ✅ (0.04 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (4.17 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (45.34 s)
+    + Post-install
+Running 462 / 1000
+* Project: nanomatch
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (13.44 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (11.48 s)
+    + Post-install
+Running 508 / 1000
+* Project: jest-message-util
+  - Kill Processes
+    > pkill -f z3 ✅ (0.04 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (3.23 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (17.78 s)
+    + Post-install
+Running 682 / 1000
+* Project: babel-preset-jest
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (3.88 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (21.74 s)
+    + Post-install
+Running 684 / 1000
+* Project: babel-plugin-jest-hoist
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (3.96 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (17.69 s)
+    + Post-install
+Running 703 / 1000
+* Project: babel-plugin-istanbul
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (17.58 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ❌ (741.91 s)
+Running 727 / 1000
+* Project: jest-config
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (14.51 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ❌ (799.98 s)
+Running 737 / 1000
+* Project: jest-jasmine2
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (10.50 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ❌ (799.98 s)
+Running 744 / 1000
+* Project: jest
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (12.68 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ❌ (799.98 s)
+Running 760 / 1000
+* Project: jest-runner
+  - Kill Processes
+    > pkill -f z3 ✅ (0.04 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (13.88 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ❌ (800.07 s)
+Running 772 / 1000
+* Project: jest-watcher
+  - Kill Processes
+    > pkill -f z3 ✅ (0.04 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (4.44 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (42.97 s)
+    + Post-install
+Running 815 / 1000
+* Project: crypto-browserify
+  - Kill Processes
+    > pkill -f z3 ✅ (0.05 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (25.93 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ❌ (105.88 s)
+Running 872 / 1000
+* Project: node-libs-browser
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (3.56 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ❌ (82.04 s)
+Running 902 / 1000
+* Project: mississippi
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.42 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (19.38 s)
+    + Post-install
+Running 961 / 1000
+* Project: babel-plugin-polyfill-corejs3
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (6.43 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (25.32 s)
+    + Post-install
+Running 972 / 1000
+* Project: copy-concurrently
+  - Kill Processes
+    > pkill -f z3 ✅ (0.04 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (5.60 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ❌ (800.00 s)
+Running 976 / 1000
+* Project: move-concurrently
+  - Kill Processes
+    > pkill -f z3 ✅ (0.04 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (8.23 s)
+    + Post-install
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ❌ (494.49 s)

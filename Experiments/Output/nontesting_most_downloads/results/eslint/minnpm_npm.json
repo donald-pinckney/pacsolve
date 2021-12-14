@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 160.78568816184998,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps",
+    "retcode": 1,
+    "stdout": "0 / 1\n100 / 122\n200 / 74\n300 / 208\n400 / 143\n500 / 108\n600 / 766\n700 / 677\n800 / 1574\n900 / 1474\n1000 / 1374\n1100 / 1274\n1200 / 1175\n1300 / 1077\n1400 / 1097\n1500 / 997\n1600 / 905\n1700 / 805\n1800 / 705\n1900 / 605\n2000 / 505\n2100 / 405\n2200 / 305\n2300 / 205\n2400 / 108\n2500 / 121\n2600 / 114\n2700 / 21\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-99729-dOtRlEOQf6qn\n",
+    "stderr": "npm ERR! code 1\nnpm ERR! Command failed: racket /Users/donaldpinckney/Research/packages/dependency-runner/RosetteSolver/rosette-solver.rkt /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-99729-dOtRlEOQf6qn /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-99729-65Tutiyo8scd\nnpm ERR! read-solution: unrecognized solver output: #<eof>\nnpm ERR!   context...:\nnpm ERR!    /Users/donaldpinckney/Library/Racket/8.0/pkgs/rosette/rosette/solver/smt/base-solver.rkt:92:0: solver-check\nnpm ERR!    /Users/donaldpinckney/Library/Racket/8.0/pkgs/rosette/rosette/query/core.rkt:27:0: \u2203-solve\nnpm ERR!    body of \"/Users/donaldpinckney/Research/packages/dependency-runner/RosetteSolver/rosette-solver.rkt\"\nnpm ERR! \nnpm ERR! read-solution: unrecognized solver output: #<eof>\nnpm ERR!   context...:\nnpm ERR!    /Users/donaldpinckney/Library/Racket/8.0/pkgs/rosette/rosette/solver/smt/base-solver.rkt:92:0: solver-check\nnpm ERR!    /Users/donaldpinckney/Library/Racket/8.0/pkgs/rosette/rosette/query/core.rkt:27:0: \u2203-solve\nnpm ERR!    body of \"/Users/donaldpinckney/Research/packages/dependency-runner/RosetteSolver/rosette-solver.rkt\"\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-12-13T19_04_41_117Z-debug.log\n"
+  }
+}

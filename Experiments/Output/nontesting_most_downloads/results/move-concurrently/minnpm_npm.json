@@ -1,0 +1,11 @@
+{
+  "install-success": false,
+  "install_time": 494.49478006362915,
+  "error": {
+    "stage": "install",
+    "command": "npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps",
+    "retcode": 1,
+    "stdout": "0 / 1\n100 / 57\n200 / 362\n300 / 381\n400 / 378\n500 / 309\n600 / 338\n700 / 316\n800 / 287\n900 / 204\n1000 / 117\n1100 / 205\n1200 / 152\n1300 / 113\n1400 / 701\n1500 / 612\n1600 / 512\n1700 / 412\n1800 / 312\n1900 / 1203\n2000 / 1105\n2100 / 1129\n2200 / 1029\n2300 / 937\n2400 / 837\n2500 / 737\n2600 / 637\n2700 / 537\n2800 / 437\n2900 / 337\n3000 / 237\n3100 / 138\n3200 / 43\n3300 / 89\n3400 / 71\nSending query to rosette: /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-5806-ooAsYEPv1Ltg\n",
+    "stderr": "npm ERR! code 1\nnpm ERR! Command failed: racket /Users/donaldpinckney/Research/packages/dependency-runner/RosetteSolver/rosette-solver.rkt /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-5806-ooAsYEPv1Ltg /var/folders/9x/h9vpkyxj3pg0chrllkhfpkzm0000gn/T/tmp-5806-mAK1ZKXTpliH\nnpm ERR! read-solution: unrecognized solver output: #<eof>\nnpm ERR!   context...:\nnpm ERR!    /Users/donaldpinckney/Library/Racket/8.0/pkgs/rosette/rosette/solver/smt/base-solver.rkt:92:0: solver-check\nnpm ERR!    /Users/donaldpinckney/Library/Racket/8.0/pkgs/rosette/rosette/query/core.rkt:27:0: \u2203-solve\nnpm ERR!    body of \"/Users/donaldpinckney/Research/packages/dependency-runner/RosetteSolver/rosette-solver.rkt\"\nnpm ERR! \nnpm ERR! read-solution: unrecognized solver output: #<eof>\nnpm ERR!   context...:\nnpm ERR!    /Users/donaldpinckney/Library/Racket/8.0/pkgs/rosette/rosette/solver/smt/base-solver.rkt:92:0: solver-check\nnpm ERR!    /Users/donaldpinckney/Library/Racket/8.0/pkgs/rosette/rosette/query/core.rkt:27:0: \u2203-solve\nnpm ERR!    body of \"/Users/donaldpinckney/Research/packages/dependency-runner/RosetteSolver/rosette-solver.rkt\"\n\nnpm ERR! A complete log of this run can be found in:\nnpm ERR!     /Users/donaldpinckney/.npm/_logs/2021-12-13T20_43_13_322Z-debug.log\n"
+  }
+}
