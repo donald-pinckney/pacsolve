@@ -1,9 +1,12 @@
 ---
 title: "R Notebook"
 output:
+  pdf_document:
+    latex_engine: xelatex
+  html_notebook: default
   html_document:
     df_print: paged
-  html_notebook: default
+  word_document: default
 ---
 
 # Running on Discovery
@@ -16,15 +19,24 @@ Press *Ctrl+Enter* to run a chunk.
 
 # Initialization
 
-*You may want to change the directory below.*
+*You may want to change the directories below.*
 
 ```{r setup}
 suppressMessages(library(tidyverse))
 library(stringr)
+library(xtable)
 suppressMessages(library(extrafont))
 library(fontcm)
-knitr::opts_knit$set(root.dir = "/home/a.guha/repos/dependency-runner/slurm")
+knitr::opts_knit$set(root.dir = "/mnt/data/arjun/repos/dependency-runner/slurm")
+data_root <- "/mnt/data/arjun/scratch/npm"
+results_root <- "/mnt/data/arjun/repos/papers/minnpm/paper/figs_and_tables"
+results_tex <- str_c(results_root, "/results.tex")
+
+write("% These are results from the R Notebook.", results_tex, append=FALSE)
+write("% Run the notebook from top to bottom", results_tex, append=TRUE)
+
 ```
+
 
 # Theme for output
 
@@ -41,7 +53,7 @@ mytheme <- function() {
              axis.ticks = element_line(size=0.05),
              axis.ticks.length=unit("-0.05", "in"),
              axis.text.y = element_text(margin = margin(r = 5)),
-             axis.text.x = element_text(hjust=1, angle=45),
+             axis.text.x = element_text(hjust=1),
              legend.key = element_rect(colour=NA),
              legend.spacing = unit(0.001, "in"),
              legend.key.size = unit(0.2, "in"),
@@ -52,15 +64,17 @@ mytheme <- function() {
 
 mysave <- function(filename) {
   ggsave(filename, width=3, height=3, units=c("in"))
-  embed_font(filename)
+  # embed_font(filename)
 }
 
 ```
 
-Load the data:
+# Load the data
 
+These are the results from running all experiments in parallel on Discovery.
+The timing information is *not* reliable.
 ```{r}
-raw_data <- read_csv("results.csv",
+raw_data <- read_csv(paste(data_root, "/results.csv", sep=""),
   col_types = cols(Status=col_factor(),
                    Project=col_factor(),
                    Rosette=col_logical(),
@@ -72,6 +86,7 @@ raw_data <- read_csv("results.csv",
                    
 ```
 
+We load more data later.
 
 # Manual Verification Step
 
@@ -85,6 +100,7 @@ Check that these are the factors that appear below:
 6. *unexpected*: something went wrong on Discovery. See experiment.out
 7. *unavailable*: something went wrong and we didn't even capture the result. 
    See experiment.out
+8. *unsat*: Z3 failed on us
 
 ```{r}
 levels(raw_data$Status)
@@ -98,24 +114,110 @@ levels(raw_data$Consistency)
 levels(raw_data$Minimize)
 ```
 
-*The value in the Count column should be 1000 for every row:*
+Sanity check: there should be 1,000 of each kind of experiment.
 
 ```{r}
-raw_data %>% 
+num_experiments <- raw_data %>% 
   group_by(Rosette,Minimize,Consistency) %>%
-  summarize(Count = n())
+  summarize(Count = n()) %>%
+  ungroup() %>%
+  select(Count) %>%
+  unique()
+stopifnot(nrow(num_experiments) == 1)
+stopifnot(num_experiments[1] == 1000)
 ```
 
 # Failures
 
-How many failures occur for each configuration? We know we will see more failures than NPM, but hopefully not too many more.
+How many failures occur for each configuration? *See failures.tex*.
+
+```{r}
+failure_analysis <- raw_data %>% 
+  filter(Status != "success") %>% 
+  group_by(Rosette,Minimize,Consistency) %>%
+  summarise(Unsat = sum(Status == "unsat"),
+            Timeout = sum(Status == "unavailable"),
+            Other = sum(Status != "unsat" & Status != "unavailable")) %>%
+  ungroup() %>%
+  mutate(Solver = if_else(Rosette, "MinNPM", "NPM")) %>%
+  rename(Minimization = Minimize) %>%
+  select(-Rosette) %>%
+  relocate(Solver,Consistency,Minimization,Unsat,Timeout,Other)
+print(xtable(as.data.frame(failure_analysis), type="latex"), include.rownames=FALSE, file="failures.tex")
+knitr::kable(failure_analysis)
+```
+
+Projects that produced a Z3 unsat with Pip-consistency, but succeeded with
+Npm-consistency:
+
+```{r}
+requires_multiple_versions <- raw_data %>% 
+  filter(Rosette == TRUE &
+           Consistency == "pip" &
+           Minimize == "min_oldness,min_num_deps" &
+           Status != "success") %>%
+  select(Project) %>%
+  inner_join(raw_data %>%
+               filter(Rosette == TRUE &
+                        Consistency == "npm" &
+                        Minimize == "min_oldness,min_num_deps" &
+                        Status == "success") %>%
+               select(Project))
+requires_multiple_versions
+```
+```{r}
+fraction_require_npm_consistency <- nrow(requires_multiple_versions) /
+  nrow(raw_data %>%  filter(Rosette == FALSE))
+write(
+  str_c("\\newcommand{\\dataFractionPIPUnsupported}{", 
+        round(fraction_require_npm_consistency * 100),
+        "\\%}\n"),
+  results_tex, append=TRUE)
+```
+
+Projects that failed in with MinNPM in NPM mode, but succeeded with NPM. The
+Status column shows the status with MinNPM. The status *unavailable* means
+a timeout, whereas *unexpected* likely means some kind of Z3 / Rosette crash.
+
+```{r}
+minnpm_succeeds_npm_fails <- raw_data %>% 
+  filter(Rosette == TRUE &
+           Consistency == "npm" &
+           Minimize == "min_oldness,min_num_deps" &
+           Status != "success") %>%
+  select(Project, Status) %>%
+  inner_join(raw_data %>%
+               filter(Rosette == FALSE &
+                        Status == "success") %>%
+               select(Project))
+knitr::kable(minnpm_succeeds_npm_fails)
+```
+
+```{r}
+nrow(minnpm_succeeds_npm_fails)
+
+```
+
+Projects that succeeded with MinNPM in NPM mode, but failed with NPM. The
+Status column shows the status with NPM. I've more carefully parsed the
+error codes from NPM. It is surprising, and nice, that there are nearly as
+many failures in this direction.
 
 ```{r}
 raw_data %>% 
-  filter(Status != "success") %>% 
-  group_by(Rosette,Minimize,Consistency) %>%
-  summarize(Count = n())
+  filter(Rosette == TRUE &
+           Consistency == "npm" &
+           Minimize == "min_oldness,min_num_deps" &
+           Status == "success") %>%
+  select(Project, NDeps) %>%
+  inner_join(raw_data %>%
+               filter(Rosette == FALSE &
+                        Status != "success") %>%
+               select(Project, Status))
+
 ```
+
+
 
 #  The Need for Tree-Solving
 
@@ -123,99 +225,80 @@ NPM uses a tree-solver because its easy to resolve conflicts. But, how many conf
 
 <span style="color:red">TODO: Need to process output further to distinguish these errors.</span>
 
-#  Minimizing Number of Dependencies
+# Can MinNPM produce fewer dependencies than NPM?
 
-For each project, the number of dependencies with vanilla NPM, and with MinNPM configured to minimize #deps and oldness, in that order.
-
+For each project, the number of dependencies with vanilla NPM, and with MinNPM
+configured to minimize #deps and oldness, in that order.
 ```{r}
 min_dep_analysis <- bind_rows(raw_data %>% 
-            filter(Rosette == FALSE) %>% 
+            filter(Rosette == FALSE & Status == "success") %>% 
             select(Project,NDeps) %>% 
             mutate(Solver="NPM"),
           raw_data %>% 
-            filter(Rosette == TRUE & Consistency == "npm" &
+            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" &
                    Minimize == "min_num_deps,min_oldness") %>%
             select(Project, NDeps) %>%
             mutate(Solver="MinDeps")) %>%
-  pivot_wider(values_from=NDeps, names_from=Solver)
+  pivot_wider(values_from=NDeps, names_from=Solver) %>%
+  mutate(Delta = NPM - MinDeps) %>%
+  mutate(Shrinkage = MinDeps / NPM) %>%
+  na.omit()
+min_dep_analysis
 ```
 
+These are cases where MinNPM produces significantly fewer dependences than
+NPM. We may want to dig into them further to explain why:
+```{r}
+min_dep_analysis %>% 
+  arrange(desc(Delta)) %>%
+  filter(Delta > 25) %>%
+  knitr::kable()
+```
 
-<span style="color: red">
-In theory, MinNPM should always produce a smaller solution. But, it seems like it doesn't always.
-</span>
+These are potentially bad cases, where MinNPM produces more dependencies than
+NPM:
 
 ```{r}
-min_dep_analysis %>% mutate(Badness = MinDeps - NPM) %>% filter(Badness > 0)
-
+min_dep_analysis %>% arrange(Delta) %>% filter(Delta < 0)
 ```
 
-<span style="color:red">The graph below is bogus, since I've filtered out the outliers.</span>
+*WARNING: This filters out the bogus result above.*
 
 ```{r}
 min_dep_analysis %>% 
-  mutate(Shrinkage = MinDeps / NPM) %>% 
-  filter(Shrinkage <= 1.0) %>%
   select(Shrinkage) %>%
+  filter(Shrinkage <= 1.0) %>%
   ggplot(aes(Shrinkage)) +
   stat_ecdf() +
-  ylab("Fraction of solves that shrink")
+  ylab("Percentange of packages") +
+  xlab("Fraction of dependencies") +
+  mytheme()
+mysave("shrinkage.pdf")
 ```
 
-
-# Impact on Priorities
-
-<span style="color:red">Skip this? Not very informative.</span>
+*What fraction of packages can we shrink? This goes in the paper.*
 
 ```{r}
-bind_rows(
-  raw_data %>% 
-    filter(Rosette == TRUE & Consistency == "npm" &
-             Minimize == "min_num_deps,min_oldness") %>%
-    select(Project,NDeps) %>%
-    mutate(Solver="Deps,Oldness"),
-  raw_data %>% 
-    filter(Rosette == TRUE & Consistency == "npm" &
-             Minimize == "min_oldness,min_duplicates") %>%
-    select(Project,NDeps) %>%
-    mutate(Solver="Oldness,Deps"),
-  raw_data %>% 
-    filter(Rosette == TRUE & Consistency == "npm" &
-             Minimize == "min_duplicates,min_oldness") %>%
-    select(Project, NDeps) %>%
-    mutate(Solver="Dups,Oldness")) %>%
-  ggplot(aes(NDeps,color=Solver)) +
-  stat_ecdf()
+fraction_shrinking <- nrow(
+  min_dep_analysis %>% filter(Shrinkage < 1)) / nrow(min_dep_analysis)
+write(
+  str_c("\\newcommand{\\dataFractionShrinking}{", 
+        round(fraction_shrinking * 100),
+        "\\%}\n"),
+  results_tex, append=TRUE)
+fraction_shrinking
 ```
 
-# Slowdown of MinNPM
-
-<span style="color:red">These were run on different kinds of machines, etc. and in parallel. So timing is not reliable. But, we can assume the trends hold, and we have seen these trends over lots of experiment runs. Some questions:</span>
-
-1. Why is it that the Rosette solver is faster? It seems almost unbelievable that the NPM solver is slower to me.
-
-2. Should we somehow represent the timeouts on this graph?
-
-```{r}
-bind_rows(
-  raw_data %>%
-    filter(Rosette == FALSE) %>%
-    select(Project,Time) %>%
-    mutate(Solver="NPM"),
-  raw_data %>% 
-    filter(Rosette == TRUE & Consistency == "npm" &
-             Minimize == "min_num_deps,min_oldness") %>%
-    select(Project,Time) %>%
-    mutate(Solver="MinNPM")) %>%
-  pivot_wider(values_from=Time, names_from=Solver) %>%
-  mutate(DeltaTime = MinNPM- NPM) %>%
-  select(-NPM, -MinNPM) %>%
-  ggplot(aes(y=DeltaTime)) +
-  stat_bin()
-```
-
+  
 # How Old Are Dependencies?
 
+I ran:
+
+$ python3 all_oldness.py /scratch/a.guha/minnpm-exp/vanilla > oldness_vanilla.csv
+$ python3 all_oldness.py /scratch/a.guha/minnpm-exp/rosette/npm/min_oldness,min_num│
+_deps > oldness_npm_oldness_deps.csv
+
+Raw data
 ```{r}
 oldness_data <- bind_rows(
   read_csv("oldness_vanilla.csv",
@@ -228,10 +311,19 @@ oldness_data <- bind_rows(
                      Oldness=col_double()),
     show_col_types = FALSE) %>%
     mutate(Solver = "MinNPM"))
+
 ```
 
 ```{r}
-oldness_data %>% group_by(Solver) %>% summarize(Mean = mean(Oldness), Median = median(Oldness))
+oldness_by_pkg <- oldness_data %>% 
+  pivot_wider(values_from = Oldness, names_from=Solver)
+better_oldness <- nrow(oldness_by_pkg  %>% filter(MinNPM < NPM)) /
+  nrow(oldness_by_pkg)
+write(
+  str_c("\\newcommand{\\dataFractionNewer}{", 
+        round(better_oldness * 100),
+        "\\%}\n"),
+  results_tex, append=TRUE)
 ```
 
 ```{r}
@@ -247,5 +339,48 @@ oldness_data %>%
 
 mysave("oldness_scatterplot.pdf")
 
+```
+
+# Performance Analysis
+
+```{r}
+slowdowns <- read_csv(paste(data_root,"/vanilla/performance.csv",sep=""),
+         col_types = cols(Package = col_factor(), Time = col_double()),
+         show_col_types = FALSE) %>%
+  group_by(Package) %>%
+  summarise(NPM = mean(Time)) %>%
+  ungroup() %>%
+  inner_join(
+    read_csv(paste(data_root,"/rosette/npm/min_oldness,min_num_deps/performance.csv",sep=""),
+             col_types = cols(Package = col_factor(), Time = col_double()),
+             show_col_types = FALSE) %>%
+        group_by(Package) %>%
+      summarise(MinNPM = mean(Time)) %>%
+      ungroup()) %>%
+  mutate(Slowdown = MinNPM - NPM) %>%
+  select(Package, Slowdown)
+
+slowdowns %>% ggplot(aes(x=Slowdown)) + 
+  stat_ecdf() +
+  xlab("Additional time taken with MinNPM (s)") +
+  ylab("Percentage of packages") +
+  mytheme()
+
+mysave("slowdown_ecdf.pdf")
+```
+
+Reported in paper:
+
+```{r}
+write(
+  str_c("\\newcommand{\\dataMeanSlowdown}{", 
+        round(mean(na.omit(slowdowns$Slowdown)), digits = 1),
+        "s}\n"),
+  results_tex, append=TRUE)
+write(
+  str_c("\\newcommand{\\dataMaxSlowdown}{", 
+        round(max(na.omit(slowdowns$Slowdown)), digits = 1),
+        "s}\n"),
+  results_tex, append=TRUE)
 ```
 
