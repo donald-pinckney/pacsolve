@@ -1,0 +1,381 @@
+{
+  "install-success": true,
+  "install_time": 9.457980871200562,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/helper-create-class-features-plugin": {
+      "version": "7.16.0",
+      "integrity": "sha512-XLwWvqEaq19zFlF5PTgOod4bUA+XbkR4WLQBct1bkzmxJGB0ZEJaoKF4c8cgH9oBtCDuYJ8BP5NB9uFiEgO5QA==",
+      "dependencies": {
+        "@babel/helper-annotate-as-pure": "^7.16.0",
+        "@babel/helper-function-name": "^7.16.0",
+        "@babel/helper-member-expression-to-functions": "^7.16.0",
+        "@babel/helper-optimise-call-expression": "^7.16.0",
+        "@babel/helper-replace-supers": "^7.16.0",
+        "@babel/helper-split-export-declaration": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      },
+      "peerDependencies": {
+        "@babel/core": "^7.0.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure": {
+      "version": "7.16.0",
+      "integrity": "sha512-ItmYF9vR4zA8cByDocY05o0LGUkp1zhbTQOH1NFyl5xXEqlTJQCEJjieriw+aFpxo16swMxUnUiKS7a/r4vtHg==",
+      "dependencies": {
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types": {
+      "version": "7.16.0",
+      "integrity": "sha512-PJgg/k3SdLsGb3hhisFvtLOw5ts113klrpLuIPtCJIU+BB24fqq6lf8RWqKJEjzqXR9AEH1rIb5XTqwBHB+kQg==",
+      "dependencies": {
+        "@babel/helper-validator-identifier": "^7.15.7",
+        "to-fast-properties": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types/node_modules/@babel/helper-validator-identifier": {
+      "version": "7.15.7",
+      "integrity": "sha512-K4JvCtQqad9OY2+yTU8w+E82ywk/fe+ELNlt1G8z3bVGlZfn/hOcQQsUhGhW/N+tb3fxK800wLtKOE/aM0m72w==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types/node_modules/to-fast-properties": {
+      "version": "2.0.0",
+      "integrity": "sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name": {
+      "version": "7.16.0",
+      "integrity": "sha512-BZh4mEk1xi2h4HFjWUXRQX5AEx4rvaZxHgax9gcjdLWdkjsY7MKt5p0otjsg5noXw+pB+clMCjw+aEVYADMjog==",
+      "dependencies": {
+        "@babel/helper-get-function-arity": "^7.16.0",
+        "@babel/template": "^7.16.0",
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/helper-get-function-arity": {
+      "version": "7.16.0",
+      "integrity": "sha512-ASCquNcywC1NkYh/z7Cgp3w31YW8aojjYIlNg4VeJiHkqyP4AzIvr4qx7pYDb4/s8YcsZWqqOSxgkvjUz1kpDQ==",
+      "dependencies": {
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/helper-get-function-arity/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template": {
+      "version": "7.16.0",
+      "integrity": "sha512-MnZdpFD/ZdYhXwiunMqqgyZyucaYsbL0IrjoGjaVhGilz+x8YB++kRfygSOIj1yOtWKPlx7NBp+9I1RQSgsd5A==",
+      "dependencies": {
+        "@babel/code-frame": "^7.16.0",
+        "@babel/parser": "^7.16.0",
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame": {
+      "version": "7.16.0",
+      "integrity": "sha512-IF4EOMEV+bfYwOmNxGzSnjR2EmQod7f1UXOpZM3l4i4o4QNwzjtJAu/HxdjHq0aYBvdqMuQEY1eg0nqW9ZPORA==",
+      "dependencies": {
+        "@babel/highlight": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight": {
+      "version": "7.16.0",
+      "integrity": "sha512-t8MH41kUQylBtu2+4IQA3atqevA2lRgqA2wyVB/YiWmsDSuylZZuXOUy9ric30hfzauEFfdsuk/eXTRrGrfd0g==",
+      "dependencies": {
+        "@babel/helper-validator-identifier": "^7.15.7",
+        "chalk": "^2.0.0",
+        "js-tokens": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/@babel/helper-validator-identifier": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types/node_modules/@babel/helper-validator-identifier",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk": {
+      "version": "2.3.0",
+      "integrity": "sha512-Az5zJR2CBujap2rqXGaJKaPHyJ0IrUimvYNX+ncCy8PJP4ltOGTrHUIo097ZaL2zMeKYpiCdqDvS6zdrTFok3Q==",
+      "dependencies": {
+        "ansi-styles": "^3.1.0",
+        "escape-string-regexp": "^1.0.5",
+        "supports-color": "^4.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/ansi-styles": {
+      "version": "3.1.0",
+      "integrity": "sha1-CcIC1ckX7CMYjKpcnLkXnNlUd1A=",
+      "dependencies": {
+        "color-convert": "^1.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert": {
+      "version": "1.5.0",
+      "integrity": "sha1-eitO+0SI34W8pkQ8sDi3EA++feE="
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/escape-string-regexp": {
+      "version": "1.0.5",
+      "integrity": "sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=",
+      "engines": {
+        "node": ">=0.8.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/supports-color": {
+      "version": "4.5.0",
+      "integrity": "sha1-vnoN5ITexcXN34s9WRJQRJEvY1s=",
+      "dependencies": {
+        "has-flag": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/chalk/node_modules/supports-color/node_modules/has-flag": {
+      "version": "2.0.0",
+      "integrity": "sha1-6CB68cx7MNRGzHC3NLXovhj4jVE=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame/node_modules/@babel/highlight/node_modules/js-tokens": {
+      "version": "4.0.0",
+      "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ=="
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/parser": {
+      "version": "7.16.5",
+      "integrity": "sha512-+Ce7T5iPNWzfu9C1aB5tN3Lyafs5xb3Ic7vBWyZL2KXT3QSdD1dD3CvgOzPmQKoNNRt6uauc0XwNJTQtXC2/Mw==",
+      "bin": {
+        "parser": "bin/babel-parser.js"
+      },
+      "engines": {
+        "node": ">=6.0.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-member-expression-to-functions": {
+      "version": "7.16.5",
+      "integrity": "sha512-7fecSXq7ZrLE+TWshbGT+HyCLkxloWNhTbU2QM1NTI/tDqyf0oZiMcEfYtDuUDCo528EOlt39G1rftea4bRZIw==",
+      "dependencies": {
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-member-expression-to-functions/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-optimise-call-expression": {
+      "version": "7.16.0",
+      "integrity": "sha512-SuI467Gi2V8fkofm2JPnZzB/SUuXoJA5zXe/xzyPP2M04686RzFKFHPK6HDVN6JvWBIEW8tt9hPR7fXdn2Lgpw==",
+      "dependencies": {
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-optimise-call-expression/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers": {
+      "version": "7.16.0",
+      "integrity": "sha512-TQxuQfSCdoha7cpRNJvfaYxxxzmbxXw/+6cS7V02eeDYyhxderSoMVALvwupA54/pZcOTtVeJ0xccp1nGWladA==",
+      "dependencies": {
+        "@babel/helper-member-expression-to-functions": "^7.16.0",
+        "@babel/helper-optimise-call-expression": "^7.16.0",
+        "@babel/traverse": "^7.16.0",
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/helper-member-expression-to-functions": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-member-expression-to-functions",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/helper-optimise-call-expression": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-optimise-call-expression",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse": {
+      "version": "7.16.3",
+      "integrity": "sha512-eolumr1vVMjqevCpwVO99yN/LoGL0EyHiLO5I043aYQvwOJ9eR5UsZSClHVCzfhBduMAsSzgA/6AyqPjNayJag==",
+      "dependencies": {
+        "@babel/code-frame": "^7.16.0",
+        "@babel/generator": "^7.16.0",
+        "@babel/helper-function-name": "^7.16.0",
+        "@babel/helper-hoist-variables": "^7.16.0",
+        "@babel/helper-split-export-declaration": "^7.16.0",
+        "@babel/parser": "^7.16.3",
+        "@babel/types": "^7.16.0",
+        "debug": "^4.1.0",
+        "globals": "^11.1.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/code-frame": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/code-frame",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/generator": {
+      "version": "7.16.5",
+      "integrity": "sha512-kIvCdjZqcdKqoDbVVdt5R99icaRtrtYhYK/xux5qiWCBmfdvEYMFZ68QCrpE5cbFM1JsuArUNs1ZkuKtTtUcZA==",
+      "dependencies": {
+        "@babel/types": "^7.16.0",
+        "jsesc": "^2.5.1",
+        "source-map": "^0.5.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/generator/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/generator/node_modules/jsesc": {
+      "version": "2.5.2",
+      "integrity": "sha512-OYu7XEzjkCQ3C5Ps3QIZsQfNpqoJyZZA99wd9aWd05NCtC5pWOkShK2mkL6HXQR6/Cy2lbNdPlZBpuQHXE63gA==",
+      "bin": {
+        "jsesc": "bin/jsesc"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/generator/node_modules/source-map": {
+      "version": "0.5.7",
+      "integrity": "sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/helper-function-name": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/helper-hoist-variables": {
+      "version": "7.16.0",
+      "integrity": "sha512-1AZlpazjUR0EQZQv3sgRNfM9mEVWPK3M6vlalczA+EECcPz3XPh6VplbErL5UoMpChhSck5wAJHthlj1bYpcmg==",
+      "dependencies": {
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/helper-hoist-variables/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/helper-split-export-declaration": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-split-export-declaration",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/parser": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-function-name/node_modules/@babel/template/node_modules/@babel/parser",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/debug": {
+      "version": "4.3.3",
+      "integrity": "sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==",
+      "dependencies": {
+        "ms": "2.1.2"
+      },
+      "engines": {
+        "node": ">=6.0"
+      },
+      "peerDependenciesMeta": {
+        "supports-color": {
+          "optional": true
+        }
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/debug/node_modules/ms": {
+      "version": "2.1.2",
+      "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w=="
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/traverse/node_modules/globals": {
+      "version": "11.12.0",
+      "integrity": "sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-replace-supers/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-split-export-declaration": {
+      "version": "7.16.0",
+      "integrity": "sha512-0YMMRpuDFNGTHNRiiqJX19GjNXA4H0E8jZ2ibccfSxaCogbm3am5WN/2nQNj0YnQwGWM1J06GOcQ2qnh3+0paw==",
+      "dependencies": {
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-split-export-declaration/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-plugin-utils": {
+      "version": "7.16.5",
+      "integrity": "sha512-59KHWHXxVA9K4HNF4sbHCf+eJeFe0Te/ZFGqBT4OjXhrwvA04sGfaEGsVTdsjoszq0YTP49RC9UKe5g8uN2RwQ==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    }
+  }
+}

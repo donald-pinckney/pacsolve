@@ -1,0 +1,10 @@
+@eslint/eslintrc
+@babel/plugin-transform-runtime
+@jest/test-result
+@istanbuljs/load-nyc-config
+@jest/fake-timers
+@babel/preset-env
+@babel/helper-define-polyfill-provider
+@babel/plugin-transform-modules-amd
+@jest/test-sequencer
+@jest/environment

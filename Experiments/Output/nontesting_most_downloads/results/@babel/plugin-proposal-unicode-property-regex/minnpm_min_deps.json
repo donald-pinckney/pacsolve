@@ -1,0 +1,149 @@
+{
+  "install-success": true,
+  "install_time": 4.042147874832153,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/helper-create-regexp-features-plugin": {
+      "version": "7.16.0",
+      "integrity": "sha512-3DyG0zAFAZKcOp7aVr33ddwkxJ0Z0Jr5V99y3I690eYLpukJsJvAbzTy1ewoCqsML8SbIrjH14Jc/nSQ4TvNPA==",
+      "dependencies": {
+        "@babel/helper-annotate-as-pure": "^7.16.0",
+        "regexpu-core": "^4.7.1"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      },
+      "peerDependencies": {
+        "@babel/core": "^7.0.0"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/@babel/helper-annotate-as-pure": {
+      "version": "7.16.0",
+      "integrity": "sha512-ItmYF9vR4zA8cByDocY05o0LGUkp1zhbTQOH1NFyl5xXEqlTJQCEJjieriw+aFpxo16swMxUnUiKS7a/r4vtHg==",
+      "dependencies": {
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types": {
+      "version": "7.16.0",
+      "integrity": "sha512-PJgg/k3SdLsGb3hhisFvtLOw5ts113klrpLuIPtCJIU+BB24fqq6lf8RWqKJEjzqXR9AEH1rIb5XTqwBHB+kQg==",
+      "dependencies": {
+        "@babel/helper-validator-identifier": "^7.15.7",
+        "to-fast-properties": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types/node_modules/@babel/helper-validator-identifier": {
+      "version": "7.15.7",
+      "integrity": "sha512-K4JvCtQqad9OY2+yTU8w+E82ywk/fe+ELNlt1G8z3bVGlZfn/hOcQQsUhGhW/N+tb3fxK800wLtKOE/aM0m72w==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types/node_modules/to-fast-properties": {
+      "version": "2.0.0",
+      "integrity": "sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core": {
+      "version": "4.8.0",
+      "integrity": "sha512-1F6bYsoYiz6is+oz70NWur2Vlh9KWtswuRuzJOfeYUrfPX2o8n74AnUVaOGDbUqVGO9fNHu48/pjJO4sNVwsOg==",
+      "dependencies": {
+        "regenerate": "^1.4.2",
+        "regenerate-unicode-properties": "^9.0.0",
+        "regjsgen": "^0.5.2",
+        "regjsparser": "^0.7.0",
+        "unicode-match-property-ecmascript": "^2.0.0",
+        "unicode-match-property-value-ecmascript": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/regenerate": {
+      "version": "1.4.2",
+      "integrity": "sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A=="
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/regenerate-unicode-properties": {
+      "version": "9.0.0",
+      "integrity": "sha512-3E12UeNSPfjrgwjkR81m5J7Aw/T55Tu7nUyZVQYCKEOs+2dkxEY+DpPtZzO4YruuiPb7NkYLVcyJC4+zCbk5pA==",
+      "dependencies": {
+        "regenerate": "^1.4.2"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/regenerate-unicode-properties/node_modules/regenerate": {
+      "resolved": "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/regenerate",
+      "link": true
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/regjsgen": {
+      "version": "0.5.2",
+      "integrity": "sha512-OFFT3MfrH90xIW8OOSyUrk6QHD5E9JOTeGodiJeBS3J6IwlgzJMNE/1bZklWz5oTg+9dCMyEetclvCVXOPoN3A=="
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/regjsparser": {
+      "version": "0.7.0",
+      "integrity": "sha512-A4pcaORqmNMDVwUjWoTzuhwMGpP+NykpfqAsEgI1FSH/EzC7lrN5TMd+kN8YCovX+jMpu8eaqXgXPCa0g8FQNQ==",
+      "dependencies": {
+        "jsesc": "~0.5.0"
+      },
+      "bin": {
+        "regjsparser": "bin/parser"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/regjsparser/node_modules/jsesc": {
+      "version": "0.5.0",
+      "integrity": "sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=",
+      "bin": {
+        "jsesc": "bin/jsesc"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/unicode-match-property-ecmascript": {
+      "version": "2.0.0",
+      "integrity": "sha512-5kaZCrbp5mmbz5ulBkDkbY0SsPOjKqVS35VpL9ulMPfSl0J0Xsm+9Evphv9CoIZFwre7aJoa94AY6seMKGVN5Q==",
+      "dependencies": {
+        "unicode-canonical-property-names-ecmascript": "^2.0.0",
+        "unicode-property-aliases-ecmascript": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/unicode-match-property-ecmascript/node_modules/unicode-canonical-property-names-ecmascript": {
+      "version": "2.0.0",
+      "integrity": "sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/unicode-match-property-ecmascript/node_modules/unicode-property-aliases-ecmascript": {
+      "version": "2.0.0",
+      "integrity": "sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-create-regexp-features-plugin/node_modules/regexpu-core/node_modules/unicode-match-property-value-ecmascript": {
+      "version": "2.0.0",
+      "integrity": "sha512-7Yhkc0Ye+t4PNYzOGKedDhXbYIBe1XEQYQxOPyhcXNMJ0WCABqqj6ckydd6pWRZTHV4GuCPKdBAUiMc60tsKVw==",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/helper-plugin-utils": {
+      "version": "7.16.5",
+      "integrity": "sha512-59KHWHXxVA9K4HNF4sbHCf+eJeFe0Te/ZFGqBT4OjXhrwvA04sGfaEGsVTdsjoszq0YTP49RC9UKe5g8uN2RwQ==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    }
+  }
+}

@@ -103,3 +103,251 @@ Running 900 / 1000
     + Install
       > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (7.48 s)
     + Post-install
+Namespace(verbosity=1, dataset='nontesting_most_downloads', only=['@babel/plugin-proposal-export-namespace-from', '@babel/plugin-proposal-dynamic-import', '@babel/plugin-proposal-json-strings', '@babel/plugin-proposal-optional-catch-binding', '@babel/plugin-proposal-numeric-separator', '@babel/plugin-proposal-nullish-coalescing-operator', '@babel/plugin-proposal-logical-assignment-operators', '@babel/plugin-transform-react-jsx', '@babel/preset-modules', '@babel/plugin-transform-named-capturing-groups-regex', '@babel/plugin-transform-dotall-regex', '@babel/plugin-proposal-optional-chaining', '@babel/plugin-proposal-unicode-property-regex', '@babel/plugin-transform-unicode-regex', '@babel/preset-react', '@babel/plugin-proposal-object-rest-spread', '@babel/plugin-proposal-async-generator-functions', '@babel/plugin-proposal-class-properties', '@babel/plugin-proposal-private-methods'], all=False, range=None, configs=['npm', 'npm install --omit dev --omit optional --omit peer --ignore-scripts', 'minnpm_min_deps', 'npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness'], cleanup=False, timeout=800)
+Running 380 / 1000
+* Project: @babel/plugin-proposal-object-rest-spread
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (7.14 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (8.92 s)
+    + Post-install
+Running 424 / 1000
+* Project: @babel/plugin-proposal-class-properties
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (3.29 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (10.74 s)
+    + Post-install
+Running 502 / 1000
+* Project: @babel/plugin-proposal-optional-chaining
+  - Kill Processes
+    > pkill -f z3 ✅ (0.04 s)
+    > pkill -f racket ✅ (0.05 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.86 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (3.98 s)
+    + Post-install
+Running 521 / 1000
+* Project: @babel/plugin-proposal-nullish-coalescing-operator
+  - Kill Processes
+    > pkill -f z3 ✅ (0.04 s)
+    > pkill -f racket ✅ (0.04 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.86 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (4.31 s)
+    + Post-install
+Running 545 / 1000
+* Project: @babel/plugin-proposal-numeric-separator
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.86 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (3.68 s)
+    + Post-install
+Running 563 / 1000
+* Project: @babel/plugin-proposal-async-generator-functions
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.04 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (4.04 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (7.02 s)
+    + Post-install
+Running 590 / 1000
+* Project: @babel/plugin-proposal-unicode-property-regex
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.89 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (4.04 s)
+    + Post-install
+Running 591 / 1000
+* Project: @babel/plugin-transform-dotall-regex
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.43 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (4.62 s)
+    + Post-install
+Running 592 / 1000
+* Project: @babel/plugin-proposal-optional-catch-binding
+  - Kill Processes
+    > pkill -f z3 ✅ (0.04 s)
+    > pkill -f racket ✅ (0.04 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.29 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (4.07 s)
+    + Post-install
+Running 604 / 1000
+* Project: @babel/plugin-transform-unicode-regex
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.04 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (3.40 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (4.91 s)
+    + Post-install
+Running 605 / 1000
+* Project: @babel/plugin-transform-named-capturing-groups-regex
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.85 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (4.11 s)
+    + Post-install
+Running 624 / 1000
+* Project: @babel/plugin-proposal-json-strings
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.47 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (3.53 s)
+    + Post-install
+Running 687 / 1000
+* Project: @babel/plugin-proposal-dynamic-import
+  - Kill Processes
+    > pkill -f z3 ✅ (0.04 s)
+    > pkill -f racket ✅ (0.05 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (3.01 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (3.58 s)
+    + Post-install
+Running 829 / 1000
+* Project: @babel/plugin-proposal-private-methods
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (3.07 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (9.46 s)
+    + Post-install
+Running 877 / 1000
+* Project: @babel/plugin-proposal-export-namespace-from
+  - Kill Processes
+    > pkill -f z3 ✅ (0.05 s)
+    > pkill -f racket ✅ (0.04 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.59 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (3.68 s)
+    + Post-install
+Running 884 / 1000
+* Project: @babel/plugin-proposal-logical-assignment-operators
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (3.27 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (3.69 s)
+    + Post-install
+Running 891 / 1000
+* Project: @babel/preset-react
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.83 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (4.41 s)
+    + Post-install
+Running 898 / 1000
+* Project: @babel/preset-modules
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (30.43 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (8.68 s)
+    + Post-install
+Running 964 / 1000
+* Project: @babel/plugin-transform-react-jsx
+  - Kill Processes
+    > pkill -f z3 ✅ (0.03 s)
+    > pkill -f racket ✅ (0.03 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ✅ (2.56 s)
+    + Post-install
+  - Run configuration: minnpm_min_deps (npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_num_deps,min_oldness ✅ (4.13 s)
+    + Post-install

@@ -1,0 +1,134 @@
+{
+  "install-success": true,
+  "install_time": 8.92125678062439,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/compat-data": {
+      "version": "7.16.4",
+      "integrity": "sha512-1o/jo7D+kC9ZjHX5v+EHrdjl3PhxMrLSOTGsOdHJ+KL8HCaEK6ehrVL2RS6oHDZp+L7xLirLrPmQtEng769J/Q==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-compilation-targets": {
+      "version": "7.16.3",
+      "integrity": "sha512-vKsoSQAyBmxS35JUOOt+07cLc6Nk/2ljLIHwmq2/NM6hdioUaqEXq/S+nXvbvXbZkNDlWOymPanJGOc4CBjSJA==",
+      "dependencies": {
+        "@babel/compat-data": "^7.16.0",
+        "@babel/helper-validator-option": "^7.14.5",
+        "browserslist": "^4.17.5",
+        "semver": "^6.3.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      },
+      "peerDependencies": {
+        "@babel/core": "^7.0.0"
+      }
+    },
+    "node_modules/@babel/helper-compilation-targets/node_modules/@babel/compat-data": {
+      "resolved": "node_modules/@babel/compat-data",
+      "link": true
+    },
+    "node_modules/@babel/helper-compilation-targets/node_modules/@babel/helper-validator-option": {
+      "version": "7.14.5",
+      "integrity": "sha512-OX8D5eeX4XwcroVW45NMvoYaIuFI+GQpA2a8Gi+X/U/cDUIRsV37qQfF905F0htTRCREQIB4KqPeaveRJUl3Ow==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-compilation-targets/node_modules/browserslist": {
+      "version": "4.19.0",
+      "integrity": "sha512-JGHzm73ei2OnAcobcQ61GXNnN6vDCg5Oz5MayudL+FyzjoLnCzUWnuLtDLMIYw8aXgQzzdCZMVky+fftD5jbtA==",
+      "dependencies": {
+        "caniuse-lite": "^1.0.30001286",
+        "electron-to-chromium": "^1.4.17",
+        "escalade": "^3.1.1",
+        "node-releases": "^2.0.1",
+        "picocolors": "^1.0.0"
+      },
+      "bin": {
+        "browserslist": "cli.js"
+      },
+      "engines": {
+        "node": "^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7"
+      },
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/browserslist"
+      }
+    },
+    "node_modules/@babel/helper-compilation-targets/node_modules/browserslist/node_modules/caniuse-lite": {
+      "version": "1.0.30001286",
+      "integrity": "sha512-zaEMRH6xg8ESMi2eQ3R4eZ5qw/hJiVsO/HlLwniIwErij0JDr9P+8V4dtx1l+kLq6j3yy8l8W4fst1lBnat5wQ==",
+      "funding": {
+        "type": "opencollective",
+        "url": "https://opencollective.com/browserslist"
+      }
+    },
+    "node_modules/@babel/helper-compilation-targets/node_modules/browserslist/node_modules/electron-to-chromium": {
+      "version": "1.4.17",
+      "integrity": "sha512-zhk1MravPtq/KBhmGB7TLBILmXTgRG9TFSI3qS3DbgyfHzIl72iiTE37r/BHIbPCJJlWIo5rySyxiH4vWhu2ZA=="
+    },
+    "node_modules/@babel/helper-compilation-targets/node_modules/browserslist/node_modules/escalade": {
+      "version": "3.1.1",
+      "integrity": "sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==",
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/@babel/helper-compilation-targets/node_modules/browserslist/node_modules/node-releases": {
+      "version": "2.0.1",
+      "integrity": "sha512-CqyzN6z7Q6aMeF/ktcMVTzhAHCEpf8SOarwpzpf8pNBY2k5/oM34UHldUwp8VKI7uxct2HxSRdJjBaZeESzcxA=="
+    },
+    "node_modules/@babel/helper-compilation-targets/node_modules/browserslist/node_modules/picocolors": {
+      "version": "1.0.0",
+      "integrity": "sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ=="
+    },
+    "node_modules/@babel/helper-compilation-targets/node_modules/semver": {
+      "version": "6.3.0",
+      "integrity": "sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==",
+      "bin": {
+        "semver": "bin/semver.js"
+      }
+    },
+    "node_modules/@babel/helper-plugin-utils": {
+      "version": "7.16.5",
+      "integrity": "sha512-59KHWHXxVA9K4HNF4sbHCf+eJeFe0Te/ZFGqBT4OjXhrwvA04sGfaEGsVTdsjoszq0YTP49RC9UKe5g8uN2RwQ==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/plugin-syntax-object-rest-spread": {
+      "version": "7.8.3",
+      "integrity": "sha512-XoqMijGZb9y3y2XskN+P1wUGiVwWZ5JmoDRwx5+3GmEplNyVM2s2Dg8ILFQm8rWM48orGy5YpI5Bl8U1y7ydlA==",
+      "dependencies": {
+        "@babel/helper-plugin-utils": "^7.8.0"
+      },
+      "peerDependencies": {
+        "@babel/core": "^7.0.0-0"
+      }
+    },
+    "node_modules/@babel/plugin-syntax-object-rest-spread/node_modules/@babel/helper-plugin-utils": {
+      "resolved": "node_modules/@babel/helper-plugin-utils",
+      "link": true
+    },
+    "node_modules/@babel/plugin-transform-parameters": {
+      "version": "7.16.5",
+      "integrity": "sha512-B3O6AL5oPop1jAVg8CV+haeUte9oFuY85zu0jwnRNZZi3tVAbJriu5tag/oaO2kGaQM/7q7aGPBlTI5/sr9enA==",
+      "dependencies": {
+        "@babel/helper-plugin-utils": "^7.16.5"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      },
+      "peerDependencies": {
+        "@babel/core": "^7.0.0-0"
+      }
+    },
+    "node_modules/@babel/plugin-transform-parameters/node_modules/@babel/helper-plugin-utils": {
+      "resolved": "node_modules/@babel/helper-plugin-utils",
+      "link": true
+    }
+  }
+}

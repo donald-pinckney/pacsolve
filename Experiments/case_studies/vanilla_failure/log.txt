@@ -276,3 +276,16 @@ Running 996 / 1000
     + Install
       > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (2.76 s)
     + Post-install
+Namespace(verbosity=1, dataset='nontesting_most_downloads', only=['@tootallnate/once'], all=False, range=None, configs=['npm', 'npm install --omit dev --omit optional --omit peer --ignore-scripts', 'minnpm_npm', 'npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps'], cleanup=False, timeout=800)
+Running 981 / 1000
+* Project: @tootallnate/once
+  - Kill Processes
+    > pkill -f z3 ✅ (0.02 s)
+    > pkill -f racket ✅ (0.02 s)
+  - Run configuration: npm (npm install --omit dev --omit optional --omit peer --ignore-scripts)
+    + Install
+      > npm install --omit dev --omit optional --omit peer --ignore-scripts ❌ (5.14 s)
+  - Run configuration: minnpm_npm (npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps)
+    + Install
+      > npm install --rosette --ignore-scripts --consistency npm --minimize min_oldness,min_num_deps ✅ (2.84 s)
+    + Post-install

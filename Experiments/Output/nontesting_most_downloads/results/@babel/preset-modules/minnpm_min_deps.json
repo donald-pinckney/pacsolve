@@ -1,0 +1,188 @@
+{
+  "install-success": true,
+  "install_time": 8.68372368812561,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/helper-plugin-utils": {
+      "version": "7.16.5",
+      "integrity": "sha512-59KHWHXxVA9K4HNF4sbHCf+eJeFe0Te/ZFGqBT4OjXhrwvA04sGfaEGsVTdsjoszq0YTP49RC9UKe5g8uN2RwQ==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex": {
+      "version": "7.6.2",
+      "integrity": "sha512-NxHETdmpeSCtiatMRYWVJo7266rrvAC3DTeG5exQBIH/fMIUK7ejDNznBbn3HQl/o9peymRRg7Yqkx6PdUXmMw==",
+      "dependencies": {
+        "@babel/helper-plugin-utils": "^7.0.0",
+        "@babel/helper-regex": "^7.4.4",
+        "regexpu-core": "^4.6.0"
+      },
+      "engines": {
+        "node": ">=4"
+      },
+      "peerDependencies": {
+        "@babel/core": "^7.0.0-0"
+      }
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/@babel/helper-plugin-utils": {
+      "resolved": "node_modules/@babel/helper-plugin-utils",
+      "link": true
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/@babel/helper-regex": {
+      "version": "7.10.5",
+      "integrity": "sha512-68kdUAzDrljqBrio7DYAEgCoJHxppJOERHOgOrDN7WjOzP0ZQ1LsSDRXcemzVZaLvjaJsJEESb6qt+znNuENDg==",
+      "dependencies": {
+        "lodash": "^4.17.19"
+      }
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/@babel/helper-regex/node_modules/lodash": {
+      "resolved": "node_modules/@babel/types/node_modules/lodash",
+      "link": true
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core": {
+      "version": "4.8.0",
+      "integrity": "sha512-1F6bYsoYiz6is+oz70NWur2Vlh9KWtswuRuzJOfeYUrfPX2o8n74AnUVaOGDbUqVGO9fNHu48/pjJO4sNVwsOg==",
+      "dependencies": {
+        "regenerate": "^1.4.2",
+        "regenerate-unicode-properties": "^9.0.0",
+        "regjsgen": "^0.5.2",
+        "regjsparser": "^0.7.0",
+        "unicode-match-property-ecmascript": "^2.0.0",
+        "unicode-match-property-value-ecmascript": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/regenerate": {
+      "version": "1.4.2",
+      "integrity": "sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A=="
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/regenerate-unicode-properties": {
+      "version": "9.0.0",
+      "integrity": "sha512-3E12UeNSPfjrgwjkR81m5J7Aw/T55Tu7nUyZVQYCKEOs+2dkxEY+DpPtZzO4YruuiPb7NkYLVcyJC4+zCbk5pA==",
+      "dependencies": {
+        "regenerate": "^1.4.2"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/regenerate-unicode-properties/node_modules/regenerate": {
+      "resolved": "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/regenerate",
+      "link": true
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/regjsgen": {
+      "version": "0.5.2",
+      "integrity": "sha512-OFFT3MfrH90xIW8OOSyUrk6QHD5E9JOTeGodiJeBS3J6IwlgzJMNE/1bZklWz5oTg+9dCMyEetclvCVXOPoN3A=="
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/regjsparser": {
+      "version": "0.7.0",
+      "integrity": "sha512-A4pcaORqmNMDVwUjWoTzuhwMGpP+NykpfqAsEgI1FSH/EzC7lrN5TMd+kN8YCovX+jMpu8eaqXgXPCa0g8FQNQ==",
+      "dependencies": {
+        "jsesc": "~0.5.0"
+      },
+      "bin": {
+        "regjsparser": "bin/parser"
+      }
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/regjsparser/node_modules/jsesc": {
+      "version": "0.5.0",
+      "integrity": "sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=",
+      "bin": {
+        "jsesc": "bin/jsesc"
+      }
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/unicode-match-property-ecmascript": {
+      "version": "2.0.0",
+      "integrity": "sha512-5kaZCrbp5mmbz5ulBkDkbY0SsPOjKqVS35VpL9ulMPfSl0J0Xsm+9Evphv9CoIZFwre7aJoa94AY6seMKGVN5Q==",
+      "dependencies": {
+        "unicode-canonical-property-names-ecmascript": "^2.0.0",
+        "unicode-property-aliases-ecmascript": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/unicode-match-property-ecmascript/node_modules/unicode-canonical-property-names-ecmascript": {
+      "version": "2.0.0",
+      "integrity": "sha512-yY5PpDlfVIU5+y/BSCxAJRBIS1Zc2dDG3Ujq+sR0U+JjUevW2JhocOF+soROYDSaAezOzOKuyyixhD6mBknSmQ==",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/unicode-match-property-ecmascript/node_modules/unicode-property-aliases-ecmascript": {
+      "version": "2.0.0",
+      "integrity": "sha512-5Zfuy9q/DFr4tfO7ZPeVXb1aPoeQSdeFMLpYuFebehDAhbuevLs5yxSZmIFN1tP5F9Wl4IpJrYojg85/zgyZHQ==",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core/node_modules/unicode-match-property-value-ecmascript": {
+      "version": "2.0.0",
+      "integrity": "sha512-7Yhkc0Ye+t4PNYzOGKedDhXbYIBe1XEQYQxOPyhcXNMJ0WCABqqj6ckydd6pWRZTHV4GuCPKdBAUiMc60tsKVw==",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/@babel/plugin-transform-dotall-regex": {
+      "version": "7.6.2",
+      "integrity": "sha512-KGKT9aqKV+9YMZSkowzYoYEiHqgaDhGmPNZlZxX6UeHC4z30nC1J9IrZuGqbYFB1jaIGdv91ujpze0exiVK8bA==",
+      "dependencies": {
+        "@babel/helper-plugin-utils": "^7.0.0",
+        "@babel/helper-regex": "^7.4.4",
+        "regexpu-core": "^4.6.0"
+      },
+      "engines": {
+        "node": ">=4"
+      },
+      "peerDependencies": {
+        "@babel/core": "^7.0.0-0"
+      }
+    },
+    "node_modules/@babel/plugin-transform-dotall-regex/node_modules/@babel/helper-plugin-utils": {
+      "resolved": "node_modules/@babel/helper-plugin-utils",
+      "link": true
+    },
+    "node_modules/@babel/plugin-transform-dotall-regex/node_modules/@babel/helper-regex": {
+      "resolved": "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/@babel/helper-regex",
+      "link": true
+    },
+    "node_modules/@babel/plugin-transform-dotall-regex/node_modules/regexpu-core": {
+      "resolved": "node_modules/@babel/plugin-proposal-unicode-property-regex/node_modules/regexpu-core",
+      "link": true
+    },
+    "node_modules/@babel/types": {
+      "version": "7.8.7",
+      "integrity": "sha512-k2TreEHxFA4CjGkL+GYjRyx35W0Mr7DP5+9q6WMkyKXB+904bYmG40syjMFV0oLlhhFCwWl0vA0DyzTDkwAiJw==",
+      "dependencies": {
+        "esutils": "^2.0.2",
+        "lodash": "^4.17.13",
+        "to-fast-properties": "^2.0.0"
+      }
+    },
+    "node_modules/@babel/types/node_modules/esutils": {
+      "resolved": "node_modules/esutils",
+      "link": true
+    },
+    "node_modules/@babel/types/node_modules/lodash": {
+      "version": "4.17.21",
+      "integrity": "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
+    },
+    "node_modules/@babel/types/node_modules/to-fast-properties": {
+      "version": "2.0.0",
+      "integrity": "sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=",
+      "engines": {
+        "node": ">=4"
+      }
+    },
+    "node_modules/esutils": {
+      "version": "2.0.3",
+      "integrity": "sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==",
+      "engines": {
+        "node": ">=0.10.0"
+      }
+    }
+  }
+}

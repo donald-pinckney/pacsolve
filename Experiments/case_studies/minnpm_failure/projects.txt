@@ -1,15 +1,8 @@
 istanbul-lib-instrument
-@eslint_eslintrc
-@babel_plugin-transform-runtime
 jest-watcher
-@jest_test-result
-@istanbuljs_load-nyc-config
 node-libs-browser
-@jest_fake-timers
 nanomatch
 babel-preset-jest
-@babel_preset-env
-@babel_helper-define-polyfill-provider
 jest-message-util
 jest-config
 crypto-browserify
@@ -21,9 +14,6 @@ copy-concurrently
 babel-plugin-istanbul
 move-concurrently
 babel-plugin-polyfill-corejs3
-@babel_plugin-transform-modules-amd
 jest-resolve
-@jest_test-sequencer
-@jest_environment
 eslint
 jest-jasmine2

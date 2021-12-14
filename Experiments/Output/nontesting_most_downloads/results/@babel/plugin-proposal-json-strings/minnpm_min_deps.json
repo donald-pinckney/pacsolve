@@ -1,0 +1,28 @@
+{
+  "install-success": true,
+  "install_time": 3.5328078269958496,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/helper-plugin-utils": {
+      "version": "7.16.5",
+      "integrity": "sha512-59KHWHXxVA9K4HNF4sbHCf+eJeFe0Te/ZFGqBT4OjXhrwvA04sGfaEGsVTdsjoszq0YTP49RC9UKe5g8uN2RwQ==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/plugin-syntax-json-strings": {
+      "version": "7.8.3",
+      "integrity": "sha512-lY6kdGpWHvjoe2vk4WrAapEuBR69EMxZl+RoGRhrFGNYVK8mOPAW8VfbT/ZgrFbXlDNiiaxQnAtgVCZ6jv30EA==",
+      "dependencies": {
+        "@babel/helper-plugin-utils": "^7.8.0"
+      },
+      "peerDependencies": {
+        "@babel/core": "^7.0.0-0"
+      }
+    },
+    "node_modules/@babel/plugin-syntax-json-strings/node_modules/@babel/helper-plugin-utils": {
+      "resolved": "node_modules/@babel/helper-plugin-utils",
+      "link": true
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "install-success": true,
+  "install_time": 4.1276538372039795,
+  "post-install-success": true,
+  "installed_deps": {
+    "node_modules/@babel/helper-annotate-as-pure": {
+      "version": "7.16.0",
+      "integrity": "sha512-ItmYF9vR4zA8cByDocY05o0LGUkp1zhbTQOH1NFyl5xXEqlTJQCEJjieriw+aFpxo16swMxUnUiKS7a/r4vtHg==",
+      "dependencies": {
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-annotate-as-pure/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-module-imports": {
+      "version": "7.16.0",
+      "integrity": "sha512-kkH7sWzKPq0xt3H1n+ghb4xEMP8k0U7XV3kkB+ZGy69kDk2ySFW1qPi06sjKzFY3t1j6XbJSqr4mF9L7CYVyhg==",
+      "dependencies": {
+        "@babel/types": "^7.16.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/helper-module-imports/node_modules/@babel/types": {
+      "resolved": "node_modules/@babel/types",
+      "link": true
+    },
+    "node_modules/@babel/helper-plugin-utils": {
+      "version": "7.16.5",
+      "integrity": "sha512-59KHWHXxVA9K4HNF4sbHCf+eJeFe0Te/ZFGqBT4OjXhrwvA04sGfaEGsVTdsjoszq0YTP49RC9UKe5g8uN2RwQ==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/plugin-syntax-jsx": {
+      "version": "7.16.5",
+      "integrity": "sha512-42OGssv9NPk4QHKVgIHlzeLgPOW5rGgfV5jzG90AhcXXIv6hu/eqj63w4VgvRxdvZY3AlYeDgPiSJ3BqAd1Y6Q==",
+      "dependencies": {
+        "@babel/helper-plugin-utils": "^7.16.5"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      },
+      "peerDependencies": {
+        "@babel/core": "^7.0.0-0"
+      }
+    },
+    "node_modules/@babel/plugin-syntax-jsx/node_modules/@babel/helper-plugin-utils": {
+      "resolved": "node_modules/@babel/helper-plugin-utils",
+      "link": true
+    },
+    "node_modules/@babel/types": {
+      "version": "7.16.0",
+      "integrity": "sha512-PJgg/k3SdLsGb3hhisFvtLOw5ts113klrpLuIPtCJIU+BB24fqq6lf8RWqKJEjzqXR9AEH1rIb5XTqwBHB+kQg==",
+      "dependencies": {
+        "@babel/helper-validator-identifier": "^7.15.7",
+        "to-fast-properties": "^2.0.0"
+      },
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/types/node_modules/@babel/helper-validator-identifier": {
+      "version": "7.15.7",
+      "integrity": "sha512-K4JvCtQqad9OY2+yTU8w+E82ywk/fe+ELNlt1G8z3bVGlZfn/hOcQQsUhGhW/N+tb3fxK800wLtKOE/aM0m72w==",
+      "engines": {
+        "node": ">=6.9.0"
+      }
+    },
+    "node_modules/@babel/types/node_modules/to-fast-properties": {
+      "version": "2.0.0",
+      "integrity": "sha1-3F5pjL0HkmW8c+A3doGk5Og/YW4=",
+      "engines": {
+        "node": ">=4"
+      }
+    }
+  }
+}

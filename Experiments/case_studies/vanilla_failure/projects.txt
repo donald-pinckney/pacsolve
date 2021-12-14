@@ -6,7 +6,6 @@ file-uri-to-path
 request
 jest-diff
 date-fns
-@tootallnate_once
 agent-base
 saxes
 terser-webpack-plugin
