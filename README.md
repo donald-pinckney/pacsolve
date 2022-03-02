@@ -24,8 +24,9 @@
 
 - `cd npm/`
 - `npm install -g`
+- Find the location of the installed NPM binary, and symlink it to someplace in your PATH under the name `minnpm`. E.g.: `ln -s ~/.npm-packages/bin/npm ~/.local/bin/minnpm`.
 - Then probably restart your terminal
-- From anywhere, run `npm install --help`. You should see `--rosette` listed as an option. All done!
+- From anywhere, run `minnpm install --help`. You should see `--rosette` listed as an option. All done!
 
 
 
