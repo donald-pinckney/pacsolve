@@ -230,6 +230,11 @@ class Run(object):
                 result_file = os.path.join(t, "package", "experiment.json")
                 if not os.path.isfile(result_file):
                     results.append((os.path.join(self.tarball_dir, package_tgz), t, mode_configuration))
+                else:
+                    with open(result_file, 'r') as result_f:
+                        results_json = json.load(result_f)
+                    if "status" in results_json and "reason" in results_json and results_json["status"] == "cannot_install" and results_json["reason"] == "ETARGET":
+                        results.append((os.path.join(self.tarball_dir, package_tgz), t, mode_configuration))
         return results
 
     def get_npmstatus(self, path):
