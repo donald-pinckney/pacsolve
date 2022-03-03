@@ -189,7 +189,7 @@ class Run(object):
             "#SBATCH --mem=8G",
             # This rules out the few nodes that are older than Haswell.
             # https://rc-docs.northeastern.edu/en/latest/hardware/hardware_overview.html#using-the-constraint-flag
-            "$SBATCH --constraint=haswell|broadwell|skylake_avx512|zen2|zen|cascadelake",
+            "#SBATCH --constraint=haswell|broadwell|skylake_avx512|zen2|zen|cascadelake",
             f'#SBATCH --cpus-per-task={cpus_per_task}',
             "module load discovery nodejs",
             "export PATH=$PATH:/home/a.guha/bin:/work/arjunguha-research-group/software/bin",
@@ -197,7 +197,6 @@ class Run(object):
         ]
 
     def run_chunk(self, pkgs):
-        print(f'Will handle {len(pkgs)}')
         # Tip: Cannot use ProcessPoolExecutor with the ClusterFutures executor. It seems like
         # ProcessPoolExector forks the process with the same command-line arguments, including
         # loading ClusterFutures's remote library, and that makes things go awry.
@@ -259,16 +258,16 @@ class Run(object):
         try:
             (tgz, pkg_target, mode_configuration) = pkg_info
             pkg_path = f'{pkg_target}/package'
-            self.unpack_tarball_if_needed(tgz, pkg_target)
             output_path = f'{pkg_path}/experiment.out'
+            output_status_path = f'{pkg_path}/experiment.json'
+            error_status_path = f'{pkg_path}/error.json'
+            self.unpack_tarball_if_needed(tgz, pkg_target)
             with open(output_path, 'wt') as out:
                 exit_code = subprocess.Popen(solve_command(mode_configuration),
                     cwd=pkg_path,
                     stdout=out,
                     stderr=out).wait(self.timeout)
             duration = time.time() - start_time
-            output_status_path = f'{pkg_path}/experiment.json'
-            error_status_path = f'{pkg_path}/error.json'
             if exit_code == 0:
                 write_json(output_status_path,
                     { 'status': 'success', 'time': duration })
