@@ -1,0 +1,3126 @@
+{
+	"registry": [
+		{
+			"package": "to-width",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "string-width",
+							"constraint": {
+								"op": "=",
+								"version": {
+									"major": 4,
+									"minor": 2,
+									"bug": 3,
+									"prerelease": 0
+								}
+							}
+						},
+						{
+							"packageToDependOn": "wcstring",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "string-width",
+			"versions": [
+				{
+					"version": {
+						"major": 4,
+						"minor": 2,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "emoji-regex",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 9,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 8,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-fullwidth-code-point",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 4,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "strip-ansi",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 7,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 6,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.2777777777777778
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "wcstring",
+			"versions": [
+				{
+					"version": {
+						"major": 2,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "varsize-string",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 2,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "wcsize",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "strip-ansi",
+			"versions": [
+				{
+					"version": {
+						"major": 6,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "ansi-regex",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 6,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 5,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.1111111111111111
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-fullwidth-code-point",
+			"versions": [
+				{
+					"version": {
+						"major": 3,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.3333333333333333
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "emoji-regex",
+			"versions": [
+				{
+					"version": {
+						"major": 8,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.2413793103448276
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "varsize-string",
+			"versions": [
+				{
+					"version": {
+						"major": 2,
+						"minor": 2,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.125
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 2,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "wcsize",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "ansi-regex",
+			"versions": [
+				{
+					"version": {
+						"major": 5,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.13333333333333333
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		}
+	],
+	"context_dependencies": [
+		{
+			"packageToDependOn": "to-width",
+			"constraint": {
+				"op": "=",
+				"version": {
+					"major": 1,
+					"minor": 2,
+					"bug": 0,
+					"prerelease": 0
+				}
+			}
+		}
+	],
+	"options": {
+		"check_acyclic": false,
+		"minimization_criteria": [
+			"min_num_deps"
+		]
+	},
+	"functions": {
+		"matchAssumePrereleaseOk": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"&&": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_match",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_match",
+									"bindValue": {
+										"CallExpr": {
+											"name": "matchAssumePrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "&&",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "lhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "rhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": ">"
+										}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"BindingPattern": {
+														"name": "major"
+													}
+												},
+												"minor": {
+													"BindingPattern": {
+														"name": "minor"
+													}
+												},
+												"bug": {
+													"BindingPattern": {
+														"name": "bug"
+													}
+												},
+												"prerelease": {
+													"BindingPattern": {
+														"name": "prerelease"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.major",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "v*.minor",
+											"bindValue": {
+												"PrimitiveOpExpr": {
+													"op": "vector-ref",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "v*"
+															}
+														},
+														{
+															"ConstExpr": {
+																"value": 1
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "v*.bug",
+													"bindValue": {
+														"PrimitiveOpExpr": {
+															"op": "vector-ref",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v*"
+																	}
+																},
+																{
+																	"ConstExpr": {
+																		"value": 2
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"LetExpr": {
+															"varName": "v*.prerelease",
+															"bindValue": {
+																"PrimitiveOpExpr": {
+																	"op": "vector-ref",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "v*"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 3
+																			}
+																		}
+																	]
+																}
+															},
+															"rest": {
+																"PrimitiveOpExpr": {
+																	"op": "||",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "&&",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "<",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "major"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*.major"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"ConstExpr": {
+																							"value": true
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "&&",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "==",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "major"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*.major"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "||",
+																							"args": [
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "&&",
+																										"args": [
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": "<",
+																													"args": [
+																														{
+																															"VarExpr": {
+																																"varName": "minor"
+																															}
+																														},
+																														{
+																															"VarExpr": {
+																																"varName": "v*.minor"
+																															}
+																														}
+																													]
+																												}
+																											},
+																											{
+																												"ConstExpr": {
+																													"value": true
+																												}
+																											}
+																										]
+																									}
+																								},
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "&&",
+																										"args": [
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": "==",
+																													"args": [
+																														{
+																															"VarExpr": {
+																																"varName": "minor"
+																															}
+																														},
+																														{
+																															"VarExpr": {
+																																"varName": "v*.minor"
+																															}
+																														}
+																													]
+																												}
+																											},
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": "||",
+																													"args": [
+																														{
+																															"PrimitiveOpExpr": {
+																																"op": "&&",
+																																"args": [
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": "<",
+																																			"args": [
+																																				{
+																																					"VarExpr": {
+																																						"varName": "bug"
+																																					}
+																																				},
+																																				{
+																																					"VarExpr": {
+																																						"varName": "v*.bug"
+																																					}
+																																				}
+																																			]
+																																		}
+																																	},
+																																	{
+																																		"ConstExpr": {
+																																			"value": true
+																																		}
+																																	}
+																																]
+																															}
+																														},
+																														{
+																															"PrimitiveOpExpr": {
+																																"op": "&&",
+																																"args": [
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": "==",
+																																			"args": [
+																																				{
+																																					"VarExpr": {
+																																						"varName": "bug"
+																																					}
+																																				},
+																																				{
+																																					"VarExpr": {
+																																						"varName": "v*.bug"
+																																					}
+																																				}
+																																			]
+																																		}
+																																	},
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": "&&",
+																																			"args": [
+																																				{
+																																					"PrimitiveOpExpr": {
+																																						"op": "not",
+																																						"args": [
+																																							{
+																																								"PrimitiveOpExpr": {
+																																									"op": "==",
+																																									"args": [
+																																										{
+																																											"VarExpr": {
+																																												"varName": "prerelease"
+																																											}
+																																										},
+																																										{
+																																											"ConstExpr": {
+																																												"value": 0
+																																											}
+																																										}
+																																									]
+																																								}
+																																							}
+																																						]
+																																					}
+																																				},
+																																				{
+																																					"PrimitiveOpExpr": {
+																																						"op": "||",
+																																						"args": [
+																																							{
+																																								"PrimitiveOpExpr": {
+																																									"op": "==",
+																																									"args": [
+																																										{
+																																											"VarExpr": {
+																																												"varName": "v*.prerelease"
+																																											}
+																																										},
+																																										{
+																																											"ConstExpr": {
+																																												"value": 0
+																																											}
+																																										}
+																																									]
+																																								}
+																																							},
+																																							{
+																																								"PrimitiveOpExpr": {
+																																									"op": ">",
+																																									"args": [
+																																										{
+																																											"VarExpr": {
+																																												"varName": "v*.prerelease"
+																																											}
+																																										},
+																																										{
+																																											"VarExpr": {
+																																												"varName": "prerelease"
+																																											}
+																																										}
+																																									]
+																																								}
+																																							}
+																																						]
+																																					}
+																																				}
+																																			]
+																																		}
+																																	}
+																																]
+																															}
+																														},
+																														{
+																															"PrimitiveOpExpr": {
+																																"op": "&&",
+																																"args": [
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": ">",
+																																			"args": [
+																																				{
+																																					"VarExpr": {
+																																						"varName": "bug"
+																																					}
+																																				},
+																																				{
+																																					"VarExpr": {
+																																						"varName": "v*.bug"
+																																					}
+																																				}
+																																			]
+																																		}
+																																	},
+																																	{
+																																		"ConstExpr": {
+																																			"value": false
+																																		}
+																																	}
+																																]
+																															}
+																														}
+																													]
+																												}
+																											}
+																										]
+																									}
+																								},
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "&&",
+																										"args": [
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": ">",
+																													"args": [
+																														{
+																															"VarExpr": {
+																																"varName": "minor"
+																															}
+																														},
+																														{
+																															"VarExpr": {
+																																"varName": "v*.minor"
+																															}
+																														}
+																													]
+																												}
+																											},
+																											{
+																												"ConstExpr": {
+																													"value": false
+																												}
+																											}
+																										]
+																									}
+																								}
+																							]
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "&&",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": ">",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "major"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*.major"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"ConstExpr": {
+																							"value": false
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": ">="
+										}
+									},
+									"version": {
+										"BindingPattern": {
+											"name": "version"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "gt_lambda",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"PrimitiveOpExpr": {
+												"op": "make-json-hash",
+												"args": [
+													{
+														"PrimitiveOpExpr": {
+															"op": "list",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "op"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": ">"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "version"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "version"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "eq_lambda",
+									"bindValue": {
+										"CallExpr": {
+											"name": "matchAssumePrereleaseOk",
+											"args": [
+												{
+													"PrimitiveOpExpr": {
+														"op": "make-json-hash",
+														"args": [
+															{
+																"PrimitiveOpExpr": {
+																	"op": "list",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "cons",
+																				"args": [
+																					{
+																						"ConstExpr": {
+																							"value": "op"
+																						}
+																					},
+																					{
+																						"ConstExpr": {
+																							"value": "="
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "cons",
+																				"args": [
+																					{
+																						"ConstExpr": {
+																							"value": "version"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "version"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "||",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "gt_lambda"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "eq_lambda"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": "="
+										}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"BindingPattern": {
+														"name": "major"
+													}
+												},
+												"minor": {
+													"BindingPattern": {
+														"name": "minor"
+													}
+												},
+												"bug": {
+													"BindingPattern": {
+														"name": "bug"
+													}
+												},
+												"prerelease": {
+													"BindingPattern": {
+														"name": "prerelease"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.major",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "v*.minor",
+											"bindValue": {
+												"PrimitiveOpExpr": {
+													"op": "vector-ref",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "v*"
+															}
+														},
+														{
+															"ConstExpr": {
+																"value": 1
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "v*.bug",
+													"bindValue": {
+														"PrimitiveOpExpr": {
+															"op": "vector-ref",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v*"
+																	}
+																},
+																{
+																	"ConstExpr": {
+																		"value": 2
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"LetExpr": {
+															"varName": "v*.prerelease",
+															"bindValue": {
+																"PrimitiveOpExpr": {
+																	"op": "vector-ref",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "v*"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 3
+																			}
+																		}
+																	]
+																}
+															},
+															"rest": {
+																"PrimitiveOpExpr": {
+																	"op": "&&",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.major"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "major"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.minor"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "minor"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.bug"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "bug"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.prerelease"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "prerelease"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": "<="
+										}
+									},
+									"version": {
+										"BindingPattern": {
+											"name": "version"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "gt_lambda",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"PrimitiveOpExpr": {
+												"op": "make-json-hash",
+												"args": [
+													{
+														"PrimitiveOpExpr": {
+															"op": "list",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "op"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": ">"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "version"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "version"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LambdaExpr": {
+									"param": "v*",
+									"body": {
+										"PrimitiveOpExpr": {
+											"op": "not",
+											"args": [
+												{
+													"PrimitiveOpExpr": {
+														"op": "apply",
+														"args": [
+															{
+																"VarExpr": {
+																	"varName": "gt_lambda"
+																}
+															},
+															{
+																"VarExpr": {
+																	"varName": "v*"
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": "<"
+										}
+									},
+									"version": {
+										"BindingPattern": {
+											"name": "version"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "gte_lambda",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"PrimitiveOpExpr": {
+												"op": "make-json-hash",
+												"args": [
+													{
+														"PrimitiveOpExpr": {
+															"op": "list",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "op"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": ">="
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "version"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "version"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LambdaExpr": {
+									"param": "v*",
+									"body": {
+										"PrimitiveOpExpr": {
+											"op": "not",
+											"args": [
+												{
+													"PrimitiveOpExpr": {
+														"op": "apply",
+														"args": [
+															{
+																"VarExpr": {
+																	"varName": "gte_lambda"
+																}
+															},
+															{
+																"VarExpr": {
+																	"varName": "v*"
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"checkPrereleaseOk": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"WildcardPattern": {}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"WildcardPattern": {}
+												},
+												"minor": {
+													"WildcardPattern": {}
+												},
+												"bug": {
+													"WildcardPattern": {}
+												},
+												"prerelease": {
+													"ConstPattern": {
+														"value": 0
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"ConstExpr": {
+									"value": false
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"WildcardPattern": {}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"BindingPattern": {
+														"name": "major"
+													}
+												},
+												"minor": {
+													"BindingPattern": {
+														"name": "minor"
+													}
+												},
+												"bug": {
+													"BindingPattern": {
+														"name": "bug"
+													}
+												},
+												"prerelease": {
+													"WildcardPattern": {}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.major",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "v*.minor",
+											"bindValue": {
+												"PrimitiveOpExpr": {
+													"op": "vector-ref",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "v*"
+															}
+														},
+														{
+															"ConstExpr": {
+																"value": 1
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "v*.bug",
+													"bindValue": {
+														"PrimitiveOpExpr": {
+															"op": "vector-ref",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v*"
+																	}
+																},
+																{
+																	"ConstExpr": {
+																		"value": 2
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"PrimitiveOpExpr": {
+															"op": "&&",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "==",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "major"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "v*.major"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "==",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "minor"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "v*.minor"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "==",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "bug"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "v*.bug"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"&&": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_pre",
+							"bindValue": {
+								"CallExpr": {
+									"name": "checkPrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_pre",
+									"bindValue": {
+										"CallExpr": {
+											"name": "checkPrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "||",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "lhs_pre"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "rhs_pre"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"constraintInterpretation": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"unsolveable": {
+										"WildcardPattern": {}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"ConstExpr": {
+									"value": false
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"any": {
+										"WildcardPattern": {}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.prerelease",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 3
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "==",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*.prerelease"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"&&": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_pre",
+							"bindValue": {
+								"CallExpr": {
+									"name": "checkPrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_pre",
+									"bindValue": {
+										"CallExpr": {
+											"name": "checkPrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "lhs_match",
+											"bindValue": {
+												"CallExpr": {
+													"name": "matchAssumePrereleaseOk",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "lhs"
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "rhs_match",
+													"bindValue": {
+														"CallExpr": {
+															"name": "matchAssumePrereleaseOk",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "rhs"
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"LambdaExpr": {
+															"param": "v*",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "&&",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "apply",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "lhs_match"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "v*"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "apply",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "rhs_match"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "v*"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "||",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "==",
+																							"args": [
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "vector-ref",
+																										"args": [
+																											{
+																												"VarExpr": {
+																													"varName": "v*"
+																												}
+																											},
+																											{
+																												"ConstExpr": {
+																													"value": 3
+																												}
+																											}
+																										]
+																									}
+																								},
+																								{
+																									"ConstExpr": {
+																										"value": 0
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "apply",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "lhs_pre"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "apply",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "rhs_pre"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*"
+																									}
+																								}
+																							]
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"||": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_match",
+							"bindValue": {
+								"CallExpr": {
+									"name": "constraintInterpretation",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_match",
+									"bindValue": {
+										"CallExpr": {
+											"name": "constraintInterpretation",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "||",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "lhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "rhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "c"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "c_match",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "c"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "c_pre",
+									"bindValue": {
+										"CallExpr": {
+											"name": "checkPrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "c"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "&&",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "c_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "||",
+																"args": [
+																	{
+																		"PrimitiveOpExpr": {
+																			"op": "==",
+																			"args": [
+																				{
+																					"PrimitiveOpExpr": {
+																						"op": "vector-ref",
+																						"args": [
+																							{
+																								"VarExpr": {
+																									"varName": "v*"
+																								}
+																							},
+																							{
+																								"ConstExpr": {
+																									"value": 3
+																								}
+																							}
+																						]
+																					}
+																				},
+																				{
+																					"ConstExpr": {
+																						"value": 0
+																					}
+																				}
+																			]
+																		}
+																	},
+																	{
+																		"PrimitiveOpExpr": {
+																			"op": "apply",
+																			"args": [
+																				{
+																					"VarExpr": {
+																						"varName": "c_pre"
+																					}
+																				},
+																				{
+																					"VarExpr": {
+																						"varName": "v*"
+																					}
+																				}
+																			]
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"versionDeserialize": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"major": {
+										"BindingPattern": {
+											"name": "major"
+										}
+									},
+									"minor": {
+										"BindingPattern": {
+											"name": "minor"
+										}
+									},
+									"bug": {
+										"BindingPattern": {
+											"name": "bug"
+										}
+									},
+									"prerelease": {
+										"BindingPattern": {
+											"name": "prerelease"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"PrimitiveOpExpr": {
+							"op": "immutable-vector",
+							"args": [
+								{
+									"VarExpr": {
+										"varName": "major"
+									}
+								},
+								{
+									"VarExpr": {
+										"varName": "minor"
+									}
+								},
+								{
+									"VarExpr": {
+										"varName": "bug"
+									}
+								},
+								{
+									"VarExpr": {
+										"varName": "prerelease"
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"versionSerialize": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"VectorPattern": {
+								"patterns": [
+									{
+										"BindingPattern": {
+											"name": "major"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "minor"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "bug"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "prerelease"
+										}
+									}
+								]
+							}
+						}
+					],
+					"rhs": {
+						"PrimitiveOpExpr": {
+							"op": "make-json-hash",
+							"args": [
+								{
+									"PrimitiveOpExpr": {
+										"op": "list",
+										"args": [
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "major"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "major"
+															}
+														}
+													]
+												}
+											},
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "minor"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "minor"
+															}
+														}
+													]
+												}
+											},
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "bug"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "bug"
+															}
+														}
+													]
+												}
+											},
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "prerelease"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "prerelease"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"min_duplicates": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "g"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "p_group_fn",
+							"bindValue": {
+								"LambdaExpr": {
+									"param": "v_node",
+									"body": {
+										"LambdaExpr": {
+											"param": "v_active*",
+											"body": {
+												"LambdaExpr": {
+													"param": "v_acc",
+													"body": {
+														"PrimitiveOpExpr": {
+															"op": "+",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v_acc"
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "ite",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "v_active*"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 1
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 0
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "ps_fn",
+									"bindValue": {
+										"LambdaExpr": {
+											"param": "p_group",
+											"body": {
+												"LambdaExpr": {
+													"param": "p_group_cost",
+													"body": {
+														"LambdaExpr": {
+															"param": "p_acc",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "+",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "p_acc"
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "ite",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": ">",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "p_group_cost"
+																									}
+																								},
+																								{
+																									"ConstExpr": {
+																										"value": 0
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "-",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "p_group_cost"
+																									}
+																								},
+																								{
+																									"ConstExpr": {
+																										"value": 1
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "p_group_cost"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "foldl/graph",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "g"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "p_group_fn"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "ps_fn"
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"min_num_deps": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "g"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "p_group_fn",
+							"bindValue": {
+								"LambdaExpr": {
+									"param": "v_node",
+									"body": {
+										"LambdaExpr": {
+											"param": "v_active*",
+											"body": {
+												"LambdaExpr": {
+													"param": "v_acc",
+													"body": {
+														"PrimitiveOpExpr": {
+															"op": "+",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v_acc"
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "ite",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "v_active*"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 1
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 0
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "ps_fn",
+									"bindValue": {
+										"LambdaExpr": {
+											"param": "p_group",
+											"body": {
+												"LambdaExpr": {
+													"param": "p_group_cost",
+													"body": {
+														"LambdaExpr": {
+															"param": "p_acc",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "+",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "p_acc"
+																			}
+																		},
+																		{
+																			"VarExpr": {
+																				"varName": "p_group_cost"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 0
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "foldl/graph",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "g"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "p_group_fn"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "ps_fn"
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"min_oldness": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "g"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "p_group_fn",
+							"bindValue": {
+								"LambdaExpr": {
+									"param": "v_node",
+									"body": {
+										"LambdaExpr": {
+											"param": "v_active*",
+											"body": {
+												"LambdaExpr": {
+													"param": "v_acc",
+													"body": {
+														"PrimitiveOpExpr": {
+															"op": "+",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v_acc"
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "ite",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "v_active*"
+																				}
+																			},
+																			{
+																				"PrimitiveOpExpr": {
+																					"op": "get-cost-val/version-node",
+																					"args": [
+																						{
+																							"VarExpr": {
+																								"varName": "v_node"
+																							}
+																						},
+																						{
+																							"ConstExpr": {
+																								"value": "version_oldness"
+																							}
+																						}
+																					]
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 0
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "ps_fn",
+									"bindValue": {
+										"LambdaExpr": {
+											"param": "p_group",
+											"body": {
+												"LambdaExpr": {
+													"param": "p_group_cost",
+													"body": {
+														"LambdaExpr": {
+															"param": "p_acc",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "+",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "p_acc"
+																			}
+																		},
+																		{
+																			"VarExpr": {
+																				"varName": "p_group_cost"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 0
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "foldl/graph",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "g"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "p_group_fn"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "ps_fn"
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"consistency": {
+			"numParams": 2,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"WildcardPattern": {}
+						},
+						{
+							"WildcardPattern": {}
+						}
+					],
+					"rhs": {
+						"ConstExpr": {
+							"value": true
+						}
+					}
+				}
+			]
+		}
+	}
+}
+

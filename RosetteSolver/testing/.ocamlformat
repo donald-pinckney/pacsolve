@@ -1,0 +1,11 @@
+profile = ocamlformat
+margin = 100
+max-indent = 80
+wrap-comments = false
+type-decl = sparse
+break-cases = fit-or-vertical
+break-fun-decl = fit-or-vertical
+break-fun-sig = fit-or-vertical
+if-then-else = keyword-first
+sequence-style = terminator
+break-separators = after

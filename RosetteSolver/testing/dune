@@ -1,0 +1,14 @@
+(library
+  (name testing)
+  (modules runner)
+  (libraries ounit2 extlib str)
+  (wrapped false))
+
+(test
+  (name test)
+  (modules test)
+  (libraries unix str testing))
+
+(env (dev (flags (:standard -warn-error -A)))) ; set warnings as "non-errors"
+
+
