@@ -1,2 +1,3 @@
 _build
 actual/*.json
+actual/*.dot

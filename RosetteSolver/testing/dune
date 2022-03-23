@@ -1,7 +1,7 @@
 (library
   (name testing)
-  (modules runner)
-  (libraries ounit2 extlib str)
+  (modules runner graph)
+  (libraries ounit2 extlib str yojson)
   (wrapped false))
 
 (test

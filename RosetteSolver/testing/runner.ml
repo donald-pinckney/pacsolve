@@ -1,5 +1,6 @@
 open Unix
 open Filename
+open Graph
 open Str
 open Printf
 open OUnit2
@@ -15,6 +16,12 @@ let string_of_file (file_name : string) : string =
   let inchan = open_in file_name in
   let ans = really_input_string inchan (in_channel_length inchan) in
   close_in inchan; ans
+
+let make_dotgraph_file (filename : string) (content : string) : (unit, string) result =
+  let oc = open_out filename in
+  Printf.fprintf oc "%s" (graph_to_dotgraph (parse_to_graph content));
+  close_out oc;
+  Ok ()
 
 type tempfiles =
   Unix.file_descr
@@ -50,7 +57,12 @@ let run (filename : string) : (string, string) result =
   let _, status = waitpid [] ran_pid in
   let result =
     match status with
-    | WEXITED 0 -> Ok (string_of_file ("../../actual/" ^ filename))
+    | WEXITED 0 -> (
+        let path = "../../actual/" ^ filename in
+        let content = string_of_file path in
+        match make_dotgraph_file (path ^ ".dot") content with
+        | Ok _ -> Ok content
+        | Error msg -> Error msg )
     | WEXITED n -> Error (sprintf "Exited with %d: %s" n (string_of_file rstderr_name))
     | WSIGNALED n -> Error (sprintf "Signalled with %d while running %s." n filename)
     | WSTOPPED n -> Error (sprintf "Stopped with signal %d while running %s." n filename)
