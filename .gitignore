@@ -1,11 +1,2 @@
 .DS_Store
-/.build
-/Packages
-/*.xcodeproj
-xcuserdata/
-generated/
-.vagrant/
-.venv/
-__pycache__/
-Scratch/
 *.rkt~
