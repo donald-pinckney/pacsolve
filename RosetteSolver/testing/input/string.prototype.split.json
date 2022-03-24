@@ -1,0 +1,6419 @@
+{
+	"registry": [
+		{
+			"package": "string.prototype.split",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 5,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "define-properties",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "es-abstract",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 19,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "get-intrinsic",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-regex",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 4,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "regexp.prototype.flags",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 3,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "regexp.prototype.flags",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 3,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "define-properties",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.3333333333333333
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 3,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "define-properties",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.2222222222222222
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 4,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "define-properties",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.1111111111111111
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 4,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "define-properties",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "es-abstract",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 19,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "es-to-primitive",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 2,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "function-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "get-intrinsic",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "get-symbol-description",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "internal-slot",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-callable",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 2,
+											"bug": 4,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-negative-zero",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-regex",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 4,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-shared-array-buffer",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-string",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 7,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-weakref",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "object-inspect",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 11,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "object-keys",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "object.assign",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 5,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 4,
+											"minor": 1,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "string.prototype.trimend",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 4,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "string.prototype.trimstart",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 4,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "unbox-primitive",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "call-bind",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "function-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "get-intrinsic",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "function-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "get-intrinsic",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 1
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "function-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "get-intrinsic",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "get-intrinsic",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "function-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "function-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "function-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.25
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 1
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "function-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.75
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-regex",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has-tostringtag",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "define-properties",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "object-keys",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 12,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-callable",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.42857142857142855
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 5,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.35714285714285715
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.2857142857142857
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.21428571428571427
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.14285714285714285
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.07142857142857142
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "get-symbol-description",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "get-intrinsic",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "function-bind",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-negative-zero",
+			"versions": [
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.16666666666666666
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "es-to-primitive",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "is-callable",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 4,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-date-object",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-symbol",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "internal-slot",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "get-intrinsic",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "side-channel",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 4,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "has-symbols",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.3333333333333333
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6666666666666666
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 1
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "has",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "function-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "string.prototype.trimstart",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "define-properties",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-shared-array-buffer",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-string",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 7,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "has-tostringtag",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 5,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.3333333333333333
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 6,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.16666666666666666
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "object.assign",
+			"versions": [
+				{
+					"version": {
+						"major": 4,
+						"minor": 1,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "define-properties",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "object-keys",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "object-keys",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 12,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.06451612903225806
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.03225806451612903
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "string.prototype.trimend",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "define-properties",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-weakref",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "unbox-primitive",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "function-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has-bigints",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "which-boxed-primitive",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "object-inspect",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 11,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.06666666666666667
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 11,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.03333333333333333
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 12,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 9,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.23333333333333334
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 10,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.2
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 10,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.16666666666666666
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 10,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.13333333333333333
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 10,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.1
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "has-tostringtag",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-date-object",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.4
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.2
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 5,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "has-tostringtag",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-symbol",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.25
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "has-symbols",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "side-channel",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "get-intrinsic",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "object-inspect",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 9,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "has-bigints",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "which-boxed-primitive",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "is-bigint",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-boolean-object",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-number-object",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 4,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-string",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 5,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "is-symbol",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-boolean-object",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.25
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "call-bind",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "has-tostringtag",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-bigint",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.75
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.25
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "has-bigints",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "is-number-object",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.4
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 5,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.2
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 6,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "has-tostringtag",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		}
+	],
+	"context_dependencies": [
+		{
+			"packageToDependOn": "string.prototype.split",
+			"constraint": {
+				"op": "=",
+				"version": {
+					"major": 1,
+					"minor": 0,
+					"bug": 5,
+					"prerelease": 0
+				}
+			}
+		}
+	],
+	"options": {
+		"check_acyclic": false,
+		"minimization_criteria": [
+			"min_num_deps"
+		]
+	},
+	"functions": {
+		"matchAssumePrereleaseOk": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"&&": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_match",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_match",
+									"bindValue": {
+										"CallExpr": {
+											"name": "matchAssumePrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "&&",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "lhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "rhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": ">"
+										}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"BindingPattern": {
+														"name": "major"
+													}
+												},
+												"minor": {
+													"BindingPattern": {
+														"name": "minor"
+													}
+												},
+												"bug": {
+													"BindingPattern": {
+														"name": "bug"
+													}
+												},
+												"prerelease": {
+													"BindingPattern": {
+														"name": "prerelease"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.major",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "v*.minor",
+											"bindValue": {
+												"PrimitiveOpExpr": {
+													"op": "vector-ref",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "v*"
+															}
+														},
+														{
+															"ConstExpr": {
+																"value": 1
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "v*.bug",
+													"bindValue": {
+														"PrimitiveOpExpr": {
+															"op": "vector-ref",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v*"
+																	}
+																},
+																{
+																	"ConstExpr": {
+																		"value": 2
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"LetExpr": {
+															"varName": "v*.prerelease",
+															"bindValue": {
+																"PrimitiveOpExpr": {
+																	"op": "vector-ref",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "v*"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 3
+																			}
+																		}
+																	]
+																}
+															},
+															"rest": {
+																"PrimitiveOpExpr": {
+																	"op": "||",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "&&",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "<",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "major"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*.major"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"ConstExpr": {
+																							"value": true
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "&&",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "==",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "major"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*.major"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "||",
+																							"args": [
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "&&",
+																										"args": [
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": "<",
+																													"args": [
+																														{
+																															"VarExpr": {
+																																"varName": "minor"
+																															}
+																														},
+																														{
+																															"VarExpr": {
+																																"varName": "v*.minor"
+																															}
+																														}
+																													]
+																												}
+																											},
+																											{
+																												"ConstExpr": {
+																													"value": true
+																												}
+																											}
+																										]
+																									}
+																								},
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "&&",
+																										"args": [
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": "==",
+																													"args": [
+																														{
+																															"VarExpr": {
+																																"varName": "minor"
+																															}
+																														},
+																														{
+																															"VarExpr": {
+																																"varName": "v*.minor"
+																															}
+																														}
+																													]
+																												}
+																											},
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": "||",
+																													"args": [
+																														{
+																															"PrimitiveOpExpr": {
+																																"op": "&&",
+																																"args": [
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": "<",
+																																			"args": [
+																																				{
+																																					"VarExpr": {
+																																						"varName": "bug"
+																																					}
+																																				},
+																																				{
+																																					"VarExpr": {
+																																						"varName": "v*.bug"
+																																					}
+																																				}
+																																			]
+																																		}
+																																	},
+																																	{
+																																		"ConstExpr": {
+																																			"value": true
+																																		}
+																																	}
+																																]
+																															}
+																														},
+																														{
+																															"PrimitiveOpExpr": {
+																																"op": "&&",
+																																"args": [
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": "==",
+																																			"args": [
+																																				{
+																																					"VarExpr": {
+																																						"varName": "bug"
+																																					}
+																																				},
+																																				{
+																																					"VarExpr": {
+																																						"varName": "v*.bug"
+																																					}
+																																				}
+																																			]
+																																		}
+																																	},
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": "&&",
+																																			"args": [
+																																				{
+																																					"PrimitiveOpExpr": {
+																																						"op": "not",
+																																						"args": [
+																																							{
+																																								"PrimitiveOpExpr": {
+																																									"op": "==",
+																																									"args": [
+																																										{
+																																											"VarExpr": {
+																																												"varName": "prerelease"
+																																											}
+																																										},
+																																										{
+																																											"ConstExpr": {
+																																												"value": 0
+																																											}
+																																										}
+																																									]
+																																								}
+																																							}
+																																						]
+																																					}
+																																				},
+																																				{
+																																					"PrimitiveOpExpr": {
+																																						"op": "||",
+																																						"args": [
+																																							{
+																																								"PrimitiveOpExpr": {
+																																									"op": "==",
+																																									"args": [
+																																										{
+																																											"VarExpr": {
+																																												"varName": "v*.prerelease"
+																																											}
+																																										},
+																																										{
+																																											"ConstExpr": {
+																																												"value": 0
+																																											}
+																																										}
+																																									]
+																																								}
+																																							},
+																																							{
+																																								"PrimitiveOpExpr": {
+																																									"op": ">",
+																																									"args": [
+																																										{
+																																											"VarExpr": {
+																																												"varName": "v*.prerelease"
+																																											}
+																																										},
+																																										{
+																																											"VarExpr": {
+																																												"varName": "prerelease"
+																																											}
+																																										}
+																																									]
+																																								}
+																																							}
+																																						]
+																																					}
+																																				}
+																																			]
+																																		}
+																																	}
+																																]
+																															}
+																														},
+																														{
+																															"PrimitiveOpExpr": {
+																																"op": "&&",
+																																"args": [
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": ">",
+																																			"args": [
+																																				{
+																																					"VarExpr": {
+																																						"varName": "bug"
+																																					}
+																																				},
+																																				{
+																																					"VarExpr": {
+																																						"varName": "v*.bug"
+																																					}
+																																				}
+																																			]
+																																		}
+																																	},
+																																	{
+																																		"ConstExpr": {
+																																			"value": false
+																																		}
+																																	}
+																																]
+																															}
+																														}
+																													]
+																												}
+																											}
+																										]
+																									}
+																								},
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "&&",
+																										"args": [
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": ">",
+																													"args": [
+																														{
+																															"VarExpr": {
+																																"varName": "minor"
+																															}
+																														},
+																														{
+																															"VarExpr": {
+																																"varName": "v*.minor"
+																															}
+																														}
+																													]
+																												}
+																											},
+																											{
+																												"ConstExpr": {
+																													"value": false
+																												}
+																											}
+																										]
+																									}
+																								}
+																							]
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "&&",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": ">",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "major"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*.major"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"ConstExpr": {
+																							"value": false
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": ">="
+										}
+									},
+									"version": {
+										"BindingPattern": {
+											"name": "version"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "gt_lambda",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"PrimitiveOpExpr": {
+												"op": "make-json-hash",
+												"args": [
+													{
+														"PrimitiveOpExpr": {
+															"op": "list",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "op"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": ">"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "version"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "version"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "eq_lambda",
+									"bindValue": {
+										"CallExpr": {
+											"name": "matchAssumePrereleaseOk",
+											"args": [
+												{
+													"PrimitiveOpExpr": {
+														"op": "make-json-hash",
+														"args": [
+															{
+																"PrimitiveOpExpr": {
+																	"op": "list",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "cons",
+																				"args": [
+																					{
+																						"ConstExpr": {
+																							"value": "op"
+																						}
+																					},
+																					{
+																						"ConstExpr": {
+																							"value": "="
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "cons",
+																				"args": [
+																					{
+																						"ConstExpr": {
+																							"value": "version"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "version"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "||",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "gt_lambda"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "eq_lambda"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": "="
+										}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"BindingPattern": {
+														"name": "major"
+													}
+												},
+												"minor": {
+													"BindingPattern": {
+														"name": "minor"
+													}
+												},
+												"bug": {
+													"BindingPattern": {
+														"name": "bug"
+													}
+												},
+												"prerelease": {
+													"BindingPattern": {
+														"name": "prerelease"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.major",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "v*.minor",
+											"bindValue": {
+												"PrimitiveOpExpr": {
+													"op": "vector-ref",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "v*"
+															}
+														},
+														{
+															"ConstExpr": {
+																"value": 1
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "v*.bug",
+													"bindValue": {
+														"PrimitiveOpExpr": {
+															"op": "vector-ref",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v*"
+																	}
+																},
+																{
+																	"ConstExpr": {
+																		"value": 2
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"LetExpr": {
+															"varName": "v*.prerelease",
+															"bindValue": {
+																"PrimitiveOpExpr": {
+																	"op": "vector-ref",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "v*"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 3
+																			}
+																		}
+																	]
+																}
+															},
+															"rest": {
+																"PrimitiveOpExpr": {
+																	"op": "&&",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.major"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "major"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.minor"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "minor"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.bug"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "bug"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.prerelease"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "prerelease"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": "<="
+										}
+									},
+									"version": {
+										"BindingPattern": {
+											"name": "version"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "gt_lambda",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"PrimitiveOpExpr": {
+												"op": "make-json-hash",
+												"args": [
+													{
+														"PrimitiveOpExpr": {
+															"op": "list",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "op"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": ">"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "version"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "version"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LambdaExpr": {
+									"param": "v*",
+									"body": {
+										"PrimitiveOpExpr": {
+											"op": "not",
+											"args": [
+												{
+													"PrimitiveOpExpr": {
+														"op": "apply",
+														"args": [
+															{
+																"VarExpr": {
+																	"varName": "gt_lambda"
+																}
+															},
+															{
+																"VarExpr": {
+																	"varName": "v*"
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": "<"
+										}
+									},
+									"version": {
+										"BindingPattern": {
+											"name": "version"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "gte_lambda",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"PrimitiveOpExpr": {
+												"op": "make-json-hash",
+												"args": [
+													{
+														"PrimitiveOpExpr": {
+															"op": "list",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "op"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": ">="
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "version"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "version"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LambdaExpr": {
+									"param": "v*",
+									"body": {
+										"PrimitiveOpExpr": {
+											"op": "not",
+											"args": [
+												{
+													"PrimitiveOpExpr": {
+														"op": "apply",
+														"args": [
+															{
+																"VarExpr": {
+																	"varName": "gte_lambda"
+																}
+															},
+															{
+																"VarExpr": {
+																	"varName": "v*"
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"checkPrereleaseOk": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"WildcardPattern": {}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"WildcardPattern": {}
+												},
+												"minor": {
+													"WildcardPattern": {}
+												},
+												"bug": {
+													"WildcardPattern": {}
+												},
+												"prerelease": {
+													"ConstPattern": {
+														"value": 0
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"ConstExpr": {
+									"value": false
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"WildcardPattern": {}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"BindingPattern": {
+														"name": "major"
+													}
+												},
+												"minor": {
+													"BindingPattern": {
+														"name": "minor"
+													}
+												},
+												"bug": {
+													"BindingPattern": {
+														"name": "bug"
+													}
+												},
+												"prerelease": {
+													"WildcardPattern": {}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.major",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "v*.minor",
+											"bindValue": {
+												"PrimitiveOpExpr": {
+													"op": "vector-ref",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "v*"
+															}
+														},
+														{
+															"ConstExpr": {
+																"value": 1
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "v*.bug",
+													"bindValue": {
+														"PrimitiveOpExpr": {
+															"op": "vector-ref",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v*"
+																	}
+																},
+																{
+																	"ConstExpr": {
+																		"value": 2
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"PrimitiveOpExpr": {
+															"op": "&&",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "==",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "major"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "v*.major"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "==",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "minor"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "v*.minor"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "==",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "bug"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "v*.bug"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"&&": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_pre",
+							"bindValue": {
+								"CallExpr": {
+									"name": "checkPrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_pre",
+									"bindValue": {
+										"CallExpr": {
+											"name": "checkPrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "||",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "lhs_pre"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "rhs_pre"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"constraintInterpretation": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"unsolveable": {
+										"WildcardPattern": {}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"ConstExpr": {
+									"value": false
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"any": {
+										"WildcardPattern": {}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.prerelease",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 3
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "==",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*.prerelease"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"&&": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_pre",
+							"bindValue": {
+								"CallExpr": {
+									"name": "checkPrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_pre",
+									"bindValue": {
+										"CallExpr": {
+											"name": "checkPrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "lhs_match",
+											"bindValue": {
+												"CallExpr": {
+													"name": "matchAssumePrereleaseOk",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "lhs"
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "rhs_match",
+													"bindValue": {
+														"CallExpr": {
+															"name": "matchAssumePrereleaseOk",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "rhs"
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"LambdaExpr": {
+															"param": "v*",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "&&",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "apply",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "lhs_match"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "v*"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "apply",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "rhs_match"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "v*"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "||",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "==",
+																							"args": [
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "vector-ref",
+																										"args": [
+																											{
+																												"VarExpr": {
+																													"varName": "v*"
+																												}
+																											},
+																											{
+																												"ConstExpr": {
+																													"value": 3
+																												}
+																											}
+																										]
+																									}
+																								},
+																								{
+																									"ConstExpr": {
+																										"value": 0
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "apply",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "lhs_pre"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "apply",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "rhs_pre"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*"
+																									}
+																								}
+																							]
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"||": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_match",
+							"bindValue": {
+								"CallExpr": {
+									"name": "constraintInterpretation",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_match",
+									"bindValue": {
+										"CallExpr": {
+											"name": "constraintInterpretation",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "||",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "lhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "rhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "c"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "c_match",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "c"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "c_pre",
+									"bindValue": {
+										"CallExpr": {
+											"name": "checkPrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "c"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "&&",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "c_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "||",
+																"args": [
+																	{
+																		"PrimitiveOpExpr": {
+																			"op": "==",
+																			"args": [
+																				{
+																					"PrimitiveOpExpr": {
+																						"op": "vector-ref",
+																						"args": [
+																							{
+																								"VarExpr": {
+																									"varName": "v*"
+																								}
+																							},
+																							{
+																								"ConstExpr": {
+																									"value": 3
+																								}
+																							}
+																						]
+																					}
+																				},
+																				{
+																					"ConstExpr": {
+																						"value": 0
+																					}
+																				}
+																			]
+																		}
+																	},
+																	{
+																		"PrimitiveOpExpr": {
+																			"op": "apply",
+																			"args": [
+																				{
+																					"VarExpr": {
+																						"varName": "c_pre"
+																					}
+																				},
+																				{
+																					"VarExpr": {
+																						"varName": "v*"
+																					}
+																				}
+																			]
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"versionDeserialize": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"major": {
+										"BindingPattern": {
+											"name": "major"
+										}
+									},
+									"minor": {
+										"BindingPattern": {
+											"name": "minor"
+										}
+									},
+									"bug": {
+										"BindingPattern": {
+											"name": "bug"
+										}
+									},
+									"prerelease": {
+										"BindingPattern": {
+											"name": "prerelease"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"PrimitiveOpExpr": {
+							"op": "immutable-vector",
+							"args": [
+								{
+									"VarExpr": {
+										"varName": "major"
+									}
+								},
+								{
+									"VarExpr": {
+										"varName": "minor"
+									}
+								},
+								{
+									"VarExpr": {
+										"varName": "bug"
+									}
+								},
+								{
+									"VarExpr": {
+										"varName": "prerelease"
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"versionSerialize": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"VectorPattern": {
+								"patterns": [
+									{
+										"BindingPattern": {
+											"name": "major"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "minor"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "bug"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "prerelease"
+										}
+									}
+								]
+							}
+						}
+					],
+					"rhs": {
+						"PrimitiveOpExpr": {
+							"op": "make-json-hash",
+							"args": [
+								{
+									"PrimitiveOpExpr": {
+										"op": "list",
+										"args": [
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "major"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "major"
+															}
+														}
+													]
+												}
+											},
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "minor"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "minor"
+															}
+														}
+													]
+												}
+											},
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "bug"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "bug"
+															}
+														}
+													]
+												}
+											},
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "prerelease"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "prerelease"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"min_duplicates": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "g"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "p_group_fn",
+							"bindValue": {
+								"LambdaExpr": {
+									"param": "v_node",
+									"body": {
+										"LambdaExpr": {
+											"param": "v_active*",
+											"body": {
+												"LambdaExpr": {
+													"param": "v_acc",
+													"body": {
+														"PrimitiveOpExpr": {
+															"op": "+",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v_acc"
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "ite",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "v_active*"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 1
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 0
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "ps_fn",
+									"bindValue": {
+										"LambdaExpr": {
+											"param": "p_group",
+											"body": {
+												"LambdaExpr": {
+													"param": "p_group_cost",
+													"body": {
+														"LambdaExpr": {
+															"param": "p_acc",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "+",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "p_acc"
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "ite",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": ">",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "p_group_cost"
+																									}
+																								},
+																								{
+																									"ConstExpr": {
+																										"value": 0
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "-",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "p_group_cost"
+																									}
+																								},
+																								{
+																									"ConstExpr": {
+																										"value": 1
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "p_group_cost"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "foldl/graph",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "g"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "p_group_fn"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "ps_fn"
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"min_num_deps": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "g"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "p_group_fn",
+							"bindValue": {
+								"LambdaExpr": {
+									"param": "v_node",
+									"body": {
+										"LambdaExpr": {
+											"param": "v_active*",
+											"body": {
+												"LambdaExpr": {
+													"param": "v_acc",
+													"body": {
+														"PrimitiveOpExpr": {
+															"op": "+",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v_acc"
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "ite",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "v_active*"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 1
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 0
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "ps_fn",
+									"bindValue": {
+										"LambdaExpr": {
+											"param": "p_group",
+											"body": {
+												"LambdaExpr": {
+													"param": "p_group_cost",
+													"body": {
+														"LambdaExpr": {
+															"param": "p_acc",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "+",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "p_acc"
+																			}
+																		},
+																		{
+																			"VarExpr": {
+																				"varName": "p_group_cost"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 0
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "foldl/graph",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "g"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "p_group_fn"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "ps_fn"
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"min_oldness": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "g"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "p_group_fn",
+							"bindValue": {
+								"LambdaExpr": {
+									"param": "v_node",
+									"body": {
+										"LambdaExpr": {
+											"param": "v_active*",
+											"body": {
+												"LambdaExpr": {
+													"param": "v_acc",
+													"body": {
+														"PrimitiveOpExpr": {
+															"op": "+",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v_acc"
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "ite",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "v_active*"
+																				}
+																			},
+																			{
+																				"PrimitiveOpExpr": {
+																					"op": "get-cost-val/version-node",
+																					"args": [
+																						{
+																							"VarExpr": {
+																								"varName": "v_node"
+																							}
+																						},
+																						{
+																							"ConstExpr": {
+																								"value": "version_oldness"
+																							}
+																						}
+																					]
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 0
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "ps_fn",
+									"bindValue": {
+										"LambdaExpr": {
+											"param": "p_group",
+											"body": {
+												"LambdaExpr": {
+													"param": "p_group_cost",
+													"body": {
+														"LambdaExpr": {
+															"param": "p_acc",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "+",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "p_acc"
+																			}
+																		},
+																		{
+																			"VarExpr": {
+																				"varName": "p_group_cost"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 0
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "foldl/graph",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "g"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "p_group_fn"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "ps_fn"
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"consistency": {
+			"numParams": 2,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"WildcardPattern": {}
+						},
+						{
+							"WildcardPattern": {}
+						}
+					],
+					"rhs": {
+						"ConstExpr": {
+							"value": true
+						}
+					}
+				}
+			]
+		}
+	}
+}
+

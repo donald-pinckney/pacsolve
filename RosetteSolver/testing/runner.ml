@@ -6,10 +6,10 @@ open Printf
 open OUnit2
 open ExtLib
 
-let result_printer (e : (string, string) result) : string =
+let result_printer (e : ('a, string) result) : string =
   match e with
   | Error v -> sprintf "Error: %s\n" v
-  | Ok v -> v
+  | Ok v -> ExtLib.dump v
 
 (* Read a file into a string *)
 let string_of_file (file_name : string) : string =
@@ -17,11 +17,10 @@ let string_of_file (file_name : string) : string =
   let ans = really_input_string inchan (in_channel_length inchan) in
   close_in inchan; ans
 
-let make_dotgraph_file (filename : string) (content : string) : (unit, string) result =
+let make_dotgraph_file (filename : string) (graph : graph) : unit =
   let oc = open_out filename in
-  Printf.fprintf oc "%s" (graph_to_dotgraph (parse_to_graph content));
-  close_out oc;
-  Ok ()
+  let dotgraph = graph_to_dotgraph graph in
+  Printf.fprintf oc "%s" dotgraph; close_out oc
 
 type tempfiles =
   Unix.file_descr
@@ -42,7 +41,7 @@ let make_tmpfiles (name : string) (std_input : string) : tempfiles =
     stderr_name,
     stdin_read )
 
-let run (filename : string) : (string, string) result =
+let run (filename : string) : (graph, string) result =
   let rstdout, rstdout_name, rstderr, rstderr_name, rstdin = make_tmpfiles "run" "" in
   let ran_pid =
     (* TODO : fix this whole relpath funny business*)
@@ -59,9 +58,10 @@ let run (filename : string) : (string, string) result =
     match status with
     | WEXITED 0 -> (
         let path = "../../actual/" ^ filename in
-        let content = string_of_file path in
-        match make_dotgraph_file (path ^ ".dot") content with
-        | Ok _ -> Ok content
+        match parse_to_graph (string_of_file path) with
+        | Ok graph ->
+            make_dotgraph_file (path ^ ".dot") graph;
+            Ok graph
         | Error msg -> Error msg )
     | WEXITED n -> Error (sprintf "Exited with %d: %s" n (string_of_file rstderr_name))
     | WSIGNALED n -> Error (sprintf "Signalled with %d while running %s." n filename)
@@ -73,6 +73,6 @@ let run (filename : string) : (string, string) result =
 
 let test_run (name : string) (test_ctxt : OUnit2.test_ctxt) : unit =
   let filename = name ^ ".json" in
-  let expected = string_of_file ("../../expected/" ^ filename) in
+  let expected = parse_to_graph (string_of_file ("../../expected/" ^ filename)) in
   let result = run filename in
-  assert_equal (Ok expected) result ~printer:result_printer
+  assert_equal expected result ~printer:result_printer
