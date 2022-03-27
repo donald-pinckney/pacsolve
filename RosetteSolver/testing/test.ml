@@ -37,12 +37,7 @@ let unexpected_err_suite : OUnit2.test =
   >::: [ te "@istanbuljs_load-nyc-config" "read-solution: unrecognized solver output: #<eof>"
            ~timeout:120;
          te "node-libs-browser" "hash-ref: no value found for key\n  key: \"lodash.upperfirst\"";
-         te "crypto-browserify" "hash-ref: no value found for key\n  key: \"lodash.upperfirst\"";
-         (* These last all solve, however when installing, npm crashes with this error:
-                Cannot read property 'package' of null *)
-         t "@babel_plugin-transform-modules-commonjs";
-         t "@babel_plugin-transform-modules-amd";
-         t "@jest_environment" ]
+         te "crypto-browserify" "hash-ref: no value found for key\n  key: \"lodash.upperfirst\"" ]
 
 let exact_output_suite : OUnit2.test =
   "exact_output_suite"
@@ -63,6 +58,9 @@ let exact_output_suite : OUnit2.test =
          t "@babel_helper-define-polyfill-provider" ~timeout:120;
          t "jest-message-util";
          t "jest-each";
+         t "@babel_plugin-transform-modules-commonjs";
+         t "@jest_environment";
+         t "@babel_plugin-transform-modules-amd";
          t "mississippi";
          t "babel-plugin-jest-hoist";
          t "babel-plugin-polyfill-corejs3" ~timeout:120;
