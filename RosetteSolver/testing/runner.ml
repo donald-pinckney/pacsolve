@@ -44,49 +44,48 @@ let make_tmpfiles (name : string) (std_input : string) : tempfiles =
     stdin_read )
 
 let run (filename : string) (timeout : int) : (graph, string) result =
-  let result =
-    try
-      let rstdout, rstdout_name, rstderr, rstderr_name, rstdin = make_tmpfiles "run" "" in
-      let ran_pid =
-        (* TODO : fix this whole relpath funny business*)
-        Unix.create_process "racket"
-          (Array.of_list
-             [ "racket";
-               "../../../rosette-solver.rkt";
-               "../../input/" ^ filename;
-               "../../actual/" ^ filename ] )
-          rstdin rstdout rstderr
-      in
-      (* creates a signal handler, that will kill the ran_pid if it gets the sigalrm signal. *)
-      let sighandler =
-        Sys.signal Sys.sigalrm (Sys.Signal_handle (fun _ -> Unix.kill ran_pid Sys.sigterm))
-      in
-      (* send sigalrm after timeout seconds *)
-      let _ = Unix.alarm timeout in
-      let result =
-        try
-          let _, status = waitpid [] ran_pid in
-          match status with
-          | WEXITED 0 -> (
-              let path = "../../actual/" ^ filename in
-              match parse_to_graph (string_of_file path) with
-              | Ok graph ->
-                  make_dotgraph_file (path ^ ".dot") graph;
-                  Ok graph
-              | Error msg -> Error msg )
-          | WEXITED n -> Error (sprintf "Exited with %d: %s" n (string_of_file rstderr_name))
-          | WSIGNALED n -> Error (sprintf "Signalled with %d while running %s." n filename)
-          | WSTOPPED n -> Error (sprintf "Stopped with signal %d while running %s." n filename)
-        with Unix.Unix_error (Unix.EINTR, _, _) ->
-          Sys.set_signal Sys.sigalrm sighandler;
-          Error (sprintf "Timedout (timeout = %d) while running %s" timeout filename)
-      in
-      List.iter close [rstdout; rstderr; rstdin];
-      List.iter unlink [rstdout_name; rstderr_name];
-      result
+  let rstdout, rstdout_name, rstderr, rstderr_name, rstdin = make_tmpfiles "run" "" in
+  let ran_pid =
+    (* TODO : fix this whole relpath funny business*)
+    Unix.create_process "racket"
+      (Array.of_list
+         [ "racket";
+           "../../../rosette-solver.rkt";
+           "../../input/" ^ filename;
+           "../../actual/" ^ filename ] )
+      rstdin rstdout rstderr
+  in
+  (* creates a signal handler, that will kill the ran_pid if it gets the sigalrm signal. *)
+  let sighandler =
+    try Ok (Sys.signal Sys.sigalrm (Sys.Signal_handle (fun _ -> Unix.kill ran_pid Sys.sigterm)))
     with Unix.Unix_error (err, _, _) ->
       Error (sprintf "Unexpected error: %s while running %s" (Unix.error_message err) filename)
   in
+  (* send sigalrm after timeout seconds *)
+  let _ = Unix.alarm timeout in
+  let result =
+    try
+      let _, status = waitpid [] ran_pid in
+      match status with
+      | WEXITED 0 -> (
+          let path = "../../actual/" ^ filename in
+          match parse_to_graph (string_of_file path) with
+          | Ok graph ->
+              make_dotgraph_file (path ^ ".dot") graph;
+              Ok graph
+          | Error msg -> Error msg )
+      | WEXITED n -> Error (sprintf "Exited with %d: %s" n (string_of_file rstderr_name))
+      | WSIGNALED n -> Error (sprintf "Signalled with %d while running %s." n filename)
+      | WSTOPPED n -> Error (sprintf "Stopped with signal %d while running %s." n filename)
+    with Unix.Unix_error (Unix.EINTR, _, _) -> (
+      match sighandler with
+      | Ok sigh ->
+          Sys.set_signal Sys.sigalrm sigh;
+          Error (sprintf "Timedout (timeout = %d) while running %s" timeout filename)
+      | Error err -> Error err )
+  in
+  List.iter close [rstdout; rstderr; rstdin];
+  List.iter unlink [rstdout_name; rstderr_name];
   result
 
 type pass_fail =
