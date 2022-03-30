@@ -43,8 +43,8 @@ jobs:
         working-directory: ./RosetteSolver/testing
         run: |
           make
-          dune build
+          opam exec -- dune build
       
       - name: Run tests
         working-directory: ./RosetteSolver/testing
-        run: dune test
+        run: opam exec -- dune test
