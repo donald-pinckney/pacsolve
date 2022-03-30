@@ -30,6 +30,7 @@ jobs:
         # uses: Bogdanp/setup-racket@d4d313bdd534234f55b20b8fcc54410083fa6ffd
         uses: Bogdanp/setup-racket@v1.7
         with:
+          version: 'stable'
           packages: rosette
           
       - name: Setup OCaml and opam
