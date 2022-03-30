@@ -1,0 +1,49 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      
+      - name: Setup Racket environment
+        # You may pin to the exact commit or the version.
+        # uses: Bogdanp/setup-racket@d4d313bdd534234f55b20b8fcc54410083fa6ffd
+        uses: Bogdanp/setup-racket@v1.7
+        with:
+          packages: rosette
+          
+      - name: Setup OCaml and opam
+        uses: ocaml/setup-ocaml@v2
+        
+      - name: Install Dune
+        run: opam install dune
+        
+      - name: Build test runner
+        working-directory: ./RosetteSolver/testing
+        run: |
+          make
+          dune build
+      
+      - name: Run tests
+        working-directory: ./RosetteSolver/testing
+        run: dune test
