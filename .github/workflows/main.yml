@@ -39,6 +39,9 @@ jobs:
       - name: Install Dune
         run: opam install dune
         
+      - name: Install OCaml Packages
+        run: opam install ounit2 extlib yojson
+        
       - name: Build test runner
         working-directory: ./RosetteSolver/testing
         run: |
