@@ -40,8 +40,7 @@ let unsat_err_suite : OUnit2.test =
 let unexpected_err_suite : OUnit2.test =
   "unexpected_err_suite"
   >::: [ te "@istanbuljs_load-nyc-config" "read-solution: unrecognized solver output: #<eof>"
-           ~timeout:120;
-         ]
+           ~timeout:120 ]
 
 let pass_suite : OUnit2.test =
   "pass_suite"
@@ -63,6 +62,8 @@ let pass_suite : OUnit2.test =
          tp "@jest_environment";
          tp "@babel_plugin-transform-modules-amd";
          tp "babel-plugin-polyfill-corejs3" ~timeout:120;
+         tp "babel-plugin-jest-hoist";
+         tp "jest-each";
          tp "jest-resolve";
          tp "@babel_plugin-proposal-private-methods" ]
 
@@ -71,9 +72,7 @@ let exact_output_suite : OUnit2.test =
   >::: [ t "to-width";
          t "protobufjs" ~timeout:20;
          t "missing-package-test-case";
-         t "jest-each";
-         t "mississippi";
-         t "babel-plugin-jest-hoist" ]
+         t "mississippi" ]
 
 let () =
   run_test_tt_main exact_output_suite;
