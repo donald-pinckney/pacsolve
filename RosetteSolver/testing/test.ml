@@ -30,44 +30,54 @@ let timeout_suite : OUnit2.test =
          tf "copy-concurrently";
          tf "babel-plugin-istanbul";
          tf "move-concurrently";
-         tf "jest-jasmine2" ]
+         tf "jest-jasmine2";
+         tf "node-libs-browser";
+         tf "crypto-browserify" ]
+
+let unsat_err_suite : OUnit2.test =
+  "unsat_err_suite" >::: [te "missing-package-test-case-unsat" "Failed to solve constraints :("]
 
 let unexpected_err_suite : OUnit2.test =
   "unexpected_err_suite"
   >::: [ te "@istanbuljs_load-nyc-config" "read-solution: unrecognized solver output: #<eof>"
            ~timeout:120;
-         te "node-libs-browser" "hash-ref: no value found for key\n  key: \"lodash.upperfirst\"";
-         te "crypto-browserify" "hash-ref: no value found for key\n  key: \"lodash.upperfirst\"" ]
+         ]
+
+let pass_suite : OUnit2.test =
+  "pass_suite"
+  >::: [ tp "string.prototype.split";
+         (* These two (eslints) were reported as "unexpected" but works here (also very fast)? *)
+         tp "@eslint_eslintrc";
+         tp "eslint";
+         tp "@babel_plugin-transform-runtime" ~timeout:120;
+         tp "jest-changed-files";
+         tp "jest-watcher";
+         tp "@jest_test-result";
+         tp "@jest_fake-timers";
+         tp "nanomatch";
+         tp "babel-preset-jest";
+         tp "@babel_plugin-transform-modules-systemjs";
+         tp "@babel_helper-define-polyfill-provider" ~timeout:120;
+         tp "jest-message-util";
+         tp "@babel_plugin-transform-modules-commonjs";
+         tp "@jest_environment";
+         tp "@babel_plugin-transform-modules-amd";
+         tp "babel-plugin-polyfill-corejs3" ~timeout:120;
+         tp "jest-resolve";
+         tp "@babel_plugin-proposal-private-methods" ]
 
 let exact_output_suite : OUnit2.test =
   "exact_output_suite"
   >::: [ t "to-width";
-         t "string.prototype.split";
          t "protobufjs" ~timeout:20;
-         (* These two (eslints) were reported as "unexpected" but works here (also very fast)? *)
-         t "@eslint_eslintrc";
-         t "eslint";
-         t "@babel_plugin-transform-runtime" ~timeout:120;
-         t "jest-changed-files";
-         t "jest-watcher";
-         t "@jest_test-result";
-         t "@jest_fake-timers";
-         t "nanomatch";
-         t "babel-preset-jest";
-         t "@babel_plugin-transform-modules-systemjs";
-         t "@babel_helper-define-polyfill-provider" ~timeout:120;
-         t "jest-message-util";
+         t "missing-package-test-case";
          t "jest-each";
-         t "@babel_plugin-transform-modules-commonjs";
-         t "@jest_environment";
-         t "@babel_plugin-transform-modules-amd";
          t "mississippi";
-         t "babel-plugin-jest-hoist";
-         t "babel-plugin-polyfill-corejs3" ~timeout:120;
-         t "jest-resolve";
-         t "@babel_plugin-proposal-private-methods" ]
+         t "babel-plugin-jest-hoist" ]
 
 let () =
   run_test_tt_main exact_output_suite;
   run_test_tt_main unexpected_err_suite;
-  run_test_tt_main timeout_suite
+  run_test_tt_main timeout_suite;
+  run_test_tt_main pass_suite;
+  run_test_tt_main unsat_err_suite
