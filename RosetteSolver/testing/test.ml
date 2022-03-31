@@ -65,7 +65,9 @@ let pass_suite : OUnit2.test =
          tp "babel-plugin-jest-hoist";
          tp "jest-each";
          tp "jest-resolve";
-         tp "@babel_plugin-proposal-private-methods" ]
+         tp "@babel_plugin-proposal-private-methods";
+         tp "easy-acyclic";
+         tp "missing-package-test-case-acyclic" ]
 
 let exact_output_suite : OUnit2.test =
   "exact_output_suite"
