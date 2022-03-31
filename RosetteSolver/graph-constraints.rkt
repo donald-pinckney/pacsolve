@@ -33,8 +33,6 @@
             (assert (< (node-top-order src-node) (node-top-order (version-node-node dv-node)))))
           #t))))
 
-
-
 ;;; *** Constraints part 2: Checking that the graph satisfies all dependency constraints
 (define (sat/version-constraint v-s c)
   (c v-s))
@@ -47,7 +45,6 @@
                                  (begin
                                    (define dp-idx (edge-package-idx e)) ; not symbolic
                                    (define dv-idx (edge-version-idx e)) ; symbolic
-
                                    (define dp-group (list-ref (graph-package-groups-list g) dp-idx))
                                    (define dv-node (vector-ref-bv (package-group-version-nodes-vec dp-group) dv-idx))
 
