@@ -16,8 +16,13 @@
 ; version-idx is symbolic
 (struct edge (package-idx version-idx) #:transparent)
 
+; A maybe-edge is one of:
+; - (edge package-idx version-idx)
+; - (void)
+; The void case represents an edge which can't ever be satisfied (e.g. missing packages)
+
 ; active is symbolic
-; edges is a list of NON symbolic length, containing edges (which have some symbolic fields)
+; edges is a list of NON symbolic length, containing maybe-edges (which have some symbolic fields)
 ; top-order is symbolic
 (struct node (active edges top-order) #:transparent)
 

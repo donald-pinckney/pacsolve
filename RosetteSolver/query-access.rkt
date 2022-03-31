@@ -27,7 +27,9 @@
   (vector-ref (parsed-package-pv-vec (vector-ref (registry-vec (query-registry query)) p-idx)) v-idx))
 
 (define (package-index query p)
-  (hash-ref (registry-package-hash (query-registry query)) p))
+  (match (hash-ref (registry-package-hash (query-registry query)) p #f)
+    [#f -1]
+    [v v]))
 
 (define (version-index query p-idx v)
   (hash-ref (vector-ref (registry-version-hashes (query-registry query)) p-idx) v))

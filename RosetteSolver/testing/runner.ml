@@ -50,9 +50,9 @@ let run (filename : string) (timeout : int) : (graph, string) result =
     Unix.create_process "racket"
       (Array.of_list
          [ "racket";
-           "../../../rosette-solver.rkt";
-           "../../input/" ^ filename;
-           "../../actual/" ^ filename ] )
+           "../../../../../rosette-solver.rkt";
+           "../../../../input/" ^ filename;
+           "../../../../actual/" ^ filename ] )
       rstdin rstdout rstderr
   in
   (* creates a signal handler, that will kill the ran_pid if it gets the sigalrm signal. *)
@@ -68,7 +68,7 @@ let run (filename : string) (timeout : int) : (graph, string) result =
       let _, status = waitpid [] ran_pid in
       match status with
       | WEXITED 0 -> (
-          let path = "../../actual/" ^ filename in
+          let path = "../../../../actual/" ^ filename in
           match parse_to_graph (string_of_file path) with
           | Ok graph ->
               make_dotgraph_file (path ^ ".dot") graph;
@@ -111,7 +111,7 @@ let test_run_pass_fail
 
 let test_run (name : string) (timeout : int) (test_ctxt : OUnit2.test_ctxt) : unit =
   let filename = name ^ ".json" in
-  let expected = parse_to_graph (string_of_file ("../../expected/" ^ filename)) in
+  let expected = parse_to_graph (string_of_file ("../../../../expected/" ^ filename)) in
   let result = run filename timeout in
   assert_equal expected result ~printer:result_printer
 
