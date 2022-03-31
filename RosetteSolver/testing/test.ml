@@ -65,15 +65,15 @@ let pass_suite : OUnit2.test =
          tp "babel-plugin-jest-hoist";
          tp "jest-each";
          tp "jest-resolve";
-         tp "@babel_plugin-proposal-private-methods";
-         tp "easy-acyclic";
-         tp "missing-package-test-case-acyclic" ]
+         tp "@babel_plugin-proposal-private-methods" ]
 
 let exact_output_suite : OUnit2.test =
   "exact_output_suite"
   >::: [ t "to-width";
          t "protobufjs" ~timeout:20;
          t "missing-package-test-case";
+         t "easy-acyclic";
+         t "missing-package-test-case-acyclic";
          t "mississippi" ]
 
 let () =
