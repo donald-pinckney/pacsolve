@@ -17,14 +17,14 @@
 (define (check-graph-acyclic query g)
   (assert (= 0 (node-top-order (graph-context-node g))))
   (for/graph-edges query g
-    (lambda (e c _sp _sv src-node)
+    (lambda (e _constraint _sp _sv src-node)
       (define dp-idx (edge-package-idx e)) ; not symbolic
       (define dv-idx (edge-version-idx e)) ; symbolic
-
+      
       (define dp-group (list-ref (graph-package-groups-list g) dp-idx))
       (define dv-node (vector-ref-bv (package-group-version-nodes-vec dp-group) dv-idx))
-      
-      (assert (< (node-top-order src-node) (node-top-order (version-node dv-node)))))))
+
+      (assert (< (node-top-order src-node) (node-top-order (version-node-node dv-node)))))))
                                              
   
 
