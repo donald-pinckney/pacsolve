@@ -13,8 +13,8 @@ type vertices = package list
 type graph = int * int list list * vertices * bool
 
 let parse_to_graph (json_string : string) : (graph, string) result =
-  let json = Yojson.Basic.from_string json_string in
-  let open Yojson.Basic.Util in
+  let json = Basic.from_string json_string in
+  let open Basic.Util in
   let success = json |> member "success" |> to_bool in
   if not success
   then

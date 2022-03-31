@@ -1,0 +1,8 @@
+(test
+  (name unexpected)
+  (modules unexpected)
+  (libraries unix str testing))
+
+(env (dev (flags (:standard -warn-error -A)))) ; set warnings as "non-errors"
+
+
