@@ -18,6 +18,10 @@
   (assert (= 0 (node-top-order (graph-context-node g))))
   (for/graph-edges query g
     (lambda (e _constraint _sp _sv src-node)
+      ;; e is a maybe-edge, it might be (void)
+      ;; We wrap all edge operations around (if (node-active src-node) ...), so that
+      ;; the edge operations would only fail in the case that the node is not active.
+      ;; Then, Rosette will solve for making nodes be NOT active, if they have (void) edges.
       (if (node-active src-node)
         (begin
           (define dp-idx (edge-package-idx e)) ; not symbolic
@@ -38,6 +42,7 @@
 (define (check-graph-sat-deps query g)
   (assert (node-active (graph-context-node g)))
   (for/graph-edges query g (lambda (e constraint _p _v src-node)
+    ;; See comment inside check-graph-acyclic about dealing with (void) edges.
     (if (node-active src-node)
       (begin
         (define dp-idx (edge-package-idx e)) ; not symbolic
