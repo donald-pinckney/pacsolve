@@ -50,4 +50,4 @@ jobs:
       
       - name: Run tests
         working-directory: ./RosetteSolver/testing
-        run: opam exec -- dune test
+        run: opam exec -- dune test -j1
