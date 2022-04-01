@@ -9,6 +9,8 @@ let exact_output_suite : OUnit2.test =
          t "mississippi";
          t "easy-acyclic";
          t "missing-package-test-case-acyclic";
+         t "pip-consistency-sat";
+         t "pip-consistency-sat2";
   ]
 
 let () =
