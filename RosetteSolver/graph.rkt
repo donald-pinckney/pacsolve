@@ -12,8 +12,8 @@
 (provide (struct-out graph))
 
 
-; package-idx is NON symbolic
-; version-idx is symbolic
+; package-idx is NON symbolic integer
+; version-idx is symbolic integer/bitvector
 (struct edge (package-idx version-idx) #:transparent)
 
 ; A maybe-edge is one of:
@@ -21,18 +21,19 @@
 ; - (void)
 ; The void case represents an edge which can't ever be satisfied (e.g. missing packages)
 
-; active is symbolic
-; edges is a list of NON symbolic length, containing maybe-edges (which have some symbolic fields)
-; top-order is symbolic
+; active is symbolic boolean
+; edges is a list of NON symbolic length, 
+;   containing maybe-edges (which have some symbolic fields)
+; top-order is symbolic integer
 (struct node (active edges top-order) #:transparent)
 
 ; version is NON symbolic
-; cost-values: [string : number]
+; cost-values: [string : number], non symbolic
 ; node is a node
 (struct version-node (version cost-values node) #:transparent)
 
-; package is NON symbolic
-; cost-values: [string : number]
+; package is a non-symbolic string (name of package)
+; cost-values: [string : number], non-symbolic
 ; version-nodes-vec is a vector of NON symbolic length, containing version-node
 (struct package-group (package cost-values version-nodes-vec) #:transparent)
 
