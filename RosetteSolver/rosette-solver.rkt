@@ -9,6 +9,13 @@
 (require "write-solution.rkt")
 (require "graph-constraints.rkt")
 (require "graph-optimization.rkt")
+(require rosette/solver/smt/z3)
+(current-solver
+ ;; TODO : figure out path
+ (z3 #:path "/home/elleven/code/pacsolve/RosetteSolver/z3/build/z3"
+     #:options (hash
+                ':model.user_functions "false"
+                )))
 
 
 (define INPUT-SOURCE
@@ -27,8 +34,8 @@
 
 (define (rosette-sol->solution sol)
   (if (sat? sol)
-    (solution #t (evaluate G sol))
-    (solution #f "Failed to solve constraints :(")))
+      (solution #t (evaluate G sol))
+      (solution #f "Failed to solve constraints :(")))
 
 ; (pretty-display (optimize-graph QUERY G))
 

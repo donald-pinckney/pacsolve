@@ -23,7 +23,11 @@ let pass_suite : OUnit2.test =
          tp "babel-plugin-polyfill-corejs3" ~timeout:120;
          tp "babel-plugin-jest-hoist";
          tp "jest-each";
+         tp "to-width";
+         tp "protobufjs" ~timeout:20;
+         tp "mississippi";
          tp "jest-resolve";
+         tp "@istanbuljs_load-nyc-config" ~timeout:120;
          tp "@babel_plugin-proposal-private-methods" ]
 
 let () = run_test_tt_main pass_suite
