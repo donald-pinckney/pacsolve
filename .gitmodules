@@ -4,3 +4,9 @@
 [submodule "npm"]
 	path = npm
 	url = https://github.com/donald-pinckney/cli/
+[submodule "rosette"]
+	path = rosette
+	url = https://github.com/emina/rosette
+[submodule "z3"]
+	path = z3
+	url = https://github.com/Z3Prover/z3
