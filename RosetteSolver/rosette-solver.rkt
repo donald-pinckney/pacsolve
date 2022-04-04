@@ -1,7 +1,22 @@
 #lang rosette
 
 ; (current-bitwidth 18) ; 32
-; (output-smt "z3-debugging/")
+
+(require rosette/solver/smt/z3)
+
+(define z3-path (getenv "Z3_ABS_PATH"))
+(display z3-path)
+
+(if z3-path
+  (current-solver
+    (z3 
+      #:path z3-path
+      #:options (hash ':model.user_functions "false")))
+  (void))
+
+(define z3-debug-dir (getenv "Z3_DEBUG"))
+(if z3-debug-dir (output-smt z3-debug-dir) (void))
+
 
 (require "load-query.rkt")
 (require "graph-sketching.rkt")
