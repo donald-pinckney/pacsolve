@@ -1,4 +1,4 @@
-# dependency-runner
+# PacSolve
 
 ## Setup / Dependencies
 
@@ -15,19 +15,19 @@
 - You need to have installed:
     - node (I have `v15.2.1`)
     - any somewhat recent npm (the version really shouldn't matter)
-    - Racket (I have `Racket v8.0 [cs]`)
-    - Rosette (Don't know how to check version of it).
-    - Rosette packages its own version of Z3. However, it can fail to install. If it does, fetch it yourself and follow the instructions that
-      print while Rosette is installing.
+    - Racket (I have `Racket v8.4 [cs]`)
 
 ### Installing My Custom Npm
 
-- `cd npm/`
-- `npm install -g`
+**Run all the following on a compute node if on discovery!**
+
+- `pushd arborist/; npm install; popd`
+- `pushd npm/; npm install -g; popd`
+- `pushd rosette/; raco pkg remove rosette; raco pkg install; popd`
+- `pushd z3/; python3 scripts/mk_make.py --staticbin; cd build/; make -j12; popd`
 - Find the location of the installed NPM binary, and symlink it to someplace in your PATH under the name `minnpm`. E.g.: `ln -s ~/.npm-packages/bin/npm ~/.local/bin/minnpm`.
 - Then probably restart your terminal
-- From anywhere, run `minnpm install --help`. You should see `--rosette` listed as an option. All done!
-
+- From anywhere, run `minnpm install --help`. You should see `--rosette` listed as an option.
 
 
 <!-- 
