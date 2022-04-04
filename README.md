@@ -24,7 +24,7 @@
 - `pushd arborist/; npm install; popd`
 - `pushd npm/; npm install -g; popd`
 - `pushd rosette/; raco pkg remove rosette; raco pkg install; popd`
-- `pushd z3/; python3 scripts/mk_make.py --staticbin; cd build/; make; popd`
+- `pushd z3/; python3 scripts/mk_make.py --staticbin; cd build/; make -j12; popd`
 - Find the location of the installed NPM binary, and symlink it to someplace in your PATH under the name `minnpm`. E.g.: `ln -s ~/.npm-packages/bin/npm ~/.local/bin/minnpm`.
 - Then probably restart your terminal
 - From anywhere, run `minnpm install --help`. You should see `--rosette` listed as an option.
