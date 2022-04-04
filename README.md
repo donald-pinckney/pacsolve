@@ -25,7 +25,7 @@
 - Then probably restart your terminal
 - From anywhere, run `minnpm install --help`. You should see `--rosette` listed as an option.
 - `pushd rosette/; raco pkg remove rosette; raco pkg install; popd`
-- `pushd z3/; python3 scripts/mk_make.py; cd build/; popd`
+- `pushd z3/; python3 scripts/mk_make.py --staticbin; cd build/; popd`
 
 
 
