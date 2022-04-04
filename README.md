@@ -19,6 +19,8 @@
 
 ### Installing My Custom Npm
 
+**Run all the following on a compute node if on discovery!**
+
 - `pushd arborist/; npm install; popd`
 - `pushd npm/; npm install -g; popd`
 - `pushd rosette/; raco pkg remove rosette; raco pkg install; popd`
