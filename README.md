@@ -1,4 +1,4 @@
-# dependency-runner
+# PacSolve
 
 ## Setup / Dependencies
 
