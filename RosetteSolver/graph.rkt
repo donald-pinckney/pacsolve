@@ -94,6 +94,7 @@
           (f e (dep-constraint dep) package version node))
         (node-edges node)
         deps)))
+        
 
   (for-each 
     (lambda (e dep)
@@ -104,37 +105,95 @@
 
 
 
-;; interface requirements:
-; - get top order of context node
-; - loop through edges (src + dst + user constraint)
-; - get node is active
-; - lookup node by package idx + version idx
-; - get top order of node
-; - get version of node
-; - loop through package groups
-; - loop thourgh nodes in a package group
+
+;; Graph Interface Implementation
 
 
-; interface design:
-
-; Abstract yypes:
-; PackageGroupRef
-; NodeRef
-
-
-; Functions:
-
-; context_node: Graph -> NodeRef
-; graph/for-each-package-group: Graph -> (PackageGroupRef -> ())
-; package-group/for-each-node: Graph -> PackageGroupRef -> (NodeRef -> ())
-; node/for-each-out-edge: Graph -> NodeRef -> (Constraint -> NodeRef* -> ())
-
-; package-group/cost-ref: Graph -> PackageGroupRef -> String -> Number
-
-; node/top-order: Graph -> NodeRef -> Int*
-; node/version: Graph -> NodeRef \ context_node -> Version
-; node/active?: Graph -> NodeRef -> Bool*
-; node/cost-ref: Graph -> NodeRef \ context_node -> String -> Number
+; Internal types:
+; PackageGroup
+; Node
+; VersionNode
 
 
 
+;;; (struct package-group-ref (pkg-idx) #:transparent)
+;;; (struct node-ref-context () #:transparent)
+;;; (struct node-ref-normal (pkg-idx version-idx) #:transparent)
+
+;;; (define (graph/get-context-node g) (node-ref-context))
+
+;;; (define (graph/foldl-package-groups g acc f)
+;;;   (define refs 
+;;;     (map 
+;;;       package-group-ref 
+;;;       (range (length (graph-package-groups-list g)))))
+  
+;;;   (foldl f acc refs))
+
+
+;;; (define (package-group/foldl-nodes g pkg-grp-ref acc f)
+;;;   (define pkg-idx (package-group-ref-pkg-idx pkg-grp-ref))
+;;;   (define pkg-group (graph/package-group-ref g pkg-grp-ref))
+;;;   (define versions-vec (package-group-version-nodes-vec pkg-group))
+;;;   (define num-bits (integer-length (vector-length versions-vec)))
+;;;   (define bv-type (bitvector num-bits))
+;;;   (define refs 
+;;;     (map 
+;;;       (lambda (version-idx) (node-ref-normal pkg-idx (bv version-idx bv-type)))
+;;;       (range (vector-length versions-vec))))
+;;;   (foldl f acc refs))
+
+;;; (define (node/foldl-edges g node-ref acc f)
+;;;   (define the-node (graph/node-ref g node-ref))
+
+;;;   (define edges (node-edges the-node))
+;;;   (define dst-refs 
+;;;     (map 
+;;;       (lambda (e) 
+;;;         (node-ref-normal 
+;;;           (edge-package-idx e) 
+;;;           (edge-version-idx e))) 
+;;;       edges))
+  
+;;;   (foldl f acc dst-refs))
+
+
+;;; (define (package-group/get-data g pkg-grp-ref)
+;;;   (define pkg-grp (graph/package-group-ref g pkg-grp-ref))
+;;;   (package-group-data 
+;;;     (package-group-package pkg-group)
+;;;     (package-group-cost-values pkg-group)))
+
+;;; (define (normal-node/get-data g node-ref)
+;;;   (define the-version-node (graph/normal-node-ref g node-ref))
+;;;   (normal-node-data 
+;;;     (package-group-ref (node-ref-normal-pkg-grp-ref node-ref))
+;;;     (version-node-version the-version-node)
+;;;     (version-node-cost-values the-version-node)
+;;;     (node/get-data g node-ref)))
+
+;;; (define (node/get-data g node-ref)
+;;;   (define the-node (graph/node-ref g node-ref))
+;;;   (node-data 
+;;;     (node-active the-node)
+;;;     (node-top-order the-node)))
+
+
+;;; ; Helpers
+
+;;; ; graph/package-group-ref: Graph -> PackageGroupRef -> PackageGroup
+;;; (define (graph/package-group-ref g pkg-grp-ref)
+;;;   (list-ref (graph-package-groups-list g) (package-group-ref-pkg-idx pkg-grp-ref)))
+
+;;; ; graph/node-ref: Graph -> ContextNodeRef | NormalNodeRef -> Node
+;;; (define (graph/node-ref g node-ref)
+;;;   (if (node-ref-context? node-ref)
+;;;       (graph-context-node g)
+;;;       (version-node-node (graph/normal-node-ref g node-ref))))
+
+;;; ; graph/normal-node-ref: Graph -> NormalNodeRef -> VersionNode
+;;; (define (graph/normal-node-ref g node-ref)
+;;;   (vector-ref-bv 
+;;;     (package-group-version-nodes-vec 
+;;;       (list-ref (graph-package-groups-list g) (node-ref-pkg-idx node-ref)))
+;;;     (node-ref-version-idx node-ref)))
