@@ -100,3 +100,41 @@
       (f e (dep-constraint dep) #f #f (graph-context-node g)))
     (node-edges (graph-context-node g))
     (context-deps query)))
+
+
+
+
+;; interface requirements:
+; - get top order of context node
+; - loop through edges (src + dst + user constraint)
+; - get node is active
+; - lookup node by package idx + version idx
+; - get top order of node
+; - get version of node
+; - loop through package groups
+; - loop thourgh nodes in a package group
+
+
+; interface design:
+
+; Abstract yypes:
+; PackageGroupRef
+; NodeRef
+
+
+; Functions:
+
+; context_node: Graph -> NodeRef
+; graph/for-each-package-group: Graph -> (PackageGroupRef -> ())
+; package-group/for-each-node: Graph -> PackageGroupRef -> (NodeRef -> ())
+; node/for-each-out-edge: Graph -> NodeRef -> (Constraint -> NodeRef* -> ())
+
+; package-group/cost-ref: Graph -> PackageGroupRef -> String -> Number
+
+; node/top-order: Graph -> NodeRef -> Int*
+; node/version: Graph -> NodeRef \ context_node -> Version
+; node/active?: Graph -> NodeRef -> Bool*
+; node/cost-ref: Graph -> NodeRef \ context_node -> String -> Number
+
+
+

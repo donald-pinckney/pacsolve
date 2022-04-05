@@ -39,21 +39,22 @@
 
 (define (check-graph-sat-deps query g)
   (assert (node-active (graph-context-node g)))
-  (for/graph-edges query g (lambda (e constraint _p _v src-node)
-                             ;; See comment inside check-graph-acyclic about dealing with (void) edges.
-                             (if (node-active src-node)
-                                 (begin
-                                   (define dp-idx (edge-package-idx e)) ; not symbolic
-                                   (define dv-idx (edge-version-idx e)) ; symbolic
-                                   (define dp-group (list-ref (graph-package-groups-list g) dp-idx))
-                                   (define dv-node (vector-ref-bv (package-group-version-nodes-vec dp-group) dv-idx))
+  (for/graph-edges query g 
+    (lambda (e constraint _p _v src-node)
+      ;; See comment inside check-graph-acyclic about dealing with (void) edges.
+      (if (node-active src-node)
+          (begin
+            (define dp-idx (edge-package-idx e)) ; not symbolic
+            (define dv-idx (edge-version-idx e)) ; symbolic
+            (define dp-group (list-ref (graph-package-groups-list g) dp-idx))
+            (define dv-node (vector-ref-bv (package-group-version-nodes-vec dp-group) dv-idx))
 
-                                   (define dest-version (version-node-version dv-node))
+            (define dest-version (version-node-version dv-node))
 
-                                   (assert (node-active (version-node-node dv-node)))
-                                   (assert (sat/version-constraint dest-version constraint))
-                                   )
-                                 #t))))
+            (assert (node-active (version-node-node dv-node)))
+            (assert (sat/version-constraint dest-version constraint))
+            )
+          #t))))
 
 
 ;;; *** Constraints part 3: Checking that the graph contains pairwise consistent versions of the same package, parameterized by relation `r`
