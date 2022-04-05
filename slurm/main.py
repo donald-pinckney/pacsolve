@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # This script manages MinNPM experiments on Discovery, using Slurm.
 #
+from optparse import Option
 import subprocess
 import time
 import argparse
@@ -148,11 +149,14 @@ def run(argv):
         help='Timeout for npm')
     parser.add_argument('--cpus-per-task', type=int, default=24,
        help='Number of CPUs to request on each node')
+    parser.add_argument('--z3-abs-path', type=str, default=None, help='The absolute path of the z3 binary to use. Default: load the z3 installed by Spack.')
+    parser.add_argument('--z3-debug-dir', type=str, default=None, help='Relative path to a directory to dump Z3 debug logs. Default: no Z3 debug logs.')
+    
     args = parser.parse_args(argv)
 
     tarball_dir = os.path.normpath(args.tarball_dir)
     target = os.path.normpath(args.target)
-    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task).run()
+    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.z3_abs_path, args.z3_debug_dir).run()
 
 def solve_command(mode_configuration):
     if mode_configuration['rosette']:
@@ -177,12 +181,13 @@ def package_target(target_base, mode_configuration, package_name):
 
 class Run(object):
 
-    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task):
+    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task, z3_abs_path: Option[str], z3_debug_dir: Option[str]):
         self.target = target
         self.tarball_dir = tarball_dir
         self.timeout = timeout
         self.cpus_per_task = cpus_per_task
         self.mode_configurations = mode_configurations
+
         self.sbatch_lines = [
             "#SBATCH --time=00:15:00",
             "#SBATCH --partition=express",
@@ -193,8 +198,15 @@ class Run(object):
             f'#SBATCH --cpus-per-task={cpus_per_task}',
             "module load discovery nodejs",
             "export PATH=$PATH:/home/a.guha/bin:/work/arjunguha-research-group/software/bin",
-            "eval `spack load --sh z3`"
         ]
+
+        if z3_abs_path is not None:
+            self.sbatch_lines.append(f'export Z3_ABS_PATH={z3_abs_path}')
+        else:
+            self.sbatch_lines.append("eval `spack load --sh z3`")
+        
+        if z3_debug_dir is not None:
+            self.sbatch_lines.append(f'export Z3_DEBUG={z3_debug_dir}')
 
     def run_chunk(self, pkgs):
         # Tip: Cannot use ProcessPoolExecutor with the ClusterFutures executor. It seems like
