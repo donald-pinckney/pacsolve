@@ -10,6 +10,7 @@ import glob
 import json
 import csv
 import concurrent.futures
+import ast
 from typing import Optional
 
 import cfut # Adrian Sampson's clusterfutures package.
@@ -151,14 +152,14 @@ def run(argv):
     parser.add_argument('--cpus-per-task', type=int, default=24,
        help='Number of CPUs to request on each node')
     parser.add_argument('--z3-abs-path', type=str, default=None, help='The absolute path of the z3 binary to use. Default: load the z3 installed by Spack.')
-    parser.add_argument('--z3_add_model_option', type=bool, required=True, help='Set to true if the Z3 version is newer.'
+    parser.add_argument('--z3-add-model-option', type=ast.literal_eval, required=True, help='Set to true if the Z3 version is newer.')
     parser.add_argument('--z3-debug-dir', type=str, default=None, help='Relative path to a directory to dump Z3 debug logs. Default: no Z3 debug logs.')
     
     args = parser.parse_args(argv)
 
     tarball_dir = os.path.normpath(args.tarball_dir)
     target = os.path.normpath(args.target)
-    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.z3_abs_path, args.z3_add_model_option args.z3_debug_dir).run()
+    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
 
 def solve_command(mode_configuration):
     if mode_configuration['rosette']:
