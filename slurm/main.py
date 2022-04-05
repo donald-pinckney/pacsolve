@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # This script manages MinNPM experiments on Discovery, using Slurm.
 #
-from optparse import Option
 import subprocess
 import time
 import argparse
@@ -11,6 +10,8 @@ import glob
 import json
 import csv
 import concurrent.futures
+from typing import Optional
+
 import cfut # Adrian Sampson's clusterfutures package.
 from util import suppressed_iterator, write_json, read_json, chunked_or_distributed
 
@@ -181,7 +182,7 @@ def package_target(target_base, mode_configuration, package_name):
 
 class Run(object):
 
-    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task, z3_abs_path: Option[str], z3_debug_dir: Option[str]):
+    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task, z3_abs_path: Optional[str], z3_debug_dir: Optional[str]):
         self.target = target
         self.tarball_dir = tarball_dir
         self.timeout = timeout
