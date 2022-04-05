@@ -25,11 +25,11 @@
 
 2. Create a directory to hold your experiment.
    ```
-   EXPERIMENT_DIR=/scratch/$USER/minnpm-exp
+   export EXPERIMENT_DIR=/scratch/$USER/minnpm-exp
    mkdir $EXPERIMENT_DIR
    ```
 
-3. Run the experiment:
+3. Run the experiment (inside tmux!):
 
    ```
    ./main.py run \
