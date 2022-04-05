@@ -20,12 +20,13 @@
    ```
 
    You can check the host that this job maps to with `squeue -u $USER`. Then,
-   you can SSH into it and start tmux. If you get disconnected, reconnect to
+   you can SSH into it and start tmux. If you get discon/nected, reconnect to
    tmux.
 
 2. Create a directory to hold your experiment.
    ```
-   mkdir /scratch/$USER/minnpm-exp`
+   EXPERIMENT_DIR=/scratch/$USER/minnpm-exp
+   mkdir $EXPERIMENT_DIR
    ```
 
 3. Run the experiment:
@@ -33,7 +34,8 @@
    ```
    ./main.py run \
      --tarball-dir /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --target /scratch/$USER/minnpm-exp`
+     --z3-abs-path /work/arjunguha-research-group/pacsolve/z3/build/z3 \
+     --target $EXPERIMENT_DIR
    ```
 
    This command will take some time (nearly 30 mins total). You will see some
@@ -43,7 +45,7 @@
 5. Gather the data from these experiments:
 
    ```
-   ./main.py gather /scratch/$USER/minnpm-exp
+   ./main.py gather $EXPERIMENT_DIR
    ```
 
 6. See `analysis.Rmd` for data analysis (*Stale*)
