@@ -19,9 +19,9 @@
 
 
 (require "load-query.rkt")
-(require "graph-sketching.rkt")
 (require "solution.rkt")
 (require "write-solution.rkt")
+(require "graph.rkt")
 (require "graph-constraints.rkt")
 (require "graph-optimization.rkt")
 
@@ -43,7 +43,7 @@
 ;;; -------------------------------------------
 
 
-(define G (graph* QUERY))
+(define G (generate-graph QUERY))
 
 (define (rosette-sol->solution sol)
   (if (sat? sol)
