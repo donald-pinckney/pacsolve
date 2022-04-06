@@ -22,13 +22,6 @@
   [z3-add-model-option (current-solver (z3 #:options (hash ':model.user_functions "false")))]
   [else (void)])
 
-(if z3-path
-  (current-solver
-    (z3 
-      #:path z3-path
-      #:options (hash ':model.user_functions "false")))
-  (void))
-
 (define z3-debug-dir (getenv "Z3_DEBUG"))
 (if z3-debug-dir (output-smt z3-debug-dir) (void))
 
