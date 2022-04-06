@@ -1,6 +1,5 @@
 #lang rosette
 
-(require "graph.rkt")
 (require "query.rkt")
 (require "solution.rkt")
 (require "query-access.rkt")
@@ -25,13 +24,6 @@
       (for/list ([prev-p-idx (range query-pkg-idx)]
                  [p-count p-counts])
         p-count)))
-  
-
-  ;;; (define prev-p-sum 
-  ;;;   (apply + 
-  ;;;     (map 
-  ;;;       (lambda (prev-p-idx) (registry-num-versions query prev-p-idx))
-  ;;;       (range query-pkg-idx))))
 
   (define vn-counts (list-ref v-counts query-pkg-idx))
 
@@ -40,12 +32,6 @@
       (for/list ([prev-v-idx (range query-version-idx)]
                  [vn-count vn-counts])
         vn-count)))
-
-  ;;; (define prev-v-sum 
-  ;;;   (apply + 
-  ;;;     (map 
-  ;;;       (lambda (prev-v-idx) (list-ref vn-counts prev-v-idx)) 
-  ;;;       (range v-idx))))
 
   (+ 1 prev-p-sum prev-v-sum))
 
@@ -61,10 +47,8 @@
 (define (graph->json query g)
   (define ctx-ref (graph/get-context-node g))
 
-    ;;; (define context-edges (node-edges (graph-context-node g)))
   (define context-edge-refs (node/get-edges g ctx-ref))
 
-  ;;; (define p-groups (graph-package-groups-list g))
   (define pkg-grp-refs (graph/get-package-groups g))
 
   (define version-counts
@@ -74,17 +58,6 @@
         (define data (node/get-data g node-ref))
         (if (node-data-active? data) 1 0))))
   
-
-
-  ;;; (define version-counts
-  ;;;   (map
-  ;;;    (lambda (pg-ref)
-  ;;;      (map
-  ;;;       (lambda (vn-idx)
-  ;;;         (define vn (vector-ref (package-group-version-nodes-vec pg) vn-idx))
-  ;;;         (if (node-active (version-node-node vn)) 1 0))
-  ;;;       (range (vector-length (package-group-version-nodes-vec pg)))))
-  ;;;    p-groups))
 
   (define package-counts (map (lambda (xs) (apply + xs)) version-counts))
 
