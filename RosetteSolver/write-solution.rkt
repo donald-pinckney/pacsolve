@@ -3,25 +3,50 @@
 (require "graph.rkt")
 (require "query.rkt")
 (require "solution.rkt")
+(require "query-access.rkt")
+(require "graph-interface.rkt")
+
 (require json)
 
 (provide write-solution)
 
-(define (flatten-graph-idx e p-counts v-counts)
-  (define p-idx (edge-package-idx e))
-  (define v-idx (bitvector->natural (edge-version-idx e)))
+(define (flatten-graph-idx query g e p-counts v-counts)
+
+  (define normal-dst-data (normal-node/get-data g e))
+  (define pkg-grp-ref (normal-node-data-pkg-grp-ref normal-dst-data))
+  (define name (package-group-data-name (package-group/get-data g pkg-grp-ref)))
+  (define version (normal-node-data-version normal-dst-data))
+
+  (define query-pkg-idx (package-index query name))
+  (define query-version-idx (version-index query query-pkg-idx version))
   
-  (define prev-p-sum 
-    (apply + 
-      (map 
-        (lambda (prev-p-idx) (list-ref p-counts prev-p-idx)) 
-        (range p-idx))))
-  (define vn-counts (list-ref v-counts p-idx))
-  (define prev-v-sum 
-    (apply + 
-      (map 
-        (lambda (prev-v-idx) (list-ref vn-counts prev-v-idx)) 
-        (range v-idx))))
+  (define prev-p-sum
+    (apply +
+      (for/list ([prev-p-idx (range query-pkg-idx)]
+                 [p-count p-counts])
+        p-count)))
+  
+
+  ;;; (define prev-p-sum 
+  ;;;   (apply + 
+  ;;;     (map 
+  ;;;       (lambda (prev-p-idx) (registry-num-versions query prev-p-idx))
+  ;;;       (range query-pkg-idx))))
+
+  (define vn-counts (list-ref v-counts query-pkg-idx))
+
+  (define prev-v-sum
+    (apply +
+      (for/list ([prev-v-idx (range query-version-idx)]
+                 [vn-count vn-counts])
+        vn-count)))
+
+  ;;; (define prev-v-sum 
+  ;;;   (apply + 
+  ;;;     (map 
+  ;;;       (lambda (prev-v-idx) (list-ref vn-counts prev-v-idx)) 
+  ;;;       (range v-idx))))
+
   (+ 1 prev-p-sum prev-v-sum))
 
 (define (version->json query v) 
@@ -34,55 +59,72 @@
 (struct temp-graph-node (vertex-data edge-data) #:transparent)
 
 (define (graph->json query g)
-  (define context-edges (node-edges (graph-context-node g)))
-  (define p-groups (graph-package-groups-list g))
+  (define ctx-ref (graph/get-context-node g))
+
+    ;;; (define context-edges (node-edges (graph-context-node g)))
+  (define context-edge-refs (node/get-edges g ctx-ref))
+
+  ;;; (define p-groups (graph-package-groups-list g))
+  (define pkg-grp-refs (graph/get-package-groups g))
+
   (define version-counts
-    (map
-     (lambda (pg)
-       (map
-        (lambda (vn-idx)
-          (define vn (vector-ref (package-group-version-nodes-vec pg) vn-idx))
-          (if (node-active (version-node-node vn)) 1 0))
-        (range (vector-length (package-group-version-nodes-vec pg)))))
-     p-groups))
+    (for/list ([pkg-grp-ref pkg-grp-refs])
+      (define node-refs (package-group/get-nodes g pkg-grp-ref))
+      (for/list ([node-ref node-refs])
+        (define data (node/get-data g node-ref))
+        (if (node-data-active? data) 1 0))))
+  
+
+
+  ;;; (define version-counts
+  ;;;   (map
+  ;;;    (lambda (pg-ref)
+  ;;;      (map
+  ;;;       (lambda (vn-idx)
+  ;;;         (define vn (vector-ref (package-group-version-nodes-vec pg) vn-idx))
+  ;;;         (if (node-active (version-node-node vn)) 1 0))
+  ;;;       (range (vector-length (package-group-version-nodes-vec pg)))))
+  ;;;    p-groups))
+
   (define package-counts (map (lambda (xs) (apply + xs)) version-counts))
 
   (define vertices-and-edges-flattened 
     (flatten
-     (map
-      (lambda (pg)
-        (define p (package-group-package pg))
-        (map
-         (lambda (vn-idx)
-           (define vn (vector-ref (package-group-version-nodes-vec pg) vn-idx))
-           (define v (version-node-version vn))
-           (define n (version-node-node vn))
-           (if 
-            (node-active n)
-            (list (temp-graph-node (resolved-vertex->json query p v) (node-edges n)))
-            '()))
-         (range (vector-length (package-group-version-nodes-vec pg)))))
-      p-groups)))
+      (for/list ([pkg-grp-ref pkg-grp-refs])
+        (define pkg-name (package-group-data-name (package-group/get-data g pkg-grp-ref)))
+        (define node-refs (package-group/get-nodes g pkg-grp-ref))
+
+        (for/list ([node-ref node-refs])
+          (define normal-data (normal-node/get-data g node-ref))
+          (define version (normal-node-data-version normal-data))
+          (define data (normal-node-data-node-data normal-data))
+          (if
+            (node-data-active? data)
+            (list 
+              (temp-graph-node (resolved-vertex->json query pkg-name version) (node/get-edges g node-ref)))
+            '())))))
 
   (define vertices
     (cons (make-hash (list (cons 'type "RootContextVertex")))
-          (map (lambda (pr) (temp-graph-node-vertex-data pr)) vertices-and-edges-flattened)))
+          (map (lambda (vert-and-edge) (temp-graph-node-vertex-data vert-and-edge)) vertices-and-edges-flattened)))
 
   (define edge-data
     (cons
-     context-edges
-     (map (lambda (pr) (temp-graph-node-edge-data pr)) vertices-and-edges-flattened)))
+     context-edge-refs
+     (map (lambda (vert-and-edge) (temp-graph-node-edge-data vert-and-edge)) vertices-and-edges-flattened)))
 
   (define edge-flat-indices
     (map
      (lambda (edges)
        (map
         (lambda (e)
-          (flatten-graph-idx e package-counts version-counts))
+          (flatten-graph-idx query g e package-counts version-counts))
         edges))
      edge-data))
 
   (make-hash (list (cons 'vertices vertices) (cons 'out_edge_array edge-flat-indices) (cons 'context_vertex 0))))
+
+
 
 (define (sol->json query sol)
   (if (solution-success sol)
@@ -90,12 +132,8 @@
       (make-hash (list (cons 'success #f) (cons 'error (solution-graphOrMessage sol))))))
 
 
-(define OUTPUT-PATH
-  (if (= 2 (vector-length (current-command-line-arguments)))
-      (vector-ref (current-command-line-arguments) 1)
-      (error "Incorrect number of command line arguments")))
 
-(define (write-solution query sol)
-  (with-output-to-file OUTPUT-PATH (lambda () (write-json (sol->json query sol))) #:exists 'replace))
+(define (write-solution output-path query sol)
+  (with-output-to-file output-path (lambda () (write-json (sol->json query sol))) #:exists 'replace))
 
 

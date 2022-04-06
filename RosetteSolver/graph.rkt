@@ -91,7 +91,7 @@
     (define (normal-node/get-data g node-ref)
       (define the-version-node (graph/normal-node-ref g node-ref))
       (normal-node-data 
-        ;;; (package-group-ref (node-ref-normal-pkg-idx node-ref))
+        (package-group-ref (node-ref-normal-pkg-idx node-ref))
         (version-node-version the-version-node)
         (version-node-cost-values the-version-node)
         (node/get-data g node-ref)))

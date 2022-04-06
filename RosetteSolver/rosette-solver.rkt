@@ -31,6 +31,11 @@
       (vector-ref (current-command-line-arguments) 0)
       (error "Incorrect number of command line arguments")))
 
+(define OUTPUT-PATH
+  (if (= 2 (vector-length (current-command-line-arguments)))
+      (vector-ref (current-command-line-arguments) 1)
+      (error "Incorrect number of command line arguments")))
+
 (define QUERY (read-input-query INPUT-SOURCE))
 
 ;;; -------------------------------------------
@@ -52,5 +57,5 @@
    #:minimize (optimize-graph QUERY G)
    #:guarantee (check-graph QUERY G)))
 
-(write-solution QUERY (rosette-sol->solution sol))
+(write-solution OUTPUT-PATH QUERY (rosette-sol->solution sol))
 

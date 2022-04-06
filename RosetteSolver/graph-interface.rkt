@@ -27,7 +27,7 @@
 
 ; Concrete external types:
 (struct package-group-data (name cost-values-hash) #:transparent)
-(struct normal-node-data (version cost-values-hash node-data) #:transparent)
+(struct normal-node-data (pkg-grp-ref version cost-values-hash node-data) #:transparent)
 (struct node-data (active? top-order) #:transparent)
 
 
