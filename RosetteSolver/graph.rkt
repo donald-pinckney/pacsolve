@@ -48,28 +48,24 @@
   [
     (define (graph/get-context-node g) (node-ref-context))
 
-    (define (graph/foldl-package-groups g acc f)
-      (define refs 
-        (map 
-          package-group-ref 
-          (range (length (graph-package-groups-list g)))))
-      
-      (foldl f acc refs))
+    (define (graph/get-package-groups g)
+      (map 
+        package-group-ref 
+        (range (length (graph-package-groups-list g)))))
 
 
-    (define (package-group/foldl-nodes g pkg-grp-ref acc f)
+    (define (package-group/get-nodes g pkg-grp-ref )
       (define pkg-idx (package-group-ref-pkg-idx pkg-grp-ref))
       (define pkg-group (graph/package-group-ref g pkg-grp-ref))
       (define versions-vec (package-group-version-nodes-vec pkg-group))
       (define num-bits (integer-length (vector-length versions-vec)))
       (define bv-type (bitvector num-bits))
-      (define refs 
-        (map 
-          (lambda (version-idx) (node-ref-normal pkg-idx (bv version-idx bv-type)))
-          (range (vector-length versions-vec))))
-      (foldl f acc refs))
+      (map 
+        (lambda (version-idx) (node-ref-normal pkg-idx (bv version-idx bv-type)))
+        (range (vector-length versions-vec))))
+      
 
-    (define (node/foldl-edges g node-ref acc f)
+    (define (node/get-edges g node-ref)
       (define the-node (graph/node-ref g node-ref))
 
       (define edges (node-edges the-node))
@@ -83,7 +79,7 @@
                   (edge-version-idx e))))
           edges))
       
-      (foldl f acc dst-refs))
+      dst-refs)
 
 
     (define (package-group/get-data g pkg-grp-ref)
@@ -95,7 +91,7 @@
     (define (normal-node/get-data g node-ref)
       (define the-version-node (graph/normal-node-ref g node-ref))
       (normal-node-data 
-        (package-group-ref (node-ref-normal-pkg-idx node-ref))
+        ;;; (package-group-ref (node-ref-normal-pkg-idx node-ref))
         (version-node-version the-version-node)
         (version-node-cost-values the-version-node)
         (node/get-data g node-ref)))
