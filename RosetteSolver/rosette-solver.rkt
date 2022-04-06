@@ -2,8 +2,6 @@
 
 ; (current-bitwidth 18) ; 32
 
-(require rosette/solver/smt/z3)
-
 
 (define z3-add-model-option (getenv "Z3_ADD_MODEL_OPTION"))
 (display z3-add-model-option)
@@ -12,6 +10,7 @@
 (define z3-path (getenv "Z3_ABS_PATH"))
 (display z3-path)
 
+(require rosette/solver/smt/z3)
 
 (cond
   [(and z3-path z3-add-model-option) 
