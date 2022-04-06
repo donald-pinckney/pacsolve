@@ -3,7 +3,7 @@
 (require "query.rkt")
 (require "solution.rkt")
 (require "query-access.rkt")
-(require "graph-interface.rkt")
+(require "solution-graph/graph-interface.rkt")
 
 (require json)
 

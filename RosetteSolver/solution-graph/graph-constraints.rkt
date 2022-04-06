@@ -1,7 +1,7 @@
 #lang rosette
 
-(require "query.rkt")
-(require "query-access.rkt")
+(require "../query.rkt")
+(require "../query-access.rkt")
 (require "graph-interface.rkt")
 
 (provide check-graph)

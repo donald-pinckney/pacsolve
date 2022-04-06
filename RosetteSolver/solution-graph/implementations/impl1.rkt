@@ -32,7 +32,7 @@
 
 
 
-(require "graph-interface.rkt")
+(require "../graph-interface.rkt")
 
 ;;; -------------------------------------------
 ;;; GRAPH INTERFACE IMPLEMENTATION
@@ -136,8 +136,8 @@
 ;;; -------------------------------------------
 
 
-(require "query.rkt")
-(require "query-access.rkt")
+(require "../../query.rkt")
+(require "../../query-access.rkt")
 
 
 

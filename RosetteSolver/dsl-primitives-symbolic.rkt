@@ -2,7 +2,7 @@
 
 (provide DSL-PRIMITIVES-SYMBOLIC)
 
-(require "graph-interface.rkt")
+(require "solution-graph/graph-interface.rkt")
 
 (define (make-json-hash assocs)
   (make-hasheq (map (lambda (p) (cons (string->symbol (car p)) (cdr p))) assocs)))

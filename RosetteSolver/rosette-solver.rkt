@@ -21,9 +21,10 @@
 (require "load-query.rkt")
 (require "solution.rkt")
 (require "write-solution.rkt")
-(require "graph.rkt")
-(require "graph-constraints.rkt")
-(require "graph-optimization.rkt")
+(require "solution-graph/graph-constraints.rkt")
+(require "solution-graph/graph-optimization.rkt")
+
+(require "solution-graph/implementations/impl1.rkt")
 
 
 (define INPUT-SOURCE

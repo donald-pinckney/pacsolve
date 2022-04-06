@@ -6,9 +6,9 @@
 
 (provide optimize-graph)
 
-(require "query.rkt")
-(require "function-dsl.rkt")
-(require "dsl-primitives-symbolic.rkt")
+(require "../query.rkt")
+(require "../function-dsl.rkt")
+(require "../dsl-primitives-symbolic.rkt")
 
 (define (evaluate-objective query g obj-name)
   (eval-dsl-function
