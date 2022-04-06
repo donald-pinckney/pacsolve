@@ -11,6 +11,7 @@ import json
 import csv
 import concurrent.futures
 import ast
+from tqdm import tqdm
 from typing import Optional
 
 import cfut # Adrian Sampson's clusterfutures package.
@@ -241,7 +242,8 @@ class Run(object):
 
     def list_pkg_paths(self):
         results = [ ]
-        for package_tgz in os.listdir(self.tarball_dir):
+        tgzs = os.listdir(self.tarball_dir)
+        for package_tgz in tqdm(tgzs):
             package_name = os.path.basename(package_tgz).replace('.tgz', '')
             for mode_configuration in self.mode_configurations:
                 t = package_target(self.target, mode_configuration, package_name)
