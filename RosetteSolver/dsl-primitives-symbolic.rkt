@@ -2,7 +2,7 @@
 
 (provide DSL-PRIMITIVES-SYMBOLIC)
 
-(require "graph.rkt")
+(require "solution-graph/graph-interface.rkt")
 
 (define (make-json-hash assocs)
   (make-hasheq (map (lambda (p) (cons (string->symbol (car p)) (cdr p))) assocs)))
@@ -15,38 +15,36 @@
 ; -> (package-group -> AccV -> AccP -> AccP) 
 ; -> AccP
 (define (foldl/graph g init_v fun_v init_p fun_p)
-  (define p-groups-list (graph-package-groups-list g))
-  (define vn-vecs-list (map package-group-version-nodes-vec p-groups-list))
-  (define vn-vec-costs-list 
+  (define p-groups-list (graph/get-package-groups g))
+  (define nodes-list-list (map (lambda (pg) (package-group/get-nodes g pg)) p-groups-list))
+  (define node-list-costs
     (map
-      (lambda (vn-vec) 
+      (lambda (node-list)
         (foldl
-          (lambda (idx acc)
-            (define the-vn (vector-ref vn-vec idx))
-
-            (((fun_v the-vn) (node-active (version-node-node the-vn))) acc)
+          (lambda (node-ref acc)
+            (define ref-normal-node-data (normal-node/get-data g node-ref))
+            (define ref-node-data (normal-node-data-node-data ref-normal-node-data))
+            (((fun_v ref-normal-node-data) (node-data-active? ref-node-data)) acc)
           )
           init_v
-          (range (vector-length vn-vec))))
-      vn-vecs-list))
-  
+          node-list))
+      nodes-list-list))
+
   (foldl
-    (lambda (pg vn-vec-cost acc)
-      (((fun_p pg) vn-vec-cost) acc)
-    )
+    (lambda 
+      (pg-ref node-list-cost acc)
+        (define pg-data (package-group/get-data g pg-ref))
+        (((fun_p pg-data) node-list-cost) acc))
     init_p
     p-groups-list
-    vn-vec-costs-list)
-  )
+    node-list-costs))
 
 
-; get-cost-val/version-node: version-node -> String -> Number
 (define (get-cost-val/version-node vn key)
-  (hash-ref (version-node-cost-values vn) (string->symbol key)))
+  (hash-ref (normal-node-data-cost-values-hash vn) (string->symbol key)))
 
-; get-cost-val/package-group: package-group -> String -> Number
 (define (get-cost-val/package-group pg key)
-  (hash-ref (package-group-cost-values pg) (string->symbol key)))
+  (hash-ref (package-group-data-cost-values-hash pg) (string->symbol key)))
 
 ;; Loaded for functions: "constraintInterpretation" and optimization functions
 (define DSL-PRIMITIVES-SYMBOLIC (make-immutable-hash (list

@@ -2,8 +2,6 @@
 
 ; (current-bitwidth 18) ; 32
 
-(require rosette/solver/smt/z3)
-
 
 (define z3-add-model-option (getenv "Z3_ADD_MODEL_OPTION"))
 (display z3-add-model-option)
@@ -12,6 +10,7 @@
 (define z3-path (getenv "Z3_ABS_PATH"))
 (display z3-path)
 
+(require rosette/solver/smt/z3)
 
 (cond
   [(and z3-path z3-add-model-option) 
@@ -27,16 +26,22 @@
 
 
 (require "load-query.rkt")
-(require "graph-sketching.rkt")
 (require "solution.rkt")
 (require "write-solution.rkt")
-(require "graph-constraints.rkt")
-(require "graph-optimization.rkt")
+(require "solution-graph/graph-constraints.rkt")
+(require "solution-graph/graph-optimization.rkt")
+
+(require "solution-graph/implementations/impl1.rkt")
 
 
 (define INPUT-SOURCE
   (if (= 2 (vector-length (current-command-line-arguments)))
       (vector-ref (current-command-line-arguments) 0)
+      (error "Incorrect number of command line arguments")))
+
+(define OUTPUT-PATH
+  (if (= 2 (vector-length (current-command-line-arguments)))
+      (vector-ref (current-command-line-arguments) 1)
       (error "Incorrect number of command line arguments")))
 
 (define QUERY (read-input-query INPUT-SOURCE))
@@ -46,7 +51,7 @@
 ;;; -------------------------------------------
 
 
-(define G (graph* QUERY))
+(define G (generate-graph QUERY))
 
 (define (rosette-sol->solution sol)
   (if (sat? sol)
@@ -60,5 +65,5 @@
    #:minimize (optimize-graph QUERY G)
    #:guarantee (check-graph QUERY G)))
 
-(write-solution QUERY (rosette-sol->solution sol))
+(write-solution OUTPUT-PATH QUERY (rosette-sol->solution sol))
 
