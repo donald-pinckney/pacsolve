@@ -148,11 +148,11 @@
 ;; TODO: purpose
 (define (generate-fin n)
   (if
-   (= n 1)
+   (< n 1)
    (bv 0 (bitvector 1))
    (begin
-     (define num-bits (integer-length (- n 1)))
-     (define bv-n (bv (- n 1) (bitvector num-bits)))
+     (define num-bits (integer-length n))
+     (define bv-n (bv n (bitvector num-bits)))
      (define-symbolic* x (bitvector num-bits))
      (assert (bvule x bv-n))
      x)))
