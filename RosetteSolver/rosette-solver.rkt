@@ -13,10 +13,10 @@
 (require rosette/solver/smt/z3)
 
 (cond
-  [(and z3-path z3-add-model-option) 
-    (current-solver (z3 
-      #:path z3-path
-      #:options (hash ':model.user_functions "false")))]
+  [(and z3-path z3-add-model-option)
+   (current-solver (z3
+                    #:path z3-path
+                    #:options (hash ':model.user_functions "false")))]
   [z3-path (current-solver (z3 #:path z3-path))]
   [z3-add-model-option (current-solver (z3 #:options (hash ':model.user_functions "false")))]
   [else (void)])
@@ -31,7 +31,7 @@
 (require "solution-graph/graph-constraints.rkt")
 (require "solution-graph/graph-optimization.rkt")
 
-(require "solution-graph/implementations/impl1.rkt")
+(require "solution-graph/implementations/impl2.rkt")
 
 
 (define INPUT-SOURCE
@@ -55,8 +55,8 @@
 
 (define (rosette-sol->solution sol)
   (if (sat? sol)
-    (solution #t (evaluate G sol))
-    (solution #f "Failed to solve constraints :(")))
+      (solution #t (evaluate G sol))
+      (solution #f "Failed to solve constraints :(")))
 
 ; (pretty-display (optimize-graph QUERY G))
 
