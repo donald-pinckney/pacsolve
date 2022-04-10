@@ -16,6 +16,7 @@ from typing import Optional
 
 import cfut # Adrian Sampson's clusterfutures package.
 from util import suppressed_iterator, write_json, read_json, chunked_or_distributed
+from random import shuffle
 
 def main():
     parser = argparse.ArgumentParser(
@@ -243,6 +244,7 @@ class Run(object):
     def run(self):
         print(f'Listing package-configuration pairs ...')
         pkgs = self.list_pkg_paths()
+        shuffle(pkgs)
         print(f'Will run on {len(pkgs)} configurations.')
         pkg_chunks = chunked_or_distributed(pkgs,
             max_groups=49, optimal_group_size=self.cpus_per_task)
