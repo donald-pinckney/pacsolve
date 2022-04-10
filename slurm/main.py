@@ -112,7 +112,7 @@ class Gather(object):
         output_path = os.path.join(self.directory, 'results.csv') 
         with open(output_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['Project','Rosette','Consistency','Minimize','Time','NDeps', 'Status'])
+            writer.writerow(['Project','Rosette','Consistency','Minimize','DisallowCycles','Time','NDeps', 'Status'])
             for mode_configuration in MODE_CONFIGURATIONS:
                 mode_dir = mode_configuration_target(self.directory, mode_configuration)
                 print(f'Processing a mode ...', mode_dir)
@@ -127,18 +127,26 @@ class Gather(object):
                             is_rosette,
                             mode_configuration['consistency'] if is_rosette else '',
                             mode_configuration['minimize'] if is_rosette else '',
+                            ('disallow_cycles' if mode_configuration['disallow_cycles'] else 'allow_cycles') if is_rosette else '',
                             time,
                             deps,
                             status])
 
 MODE_CONFIGURATIONS = [
     { 'rosette': False },
-    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps' },
-    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_num_deps,min_oldness' },
-    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_duplicates,min_oldness' },
-    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_duplicates' },
-    { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness,min_num_deps' },
-    { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_num_deps,min_oldness' }
+    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
+    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
+    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_duplicates,min_oldness', 'disallow_cycles': False },
+    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_duplicates', 'disallow_cycles': False },
+    { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
+    { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
+    { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_duplicates,min_oldness', 'disallow_cycles': False },
+    { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness,min_duplicates', 'disallow_cycles': False },
+    { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
+    { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
+    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': True },
+    { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': True },
+    { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': True },
 ]
 
 def run(argv):
@@ -164,10 +172,13 @@ def run(argv):
 
 def solve_command(mode_configuration):
     if mode_configuration['rosette']:
-        return ['minnpm', 'install', '--no-audit', '--prefer-offline', '--rosette',
+        cmd_no_cycle_flag = ['minnpm', 'install', '--no-audit', '--prefer-offline', '--rosette',
                 '--ignore-scripts',
-                '--consistency', mode_configuration['consistency'], 
+                '--consistency', mode_configuration['consistency'],
                 '--minimize', mode_configuration['minimize'] ]
+        if mode_configuration['disallow_cycles']:
+            cmd_no_cycle_flag.append('--disallow-cycles')
+        return cmd_no_cycle_flag
     else:
         return 'npm install --prefer-offline --no-audit --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')    
 
@@ -175,6 +186,7 @@ def mode_configuration_target(target_base, mode_configuration):
     if mode_configuration['rosette']:
         return os.path.join(target_base, 'rosette',
             mode_configuration['consistency'],
+            'disallow_cycles' if mode_configuration['disallow_cycles'] else 'allow_cycles',
             mode_configuration['minimize'])
     else:
         return os.path.join(target_base, 'vanilla')
