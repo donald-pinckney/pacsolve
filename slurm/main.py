@@ -252,21 +252,33 @@ class Run(object):
                 if err is not None:
                     print(err)
 
+
+    def should_rerun(self, results_json):
+        return "status" in results_json and "reason" in results_json and results_json["status"] == "cannot_install" and results_json["reason"] == "ETARGET"
+
+    def list_pkg_paths_for_tgz(self, package_tgz):
+        package_name = os.path.basename(package_tgz).replace('.tgz', '')
+        results = []
+        for mode_configuration in self.mode_configurations:
+            t = package_target(self.target, mode_configuration, package_name)
+            result_file = os.path.join(t, "package", "experiment.json")
+            if not os.path.isfile(result_file):
+                results.append((os.path.join(self.tarball_dir, package_tgz), t, mode_configuration))
+            else:
+                with open(result_file, 'r') as result_f:
+                    results_json = json.load(result_f)
+                if self.should_rerun(results_json):
+                    results.append((os.path.join(self.tarball_dir, package_tgz), t, mode_configuration))
+        return results
+
     def list_pkg_paths(self):
         results = [ ]
         tgzs = os.listdir(self.tarball_dir)
-        for package_tgz in tqdm(tgzs):
-            package_name = os.path.basename(package_tgz).replace('.tgz', '')
-            for mode_configuration in self.mode_configurations:
-                t = package_target(self.target, mode_configuration, package_name)
-                result_file = os.path.join(t, "package", "experiment.json")
-                if not os.path.isfile(result_file):
-                    results.append((os.path.join(self.tarball_dir, package_tgz), t, mode_configuration))
-                else:
-                    with open(result_file, 'r') as result_f:
-                        results_json = json.load(result_f)
-                    if "status" in results_json and "reason" in results_json and results_json["status"] == "cannot_install" and results_json["reason"] == "ETARGET":
-                        results.append((os.path.join(self.tarball_dir, package_tgz), t, mode_configuration))
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+            results_nested = list(tqdm(executor.map(lambda package_tgz: self.list_pkg_paths_for_tgz(package_tgz),  tgzs), total=len(tgzs)))
+
+        results = [r for results in results_nested for r in results]
         return results
 
     def get_npmstatus(self, path):
