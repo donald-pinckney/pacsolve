@@ -48,7 +48,7 @@ class Gather(object):
             'vanilla'
         ] + [
             os.sep.join(os.path.normpath(p).split(os.sep)[-3:]) 
-            for p in glob.glob(f'{self.directory}/rosette/*/*/')
+            for p in glob.glob(f'{self.directory}/rosette/*/*/*/')
         ]
         print(f'Gathering results for the solvers: {self.solvers}')
 
