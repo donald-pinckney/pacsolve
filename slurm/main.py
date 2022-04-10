@@ -205,7 +205,7 @@ class Run(object):
         self.mode_configurations = mode_configurations
 
         self.sbatch_lines = [
-            "#SBATCH --time=00:15:00",
+            "#SBATCH --time=00:30:00",
             "#SBATCH --partition=express",
             "#SBATCH --mem=8G",
             # This rules out the few nodes that are older than Haswell.
