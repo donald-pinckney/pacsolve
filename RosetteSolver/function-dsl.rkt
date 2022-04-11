@@ -92,9 +92,9 @@
 
 
 (define (var-lookup bindings v)
-  (match (hash-ref bindings v #f)
-    [#f (error "No binding for variable: " v)]
-    [val val]))
+  (if (hash-has-key? bindings v)
+      (hash-ref bindings v)
+      (error "No binding for variable: " v)))
 
 (define (eval-primitive primitives op args)
   (define fn (hash-ref primitives op))
@@ -125,18 +125,18 @@
       (lambda (rParam)
         (dsl-eval primitives fns (hash-set bindings param rParam) body))]))
 
-(define (try-eval-rules primitives fns rules args)
+(define (try-eval-rules primitives fns rules full-rules args)
   (match rules
     [(cons r moreRules) 
       (match (check-match (FunctionRule-patterns r) args)
-        [#f (try-eval-rules primitives fns moreRules args)]
+        [#f (try-eval-rules primitives fns moreRules full-rules args)]
         [bindings (dsl-eval primitives fns (make-immutable-hash (hash->list bindings)) (FunctionRule-rhs r))])]
-    [(list) (error "No matching clauses for: " args)]))
+    [(list) (error "No matching clauses for: " args " in rules: " full-rules)]))
 
 (define (eval-dsl-function-impl primitives fns f args)
   (if 
     (= (length args) (FunctionDef-numParams f))
-    (try-eval-rules primitives fns (FunctionDef-rules f) args)
+    (try-eval-rules primitives fns (FunctionDef-rules f) (FunctionDef-rules f) args)
     (error "Incorrect number of arguments")))
 
 (define (eval-dsl-function primitives fns f args)
