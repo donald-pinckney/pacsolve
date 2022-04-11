@@ -27,14 +27,26 @@ library(stringr)
 library(xtable)
 suppressMessages(library(extrafont))
 library(fontcm)
-knitr::opts_knit$set(root.dir = "/mnt/data/arjun/repos/dependency-runner/slurm")
-data_root <- "/mnt/data/arjun/scratch/npm"
-results_root <- "/mnt/data/arjun/repos/papers/minnpm/paper/figs_and_tables"
+```
+
+```{r dirs old}
+#knitr::opts_knit$set(root.dir = "/mnt/data/arjun/repos/dependency-runner/slurm")
+#data_root <- "/mnt/data/arjun/scratch/npm"
+#results_root <- "/mnt/data/arjun/repos/papers/minnpm/paper/figs_and_tables"
+#results_tex <- str_c(results_root, "/results.tex")
+
+#write("% These are results from the R Notebook.", results_tex, append=FALSE)
+#write("% Run the notebook from top to bottom", results_tex, append=TRUE)
+```
+
+```{r dirs}
+knitr::opts_knit$set(root.dir = "/work/arjunguha-research-group/pacsolve/slurm") # "/mnt/data/arjun/repos/dependency-runner/slurm"
+data_root <- "/scratch/pinckney.d/apr-10-more-combos" # "/mnt/data/arjun/scratch/npm"
+results_root <- "/scratch/pinckney.d/apr-10-more-combos-results" # "/mnt/data/arjun/repos/papers/minnpm/paper/figs_and_tables"
 results_tex <- str_c(results_root, "/results.tex")
 
 write("% These are results from the R Notebook.", results_tex, append=FALSE)
 write("% Run the notebook from top to bottom", results_tex, append=TRUE)
-
 ```
 
 
@@ -79,6 +91,7 @@ raw_data <- read_csv(paste(data_root, "/results.csv", sep=""),
                    Project=col_factor(),
                    Rosette=col_logical(),
                    Consistency=col_factor(),
+                   DisallowCycles=col_factor(),
                    Minimize=col_factor(),
                    Time=col_double(),
                    NDeps=col_integer()),
@@ -94,7 +107,7 @@ Check that these are the factors that appear below:
 
 1. *success*: everything worked!
 2. *ERESOLVE*: depends on something that isn't in the repository
-3. *ETARGET*: requires some other target architecture **verify**
+3. *ETARGET*: requires some other target architecture **verify**. Can also mean depending on something that doesn't exist.
 4. *EBADPLATFORM*: requires some other platform (e.g., macOS)
 5. *EUNSUPPORTEDPROTOCOL:* a dependency is in a format that NPM does not support
 6. *unexpected*: something went wrong on Discovery. See experiment.out
@@ -114,11 +127,15 @@ levels(raw_data$Consistency)
 levels(raw_data$Minimize)
 ```
 
+```{r}
+levels(raw_data$DisallowCycles)
+```
+
 Sanity check: there should be 1,000 of each kind of experiment.
 
 ```{r}
 num_experiments <- raw_data %>% 
-  group_by(Rosette,Minimize,Consistency) %>%
+  group_by(Rosette,Minimize,Consistency,DisallowCycles) %>%
   summarize(Count = n()) %>%
   ungroup() %>%
   select(Count) %>%
@@ -132,17 +149,21 @@ stopifnot(num_experiments[1] == 1000)
 How many failures occur for each configuration? *See failures.tex*.
 
 ```{r}
+# failure_analysis <- raw_data %>% 
+#   filter(Status != "success") %>% 
+#   group_by(Rosette,Minimize,Consistency)
+
 failure_analysis <- raw_data %>% 
-  filter(Status != "success") %>% 
-  group_by(Rosette,Minimize,Consistency) %>%
+  filter(Status != "success") %>%
+  group_by(Rosette,Minimize,Consistency,DisallowCycles) %>%
   summarise(Unsat = sum(Status == "unsat"),
-            Timeout = sum(Status == "unavailable"),
-            Other = sum(Status != "unsat" & Status != "unavailable")) %>%
+            Timeout = sum(Status == "unavailable" | Status == "timeout"),
+            Other = sum(Status != "unsat" & Status != "unavailable" & Status != "timeout")) %>%
   ungroup() %>%
   mutate(Solver = if_else(Rosette, "MinNPM", "NPM")) %>%
   rename(Minimization = Minimize) %>%
   select(-Rosette) %>%
-  relocate(Solver,Consistency,Minimization,Unsat,Timeout,Other)
+  relocate(Solver,Consistency,DisallowCycles,Minimization,Unsat,Timeout,Other)
 print(xtable(as.data.frame(failure_analysis), type="latex"), include.rownames=FALSE, file="failures.tex")
 knitr::kable(failure_analysis)
 ```
@@ -301,12 +322,12 @@ _deps > oldness_npm_oldness_deps.csv
 Raw data
 ```{r}
 oldness_data <- bind_rows(
-  read_csv("oldness_vanilla.csv",
+  read_csv(paste(data_root, "/oldness_vanilla.csv", sep=""),
     col_types = cols(Package=col_factor(),
                      Oldness=col_double()),
     show_col_types = FALSE) %>%
     mutate(Solver = "NPM"),
-  read_csv("oldness_npm_oldness_deps.csv",
+  read_csv(paste(data_root, "/oldness_npm_oldness_deps.csv", sep=""),
     col_types = cols(Package=col_factor(),
                      Oldness=col_double()),
     show_col_types = FALSE) %>%
@@ -324,6 +345,16 @@ write(
         round(better_oldness * 100),
         "\\%}\n"),
   results_tex, append=TRUE)
+```
+
+
+```{r}
+oldness_data %>%
+  filter(!is.nan(Oldness)) %>%
+  pivot_wider(names_from=Solver, values_from=Oldness) %>%
+  mutate(Delta = NPM - MinNPM) %>%
+  mutate(Ratio = MinNPM / NPM) %>%
+  filter(Delta > 0)
 ```
 
 ```{r}
