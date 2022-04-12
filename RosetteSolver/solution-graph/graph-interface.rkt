@@ -45,13 +45,13 @@
   ; Graph -> PackageGroupRef -> List NormalNodeRef
   [package-group/get-nodes    solution-graph pkg-grp-ref] 
 
-  ; Graph -> ContextNodeRef | NormalNodeRef -> List (NormalNodeRef* | void?)
+  ; Graph -> ContextNodeRef | NormalNodeRef -> List (EdgeRef* | void?)
   [node/get-edges               solution-graph node-ref] 
   
   ; Graph -> PackageGroupRef -> package-group-data
   [package-group/get-data       solution-graph pkg-grp-ref] 
   
-  ; Graph -> NormalNodeRef -> normal-node-data
+  ; Graph -> NormalNodeRef | EdgeRef -> normal-node-data
   [normal-node/get-data         solution-graph node-ref] 
   
   ; Graph -> ContextNodeRef | NormalNodeRef -> node-data
