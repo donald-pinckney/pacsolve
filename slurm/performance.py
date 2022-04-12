@@ -21,11 +21,12 @@ class Performance(object):
         target_pieces = target.split('/')
         if target_pieces[-1] == 'vanilla':
             self.mode_configuration =  { 'rosette': False }
-        elif target_pieces[-3] == 'rosette':
+        elif target_pieces[-4] == 'rosette':
             self.mode_configuration =  {
                 'rosette': True,
+                'disallow_cycles': True if target_pieces[-2] == 'disallow_cycles' else False,
                 'minimize': target_pieces[-1],
-                'consistency': target_pieces[-2],
+                'consistency': target_pieces[-3],
            }
         assert(self.mode_configuration in MODE_CONFIGURATIONS)
 
