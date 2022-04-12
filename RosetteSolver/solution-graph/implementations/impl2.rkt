@@ -6,9 +6,9 @@
 
 
 ; package-idx is NON symbolic integer
-; num-vers is a NON symbolic integer
-; version-idx is symbolic integer/bitvector
-(struct edge (package-idx num-vers version-idx) #:transparent)
+; ok-versions is a NON symbolic vector of type version-node
+; ok-version-idx is symbolic integer/bitvector
+(struct edge (package-idx ok-version-indices ok-version-idx) #:transparent)
 
 ; A maybe-edge is one of:
 ; - (edge package-idx version-idx)
@@ -33,6 +33,7 @@
 
 
 
+
 (require "../graph-interface.rkt")
 
 ;;; -------------------------------------------
@@ -41,7 +42,8 @@
 
 (struct package-group-ref (pkg-idx) #:transparent)
 (struct node-ref-context () #:transparent)
-(struct node-ref-normal (pkg-idx num-vers version-idx) #:transparent)
+(struct node-ref-normal (pkg-idx version-idx) #:transparent)
+(struct edge-ref (pkg-idx ok-version-indices ok-version-idx) #:transparent)
 
 
 ; context-node is a node
@@ -78,9 +80,9 @@
         (lambda (e)
           (if (void? e)
               (void)
-              (node-ref-normal
+              (edge-ref
                (edge-package-idx e)
-               (edge-num-vers e)
+               (edge-ok-versions e)
                (edge-version-idx e))))
         edges))
 
@@ -122,13 +124,26 @@
       (graph-context-node g)
       (version-node-node (graph/normal-node-ref g node-ref))))
 
-; graph/normal-node-ref: Graph -> NormalNodeRef -> VersionNode
-(define (graph/normal-node-ref g node-ref)
-  (vector-ref-bv
-   (package-group-version-nodes-vec
-    (list-ref (graph-package-groups-list g) (node-ref-normal-pkg-idx node-ref)))
-   (node-ref-normal-version-idx node-ref)))
+; graph/normal-node-ref: Graph -> NormalNodeRef | EdgeRef -> VersionNode
+(define (graph/normal-node-ref g node-or-edge-ref)
+  (if (edge-ref? node-or-edge-ref) 
+      (begin
+        (define pkg-group (list-ref (graph-package-groups-list g) (edge-ref-pkg-idx node-or-edge-ref)))
+        (define which-ok-version-idx (vector-ref-bv
+          (edge-ref-ok-version-indices node-or-edge-ref)
+          (edge-ref-ok-version-idx node-or-edge-ref)))
+        (vector-ref (package-group-version-nodes-vec pkg-group) which-ok-version-idx)
+      )
 
+      ;;; package-groups[edge.package-idx].version-nodes-vec[ok-version-indices[version-idx]]
+
+      (vector-ref-bv
+        (package-group-version-nodes-vec
+          (list-ref (graph-package-groups-list g) (node-ref-normal-pkg-idx node-or-edge-ref)))
+        (node-ref-normal-version-idx node-or-edge-ref)))
+
+
+;;; (struct edge-ref (pkg-idx ok-version-indices ok-version-idx) #:transparent)
 
 
 
@@ -149,16 +164,27 @@
 ; generate-fin generates a symbolic integer x such that 0 <= x < n
 
 ;; TODO: purpose
+;;; (define (generate-fin n)
+;;;   (if
+;;;    (< n 1)
+;;;    (bv 0 (bitvector 1))
+;;;    (begin
+;;;      (define num-bits (integer-length n))
+;;;      (define bv-n (bv n (bitvector num-bits)))
+;;;      (define-symbolic* x (bitvector num-bits))
+;;;      (assert (bvule x bv-n))
+;;;      x)))
 (define (generate-fin n)
   (if
-   (< n 1)
+   (= n 1)
    (bv 0 (bitvector 1))
    (begin
-     (define num-bits (integer-length n))
-     (define bv-n (bv n (bitvector num-bits)))
+     (define num-bits (integer-length (- n 1)))
+     (define bv-n (bv (- n 1) (bitvector num-bits)))
      (define-symbolic* x (bitvector num-bits))
      (assert (bvule x bv-n))
      x)))
+
 
 ; (apply choose* (range n))) ;; TODO: play with representation
 
@@ -173,14 +199,31 @@
         [-1 (void)]
         [pkg-idx
          (begin
+           ;; TODO: Clean this up, do it in one pass?
+           (define vers-vec (parsed-package-pv-vec (vector-ref (registry-vec (query-registry query)) pkg-idx)))
            (define vers-sat
              (vector-map (lambda (v-p) ((dep-constraint dep) (parsed-package-version-version v-p)))
                          (parsed-package-pv-vec (vector-ref (registry-vec (query-registry query)) pkg-idx))))
-           (define num-vers-sat (count identity (vector->list vers-sat)))
-           (edge
-            num-vers-sat
-            pkg-idx
-            (generate-fin num-vers-sat)))]
+           (define ok-vers-indices
+            (vector-map (lambda (p) (first p))
+              (vector-filter
+                (lambda (p) (second p))
+                (vector-map 
+                  (lambda (is-sat i) (list i is-sat)) 
+                  vers-sat 
+                  (range (vector-length vers-sat))))))
+          
+          ;;;  (define num-vers-sat (count identity (vector->list vers-sat)))
+          ;;;  (define ok-versions (vector-filter 
+          ;;;   (lambda (v-p) ((dep-constraint dep) (parsed-package-version-version v-p))) 
+          ;;;   vers-vec))
+           (if 
+            (= (vector-length ok-vers-indices) 0)
+            (void)
+            (edge
+              pkg-idx
+              ok-vers-indices
+              (generate-fin (vector-length ok-vers-indices)))))]
         ))
     deps)
    ts))
