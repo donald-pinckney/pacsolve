@@ -6,8 +6,9 @@
 
 
 ; package-idx is NON symbolic integer
+; num-vers is a NON symbolic integer
 ; version-idx is symbolic integer/bitvector
-(struct edge (package-idx version-idx) #:transparent)
+(struct edge (package-idx num-vers version-idx) #:transparent)
 
 ; A maybe-edge is one of:
 ; - (edge package-idx version-idx)
@@ -40,7 +41,7 @@
 
 (struct package-group-ref (pkg-idx) #:transparent)
 (struct node-ref-context () #:transparent)
-(struct node-ref-normal (pkg-idx version-idx) #:transparent)
+(struct node-ref-normal (pkg-idx num-vers version-idx) #:transparent)
 
 
 ; context-node is a node
@@ -79,6 +80,7 @@
               (void)
               (node-ref-normal
                (edge-package-idx e)
+               (edge-num-vers e)
                (edge-version-idx e))))
         edges))
 
@@ -94,6 +96,7 @@
    (define (normal-node/get-data g node-ref)
      (define the-version-node (graph/normal-node-ref g node-ref))
      (normal-node-data
+      ;; TODO : what do we give it here for *num-vers* ?
       (package-group-ref (node-ref-normal-pkg-idx node-ref))
       (version-node-version the-version-node)
       (version-node-cost-values the-version-node)
@@ -175,6 +178,7 @@
                          (parsed-package-pv-vec (vector-ref (registry-vec (query-registry query)) pkg-idx))))
            (define num-vers-sat (count identity (vector->list vers-sat)))
            (edge
+            num-vers-sat
             pkg-idx
             (generate-fin num-vers-sat)))]
         ))
