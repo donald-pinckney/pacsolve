@@ -29,20 +29,23 @@ suppressMessages(library(extrafont))
 library(fontcm)
 ```
 
-```{r dirs old}
-#knitr::opts_knit$set(root.dir = "/mnt/data/arjun/repos/dependency-runner/slurm")
-#data_root <- "/mnt/data/arjun/scratch/npm"
-#results_root <- "/mnt/data/arjun/repos/papers/minnpm/paper/figs_and_tables"
-#results_tex <- str_c(results_root, "/results.tex")
-
-#write("% These are results from the R Notebook.", results_tex, append=FALSE)
-#write("% Run the notebook from top to bottom", results_tex, append=TRUE)
-```
-
 ```{r dirs}
-knitr::opts_knit$set(root.dir = "/work/arjunguha-research-group/pacsolve/slurm") # "/mnt/data/arjun/repos/dependency-runner/slurm"
-data_root <- "/scratch/pinckney.d/apr-10-more-combos" # "/mnt/data/arjun/scratch/npm"
-results_root <- "/scratch/pinckney.d/apr-10-more-combos-results" # "/mnt/data/arjun/repos/papers/minnpm/paper/figs_and_tables"
+data_root <- "/home/donald/data-from-discovery-rsync/apr-10-more-combos"
+
+perf_root <- "/home/donald/apr-10-more-combos-2"
+oldness_root <- str_c(data_root, "-results")
+
+
+results_root <- str_c(data_root, "-number-results")
+dir.create(results_root, showWarnings = FALSE)
+
+tables_dir <- str_c(data_root, "-tables")
+dir.create(tables_dir, showWarnings = FALSE)
+
+plots_dir <- str_c(data_root, "-plots")
+dir.create(plots_dir, showWarnings = FALSE)
+
+
 results_tex <- str_c(results_root, "/results.tex")
 
 write("% These are results from the R Notebook.", results_tex, append=FALSE)
@@ -70,13 +73,14 @@ mytheme <- function() {
              legend.spacing = unit(0.001, "in"),
              legend.key.size = unit(0.2, "in"),
              legend.title = element_blank(),
-             legend.position = c(0.9, .7),
+             legend.position = c(0.75, .7),
              legend.background = element_blank()))
 }
 
 mysave <- function(filename) {
-  ggsave(filename, width=3, height=3, units=c("in"))
-  # embed_font(filename)
+  path <- str_c(plots_dir, "/", filename)
+  ggsave(path, width=3, height=3, units=c("in"))
+  # embed_font(path)
 }
 
 ```
@@ -164,9 +168,44 @@ failure_analysis <- raw_data %>%
   rename(Minimization = Minimize) %>%
   select(-Rosette) %>%
   relocate(Solver,Consistency,DisallowCycles,Minimization,Unsat,Timeout,Other)
-print(xtable(as.data.frame(failure_analysis), type="latex"), include.rownames=FALSE, file="failures.tex")
+print(xtable(as.data.frame(failure_analysis), type="latex"), include.rownames=FALSE, file=str_c(tables_dir, "/", "failures.tex"))
 knitr::kable(failure_analysis)
 ```
+
+
+Results for the paper. These exclude PIP
+
+```{r}
+failure_summary <- failure_analysis %>% 
+    mutate(Total = Unsat + Timeout + Other) %>%
+  filter(Solver == "NPM" | Consistency == "npm") %>%
+  select(Solver, Total, Consistency) %>%
+  group_by(Solver) %>%
+  summarize(Min = min(Total), Max = max(Total))
+    
+write(
+  str_c("\\newcommand{\\dataNumNPMFailures}{", 
+        failure_summary %>% filter(Solver == "NPM") %>% select(Max),
+        "}\n"),
+  results_tex, append = TRUE)
+
+write(
+  str_c("\\newcommand{\\dataMinMinNPMFailures}{", 
+        failure_summary %>% filter(Solver == "MinNPM") %>% select(Min),
+        "}\n"),
+  results_tex, append = TRUE)
+
+write(
+  str_c("\\newcommand{\\dataMaxMinNPMFailures}{", 
+        failure_summary %>% filter(Solver == "MinNPM") %>% select(Max),
+        "}\n"),
+  results_tex, append = TRUE)
+
+
+
+```
+
+
 
 Projects that produced a Z3 unsat with Pip-consistency, but succeeded with
 Npm-consistency:
@@ -176,12 +215,14 @@ requires_multiple_versions <- raw_data %>%
   filter(Rosette == TRUE &
            Consistency == "pip" &
            Minimize == "min_oldness,min_num_deps" &
+           DisallowCycles == "allow_cycles" &
            Status != "success") %>%
   select(Project) %>%
   inner_join(raw_data %>%
                filter(Rosette == TRUE &
                         Consistency == "npm" &
                         Minimize == "min_oldness,min_num_deps" &
+                        DisallowCycles == "allow_cycles" &
                         Status == "success") %>%
                select(Project))
 requires_multiple_versions
@@ -205,19 +246,21 @@ minnpm_succeeds_npm_fails <- raw_data %>%
   filter(Rosette == TRUE &
            Consistency == "npm" &
            Minimize == "min_oldness,min_num_deps" &
+           DisallowCycles == "allow_cycles" &
            Status != "success") %>%
   select(Project, Status) %>%
   inner_join(raw_data %>%
                filter(Rosette == FALSE &
                         Status == "success") %>%
                select(Project))
-knitr::kable(minnpm_succeeds_npm_fails)
+
+minnpm_succeeds_npm_fails
 ```
 
 ```{r}
 nrow(minnpm_succeeds_npm_fails)
-
 ```
+
 
 Projects that succeeded with MinNPM in NPM mode, but failed with NPM. The
 Status column shows the status with NPM. I've more carefully parsed the
@@ -229,6 +272,7 @@ raw_data %>%
   filter(Rosette == TRUE &
            Consistency == "npm" &
            Minimize == "min_oldness,min_num_deps" &
+           DisallowCycles == "allow_cycles" &
            Status == "success") %>%
   select(Project, NDeps) %>%
   inner_join(raw_data %>%
@@ -239,57 +283,105 @@ raw_data %>%
 ```
 
 
-
-#  The Need for Tree-Solving
-
-NPM uses a tree-solver because its easy to resolve conflicts. But, how many conflicts do you see with MinNPM in PIP mode?
-
-<span style="color:red">TODO: Need to process output further to distinguish these errors.</span>
-
 # Can MinNPM produce fewer dependencies than NPM?
 
 For each project, the number of dependencies with vanilla NPM, and with MinNPM
 configured to minimize #deps and oldness, in that order.
 ```{r}
-min_dep_analysis <- bind_rows(raw_data %>% 
+min_dep_analysis_tmp <-
+  bind_rows(raw_data %>% 
             filter(Rosette == FALSE & Status == "success") %>% 
             select(Project,NDeps) %>% 
             mutate(Solver="NPM"),
           raw_data %>% 
-            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" &
+            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" & DisallowCycles == "allow_cycles" &
                    Minimize == "min_num_deps,min_oldness") %>%
             select(Project, NDeps) %>%
-            mutate(Solver="MinDeps")) %>%
+            mutate(Solver="NPM_MinDepsOldness"),
+          raw_data %>% 
+            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" & DisallowCycles == "allow_cycles" &
+                   Minimize == "min_oldness") %>%
+            select(Project, NDeps) %>%
+            mutate(Solver="NPM_MinOldness"),
+          raw_data %>% 
+            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" & DisallowCycles == "allow_cycles" &
+                   Minimize == "min_duplicates,min_oldness") %>%
+            select(Project, NDeps) %>%
+            mutate(Solver="NPM_MinDuplicatesOldness"),
+          raw_data %>% 
+            filter(Rosette == TRUE & Status == "success" & Consistency == "pip" & DisallowCycles == "allow_cycles" &
+                   Minimize == "min_oldness") %>%
+            select(Project, NDeps) %>%
+            mutate(Solver="PIP_MinOldness"),
+          raw_data %>% 
+            filter(Rosette == TRUE & Status == "success" & Consistency == "cargo" & DisallowCycles == "allow_cycles" &
+                   Minimize == "min_oldness") %>%
+            select(Project, NDeps) %>%
+            mutate(Solver="Cargo_MinOldness")) %>%
   pivot_wider(values_from=NDeps, names_from=Solver) %>%
-  mutate(Delta = NPM - MinDeps) %>%
-  mutate(Shrinkage = MinDeps / NPM) %>%
+  filter(NPM>0) %>%
+
+  mutate(NPM_NPM_MinDepsOldness_Delta = NPM - NPM_MinDepsOldness) %>%
+  mutate(NPM_NPM_MinDepsOldness_Shrinkage = NPM_MinDepsOldness / NPM) %>%
+
+  mutate(NPM_NPM_MinOldness_Delta = NPM - NPM_MinOldness) %>%
+  mutate(NPM_NPM_MinOldness_Shrinkage = NPM_MinOldness / NPM) %>%
+
+  mutate(NPM_NPM_MinDuplicatesOldness_Delta = NPM - NPM_MinDuplicatesOldness) %>%
+  mutate(NPM_NPM_MinDuplicatesOldness_Shrinkage = NPM_MinDuplicatesOldness / NPM) %>%
+  
+  mutate(NPM_PIP_MinOldness_Delta = NPM - PIP_MinOldness) %>%
+  mutate(NPM_PIP_MinOldness_Shrinkage = PIP_MinOldness / NPM) %>%
+
+  mutate(NPM_Cargo_MinOldness_Delta = NPM - Cargo_MinOldness) %>%
+  mutate(NPM_Cargo_MinOldness_Shrinkage = Cargo_MinOldness / NPM) %>%
+  
   na.omit()
-min_dep_analysis
+  
+min_dep_analysis_shrinkage <-
+  min_dep_analysis_tmp %>%
+  pivot_longer(cols = ends_with("Shrinkage"), names_to="shrinkage_comparison", values_to="Shrinkage") %>%
+  mutate(Comparison=shrinkage_comparison) %>%
+  select(Project,Comparison, Shrinkage)
+
+min_dep_analysis_delta <-
+  min_dep_analysis_tmp %>%
+  pivot_longer(cols = ends_with("Delta"), names_to="delta_comparison", values_to="Delta") %>%
+  mutate(Comparison=delta_comparison) %>%
+  select(Project,Comparison, Delta)
+
+min_dep_analysis_shrinkage
 ```
 
 These are cases where MinNPM produces significantly fewer dependences than
 NPM. We may want to dig into them further to explain why:
 ```{r}
-min_dep_analysis %>% 
+min_dep_analysis_delta %>% 
+  filter(Comparison=='NPM_NPM_MinDepsOldness_Delta') %>%
   arrange(desc(Delta)) %>%
-  filter(Delta > 25) %>%
-  knitr::kable()
+  filter(Delta > 25)
 ```
 
 These are potentially bad cases, where MinNPM produces more dependencies than
 NPM:
 
 ```{r}
-min_dep_analysis %>% arrange(Delta) %>% filter(Delta < 0)
+min_dep_analysis_delta %>% arrange(Delta) %>% filter(Delta < 0)
 ```
 
 *WARNING: This filters out the bogus result above.*
 
 ```{r}
-min_dep_analysis %>% 
-  select(Shrinkage) %>%
+min_dep_analysis_shrinkage %>% 
   filter(Shrinkage <= 1.0) %>%
-  ggplot(aes(Shrinkage)) +
+  filter(Comparison == "NPM_NPM_MinDepsOldness_Shrinkage" | Comparison == "NPM_NPM_MinOldness_Shrinkage") %>%
+  mutate(Comparison = recode(Comparison, 
+                             NPM_Cargo_MinOldness_Shrinkage="Cargo",
+                             NPM_NPM_MinDepsOldness_Shrinkage="Min Deps",
+                             NPM_NPM_MinDuplicatesOldness_Shrinkage="MinDuplicates",
+                             NPM_NPM_MinOldness_Shrinkage="Min Oldness",
+                             NPM_PIP_MinOldness_Shrinkage="PIP vs. NPM")) %>%
+  ggplot(aes(Shrinkage, colour=Comparison)) +
   stat_ecdf() +
   ylab("Percentange of packages") +
   xlab("Fraction of dependencies") +
@@ -297,11 +389,53 @@ min_dep_analysis %>%
 mysave("shrinkage.pdf")
 ```
 
-*What fraction of packages can we shrink? This goes in the paper.*
+and a histogram version...
 
 ```{r}
-fraction_shrinking <- nrow(
-  min_dep_analysis %>% filter(Shrinkage < 1)) / nrow(min_dep_analysis)
+# min_dep_analysis_shrinkage %>% 
+#   filter(Shrinkage <= 1.0) %>%
+#   filter(Comparison == 'NPM_NPM_MinDepsOldness_Shrinkage') %>%
+#   ggplot(aes(Shrinkage)) +
+#   geom_histogram(aes(y=..ndensity..),binwidth=0.1) +
+#   ylab("Count of packages") +
+#   xlab("Fraction of dependencies") +
+#   mytheme()
+# mysave("shrinkage_hist.pdf")
+```
+
+*What fraction of packages can we shrink? This goes in the paper.*
+
+
+```{r}
+group_counts <- min_dep_analysis_shrinkage %>% group_by(Comparison) %>% summarize(n = n())
+
+shrink_group_counts <- min_dep_analysis_shrinkage %>% filter(Shrinkage < 1) %>% group_by(Comparison) %>% summarize(n_shrunk = n())
+largen_group_counts <- min_dep_analysis_shrinkage %>% filter(Shrinkage > 1) %>% group_by(Comparison) %>% summarize(n_largen = n())
+
+shrinkage_table <- group_counts %>% 
+  inner_join(shrink_group_counts) %>% 
+  inner_join(largen_group_counts) %>%
+  mutate(percent_shrunk=100 * n_shrunk / n) %>%
+  mutate(percent_larger=100 * n_largen / n) %>%
+  mutate(Comparison = recode(Comparison, 
+                             NPM_Cargo_MinOldness_Shrinkage="Cargo; min_oldness", 
+                             NPM_PIP_MinOldness_Shrinkage="PIP; min_oldness",
+                             NPM_NPM_MinOldness_Shrinkage="NPM; min_oldness,min_num_deps",
+                             NPM_NPM_MinDepsOldness_Shrinkage="NPM; min_num_deps,min_oldness",
+                             NPM_NPM_MinDuplicatesOldness_Shrinkage="NPM; min_duplicates,min_oldness")) %>%
+  arrange(desc(percent_shrunk)) %>%
+  rename('# Shrunk (of 477)' = n_shrunk, '# Enlarged (of 477)' = n_largen, Configuration = Comparison) %>%
+  select(Configuration, '# Shrunk (of 477)', '# Enlarged (of 477)')
+shrinkage_table
+
+print(xtable(as.data.frame(shrinkage_table), type="latex"), include.rownames=FALSE, file=str_c(tables_dir, "/", "shinkage_combos.tex"))
+knitr::kable(shrinkage_table)
+```
+
+```{r}
+one_comparison <- min_dep_analysis_shrinkage %>% filter(Comparison == 'NPM_NPM_MinDepsOldness_Shrinkage')
+
+fraction_shrinking <- nrow(one_comparison %>% filter(Shrinkage < 1)) / nrow(one_comparison)
 write(
   str_c("\\newcommand{\\dataFractionShrinking}{", 
         round(fraction_shrinking * 100),
@@ -322,29 +456,76 @@ _deps > oldness_npm_oldness_deps.csv
 Raw data
 ```{r}
 oldness_data <- bind_rows(
-  read_csv(paste(data_root, "/oldness_vanilla.csv", sep=""),
+  read_csv(paste(oldness_root, "/oldness/vanilla.csv", sep=""),
     col_types = cols(Package=col_factor(),
                      Oldness=col_double()),
     show_col_types = FALSE) %>%
     mutate(Solver = "NPM"),
-  read_csv(paste(data_root, "/oldness_npm_oldness_deps.csv", sep=""),
+  read_csv(paste(oldness_root, "/oldness/rosette-npm-allow_cycles-min_oldness-min_num_deps.csv", sep=""),
     col_types = cols(Package=col_factor(),
                      Oldness=col_double()),
     show_col_types = FALSE) %>%
-    mutate(Solver = "MinNPM"))
-
+    mutate(Solver = "MinOldness"),
+  read_csv(paste(oldness_root, "/oldness/rosette-npm-allow_cycles-min_num_deps-min_oldness.csv", sep=""),
+    col_types = cols(Package=col_factor(),
+                     Oldness=col_double()),
+    show_col_types = FALSE) %>%
+    mutate(Solver = "MinNumDeps")) %>%
+  mutate(Project=Package) %>%
+  select(Project,Oldness,Solver)
 ```
+
 
 ```{r}
 oldness_by_pkg <- oldness_data %>% 
   pivot_wider(values_from = Oldness, names_from=Solver)
-better_oldness <- nrow(oldness_by_pkg  %>% filter(MinNPM < NPM)) /
+
+npm_success_non_trivial <- raw_data %>% 
+  filter(Rosette == FALSE & Status == "success") %>% 
+  filter(NDeps > 0) %>%
+  select(Project)
+
+min_oldenss_success_non_trivial <- raw_data %>% 
+  filter(Rosette == TRUE & 
+           Status == "success" & 
+           Consistency == "npm" & 
+           DisallowCycles == "allow_cycles" & 
+           Minimize == "min_oldness,min_num_deps") %>% 
+  filter(NDeps > 0) %>%
+  select(Project)
+
+min_num_deps_success_non_trivial <- raw_data %>% 
+  filter(Rosette == TRUE & 
+           Status == "success" & 
+           Consistency == "npm" & 
+           DisallowCycles == "allow_cycles" & 
+           Minimize == "min_num_deps,min_oldness") %>% 
+  filter(NDeps > 0) %>%
+  select(Project)
+
+all_success_non_trivial <- npm_success_non_trivial %>% inner_join(min_oldenss_success_non_trivial) %>% inner_join(min_num_deps_success_non_trivial)
+
+oldness_by_pkg_success_non_trivial <- oldness_by_pkg %>% inner_join(all_success_non_trivial)
+```
+
+
+```{r}
+better_oldness <- nrow(oldness_by_pkg_success_non_trivial  %>% filter(MinOldness < NPM)) /
+  nrow(oldness_by_pkg_success_non_trivial)
+worse_oldness <- nrow(oldness_by_pkg_success_non_trivial  %>% filter(MinOldness > NPM)) /
   nrow(oldness_by_pkg)
 write(
   str_c("\\newcommand{\\dataFractionNewer}{", 
         round(better_oldness * 100),
         "\\%}\n"),
   results_tex, append=TRUE)
+better_oldness
+write(
+  str_c("\\newcommand{\\dataFractionOlder}{", 
+        round(worse_oldness * 100),
+        "\\%}\n"),
+  results_tex, append=TRUE)
+worse_oldness
 ```
 
 
@@ -352,8 +533,9 @@ write(
 oldness_data %>%
   filter(!is.nan(Oldness)) %>%
   pivot_wider(names_from=Solver, values_from=Oldness) %>%
-  mutate(Delta = NPM - MinNPM) %>%
-  mutate(Ratio = MinNPM / NPM) %>%
+  select(!MinNumDeps) %>%
+  mutate(Delta = NPM - MinOldness) %>%
+  mutate(Ratio = MinOldness / NPM) %>%
   filter(Delta > 0)
 ```
 
@@ -361,7 +543,7 @@ oldness_data %>%
 oldness_data %>%
   filter(!is.nan(Oldness)) %>%
   pivot_wider(names_from=Solver, values_from=Oldness) %>%
-  ggplot(aes(x=NPM,y=MinNPM)) + 
+  ggplot(aes(x=NPM,y=MinOldness)) + 
   geom_point(shape=4, size=1.5) + 
   geom_segment(aes(x = 0, y = 0, xend = 1, yend = 1), size=0.02, color="red") +
   xlab("Oldness with NPM") +
@@ -372,25 +554,103 @@ mysave("oldness_scatterplot.pdf")
 
 ```
 
-# Performance Analysis
+
+# Do packages get smaller?
+
 
 ```{r}
-slowdowns <- read_csv(paste(data_root,"/vanilla/performance.csv",sep=""),
-         col_types = cols(Package = col_factor(), Time = col_double()),
+vanilla_sizes <- read_tsv("/home/donald/vanilla_sizes.tsv", col_names = c("Size", "Project"), show_col_types = FALSE)
+min_deps_sizes <- read_tsv("/home/donald/npm_min_num_deps.tsv", col_names = c("Size", "Project"), show_col_types = FALSE)
+min_oldness_sizes <- read_tsv("/home/donald/npm_min_oldness.tsv", col_names = c("Size", "Project"), show_col_types = FALSE)
+min_duplicates_sizes <- read_tsv("/home/donald/npm_min_duplicates.tsv", col_names = c("Size", "Project"), show_col_types = FALSE)
+
+ok_projects <- raw_data %>% 
+  filter(Rosette == FALSE & Status == "success") %>% 
+  select(Project) %>%
+  inner_join(raw_data %>% 
+            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" &
+                   Minimize == "min_num_deps,min_oldness") %>%
+            select(Project)) %>%
+  inner_join(raw_data %>% 
+            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" &
+                   Minimize == "min_oldness,min_num_deps") %>%
+            select(Project)) %>%
+  inner_join(raw_data %>% 
+            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" &
+                   Minimize == "min_duplicates,min_oldness") %>%
+            select(Project))
+
+size_per_project_solver <- ok_projects %>% 
+  inner_join(vanilla_sizes) %>% rename(NPM = Size) %>%
+  inner_join(min_deps_sizes) %>% rename(MinDeps = Size) %>%
+  inner_join(min_oldness_sizes) %>% rename(MinOldness = Size) %>%
+  inner_join(min_duplicates_sizes) %>% rename(MinDuplicates = Size)
+
+```
+
+```{r}
+size_shrinkage <- size_per_project_solver %>%
+  mutate(ShrinkageMinDeps = MinDeps / NPM,
+         ShrinkageMinOldness = MinOldness / NPM,
+         ShrinkageMinDuplicates = MinDuplicates / NPM) 
+           
+mean(size_shrinkage$ShrinkageMinDeps)
+mean(size_shrinkage$ShrinkageMinOldness)
+mean(size_shrinkage$ShrinkageMinDuplicates)
+```
+
+
+```{r}
+size_shrinkage %>% 
+  select(Project,ShrinkageMinDeps,ShrinkageMinOldness,ShrinkageMinDuplicates) %>%
+  pivot_longer(cols = starts_with("Shrinkage"), names_to="Config", values_to="Shrinkage") %>%
+  filter(Config=="ShrinkageMinDeps") %>%
+  ggplot(aes(x=Shrinkage)) + stat_ecdf() + mytheme() + xlab("Fraction of size on disk") + ylab("Percentage of packages")
+
+mysave("disk_shrinkage_ecdf.pdf")
+```
+
+```{r}
+# size_shrinkage %>% 
+#   select(Project,ShrinkageMinDeps,ShrinkageMinOldness,ShrinkageMinDuplicates) %>%
+#   pivot_longer(cols = starts_with("Shrinkage"), names_to="Config", values_to="Shrinkage") %>%
+#   filter(Config=="ShrinkageMinDeps") %>%
+#   ggplot(aes(x=Shrinkage)) + stat_ecdf() + mytheme() + xlim(0, 1.2)
+# 
+# mysave("disk_shrinkage_no_outliers_ecdf.pdf")
+```
+
+# Performance Analysis
+
+
+```{r}
+slowdowns <- read_csv(paste(perf_root,"/vanilla-perf.csv",sep=""),
+         col_names = c("Project", "Time"),
+         col_types = cols(Project = col_factor(), Time = col_double()),
          show_col_types = FALSE) %>%
-  group_by(Package) %>%
+  group_by(Project) %>%
   summarise(NPM = mean(Time)) %>%
   ungroup() %>%
   inner_join(
-    read_csv(paste(data_root,"/rosette/npm/min_oldness,min_num_deps/performance.csv",sep=""),
-             col_types = cols(Package = col_factor(), Time = col_double()),
+    read_csv(paste(perf_root,"/rosette-perf.csv",sep=""),
+             col_names = c("Project", "Time"),
+             col_types = cols(Project = col_factor(), Time = col_double()),
              show_col_types = FALSE) %>%
-        group_by(Package) %>%
+        group_by(Project) %>%
       summarise(MinNPM = mean(Time)) %>%
       ungroup()) %>%
   mutate(Slowdown = MinNPM - NPM) %>%
-  select(Package, Slowdown)
+  select(Project, Slowdown)
+```
 
+
+```{r}
+new_slows <- slowdowns %>% filter(Slowdown > 15)
+new_slows
+```
+
+
+```{r}
 slowdowns %>% ggplot(aes(x=Slowdown)) + 
   stat_ecdf() +
   xlab("Additional time taken with MinNPM (s)") +
@@ -400,18 +660,41 @@ slowdowns %>% ggplot(aes(x=Slowdown)) +
 mysave("slowdown_ecdf.pdf")
 ```
 
+```{r}
+slowdowns %>% ggplot(aes(x=Slowdown)) + 
+  stat_ecdf() +
+  xlab("Additional time taken with MinNPM (s)") +
+  ylab("Percentage of packages") +
+  mytheme() + xlim(0, 20)
+
+mysave("slowdown_ecdf_no_outliers.pdf")
+```
+
 Reported in paper:
 
 ```{r}
+mean_slowdown <- round(mean(na.omit(slowdowns$Slowdown)), digits = 1)
+median_slowdown <- round(median(na.omit(slowdowns$Slowdown)), digits = 1)
+max_slowdown <- round(max(na.omit(slowdowns$Slowdown)), digits = 1)
+
 write(
   str_c("\\newcommand{\\dataMeanSlowdown}{", 
-        round(mean(na.omit(slowdowns$Slowdown)), digits = 1),
+        mean_slowdown,
+        "s}\n"),
+  results_tex, append=TRUE)
+write(
+  str_c("\\newcommand{\\dataMedianSlowdown}{", 
+        median_slowdown,
         "s}\n"),
   results_tex, append=TRUE)
 write(
   str_c("\\newcommand{\\dataMaxSlowdown}{", 
-        round(max(na.omit(slowdowns$Slowdown)), digits = 1),
+        max_slowdown,
         "s}\n"),
   results_tex, append=TRUE)
+
+mean_slowdown
+median_slowdown
+max_slowdown
 ```
 
