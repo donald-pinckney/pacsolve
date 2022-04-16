@@ -764,7 +764,7 @@ write(
 
 write(
   str_c("\\newcommand{\\dataFSShrinkageQuartileFirst}{", 
-        round(fs_shrinkage$Quantile25, digits=2),
+        round(100 * fs_shrinkage$Quantile25, digits=2),
         "}\n"),
   results_tex, append=TRUE)
 
