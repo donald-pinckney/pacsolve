@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+
+import sys
+import shlex
+import subprocess
+import os
+import shutil
+
+all_args = sys.argv[1:]
+
+def parse_arg(s):
+    if '=' not in s:
+        return (s, [])
+    name, npm_arg_str = s.split('=')
+    return (name, shlex.split(npm_arg_str))
+
+
+configs = dict([parse_arg(arg) for arg in all_args])
+
+
+def read_file(p):
+    try:
+        with open(p, 'r') as f:
+            return f.read()
+    except IOError:
+        return None
+
+def write_file(p, s):
+    with open(p, 'w') as f:
+        f.write(s)
+
+def delete_file(p):
+    try:
+        os.remove(p)
+    except FileNotFoundError:
+        return
+
+def delete_dir(p):
+    try:
+        shutil.rmtree(p)
+    except FileNotFoundError:
+        return
+
+def run_config_command(name, npm_args):
+    npm_command = ['npm', 'install'] + npm_args
+    print(f"========== ({name}) ==========\n\n Running the command:\n{npm_command}\n\n")
+    subprocess.run(['npm', 'install'] + npm_args)
+    print(f"\n\n========== ({name}) ==========\n\n\n")
+    package_lock = read_file('package-lock.json')
+    package_lock_modules = read_file('node_modules/.package-lock.json')
+   
+    delete_dir('node_modules/')
+    delete_file('package-lock.json')
+
+
+    if package_lock_modules != None:
+        return package_lock_modules
+    elif package_lock != None:
+        return package_lock
+    else:
+        return None
+
+
+package_json = read_file('package.json')
+if package_json == None:
+    sys.exit("ERROR: package.json not found.\nERROR: MUST RUN THIS SCRIPT INSIDE AN NPM PACKAGE!")
+
+delete_dir('node_modules/')
+delete_file('package-lock.json')
+
+for name, npm_args in configs.items():
+    result = run_config_command(name, npm_args)
+    if result == None:
+        result = '{"error": true}\n'
+    write_file(f"result-{name}.json", result)
+
