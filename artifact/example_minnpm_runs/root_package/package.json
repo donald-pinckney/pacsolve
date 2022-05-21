@@ -8,5 +8,5 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": { "lodash": "*"}
+  "dependencies": {}
 }
