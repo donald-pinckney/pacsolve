@@ -1,5 +1,8 @@
 import ShellOut
 
+
+let SCOPE_STR = "@oopsla2022-artifact-testing"
+
 private class NpmBasedPackageManager {
     let dirManager: GenDirManager
     let lazyContextSetupCommand: String?
@@ -21,7 +24,10 @@ private class NpmBasedPackageManager {
 
 
 extension NpmBasedPackageManager : InternalPackageManager {
-    var shouldRenameVars: Bool { isReal }
+    var shouldRenameVars: Bool { 
+        false
+        // isReal 
+    }
     
     func startup() {
         if !isReal {
@@ -74,12 +80,12 @@ extension NpmBasedPackageManager : InternalPackageManager {
         if isReal {
             yankCommand =
             """
-                npm deprecate @wtcbkjbuzrbl/\(package)@\(version) "x"
+                npm deprecate \(SCOPE_STR)/\(package)@\(version) "x"
             """
         } else {
             yankCommand =
             """
-                npm deprecate --registry http://localhost:4873 @wtcbkjbuzrbl/\(package)@\(version) "x"
+                npm deprecate --registry http://localhost:4873 \(SCOPE_STR)/\(package)@\(version) "x"
             """
         }
         
@@ -148,13 +154,14 @@ class NpmSolveContext {
 
 extension NpmBasedPackageManager : TemplateManagerDelegate {
     func templateSubstitutionsFor(package: Package, version: Version, dependencies: [DependencyExpr]) throws -> [String : String] {
-        let scopeStr = isReal ? "@wtcbkjbuzrbl/" : ""
-        let prodDepStrings = try dependencies.filter { $0.depType == .prod }.map { try $0.npmFormat(isReal: isReal) }
-        let devDepStrings = try dependencies.filter { $0.depType == .dev }.map { try $0.npmFormat(isReal: isReal) }
-        let peerDepStrings = try dependencies.filter { $0.depType == .peer }.map { try $0.npmFormat(isReal: isReal) }
-        let optionalDepStrings = try dependencies.filter { $0.depType == .optional }.map { try $0.npmFormat(isReal: isReal) }
+        let scopeStr = SCOPE_STR
+        let prodDepStrings = try dependencies.filter { $0.depType == .prod }.map { try $0.npmFormat() }
+        let devDepStrings = try dependencies.filter { $0.depType == .dev }.map { try $0.npmFormat() }
+        let peerDepStrings = try dependencies.filter { $0.depType == .peer }.map { try $0.npmFormat() }
+        let optionalDepStrings = try dependencies.filter { $0.depType == .optional }.map { try $0.npmFormat() }
 
         return [
+            "$SCOPE_STR" : scopeStr,
             "$NAME_STRING" : package.description,
             "$VERSION_STRING" : version.description,
             "$DEPENDENCIES_PROD_JSON_FRAGMENT" : prodDepStrings.joined(separator: ", \n"),
@@ -163,7 +170,6 @@ extension NpmBasedPackageManager : TemplateManagerDelegate {
             "$DEPENDENCIES_OPTIONAL_JSON_FRAGMENT" : optionalDepStrings.joined(separator: ", \n"),
             "$DEPENDENCY_IMPORTS" : dependencies.map() { "const \($0.packageToDependOn) = require('\(scopeStr)\($0.packageToDependOn)');" }.joined(separator: "\n"),
             "$DEPENDENCY_TREE_CALLS" : dependencies.map() { "\($0.packageToDependOn).dep_tree(indent + 1, do_inc);" }.joined(separator: "\n    "),
-            "$NPM_AUTH_TOKEN": "6fc635a8-73e4-4ac7" + "-8198-4b78fc489362"
         ]
     }
 }
@@ -204,13 +210,8 @@ extension ConstraintExpr {
 }
 
 extension DependencyExpr {
-    func npmFormat(isReal: Bool) throws -> String {
-        if isReal {
-            return "\"@wtcbkjbuzrbl/\(self.packageToDependOn)\": \"\(try self.constraint.npmFormat())\""
-        } else {
-            return "\"\(self.packageToDependOn)\": \"\(try self.constraint.npmFormat())\""
-
-        }
+    func npmFormat() throws -> String {
+        return "\"\(SCOPE_STR)/\(self.packageToDependOn)\": \"\(try self.constraint.npmFormat())\""
     }
 }
 
