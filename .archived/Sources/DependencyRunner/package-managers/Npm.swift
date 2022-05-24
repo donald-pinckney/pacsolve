@@ -1,7 +1,7 @@
 import ShellOut
 
 
-let SCOPE_STR = "@oopsla2022-artifact-testing"
+let SCOPE_STR = "@minnpm-artifact-examples"
 
 private class NpmBasedPackageManager {
     let dirManager: GenDirManager
