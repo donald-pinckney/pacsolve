@@ -155,11 +155,15 @@ tail -n +1 result-*.json
 ```
 
 > Expected result: All solves except `minnpm-pip` should succeed. 
-`result-vanilla.json` and `result-minnpm-npm.json` should match the solution graph of policy (1) above, 
-and `result-cargo.json` should match the solution graph of policy (2) above.
+One can read through `result-vanilla.json` and `result-minnpm-npm.json` and check that they solution graph of policy (1) above, 
+and that `result-cargo.json` matches the solution graph of policy (2) above.
 
 
 **Step 10:**
 ```bash
 popd
 ```
+
+
+## Example #3: MinNPM can Allow or Disallow Cyclic Solutions
+
