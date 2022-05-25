@@ -167,3 +167,12 @@ popd
 
 ## Example #3: MinNPM can Allow or Disallow Cyclic Solutions
 
+TODO
+
+## Example #4: MinNPM can Minimize Oldness
+
+TODO
+
+## Example #5: MinNPM can Minimize Number of Dependencies
+
+TODO
