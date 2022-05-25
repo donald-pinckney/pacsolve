@@ -110,15 +110,18 @@
 <p><strong>General layout of the artifact</strong>: All of the code for PacSolve / MinNPM is in the directory <code>~/Desktop/pacsolve</code>. Within that directory, the following sub-directories are of interest:</p>
 <ul>
 <li>
-<code>artifact/</code> contains this README, as well as a series of examples illustrating the functionality of MinNPM.</li>
+<code>artifact/</code> contains this document, as well as a series of examples illustrating the functionality of MinNPM.</li>
 <li>
 <code>arborist/</code> and <code>npm/</code> contain the source code of our forks of NPM, which have been modified to solve dependencies by invoking PacSolve.</li>
 <li>
 <code>RosetteSolver/</code> contains the source code of PacSolve, which implements a flexible depenendency solving backend via translate to Max-SMT.</li>
 </ul>
-<p><em>Organization:</em> The rest of this README will proceed by following the series of examples contained in <code>artifact/</code>, to gain an understanding of how MinNPM functions on examples. <strong>Every single command</strong> which you are required to run will be annotated with a Step Number and command, like so:</p>
+<p><em>How to read this document:</em> The rest of this document will proceed by following the series of examples contained in <code>artifact/</code>, to gain an understanding of how MinNPM functions on examples. <strong>Every single command</strong> which you are required to run will be annotated with a Step Number, some shell commands, and possible a box describing the expected command results, like so:</p>
 <p><strong>Step 0:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span></pre></div>
+<blockquote>
+<p>Expected result: should print 'example' to the terminal</p>
+</blockquote>
 <h2>
 <a id="user-content-getting-to-the-right-directory" class="anchor" href="#getting-to-the-right-directory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting to the Right Directory</h2>
 <p><strong>Step 1:</strong>
@@ -127,7 +130,71 @@ On the Desktop of the virtual machine, double click QTerminal, and then run:</p>
 <p>From here on out, all commands will be run inside this shell.</p>
 <h2>
 <a id="user-content-example-1-checking-that-minnpm-runs-correctly" class="anchor" href="#example-1-checking-that-minnpm-runs-correctly" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #1: Checking that MinNPM Runs Correctly</h2>
-<p>...</p>
+<p>As a first example, we solve a trivial dependency example to verify that everything runs as expected,
+and to introduce the basic concepts for how to run MinNPM and how to compare outputs with vanilla NPM.</p>
+<p>The scenario of the first example is described in this table:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Dep 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root context</td>
+<td><code>a: *</code></td>
+</tr>
+<tr>
+<td><code>a@1.0.0</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>meaning that the root solving context has a single dependency on any version of <code>a</code>, and <code>a</code> version 1.0.0 (the only version) has no dependencies.
+For your reference, the directories inside <code>ex1_minnpm_runs/</code> encode this scenario with NPM packages which have already been uploaded to <code>npmjs.com</code>.
+As an example, package <code>a</code> version <code>1.0.0</code> is described by <code>ex1_minnpm_runs/a@1.0.0/package.json</code>, and has already been published as
+<code>@minnpm-artifact-examples/ex1-a</code> (<a href="https://www.npmjs.com/package/@minnpm-artifact-examples/ex1-a" rel="nofollow">link</a>).</p>
+<p>There is only one possible solution for this example, which is:</p>
+<p><a href="_images/ex1.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex1.png" alt="" style="max-width:100%;"></a></p>
+<p>Let's check that both vanilla NPM and MinNPM find this solution.</p>
+<p><strong>Step 2:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex1_minnpm_runs/root_context</pre></div>
+<p><strong>Step 3:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> Install packages with vanilla NPM</span>
+npm install
+<span class="pl-c"><span class="pl-c">#</span> Save the resulting lockfile, then clear solve results</span>
+cp node_modules/.package-lock.json result-vanilla.json<span class="pl-k">;</span> rm -rf node_modules package-lock.json</pre></div>
+<blockquote>
+<p>Expected result: the install command should succeed. If not, please verify internet connectivity within the VM.</p>
+</blockquote>
+<p><strong>Step 4:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> Install packages with MinNPM</span>
+npm install --minnpm
+<span class="pl-c"><span class="pl-c">#</span> Save the resulting lockfile, then clear solve results</span>
+cp node_modules/.package-lock.json result-minnpm.json<span class="pl-k">;</span> rm -rf node_modules package-lock.json</pre></div>
+<blockquote>
+<p>Expected result: the install command should succeed.</p>
+</blockquote>
+<p><strong>Step 5:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> Look at both results</span>
+cat result-vanilla.json result-minnpm.json</pre></div>
+<blockquote>
+<p>Expected result: both result files should describe the solution graph drawn above, but
+there may be small differences in the result files, including possibly missing tarball URLs.
+This does not affect functionality.</p>
+</blockquote>
+<p>Running both the <code>npm</code> commands and the <code>cp</code> and <code>rm</code> commands each time is tedious, so we have included a script to automate this.
+Let's repeat the above example by using the <code>compare_solvers</code> script:</p>
+<p><strong>Step 6:</strong></p>
+<div class="highlight highlight-source-shell"><pre>compare_solvers vanilla minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span></pre></div>
+<blockquote>
+<p>Expected result: both install commands should succeed, and <code>result-vanilla.json</code> and <code>result-minnpm.json</code> should be produced just as when done manually.</p>
+</blockquote>
+<p><strong>Step 7:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
+<h2>
+<a id="user-content-example-2-using-minnpm-with-different-consistency-criteria" class="anchor" href="#example-2-using-minnpm-with-different-consistency-criteria" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #2: Using MinNPM With Different Consistency Criteria</h2>
 
                       </article>
                     </div>
