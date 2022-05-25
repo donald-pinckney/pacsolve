@@ -39,10 +39,10 @@ and to introduce the basic concepts for how to run MinNPM and how to compare out
 
 The scenario of the first example is described in this table:
 
-| Package      | Dep 1 |
-|--------------|-------|
+| Package      |  Dep 1  |
+|--------------|---------|
 | root context | `a: *`  |
-| `a@1.0.0`      |       |
+| `a@1.0.0`    |         |
 
 meaning that the root solving context has a single dependency on any version of `a`, and `a` version 1.0.0 (the only version) has no dependencies.
 For your reference, the directories inside `ex1_minnpm_runs/` encode this scenario with NPM packages which have already been uploaded to `npmjs.com`. 
@@ -83,7 +83,7 @@ cp node_modules/.package-lock.json result-minnpm.json; rm -rf node_modules packa
 **Step 5:**
 ```bash
 # Look at both results
-cat result-vanilla.json result-minnpm.json
+tail -n +1 result-*.json
 ```
 
 > Expected result: both result files should describe the solution graph drawn above, but
@@ -96,6 +96,7 @@ Let's repeat the above example by using the `compare_solvers` script:
 **Step 6:**
 ```bash
 compare_solvers vanilla minnpm='--minnpm'
+tail -n +1 result-*.json
 ```
 
 > Expected result: both install commands should succeed, and `result-vanilla.json` and `result-minnpm.json` should be produced just as when done manually.
@@ -108,3 +109,57 @@ popd
 
 ## Example #2: Using MinNPM With Different Consistency Criteria
 
+We now demonstrate that MinNPM can be configured to use 3 different consistency policies (NPM, Cargo, and PIP-style).
+
+The scenario to solve in this example is precisely that of Figure 1 in the paper, which is summarized in the following table:
+
+
+| Package       |    Dep 1    |     Dep 2     |
+|---------------|-------------|---------------|
+| root context  | `debug: *`  | `ms: < 2.1.2` |
+| `debug@4.3.4` | `ms: 2.1.2` |               |
+| `ms@1.0.0`    |             |               |
+| `ms@2.1.0`    |             |               |
+| `ms@2.1.2`    |             |               |
+
+There is a potential conflict because `root context` and `debug@4.3.4` cannot agree on a version of `ms`.
+MinNPM exposes 3 different polices for conflicts:
+
+1. (NPM's policy): Freely allow co-installation of multiple versions, yielding this solution graph:
+
+    ![](_images/ex1.png)
+
+2. (Cargo's policy): Allow co-installation of versions which are **not** SemVer compatible. In this case, `ms@2.1.2` can be co-installed with `ms@1.0.0` but **not** `ms@2.1.0`, yielding this solution graph:
+
+    ![](_images/ex1.png)
+
+3. (PIP's policy): Disallow co-installation of multiple versions, yielding unsatisfiable constraints in this example.
+
+Let's now observe MinNPM performing these solves in practice.
+
+**Step 8:**
+```bash
+pushd ex2_consistency_criteria/root_context
+```
+
+**Step 9:**
+```bash
+# As a reminder, the minnpm-cargo line is equivalent to manually running
+# npm install --minnpm --consistency cargo
+compare_solvers \
+    vanilla \
+    minnpm-npm='--minnpm --consistency npm' \
+    minnpm-cargo='--minnpm --consistency cargo' \
+    minnpm-pip='--minnpm --consistency pip'
+tail -n +1 result-*.json
+```
+
+> Expected result: All solves except `minnpm-pip` should succeed. 
+`result-vanilla.json` and `result-minnpm-npm.json` should match the solution graph of policy (1) above, 
+and `result-cargo.json` should match the solution graph of policy (2) above.
+
+
+**Step 10:**
+```bash
+popd
+```

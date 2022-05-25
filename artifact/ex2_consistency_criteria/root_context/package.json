@@ -1,0 +1,8 @@
+{
+  "name": "@minnpm-artifact-examples/context",
+  "version": "0.0.1",
+  "dependencies": {
+    "@minnpm-artifact-examples/ex2-debug": "*", 
+    "@minnpm-artifact-examples/ex2-ms": "<2.1.2"
+  }
+}

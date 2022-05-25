@@ -195,6 +195,61 @@ Let's repeat the above example by using the <code>compare_solvers</code> script:
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
 <h2>
 <a id="user-content-example-2-using-minnpm-with-different-consistency-criteria" class="anchor" href="#example-2-using-minnpm-with-different-consistency-criteria" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #2: Using MinNPM With Different Consistency Criteria</h2>
+<p>We now demonstrate that MinNPM can be configured to use 3 different consistency policies (NPM, Cargo, and PIP-style).</p>
+<p>The scenario to solve in this example is precisely that of Figure 1 in the paper, which is summarized in the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Dep 1</th>
+<th>Dep 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root context</td>
+<td><code>debug: *</code></td>
+<td><code>ms: &lt; 2.1.2</code></td>
+</tr>
+<tr>
+<td><code>debug@4.3.4</code></td>
+<td><code>ms: 2.1.2</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ms@1.0.0</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ms@2.1.0</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ms@2.1.2</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>There is a potential conflict because <code>root context</code> and <code>debug@4.3.4</code> cannot agree on a version of <code>ms</code>.
+MinNPM exposes 3 different polices for conflicts:</p>
+<ol>
+<li>
+<p>(NPM's policy): Freely allow co-installation of multiple versions, yielding this solution graph:</p>
+<p><a href="_images/ex1.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex1.png" alt="" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>(Cargo's policy): Allow co-installation of versions which are <strong>not</strong> SemVer compatible. In this case, <code>ms@2.1.2</code> can be co-installed with <code>ms@1.0.0</code> but <strong>not</strong> <code>ms@2.1.0</code>, yielding this solution graph:</p>
+<p><a href="_images/ex1.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex1.png" alt="" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>(PIP's policy): Disallow co-installation of multiple versions, yielding unsatisfiable constraints in this example.</p>
+</li>
+</ol>
+<p><strong>Step 8:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex2_consistency_criteria/root_context</pre></div>
 
                       </article>
                     </div>

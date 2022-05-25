@@ -68,6 +68,7 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "RandomExampleAnyConstraints" : generateRandomExampleAnyConstraints(numPackages: 3, numVersions: 5, numDeps: 2),
 
     "ArtifactEx1": program_artifact_ex1,
+    "ArtifactEx2": program_artifact_ex2,
 ]
 
 
