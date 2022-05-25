@@ -178,7 +178,7 @@ cp node_modules/.package-lock.json result-minnpm.json<span class="pl-k">;</span>
 </blockquote>
 <p><strong>Step 5:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> Look at both results</span>
-cat result-vanilla.json result-minnpm.json</pre></div>
+tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
 <blockquote>
 <p>Expected result: both result files should describe the solution graph drawn above, but
 there may be small differences in the result files, including possibly missing tarball URLs.
@@ -187,7 +187,8 @@ This does not affect functionality.</p>
 <p>Running both the <code>npm</code> commands and the <code>cp</code> and <code>rm</code> commands each time is tedious, so we have included a script to automate this.
 Let's repeat the above example by using the <code>compare_solvers</code> script:</p>
 <p><strong>Step 6:</strong></p>
-<div class="highlight highlight-source-shell"><pre>compare_solvers vanilla minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span></pre></div>
+<div class="highlight highlight-source-shell"><pre>compare_solvers vanilla minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span>
+tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
 <blockquote>
 <p>Expected result: both install commands should succeed, and <code>result-vanilla.json</code> and <code>result-minnpm.json</code> should be produced just as when done manually.</p>
 </blockquote>
@@ -248,8 +249,25 @@ MinNPM exposes 3 different polices for conflicts:</p>
 <p>(PIP's policy): Disallow co-installation of multiple versions, yielding unsatisfiable constraints in this example.</p>
 </li>
 </ol>
+<p>Let's now observe MinNPM performing these solves in practice.</p>
 <p><strong>Step 8:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex2_consistency_criteria/root_context</pre></div>
+<p><strong>Step 9:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> As a reminder, the minnpm-cargo line is equivalent to manually running</span>
+<span class="pl-c"><span class="pl-c">#</span> npm install --minnpm --consistency cargo</span>
+compare_solvers \
+    vanilla \
+    minnpm-npm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --consistency npm<span class="pl-pds">'</span></span> \
+    minnpm-cargo=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --consistency cargo<span class="pl-pds">'</span></span> \
+    minnpm-pip=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --consistency pip<span class="pl-pds">'</span></span>
+tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+<blockquote>
+<p>Expected result: All solves except <code>minnpm-pip</code> should succeed.
+<code>result-vanilla.json</code> and <code>result-minnpm-npm.json</code> should match the solution graph of policy (1) above,
+and <code>result-cargo.json</code> should match the solution graph of policy (2) above.</p>
+</blockquote>
+<p><strong>Step 10:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
 
                       </article>
                     </div>
