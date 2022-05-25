@@ -156,7 +156,7 @@ For your reference, the directories inside <code>ex1_minnpm_runs/</code> encode 
 As an example, package <code>a</code> version <code>1.0.0</code> is described by <code>ex1_minnpm_runs/a@1.0.0/package.json</code>, and has already been published as
 <code>@minnpm-artifact-examples/ex1-a</code> (<a href="https://www.npmjs.com/package/@minnpm-artifact-examples/ex1-a" rel="nofollow">link</a>).</p>
 <p>There is only one possible solution for this example, which is:</p>
-<p><a href="_images/ex1.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex1.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="_images/ex1.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex1.png" alt="root context depends on a@1.0.0" style="max-width:100%;"></a></p>
 <p>Let's check that both vanilla NPM and MinNPM find this solution.</p>
 <p><strong>Step 2:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex1_minnpm_runs/root_context</pre></div>
@@ -239,11 +239,11 @@ MinNPM exposes 3 different polices for conflicts:</p>
 <ol>
 <li>
 <p>(NPM's policy): Freely allow co-installation of multiple versions, yielding this solution graph:</p>
-<p><a href="_images/ex1.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex1.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="_images/ex2_npm.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex2_npm.png" alt="root context depends on debug@4.3.4 and ms@2.1.0, debug@4.3.4 depends on ms@2.1.0" style="max-width:100%;"></a></p>
 </li>
 <li>
 <p>(Cargo's policy): Allow co-installation of versions which are <strong>not</strong> SemVer compatible. In this case, <code>ms@2.1.2</code> can be co-installed with <code>ms@1.0.0</code> but <strong>not</strong> <code>ms@2.1.0</code>, yielding this solution graph:</p>
-<p><a href="_images/ex1.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex1.png" alt="" style="max-width:100%;"></a></p>
+<p><a href="_images/ex2_cargo.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex2_cargo.png" alt="root context depends on debug@4.3.4 and ms@2.1.0, debug@4.3.4 depends on ms@1.0.0" style="max-width:100%;"></a></p>
 </li>
 <li>
 <p>(PIP's policy): Disallow co-installation of multiple versions, yielding unsatisfiable constraints in this example.</p>
