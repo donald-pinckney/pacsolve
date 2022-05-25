@@ -6,11 +6,11 @@ Welcome to the virtual machine which we have prepared to illustrate the function
 
 **General layout of the artifact**: All of the code for PacSolve / MinNPM is in the directory `~/Desktop/pacsolve`. Within that directory, the following sub-directories are of interest:
 
-- `artifact/` contains this README, as well as a series of examples illustrating the functionality of MinNPM.
+- `artifact/` contains this document, as well as a series of examples illustrating the functionality of MinNPM.
 - `arborist/` and `npm/` contain the source code of our forks of NPM, which have been modified to solve dependencies by invoking PacSolve.
 - `RosetteSolver/` contains the source code of PacSolve, which implements a flexible depenendency solving backend via translate to Max-SMT.
 
-*Organization:* The rest of this README will proceed by following the series of examples contained in `artifact/`, to gain an understanding of how MinNPM functions on examples. **Every single command** which you are required to run will be annotated with a Step Number and command, like so:
+*How to read this document:* The rest of this document will proceed by following the series of examples contained in `artifact/`, to gain an understanding of how MinNPM functions on examples. **Every single command** which you are required to run will be annotated with a Step Number and command, like so:
 
 **Step 0:**
 
@@ -31,4 +31,3 @@ From here on out, all commands will be run inside this shell.
 
 ## Example #1: Checking that MinNPM Runs Correctly
 
-...
