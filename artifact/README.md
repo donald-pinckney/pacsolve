@@ -263,7 +263,51 @@ popd
 
 ## Example #5: MinNPM can Minimize Oldness
 
-TODO
+MinNPM finds globally optimal solution graphs, for some chosen minimization criteria. To see this in action, consider this scenario to solve:
+
+| Package       |    Dep 1    |    Dep 2    |
+|---------------|-------------|-------------|
+| root context  |   `a: *`    |             |
+|   `a@1.0.0`   | `b: 2.0.0`  | `c: 2.0.0`  |
+|   `a@2.0.0`   | `b: 1.0.0`  | `c: 1.0.0`  |
+|   `b@1.0.0`   |             |             |
+|   `b@2.0.0`   |             |             |
+|   `c@1.0.0`   |             |             |
+|   `c@2.0.0`   |             |             |
+
+There are exactly 2 possible solution graphs, corresponding to which version of `a`:
+
+![root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0 and c@2.0.0](_images/ex5_a100.png)
+
+![root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0](_images/ex5_a200.png)
+
+The first solution graph has an old version of `a`, but new versions of `b` and `c`. The second graph has a new version of `a`, but old versions of `b` and `c`. 
+Let's try using MinNPM to minimize the total oldness in the solution.
+
+**Step 17:**
+```bash
+pushd ex5_min_oldness/root_context
+```
+
+**Step 18:**
+```bash
+# By default, MinNPM minimizes the total oldness in the solution, so
+# we don't need to specify any additional flags.
+compare_solvers \
+    vanilla \
+    minnpm='--minnpm'
+tail -n +1 result-*.json
+```
+
+> Expected result: both solves should succeed.
+> The `result-vanilla.json` file should contain the solution graph with (`a@2.0.0`; `b@1.0.0`; `c@1.0.0`),
+> and the `minnpm-result.json` file should contain the solution graph with (`a@1.0.0`; `b@2.0.0`; `c@2.0.0`)
+
+
+**Step 19:**
+```bash
+popd
+```
 
 ## Example #6: MinNPM can Minimize Number of Dependencies
 

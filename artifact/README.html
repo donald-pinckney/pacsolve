@@ -374,7 +374,74 @@ The <code>result-minnpm.json</code> file should contain the solution graph drawn
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
 <h2>
 <a id="user-content-example-5-minnpm-can-minimize-oldness" class="anchor" href="#example-5-minnpm-can-minimize-oldness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #5: MinNPM can Minimize Oldness</h2>
-<p>TODO</p>
+<p>MinNPM finds globally optimal solution graphs, for some chosen minimization criteria. To see this in action, consider this scenario to solve:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Dep 1</th>
+<th>Dep 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root context</td>
+<td><code>a: *</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>a@1.0.0</code></td>
+<td><code>b: 2.0.0</code></td>
+<td><code>c: 2.0.0</code></td>
+</tr>
+<tr>
+<td><code>a@2.0.0</code></td>
+<td><code>b: 1.0.0</code></td>
+<td><code>c: 1.0.0</code></td>
+</tr>
+<tr>
+<td><code>b@1.0.0</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>b@2.0.0</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>c@1.0.0</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>c@2.0.0</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>There are exactly 2 possible solution graphs, corresponding to which version of <code>a</code>:</p>
+<p><a href="_images/ex5_a100.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex5_a100.png" alt="root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0 and c@2.0.0" style="max-width:100%;"></a></p>
+<p><a href="_images/ex5_a200.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex5_a200.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0" style="max-width:100%;"></a></p>
+<p>The first solution graph has an old version of <code>a</code>, but new versions of <code>b</code> and <code>c</code>. The second graph has a new version of <code>a</code>, but old versions of <code>b</code> and <code>c</code>.
+Let's try using MinNPM to minimize the total oldness in the solution.</p>
+<p><strong>Step 17:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex5_min_oldness/root_context</pre></div>
+<p><strong>Step 18:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> By default, MinNPM minimizes the total oldness in the solution, so</span>
+<span class="pl-c"><span class="pl-c">#</span> we don't need to specify any additional flags.</span>
+compare_solvers \
+    vanilla \
+    minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span>
+tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+<blockquote>
+<p>Expected result: both solves should succeed.
+The <code>result-vanilla.json</code> file should contain the solution graph with (<code>a@2.0.0</code>; <code>b@1.0.0</code>; <code>c@1.0.0</code>),
+and the <code>minnpm-result.json</code> file should contain the solution graph with (<code>a@1.0.0</code>; <code>b@2.0.0</code>; <code>c@2.0.0</code>)</p>
+</blockquote>
+<p><strong>Step 19:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
 <h2>
 <a id="user-content-example-6-minnpm-can-minimize-number-of-dependencies" class="anchor" href="#example-6-minnpm-can-minimize-number-of-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #6: MinNPM can Minimize Number of Dependencies</h2>
 <p>TODO</p>
