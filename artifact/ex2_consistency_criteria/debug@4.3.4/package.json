@@ -2,6 +2,6 @@
   "name": "@minnpm-artifact-examples/ex2-debug",
   "version": "4.3.4",
   "dependencies": {
-      "@minnpm-artifact-examples/ex2-ms": "2.1.2"
+    "@minnpm-artifact-examples/ex2-ms": "2.1.2"
   }
 }

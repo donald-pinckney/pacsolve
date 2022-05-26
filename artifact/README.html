@@ -105,18 +105,20 @@
                         <h1>
 <a id="user-content-artifact-for-dependency-solvers-à-la-carte" class="anchor" href="#artifact-for-dependency-solvers-%C3%A0-la-carte" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Artifact for Dependency Solvers à la Carte</h1>
 <h2>
-<a id="user-content-welcome-and-preface" class="anchor" href="#welcome-and-preface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome and Preface</h2>
+<a id="user-content-welcome" class="anchor" href="#welcome" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome</h2>
 <p>Welcome to the virtual machine which we have prepared to illustrate the functionality of PacSolve / MinNPM, the artifact for <em>Dependency Solvers à la Carte</em>.</p>
 <p><strong>General layout of the artifact</strong>: All of the code for PacSolve / MinNPM is in the directory <code>~/Desktop/pacsolve</code>. Within that directory, the following sub-directories are of interest:</p>
 <ul>
 <li>
 <code>artifact/</code> contains this document, as well as a series of examples illustrating the functionality of MinNPM.</li>
 <li>
-<code>arborist/</code> and <code>npm/</code> contain the source code of our forks of NPM, which have been modified to solve dependencies by invoking PacSolve.</li>
+<code>arborist/</code> and <code>npm/</code> contain the source code of our fork of NPM, which have been modified to solve dependencies by invoking PacSolve.</li>
 <li>
-<code>RosetteSolver/</code> contains the source code of PacSolve, which implements a flexible depenendency solving backend via translate to Max-SMT.</li>
+<code>RosetteSolver/</code> contains the source code of PacSolve, which implements a flexible depenendency solving backend via translation to Max-SMT by using Rosette.</li>
 </ul>
-<p><em>How to read this document:</em> The rest of this document will proceed by following the series of examples contained in <code>artifact/</code>, to gain an understanding of how MinNPM functions on examples. <strong>Every single command</strong> which you are required to run will be annotated with a Step Number, some shell commands, and possible a box describing the expected command results, like so:</p>
+<h3>
+<a id="user-content-how-to-read-this-document" class="anchor" href="#how-to-read-this-document" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to read this document</h3>
+<p>The rest of this document will proceed by following the series of examples contained in <code>artifact/</code>, to gain an understanding of how MinNPM functions on examples. <strong>Every single command</strong> which you are required to run will be annotated with a Step Number, some shell commands, and possible a box describing the expected command results, like so:</p>
 <p><strong>Step 0:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>example<span class="pl-pds">"</span></span></pre></div>
 <blockquote>
@@ -270,7 +272,7 @@ and <code>result-cargo.json</code> should contain the solution graph of policy (
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
 <h2>
 <a id="user-content-example-3-minnpm-can-allow-or-disallow-cyclic-solutions" class="anchor" href="#example-3-minnpm-can-allow-or-disallow-cyclic-solutions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #3: MinNPM can Allow or Disallow Cyclic Solutions</h2>
-<p>On Page 13, <em>Incompleteness of Cargo</em> presents an example demonstrating on dimension in which Cargo is not a complete solver,
+<p>On Page 13, <em>Incompleteness of Cargo</em> presents an example demonstrating a dimension in which Cargo is not a complete solver,
 because of its non-backtracking behavior when enforcing acyclic solutions.
 We present that example here (slightly simplified) to show how MinNPM (backed by PacSolve)
 can be configured to either allow or disallow cycles without sacrificing completeness.</p>
@@ -313,7 +315,7 @@ can be configured to either allow or disallow cycles without sacrificing complet
 compare_solvers \
     vanilla \
     minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span> \
-    minnpm-acyclic=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --disallow-cycles<span class="pl-pds">'</span></span> \
+    minnpm-acyclic=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --disallow-cycles<span class="pl-pds">'</span></span>
 tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
 <blockquote>
 <p>Expected result: All solves should succeed.
@@ -324,10 +326,57 @@ and <code>result-minnpm-acyclic.json</code> should contain the acyclic solution 
 <p><strong>Step 13:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
 <h2>
-<a id="user-content-example-4-minnpm-can-minimize-oldness" class="anchor" href="#example-4-minnpm-can-minimize-oldness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #4: MinNPM can Minimize Oldness</h2>
+<a id="user-content-example-4-minnpm-can-find-solutions-when-npm-fails" class="anchor" href="#example-4-minnpm-can-find-solutions-when-npm-fails" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #4: MinNPM can Find Solutions when NPM Fails</h2>
+<p>On Pages 12-13, <em>Incompleteness of NPM</em> presents an example demonstrating a dimension in which NPM is not a complete solver,
+because it does not perform backtracking. When encountering an unsatisfiable constraint, NPM fails, whereas MinNPM can still
+find a satisfying solution graph. For this example the scenario to solve is:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Dep 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root context</td>
+<td><code>a: *</code></td>
+</tr>
+<tr>
+<td><code>a@1.0.0</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>a@2.0.0</code></td>
+<td><code>b: 9.9.9</code></td>
+</tr>
+<tr>
+<td><code>b@1.0.0</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>There is no solution graph in which the root context depends on <code>a@2.0.0</code>. The only solution graph is:</p>
+<p><a href="_images/ex4.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex4.png" alt="root context depends on a@1.0.0" style="max-width:100%;"></a></p>
+<p>Let's try solving with both vanilla NPM and MinNPM.</p>
+<p><strong>Step 14:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex4_npm_incomplete/root_context</pre></div>
+<p><strong>Step 15:</strong></p>
+<div class="highlight highlight-source-shell"><pre>compare_solvers \
+    vanilla \
+    minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span>
+tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+<blockquote>
+<p>Expected result: The MinNPM solve should succeed, and the NPM solve should fail.
+The <code>result-minnpm.json</code> file should contain the solution graph drawn above.</p>
+</blockquote>
+<p><strong>Step 16:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
+<h2>
+<a id="user-content-example-5-minnpm-can-minimize-oldness" class="anchor" href="#example-5-minnpm-can-minimize-oldness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #5: MinNPM can Minimize Oldness</h2>
 <p>TODO</p>
 <h2>
-<a id="user-content-example-5-minnpm-can-minimize-number-of-dependencies" class="anchor" href="#example-5-minnpm-can-minimize-number-of-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #5: MinNPM can Minimize Number of Dependencies</h2>
+<a id="user-content-example-6-minnpm-can-minimize-number-of-dependencies" class="anchor" href="#example-6-minnpm-can-minimize-number-of-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #6: MinNPM can Minimize Number of Dependencies</h2>
 <p>TODO</p>
 
                       </article>

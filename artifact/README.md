@@ -1,16 +1,17 @@
 # Artifact for Dependency Solvers à la Carte
 
-## Welcome and Preface
+## Welcome
 
 Welcome to the virtual machine which we have prepared to illustrate the functionality of PacSolve / MinNPM, the artifact for *Dependency Solvers à la Carte*.
 
 **General layout of the artifact**: All of the code for PacSolve / MinNPM is in the directory `~/Desktop/pacsolve`. Within that directory, the following sub-directories are of interest:
 
 - `artifact/` contains this document, as well as a series of examples illustrating the functionality of MinNPM.
-- `arborist/` and `npm/` contain the source code of our forks of NPM, which have been modified to solve dependencies by invoking PacSolve.
-- `RosetteSolver/` contains the source code of PacSolve, which implements a flexible depenendency solving backend via translate to Max-SMT.
+- `arborist/` and `npm/` contain the source code of our fork of NPM, which have been modified to solve dependencies by invoking PacSolve.
+- `RosetteSolver/` contains the source code of PacSolve, which implements a flexible depenendency solving backend via translation to Max-SMT by using Rosette.
 
-*How to read this document:* The rest of this document will proceed by following the series of examples contained in `artifact/`, to gain an understanding of how MinNPM functions on examples. **Every single command** which you are required to run will be annotated with a Step Number, some shell commands, and possible a box describing the expected command results, like so:
+### How to read this document 
+The rest of this document will proceed by following the series of examples contained in `artifact/`, to gain an understanding of how MinNPM functions on examples. **Every single command** which you are required to run will be annotated with a Step Number, some shell commands, and possible a box describing the expected command results, like so:
 
 **Step 0:**
 
@@ -167,7 +168,7 @@ popd
 
 ## Example #3: MinNPM can Allow or Disallow Cyclic Solutions
 
-On Page 13, *Incompleteness of Cargo* presents an example demonstrating on dimension in which Cargo is not a complete solver, 
+On Page 13, *Incompleteness of Cargo* presents an example demonstrating a dimension in which Cargo is not a complete solver, 
 because of its non-backtracking behavior when enforcing acyclic solutions. 
 We present that example here (slightly simplified) to show how MinNPM (backed by PacSolve) 
 can be configured to either allow or disallow cycles without sacrificing completeness.
@@ -201,7 +202,7 @@ pushd ex3_cycles/root_context
 compare_solvers \
     vanilla \
     minnpm='--minnpm' \
-    minnpm-acyclic='--minnpm --disallow-cycles' \
+    minnpm-acyclic='--minnpm --disallow-cycles'
 tail -n +1 result-*.json
 ```
 
@@ -216,10 +217,54 @@ Note that MinNPM prefers to choose the cyclic solution graph because it produces
 popd
 ```
 
-## Example #4: MinNPM can Minimize Oldness
+
+## Example #4: MinNPM can Find Solutions when NPM Fails
+
+On Pages 12-13, *Incompleteness of NPM* presents an example demonstrating a dimension in which NPM is not a complete solver,
+because it does not perform backtracking. When encountering an unsatisfiable constraint, NPM fails, whereas MinNPM can still
+find a satisfying solution graph. For this example the scenario to solve is:
+
+| Package       |    Dep 1    |
+|---------------|-------------|
+| root context  |   `a: *`    |
+|   `a@1.0.0`   |             |
+|   `a@2.0.0`   | `b: 9.9.9`  |
+|   `b@1.0.0`   |             |
+
+There is no solution graph in which the root context depends on `a@2.0.0`. The only solution graph is:
+
+![root context depends on a@1.0.0](_images/ex4.png)
+
+Let's try solving with both vanilla NPM and MinNPM.
+
+**Step 14:**
+```bash
+pushd ex4_npm_incomplete/root_context
+```
+
+**Step 15:**
+```bash
+compare_solvers \
+    vanilla \
+    minnpm='--minnpm'
+tail -n +1 result-*.json
+```
+
+> Expected result: The MinNPM solve should succeed, and the NPM solve should fail.
+> The `result-minnpm.json` file should contain the solution graph drawn above.
+
+
+**Step 16:**
+```bash
+popd
+```
+
+
+
+## Example #5: MinNPM can Minimize Oldness
 
 TODO
 
-## Example #5: MinNPM can Minimize Number of Dependencies
+## Example #6: MinNPM can Minimize Number of Dependencies
 
 TODO

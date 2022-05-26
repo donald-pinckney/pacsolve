@@ -2,6 +2,6 @@
   "name": "@minnpm-artifact-examples/context",
   "version": "0.0.1",
   "dependencies": {
-    "@minnpm-artifact-examples/ex3-a": "*"
+    "@minnpm-artifact-examples/ex4-a": "*"
   }
 }
