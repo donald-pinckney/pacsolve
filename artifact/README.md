@@ -1,10 +1,21 @@
 # Artifact for Dependency Solvers à la Carte
 
+- [Artifact for Dependency Solvers à la Carte](#artifact-for-dependency-solvers-à-la-carte)
+  - [Welcome](#welcome)
+    - [How to read this document](#how-to-read-this-document)
+  - [Getting to the Right Directory](#getting-to-the-right-directory)
+  - [Example #1: Checking that MinNPM Runs Correctly](#example-1-checking-that-minnpm-runs-correctly)
+  - [Example #2: Using MinNPM With Different Consistency Criteria](#example-2-using-minnpm-with-different-consistency-criteria)
+  - [Example #3: MinNPM can Allow or Disallow Cyclic Solutions](#example-3-minnpm-can-allow-or-disallow-cyclic-solutions)
+  - [Example #4: MinNPM can Find Solutions when NPM Fails](#example-4-minnpm-can-find-solutions-when-npm-fails)
+  - [Example #5: MinNPM can Minimize Oldness](#example-5-minnpm-can-minimize-oldness)
+  - [Example #6: MinNPM can Minimize Number of Dependencies](#example-6-minnpm-can-minimize-number-of-dependencies)
+
 ## Welcome
 
-Welcome to the virtual machine which we have prepared to illustrate the functionality of PacSolve / MinNPM, the artifact for *Dependency Solvers à la Carte*.
+Welcome to the virtual machine which we have prepared to illustrate the functionality of PacSolve and MinNPM.
 
-**General layout of the artifact**: All of the code for PacSolve / MinNPM is in the directory `~/Desktop/pacsolve`. Within that directory, the following sub-directories are of interest:
+**General layout of the artifact**: All of the code is in the directory `~/Desktop/pacsolve`. Within that directory, the following sub-directories are of interest:
 
 - `artifact/` contains this document, as well as a series of examples illustrating the functionality of MinNPM.
 - `arborist/` and `npm/` contain the source code of our fork of NPM, which have been modified to solve dependencies by invoking PacSolve.
@@ -357,7 +368,7 @@ tail -n +1 result-*.json
 > The `result-vanilla.json` and `result-minnpm-min-oldness-then-num-deps.json` files and should contain the solution graph with (`a@2.0.0`; `b@2.0.0`; `c@1.0.0`),
 > and the `result-minnpm-min-num-deps-then-oldness.json` file should contain the solution graph with (`a@1.0.0`; `b@2.0.0`)
 
-Note that because we minimize `min_oldness` at second priority, we get solutions with `b@2.0.0` as that does not affect graph size.
+Note that because we minimize `min_oldness` at second priority, we get a solution with `b@2.0.0` rather than `b@1.0.0`, as that does not affect graph size.
 
 **Step 22:**
 ```bash

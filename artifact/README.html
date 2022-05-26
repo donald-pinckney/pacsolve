@@ -104,10 +104,30 @@
                       <article id="grip-content" class="markdown-body entry-content container-lg">
                         <h1>
 <a id="user-content-artifact-for-dependency-solvers-à-la-carte" class="anchor" href="#artifact-for-dependency-solvers-%C3%A0-la-carte" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Artifact for Dependency Solvers à la Carte</h1>
+<ul>
+<li>
+<a href="#artifact-for-dependency-solvers-%C3%A0-la-carte">Artifact for Dependency Solvers à la Carte</a>
+<ul>
+<li>
+<a href="#welcome">Welcome</a>
+<ul>
+<li><a href="#how-to-read-this-document">How to read this document</a></li>
+</ul>
+</li>
+<li><a href="#getting-to-the-right-directory">Getting to the Right Directory</a></li>
+<li><a href="#example-1-checking-that-minnpm-runs-correctly">Example #1: Checking that MinNPM Runs Correctly</a></li>
+<li><a href="#example-2-using-minnpm-with-different-consistency-criteria">Example #2: Using MinNPM With Different Consistency Criteria</a></li>
+<li><a href="#example-3-minnpm-can-allow-or-disallow-cyclic-solutions">Example #3: MinNPM can Allow or Disallow Cyclic Solutions</a></li>
+<li><a href="#example-4-minnpm-can-find-solutions-when-npm-fails">Example #4: MinNPM can Find Solutions when NPM Fails</a></li>
+<li><a href="#example-5-minnpm-can-minimize-oldness">Example #5: MinNPM can Minimize Oldness</a></li>
+<li><a href="#example-6-minnpm-can-minimize-number-of-dependencies">Example #6: MinNPM can Minimize Number of Dependencies</a></li>
+</ul>
+</li>
+</ul>
 <h2>
 <a id="user-content-welcome" class="anchor" href="#welcome" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome</h2>
-<p>Welcome to the virtual machine which we have prepared to illustrate the functionality of PacSolve / MinNPM, the artifact for <em>Dependency Solvers à la Carte</em>.</p>
-<p><strong>General layout of the artifact</strong>: All of the code for PacSolve / MinNPM is in the directory <code>~/Desktop/pacsolve</code>. Within that directory, the following sub-directories are of interest:</p>
+<p>Welcome to the virtual machine which we have prepared to illustrate the functionality of PacSolve and MinNPM.</p>
+<p><strong>General layout of the artifact</strong>: All of the code is in the directory <code>~/Desktop/pacsolve</code>. Within that directory, the following sub-directories are of interest:</p>
 <ul>
 <li>
 <code>artifact/</code> contains this document, as well as a series of examples illustrating the functionality of MinNPM.</li>
@@ -510,7 +530,7 @@ tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
 The <code>result-vanilla.json</code> and <code>result-minnpm-min-oldness-then-num-deps.json</code> files and should contain the solution graph with (<code>a@2.0.0</code>; <code>b@2.0.0</code>; <code>c@1.0.0</code>),
 and the <code>result-minnpm-min-num-deps-then-oldness.json</code> file should contain the solution graph with (<code>a@1.0.0</code>; <code>b@2.0.0</code>)</p>
 </blockquote>
-<p>Note that because we minimize <code>min_oldness</code> at second priority, we get solutions with <code>b@2.0.0</code> as that does not affect graph size.</p>
+<p>Note that because we minimize <code>min_oldness</code> at second priority, we get a solution with <code>b@2.0.0</code> rather than <code>b@1.0.0</code>, as that does not affect graph size.</p>
 <p><strong>Step 22:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
 
