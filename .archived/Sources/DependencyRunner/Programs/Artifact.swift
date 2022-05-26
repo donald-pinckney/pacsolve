@@ -16,3 +16,14 @@ let program_artifact_ex2 = EcosystemProgram(declaredContexts: ["ctx"], ops: [
     ])
 ])
 
+
+let program_artifact_ex3 = EcosystemProgram(declaredContexts: ["ctx"], ops: [
+
+    .publish(package: "ex3-a", version: "1.0.0", dependencies: []),
+    .publish(package: "ex3-a", version: "2.0.0", dependencies: [DependencyExpr(packageToDependOn: "ex3-b", constraint: .any, depType: .prod)]),
+    .publish(package: "ex3-b", version: "1.0.0", dependencies: [DependencyExpr(packageToDependOn: "ex3-a", constraint: .exactly("2.0.0"), depType: .prod)]),
+
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "ex3-a", constraint: .any, depType: .prod)])
+])
+
+

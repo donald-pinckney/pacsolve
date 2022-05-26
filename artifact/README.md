@@ -155,8 +155,8 @@ tail -n +1 result-*.json
 ```
 
 > Expected result: All solves except `minnpm-pip` should succeed. 
-One can read through `result-vanilla.json` and `result-minnpm-npm.json` and check that they solution graph of policy (1) above, 
-and that `result-cargo.json` matches the solution graph of policy (2) above.
+> The `result-vanilla.json` and `result-minnpm-npm.json` files should both contain the solution graph of policy (1) above, 
+> and `result-cargo.json` should contain the solution graph of policy (2) above.
 
 
 **Step 10:**
@@ -167,7 +167,54 @@ popd
 
 ## Example #3: MinNPM can Allow or Disallow Cyclic Solutions
 
-TODO
+On Page 13, *Incompleteness of Cargo* presents an example demonstrating on dimension in which Cargo is not a complete solver, 
+because of its non-backtracking behavior when enforcing acyclic solutions. 
+We present that example here (slightly simplified) to show how MinNPM (backed by PacSolve) 
+can be configured to either allow or disallow cycles without sacrificing completeness.
+
+The scenario to solve is:
+
+| Package       |    Dep 1    |
+|---------------|-------------|
+| root context  |   `a: *`    |
+|   `a@1.0.0`   |             |
+|   `a@2.0.0`   |   `b: *`    |
+|   `b@1.0.0`   | `a: 2.0.0`  |
+
+There are exactly 2 solution graphs which satisfy this example, one with cycles and one without:
+
+![root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0, b@1.0.0 depends on a@2.0.0](_images/ex3_yes_cycle.png)
+
+![root context depends on a@1.0.0](_images/ex3_no_cycle.png)
+
+Let's try solving it both ways.
+
+**Step 11:**
+```bash
+pushd ex3_cycles/root_context
+```
+
+**Step 12:**
+```bash
+# MinNPM allows cycles by default, the flag
+# --disallow-cycles tells MinNPM to only look for acyclic solutions.
+compare_solvers \
+    vanilla \
+    minnpm='--minnpm' \
+    minnpm-acyclic='--minnpm --disallow-cycles' \
+tail -n +1 result-*.json
+```
+
+> Expected result: All solves should succeed. 
+> The `result-vanilla.json` and `result-minnpm.json` files should both contain the cyclic solution graph,
+> and `result-minnpm-acyclic.json` should contain the acyclic solution graph.
+
+Note that MinNPM prefers to choose the cyclic solution graph because it produces newer versions of dependencies.
+
+**Step 13:**
+```bash
+popd
+```
 
 ## Example #4: MinNPM can Minimize Oldness
 

@@ -263,11 +263,72 @@ compare_solvers \
 tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
 <blockquote>
 <p>Expected result: All solves except <code>minnpm-pip</code> should succeed.
-<code>result-vanilla.json</code> and <code>result-minnpm-npm.json</code> should match the solution graph of policy (1) above,
-and <code>result-cargo.json</code> should match the solution graph of policy (2) above.</p>
+The <code>result-vanilla.json</code> and <code>result-minnpm-npm.json</code> files should both contain the solution graph of policy (1) above,
+and <code>result-cargo.json</code> should contain the solution graph of policy (2) above.</p>
 </blockquote>
 <p><strong>Step 10:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
+<h2>
+<a id="user-content-example-3-minnpm-can-allow-or-disallow-cyclic-solutions" class="anchor" href="#example-3-minnpm-can-allow-or-disallow-cyclic-solutions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #3: MinNPM can Allow or Disallow Cyclic Solutions</h2>
+<p>On Page 13, <em>Incompleteness of Cargo</em> presents an example demonstrating on dimension in which Cargo is not a complete solver,
+because of its non-backtracking behavior when enforcing acyclic solutions.
+We present that example here (slightly simplified) to show how MinNPM (backed by PacSolve)
+can be configured to either allow or disallow cycles without sacrificing completeness.</p>
+<p>The scenario to solve is:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Dep 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root context</td>
+<td><code>a: *</code></td>
+</tr>
+<tr>
+<td><code>a@1.0.0</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>a@2.0.0</code></td>
+<td><code>b: *</code></td>
+</tr>
+<tr>
+<td><code>b@1.0.0</code></td>
+<td><code>a: 2.0.0</code></td>
+</tr>
+</tbody>
+</table>
+<p>There are exactly 2 solution graphs which satisfy this example, one with cycles and one without:</p>
+<p><a href="_images/ex3_yes_cycle.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex3_yes_cycle.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0, b@1.0.0 depends on a@2.0.0" style="max-width:100%;"></a></p>
+<p><a href="_images/ex3_no_cycle.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex3_no_cycle.png" alt="root context depends on a@1.0.0" style="max-width:100%;"></a></p>
+<p>Let's try solving it both ways.</p>
+<p><strong>Step 11:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex3_cycles/root_context</pre></div>
+<p><strong>Step 12:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> MinNPM allows cycles by default, the flag</span>
+<span class="pl-c"><span class="pl-c">#</span> --disallow-cycles tells MinNPM to only look for acyclic solutions.</span>
+compare_solvers \
+    vanilla \
+    minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span> \
+    minnpm-acyclic=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --disallow-cycles<span class="pl-pds">'</span></span> \
+tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+<blockquote>
+<p>Expected result: All solves should succeed.
+The <code>result-vanilla.json</code> and <code>result-minnpm.json</code> files should both contain the cyclic solution graph,
+and <code>result-minnpm-acyclic.json</code> should contain the acyclic solution graph.</p>
+</blockquote>
+<p>Note that MinNPM prefers to choose the cyclic solution graph because it produces newer versions of dependencies.</p>
+<p><strong>Step 13:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
+<h2>
+<a id="user-content-example-4-minnpm-can-minimize-oldness" class="anchor" href="#example-4-minnpm-can-minimize-oldness" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #4: MinNPM can Minimize Oldness</h2>
+<p>TODO</p>
+<h2>
+<a id="user-content-example-5-minnpm-can-minimize-number-of-dependencies" class="anchor" href="#example-5-minnpm-can-minimize-number-of-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #5: MinNPM can Minimize Number of Dependencies</h2>
+<p>TODO</p>
 
                       </article>
                     </div>

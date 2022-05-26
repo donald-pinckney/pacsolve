@@ -1,0 +1,7 @@
+{
+  "name": "@minnpm-artifact-examples/ex3-a",
+  "version": "2.0.0",
+  "dependencies": {
+      "@minnpm-artifact-examples/ex3-b": "*"
+  }
+}
