@@ -72,6 +72,7 @@ let ALL_PROGRAMS: [String : EcosystemProgram] = [
     "ArtifactEx3": program_artifact_ex3,
     "ArtifactEx4": program_artifact_ex4,
     "ArtifactEx5": program_artifact_ex5,
+    "ArtifactEx6": program_artifact_ex6,
 ]
 
 

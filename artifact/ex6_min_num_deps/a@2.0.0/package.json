@@ -1,0 +1,8 @@
+{
+  "name": "@minnpm-artifact-examples/ex6-a",
+  "version": "2.0.0",
+  "dependencies": {
+    "@minnpm-artifact-examples/ex6-b": "*", 
+    "@minnpm-artifact-examples/ex6-c": "*"
+  }
+}

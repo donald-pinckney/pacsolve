@@ -301,7 +301,7 @@ tail -n +1 result-*.json
 
 > Expected result: both solves should succeed.
 > The `result-vanilla.json` file should contain the solution graph with (`a@2.0.0`; `b@1.0.0`; `c@1.0.0`),
-> and the `minnpm-result.json` file should contain the solution graph with (`a@1.0.0`; `b@2.0.0`; `c@2.0.0`)
+> and the `result-minnpm.json` file should contain the solution graph with (`a@1.0.0`; `b@2.0.0`; `c@2.0.0`)
 
 
 **Step 19:**
@@ -311,4 +311,56 @@ popd
 
 ## Example #6: MinNPM can Minimize Number of Dependencies
 
-TODO
+MinNPM can also be configured to minimize the total number of dependencies in the solution graph.
+Consider solving this situation:
+
+| Package       |    Dep 1    |    Dep 2    |
+|---------------|-------------|-------------|
+| root context  |   `a: *`    |             |
+|   `a@1.0.0`   |   `b: *`    |             |
+|   `a@2.0.0`   |   `b: *`    |   `c: *`    |
+|   `b@1.0.0`   |             |             |
+|   `b@2.0.0`   |             |             |
+|   `c@1.0.0`   |             |             |
+
+There are exactly 4 possible solution graphs, corresponding to which versions of `a` and `b`:
+
+![root context depends on a@1.0.0, a@1.0.0 depends on b@1.0.0](_images/ex6_a100_b100.png)
+
+![root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0](_images/ex6_a100_b200.png)
+
+![root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0](_images/ex6_a200_b100.png)
+
+![root context depends on a@2.0.0, a@2.0.0 depends on b@2.0.0 and c@1.0.0](_images/ex6_a200_b200.png)
+
+The first two solution graphs have an old version of `a`, but one fewer dependency. 
+By default MinNPM prefers to choose the newer version of `a`,
+but we can configure its minimization criteria to prioritize getting fewer dependencies.
+
+**Step 20:**
+```bash
+pushd ex6_min_num_deps/root_context
+```
+
+**Step 21:**
+```bash
+# The default value for --minimize if unspecified is:
+# --minimize min_oldness,min_num_deps
+compare_solvers \
+    vanilla \
+    minnpm-min-oldness-then-num-deps='--minnpm' \
+    minnpm-min-num-deps-then-oldness='--minnpm --minimize min_num_deps,min_oldness'
+tail -n +1 result-*.json
+```
+
+> Expected result: all solves should succeed.
+> The `result-vanilla.json` and `result-minnpm-min-oldness-then-num-deps.json` files and should contain the solution graph with (`a@2.0.0`; `b@2.0.0`; `c@1.0.0`),
+> and the `result-minnpm-min-num-deps-then-oldness.json` file should contain the solution graph with (`a@1.0.0`; `b@2.0.0`)
+
+Note that because we minimize `min_oldness` at second priority, we get solutions with `b@2.0.0` as that does not affect graph size.
+
+**Step 22:**
+```bash
+popd
+```
+

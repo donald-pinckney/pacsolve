@@ -438,13 +438,81 @@ tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
 <blockquote>
 <p>Expected result: both solves should succeed.
 The <code>result-vanilla.json</code> file should contain the solution graph with (<code>a@2.0.0</code>; <code>b@1.0.0</code>; <code>c@1.0.0</code>),
-and the <code>minnpm-result.json</code> file should contain the solution graph with (<code>a@1.0.0</code>; <code>b@2.0.0</code>; <code>c@2.0.0</code>)</p>
+and the <code>result-minnpm.json</code> file should contain the solution graph with (<code>a@1.0.0</code>; <code>b@2.0.0</code>; <code>c@2.0.0</code>)</p>
 </blockquote>
 <p><strong>Step 19:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
 <h2>
 <a id="user-content-example-6-minnpm-can-minimize-number-of-dependencies" class="anchor" href="#example-6-minnpm-can-minimize-number-of-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example #6: MinNPM can Minimize Number of Dependencies</h2>
-<p>TODO</p>
+<p>MinNPM can also be configured to minimize the total number of dependencies in the solution graph.
+Consider solving this situation:</p>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Dep 1</th>
+<th>Dep 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>root context</td>
+<td><code>a: *</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>a@1.0.0</code></td>
+<td><code>b: *</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>a@2.0.0</code></td>
+<td><code>b: *</code></td>
+<td><code>c: *</code></td>
+</tr>
+<tr>
+<td><code>b@1.0.0</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>b@2.0.0</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>c@1.0.0</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>There are exactly 4 possible solution graphs, corresponding to which versions of <code>a</code> and <code>b</code>:</p>
+<p><a href="_images/ex6_a100_b100.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex6_a100_b100.png" alt="root context depends on a@1.0.0, a@1.0.0 depends on b@1.0.0" style="max-width:100%;"></a></p>
+<p><a href="_images/ex6_a100_b200.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex6_a100_b200.png" alt="root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0" style="max-width:100%;"></a></p>
+<p><a href="_images/ex6_a200_b100.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex6_a200_b100.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0" style="max-width:100%;"></a></p>
+<p><a href="_images/ex6_a200_b200.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex6_a200_b200.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@2.0.0 and c@1.0.0" style="max-width:100%;"></a></p>
+<p>The first two solution graphs have an old version of <code>a</code>, but one fewer dependency.
+By default MinNPM prefers to choose the newer version of <code>a</code>,
+but we can configure its minimization criteria to prioritize getting fewer dependencies.</p>
+<p><strong>Step 20:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex6_min_num_deps/root_context</pre></div>
+<p><strong>Step 21:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> The default value for --minimize if unspecified is:</span>
+<span class="pl-c"><span class="pl-c">#</span> --minimize min_oldness,min_num_deps</span>
+compare_solvers \
+    vanilla \
+    minnpm-min-oldness-then-num-deps=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span> \
+    minnpm-min-num-deps-then-oldness=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --minimize min_num_deps,min_oldness<span class="pl-pds">'</span></span>
+tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+<blockquote>
+<p>Expected result: all solves should succeed.
+The <code>result-vanilla.json</code> and <code>result-minnpm-min-oldness-then-num-deps.json</code> files and should contain the solution graph with (<code>a@2.0.0</code>; <code>b@2.0.0</code>; <code>c@1.0.0</code>),
+and the <code>result-minnpm-min-num-deps-then-oldness.json</code> file should contain the solution graph with (<code>a@1.0.0</code>; <code>b@2.0.0</code>)</p>
+</blockquote>
+<p>Note that because we minimize <code>min_oldness</code> at second priority, we get solutions with <code>b@2.0.0</code> as that does not affect graph size.</p>
+<p><strong>Step 22:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
 
                       </article>
                     </div>

@@ -54,3 +54,20 @@ let program_artifact_ex5 = EcosystemProgram(declaredContexts: ["ctx"], ops: [
 
     .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "ex5-a", constraint: .any, depType: .prod)])
 ])
+
+let program_artifact_ex6 = EcosystemProgram(declaredContexts: ["ctx"], ops: [
+
+    .publish(package: "ex6-a", version: "1.0.0", dependencies: [
+        DependencyExpr(packageToDependOn: "ex6-b", constraint: .any, depType: .prod), 
+    ]),
+    .publish(package: "ex6-a", version: "2.0.0", dependencies: [
+        DependencyExpr(packageToDependOn: "ex6-b", constraint: .any, depType: .prod), 
+        DependencyExpr(packageToDependOn: "ex6-c", constraint: .any, depType: .prod)
+    ]),
+
+    .publish(package: "ex6-b", version: "1.0.0", dependencies: []),
+    .publish(package: "ex6-b", version: "2.0.0", dependencies: []),
+    .publish(package: "ex6-c", version: "1.0.0", dependencies: []),
+
+    .solve(inContext: "ctx", constraints: [DependencyExpr(packageToDependOn: "ex6-a", constraint: .any, depType: .prod)])
+])
