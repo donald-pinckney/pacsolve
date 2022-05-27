@@ -241,7 +241,12 @@ class Run(object):
         # loading ClusterFutures's remote library, and that makes things go awry.
         errs = [ ]
         with concurrent.futures.ThreadPoolExecutor(max_workers=self.cpus_per_task) as executor:
-            for err in suppressed_iterator(executor.map(self.run_minnpm, pkgs)):
+            if self.use_slurm:
+                m = executor.map(self.run_minnpm, pkgs)
+            else:
+                m = tqdm(executor.map(self.run_minnpm, pkgs), total=len(pkgs))
+
+            for err in suppressed_iterator(m):
                 if err is not None:
                     errs.append(err)
         if len(errs) == 0:
@@ -360,8 +365,9 @@ class Run(object):
 
 
 class DummyExecutorImpl(object):
-    def map(self, fn, args):
-        return map(fn, args)
+    def map(self, chunk_fn, chunks):
+        big_chunk = [x for c in chunks for x in c]
+        return map(chunk_fn, [big_chunk])
 
 @contextmanager
 def DummyExecutor():
