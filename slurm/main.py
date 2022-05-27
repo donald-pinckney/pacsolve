@@ -322,6 +322,15 @@ class Run(object):
         if subprocess.call(['tar', '-C', target, '-xzf', tgz], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) != 0:
                 return f'Error unpacking {tgz}'
 
+    def kill_zombies(self):
+        if not self.use_slurm:
+            subprocess.run(['pkill', '-9', 'minnpm'])
+            subprocess.run(['pkill', '-9', 'npm'])
+            subprocess.run(['pkill', '-9', 'racket'])
+            subprocess.run(['pkill', '-9', 'z3'])
+
+
+
     def run_minnpm(self, pkg_info):
         start_time = time.time()
         try:
@@ -336,6 +345,9 @@ class Run(object):
                     cwd=pkg_path,
                     stdout=out,
                     stderr=out).wait(self.timeout)
+
+                self.kill_zombies()
+
             duration = time.time() - start_time
             if exit_code == 0:
                 write_json(output_status_path,
@@ -355,12 +367,14 @@ class Run(object):
             return f'Failed: {pkg_path}'
         except subprocess.TimeoutExpired:
             write_json(error_status_path, { 'status': 'timeout' })
+            self.kill_zombies()
             return f'Timeout: {pkg_path}'
         except BaseException as e:
             write_json(error_status_path, {
                 'status': 'unexpected',
                 'detail': e.__str__()
             })                
+            self.kill_zombies()
             return f'Exception: {pkg_path} {e}'
 
 
