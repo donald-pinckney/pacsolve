@@ -209,8 +209,7 @@ This does not affect functionality.</p>
 <p>Running both the <code>npm</code> commands and the <code>cp</code> and <code>rm</code> commands each time is tedious, so we have included a script to automate this.
 Let's repeat the above example by using the <code>compare_solvers</code> script:</p>
 <p><strong>Step 6:</strong></p>
-<div class="highlight highlight-source-shell"><pre>compare_solvers vanilla minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span>
-tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+<div class="highlight highlight-source-shell"><pre>compare_solvers vanilla minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span></pre></div>
 <blockquote>
 <p>Expected result: both install commands should succeed, and <code>result-vanilla.json</code> and <code>result-minnpm.json</code> should be produced just as when done manually.</p>
 </blockquote>
@@ -281,8 +280,7 @@ compare_solvers \
     vanilla \
     minnpm-npm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --consistency npm<span class="pl-pds">'</span></span> \
     minnpm-cargo=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --consistency cargo<span class="pl-pds">'</span></span> \
-    minnpm-pip=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --consistency pip<span class="pl-pds">'</span></span>
-tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+    minnpm-pip=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --consistency pip<span class="pl-pds">'</span></span></pre></div>
 <blockquote>
 <p>Expected result: All solves except <code>minnpm-pip</code> should succeed.
 The <code>result-vanilla.json</code> and <code>result-minnpm-npm.json</code> files should both contain the solution graph of policy (1) above,
@@ -335,8 +333,7 @@ can be configured to either allow or disallow cycles without sacrificing complet
 compare_solvers \
     vanilla \
     minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span> \
-    minnpm-acyclic=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --disallow-cycles<span class="pl-pds">'</span></span>
-tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+    minnpm-acyclic=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --disallow-cycles<span class="pl-pds">'</span></span></pre></div>
 <blockquote>
 <p>Expected result: All solves should succeed.
 The <code>result-vanilla.json</code> and <code>result-minnpm.json</code> files should both contain the cyclic solution graph,
@@ -384,8 +381,7 @@ find a satisfying solution graph. For this example the scenario to solve is:</p>
 <p><strong>Step 15:</strong></p>
 <div class="highlight highlight-source-shell"><pre>compare_solvers \
     vanilla \
-    minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span>
-tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+    minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span></pre></div>
 <blockquote>
 <p>Expected result: The MinNPM solve should succeed, and the NPM solve should fail.
 The <code>result-minnpm.json</code> file should contain the solution graph drawn above.</p>
@@ -453,8 +449,7 @@ Let's try using MinNPM to minimize the total oldness in the solution.</p>
 <span class="pl-c"><span class="pl-c">#</span> we don't need to specify any additional flags.</span>
 compare_solvers \
     vanilla \
-    minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span>
-tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+    minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span></pre></div>
 <blockquote>
 <p>Expected result: both solves should succeed.
 The <code>result-vanilla.json</code> file should contain the solution graph with (<code>a@2.0.0</code>; <code>b@1.0.0</code>; <code>c@1.0.0</code>),
@@ -523,8 +518,7 @@ but we can configure its minimization criteria to prioritize getting fewer depen
 compare_solvers \
     vanilla \
     minnpm-min-oldness-then-num-deps=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span> \
-    minnpm-min-num-deps-then-oldness=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --minimize min_num_deps,min_oldness<span class="pl-pds">'</span></span>
-tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
+    minnpm-min-num-deps-then-oldness=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --minimize min_num_deps,min_oldness<span class="pl-pds">'</span></span></pre></div>
 <blockquote>
 <p>Expected result: all solves should succeed.
 The <code>result-vanilla.json</code> and <code>result-minnpm-min-oldness-then-num-deps.json</code> files and should contain the solution graph with (<code>a@2.0.0</code>; <code>b@2.0.0</code>; <code>c@1.0.0</code>),
