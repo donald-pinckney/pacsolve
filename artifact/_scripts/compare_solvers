@@ -74,12 +74,11 @@ for name, npm_args in configs.items():
         result = '{"error": true}\n'
     write_file(f"result-{name}.json", result)
 
-print("\n\n--------- Completed running all solver configurations ---------")
-print(    "---------         Now printing all results...         ---------\n\n")
+print("\n\n---------         Now printing all results...         ---------\n\n")
 
-for name in configs.items():
+for name in configs.keys():
     print(f"\n\n********* ({name}) *********\n\n")
     print(read_file(f"result-{name}.json"))
     print("\n\n")
 
-subprocess.run("tail -n +1 result-*.json", shell=True)
+# subprocess.run("tail -n +1 result-*.json", shell=True)
