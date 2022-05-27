@@ -283,7 +283,8 @@ MinNPM exposes 3 different polices for conflicts:</p>
 <blockquote>
 <p>Expected result: All solves except <code>minnpm-pip</code> should succeed.
 The <code>result-vanilla.json</code> and <code>result-minnpm-npm.json</code> files should both contain the solution graph of policy (1) above,
-and <code>result-cargo.json</code> should contain the solution graph of policy (2) above.</p>
+and <code>result-cargo.json</code> should contain the solution graph of policy (2) above.
+When reading the result files, the solution graph node for <code>ms</code> contained inside <code>debug</code> is notated by its key being a subdirectory of <code>debug</code>.</p>
 </blockquote>
 <p><strong>Step 10:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>

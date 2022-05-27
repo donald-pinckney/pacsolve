@@ -166,6 +166,7 @@ compare_solvers \
 > Expected result: All solves except `minnpm-pip` should succeed. 
 > The `result-vanilla.json` and `result-minnpm-npm.json` files should both contain the solution graph of policy (1) above, 
 > and `result-cargo.json` should contain the solution graph of policy (2) above.
+> When reading the result files, the solution graph node for `ms` contained inside `debug` is notated by its key being a subdirectory of `debug`.
 
 
 **Step 10:**

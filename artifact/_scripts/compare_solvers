@@ -78,7 +78,7 @@ print("\n\n---------    Now printing all results...    ---------\n\n")
 
 for name in configs.keys():
     print(f"\n\n********* (result-{name}.json) *********\n\n")
-    print(read_file(f"result-{name}.json"))
+    subprocess.run(['jq', '.', f"result-{name}.json"])
     print("\n\n")
 
 # subprocess.run("tail -n +1 result-*.json", shell=True)
