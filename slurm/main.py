@@ -13,6 +13,7 @@ import concurrent.futures
 import ast
 from tqdm import tqdm
 from typing import Optional
+from contextlib import contextmanager
 
 from util import suppressed_iterator, write_json, read_json, chunked_or_distributed
 from random import shuffle
@@ -358,9 +359,17 @@ class Run(object):
             return f'Exception: {pkg_path} {e}'
 
 
-class DummyExecutor(object):
+class DummyExecutorImpl(object):
     def map(self, fn, args):
-        map(fn, args)
+        return map(fn, args)
+
+@contextmanager
+def DummyExecutor():
+    d = DummyExecutorImpl()
+    try:
+        yield d
+    finally:
+        pass
 
 
 if __name__ == '__main__':
