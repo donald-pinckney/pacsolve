@@ -22,7 +22,7 @@ Welcome to the virtual machine which we have prepared to illustrate the function
 - `RosetteSolver/` contains the source code of PacSolve, which implements a flexible depenendency solving backend via translation to Max-SMT by using Rosette.
 
 ### How to read this document 
-The rest of this document will proceed by following the series of examples contained in `artifact/`, to gain an understanding of how MinNPM functions on examples. **Every single command** which you are required to run will be annotated with a Step Number, some shell commands, and possible a box describing the expected command results, like so:
+The rest of this document will proceed by following the series of examples contained in `artifact/`, to gain an understanding of how MinNPM functions on examples. **Every single command** which you are required to run will be annotated with a Step Number, some shell commands, and a possible box describing the expected command results, like so:
 
 **Step 0:**
 
