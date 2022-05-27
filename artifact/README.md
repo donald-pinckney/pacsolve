@@ -209,13 +209,12 @@ pushd ex3_cycles/root_context
 # MinNPM allows cycles by default, the flag
 # --disallow-cycles tells MinNPM to only look for acyclic solutions.
 compare_solvers \
-    vanilla \
     minnpm='--minnpm' \
     minnpm-acyclic='--minnpm --disallow-cycles'
 ```
 
 > Expected result: All solves should succeed. 
-> The `result-vanilla.json` and `result-minnpm.json` files should both contain the cyclic solution graph,
+> The `result-minnpm.json` file should contain the cyclic solution graph,
 > and `result-minnpm-acyclic.json` should contain the acyclic solution graph.
 
 Note that MinNPM prefers to choose the cyclic solution graph because it produces newer versions of dependencies.
