@@ -156,8 +156,6 @@ pushd ex2_consistency_criteria/root_context
 
 **Step 9:**
 ```bash
-# As a reminder, the minnpm-cargo line is equivalent to manually running
-# npm install --minnpm --consistency cargo
 compare_solvers \
     vanilla \
     minnpm-npm='--minnpm --consistency npm' \

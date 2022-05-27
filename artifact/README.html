@@ -275,9 +275,7 @@ MinNPM exposes 3 different polices for conflicts:</p>
 <p><strong>Step 8:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex2_consistency_criteria/root_context</pre></div>
 <p><strong>Step 9:</strong></p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> As a reminder, the minnpm-cargo line is equivalent to manually running</span>
-<span class="pl-c"><span class="pl-c">#</span> npm install --minnpm --consistency cargo</span>
-compare_solvers \
+<div class="highlight highlight-source-shell"><pre>compare_solvers \
     vanilla \
     minnpm-npm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --consistency npm<span class="pl-pds">'</span></span> \
     minnpm-cargo=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --consistency cargo<span class="pl-pds">'</span></span> \
