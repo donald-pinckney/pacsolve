@@ -74,7 +74,7 @@ for name, npm_args in configs.items():
         result = '{"error": true}\n'
     write_file(f"result-{name}.json", result)
 
-print("\n\n---------         Now printing all results...         ---------\n\n")
+print("\n\n---------    Now printing all results...    ---------\n\n")
 
 for name in configs.keys():
     print(f"\n\n********* (result-{name}.json) *********\n\n")
