@@ -14,7 +14,6 @@ import ast
 from tqdm import tqdm
 from typing import Optional
 
-import cfut # Adrian Sampson's clusterfutures package.
 from util import suppressed_iterator, write_json, read_json, chunked_or_distributed
 from random import shuffle
 
@@ -160,11 +159,13 @@ def run(argv):
     parser.add_argument('--tarball-dir', required=True,
         help='Directory with tarballs of Node packages')
     parser.add_argument('--target', required=True,
-      help='Directory with NPM projects')
+        help='Directory with NPM projects')
     parser.add_argument('--timeout', type=int, default=600,
         help='Timeout for npm')
     parser.add_argument('--cpus-per-task', type=int, default=24,
-       help='Number of CPUs to request on each node')
+        help='Number of CPUs to request on each node')
+    parser.add_argument('--use-slurm', type=ast.literal_eval, default=True,
+        help='Should we use slurm?')
     parser.add_argument('--z3-abs-path', type=str, default=None, help='The absolute path of the z3 binary to use. Default: load the z3 installed by Spack.')
     parser.add_argument('--z3-add-model-option', type=ast.literal_eval, required=True, help='Set to true if the Z3 version is newer.')
     parser.add_argument('--z3-debug-dir', type=str, default=None, help='Relative path to a directory to dump Z3 debug logs. Default: no Z3 debug logs.')
@@ -173,7 +174,7 @@ def run(argv):
 
     tarball_dir = os.path.normpath(args.tarball_dir)
     target = os.path.normpath(args.target)
-    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
+    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.use_slurm, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
 
 def solve_command(mode_configuration):
     if mode_configuration['rosette']:
@@ -202,11 +203,12 @@ def package_target(target_base, mode_configuration, package_name):
 
 class Run(object):
 
-    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task, z3_abs_path: Optional[str], z3_add_model_option: bool, z3_debug_dir: Optional[str]):
+    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task, use_slurm, z3_abs_path: Optional[str], z3_add_model_option: bool, z3_debug_dir: Optional[str]):
         self.target = target
         self.tarball_dir = tarball_dir
         self.timeout = timeout
         self.cpus_per_task = cpus_per_task
+        self.use_slurm = use_slurm
         self.mode_configurations = mode_configurations
 
         self.sbatch_lines = [
@@ -253,11 +255,17 @@ class Run(object):
         pkg_chunks = chunked_or_distributed(pkgs,
             max_groups=49, optimal_group_size=self.cpus_per_task)
 
-        with cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines, keep_logs=True) as executor:
+        with self.make_slurm_executor() as executor:
             for err in suppressed_iterator(executor.map(self.run_chunk, pkg_chunks)):
                 if err is not None:
                     print(err)
 
+    def make_slurm_executor(self):
+        if self.use_slurm:
+            import cfut # Adrian Sampson's clusterfutures package.
+            return cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines, keep_logs=True)
+        else:
+            return DummyExecutor()
 
     def should_rerun(self, results_json):
         return "status" in results_json and "reason" in results_json and results_json["status"] == "cannot_install" and results_json["reason"] == "ETARGET"
@@ -348,6 +356,12 @@ class Run(object):
                 'detail': e.__str__()
             })                
             return f'Exception: {pkg_path} {e}'
+
+
+class DummyExecutor(object):
+    def map(self, fn, args):
+        map(fn, args)
+
 
 if __name__ == '__main__':
     start = time.time()
