@@ -77,7 +77,7 @@ for name, npm_args in configs.items():
 print("\n\n---------         Now printing all results...         ---------\n\n")
 
 for name in configs.keys():
-    print(f"\n\n********* ({name}) *********\n\n")
+    print(f"\n\n********* (result-{name}.json) *********\n\n")
     print(read_file(f"result-{name}.json"))
     print("\n\n")
 
