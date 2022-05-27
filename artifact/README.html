@@ -335,8 +335,10 @@ compare_solvers \
     minnpm-acyclic=<span class="pl-s"><span class="pl-pds">'</span>--minnpm --disallow-cycles<span class="pl-pds">'</span></span></pre></div>
 <blockquote>
 <p>Expected result: All solves should succeed.
-The <code>result-minnpm.json</code> file should contain the cyclic solution graph,
-and <code>result-minnpm-acyclic.json</code> should contain the acyclic solution graph.</p>
+The <code>result-minnpm.json</code> file should contain the cyclic solution graph.
+The cycle is notated by <code>b@1.0.0</code> having as a child a special link type (<code>"link" : true</code>), with a <code>resolved</code> field indicating the link destination.
+In this example the link destination is <code>a@2.0.0</code>.
+The <code>result-minnpm-acyclic.json</code> file should contain the acyclic solution graph.</p>
 </blockquote>
 <p>Note that MinNPM prefers to choose the cyclic solution graph because it produces newer versions of dependencies.</p>
 <p><strong>Step 13:</strong></p>

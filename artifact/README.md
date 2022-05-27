@@ -214,8 +214,10 @@ compare_solvers \
 ```
 
 > Expected result: All solves should succeed. 
-> The `result-minnpm.json` file should contain the cyclic solution graph,
-> and `result-minnpm-acyclic.json` should contain the acyclic solution graph.
+> The `result-minnpm.json` file should contain the cyclic solution graph.
+> The cycle is notated by `b@1.0.0` having as a child a special link type (`"link" : true`), with a `resolved` field indicating the link destination.
+> In this example the link destination is `a@2.0.0`.
+> The `result-minnpm-acyclic.json` file should contain the acyclic solution graph.
 
 Note that MinNPM prefers to choose the cyclic solution graph because it produces newer versions of dependencies.
 
