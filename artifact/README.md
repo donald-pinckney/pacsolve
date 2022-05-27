@@ -98,11 +98,12 @@ cp node_modules/.package-lock.json result-minnpm.json; rm -rf node_modules packa
 tail -n +1 result-*.json
 ```
 
-> Expected result: both result files should describe the solution graph drawn above, but
-> there may be small differences in the result files, including possibly missing tarball URLs. 
-> This does not affect functionality.
+> Expected result: both result files should describe the solution graph drawn above.
+> Specifically, the `packages` field contains a dictionary listing all solved dependencies.
+> There should be one solved dependency: `node_modules/@minnpm-artifact-examples/ex1-a`, version `1.0.0`.
+> Note that one file may lack tarball URLs, but this does not affect functionality.
 
-Running both the `npm` commands and the `cp` and `rm` commands each time is tedious, so we have included a script to automate this.
+Running both the `npm`, `cp` and `rm` and `tail` commands each time is tedious, so we have included a script to automate this.
 Let's repeat the above example by using the `compare_solvers` script:
 
 **Step 6:**

@@ -202,11 +202,12 @@ cp node_modules/.package-lock.json result-minnpm.json<span class="pl-k">;</span>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> Look at both results</span>
 tail -n +1 result-<span class="pl-k">*</span>.json</pre></div>
 <blockquote>
-<p>Expected result: both result files should describe the solution graph drawn above, but
-there may be small differences in the result files, including possibly missing tarball URLs.
-This does not affect functionality.</p>
+<p>Expected result: both result files should describe the solution graph drawn above.
+Specifically, the <code>packages</code> field contains a dictionary listing all solved dependencies.
+There should be one solved dependency: <code>node_modules/@minnpm-artifact-examples/ex1-a</code>, version <code>1.0.0</code>.
+Note that one file may lack tarball URLs, but this does not affect functionality.</p>
 </blockquote>
-<p>Running both the <code>npm</code> commands and the <code>cp</code> and <code>rm</code> commands each time is tedious, so we have included a script to automate this.
+<p>Running both the <code>npm</code>, <code>cp</code> and <code>rm</code> and <code>tail</code> commands each time is tedious, so we have included a script to automate this.
 Let's repeat the above example by using the <code>compare_solvers</code> script:</p>
 <p><strong>Step 6:</strong></p>
 <div class="highlight highlight-source-shell"><pre>compare_solvers vanilla minnpm=<span class="pl-s"><span class="pl-pds">'</span>--minnpm<span class="pl-pds">'</span></span></pre></div>
