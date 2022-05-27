@@ -244,7 +244,7 @@ class Run(object):
             if self.use_slurm:
                 m = executor.map(self.run_minnpm, pkgs)
             else:
-                m = tqdm(executor.map(self.run_minnpm, pkgs), total=len(pkgs))
+                m = iter(tqdm(executor.map(self.run_minnpm, pkgs), total=len(pkgs)))
 
             for err in suppressed_iterator(m):
                 if err is not None:
