@@ -74,3 +74,4 @@ for name, npm_args in configs.items():
         result = '{"error": true}\n'
     write_file(f"result-{name}.json", result)
 
+subprocess.run("tail -n +1 result-*.json", shell=True)

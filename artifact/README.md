@@ -108,7 +108,6 @@ Let's repeat the above example by using the `compare_solvers` script:
 **Step 6:**
 ```bash
 compare_solvers vanilla minnpm='--minnpm'
-tail -n +1 result-*.json
 ```
 
 > Expected result: both install commands should succeed, and `result-vanilla.json` and `result-minnpm.json` should be produced just as when done manually.
@@ -163,7 +162,6 @@ compare_solvers \
     minnpm-npm='--minnpm --consistency npm' \
     minnpm-cargo='--minnpm --consistency cargo' \
     minnpm-pip='--minnpm --consistency pip'
-tail -n +1 result-*.json
 ```
 
 > Expected result: All solves except `minnpm-pip` should succeed. 
@@ -214,7 +212,6 @@ compare_solvers \
     vanilla \
     minnpm='--minnpm' \
     minnpm-acyclic='--minnpm --disallow-cycles'
-tail -n +1 result-*.json
 ```
 
 > Expected result: All solves should succeed. 
@@ -258,7 +255,6 @@ pushd ex4_npm_incomplete/root_context
 compare_solvers \
     vanilla \
     minnpm='--minnpm'
-tail -n +1 result-*.json
 ```
 
 > Expected result: The MinNPM solve should succeed, and the NPM solve should fail.
@@ -307,7 +303,6 @@ pushd ex5_min_oldness/root_context
 compare_solvers \
     vanilla \
     minnpm='--minnpm'
-tail -n +1 result-*.json
 ```
 
 > Expected result: both solves should succeed.
@@ -361,7 +356,6 @@ compare_solvers \
     vanilla \
     minnpm-min-oldness-then-num-deps='--minnpm' \
     minnpm-min-num-deps-then-oldness='--minnpm --minimize min_num_deps,min_oldness'
-tail -n +1 result-*.json
 ```
 
 > Expected result: all solves should succeed.
