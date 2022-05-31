@@ -17,6 +17,22 @@ def strip_node_modules_from_name(package_name):
     parts.reverse()
     return '/'.join(parts)
 
+memoized_oldness = dict()
+
+def lookup_oldness(stripped_name, version):
+    key = f'{stripped_name}:{version}'
+    if key not in memoized_oldness:
+        memoized_oldness[key] = float(subprocess.check_output([
+                '../version-oldness/version-oldness.sh', 
+                stripped_name, 
+                version],
+                stderr=DUMP_ERRORS
+            ).decode(
+                'utf-8', 
+                errors='ignore'
+            ).strip())
+    return memoized_oldness[key]
+
 def calculate_oldness(package_name, package_lock_path):
     packages = read_json(package_lock_path)['packages']
 
@@ -40,16 +56,7 @@ def calculate_oldness(package_name, package_lock_path):
             version = metadata['version']
             stripped_name = strip_node_modules_from_name(node_name)
             try:
-                oldness = subprocess.check_output([
-                        '../version-oldness/version-oldness.sh', 
-                        stripped_name, 
-                        version],
-                        stderr=DUMP_ERRORS
-                    ).decode(
-                        'utf-8', 
-                        errors='ignore'
-                    ).strip()
-                return float(oldness)
+                return lookup_oldness(stripped_name, version)
             except KeyboardInterrupt as e:
                 raise e
             except BaseException as e:
