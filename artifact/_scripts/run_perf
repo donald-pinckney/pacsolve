@@ -4,6 +4,8 @@ set -e
 target_dir="/home/artifact/experiment-dir"
 perf_dir="/home/artifact/experiment-dir-perf"
 
+mkdir -p $perf_dir
+
 cd ~/Desktop/pacsolve/slurm/
 ./performance.py --target "$target_dir"/vanilla > "$perf_dir"/vanilla-perf.csv
 ./performance.py --target "$target_dir"/rosette/npm/allow_cycles/min_oldness,min_num_deps > "$perf_dir"/rosette-perf.csv
