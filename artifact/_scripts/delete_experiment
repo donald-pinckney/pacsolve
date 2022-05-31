@@ -1,0 +1,8 @@
+#!/bin/bash
+
+timeout_sec=$1
+tarball_dir="/home/artifact/tarballs"
+target_dir="/home/artifact/experiment-dir"
+
+rm -rf $target_dir
+mkdir $target_dir

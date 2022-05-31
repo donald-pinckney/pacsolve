@@ -1,0 +1,10 @@
+#!/bin/bash
+
+timeout_sec=$1
+tarball_dir="/home/artifact/tarballs"
+target_dir="/home/artifact/experiment-dir"
+
+mkdir -p $target_dir
+
+cd ~/Desktop/pacsolve/slurm/
+./main.py run --tarball-dir $tarball_dir --z3-abs-path $Z3_LOC --z3-add-model-option $Z3_MODEL_OPTION --target $target_dir --use-slurm False --cpus-per-task 1 --timeout $timeout_sec
