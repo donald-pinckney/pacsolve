@@ -10,6 +10,7 @@
   - [Example #4: MinNPM can Find Solutions when NPM Fails](#example-4-minnpm-can-find-solutions-when-npm-fails)
   - [Example #5: MinNPM can Minimize Oldness](#example-5-minnpm-can-minimize-oldness)
   - [Example #6: MinNPM can Minimize Number of Dependencies](#example-6-minnpm-can-minimize-number-of-dependencies)
+  - [Running the Experiments of the Evaluation Section](#running-the-experiments-of-the-evaluation-section)
 
 ## Welcome
 
@@ -370,3 +371,23 @@ Note that because we minimize `min_oldness` at second priority, we get a solutio
 popd
 ```
 
+## Running the Experiments of the Evaluation Section
+
+```bash
+# This takes about 2 days
+run_experiment 60
+
+
+# This takes about 1 week,
+# optional, but is closer to the experiments we ran for the paper:
+# > run_experiment 600
+
+# This takes about ___ hours
+run_perf
+
+# This takes about 30 minutes
+prepare_analysis
+
+# This is very fast
+save_analysis
+```
