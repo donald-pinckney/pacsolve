@@ -32,8 +32,9 @@ library(fontcm)
 ```{r dirs}
 data_root <- "/home/donald/data-from-discovery-rsync/apr-10-more-combos"
 
-perf_root <- "/home/donald/apr-10-more-combos-2"
-oldness_root <- str_c(data_root, "-results")
+perf_root <- str_c(data_root, "-perf")
+oldness_root <- str_c(data_root, "-oldness")
+sizes_root <- str_c(data_root, "-sizes")
 
 
 results_root <- str_c(data_root, "-number-results")
@@ -549,17 +550,17 @@ _deps > oldness_npm_oldness_deps.csv
 Raw data
 ```{r}
 oldness_data <- bind_rows(
-  read_csv(paste(oldness_root, "/oldness/vanilla.csv", sep=""),
+  read_csv(paste(oldness_root, "/vanilla.csv", sep=""),
     col_types = cols(Package=col_factor(),
                      Oldness=col_double()),
     show_col_types = FALSE) %>%
     mutate(Solver = "NPM"),
-  read_csv(paste(oldness_root, "/oldness/rosette-npm-allow_cycles-min_oldness-min_num_deps.csv", sep=""),
+  read_csv(paste(oldness_root, "/rosette-npm-allow_cycles-min_oldness-min_num_deps.csv", sep=""),
     col_types = cols(Package=col_factor(),
                      Oldness=col_double()),
     show_col_types = FALSE) %>%
     mutate(Solver = "MinOldness"),
-  read_csv(paste(oldness_root, "/oldness/rosette-npm-allow_cycles-min_num_deps-min_oldness.csv", sep=""),
+  read_csv(paste(oldness_root, "/rosette-npm-allow_cycles-min_num_deps-min_oldness.csv", sep=""),
     col_types = cols(Package=col_factor(),
                      Oldness=col_double()),
     show_col_types = FALSE) %>%
@@ -686,10 +687,10 @@ mysave("oldness_scatterplot.pdf")
 
 
 ```{r}
-vanilla_sizes <- read_tsv("/home/donald/vanilla_sizes.tsv", col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
-min_deps_sizes <- read_tsv("/home/donald/npm_min_num_deps.tsv", col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
-min_oldness_sizes <- read_tsv("/home/donald/npm_min_oldness.tsv", col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
-min_duplicates_sizes <- read_tsv("/home/donald/npm_min_duplicates.tsv", col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
+vanilla_sizes <- read_tsv(paste(sizes_root, "/vanilla.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
+min_deps_sizes <- read_tsv(paste(sizes_root, "npm_min_num_deps.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
+min_oldness_sizes <- read_tsv(paste(sizes_root, "npm_min_oldness.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
+min_duplicates_sizes <- read_tsv(paste(sizes_root, "npm_min_duplicates.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
 
 ok_projects <- raw_data %>% 
   filter(Rosette == FALSE & Status == "success") %>% 
