@@ -54,6 +54,7 @@ def calculate_oldness(package_name, package_lock_path):
                 raise e
             except BaseException as e:
                 print(f'Error (ignored): version-oldness {node_name} {version}', file=sys.stderr)
+                print(e, file=sys.stderr)
                 return 'error'
 
 
@@ -95,7 +96,7 @@ def check_and_calc_oldness(root, package_name):
 def calculate_oldness_all(root):
     all_packages = os.listdir(root)
     print('Package,Oldness')
-    with ThreadPoolExecutor(max_workers=250) as executor:
+    with ThreadPoolExecutor(max_workers=32) as executor:
         for r in executor.map(lambda p: check_and_calc_oldness(root, p), all_packages):
             if r is not None:
                 print(r)
