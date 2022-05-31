@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 target_dir="/home/artifact/experiment-dir"
 perf_dir="/home/artifact/experiment-dir-perf"
