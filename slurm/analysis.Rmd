@@ -30,7 +30,7 @@ library(fontcm)
 ```
 
 ```{r dirs}
-data_root <- "/home/donald/data-from-discovery-rsync/apr-10-more-combos"
+data_root <- "/home/artifact/experiment-dir"
 
 perf_root <- str_c(data_root, "-perf")
 oldness_root <- str_c(data_root, "-oldness")
