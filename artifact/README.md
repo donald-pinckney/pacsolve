@@ -391,3 +391,9 @@ prepare_analysis
 # This is very fast
 save_analysis
 ```
+
+Then, the following directories contain the topline numbers, plots, and tables that are reported in the paper:
+
+- `/home/artifact/experiment-dir-number-results/`
+- `/home/artifact/experiment-dir-number-plots/`
+- `/home/artifact/experiment-dir-number-tables/`
