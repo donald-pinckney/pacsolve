@@ -10,6 +10,9 @@ cd ~/Desktop/pacsolve/slurm/
 mkdir -p "$oldness_dir"
 mkdir -p "$sizes_dir"
 
+# Gather main results
+./main.py gather $target_dir
+
 # Prepare oldness analysis
 python3 all_oldness.py "$target_dir"/vanilla > "$oldness_dir"/vanilla.csv 2> /dev/null
 python3 all_oldness.py "$target_dir"/rosette/npm/allow_cycles/min_oldness,min_num_deps > "$oldness_dir"/rosette-npm-allow_cycles-min_oldness-min_num_deps.csv 2> /dev/null

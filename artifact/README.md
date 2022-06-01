@@ -33,6 +33,9 @@ echo "example"
 
 > Expected result: should print 'example' to the terminal
 
+Finally, the very end of this document explains the steps necessary to re-run the full experiments conducted in the evaluation section. 
+However, running these experiments takes quite a long compute time (several days).
+
 
 ## Getting to the Right Directory
 
@@ -373,30 +376,73 @@ popd
 
 ## Running the Experiments of the Evaluation Section
 
+Finallly, this VM can also be used to reproduce the experimental results of evaluation section of the paper.
+
+**Note: reproducing the experimental results within this VM will take 3-10 days of compute. Proceed only if you wish!**
+
+We will not perfectly reproduce the results, particularly performance results, due to limited time and compute resources and variation from the machines on which we ran the reported experiments.
+
+First, we clear any existing experimental data. This deletes all the directories `~/experiment-dir*/`:
+
+**Step 23:**
 ```bash
 # Clear any existing experiment data
 delete_experiment
+```
 
-# This takes about 2 days
+Now, we can run the main experiment, which will run NPM and MinNPM (in many configurations) on 1000 packages. Note that the paper used
+a timeout of 600 seconds, but in order to get results sooner we decrease the timeout to 60 seconds:
+
+**Step 24:**
+```bash
+# This takes about 2-3 days
 run_experiment 60
+```
 
+To verify that the experiments ran, you can check that the directory `~/experiment-dir` exists, and poke at the contents.
 
-# This takes about 1 week,
-# optional, but is closer to the experiments we ran for the paper:
-# run_experiment 600
+Next, we can run the performance measurement experiment:
 
+**Step 25:**
+```bash
 # This takes about 4 hours
 run_perf
+```
 
-# This takes about 30 minutes
+To verify that the performance experiments ran, you can check that the directory `~/experiment-dir-perf` exists and contains 2 `.csv` files.
+
+Now that all experiments have finished running, we perform some pre-analysis data collection:
+
+**Step 26:**
+```bash
+# This takes about 30-60 minutes
 prepare_analysis
+```
 
+To verify that this step succeeded, you can check that the following files / directories exist:
+
+- `~/experiment-dir/results.csv`
+- `~/experiment-dir-oldness/*.csv`
+- `~/experiment-dir-sizes/*.tsv`
+
+Finally, we can produce the figures and tables:
+
+**Step 27:**
+```bash
 # This is very fast
 save_analysis
 ```
 
-Then, the following directories contain the topline numbers, plots, and tables that are reported in the paper:
+Then, the following directories contain the topline numbers, plots, and tables corresponding to what is reported in the paper:
 
 - `/home/artifact/experiment-dir-number-results/`
 - `/home/artifact/experiment-dir-number-plots/`
 - `/home/artifact/experiment-dir-number-tables/`
+
+For comparison, the verbatim topline numbers, plots, and tables in the paper are in the directories:
+
+- `/home/artifact/paper-number-results/`
+- `/home/artifact/paper-number-plots/`
+- `/home/artifact/paper-number-tables/`
+
+Note that some differences are expected: 1) some results, in particular the performance results and the number of timeouts will be different, as explained above. 2) the tables are formatted a bit differently, with some re-arranged out commented-out rows in the verbatim paper tables.
