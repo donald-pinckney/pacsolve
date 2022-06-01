@@ -380,9 +380,9 @@ run_experiment 60
 
 # This takes about 1 week,
 # optional, but is closer to the experiments we ran for the paper:
-# > run_experiment 600
+# run_experiment 600
 
-# This takes about ___ hours
+# This takes about 4 hours
 run_perf
 
 # This takes about 30 minutes
