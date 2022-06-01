@@ -108,6 +108,7 @@
 <li>
 <a href="#artifact-for-dependency-solvers-%C3%A0-la-carte">Artifact for Dependency Solvers à la Carte</a>
 <ul>
+<li><a href="#downloading-and-running-the-vm-for-the-artifact">Downloading and Running the VM for the Artifact</a></li>
 <li>
 <a href="#welcome">Welcome</a>
 <ul>
@@ -121,9 +122,23 @@
 <li><a href="#example-4-minnpm-can-find-solutions-when-npm-fails">Example #4: MinNPM can Find Solutions when NPM Fails</a></li>
 <li><a href="#example-5-minnpm-can-minimize-oldness">Example #5: MinNPM can Minimize Oldness</a></li>
 <li><a href="#example-6-minnpm-can-minimize-number-of-dependencies">Example #6: MinNPM can Minimize Number of Dependencies</a></li>
+<li><a href="#running-the-experiments-of-the-evaluation-section">Running the Experiments of the Evaluation Section</a></li>
 </ul>
 </li>
 </ul>
+<h2>
+<a id="user-content-downloading-and-running-the-vm-for-the-artifact" class="anchor" href="#downloading-and-running-the-vm-for-the-artifact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloading and Running the VM for the Artifact</h2>
+<p>Before proceeding, you must:</p>
+<ol>
+<li>Be using an Intel/AMD machine (<strong>NOT</strong> an ARM machine).</li>
+<li>Download and install VirtualBox: <a href="https://www.virtualbox.org/wiki/Downloads" rel="nofollow">https://www.virtualbox.org/wiki/Downloads</a>
+</li>
+<li>Download the artifact VM from: <a href="...">...</a>
+</li>
+<li>Open the VM using VirtualBox</li>
+<li>Boot the VM</li>
+</ol>
+<p>Once the VM boots, it will open this document in Firefox. When that happens, please proceed by <strong>reading and following the rest of this document within the VM</strong>.</p>
 <h2>
 <a id="user-content-welcome" class="anchor" href="#welcome" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome</h2>
 <p>Welcome to the virtual machine which we have prepared to illustrate the functionality of PacSolve and MinNPM.</p>
@@ -144,6 +159,8 @@
 <blockquote>
 <p>Expected result: should print 'example' to the terminal</p>
 </blockquote>
+<p>Finally, the very end of this document explains the steps necessary to re-run the full experiments conducted in the evaluation section.
+However, running these experiments takes quite a long compute time (several days).</p>
 <h2>
 <a id="user-content-getting-to-the-right-directory" class="anchor" href="#getting-to-the-right-directory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting to the Right Directory</h2>
 <p><strong>Step 1:</strong>
@@ -528,6 +545,53 @@ and the <code>result-minnpm-min-num-deps-then-oldness.json</code> file should co
 <p>Note that because we minimize <code>min_oldness</code> at second priority, we get a solution with <code>b@2.0.0</code> rather than <code>b@1.0.0</code>, as that does not affect graph size.</p>
 <p><strong>Step 22:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">popd</span></pre></div>
+<h2>
+<a id="user-content-running-the-experiments-of-the-evaluation-section" class="anchor" href="#running-the-experiments-of-the-evaluation-section" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running the Experiments of the Evaluation Section</h2>
+<p>Finallly, this VM can also be used to reproduce the experimental results of evaluation section of the paper.</p>
+<p><strong>Note: reproducing the experimental results within this VM will take 3-10 days of compute. Proceed only if you wish!</strong></p>
+<p>We will not perfectly reproduce the results, particularly performance results, due to limited time and compute resources and variation from the machines on which we ran the reported experiments.</p>
+<p>First, we clear any existing experimental data. This deletes all the directories <code>~/experiment-dir*/</code>:</p>
+<p><strong>Step 23:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> Clear any existing experiment data</span>
+delete_experiment</pre></div>
+<p>Now, we can run the main experiment, which will run NPM and MinNPM (in many configurations) on 1000 packages. Note that the paper used
+a timeout of 600 seconds, but in order to get results sooner we decrease the timeout to 60 seconds:</p>
+<p><strong>Step 24:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> This takes about 2-3 days</span>
+run_experiment 60</pre></div>
+<p>To verify that the experiments ran, you can check that the directory <code>~/experiment-dir</code> exists, and poke at the contents.</p>
+<p>Next, we can run the performance measurement experiment:</p>
+<p><strong>Step 25:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> This takes about 4 hours</span>
+run_perf</pre></div>
+<p>To verify that the performance experiments ran, you can check that the directory <code>~/experiment-dir-perf</code> exists and contains 2 <code>.csv</code> files.</p>
+<p>Now that all experiments have finished running, we perform some pre-analysis data collection:</p>
+<p><strong>Step 26:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> This takes about 30-60 minutes</span>
+prepare_analysis</pre></div>
+<p>To verify that this step succeeded, you can check that the following files / directories exist:</p>
+<ul>
+<li><code>~/experiment-dir/results.csv</code></li>
+<li><code>~/experiment-dir-oldness/*.csv</code></li>
+<li><code>~/experiment-dir-sizes/*.tsv</code></li>
+</ul>
+<p>Finally, we can produce the figures and tables:</p>
+<p><strong>Step 27:</strong></p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> This is very fast</span>
+save_analysis</pre></div>
+<p>Then, the following directories contain the topline numbers, plots, and tables corresponding to what is reported in the paper:</p>
+<ul>
+<li><code>~/experiment-dir-number-results/</code></li>
+<li><code>~/experiment-dir-number-plots/</code></li>
+<li><code>~/experiment-dir-number-tables/</code></li>
+</ul>
+<p>For comparison, the verbatim topline numbers, plots, and tables in the paper are in the directories:</p>
+<ul>
+<li><code>~/paper-number-results/</code></li>
+<li><code>~/paper-number-plots/</code></li>
+<li><code>~/paper-number-tables/</code></li>
+</ul>
+<p>Note that some differences are expected: 1) some results, in particular the performance results and the number of timeouts will be different, as explained above. 2) the tables are formatted a bit differently, with some re-arranged out commented-out rows in the verbatim paper tables.</p>
 
                       </article>
                     </div>

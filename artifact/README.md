@@ -1,6 +1,7 @@
 # Artifact for Dependency Solvers à la Carte
 
 - [Artifact for Dependency Solvers à la Carte](#artifact-for-dependency-solvers-à-la-carte)
+  - [Downloading and Running the VM for the Artifact](#downloading-and-running-the-vm-for-the-artifact)
   - [Welcome](#welcome)
     - [How to read this document](#how-to-read-this-document)
   - [Getting to the Right Directory](#getting-to-the-right-directory)
@@ -11,6 +12,19 @@
   - [Example #5: MinNPM can Minimize Oldness](#example-5-minnpm-can-minimize-oldness)
   - [Example #6: MinNPM can Minimize Number of Dependencies](#example-6-minnpm-can-minimize-number-of-dependencies)
   - [Running the Experiments of the Evaluation Section](#running-the-experiments-of-the-evaluation-section)
+
+
+## Downloading and Running the VM for the Artifact
+
+Before proceeding, you must:
+
+1. Be using an Intel/AMD machine (**NOT** an ARM machine).
+2. Download and install VirtualBox: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
+3. Download the artifact VM from: [...](...)
+4. Open the VM using VirtualBox
+5. Boot the VM
+
+Once the VM boots, it will open this document in Firefox. When that happens, please proceed by **reading and following the rest of this document within the VM**.
 
 ## Welcome
 
@@ -435,14 +449,14 @@ save_analysis
 
 Then, the following directories contain the topline numbers, plots, and tables corresponding to what is reported in the paper:
 
-- `/home/artifact/experiment-dir-number-results/`
-- `/home/artifact/experiment-dir-number-plots/`
-- `/home/artifact/experiment-dir-number-tables/`
+- `~/experiment-dir-number-results/`
+- `~/experiment-dir-number-plots/`
+- `~/experiment-dir-number-tables/`
 
 For comparison, the verbatim topline numbers, plots, and tables in the paper are in the directories:
 
-- `/home/artifact/paper-number-results/`
-- `/home/artifact/paper-number-plots/`
-- `/home/artifact/paper-number-tables/`
+- `~/paper-number-results/`
+- `~/paper-number-plots/`
+- `~/paper-number-tables/`
 
 Note that some differences are expected: 1) some results, in particular the performance results and the number of timeouts will be different, as explained above. 2) the tables are formatted a bit differently, with some re-arranged out commented-out rows in the verbatim paper tables.
