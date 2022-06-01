@@ -688,9 +688,9 @@ mysave("oldness_scatterplot.pdf")
 
 ```{r}
 vanilla_sizes <- read_tsv(paste(sizes_root, "/vanilla.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
-min_deps_sizes <- read_tsv(paste(sizes_root, "npm_min_num_deps.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
-min_oldness_sizes <- read_tsv(paste(sizes_root, "npm_min_oldness.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
-min_duplicates_sizes <- read_tsv(paste(sizes_root, "npm_min_duplicates.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
+min_deps_sizes <- read_tsv(paste(sizes_root, "/npm_min_num_deps.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
+min_oldness_sizes <- read_tsv(paste(sizes_root, "/npm_min_oldness.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
+min_duplicates_sizes <- read_tsv(paste(sizes_root, "/npm_min_duplicates.tsv", sep=""), col_names = c("Size", "Project"), show_col_types = FALSE) %>% drop_na()
 
 ok_projects <- raw_data %>% 
   filter(Rosette == FALSE & Status == "success") %>% 
