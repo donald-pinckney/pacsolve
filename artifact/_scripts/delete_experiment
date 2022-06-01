@@ -1,8 +1,17 @@
 #!/bin/bash
 
-timeout_sec=$1
-tarball_dir="/home/artifact/tarballs"
 target_dir="/home/artifact/experiment-dir"
+oldness_dir="/home/artifact/experiment-dir-oldness"
+perf_dir="/home/artifact/experiment-dir-perf"
+sizes_dir="/home/artifact/experiment-dir-sizes"
+numbers_dir="/home/artifact/experiment-dir-number-results"
+plots_dir="/home/artifact/experiment-dir-plots"
+tables_dir="/home/artifact/experiment-dir-tables"
 
 rm -rf $target_dir
-mkdir $target_dir
+rm -rf $oldness_dir
+rm -rf $perf_dir
+rm -rf $sizes_dir
+rm -rf $numbers_dir
+rm -rf $plots_dir
+rm -rf $tables_dir

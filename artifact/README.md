@@ -374,6 +374,9 @@ popd
 ## Running the Experiments of the Evaluation Section
 
 ```bash
+# Clear any existing experiment data
+delete_experiment
+
 # This takes about 2 days
 run_experiment 60
 
