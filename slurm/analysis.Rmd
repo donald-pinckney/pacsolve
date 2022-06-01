@@ -60,7 +60,9 @@ write("% Run the notebook from top to bottom", results_tex, append=TRUE)
 mytheme <- function() {
   return(theme_bw() +
            theme(
-             text = element_text(family = "CM Roman", size=10),
+             # NOTE: UNCOMMENT WHEN RENDING PLOTS FOR THE PAPER
+             # (can't get the CM fonts to work in artifact VM...)
+             # text = element_text(family = "CM Roman", size=10),
               panel.grid.major = element_blank(),
              # panel.grid.minor = element_blank(),
              # panel.grid.major = element_line(colour="gray", size=0.1),
