@@ -16,13 +16,15 @@
 
 ## Downloading and Running the VM for the Artifact
 
-Before proceeding, you must:
+Before proceeding, **you must be using an Intel/AMD machine (*NOT an ARM machine*), and have about 70GB of free space**.
 
-1. Be using an Intel/AMD machine (**NOT** an ARM machine).
-2. Download and install VirtualBox: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
-3. Download the artifact VM from: [...](...)
-4. Open the VM using VirtualBox
-5. Boot the VM
+To download and boot the VM:
+
+1. Download and install VirtualBox: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
+2. Download the artifact VM from: [https://drive.google.com/file/d/1TXpXuU1L3sArTnfXedgREYB4s977faff/view?usp=sharing](https://drive.google.com/file/d/1TXpXuU1L3sArTnfXedgREYB4s977faff/view?usp=sharing)
+3. Double-click the downloaded VM to open it with VirtualBox
+4. Click Import, and wait for the import to complete (about 10 minutes)
+5. Select the imported VM, and click Start to boot the VM
 
 Once the VM boots, it will open this document in Firefox. When that happens, please proceed by **reading and following the rest of this document within the VM**.
 
