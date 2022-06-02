@@ -128,7 +128,7 @@
 </ul>
 <h2>
 <a id="user-content-downloading-and-running-the-vm-for-the-artifact" class="anchor" href="#downloading-and-running-the-vm-for-the-artifact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloading and Running the VM for the Artifact</h2>
-<p>Before proceeding, <strong>you must be using an Intel/AMD machine (<em>NOT an ARM machine</em>), and have about 70GB of free space</strong>.</p>
+<p>Before proceeding, <strong>you must be using an Intel/AMD machine (<em>NOT an ARM machine</em>), have about 70GB of free space, and always maintain a stable internet connection.</strong></p>
 <p>To download and boot the VM:</p>
 <ol>
 <li>Download and install VirtualBox: <a href="https://www.virtualbox.org/wiki/Downloads" rel="nofollow">https://www.virtualbox.org/wiki/Downloads</a>
@@ -207,7 +207,7 @@ npm install
 <span class="pl-c"><span class="pl-c">#</span> Save the resulting lockfile, then clear solve results</span>
 cp node_modules/.package-lock.json result-vanilla.json<span class="pl-k">;</span> rm -rf node_modules package-lock.json</pre></div>
 <blockquote>
-<p>Expected result: the install command should succeed. If not, please verify internet connectivity within the VM.</p>
+<p>Expected result: the install command should succeed. If not, please verify / fix internet connectivity within the VM.</p>
 </blockquote>
 <p><strong>Step 4:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> Install packages with MinNPM</span>
@@ -561,7 +561,9 @@ a timeout of 600 seconds, but in order to get results sooner we decrease the tim
 <p><strong>Step 24:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> This takes about 2-3 days</span>
 run_experiment 60</pre></div>
-<p>To verify that the experiments ran, you can check that the directory <code>~/experiment-dir</code> exists, and poke at the contents.</p>
+<p>To verify that the experiments ran, you can check that the directory <code>~/experiment-dir</code> exists, and poke at the contents.
+If you believe that some of the experiments may have failed spuriously (for example due to a network disconnection), you can simply
+re-run <code>run_experiment 60</code>, and it will re-run only previously failed ones.</p>
 <p>Next, we can run the performance measurement experiment:</p>
 <p><strong>Step 25:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> This takes about 4 hours</span>

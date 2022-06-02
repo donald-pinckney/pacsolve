@@ -16,7 +16,7 @@
 
 ## Downloading and Running the VM for the Artifact
 
-Before proceeding, **you must be using an Intel/AMD machine (*NOT an ARM machine*), and have about 70GB of free space**.
+Before proceeding, **you must be using an Intel/AMD machine (*NOT an ARM machine*), have about 70GB of free space, and always maintain a stable internet connection.**
 
 To download and boot the VM:
 
@@ -102,7 +102,7 @@ npm install
 cp node_modules/.package-lock.json result-vanilla.json; rm -rf node_modules package-lock.json
 ```
 
-> Expected result: the install command should succeed. If not, please verify internet connectivity within the VM.
+> Expected result: the install command should succeed. If not, please verify / fix internet connectivity within the VM.
 
 **Step 4:**
 ```bash
@@ -418,6 +418,8 @@ run_experiment 60
 ```
 
 To verify that the experiments ran, you can check that the directory `~/experiment-dir` exists, and poke at the contents.
+If you believe that some of the experiments may have failed spuriously (for example due to a network disconnection), you can simply
+re-run `run_experiment 60`, and it will re-run only previously failed ones.
 
 Next, we can run the performance measurement experiment:
 
