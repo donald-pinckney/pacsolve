@@ -62,6 +62,8 @@ On the Desktop of the virtual machine, double click QTerminal, and then run:
 cd ~/Desktop/pacsolve/artifact
 ```
 
+(Note that commands can be pasted into QTerminal with Ctrl-Shift-V.)
+
 From here on out, all commands will be run inside this shell.
 
 ## Example #1: Checking that MinNPM Runs Correctly
