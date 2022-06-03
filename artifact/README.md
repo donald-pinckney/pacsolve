@@ -85,7 +85,7 @@ As an example, package `a` version `1.0.0` is described by `ex1_minnpm_runs/a@1.
 
 There is only one possible solution for this example, which is:
 
-![root context depends on a@1.0.0](_images/ex1.png)
+![root context depends on a@1.0.0](images/ex1.png)
 
 Let's check that both vanilla NPM and MinNPM find this solution.
 
@@ -161,11 +161,11 @@ MinNPM exposes 3 different polices for conflicts:
 
 1. (NPM's policy): Freely allow co-installation of multiple versions, yielding this solution graph:
 
-    ![root context depends on debug@4.3.4 and ms@2.1.0, debug@4.3.4 depends on ms@2.1.0](_images/ex2_npm.png)
+    ![root context depends on debug@4.3.4 and ms@2.1.0, debug@4.3.4 depends on ms@2.1.0](images/ex2_npm.png)
 
 2. (Cargo's policy): Allow co-installation of versions which are **not** SemVer compatible. In this case, `ms@2.1.2` can be co-installed with `ms@1.0.0` but **not** `ms@2.1.0`, yielding this solution graph:
 
-    ![root context depends on debug@4.3.4 and ms@2.1.0, debug@4.3.4 depends on ms@1.0.0](_images/ex2_cargo.png)
+    ![root context depends on debug@4.3.4 and ms@2.1.0, debug@4.3.4 depends on ms@1.0.0](images/ex2_cargo.png)
 
 3. (PIP's policy): Disallow co-installation of multiple versions, yielding unsatisfiable constraints in this example.
 
@@ -215,9 +215,9 @@ The scenario to solve is:
 
 There are exactly 2 solution graphs which satisfy this example, one with cycles and one without:
 
-![root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0, b@1.0.0 depends on a@2.0.0](_images/ex3_yes_cycle.png)
+![root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0, b@1.0.0 depends on a@2.0.0](images/ex3_yes_cycle.png)
 
-![root context depends on a@1.0.0](_images/ex3_no_cycle.png)
+![root context depends on a@1.0.0](images/ex3_no_cycle.png)
 
 Let's try solving it both ways.
 
@@ -264,7 +264,7 @@ find a satisfying solution graph. For this example the scenario to solve is:
 
 There is no solution graph in which the root context depends on `a@2.0.0`. The only solution graph is:
 
-![root context depends on a@1.0.0](_images/ex4.png)
+![root context depends on a@1.0.0](images/ex4.png)
 
 Let's try solving with both vanilla NPM and MinNPM.
 
@@ -307,9 +307,9 @@ MinNPM finds globally optimal solution graphs, for some chosen minimization crit
 
 There are exactly 2 possible solution graphs, corresponding to which version of `a`:
 
-![root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0 and c@2.0.0](_images/ex5_a100.png)
+![root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0 and c@2.0.0](images/ex5_a100.png)
 
-![root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0](_images/ex5_a200.png)
+![root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0](images/ex5_a200.png)
 
 The first solution graph has an old version of `a`, but new versions of `b` and `c`. The second graph has a new version of `a`, but old versions of `b` and `c`. 
 Let's try using MinNPM to minimize the total oldness in the solution.
@@ -354,13 +354,13 @@ Consider solving this situation:
 
 There are exactly 4 possible solution graphs, corresponding to which versions of `a` and `b`:
 
-![root context depends on a@1.0.0, a@1.0.0 depends on b@1.0.0](_images/ex6_a100_b100.png)
+![root context depends on a@1.0.0, a@1.0.0 depends on b@1.0.0](images/ex6_a100_b100.png)
 
-![root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0](_images/ex6_a100_b200.png)
+![root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0](images/ex6_a100_b200.png)
 
-![root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0](_images/ex6_a200_b100.png)
+![root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0](images/ex6_a200_b100.png)
 
-![root context depends on a@2.0.0, a@2.0.0 depends on b@2.0.0 and c@1.0.0](_images/ex6_a200_b200.png)
+![root context depends on a@2.0.0, a@2.0.0 depends on b@2.0.0 and c@1.0.0](images/ex6_a200_b200.png)
 
 The first two solution graphs have an old version of `a`, but one fewer dependency. 
 By default MinNPM prefers to choose the newer version of `a`,

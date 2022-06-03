@@ -197,7 +197,7 @@ For your reference, the directories inside <code>ex1_minnpm_runs/</code> encode 
 As an example, package <code>a</code> version <code>1.0.0</code> is described by <code>ex1_minnpm_runs/a@1.0.0/package.json</code>, and has already been published as
 <code>@minnpm-artifact-examples/ex1-a</code> (<a href="https://www.npmjs.com/package/@minnpm-artifact-examples/ex1-a" rel="nofollow">link</a>).</p>
 <p>There is only one possible solution for this example, which is:</p>
-<p><a href="_images/ex1.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex1.png" alt="root context depends on a@1.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex1.png" target="_blank" rel="noopener noreferrer"><img src="images/ex1.png" alt="root context depends on a@1.0.0" style="max-width:100%;"></a></p>
 <p>Let's check that both vanilla NPM and MinNPM find this solution.</p>
 <p><strong>Step 2:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex1_minnpm_runs/root_context</pre></div>
@@ -280,11 +280,11 @@ MinNPM exposes 3 different polices for conflicts:</p>
 <ol>
 <li>
 <p>(NPM's policy): Freely allow co-installation of multiple versions, yielding this solution graph:</p>
-<p><a href="_images/ex2_npm.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex2_npm.png" alt="root context depends on debug@4.3.4 and ms@2.1.0, debug@4.3.4 depends on ms@2.1.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex2_npm.png" target="_blank" rel="noopener noreferrer"><img src="images/ex2_npm.png" alt="root context depends on debug@4.3.4 and ms@2.1.0, debug@4.3.4 depends on ms@2.1.0" style="max-width:100%;"></a></p>
 </li>
 <li>
 <p>(Cargo's policy): Allow co-installation of versions which are <strong>not</strong> SemVer compatible. In this case, <code>ms@2.1.2</code> can be co-installed with <code>ms@1.0.0</code> but <strong>not</strong> <code>ms@2.1.0</code>, yielding this solution graph:</p>
-<p><a href="_images/ex2_cargo.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex2_cargo.png" alt="root context depends on debug@4.3.4 and ms@2.1.0, debug@4.3.4 depends on ms@1.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex2_cargo.png" target="_blank" rel="noopener noreferrer"><img src="images/ex2_cargo.png" alt="root context depends on debug@4.3.4 and ms@2.1.0, debug@4.3.4 depends on ms@1.0.0" style="max-width:100%;"></a></p>
 </li>
 <li>
 <p>(PIP's policy): Disallow co-installation of multiple versions, yielding unsatisfiable constraints in this example.</p>
@@ -341,8 +341,8 @@ can be configured to either allow or disallow cycles without sacrificing complet
 </tbody>
 </table>
 <p>There are exactly 2 solution graphs which satisfy this example, one with cycles and one without:</p>
-<p><a href="_images/ex3_yes_cycle.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex3_yes_cycle.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0, b@1.0.0 depends on a@2.0.0" style="max-width:100%;"></a></p>
-<p><a href="_images/ex3_no_cycle.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex3_no_cycle.png" alt="root context depends on a@1.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex3_yes_cycle.png" target="_blank" rel="noopener noreferrer"><img src="images/ex3_yes_cycle.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0, b@1.0.0 depends on a@2.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex3_no_cycle.png" target="_blank" rel="noopener noreferrer"><img src="images/ex3_no_cycle.png" alt="root context depends on a@1.0.0" style="max-width:100%;"></a></p>
 <p>Let's try solving it both ways.</p>
 <p><strong>Step 11:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex3_cycles/root_context</pre></div>
@@ -394,7 +394,7 @@ find a satisfying solution graph. For this example the scenario to solve is:</p>
 </tbody>
 </table>
 <p>There is no solution graph in which the root context depends on <code>a@2.0.0</code>. The only solution graph is:</p>
-<p><a href="_images/ex4.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex4.png" alt="root context depends on a@1.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex4.png" target="_blank" rel="noopener noreferrer"><img src="images/ex4.png" alt="root context depends on a@1.0.0" style="max-width:100%;"></a></p>
 <p>Let's try solving with both vanilla NPM and MinNPM.</p>
 <p><strong>Step 14:</strong></p>
 <div class="highlight highlight-source-shell"><pre><span class="pl-c1">pushd</span> ex4_npm_incomplete/root_context</pre></div>
@@ -458,8 +458,8 @@ The <code>result-minnpm.json</code> file should contain the solution graph drawn
 </tbody>
 </table>
 <p>There are exactly 2 possible solution graphs, corresponding to which version of <code>a</code>:</p>
-<p><a href="_images/ex5_a100.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex5_a100.png" alt="root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0 and c@2.0.0" style="max-width:100%;"></a></p>
-<p><a href="_images/ex5_a200.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex5_a200.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex5_a100.png" target="_blank" rel="noopener noreferrer"><img src="images/ex5_a100.png" alt="root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0 and c@2.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex5_a200.png" target="_blank" rel="noopener noreferrer"><img src="images/ex5_a200.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0" style="max-width:100%;"></a></p>
 <p>The first solution graph has an old version of <code>a</code>, but new versions of <code>b</code> and <code>c</code>. The second graph has a new version of <code>a</code>, but old versions of <code>b</code> and <code>c</code>.
 Let's try using MinNPM to minimize the total oldness in the solution.</p>
 <p><strong>Step 17:</strong></p>
@@ -523,10 +523,10 @@ Consider solving this situation:</p>
 </tbody>
 </table>
 <p>There are exactly 4 possible solution graphs, corresponding to which versions of <code>a</code> and <code>b</code>:</p>
-<p><a href="_images/ex6_a100_b100.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex6_a100_b100.png" alt="root context depends on a@1.0.0, a@1.0.0 depends on b@1.0.0" style="max-width:100%;"></a></p>
-<p><a href="_images/ex6_a100_b200.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex6_a100_b200.png" alt="root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0" style="max-width:100%;"></a></p>
-<p><a href="_images/ex6_a200_b100.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex6_a200_b100.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0" style="max-width:100%;"></a></p>
-<p><a href="_images/ex6_a200_b200.png" target="_blank" rel="noopener noreferrer"><img src="_images/ex6_a200_b200.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@2.0.0 and c@1.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex6_a100_b100.png" target="_blank" rel="noopener noreferrer"><img src="images/ex6_a100_b100.png" alt="root context depends on a@1.0.0, a@1.0.0 depends on b@1.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex6_a100_b200.png" target="_blank" rel="noopener noreferrer"><img src="images/ex6_a100_b200.png" alt="root context depends on a@1.0.0, a@1.0.0 depends on b@2.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex6_a200_b100.png" target="_blank" rel="noopener noreferrer"><img src="images/ex6_a200_b100.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@1.0.0 and c@1.0.0" style="max-width:100%;"></a></p>
+<p><a href="images/ex6_a200_b200.png" target="_blank" rel="noopener noreferrer"><img src="images/ex6_a200_b200.png" alt="root context depends on a@2.0.0, a@2.0.0 depends on b@2.0.0 and c@1.0.0" style="max-width:100%;"></a></p>
 <p>The first two solution graphs have an old version of <code>a</code>, but one fewer dependency.
 By default MinNPM prefers to choose the newer version of <code>a</code>,
 but we can configure its minimization criteria to prioritize getting fewer dependencies.</p>
