@@ -16,7 +16,7 @@
 
 ## Downloading and Running the VM for the Artifact
 
-Before proceeding, **you must be using an Intel/AMD machine (*NOT an ARM machine*), have about 70GB of free space, and always maintain a stable internet connection.**
+Before proceeding, **you must be using an Intel/AMD machine (*NOT an ARM machine*), have about 70GB of free space, and always maintain a stable internet connection** (as part of the evaluation, the artifact downloads several packages from NPM).
 
 To download and boot the VM:
 
