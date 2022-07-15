@@ -23,13 +23,7 @@ def subproccess_get_result(command, name):
     dt = time.time() - start
     return {f'{name}_status': completed.returncode, f'{name}_stdout': completed.stdout, f'{name}_stderr': completed.stderr, f'{name}_time': dt}
 
-counter = 0
 def test_tarball(tarball_name, pbar):
-    global counter
-    counter += 1
-    if counter >= 4:
-        return None
-
     result = {'name': tarball_name, 'root': TARBALL_ROOT}
     with tarball_helpers.unzip_and_pushd(TARBALL_ROOT, tarball_name):
         j = tarball_helpers.load_json('package.json')
