@@ -1,54 +1,18 @@
-from os import listdir
-from os.path import isfile, join
-import contextlib
+from os.path import join
 import os
 import tempfile
 import subprocess
-import json
 import shutil
 import errno
 from tqdm import tqdm
+import tarball_helpers
 
 
-TARBALL_ROOT = "top1000tarballs"
 
-def get_tarballs():
-    return [f for f in listdir(TARBALL_ROOT) if isfile(join(TARBALL_ROOT, f))]
-
-
-def tarball_map(f):
-    return [f(name) for name in tqdm(get_tarballs())]
-
-@contextlib.contextmanager
-def pushd(path):
-    previous_dir = os.getcwd()
-    os.chdir(path)
-    try:
-        yield
-    finally:
-        os.chdir(previous_dir)
-
-
-@contextlib.contextmanager
-def unzip_and_pushd(tarball_name):
-    tarball_path = join(TARBALL_ROOT, tarball_name)
-
-    with tempfile.TemporaryDirectory() as tmpdirpath:
-        subprocess.run(['tar', '-xf', tarball_path, '-C', tmpdirpath], check=True, stderr=subprocess.DEVNULL)
-        unzipped_path = join(tmpdirpath, 'package')
-        with pushd(unzipped_path):
-            yield
-
-def load_json(path):
-    with open(path, 'r') as json_file:
-        j = json.load(json_file)
-    return j
-
-
-def get_repo_url(tarball_name):
+def get_repo_url(tarball_name, _pbar):
     package_json = {}
-    with unzip_and_pushd(tarball_name):
-        package_json = load_json('package.json')
+    with tarball_helpers.unzip_and_pushd(tarball_helpers.NPM_TARBALL_ROOT, tarball_name):
+        package_json = tarball_helpers.load_json('package.json')
     
     repo_url = None
     if "repository" in package_json:
@@ -91,13 +55,13 @@ def prepare_tarball_of_repo(url):
     with tempfile.TemporaryDirectory() as tmpdirpath:
         tar_name = None
         try:
-            with pushd(tmpdirpath):
+            with tarball_helpers.pushd(tmpdirpath):
                 subprocess.run(['git', 'clone', url, 'package'], check=True, stderr=subprocess.DEVNULL)
                 shutil.rmtree('package/.git')
                 silentremove('package/package-lock.json')
                 shutil.rmtree('package/node_modules', ignore_errors=True)
 
-                j = load_json(join('package', 'package.json'))
+                j = tarball_helpers.load_json(join('package', 'package.json'))
                 package_name: str = j["name"]
                 tar_name = f"{package_name.replace('/', '_')}.tgz"
                 subprocess.run(['tar', '-czf', tar_name, 'package'])
@@ -111,7 +75,7 @@ def prepare_tarball_of_repo(url):
 
 
 print("Getting repo URLs from top 1000 tarballs...")
-repo_urls = set(tarball_map(get_repo_url))
+repo_urls = set(tarball_helpers.tarball_map(tarball_helpers.NPM_TARBALL_ROOT, get_repo_url))
 repo_urls.remove(None)
 print(f"Attemping to checkout {len(repo_urls)} repos")
 for url in tqdm(repo_urls):
