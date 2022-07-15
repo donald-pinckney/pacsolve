@@ -19,9 +19,13 @@ TARBALL_ROOT = sys.argv[1].rstrip("/")
 
 def subproccess_get_result(command, name):
     start = time.time()
-    completed = subprocess.run(command, capture_output=True, text=True, stdin=subprocess.DEVNULL)
+    try:
+        completed = subprocess.run(command, capture_output=True, text=True, stdin=subprocess.DEVNULL, timeout=60*20)
+    except subprocess.TimeoutExpired:
+        dt = time.time() - start
+        return {f'{name}_status': None, f'{name}_stdout': None, f'{name}_stderr': None, f'{name}_time': dt, f'{name}_timeout': True}
     dt = time.time() - start
-    return {f'{name}_status': completed.returncode, f'{name}_stdout': completed.stdout, f'{name}_stderr': completed.stderr, f'{name}_time': dt}
+    return {f'{name}_status': completed.returncode, f'{name}_stdout': completed.stdout, f'{name}_stderr': completed.stderr, f'{name}_time': dt, f'{name}_timeout': False}
 
 def test_tarball(tarball_name, pbar):
     result = {'name': tarball_name, 'root': TARBALL_ROOT}
@@ -76,14 +80,17 @@ all_columns = [
     'install_stdout',
     'install_stderr',
     'install_time',
+    'install_timeout',
     'build_status',
     'build_stdout',
     'build_stderr',
     'build_time',
+    'build_timeout',
     'test_status',
     'test_stdout',
     'test_stderr',
     'test_time',
+    'test_timeout',
 ]
 
 result_records = [r for r in result_records if r is not None]
