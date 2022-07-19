@@ -14,20 +14,65 @@ import sys
 
 import tarball_helpers
 
+GLOBAL_TESTING_PREFIX = "/mnt/data/donald/npm_global_testing_prefix"
 TARBALL_ROOT = sys.argv[1].rstrip("/")
+USE_MINNPM = True
 
 
-def subproccess_get_result(command, name):
+def subproccess_get_result(command, name, timeout):
     start = time.time()
     try:
-        completed = subprocess.run(command, capture_output=True, text=True, stdin=subprocess.DEVNULL, timeout=60*20)
+        completed = subprocess.run(command, capture_output=True, stdin=subprocess.DEVNULL, timeout=timeout)
     except subprocess.TimeoutExpired:
         dt = time.time() - start
         return {f'{name}_status': None, f'{name}_stdout': None, f'{name}_stderr': None, f'{name}_time': dt, f'{name}_timeout': True}
     dt = time.time() - start
-    return {f'{name}_status': completed.returncode, f'{name}_stdout': completed.stdout, f'{name}_stderr': completed.stderr, f'{name}_time': dt, f'{name}_timeout': False}
+    return {f'{name}_status': completed.returncode, f'{name}_stdout': completed.stdout.decode('utf-8', 'backslashreplace'), f'{name}_stderr': completed.stderr.decode('utf-8', 'backslashreplace'), f'{name}_time': dt, f'{name}_timeout': False}
+
+def combine_install_results(install_results1, install_results2):
+    for key in install_results2:
+        if key in install_results1:
+            if key.endswith("_status"):
+                assert install_results1[key] is not None
+                assert install_results1[key] == 0
+                install_results1[key] = install_results2[key]
+            elif key.endswith("_stdout") or key.endswith("_stderr"):
+                install_results1[key] = install_results1[key] + install_results2[key]
+            elif key.endswith("_time"):
+                install_results1[key] = install_results1[key] + install_results2[key]
+            elif key.endswith("_timeout"):
+                assert install_results1[key] == False
+                install_results1[key] = install_results2[key]
+            else:
+                assert False
+        else:
+            install_results1[key] = install_results2[key]
+    return install_results1
+
+def install_dev_dependencies(j):
+    result = dict()
+    devDeps = j["devDependencies"] if "devDependencies" in j else {}
+    optionalDeps = j["optionalDependencies"] if "optionalDependencies" in j else {}
+    peerDeps = j["peerDependencies"] if "peerDependencies" in j else {}
+
+    thingsToInstall = {**optionalDeps, **peerDeps, **devDeps}
+    if "npm" in thingsToInstall:
+        print("NO NO NO, WE CAN'T DEAL WITH INSTALLING ANOTHER NPM")
+        assert False
+    
+    installArgs = [f"{name}@{ver}" for name, ver in thingsToInstall.items()]
+
+    # 1. Nuke GLOBAL_TESTING_PREFIX
+    shutil.rmtree(GLOBAL_TESTING_PREFIX, ignore_errors=True)
+
+    # 2. Install all dev + optional + peer deps
+    result = subproccess_get_result(['npm', 'install', '-g', '--ignore-scripts', '--prefix', GLOBAL_TESTING_PREFIX] + installArgs, 'install', timeout=60*10)
+
+    return result
 
 def test_tarball(tarball_name, pbar):
+    shutil.rmtree(GLOBAL_TESTING_PREFIX, ignore_errors=True)
+
     result = {'name': tarball_name, 'root': TARBALL_ROOT}
     with tarball_helpers.unzip_and_pushd(TARBALL_ROOT, tarball_name):
         j = tarball_helpers.load_json('package.json')
@@ -46,21 +91,38 @@ def test_tarball(tarball_name, pbar):
 
         result['did_run_install'] = True
         pbar.set_description(f"{tarball_name} (install)".rjust(50))
-        result = {**result, **subproccess_get_result(['npm', 'install', '--ignore-scripts'], 'install')}
-        if result['install_status'] != 0:
-            return result
+        if USE_MINNPM:
+            result = {**result, **subproccess_get_result(['npm', 'install', '--minnpm', '--ignore-scripts'], 'install', timeout=60*10)}
+            if result['install_status'] != 0:
+                return result
+            
+            result = {**result, **install_dev_dependencies(j)}
+            if result['install_status'] != 0:
+                return result
+        else:
+            result = {**result, **subproccess_get_result(['npm', 'install', '--ignore-scripts'], 'install', timeout=60*20)}
+            if result['install_status'] != 0:
+                return result
         
         if result['has_build_script']:
             result['did_run_build'] = True
             pbar.set_description(f"{tarball_name} (build)".rjust(50))
-            result = {**result, **subproccess_get_result(['npm', 'run', 'build'], 'build')}
+            if USE_MINNPM:
+                result = {**result, **subproccess_get_result(['npm', 'run', 'build'], 'build', timeout=60*20)}
+            else:
+                result = {**result, **subproccess_get_result(['npm', 'run', 'build'], 'build', timeout=60*20)}
             if result['build_status'] != 0:
                 return result
 
         if result['has_test_script']:
             result['did_run_test'] = True
+            # print(os.getcwd())
+            # sys.exit(123)
             pbar.set_description(f"{tarball_name} (test)".rjust(50))
-            result = {**result, **subproccess_get_result(['npm', 'run', 'test'], 'test')}
+            if USE_MINNPM:
+                result = {**result, **subproccess_get_result(['npm', 'run', 'test'], 'test', timeout=60*20)}
+            else:
+                result = {**result, **subproccess_get_result(['npm', 'run', 'test'], 'test', timeout=60*20)}
             if result['test_status'] != 0:
                 return result
 
