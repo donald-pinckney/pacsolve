@@ -16,7 +16,7 @@ def get_tarballs(root):
 
 
 def tarball_map(root, f):
-    pbar = tqdm(get_tarballs(root)[:5])
+    pbar = tqdm(get_tarballs(root))
     xs = []
     for name in pbar:
         xs.append(f(name, pbar))
@@ -46,3 +46,8 @@ def load_json(path):
     with open(path, 'r') as json_file:
         j = json.load(json_file)
     return j
+
+def write_json(path, j):
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(j, f, ensure_ascii=False, indent=4)
+    

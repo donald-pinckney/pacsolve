@@ -60,13 +60,21 @@ def install_dev_dependencies(j):
         print("NO NO NO, WE CAN'T DEAL WITH INSTALLING ANOTHER NPM")
         assert False
     
-    installArgs = [f"{name}@{ver}" for name, ver in thingsToInstall.items()]
-
     # 1. Nuke GLOBAL_TESTING_PREFIX
     shutil.rmtree(GLOBAL_TESTING_PREFIX, ignore_errors=True)
+    os.mkdir(GLOBAL_TESTING_PREFIX)
 
-    # 2. Install all dev + optional + peer deps
-    result = subproccess_get_result(['npm', 'install', '-g', '--ignore-scripts', '--prefix', GLOBAL_TESTING_PREFIX] + installArgs, 'install', timeout=60*10)
+    # 2. Copy .npmrc file, if exists
+    if os.path.exists('.npmrc'):
+        shutil.copy('.npmrc', join(GLOBAL_TESTING_PREFIX, '.npmrc'))
+
+    with tarball_helpers.pushd(GLOBAL_TESTING_PREFIX):
+        # 3. Copy package.json, but removing all normal dependencies
+        j["dependencies"] = {}
+        tarball_helpers.write_json('package.json', j)
+
+        # 4. Do the install
+        result = subproccess_get_result(['npm', 'install', '--ignore-scripts'], 'install', timeout=60*10)
 
     return result
 
@@ -87,7 +95,18 @@ def test_tarball(tarball_name, pbar):
         result['did_run_install'] = False
         result['did_run_build'] = False
         result['did_run_test'] = False
-        
+        result['skipped_esm'] = False
+
+        if USE_MINNPM:
+            result['solve_type'] = 'minnpm'
+        else:
+            result['solve_type'] = 'vanilla'
+
+        # Check if ESM and MinNPM: can't handle this case
+        if USE_MINNPM and "type" in j and j["type"] == "module":
+            result['skipped_esm'] = True
+            return result
+
 
         result['did_run_install'] = True
         pbar.set_description(f"{tarball_name} (install)".rjust(50))
@@ -96,7 +115,7 @@ def test_tarball(tarball_name, pbar):
             if result['install_status'] != 0:
                 return result
             
-            result = {**result, **install_dev_dependencies(j)}
+            result = combine_install_results(result, install_dev_dependencies(j))
             if result['install_status'] != 0:
                 return result
         else:
@@ -133,9 +152,11 @@ result_records = tarball_helpers.tarball_map(TARBALL_ROOT, test_tarball)
 all_columns = [
     'name',
     'root',
+    'solve_type',
     'did_run_install', 
     'did_run_build', 
-    'did_run_test', 
+    'did_run_test',
+    'skipped_esm', 
     'has_build_script', 
     'has_test_script',
     'install_status',
