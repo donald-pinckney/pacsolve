@@ -99,6 +99,9 @@ def merge_install(from_dir):
     assert os.path.isabs(from_node_modules)
     assert os.path.isabs(from_node_modules_bin)
 
+    if not os.path.exists(from_node_modules):
+        return {'install_status': 0, 'install_stdout': warnings, 'install_stderr': '', 'install_time': 0, 'install_timeout': False}
+
     # 1. For each directory d other than .bin/ inside join(from_dir, 'node_modules/'):
     # if d does not exist in 'node_modules/', copy d in, and use cp -a
     with os.scandir(from_node_modules) as from_modules_it:
@@ -114,6 +117,9 @@ def merge_install(from_dir):
                 else:
                     shutil.copytree(from_module.path, to_module, symlinks=True)
 
+
+    if not os.path.exists(from_node_modules_bin):
+        return {'install_status': 0, 'install_stdout': warnings, 'install_stderr': '', 'install_time': 0, 'install_timeout': False}
     
     # 2. If 'node_modules/.bin/' doesn't exist, create it
     if not os.path.exists(to_node_modules_bin):
