@@ -16,7 +16,7 @@ def get_tarballs(root):
 
 
 def tarball_map(root, f):
-    pbar = tqdm(get_tarballs(root)[:5])
+    pbar = tqdm(get_tarballs(root)[2:3])
     xs = []
     for name in pbar:
         xs.append(f(name, pbar))
@@ -35,6 +35,8 @@ def pushd(path):
 @contextlib.contextmanager
 def unzip_and_pushd(root, tarball_name):
     tarball_path = join(root, tarball_name)
+
+    # tmpdirpath = tempfile.mkdtemp()
 
     with tempfile.TemporaryDirectory() as tmpdirpath:
         subprocess.run(['tar', '-xf', tarball_path, '-C', tmpdirpath], check=True, stderr=subprocess.DEVNULL)

@@ -49,7 +49,7 @@ def combine_install_results(install_results1, install_results2):
             install_results1[key] = install_results2[key]
     return install_results1
 
-def install_dev_dependencies(j):
+def install_dev_dependencies(j, tarball_name, pbar):
     result = dict()
     devDeps = j["devDependencies"] if "devDependencies" in j else {}
     optionalDeps = j["optionalDependencies"] if "optionalDependencies" in j else {}
@@ -74,11 +74,13 @@ def install_dev_dependencies(j):
         tarball_helpers.write_json('package.json', j)
 
         # 4. Do the install
+        pbar.set_description(f"{tarball_name} (install dev vanilla)".rjust(50))
         result = subproccess_get_result(['npm', 'install', '--ignore-scripts', '--package-lock'], 'install', timeout=60*10)
     
     if result['install_status'] != 0:
         return result
     
+    pbar.set_description(f"{tarball_name} (install merge)".rjust(50))
     return combine_install_results(result, merge_install(GLOBAL_TESTING_PREFIX))
 
 
@@ -117,7 +119,11 @@ def merge_install(from_dir):
                     shutil.copytree(from_module.path, to_module, symlinks=True)
 
     
-    # 2. For each symlink f inside join(from_dir, 'node_modules', '.bin/'):
+    # 2. If 'node_modules/.bin/' doesn't exist, create it
+    if not os.path.exists(to_node_modules_bin):
+        os.mkdir(to_node_modules_bin)
+
+    # 3. For each symlink f inside join(from_dir, 'node_modules', '.bin/'):
     # if f does not exist in 'node_modules/.bin/', copy f in. Use cp -P to copy it.
     with os.scandir(from_node_modules_bin) as from_bin_it:
         for from_bin in from_bin_it:
@@ -127,6 +133,7 @@ def merge_install(from_dir):
             if os.path.exists(to_bin):
                 warnings += f"\nWARNING: CONFLICT WHEN MERGING {from_dir} to cwd. Binary link {from_bin.name} exists in both places. Preferring to keep cwd version.\n"
             else:
+                # print(f"copy {from_bin.path} to {to_bin}, cwd = {os.getcwd()}", file=sys.stderr)
                 shutil.copy(from_bin.path, to_bin, follow_symlinks=False)
     
     return {'install_status': 0, 'install_stdout': warnings, 'install_stderr': '', 'install_time': 0, 'install_timeout': False}
@@ -134,6 +141,8 @@ def merge_install(from_dir):
 
 def test_tarball(tarball_name, pbar):
     shutil.rmtree(GLOBAL_TESTING_PREFIX, ignore_errors=True)
+
+    pbar.set_description(f"{tarball_name} (init)".rjust(50))
 
     result = {'name': tarball_name, 'root': TARBALL_ROOT}
     with tarball_helpers.unzip_and_pushd(TARBALL_ROOT, tarball_name):
@@ -157,24 +166,25 @@ def test_tarball(tarball_name, pbar):
             result['solve_type'] = 'vanilla'
 
         # Check if ESM and MinNPM: can't handle this case
-        if USE_MINNPM and "type" in j and j["type"] == "module":
-            result['skipped_esm'] = True
-            return result
-
+        # if USE_MINNPM and "type" in j and j["type"] == "module":
+        #     result['skipped_esm'] = True
+        #     return result
+        
         # Clear old possible results
         delete_existing_solution()
 
         result['did_run_install'] = True
-        pbar.set_description(f"{tarball_name} (install)".rjust(50))
         if USE_MINNPM:
+            pbar.set_description(f"{tarball_name} (install minnpm)".rjust(50))
             result = {**result, **subproccess_get_result(['npm', 'install', '--minnpm', '--ignore-scripts', '--package-lock'], 'install', timeout=60*10)}
             if result['install_status'] != 0:
                 return result
             
-            result = combine_install_results(result, install_dev_dependencies(j))
+            result = combine_install_results(result, install_dev_dependencies(j, tarball_name, pbar))
             if result['install_status'] != 0:
                 return result
         else:
+            pbar.set_description(f"{tarball_name} (install vanilla)".rjust(50))
             result = {**result, **subproccess_get_result(['npm', 'install', '--ignore-scripts', '--package-lock'], 'install', timeout=60*20)}
             if result['install_status'] != 0:
                 return result
@@ -237,6 +247,6 @@ result_records = [r for r in result_records if r is not None]
 result_df = pd.DataFrame.from_records(result_records, index='name', columns=all_columns)
 
 output = StringIO()
-result_df.to_json(output, orient='index')
+result_df.to_json(output, orient='index', indent=4)
 output.seek(0)
 print(output.read())
