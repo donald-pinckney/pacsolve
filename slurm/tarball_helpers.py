@@ -16,7 +16,7 @@ def get_tarballs(root):
 
 
 def tarball_map(root, f):
-    pbar = tqdm(get_tarballs(root))
+    pbar = tqdm(get_tarballs(root)[:5])
     xs = []
     for name in pbar:
         xs.append(f(name, pbar))

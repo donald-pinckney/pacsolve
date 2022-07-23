@@ -74,9 +74,63 @@ def install_dev_dependencies(j):
         tarball_helpers.write_json('package.json', j)
 
         # 4. Do the install
-        result = subproccess_get_result(['npm', 'install', '--ignore-scripts'], 'install', timeout=60*10)
+        result = subproccess_get_result(['npm', 'install', '--ignore-scripts', '--package-lock'], 'install', timeout=60*10)
+    
+    if result['install_status'] != 0:
+        return result
+    
+    return combine_install_results(result, merge_install(GLOBAL_TESTING_PREFIX))
 
-    return result
+
+def delete_existing_solution():
+    shutil.rmtree("node_modules", ignore_errors=True)
+    if os.path.exists('package-lock.json'):
+        os.remove('package-lock.json')
+
+def merge_install(from_dir):
+    # 0. Merge package-lock.json and node_modules/.package-lock.json
+    # Not sure if this is needed, skipping for now
+
+    from_node_modules = join(from_dir, 'node_modules')
+    from_node_modules_bin = join(from_dir, 'node_modules', '.bin')
+    to_node_modules = 'node_modules'
+    to_node_modules_bin = join('node_modules', '.bin')
+
+    warnings = ""
+
+    assert os.path.isabs(from_node_modules)
+    assert os.path.isabs(from_node_modules_bin)
+
+    # 1. For each directory d other than .bin/ inside join(from_dir, 'node_modules/'):
+    # if d does not exist in 'node_modules/', copy d in, and use cp -a
+    with os.scandir(from_node_modules) as from_modules_it:
+        for from_module in from_modules_it:
+            assert not from_module.is_symlink()
+            if from_module.is_file():
+                assert from_module.name == ".package-lock.json"
+            
+            if from_module.is_dir() and from_module.name != ".bin":
+                to_module = join(to_node_modules, from_module.name)
+                if os.path.exists(to_module):
+                    warnings += f"\nWARNING: CONFLICT WHEN MERGING {from_dir} to cwd. Module {from_module.name} exists in both places. Preferring to keep cwd version.\n"
+                else:
+                    shutil.copytree(from_module.path, to_module, symlinks=True)
+
+    
+    # 2. For each symlink f inside join(from_dir, 'node_modules', '.bin/'):
+    # if f does not exist in 'node_modules/.bin/', copy f in. Use cp -P to copy it.
+    with os.scandir(from_node_modules_bin) as from_bin_it:
+        for from_bin in from_bin_it:
+            assert from_bin.is_symlink()
+
+            to_bin = join(to_node_modules_bin, from_bin.name)
+            if os.path.exists(to_bin):
+                warnings += f"\nWARNING: CONFLICT WHEN MERGING {from_dir} to cwd. Binary link {from_bin.name} exists in both places. Preferring to keep cwd version.\n"
+            else:
+                shutil.copy(from_bin.path, to_bin, follow_symlinks=False)
+    
+    return {'install_status': 0, 'install_stdout': warnings, 'install_stderr': '', 'install_time': 0, 'install_timeout': False}
+
 
 def test_tarball(tarball_name, pbar):
     shutil.rmtree(GLOBAL_TESTING_PREFIX, ignore_errors=True)
@@ -107,11 +161,13 @@ def test_tarball(tarball_name, pbar):
             result['skipped_esm'] = True
             return result
 
+        # Clear old possible results
+        delete_existing_solution()
 
         result['did_run_install'] = True
         pbar.set_description(f"{tarball_name} (install)".rjust(50))
         if USE_MINNPM:
-            result = {**result, **subproccess_get_result(['npm', 'install', '--minnpm', '--ignore-scripts'], 'install', timeout=60*10)}
+            result = {**result, **subproccess_get_result(['npm', 'install', '--minnpm', '--ignore-scripts', '--package-lock'], 'install', timeout=60*10)}
             if result['install_status'] != 0:
                 return result
             
@@ -119,7 +175,7 @@ def test_tarball(tarball_name, pbar):
             if result['install_status'] != 0:
                 return result
         else:
-            result = {**result, **subproccess_get_result(['npm', 'install', '--ignore-scripts'], 'install', timeout=60*20)}
+            result = {**result, **subproccess_get_result(['npm', 'install', '--ignore-scripts', '--package-lock'], 'install', timeout=60*20)}
             if result['install_status'] != 0:
                 return result
         
