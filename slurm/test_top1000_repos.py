@@ -14,7 +14,6 @@ import sys
 
 import tarball_helpers
 
-GLOBAL_TESTING_PREFIX = "/mnt/data/donald/npm_global_testing_prefix"
 TARBALL_ROOT = sys.argv[1].rstrip("/")
 USE_MINNPM = True
 
@@ -59,29 +58,26 @@ def install_dev_dependencies(j, tarball_name, pbar):
     if "npm" in thingsToInstall:
         print("NO NO NO, WE CAN'T DEAL WITH INSTALLING ANOTHER NPM")
         assert False
-    
-    # 1. Nuke GLOBAL_TESTING_PREFIX
-    shutil.rmtree(GLOBAL_TESTING_PREFIX, ignore_errors=True)
-    os.mkdir(GLOBAL_TESTING_PREFIX)
 
-    # 2. Copy .npmrc file, if exists
-    if os.path.exists('.npmrc'):
-        shutil.copy('.npmrc', join(GLOBAL_TESTING_PREFIX, '.npmrc'))
+    with tempfile.TemporaryDirectory() as dev_install_dir:
+        # 2. Copy .npmrc file, if exists
+        if os.path.exists('.npmrc'):
+            shutil.copy('.npmrc', join(dev_install_dir, '.npmrc'))
 
-    with tarball_helpers.pushd(GLOBAL_TESTING_PREFIX):
-        # 3. Copy package.json, but removing all normal dependencies
-        j["dependencies"] = {}
-        tarball_helpers.write_json('package.json', j)
+        with tarball_helpers.pushd(dev_install_dir):
+            # 3. Copy package.json, but removing all normal dependencies
+            j["dependencies"] = {}
+            tarball_helpers.write_json('package.json', j)
 
-        # 4. Do the install
-        pbar.set_description(f"{tarball_name} (install dev vanilla)".rjust(50))
-        result = subproccess_get_result(['npm', 'install', '--ignore-scripts', '--package-lock'], 'install', timeout=60*10)
-    
-    if result['install_status'] != 0:
-        return result
-    
-    pbar.set_description(f"{tarball_name} (install merge)".rjust(50))
-    return combine_install_results(result, merge_install(GLOBAL_TESTING_PREFIX))
+            # 4. Do the install
+            pbar.set_description(f"{tarball_name} (install dev vanilla)".rjust(50))
+            result = subproccess_get_result(['npm', 'install', '--ignore-scripts', '--package-lock'], 'install', timeout=60*10)
+        
+        if result['install_status'] != 0:
+            return result
+        
+        pbar.set_description(f"{tarball_name} (install merge)".rjust(50))
+        return combine_install_results(result, merge_install(dev_install_dir))
 
 
 def delete_existing_solution():
@@ -140,8 +136,6 @@ def merge_install(from_dir):
 
 
 def test_tarball(tarball_name, pbar):
-    shutil.rmtree(GLOBAL_TESTING_PREFIX, ignore_errors=True)
-
     pbar.set_description(f"{tarball_name} (init)".rjust(50))
 
     result = {'name': tarball_name, 'root': TARBALL_ROOT}
