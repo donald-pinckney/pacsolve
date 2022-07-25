@@ -71,7 +71,7 @@ def install_dev_dependencies(j, tarball_name, pbar):
 
             # 4. Do the install
             pbar.set_description(f"{tarball_name} (install dev vanilla)".rjust(50))
-            result = subproccess_get_result(['npm', 'install', '--ignore-scripts', '--package-lock'], 'install', timeout=60*10)
+            result = subproccess_get_result(['npm', 'install', '--ignore-scripts', '--package-lock', '--global-style'], 'install', timeout=60*10)
         
         if result['install_status'] != 0:
             return result
@@ -106,16 +106,20 @@ def merge_install(from_dir):
     # if d does not exist in 'node_modules/', copy d in, and use cp -a
     with os.scandir(from_node_modules) as from_modules_it:
         for from_module in from_modules_it:
-            assert not from_module.is_symlink()
             if from_module.is_file():
                 assert from_module.name == ".package-lock.json"
+                continue
+
             
-            if from_module.is_dir() and from_module.name != ".bin":
+            if from_module.name != ".bin":
                 to_module = join(to_node_modules, from_module.name)
                 if os.path.exists(to_module):
                     warnings += f"\nWARNING: CONFLICT WHEN MERGING {from_dir} to cwd. Module {from_module.name} exists in both places. Preferring to keep cwd version.\n"
                 else:
-                    shutil.copytree(from_module.path, to_module, symlinks=True)
+                    if from_module.is_symlink():
+                        shutil.copy(from_module.path, to_module, follow_symlinks=False)
+                    else:
+                        shutil.copytree(from_module.path, to_module, symlinks=True)
 
 
     if not os.path.exists(from_node_modules_bin):
