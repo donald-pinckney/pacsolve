@@ -45,7 +45,8 @@ class Gather(object):
     def __init__(self, directory):
         self.directory = os.path.normpath(directory)
         self.solvers = [
-            'vanilla'
+            os.sep.join(os.path.normpath(p).split(os.sep)[-2:]) 
+            for p in glob.glob(f'{self.directory}/vanilla/*/')
         ] + [
             os.sep.join(os.path.normpath(p).split(os.sep)[-4:]) 
             for p in glob.glob(f'{self.directory}/rosette/*/*/*/')
@@ -113,7 +114,7 @@ class Gather(object):
         output_path = os.path.join(self.directory, 'results.csv') 
         with open(output_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['Project','Rosette','Consistency','Minimize','DisallowCycles','Time','NDeps', 'Status'])
+            writer.writerow(['Project','Rosette','AuditFix','Consistency','Minimize','DisallowCycles','Time','NDeps', 'Status'])
             for mode_configuration in MODE_CONFIGURATIONS:
                 mode_dir = mode_configuration_target(self.directory, mode_configuration)
                 print(f'Processing a mode ...', mode_dir)
@@ -126,6 +127,7 @@ class Gather(object):
                         writer.writerow([
                             p,
                             is_rosette,
+                            '' if is_rosette else mode_configuration['audit_fix'],
                             mode_configuration['consistency'] if is_rosette else '',
                             mode_configuration['minimize'] if is_rosette else '',
                             ('disallow_cycles' if mode_configuration['disallow_cycles'] else 'allow_cycles') if is_rosette else '',
@@ -134,7 +136,9 @@ class Gather(object):
                             status])
 
 MODE_CONFIGURATIONS = [
-    { 'rosette': False },
+    { 'rosette': False, 'audit_fix': 'no' },
+    { 'rosette': False, 'audit_fix': 'yes' },
+    { 'rosette': False, 'audit_fix': 'force' },
     { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
     { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
     # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_duplicates,min_oldness', 'disallow_cycles': False },
@@ -180,7 +184,7 @@ def run(argv):
     target = os.path.normpath(args.target)
     Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.use_slurm, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
 
-def solve_command(mode_configuration):
+def solve_commands(mode_configuration):
     if mode_configuration['rosette']:
         cmd_no_cycle_flag = ['minnpm', 'install', '--no-audit', '--prefer-offline', '--rosette',
                 '--ignore-scripts',
@@ -188,9 +192,19 @@ def solve_command(mode_configuration):
                 '--minimize', mode_configuration['minimize'] ]
         if mode_configuration['disallow_cycles']:
             cmd_no_cycle_flag.append('--disallow-cycles')
-        return cmd_no_cycle_flag
+        return [cmd_no_cycle_flag]
     else:
-        return 'npm install --prefer-offline --no-audit --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')    
+        vanilla_install_cmd = 'npm install --prefer-offline --no-audit --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')
+        audit_fix_cmd = 'npm audit fix --only=prod --prefer-offline --ignore-scripts'.split(' ')
+        audit_fix_force_cmd = 'npm audit fix --force --only=prod --prefer-offline --ignore-scripts'.split(' ')
+        if mode_configuration['audit_fix'] == 'no':
+            return [vanilla_install_cmd]
+        elif mode_configuration['audit_fix'] == 'yes':
+            return [vanilla_install_cmd, audit_fix_cmd]
+        elif mode_configuration['audit_fix'] == 'force':
+            return [vanilla_install_cmd, audit_fix_force_cmd]
+        else:
+            assert False
 
 def mode_configuration_target(target_base, mode_configuration):
     if mode_configuration['rosette']:
@@ -199,7 +213,7 @@ def mode_configuration_target(target_base, mode_configuration):
             'disallow_cycles' if mode_configuration['disallow_cycles'] else 'allow_cycles',
             mode_configuration['minimize'])
     else:
-        return os.path.join(target_base, 'vanilla')
+        return os.path.join(target_base, 'vanilla', mode_configuration['audit_fix'])
 
 
 def package_target(target_base, mode_configuration, package_name):
@@ -333,25 +347,31 @@ class Run(object):
             subprocess.run(['pkill', '-9', 'z3'])
 
 
+    def run_commands(self, commands, cwd, out_f):
+        start_time = time.time()
+
+        for c in commands:
+            exit_code = subprocess.Popen(c, cwd=cwd, stdout=out_f, stderr=out_f).wait(self.timeout)
+            self.kill_zombies()
+            if exit_code != 0:
+                return exit_code, time.time() - start_time
+
+        return 0, time.time() - start_time
+
 
     def run_minnpm(self, pkg_info):
-        start_time = time.time()
+        (tgz, pkg_target, mode_configuration) = pkg_info
+        pkg_path = f'{pkg_target}/package'
+        output_path = f'{pkg_path}/experiment.out'
+        output_status_path = f'{pkg_path}/experiment.json'
+        error_status_path = f'{pkg_path}/error.json'
+
         try:
-            (tgz, pkg_target, mode_configuration) = pkg_info
-            pkg_path = f'{pkg_target}/package'
-            output_path = f'{pkg_path}/experiment.out'
-            output_status_path = f'{pkg_path}/experiment.json'
-            error_status_path = f'{pkg_path}/error.json'
             self.unpack_tarball_if_needed(tgz, pkg_target)
+
             with open(output_path, 'wt') as out:
-                exit_code = subprocess.Popen(solve_command(mode_configuration),
-                    cwd=pkg_path,
-                    stdout=out,
-                    stderr=out).wait(self.timeout)
+                exit_code, duration = self.run_commands(solve_commands(mode_configuration), cwd=pkg_path, out_f=out)
 
-                self.kill_zombies()
-
-            duration = time.time() - start_time
             if exit_code == 0:
                 write_json(output_status_path,
                     { 'status': 'success', 'time': duration })
