@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # This script manages MinNPM experiments on Discovery, using Slurm.
 #
+from io import BufferedWriter
 import subprocess
 import time
 import argparse
@@ -389,12 +390,16 @@ class Run(object):
             subprocess.run(['pkill', '-9', 'z3'])
 
 
-    def run_commands(self, commands, cwd, out_f):
+    def run_commands(self, commands, cwd, out_f: BufferedWriter):
         start_time = time.time()
 
         for c in commands:
-            assert self.timeout == 600
-            exit_code = subprocess.run(c, cwd=cwd, stdout=out_f, stderr=out_f, timeout=self.timeout).returncode
+            complete_proc = subprocess.run(c, cwd=cwd, timeout=self.timeout, capture_output=True)
+            exit_code = complete_proc.returncode
+            stdout_bytes = complete_proc.stdout
+            stderr_bytes = complete_proc.stderr
+            out_f.write(stdout_bytes)
+            out_f.write(stderr_bytes)
                         
             self.kill_zombies()
             if exit_code != 0:
@@ -413,7 +418,7 @@ class Run(object):
         try:
             self.unpack_tarball_if_needed(tgz, pkg_target)
 
-            with open(output_path, 'wt') as out:
+            with open(output_path, 'wb') as out:
                 exit_code, duration = self.run_commands(solve_commands(mode_configuration), cwd=pkg_path, out_f=out)
 
             if exit_code == 0:
