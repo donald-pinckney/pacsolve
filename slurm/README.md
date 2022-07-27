@@ -23,40 +23,31 @@
    you can SSH into it and start tmux. If you get discon/nected, reconnect to
    tmux.
 
-2. Create a directory to hold your experiment, setup vars.
+2. Copy a prior experiment configuration to base your new experiment on, e.g.:
    ```
-   export EXPERIMENT_DIR=/scratch/$USER/minnpm-exp
-   mkdir $EXPERIMENT_DIR
-
-   export Z3_LOC=/home/pinckney.d/spack/opt/spack/linux-centos7-broadwell/gcc-9.2.0/z3-4.8.9-vkfdhu5c3vo3eslba7evhfrweihz2cyd/bin/z3
-   # or try /work/arjunguha-research-group/pacsolve/z3/build/z3
-
-   export Z3_MODEL_OPTION=False
-   # use True if using a newer Z3, such as /work/arjunguha-research-group/pacsolve/z3/build/z3
-
+   cp exp-configs/jul-27.bash exp-configs/MY-EXP.bash
    ```
 
-3. Run the experiment (inside tmux!):
+3. Edit `exp-configs/MY-EXP.bash` with an appropriate (unique) value for `EXPERIMENT_DIR`, add comment describing what is being run, and adjust other settings if needed.
 
+4. Start tmux (`tmux new -s minnpm-exp`)
+
+5. Start the experiment: 
    ```
-   ./main.py run \
-     --tarball-dir /work/arjunguha-research-group/minnpm-slurm/tarballs \
-     --z3-abs-path $Z3_LOC \
-     --z3-add-model-option $Z3_MODEL_OPTION \
-     --target $EXPERIMENT_DIR
+   bash exp-configs/MY-EXP.bash
    ```
 
    This command will take some time (nearly 30 mins total). You will see some
    failures. Re-running won't repeat successful experiments, but will make
    transient errors go away. *There will be transient errors on Discovery.*
 
-5. Gather the data from these experiments:
+6. Gather the data from these experiments:
 
    ```
    ./main.py gather $EXPERIMENT_DIR
    ```
 
-6. See `analysis.Rmd` for data analysis (*Stale*)
+7. See `analysis.Rmd` for data analysis (*Stale*)
 
 
 # Alternative Usage using Janky Automation Script (*stale*)
