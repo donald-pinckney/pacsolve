@@ -275,8 +275,6 @@ class Run(object):
         print(f'Listing package-configuration pairs ...')
         pkgs = self.list_pkg_paths()
         shuffle(pkgs)
-        print(pkgs[0])
-        return
         print(f'Will run on {len(pkgs)} configurations.')
         pkg_chunks = chunked_or_distributed(pkgs,
             max_groups=49, optimal_group_size=self.cpus_per_task)
