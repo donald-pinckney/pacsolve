@@ -196,8 +196,8 @@ def solve_commands(mode_configuration):
         return [cmd_no_cycle_flag]
     else:
         vanilla_install_cmd = 'npm install --prefer-offline --no-audit --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')
-        audit_fix_cmd = 'npm audit fix --only=prod --prefer-offline --ignore-scripts --audit-level=none'.split(' ')
-        audit_fix_force_cmd = 'npm audit fix --force --only=prod --prefer-offline --ignore-scripts --audit-level=none'.split(' ')
+        audit_fix_cmd = 'npm audit fix --omit dev --omit peer --omit optional --prefer-offline --ignore-scripts --audit-level=none'.split(' ')
+        audit_fix_force_cmd = 'npm audit fix --force --omit dev --omit peer --omit optional --prefer-offline --ignore-scripts --audit-level=none'.split(' ')
         if mode_configuration['audit_fix'] == 'no':
             return [vanilla_install_cmd]
         elif mode_configuration['audit_fix'] == 'yes':
