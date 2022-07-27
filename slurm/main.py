@@ -12,7 +12,7 @@ import csv
 import concurrent.futures
 import ast
 from tqdm import tqdm
-from typing import Optional
+from typing import Any, Optional, Dict
 from contextlib import contextmanager
 import traceback
 
@@ -40,6 +40,37 @@ def gather(argv):
         help='Directory to gather results from')
     args = parser.parse_args(argv)
     Gather(args.directory).gather()
+
+
+class SolveResultEvaluation(object):
+    def __init__(self, time, status, lock_json: Optional[Dict[str, Any]]) -> None:
+        self.time = time
+        self.status = status
+        if lock_json is None:
+            self.num_deps = 0
+            self.cve_badness = 0
+        else:
+            self.num_deps = self.evaluate_num_deps(lock_json)
+            self.cve_badness = self.evaluate_cve_badness(lock_json)
+
+    @staticmethod
+    def to_row_headers():
+        return ['Time', 'NDeps', 'Status']
+    
+    def to_row_values(self):
+        return [self.time, self.num_deps, self.status]
+
+    def evaluate_num_deps(self, lock_json: Dict[str, Any]):
+        n = 0
+        for _, v in lock_json['packages'].items():
+            if 'link' in v and v['link']:
+                continue
+            n += 1
+        return n
+
+    def evaluate_cve_badness(self, lock_json: Dict[str, Any]):
+        return 0
+
 
 class Gather(object):
 
@@ -86,12 +117,14 @@ class Gather(object):
                 n += 1
             return n
 
-    def project_times(self, dir: str):
+    def project_result_evaluation(self, dir: str) -> SolveResultEvaluation:
         """
         Times with both solves for the project.
         """
         durable_status_path = os.path.join(dir, 'package', 'experiment.json')
         transient_status_path = os.path.join(dir, 'package', 'error.json')
+        lock_path = os.path.join(dir, 'package', 'node_modules', '.package-lock.json')
+
         if os.path.exists(durable_status_path):
             p_result = read_json(durable_status_path)
         elif os.path.exists(transient_status_path):
@@ -109,21 +142,31 @@ class Gather(object):
 
         status = p_result['reason'] if 'reason' in p_result else p_result['status']
         time = p_result['time'] if 'time' in p_result else None
-        return (time, self.num_deps(dir), status)
+
+        
+        # NPM does not create the node_modules directory for packages with
+        # zero dependencies. However, it also does not create node_modules for
+        # packages that fail to install.
+        lock_json: Optional[Dict[str, Any]] = None
+        if os.path.isfile(lock_path):
+            with open(lock_path, 'r') as f:
+                lock_json = json.load(f)
+
+        eval_result = SolveResultEvaluation(time, status, lock_json)
+        return eval_result
 
     def gather(self):
         output_path = os.path.join(self.directory, 'results.csv') 
         with open(output_path, 'w', newline='') as f:
             writer = csv.writer(f)
-            writer.writerow(['Project','Rosette','AuditFix','Consistency','Minimize','DisallowCycles','Time','NDeps', 'Status'])
+            writer.writerow(['Project','Rosette','AuditFix','Consistency','Minimize','DisallowCycles'] + SolveResultEvaluation.to_row_headers())
             for mode_configuration in MODE_CONFIGURATIONS:
                 mode_dir = mode_configuration_target(self.directory, mode_configuration)
                 print(f'Processing a mode ...', mode_dir)
                 with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
-                    for (p, result) in executor.map(lambda p: (p, self.project_times(os.path.join(mode_dir, p))),  self.projects_for_solver(mode_dir)):
-                        if result is None:
-                            continue
-                        (time, deps, status) = result
+                    for (p, eval_result) in executor.map(lambda p: (p, self.project_result_evaluation(os.path.join(mode_dir, p))),  self.projects_for_solver(mode_dir)):
+                        assert eval_result is not None
+
                         is_rosette = mode_configuration['rosette']
                         writer.writerow([
                             p,
@@ -131,10 +174,8 @@ class Gather(object):
                             '' if is_rosette else mode_configuration['audit_fix'],
                             mode_configuration['consistency'] if is_rosette else '',
                             mode_configuration['minimize'] if is_rosette else '',
-                            ('disallow_cycles' if mode_configuration['disallow_cycles'] else 'allow_cycles') if is_rosette else '',
-                            time,
-                            deps,
-                            status])
+                            ('disallow_cycles' if mode_configuration['disallow_cycles'] else 'allow_cycles') if is_rosette else ''] +
+                            eval_result.to_row_values())
 
 MODE_CONFIGURATIONS = [
     { 'rosette': False, 'audit_fix': 'no' },
