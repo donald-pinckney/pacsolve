@@ -14,6 +14,7 @@ import ast
 from tqdm import tqdm
 from typing import Optional
 from contextlib import contextmanager
+import traceback
 
 from util import suppressed_iterator, write_json, read_json, chunked_or_distributed
 from random import shuffle
@@ -274,6 +275,8 @@ class Run(object):
         print(f'Listing package-configuration pairs ...')
         pkgs = self.list_pkg_paths()
         shuffle(pkgs)
+        print(pkgs[0])
+        return
         print(f'Will run on {len(pkgs)} configurations.')
         pkg_chunks = chunked_or_distributed(pkgs,
             max_groups=49, optimal_group_size=self.cpus_per_task)
@@ -351,7 +354,9 @@ class Run(object):
         start_time = time.time()
 
         for c in commands:
-            exit_code = subprocess.Popen(c, cwd=cwd, stdout=out_f, stderr=out_f).wait(self.timeout)
+            assert self.timeout == 600
+            exit_code = subprocess.run(c, cwd=cwd, stdout=out_f, stderr=out_f, timeout=self.timeout).returncode
+                        
             self.kill_zombies()
             if exit_code != 0:
                 return exit_code, time.time() - start_time
@@ -389,7 +394,8 @@ class Run(object):
              })
             return f'Failed: {pkg_path}'
         except subprocess.TimeoutExpired:
-            write_json(error_status_path, { 'status': 'timeout' })
+            err_str = traceback.format_exc()
+            write_json(error_status_path, { 'status': 'timeout', 'err': err_str })
             self.kill_zombies()
             return f'Timeout: {pkg_path}'
         except BaseException as e:
