@@ -87,7 +87,7 @@ class SolveResultEvaluation(object):
         return [self.time, self.num_deps, self.status]
 
     def all_packages(self, lock_json: Dict[str, Any]) -> List[Tuple[str, Dict[str, Any]]]:
-        return [(p, pack) for (p, pack) in lock_json['packages'].item()]
+        return [(p, pack) for (p, pack) in lock_json['packages'].items()]
     
     def non_link_packages(self, lock_json: Dict[str, Any]) -> List[Tuple[str, Dict[str, Any]]]:
         return [(p, pack) for (p, pack) in self.all_packages(lock_json) if not ('link' in pack and pack['link'])]
