@@ -81,10 +81,10 @@ class SolveResultEvaluation(object):
 
     @staticmethod
     def to_row_headers():
-        return ['Time', 'NDeps', 'Status']
+        return ['Time', 'NDeps', 'CVE', 'Status']
     
     def to_row_values(self):
-        return [self.time, self.num_deps, self.status]
+        return [self.time, self.num_deps, self.cve_badness, self.status]
 
     def all_packages(self, lock_json: Dict[str, Any]) -> List[Tuple[str, Dict[str, Any]]]:
         return [(p, pack) for (p, pack) in lock_json['packages'].items()]
