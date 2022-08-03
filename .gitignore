@@ -2,3 +2,4 @@
 *.rkt~
 __pycache__/
 tmp-root-package/
+/tmp-packages/
