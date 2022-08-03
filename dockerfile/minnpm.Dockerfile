@@ -31,7 +31,7 @@ SHELL ["/bin/bash", "--login", "-c"]
 ENV PATH /root/.nvm/versions/node/v$NODE_VERSION/bin:$PATH
 
 # install racket (snipped from: https://github.com/jackfirth/racket-docker/blob/master/racket.Dockerfile)
-RUN curl --retry 5 -Ls "https://download.racket-lang.org/installers/8.5/racket-8.5-x86_64-linux-bc.sh" > racket-install.sh \
+RUN curl --retry 5 -Ls "https://download.racket-lang.org/installers/8.5/racket-8.5-x86_64-linux-cs.sh" > racket-install.sh \
     && echo "yes\n1\n" | sh racket-install.sh --create-dir --unix-style --dest /usr/ \
     && rm racket-install.sh
 
@@ -39,6 +39,9 @@ ENV SSL_CERT_FILE="/etc/ssl/certs/ca-certificates.crt"
 ENV SSL_CERT_DIR="/etc/ssl/certs"
 
 RUN raco setup
+
+# env var for modelling functions
+ENV Z3_ADD_MODEL_OPTION 1
 
 # setup workplace for pacsolve
 RUN mkdir /workplace

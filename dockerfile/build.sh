@@ -5,4 +5,4 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-docker build -f $1 -t pacsolve ../
+docker build --no-cache -f $1 -t pacsolve ../
