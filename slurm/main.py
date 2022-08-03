@@ -122,8 +122,8 @@ MODE_CONFIGURATIONS = [
     { 'rosette': False, 'audit_fix': 'no' },
     { 'rosette': False, 'audit_fix': 'yes' },
     { 'rosette': False, 'audit_fix': 'force' },
-    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
-    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
+    # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
+    # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
     # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_duplicates,min_oldness', 'disallow_cycles': False },
     # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_duplicates', 'disallow_cycles': False },
     # { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
@@ -141,7 +141,7 @@ MODE_CONFIGURATIONS = [
     # { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness', 'disallow_cycles': False },
 
     { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_cve,min_oldness', 'disallow_cycles': False },
-    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_cve', 'disallow_cycles': False },
+    # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_cve', 'disallow_cycles': False },
 ]
 
 def run(argv):
