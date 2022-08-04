@@ -864,3 +864,187 @@ median_slowdown
 max_slowdown
 ```
 
+
+
+
+
+# CVE analysis
+
+For each project, the CVE badness of dependencies with vanilla NPM, and with MinNPM
+configured to minimize CVE and oldness, in that order.
+```{r}
+
+bind_rows(raw_data %>% 
+            filter(Rosette == FALSE & AuditFix == "no" & Status == "success") %>% 
+            select(Project,CVE) %>% 
+            mutate(Solver="NPM_no"),
+          raw_data %>% 
+            filter(Rosette == FALSE & AuditFix == "yes" & Status == "success") %>%
+            select(Project, CVE) %>%
+            mutate(Solver="NPM_yes"),
+          raw_data %>% 
+            filter(Rosette == FALSE & AuditFix == "force" & Status == "success") %>%
+            select(Project, CVE) %>%
+            mutate(Solver="NPM_force"),
+          raw_data %>% 
+            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" & DisallowCycles == "allow_cycles" &
+                   Minimize == "min_cve,min_oldness") %>%
+            select(Project, CVE) %>%
+            mutate(Solver="NPM_MinCVE")) %>%
+  pivot_wider(values_from=CVE, names_from=Solver) %>%
+  filter(NPM_no > 0)
+
+
+min_dep_analysis_tmp <-
+  bind_rows(raw_data %>% 
+            filter(Rosette == FALSE & AuditFix == "no" & Status == "success") %>% 
+            select(Project,CVE) %>% 
+            mutate(Solver="NPM_no"),
+          raw_data %>% 
+            filter(Rosette == FALSE & AuditFix == "yes" & Status == "success") %>%
+            select(Project, CVE) %>%
+            mutate(Solver="NPM_yes"),
+          raw_data %>% 
+            filter(Rosette == FALSE & AuditFix == "force" & Status == "success") %>%
+            select(Project, CVE) %>%
+            mutate(Solver="NPM_force"),
+          raw_data %>% 
+            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" & DisallowCycles == "allow_cycles" &
+                   Minimize == "min_cve,min_oldness") %>%
+            select(Project, CVE) %>%
+            mutate(Solver="NPM_MinCVE")) %>%
+  pivot_wider(values_from=CVE, names_from=Solver) %>%
+  filter(NPM_no>0) %>%
+
+  mutate(NPM_no_yes_Delta = NPM_no - NPM_yes) %>%
+  mutate(NPM_no_force_Delta = NPM_no - NPM_force) %>%
+  
+  mutate(NPM_no_MinCVE_Delta = NPM_no - NPM_MinCVE) %>%
+  mutate(NPM_yes_MinCVE_Delta = NPM_yes - NPM_MinCVE) %>%
+  
+  na.omit()
+  
+# min_dep_analysis_shrinkage <-
+#   min_dep_analysis_tmp %>%
+#   pivot_longer(cols = ends_with("Shrinkage"), names_to="shrinkage_comparison", values_to="Shrinkage") %>%
+#   mutate(Comparison=shrinkage_comparison) %>%
+#   select(Project,Comparison, Shrinkage)
+
+min_dep_analysis_delta <-
+  min_dep_analysis_tmp %>%
+  pivot_longer(cols = ends_with("Delta"), names_to="delta_comparison", values_to="Delta") %>%
+  mutate(Comparison=delta_comparison) %>%
+  select(Project,Comparison, Delta)
+
+min_dep_analysis_delta
+```
+
+These are cases where MinNPM produces significantly fewer dependences than
+NPM. We may want to dig into them further to explain why:
+```{r}
+min_dep_analysis_delta %>% 
+  filter(Comparison=='NPM_NPM_MinDepsOldness_Delta') %>%
+  arrange(desc(Delta)) %>%
+  filter(Delta > 25)
+```
+
+These are potentially bad cases, where MinNPM produces more dependencies than
+NPM:
+
+```{r}
+min_dep_analysis_delta %>% arrange(Delta) %>% filter(Delta < 0)
+```
+
+*WARNING: This filters out the bogus result above.*
+
+```{r}
+min_dep_analysis_shrinkage %>% 
+  filter(Shrinkage <= 1.0) %>%
+  filter(Comparison == "NPM_NPM_MinDepsOldness_Shrinkage" | Comparison == "NPM_NPM_MinOldness_Shrinkage") %>%
+  mutate(Comparison = recode(Comparison, 
+                             NPM_Cargo_MinOldness_Shrinkage="Cargo",
+                             NPM_NPM_MinDepsOldness_Shrinkage="Min Deps",
+                             NPM_NPM_MinDuplicatesOldness_Shrinkage="MinDuplicates",
+                             NPM_NPM_MinOldness_Shrinkage="Min Oldness",
+                             NPM_PIP_MinOldness_Shrinkage="PIP vs. NPM")) %>%
+  ggplot(aes(Shrinkage, colour=Comparison)) +
+  stat_ecdf() +
+  ylab("Percentange of packages") +
+  xlab("Fraction of dependencies") +
+  mytheme()
+mysave("shrinkage.pdf")
+```
+
+and a histogram version...
+
+```{r}
+# min_dep_analysis_shrinkage %>% 
+#   filter(Shrinkage <= 1.0) %>%
+#   filter(Comparison == 'NPM_NPM_MinDepsOldness_Shrinkage') %>%
+#   ggplot(aes(Shrinkage)) +
+#   geom_histogram(aes(y=..ndensity..),binwidth=0.1) +
+#   ylab("Count of packages") +
+#   xlab("Fraction of dependencies") +
+#   mytheme()
+# mysave("shrinkage_hist.pdf")
+```
+
+*What fraction of packages can we shrink? This goes in the paper.*
+
+
+```{r}
+group_counts <- min_dep_analysis_shrinkage %>% group_by(Comparison) %>% summarize(n = n())
+
+shrink_group_counts <- min_dep_analysis_shrinkage %>% filter(Shrinkage < 1) %>% group_by(Comparison) %>% summarize(n_shrunk = n())
+largen_group_counts <- min_dep_analysis_shrinkage %>% filter(Shrinkage > 1) %>% group_by(Comparison) %>% summarize(n_largen = n())
+
+shrinkage_table <- group_counts %>% 
+  inner_join(shrink_group_counts) %>% 
+  inner_join(largen_group_counts) %>%
+  mutate(percent_shrunk=100 * n_shrunk / n) %>%
+  mutate(percent_larger=100 * n_largen / n) %>%
+  mutate(Comparison = recode(Comparison, 
+                             NPM_Cargo_MinOldness_Shrinkage="Cargo; min_oldness", 
+                             NPM_PIP_MinOldness_Shrinkage="PIP; min_oldness",
+                             NPM_NPM_MinOldness_Shrinkage="NPM; min_oldness,min_num_deps",
+                             NPM_NPM_MinDepsOldness_Shrinkage="NPM; min_num_deps,min_oldness",
+                             NPM_NPM_MinDuplicatesOldness_Shrinkage="NPM; min_duplicates,min_oldness")) %>%
+  arrange(desc(percent_shrunk)) %>%
+  rename('# Shrunk (of 477)' = n_shrunk, '# Enlarged (of 477)' = n_largen, Configuration = Comparison) %>%
+  select(Configuration, '# Shrunk (of 477)', '# Enlarged (of 477)')
+shrinkage_table
+
+print(xtable(as.data.frame(shrinkage_table), type="latex"), include.rownames=FALSE, file=str_c(tables_dir, "/", "shinkage_combos.tex"))
+knitr::kable(shrinkage_table)
+```
+
+```{r}
+one_comparison <- min_dep_analysis_shrinkage %>% filter(Comparison == 'NPM_NPM_MinDepsOldness_Shrinkage')
+
+fraction_shrinking <- nrow(one_comparison %>% filter(Shrinkage < 1)) / nrow(one_comparison)
+write(
+  str_c("\\newcommand{\\dataFractionShrinking}{", 
+        round(fraction_shrinking * 100),
+        "\\%}\n"),
+  results_tex, append=TRUE)
+fraction_shrinking
+```
+
+
+
+```{r}
+one_comparison_min_old <- min_dep_analysis_shrinkage %>% filter(Comparison == 'NPM_NPM_MinOldness_Shrinkage')
+
+fraction_shrinking_min_old <- nrow(one_comparison_min_old %>% filter(Shrinkage < 1)) / nrow(one_comparison_min_old)
+write(
+  str_c("\\newcommand{\\dataFractionShrinkingMinOldness}{", 
+        round(fraction_shrinking_min_old * 100),
+        "\\%}\n"),
+  results_tex, append=TRUE)
+fraction_shrinking_min_old
+```
+  
+
+
+
+
