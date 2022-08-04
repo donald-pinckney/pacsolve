@@ -4,6 +4,7 @@ import os
 import subprocess
 import sys
 from typing import Any, Dict, List, Optional, Tuple
+import pathlib
 
 DUMP_ERRORS = open('/dev/null', 'w')
 memoized_cve_badness = dict()
@@ -79,7 +80,6 @@ class SolveResultEvaluation(object):
 if __name__ == "__main__":
     import csv
     import argparse
-    import pathlib
 
     parser = argparse.ArgumentParser()
     parser.add_argument('solution_path', nargs='?', default=None)
