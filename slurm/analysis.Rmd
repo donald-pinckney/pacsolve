@@ -30,7 +30,7 @@ library(fontcm)
 ```
 
 ```{r dirs}
-data_root <- "/home/artifact/experiment-dir"
+data_root <- "/scratch/pinckney.d/jul-27-take2"
 
 perf_root <- str_c(data_root, "-perf")
 oldness_root <- str_c(data_root, "-oldness")
@@ -142,7 +142,7 @@ Sanity check: there should be 1,000 of each kind of experiment.
 
 ```{r}
 num_experiments <- raw_data %>% 
-  group_by(Rosette,Minimize,Consistency,DisallowCycles) %>%
+  group_by(Rosette,AuditFix,Minimize,Consistency,DisallowCycles) %>%
   summarize(Count = n()) %>%
   ungroup() %>%
   select(Count) %>%
@@ -150,6 +150,7 @@ num_experiments <- raw_data %>%
 stopifnot(nrow(num_experiments) == 1)
 stopifnot(num_experiments[1] == 1000)
 ```
+
 
 # Failures
 
@@ -162,7 +163,7 @@ How many failures occur for each configuration? *See failures.tex*.
 
 failure_analysis <- raw_data %>% 
   filter(Status != "success") %>%
-  group_by(Rosette,Minimize,Consistency,DisallowCycles) %>%
+  group_by(Rosette,AuditFix,Minimize,Consistency,DisallowCycles) %>%
   summarise(Unsat = sum(Status == "unsat"),
             Timeout = sum(Status == "unavailable" | Status == "timeout"),
             Other = sum(Status != "unsat" & Status != "unavailable" & Status != "timeout")) %>%
@@ -170,18 +171,18 @@ failure_analysis <- raw_data %>%
   mutate(Solver = if_else(Rosette, "MinNPM", "NPM")) %>%
   rename(Minimization = Minimize) %>%
   select(-Rosette) %>%
-  relocate(Solver,Consistency,DisallowCycles,Minimization,Unsat,Timeout,Other)
+  relocate(Solver,AuditFix,Consistency,DisallowCycles,Minimization,Unsat,Timeout,Other)
 print(xtable(as.data.frame(failure_analysis), type="latex"), include.rownames=FALSE, file=str_c(tables_dir, "/", "failures.tex"))
 knitr::kable(failure_analysis)
 ```
 
 
-Results for the paper. These exclude PIP
+Failure results for the paper. These exclude PIP
 
 ```{r}
 failure_summary <- failure_analysis %>% 
     mutate(Total = Unsat + Timeout + Other) %>%
-  filter(Solver == "NPM" | Consistency == "npm") %>%
+  filter((Solver == "NPM" & AuditFix == "no") | Consistency == "npm") %>%
   select(Solver, Total, Consistency) %>%
   group_by(Solver) %>%
   summarize(Min = min(Total), Max = max(Total))
@@ -209,6 +210,7 @@ write(
 ```
 
 
+## Timeout analysis
 ```{r}
 minnpm_timeouts <- failure_analysis %>% 
   filter(Consistency == "npm") %>%
