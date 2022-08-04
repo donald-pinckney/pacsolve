@@ -101,6 +101,7 @@ raw_data <- read_csv(paste(data_root, "/results.csv", sep=""),
                    DisallowCycles=col_factor(),
                    Minimize=col_factor(),
                    Time=col_double(),
+                   CVE=col_double(),
                    NDeps=col_integer()),
   show_col_types = FALSE)
                    
