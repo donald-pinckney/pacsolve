@@ -1,4 +1,12 @@
 #!/bin/bash
+
+set -e
+
+# keep track of the last executed command
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+# echo an error message before exiting
+trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
+
 jsons_dir=${1%/}
 tarballs_dir=${2%/}
 
@@ -17,6 +25,7 @@ fi
 echo "$jsons_dir"
 
 for file in $jsons_dir/*.json; do
+    echo "$file"
     tmp_name="${file//\.json/.tgz}"
     tarball_name=$(basename $tmp_name) 
 
