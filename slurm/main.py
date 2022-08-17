@@ -157,6 +157,7 @@ def run(argv):
         help='Number of CPUs to request on each node')
     parser.add_argument('--use-slurm', type=ast.literal_eval, default=True,
         help='Should we use slurm?')
+    parser.add_argument('--on-ripley', action='store_true', default=False)
     parser.add_argument('--z3-abs-path', type=str, default=None, help='The absolute path of the z3 binary to use. Default: load the z3 installed by Spack.')
     parser.add_argument('--z3-add-model-option', type=ast.literal_eval, required=True, help='Set to true if the Z3 version is newer.')
     parser.add_argument('--z3-debug-dir', type=str, default=None, help='Relative path to a directory to dump Z3 debug logs. Default: no Z3 debug logs.')
@@ -165,7 +166,7 @@ def run(argv):
 
     tarball_dir = os.path.normpath(args.tarball_dir)
     target = os.path.normpath(args.target)
-    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.use_slurm, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
+    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.use_slurm, args.on_riply, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
 
 def solve_commands(mode_configuration):
     if mode_configuration['rosette']:
@@ -204,7 +205,7 @@ def package_target(target_base, mode_configuration, package_name):
 
 class Run(object):
 
-    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task, use_slurm, z3_abs_path: Optional[str], z3_add_model_option: bool, z3_debug_dir: Optional[str]):
+    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task, use_slurm, on_ripley, z3_abs_path: Optional[str], z3_add_model_option: bool, z3_debug_dir: Optional[str]):
         self.target = target
         self.tarball_dir = tarball_dir
         self.timeout = timeout
@@ -212,17 +213,24 @@ class Run(object):
         self.use_slurm = use_slurm
         self.mode_configurations = mode_configurations
 
-        self.sbatch_lines = [
-            "#SBATCH --time=00:30:00",
-            "#SBATCH --partition=express",
-            "#SBATCH --mem=8G",
-            # This rules out the few nodes that are older than Haswell.
-            # https://rc-docs.northeastern.edu/en/latest/hardware/hardware_overview.html#using-the-constraint-flag
-            "#SBATCH --constraint=haswell|broadwell|skylake_avx512|zen2|zen|cascadelake",
-            f'#SBATCH --cpus-per-task={cpus_per_task}',
-            "module load discovery nodejs",
-            "export PATH=$PATH:/home/a.guha/bin:/work/arjunguha-research-group/software/bin",
-        ]
+        if on_ripley:
+            self.cpus_per_task = min(self.cpus_per_task, 4)
+            self.sbatch_lines = [
+                "#SBATCH --time=00:30:00",
+                "#SBATCH --partition=all",
+            ]
+        else:
+            self.sbatch_lines = [
+                "#SBATCH --time=00:30:00",
+                "#SBATCH --partition=express",
+                "#SBATCH --mem=8G",
+                # This rules out the few nodes that are older than Haswell.
+                # https://rc-docs.northeastern.edu/en/latest/hardware/hardware_overview.html#using-the-constraint-flag
+                "#SBATCH --constraint=haswell|broadwell|skylake_avx512|zen2|zen|cascadelake",
+                f'#SBATCH --cpus-per-task={cpus_per_task}',
+                "module load discovery nodejs",
+                "export PATH=$PATH:/home/a.guha/bin:/work/arjunguha-research-group/software/bin",
+            ]
 
         if z3_abs_path is not None:
             self.sbatch_lines.append(f'export Z3_ABS_PATH={z3_abs_path}')
