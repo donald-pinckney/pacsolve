@@ -237,6 +237,7 @@ class Run(object):
         if z3_abs_path is not None:
             self.sbatch_lines.append(f'export Z3_ABS_PATH={z3_abs_path}')
         else:
+            assert not on_ripley
             self.sbatch_lines.append("eval `spack load --sh z3`")
 
         if z3_add_model_option:
