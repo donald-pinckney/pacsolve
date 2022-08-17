@@ -2,6 +2,7 @@
 # This script manages MinNPM experiments on Discovery, using Slurm.
 #
 from io import TextIOWrapper
+import shutil
 import subprocess
 import time
 import argparse
@@ -355,6 +356,9 @@ class Run(object):
     def run_minnpm(self, pkg_info):
         (tgz, pkg_target, mode_configuration) = pkg_info
         pkg_path = f'{pkg_target}/package'
+        node_modules_path = f'{pkg_path}/node_modules'
+        node_modules_lockfile_path = f'{node_modules_path}/.package-lock.json'
+        
         output_path = f'{pkg_path}/experiment.out'
         output_status_path = f'{pkg_path}/experiment.json'
         error_status_path = f'{pkg_path}/error.json'
@@ -366,6 +370,16 @@ class Run(object):
                 exit_code, duration = self.run_commands(solve_commands(mode_configuration), cwd=pkg_path, out_f=out)
 
             if exit_code == 0:
+                # To save space, nuke the entire node_modules dir, 
+                # BUT KEEP node_modules/.package-lock.json
+                with open(node_modules_lockfile_path, 'r') as lockfile_in:
+                    lockfile_json = json.load(lockfile_in)
+                shutil.rmtree(node_modules_path, ignore_errors=True)
+                assert not os.path.exists(node_modules_path)
+                os.mkdir(node_modules_path)
+                with open(node_modules_lockfile_path, 'w') as lockfile_out:
+                    json.dump(lockfile_json, lockfile_out)
+
                 write_json(output_status_path,
                     { 'status': 'success', 'time': duration })
                 return None
