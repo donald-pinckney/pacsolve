@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # This script manages MinNPM experiments on Discovery, using Slurm.
 #
-from io import BufferedWriter
+from io import TextIOWrapper
 import subprocess
 import time
 import argparse
@@ -329,17 +329,20 @@ class Run(object):
         
         os.makedirs(target)
         if subprocess.call(['tar', '-C', target, '-xzf', tgz], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) != 0:
-                return f'Error unpacking {tgz}'
+            return f'Error unpacking {tgz}'
 
-    def run_commands(self, commands, cwd, out_f: BufferedWriter):
+    def run_commands(self, commands, cwd, out_f: TextIOWrapper):
         start_time = time.time()
 
         for c in commands:
-            # TODO: make this safe
-            complete_proc = subprocess.run(c, cwd=cwd, timeout=self.timeout, capture_output=True)
-            exit_code = complete_proc.returncode
-            stdout_bytes = complete_proc.stdout
-            stderr_bytes = complete_proc.stderr
+            proc_result = safe_subprocess.run(c, timeout_seconds=self.timeout, cwd=cwd)
+
+            if proc_result.timeout:
+                raise subprocess.TimeoutExpired(c, self.timeout)
+
+            exit_code = proc_result.exit_code
+            stdout_bytes = proc_result.stdout
+            stderr_bytes = proc_result.stderr
             out_f.write(stdout_bytes)
             out_f.write(stderr_bytes)
                         
@@ -359,7 +362,7 @@ class Run(object):
         try:
             self.unpack_tarball_if_needed(tgz, pkg_target)
 
-            with open(output_path, 'wb') as out:
+            with open(output_path, 'w') as out:
                 exit_code, duration = self.run_commands(solve_commands(mode_configuration), cwd=pkg_path, out_f=out)
 
             if exit_code == 0:
