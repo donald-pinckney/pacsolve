@@ -168,7 +168,7 @@ def run(argv):
 
     tarball_dir = os.path.normpath(args.tarball_dir)
     target = os.path.normpath(args.target)
-    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.use_slurm, args.on_riply, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
+    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.use_slurm, args.on_ripley, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
 
 def solve_commands(mode_configuration):
     if mode_configuration['rosette']:
