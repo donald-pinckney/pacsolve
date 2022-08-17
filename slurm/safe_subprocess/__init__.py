@@ -3,7 +3,7 @@ import signal
 import fcntl
 import time
 import subprocess
-from typing import List
+from typing import List, Optional
 
 MAX_BYTES_PER_READ = 1024
 SLEEP_BETWEEN_READS = 0.1
@@ -33,7 +33,7 @@ def run(
     timeout_seconds: int = 15, 
     max_output_size: int = 2048,
     env = None,
-    cwd: None | str = None,
+    cwd: Optional[str] = None,
 ) -> Result:
     """
     Runs the given program with arguments. After the timeout elapses, kills the process
