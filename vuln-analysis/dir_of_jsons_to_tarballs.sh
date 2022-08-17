@@ -28,6 +28,8 @@ echo "Reading json files from: $jsons_dir"
 echo "Writing tarballs to: $tarballs_dir"
 echo "Using temp dir: $tmp_dir"
 
+mkdir -p "$tarballs_dir"
+
 for file in $jsons_dir/*.json; do
     echo "$file"
     tmp_name="${file//\.json/.tgz}"
@@ -38,5 +40,9 @@ for file in $jsons_dir/*.json; do
     cp "$file" "$tmp_dir/package/package.json"
     tar -czf "$tarballs_dir/$tarball_name" -C "$tmp_dir" package/
 done
+
+echo "Reading json files from: $jsons_dir"
+echo "Writing tarballs to: $tarballs_dir"
+echo "Using temp dir: $tmp_dir"
 
 rm -rf "$tmp_dir"
