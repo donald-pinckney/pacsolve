@@ -17,6 +17,7 @@ from typing import Any, Iterator, List, Optional, Dict, Tuple
 from contextlib import contextmanager
 import traceback
 import itertools
+import safe_subprocess
 
 from util import suppressed_iterator, write_json, read_json, chunked_or_distributed
 from random import shuffle
@@ -330,18 +331,11 @@ class Run(object):
         if subprocess.call(['tar', '-C', target, '-xzf', tgz], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) != 0:
                 return f'Error unpacking {tgz}'
 
-    def kill_zombies(self):
-        if not self.use_slurm:
-            subprocess.run(['pkill', '-9', 'minnpm'])
-            subprocess.run(['pkill', '-9', 'npm'])
-            subprocess.run(['pkill', '-9', 'racket'])
-            subprocess.run(['pkill', '-9', 'z3'])
-
-
     def run_commands(self, commands, cwd, out_f: BufferedWriter):
         start_time = time.time()
 
         for c in commands:
+            # TODO: make this safe
             complete_proc = subprocess.run(c, cwd=cwd, timeout=self.timeout, capture_output=True)
             exit_code = complete_proc.returncode
             stdout_bytes = complete_proc.stdout
@@ -349,7 +343,6 @@ class Run(object):
             out_f.write(stdout_bytes)
             out_f.write(stderr_bytes)
                         
-            self.kill_zombies()
             if exit_code != 0:
                 return exit_code, time.time() - start_time
 
@@ -388,14 +381,12 @@ class Run(object):
         except subprocess.TimeoutExpired:
             err_str = traceback.format_exc()
             write_json(error_status_path, { 'status': 'timeout', 'err': err_str })
-            self.kill_zombies()
             return f'Timeout: {pkg_path}'
         except BaseException as e:
             write_json(error_status_path, {
                 'status': 'unexpected',
                 'detail': e.__str__()
             })                
-            self.kill_zombies()
             return f'Exception: {pkg_path} {e}'
 
 
