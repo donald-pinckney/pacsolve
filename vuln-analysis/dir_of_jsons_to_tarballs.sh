@@ -5,7 +5,7 @@ set -e
 # keep track of the last executed command
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # echo an error message before exiting
-trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
+trap 'echo "\"${last_command}\" command filed with exit code $?."; rm -rf $tmp_dir' EXIT
 
 jsons_dir=${1%/}
 tarballs_dir=${2%/}
@@ -22,17 +22,21 @@ then
     exit 1
 fi
 
-echo "$jsons_dir"
+tmp_dir=$(mktemp -d)
+
+echo "Reading json files from: $jsons_dir"
+echo "Writing tarballs to: $tarballs_dir"
+echo "Using temp dir: $tmp_dir"
 
 for file in $jsons_dir/*.json; do
     echo "$file"
     tmp_name="${file//\.json/.tgz}"
     tarball_name=$(basename $tmp_name) 
 
-    rm -rf "$jsons_dir/package"
-    mkdir "$jsons_dir/package"
-    cp "$file" "$jsons_dir/package/package.json"
-    tar -czf "$tarballs_dir/$tarball_name" -C "$jsons_dir" package/
+    rm -rf "$tmp_dir/package"
+    mkdir "$tmp_dir/package"
+    cp "$file" "$tmp_dir/package/package.json"
+    tar -czf "$tarballs_dir/$tarball_name" -C "$tmp_dir" package/
 done
 
-rm -rf "$jsons_dir/package"
+rm -rf "$tmp_dir"
