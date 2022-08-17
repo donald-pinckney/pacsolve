@@ -2,3 +2,4 @@ numpy
 pandas
 more_itertools
 tqdm
+clusterfutures
