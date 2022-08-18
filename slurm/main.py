@@ -220,6 +220,7 @@ class Run(object):
             self.sbatch_lines = [
                 "#SBATCH --time=00:30:00",
                 "#SBATCH --partition=all",
+                "export PYTHONPATH=/proj/pinckney/.local/lib/python3.8/site-packages"
             ]
         else:
             self.sbatch_lines = [
