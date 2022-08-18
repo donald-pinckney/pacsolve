@@ -171,6 +171,7 @@ def run(argv):
     Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.use_slurm, args.on_ripley, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
 
 def solve_commands(mode_configuration):
+    w_node = ["which", "node"]
     if mode_configuration['rosette']:
         cmd_no_cycle_flag = ['minnpm', 'install', '--no-audit', '--prefer-offline', '--rosette',
                 '--ignore-scripts',
@@ -178,17 +179,17 @@ def solve_commands(mode_configuration):
                 '--minimize', mode_configuration['minimize'] ]
         if mode_configuration['disallow_cycles']:
             cmd_no_cycle_flag.append('--disallow-cycles')
-        return [cmd_no_cycle_flag]
+        return [w_node, cmd_no_cycle_flag]
     else:
         vanilla_install_cmd = 'minnpm install --prefer-offline --no-audit --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')
         audit_fix_cmd = 'minnpm audit fix --omit dev --omit peer --omit optional --prefer-offline --ignore-scripts --audit-level=none'.split(' ')
         audit_fix_force_cmd = 'minnpm audit fix --force --omit dev --omit peer --omit optional --prefer-offline --ignore-scripts --audit-level=none'.split(' ')
         if mode_configuration['audit_fix'] == 'no':
-            return [vanilla_install_cmd]
+            return [w_node, vanilla_install_cmd]
         elif mode_configuration['audit_fix'] == 'yes':
-            return [vanilla_install_cmd, audit_fix_cmd]
+            return [w_node, vanilla_install_cmd, audit_fix_cmd]
         elif mode_configuration['audit_fix'] == 'force':
-            return [vanilla_install_cmd, audit_fix_force_cmd]
+            return [w_node, vanilla_install_cmd, audit_fix_force_cmd]
         else:
             assert False
 
