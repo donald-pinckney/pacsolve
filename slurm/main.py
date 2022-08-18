@@ -292,6 +292,7 @@ class Run(object):
         print(f'Will run on {len(pkgs)} configurations.')
         pkg_chunks = list(chunked_or_distributed(pkgs,
             max_groups=self.max_groups, optimal_group_size=self.cpus_per_task))
+        pkg_chunks = [list(c) for c in pkg_chunks]
         print(f'Running with {len(pkg_chunks)} chunks, each of size {len(pkg_chunks[0])}')
 
         with self.make_slurm_executor() as executor:
