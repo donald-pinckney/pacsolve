@@ -222,6 +222,7 @@ class Run(object):
                 "#SBATCH --partition=all",
                 "export PYTHONPATH=/proj/pinckney/.local/lib/python3.8/site-packages",
                 '[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"',
+                "minnpm install --help"
             ]
         else:
             self.sbatch_lines = [
