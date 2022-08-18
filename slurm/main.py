@@ -44,14 +44,17 @@ def gather(argv):
     parser.add_argument(
         'directory',
         help='Directory to gather results from')
+    parser.add_argument('--which-experiment', type=str, required=True, help='Which experiment to run? ("top1000_comparison", "vuln_tarballs")')
     args = parser.parse_args(argv)
-    Gather(args.directory).gather()
+    mode_configurations = get_mode_configurations(args.which_experiment)
+    Gather(args.directory, mode_configurations).gather()
 
 
 
 class Gather(object):
 
-    def __init__(self, directory):
+    def __init__(self, directory, mode_configurations):
+        self.mode_configurations = mode_configurations
         self.directory = os.path.normpath(directory)
         self.solvers = [
             os.sep.join(os.path.normpath(p).split(os.sep)[-2:]) 
@@ -103,7 +106,7 @@ class Gather(object):
         with open(output_path, 'w', newline='') as f:
             writer = csv.writer(f)
             writer.writerow(['Project','Rosette','AuditFix','Consistency','Minimize','DisallowCycles'] + SolveResultEvaluation.to_row_headers())
-            for mode_configuration in MODE_CONFIGURATIONS:
+            for mode_configuration in self.mode_configurations:
                 mode_dir = mode_configuration_target(self.directory, mode_configuration)
                 print(f'Processing a mode ...', mode_dir)
                 with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
@@ -120,31 +123,39 @@ class Gather(object):
                             ('disallow_cycles' if mode_configuration['disallow_cycles'] else 'allow_cycles') if is_rosette else ''] +
                             eval_result.to_row_values())
 
-MODE_CONFIGURATIONS = [
-    { 'rosette': False, 'audit_fix': 'no' },
-    { 'rosette': False, 'audit_fix': 'yes' },
-    { 'rosette': False, 'audit_fix': 'force' },
-    # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_duplicates,min_oldness', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_duplicates', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_duplicates,min_oldness', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness,min_duplicates', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': True },
-    # { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': True },
-    # { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': True },
 
-    # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness', 'disallow_cycles': False },
+def get_mode_configurations(which_experiment: str) -> List[Dict[str, Any]]:
+    if which_experiment == 'top1000_comparison':
+        return [
+            { 'rosette': False, 'audit_fix': 'no' },
+            { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_duplicates,min_oldness', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_duplicates', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_duplicates,min_oldness', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness,min_duplicates', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_num_deps,min_oldness', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': True },
+            { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': True },
+            { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness,min_num_deps', 'disallow_cycles': True },
 
-    { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_cve,min_oldness', 'disallow_cycles': False },
-    # { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_cve', 'disallow_cycles': False },
-]
+            { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'cargo', 'minimize': 'min_oldness', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'pip', 'minimize': 'min_oldness', 'disallow_cycles': False },
+        ]
+    elif which_experiment == 'vuln_tarballs':
+        return [
+            { 'rosette': False, 'audit_fix': 'no' },
+            { 'rosette': False, 'audit_fix': 'yes' },
+            { 'rosette': False, 'audit_fix': 'force' },
+            { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_cve,min_oldness', 'disallow_cycles': False },
+            { 'rosette': True, 'consistency': 'npm', 'minimize': 'min_oldness,min_cve', 'disallow_cycles': False },
+        ]
+    else:
+        assert False
 
 def run(argv):
     parser = argparse.ArgumentParser(
@@ -163,12 +174,13 @@ def run(argv):
     parser.add_argument('--z3-abs-path', type=str, default=None, help='The absolute path of the z3 binary to use. Default: load the z3 installed by Spack.')
     parser.add_argument('--z3-add-model-option', type=ast.literal_eval, required=True, help='Set to true if the Z3 version is newer.')
     parser.add_argument('--z3-debug-dir', type=str, default=None, help='Relative path to a directory to dump Z3 debug logs. Default: no Z3 debug logs.')
-    
+    parser.add_argument('--which-experiment', type=str, required=True, help='Which experiment to run? ("top1000_comparison", "vuln_tarballs")')
     args = parser.parse_args(argv)
 
     tarball_dir = os.path.normpath(args.tarball_dir)
     target = os.path.normpath(args.target)
-    Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.use_slurm, args.on_ripley, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
+    mode_configurations = get_mode_configurations(args.which_experiment)
+    Run(tarball_dir, target, mode_configurations, args.timeout, args.cpus_per_task, args.use_slurm, args.on_ripley, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
 
 def solve_commands(mode_configuration):
     if mode_configuration['rosette']:
