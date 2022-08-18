@@ -342,6 +342,9 @@ class Run(object):
     def run_commands(self, commands, cwd, out_f: TextIOWrapper):
         start_time = time.time()
 
+        out_f.write(str(os.environ))
+        out_f.write("\n\n")
+
         for c in commands:
             proc_result = safe_subprocess.run(c, timeout_seconds=self.timeout, cwd=cwd)
 
