@@ -175,12 +175,13 @@ def run(argv):
     parser.add_argument('--z3-add-model-option', type=ast.literal_eval, required=True, help='Set to true if the Z3 version is newer.')
     parser.add_argument('--z3-debug-dir', type=str, default=None, help='Relative path to a directory to dump Z3 debug logs. Default: no Z3 debug logs.')
     parser.add_argument('--which-experiment', type=str, required=True, help='Which experiment to run? ("top1000_comparison", "vuln_tarballs")')
+    parser.add_argument('--max-groups', type=int, default=49, help='Amount of sbatch jobs to run in parallel')
     args = parser.parse_args(argv)
 
     tarball_dir = os.path.normpath(args.tarball_dir)
     target = os.path.normpath(args.target)
     mode_configurations = get_mode_configurations(args.which_experiment)
-    Run(tarball_dir, target, mode_configurations, args.timeout, args.cpus_per_task, args.use_slurm, args.on_ripley, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
+    Run(tarball_dir, target, mode_configurations, args.timeout, args.cpus_per_task, args.use_slurm, args.on_ripley, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir, max_groups).run()
 
 def solve_commands(mode_configuration):
     if mode_configuration['rosette']:
@@ -219,7 +220,7 @@ def package_target(target_base, mode_configuration, package_name):
 
 class Run(object):
 
-    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task, use_slurm, on_ripley, z3_abs_path: Optional[str], z3_add_model_option: bool, z3_debug_dir: Optional[str]):
+    def __init__(self, tarball_dir, target, mode_configurations, timeout, cpus_per_task, use_slurm, on_ripley, z3_abs_path: Optional[str], z3_add_model_option: bool, z3_debug_dir: Optional[str], max_groups: int):
         self.target = target
         self.tarball_dir = tarball_dir
         self.timeout = timeout
@@ -227,6 +228,7 @@ class Run(object):
         self.use_slurm = use_slurm
         self.on_ripley = on_ripley
         self.mode_configurations = mode_configurations
+        self.max_groups = max_groups
 
         if on_ripley:
             self.cpus_per_task = min(self.cpus_per_task, 4)
@@ -289,7 +291,7 @@ class Run(object):
         shuffle(pkgs)
         print(f'Will run on {len(pkgs)} configurations.')
         pkg_chunks = list(chunked_or_distributed(pkgs,
-            max_groups=49, optimal_group_size=self.cpus_per_task))
+            max_groups=self.max_groups, optimal_group_size=self.cpus_per_task))
         print(f'Running with {len(pkg_chunks)} chunks, each of size {len(pkg_chunks[0])}')
 
         with self.make_slurm_executor() as executor:
