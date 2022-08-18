@@ -29,6 +29,7 @@
 - `pushd z3/; python3 scripts/mk_make.py --staticbin; cd build/; make -j12; popd`
 - `pushd version-oldness/; npm install; popd`
 - `pushd version-cve-badness/; npm install; popd`
+- `pushd RosetteSolver/; raco exe rosette-solver.rkt; popd`
 - Find the location of the installed NPM binary, and symlink it to someplace in your PATH under the name `minnpm`. E.g.: `ln -s $(which npm) ~/.local/bin/minnpm`.
 - Then probably restart your terminal
 - From anywhere, run `minnpm install --help`. You should see `--rosette` listed as an option.
