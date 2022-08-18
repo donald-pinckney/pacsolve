@@ -255,7 +255,8 @@ class Run(object):
 
     def run_chunk(self, pkgs):
         if self.on_ripley:
-            subprocess.run('nvm use 15.2.1', shell=True)
+            os.environ["PATH"] = "/proj/pinckney/.nvm/versions/node/v15.2.1/bin:" + os.environ["PATH"]
+            # subprocess.run('nvm use 15.2.1', shell=True)
 
         # Tip: Cannot use ProcessPoolExecutor with the ClusterFutures executor. It seems like
         # ProcessPoolExector forks the process with the same command-line arguments, including
