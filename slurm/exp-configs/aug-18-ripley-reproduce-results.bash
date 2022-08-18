@@ -3,8 +3,8 @@
 
 
 export EXPERIMENT_TYPE=top1000_comparison
-export EXPERIMENT_DIR=/proj/pinckney/experiments/aug-17-ripley-test/
-export TARBALL_DIR=/proj/pinckney/pacsolve/slurm/68_tarballs
+export EXPERIMENT_DIR=/proj/pinckney/experiments/aug-18-ripley-reproduce-results/
+export TARBALL_DIR=/proj/pinckney/pacsolve/slurm/top1000tarballs
 
 export Z3_LOC=/proj/pinckney/pacsolve/z3/build/z3
 export Z3_MODEL_OPTION=True
