@@ -288,8 +288,9 @@ class Run(object):
         pkgs = self.list_pkg_paths()
         shuffle(pkgs)
         print(f'Will run on {len(pkgs)} configurations.')
-        pkg_chunks = chunked_or_distributed(pkgs,
-            max_groups=49, optimal_group_size=self.cpus_per_task)
+        pkg_chunks = list(chunked_or_distributed(pkgs,
+            max_groups=49, optimal_group_size=self.cpus_per_task))
+        print(f'Running with {len(pkg_chunks)} chunks, each of size {len(pkg_chunks[0])}')
 
         with self.make_slurm_executor() as executor:
             for err in suppressed_iterator(executor.map(self.run_chunk, pkg_chunks)):
