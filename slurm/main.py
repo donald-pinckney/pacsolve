@@ -380,13 +380,14 @@ class Run(object):
             if exit_code == 0:
                 # To save space, nuke the entire node_modules dir, 
                 # BUT KEEP node_modules/.package-lock.json
-                with open(node_modules_lockfile_path, 'r') as lockfile_in:
-                    lockfile_json = json.load(lockfile_in)
-                shutil.rmtree(node_modules_path, ignore_errors=True)
-                assert not os.path.exists(node_modules_path)
-                os.mkdir(node_modules_path)
-                with open(node_modules_lockfile_path, 'w') as lockfile_out:
-                    json.dump(lockfile_json, lockfile_out)
+                if os.path.exists(node_modules_lockfile_path):
+                    with open(node_modules_lockfile_path, 'r') as lockfile_in:
+                        lockfile_json = json.load(lockfile_in)
+                    shutil.rmtree(node_modules_path, ignore_errors=True)
+                    assert not os.path.exists(node_modules_path)
+                    os.mkdir(node_modules_path)
+                    with open(node_modules_lockfile_path, 'w') as lockfile_out:
+                        json.dump(lockfile_json, lockfile_out)
 
                 write_json(output_status_path,
                     { 'status': 'success', 'time': duration })
