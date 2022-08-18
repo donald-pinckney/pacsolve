@@ -171,7 +171,6 @@ def run(argv):
     Run(tarball_dir, target, MODE_CONFIGURATIONS, args.timeout, args.cpus_per_task, args.use_slurm, args.on_ripley, args.z3_abs_path, args.z3_add_model_option, args.z3_debug_dir).run()
 
 def solve_commands(mode_configuration):
-    w_node = ["which", "node"]
     if mode_configuration['rosette']:
         cmd_no_cycle_flag = ['minnpm', 'install', '--no-audit', '--prefer-offline', '--rosette',
                 '--ignore-scripts',
@@ -179,17 +178,17 @@ def solve_commands(mode_configuration):
                 '--minimize', mode_configuration['minimize'] ]
         if mode_configuration['disallow_cycles']:
             cmd_no_cycle_flag.append('--disallow-cycles')
-        return [w_node, cmd_no_cycle_flag]
+        return [cmd_no_cycle_flag]
     else:
         vanilla_install_cmd = 'minnpm install --prefer-offline --no-audit --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')
         audit_fix_cmd = 'minnpm audit fix --omit dev --omit peer --omit optional --prefer-offline --ignore-scripts --audit-level=none'.split(' ')
         audit_fix_force_cmd = 'minnpm audit fix --force --omit dev --omit peer --omit optional --prefer-offline --ignore-scripts --audit-level=none'.split(' ')
         if mode_configuration['audit_fix'] == 'no':
-            return [w_node, vanilla_install_cmd]
+            return [vanilla_install_cmd]
         elif mode_configuration['audit_fix'] == 'yes':
-            return [w_node, vanilla_install_cmd, audit_fix_cmd]
+            return [vanilla_install_cmd, audit_fix_cmd]
         elif mode_configuration['audit_fix'] == 'force':
-            return [w_node, vanilla_install_cmd, audit_fix_force_cmd]
+            return [vanilla_install_cmd, audit_fix_force_cmd]
         else:
             assert False
 
@@ -225,8 +224,6 @@ class Run(object):
                 "export PYTHONPATH=/proj/pinckney/.local/lib/python3.8/site-packages",
                 '[ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"',
                 "nvm use 15.2.1",
-                "echo $PATH",
-                "minnpm install --help"
             ]
         else:
             self.sbatch_lines = [
@@ -256,7 +253,6 @@ class Run(object):
     def run_chunk(self, pkgs):
         if self.on_ripley:
             os.environ["PATH"] = "/proj/pinckney/.nvm/versions/node/v15.2.1/bin:" + os.environ["PATH"]
-            # subprocess.run('nvm use 15.2.1', shell=True)
 
         # Tip: Cannot use ProcessPoolExecutor with the ClusterFutures executor. It seems like
         # ProcessPoolExector forks the process with the same command-line arguments, including
@@ -346,9 +342,6 @@ class Run(object):
 
     def run_commands(self, commands, cwd, out_f: TextIOWrapper):
         start_time = time.time()
-
-        out_f.write(str(os.environ))
-        out_f.write("\n\n")
 
         for c in commands:
             proc_result = safe_subprocess.run(c, timeout_seconds=self.timeout, cwd=cwd)
