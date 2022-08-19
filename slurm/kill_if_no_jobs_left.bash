@@ -13,6 +13,7 @@ do
         pkill -9 "python3"
         exit;
     fi
+    echo "$num_jobs_left jobs left."
 
     sleep 60
 done
