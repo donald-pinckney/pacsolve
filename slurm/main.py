@@ -175,7 +175,7 @@ def run(argv):
     parser.add_argument('--z3-add-model-option', type=ast.literal_eval, required=True, help='Set to true if the Z3 version is newer.')
     parser.add_argument('--z3-debug-dir', type=str, default=None, help='Relative path to a directory to dump Z3 debug logs. Default: no Z3 debug logs.')
     parser.add_argument('--which-experiment', type=str, required=True, help='Which experiment to run? ("top1000_comparison", "vuln_tarballs")')
-    parser.add_argument('--max-groups', type=int, default=49, help='Amount of sbatch jobs to run in parallel')
+    parser.add_argument('--max-groups', type=int, default=49, help='Amount of sbatch jobs to run in parallel, or -1 for max')
     args = parser.parse_args(argv)
 
     tarball_dir = os.path.normpath(args.tarball_dir)
@@ -290,9 +290,12 @@ class Run(object):
         pkgs = self.list_pkg_paths()
         shuffle(pkgs)
         print(f'Will run on {len(pkgs)} configurations.')
-        pkg_chunks = list(chunked_or_distributed(pkgs,
-            max_groups=self.max_groups, optimal_group_size=self.cpus_per_task))
-        pkg_chunks = [list(c) for c in pkg_chunks]
+        if self.max_groups == -1:
+            pkg_chunks = [[p] for p in pkgs]
+        else:
+            pkg_chunks = list(chunked_or_distributed(pkgs,
+                max_groups=self.max_groups, optimal_group_size=self.cpus_per_task))
+            pkg_chunks = [list(c) for c in pkg_chunks]
         print(f'Running with {len(pkg_chunks)} chunks, each of size {len(pkg_chunks[0])}')
 
         with self.make_slurm_executor() as executor:
