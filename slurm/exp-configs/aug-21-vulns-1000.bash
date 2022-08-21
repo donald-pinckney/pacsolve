@@ -3,7 +3,7 @@
 
 
 export EXPERIMENT_TYPE=vuln_tarballs
-export EXPERIMENT_DIR=/proj/pinckney/experiments/aug-20-vulns-1000/
+export EXPERIMENT_DIR=/proj/pinckney/experiments/aug-21-vulns-1000/
 export TARBALL_DIR=/proj/pinckney/pacsolve/slurm/vuln_tarballs1000
 
 export Z3_LOC=/proj/pinckney/pacsolve/z3/build/z3
