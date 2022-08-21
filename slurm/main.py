@@ -393,6 +393,8 @@ class Run(object):
         try:
             self.unpack_tarball_if_needed(tgz, pkg_target)
 
+            subprocess.run(['rm', '-rf', 'node_modules', 'package-lock.json'], cwd=pkg_path)
+            
             with open(output_path, 'w') as out:
                 exit_code, duration = self.run_commands(solve_commands(mode_configuration), cwd=pkg_path, out_f=out)
 

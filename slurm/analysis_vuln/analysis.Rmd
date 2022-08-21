@@ -30,7 +30,7 @@ library(fontcm)
 ```
 
 ```{r dirs}
-data_root <- "/proj/pinckney/experiments/aug-18-ripley-reproduce-results"
+data_root <- "/proj/pinckney/experiments/aug-20-vulns-small"
 
 perf_root <- str_c(data_root, "-perf")
 oldness_root <- str_c(data_root, "-oldness")
@@ -151,6 +151,65 @@ num_experiments <- raw_data %>%
 stopifnot(nrow(num_experiments) == 1)
 stopifnot(num_experiments[1] == 1000)
 ```
+
+
+
+
+
+# Failures
+
+How many failures occur for each configuration? *See failures.tex*.
+
+```{r}
+# failure_analysis <- raw_data %>% 
+#   filter(Status != "success") %>% 
+#   group_by(Rosette,Minimize,Consistency)
+
+failure_analysis <- raw_data %>% 
+  filter(Status != "success") %>%
+  group_by(Rosette,AuditFix,Minimize,Consistency,DisallowCycles) %>%
+  summarise(Unsat = sum(Status == "unsat"),
+            Timeout = sum(Status == "unavailable" | Status == "timeout"),
+            Other = sum(Status != "unsat" & Status != "unavailable" & Status != "timeout")) %>%
+  ungroup() %>%
+  mutate(Solver = if_else(Rosette, "MinNPM", "NPM")) %>%
+  rename(Minimization = Minimize) %>%
+  select(-Rosette) %>%
+  relocate(Solver,AuditFix,Consistency,DisallowCycles,Minimization,Unsat,Timeout,Other)
+print(xtable(as.data.frame(failure_analysis), type="latex"), include.rownames=FALSE, file=str_c(tables_dir, "/", "failures.tex"))
+knitr::kable(failure_analysis)
+```
+
+Projects that failed with MinNPM in NPM mode, but succeeded with NPM. The
+Status column shows the status with MinNPM. The status *unavailable* means
+a timeout, whereas *unexpected* likely means some kind of Z3 / Rosette crash.
+
+```{r}
+minnpm_fails_npm_succeeds <- raw_data %>% 
+  filter(Rosette == TRUE &
+           Consistency == "npm" &
+           Minimize == "min_oldness,min_num_deps" &
+           DisallowCycles == "allow_cycles" &
+           Status != "success") %>%
+  select(Project, Status) %>%
+  inner_join(raw_data %>%
+               filter(Rosette == FALSE &
+                        Status == "success") %>%
+               select(Project))
+
+minnpm_fails_npm_succeeds
+
+num_minnpm_fails_npm_succeeds <- nrow(minnpm_fails_npm_succeeds)
+write(
+  str_c("\\newcommand{\\dataNumMinNPMFailNPMOk}{", 
+        num_minnpm_fails_npm_succeeds,
+        "}\n"),
+  results_tex, append=TRUE)
+num_minnpm_fails_npm_succeeds
+```
+
+
+
 
 
 # CVE analysis
