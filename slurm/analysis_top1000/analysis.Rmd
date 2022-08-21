@@ -30,7 +30,7 @@ library(fontcm)
 ```
 
 ```{r dirs}
-data_root <- "/mnt/data/donald/scratch/aug-3-arjun-jquery-revdeps"
+data_root <- "/proj/pinckney/experiments/aug-18-ripley-reproduce-results-no-registry"
 
 perf_root <- str_c(data_root, "-perf")
 oldness_root <- str_c(data_root, "-oldness")
@@ -863,105 +863,4 @@ mean_slowdown
 median_slowdown
 max_slowdown
 ```
-
-
-
-
-
-# CVE analysis
-
-For each project, the CVE badness of dependencies with vanilla NPM, and with MinNPM
-configured to minimize CVE and oldness, in that order.
-```{r}
-min_cve_analysis_tmp <-
-  bind_rows(raw_data %>% 
-            filter(Rosette == FALSE & AuditFix == "no" & Status == "success") %>% 
-            select(Project,CVE) %>% 
-            mutate(Solver="NPM_no"),
-          raw_data %>% 
-            filter(Rosette == FALSE & AuditFix == "yes" & Status == "success") %>%
-            select(Project, CVE) %>%
-            mutate(Solver="NPM_yes"),
-          raw_data %>% 
-            filter(Rosette == FALSE & AuditFix == "force" & Status == "success") %>%
-            select(Project, CVE) %>%
-            mutate(Solver="NPM_force"),
-          raw_data %>% 
-            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" & DisallowCycles == "allow_cycles" &
-                   Minimize == "min_cve,min_oldness") %>%
-            select(Project, CVE) %>%
-            mutate(Solver="NPM_MinCVE")) %>%
-  pivot_wider(values_from=CVE, names_from=Solver) %>%
-  filter(NPM_no>0) %>%
-
-  mutate(NPM_no_NPM_yes_Delta = NPM_no - NPM_yes) %>%
-  mutate(NPM_no_NPM_force_Delta = NPM_no - NPM_force) %>%
-  
-  mutate(NPM_no_MinCVE_Delta = NPM_no - NPM_MinCVE) %>%
-  mutate(NPM_yes_MinCVE_Delta = NPM_yes - NPM_MinCVE) %>%
-  mutate(NPM_force_MinCVE_Delta = NPM_force - NPM_MinCVE) %>%
-
-  na.omit()
-
-min_cve_analysis_tmp  
-
-min_cve_analysis_delta <-
-  min_cve_analysis_tmp %>%
-  pivot_longer(cols = ends_with("Delta"), names_to="delta_comparison", values_to="Delta") %>%
-  mutate(Comparison=delta_comparison) %>%
-  select(Project,Comparison, Delta)
-
-min_cve_analysis_delta
-```
-
-Comparison of cases:
-
-Cases where `npm audit fix` does better than `npm install`:
-```{r}
-min_cve_analysis_delta %>% 
-  filter(Comparison=='NPM_no_NPM_yes_Delta') %>%
-  arrange(desc(Delta)) %>%
-  filter(Delta > 0)
-```
-
-Cases where `npm audit fix --force` does better than `npm install`:
-```{r}
-min_cve_analysis_delta %>% 
-  filter(Comparison=='NPM_no_NPM_force_Delta') %>%
-  arrange(desc(Delta)) %>%
-  filter(Delta > 0)
-```
-
-Cases where MinCVE does better than `npm install`:
-```{r}
-min_cve_analysis_delta %>% 
-  filter(Comparison=='NPM_no_MinCVE_Delta') %>%
-  arrange(desc(Delta)) %>%
-  filter(Delta > 0)
-```
-
-Cases where MinCVE does better than `npm audit fix`:
-```{r}
-min_cve_analysis_delta %>% 
-  filter(Comparison=='NPM_yes_MinCVE_Delta') %>%
-  arrange(desc(Delta)) %>%
-  filter(Delta > 0)
-```
-
-Cases where MinCVE does better than `npm audit --force`:
-```{r}
-min_cve_analysis_delta %>% 
-  filter(Comparison=='NPM_force_MinCVE_Delta') %>%
-  arrange(desc(Delta)) %>%
-  filter(Delta > 0)
-```
-
-Cases where `npm audit --force` does better than MinCVE:
-```{r}
-min_cve_analysis_delta %>% 
-  filter(Comparison=='NPM_force_MinCVE_Delta') %>%
-  arrange(Delta) %>%
-  filter(Delta < 0)
-```
-
 

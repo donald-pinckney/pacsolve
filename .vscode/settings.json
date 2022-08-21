@@ -1,0 +1,10 @@
+{
+    "files.watcherExclude": {
+        ".archived": true,
+        "slurm/.cfut": true,
+        "slurm/tarballs_arjun_jquery_revdeps_aug3": true,
+        "slurm/top1000tarball_repos": true,
+        "slurm/top1000tarballs": true,
+        "slurm/vuln_tarballs": true
+    }
+}

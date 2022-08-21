@@ -1,0 +1,252 @@
+---
+title: "R Notebook"
+output:
+  pdf_document:
+    latex_engine: xelatex
+  html_notebook: default
+  html_document:
+    df_print: paged
+  word_document: default
+---
+
+# Running on Discovery
+
+I recommend viewing this with a web-based Rstudio server on Discovery:
+
+https://ood.discovery.neu.edu/pun/sys/dashboard/batch_connect/sys/RStudio/session_contexts/new
+
+Press *Ctrl+Enter* to run a chunk.
+
+# Initialization
+
+*You may want to change the directories below.*
+
+```{r setup}
+suppressMessages(library(tidyverse))
+library(stringr)
+library(xtable)
+suppressMessages(library(extrafont))
+library(fontcm)
+```
+
+```{r dirs}
+data_root <- "/proj/pinckney/experiments/aug-18-ripley-reproduce-results"
+
+perf_root <- str_c(data_root, "-perf")
+oldness_root <- str_c(data_root, "-oldness")
+sizes_root <- str_c(data_root, "-sizes")
+
+
+results_root <- str_c(data_root, "-number-results")
+dir.create(results_root, showWarnings = FALSE)
+
+tables_dir <- str_c(data_root, "-tables")
+dir.create(tables_dir, showWarnings = FALSE)
+
+plots_dir <- str_c(data_root, "-plots")
+dir.create(plots_dir, showWarnings = FALSE)
+
+
+results_tex <- str_c(results_root, "/results.tex")
+
+write("% These are results from the R Notebook.", results_tex, append=FALSE)
+write("% Run the notebook from top to bottom", results_tex, append=TRUE)
+```
+
+
+# Theme for output
+
+```{r}
+mytheme <- function() {
+  return(theme_bw() +
+           theme(
+             # NOTE: UNCOMMENT WHEN RENDING PLOTS FOR THE PAPER
+             # (can't get the CM fonts to work in artifact VM...)
+             # text = element_text(family = "CM Roman", size=10),
+              panel.grid.major = element_blank(),
+             # panel.grid.minor = element_blank(),
+             # panel.grid.major = element_line(colour="gray", size=0.1),
+             # panel.grid.minor =
+             #  element_line(colour="gray", size=0.1, linetype='dotted'),
+             axis.ticks = element_line(size=0.05),
+             axis.ticks.length=unit("-0.05", "in"),
+             axis.text.y = element_text(margin = margin(r = 5)),
+             axis.text.x = element_text(hjust=1),
+             legend.key = element_rect(colour=NA),
+             legend.spacing = unit(0.001, "in"),
+             legend.key.size = unit(0.2, "in"),
+             legend.title = element_blank(),
+             legend.position = c(0.75, .7),
+             legend.background = element_blank()))
+}
+
+mysave <- function(filename) {
+  path <- str_c(plots_dir, "/", filename)
+  ggsave(path, width=3, height=3, units=c("in"))
+  # embed_font(path)
+}
+
+```
+
+# Load the data
+
+These are the results from running all experiments in parallel on Discovery.
+The timing information is *not* reliable.
+```{r}
+raw_data <- read_csv(paste(data_root, "/results.csv", sep=""),
+  col_types = cols(Status=col_factor(),
+                   Project=col_factor(),
+                   Rosette=col_logical(),
+                   Consistency=col_factor(),
+                   DisallowCycles=col_factor(),
+                   Minimize=col_factor(),
+                   Time=col_double(),
+                   CVE=col_double(),
+                   NDeps=col_integer()),
+  show_col_types = FALSE)
+                   
+```
+
+We load more data later.
+
+# Manual Verification Step
+
+Check that these are the factors that appear below:
+
+1. *success*: everything worked!
+2. *ERESOLVE*: depends on something that isn't in the repository
+3. *ETARGET*: requires some other target architecture **verify**. Can also mean depending on something that doesn't exist.
+4. *EBADPLATFORM*: requires some other platform (e.g., macOS)
+5. *EUNSUPPORTEDPROTOCOL:* a dependency is in a format that NPM does not support
+6. *unexpected*: something went wrong on Discovery. See experiment.out
+7. *unavailable*: something went wrong and we didn't even capture the result. 
+   See experiment.out
+8. *unsat*: Z3 failed on us
+
+```{r}
+levels(raw_data$Status)
+```
+
+```{r}
+levels(raw_data$Consistency)
+```
+
+```{r}
+levels(raw_data$Minimize)
+```
+
+```{r}
+levels(raw_data$DisallowCycles)
+```
+
+Sanity check: there should be 1,000 of each kind of experiment.
+
+```{r}
+num_experiments <- raw_data %>% 
+  group_by(Rosette,AuditFix,Minimize,Consistency,DisallowCycles) %>%
+  summarize(Count = n()) %>%
+  ungroup() %>%
+  select(Count) %>%
+  unique()
+stopifnot(nrow(num_experiments) == 1)
+stopifnot(num_experiments[1] == 1000)
+```
+
+
+# CVE analysis
+
+For each project, the CVE badness of dependencies with vanilla NPM, and with MinNPM
+configured to minimize CVE and oldness, in that order.
+```{r}
+min_cve_analysis_tmp <-
+  bind_rows(raw_data %>% 
+            filter(Rosette == FALSE & AuditFix == "no" & Status == "success") %>% 
+            select(Project,CVE) %>% 
+            mutate(Solver="NPM_no"),
+          raw_data %>% 
+            filter(Rosette == FALSE & AuditFix == "yes" & Status == "success") %>%
+            select(Project, CVE) %>%
+            mutate(Solver="NPM_yes"),
+          raw_data %>% 
+            filter(Rosette == FALSE & AuditFix == "force" & Status == "success") %>%
+            select(Project, CVE) %>%
+            mutate(Solver="NPM_force"),
+          raw_data %>% 
+            filter(Rosette == TRUE & Status == "success" & Consistency == "npm" & DisallowCycles == "allow_cycles" &
+                   Minimize == "min_cve,min_oldness") %>%
+            select(Project, CVE) %>%
+            mutate(Solver="NPM_MinCVE")) %>%
+  pivot_wider(values_from=CVE, names_from=Solver) %>%
+  filter(NPM_no>0) %>%
+
+  mutate(NPM_no_NPM_yes_Delta = NPM_no - NPM_yes) %>%
+  mutate(NPM_no_NPM_force_Delta = NPM_no - NPM_force) %>%
+  
+  mutate(NPM_no_MinCVE_Delta = NPM_no - NPM_MinCVE) %>%
+  mutate(NPM_yes_MinCVE_Delta = NPM_yes - NPM_MinCVE) %>%
+  mutate(NPM_force_MinCVE_Delta = NPM_force - NPM_MinCVE) %>%
+
+  na.omit()
+
+min_cve_analysis_tmp  
+
+min_cve_analysis_delta <-
+  min_cve_analysis_tmp %>%
+  pivot_longer(cols = ends_with("Delta"), names_to="delta_comparison", values_to="Delta") %>%
+  mutate(Comparison=delta_comparison) %>%
+  select(Project,Comparison, Delta)
+
+min_cve_analysis_delta
+```
+
+Comparison of cases:
+
+Cases where `npm audit fix` does better than `npm install`:
+```{r}
+min_cve_analysis_delta %>% 
+  filter(Comparison=='NPM_no_NPM_yes_Delta') %>%
+  arrange(desc(Delta)) %>%
+  filter(Delta > 0)
+```
+
+Cases where `npm audit fix --force` does better than `npm install`:
+```{r}
+min_cve_analysis_delta %>% 
+  filter(Comparison=='NPM_no_NPM_force_Delta') %>%
+  arrange(desc(Delta)) %>%
+  filter(Delta > 0)
+```
+
+Cases where MinCVE does better than `npm install`:
+```{r}
+min_cve_analysis_delta %>% 
+  filter(Comparison=='NPM_no_MinCVE_Delta') %>%
+  arrange(desc(Delta)) %>%
+  filter(Delta > 0)
+```
+
+Cases where MinCVE does better than `npm audit fix`:
+```{r}
+min_cve_analysis_delta %>% 
+  filter(Comparison=='NPM_yes_MinCVE_Delta') %>%
+  arrange(desc(Delta)) %>%
+  filter(Delta > 0)
+```
+
+Cases where MinCVE does better than `npm audit --force`:
+```{r}
+min_cve_analysis_delta %>% 
+  filter(Comparison=='NPM_force_MinCVE_Delta') %>%
+  arrange(desc(Delta)) %>%
+  filter(Delta > 0)
+```
+
+Cases where `npm audit --force` does better than MinCVE:
+```{r}
+min_cve_analysis_delta %>% 
+  filter(Comparison=='NPM_force_MinCVE_Delta') %>%
+  arrange(Delta) %>%
+  filter(Delta < 0)
+```
+
+

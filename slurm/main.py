@@ -185,7 +185,7 @@ def run(argv):
 
 def solve_commands(mode_configuration):
     if mode_configuration['rosette']:
-        cmd_no_cycle_flag = ['minnpm', 'install', '--registry', 'https://nexus.vpc.ripley.cloud/repository/npm/', '--no-audit', '--prefer-offline', '--rosette',
+        cmd_no_cycle_flag = ['minnpm', 'install', '--no-audit', '--prefer-offline', '--rosette',
                 '--ignore-scripts',
                 '--consistency', mode_configuration['consistency'],
                 '--minimize', mode_configuration['minimize'] ]
@@ -193,7 +193,7 @@ def solve_commands(mode_configuration):
             cmd_no_cycle_flag.append('--disallow-cycles')
         return [cmd_no_cycle_flag]
     else:
-        vanilla_install_cmd = 'minnpm install --registry https://nexus.vpc.ripley.cloud/repository/npm/ --prefer-offline --no-audit --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')
+        vanilla_install_cmd = 'minnpm install --prefer-offline --no-audit --omit dev --omit peer --omit optional --ignore-scripts'.split(' ')
         audit_fix_cmd = 'minnpm audit fix --omit dev --omit peer --omit optional --prefer-offline --ignore-scripts --audit-level=none'.split(' ')
         audit_fix_force_cmd = 'minnpm audit fix --force --omit dev --omit peer --omit optional --prefer-offline --ignore-scripts --audit-level=none'.split(' ')
         if mode_configuration['audit_fix'] == 'no':

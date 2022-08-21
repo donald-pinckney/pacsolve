@@ -1,10 +1,10 @@
 #!/bin/bash
-# This experiment is my attempt to test if experiment scripts work on Ripley
+# This experiment is to compare NPM audit fix vs MaxNPM
 
 
-export EXPERIMENT_TYPE=top1000_comparison
-export EXPERIMENT_DIR=/proj/pinckney/experiments/aug-18-ripley-reproduce-results-no-registry/
-export TARBALL_DIR=/proj/pinckney/pacsolve/slurm/top1000tarballs
+export EXPERIMENT_TYPE=vuln_tarballs
+export EXPERIMENT_DIR=/proj/pinckney/experiments/aug-20-vulns-small/
+export TARBALL_DIR=/proj/pinckney/pacsolve/slurm/vuln_tarballs-small
 
 export Z3_LOC=/proj/pinckney/pacsolve/z3/build/z3
 export Z3_MODEL_OPTION=True
