@@ -317,7 +317,7 @@ class Run(object):
     def make_slurm_executor(self):
         if self.use_slurm:
             import cfut # Adrian Sampson's clusterfutures package.
-            return cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines, keep_logs=True)
+            return cfut.SlurmExecutor(additional_setup_lines = self.sbatch_lines, keep_logs=False)
         else:
             return DummyExecutor()
 
