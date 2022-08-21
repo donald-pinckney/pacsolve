@@ -45,15 +45,17 @@ def gather(argv):
         'directory',
         help='Directory to gather results from')
     parser.add_argument('--which-experiment', type=str, required=True, help='Which experiment to run? ("top1000_comparison", "vuln_tarballs")')
+    parser.add_argument('--on-ripley', action='store_true', default=False)
     args = parser.parse_args(argv)
     mode_configurations = get_mode_configurations(args.which_experiment)
-    Gather(args.directory, mode_configurations).gather()
+    Gather(args.directory, mode_configurations, args.on_ripley).gather()
 
 
 
 class Gather(object):
 
-    def __init__(self, directory, mode_configurations):
+    def __init__(self, directory, mode_configurations, on_ripley):
+        self.on_ripley = on_ripley
         self.mode_configurations = mode_configurations
         self.directory = os.path.normpath(directory)
         self.solvers = [
@@ -109,6 +111,8 @@ class Gather(object):
         return eval_result
 
     def gather(self):
+        num_workers = 16 if self.on_ripley else 100
+
         output_path = os.path.join(self.directory, 'results.csv') 
         with open(output_path, 'w', newline='') as f:
             writer = csv.writer(f)
@@ -116,7 +120,7 @@ class Gather(object):
             for mode_configuration in self.mode_configurations:
                 mode_dir = mode_configuration_target(self.directory, mode_configuration)
                 print(f'Processing a mode ...', mode_dir)
-                with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
+                with concurrent.futures.ThreadPoolExecutor(max_workers=num_workers) as executor:
                     for (p, eval_result) in executor.map(lambda p: (p, self.project_result_evaluation(os.path.join(mode_dir, p))),  self.projects_for_solver(mode_dir)):
                         assert eval_result is not None
 
