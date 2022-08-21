@@ -78,7 +78,14 @@ class Gather(object):
         """
         durable_status_path = os.path.join(dir, 'package', 'experiment.json')
         transient_status_path = os.path.join(dir, 'package', 'error.json')
-        lock_path = os.path.join(dir, 'package', 'node_modules', '.package-lock.json')
+
+        lock_path_node_modules = os.path.join(dir, 'package', 'node_modules', '.package-lock.json')
+        lock_path_solved = os.path.join(dir, 'package', 'solved-package-lock.json')
+
+        if os.path.exists(lock_path_solved):
+            lock_path = lock_path_solved
+        else:
+            lock_path = lock_path_node_modules
 
         if os.path.exists(durable_status_path):
             p_result = read_json(durable_status_path)
@@ -384,6 +391,8 @@ class Run(object):
         (tgz, pkg_target, mode_configuration) = pkg_info
         pkg_path = f'{pkg_target}/package'
         node_modules_path = f'{pkg_path}/node_modules'
+        solution_path = f'{pkg_path}/solved-package-lock.json'
+        lockfile_path = f'{pkg_path}/package-lock.json'
         node_modules_lockfile_path = f'{node_modules_path}/.package-lock.json'
         
         output_path = f'{pkg_path}/experiment.out'
@@ -397,19 +406,15 @@ class Run(object):
             
             with open(output_path, 'w') as out:
                 exit_code, duration = self.run_commands(solve_commands(mode_configuration), cwd=pkg_path, out_f=out)
+            
+            if os.path.exists(node_modules_lockfile_path):
+                os.rename(node_modules_lockfile_path, solution_path)
+
+            shutil.rmtree(node_modules_path, ignore_errors=True)
+            if os.path.exists(lockfile_path):
+                os.remove(lockfile_path)
 
             if exit_code == 0:
-                # To save space, nuke the entire node_modules dir, 
-                # BUT KEEP node_modules/.package-lock.json
-                if os.path.exists(node_modules_lockfile_path):
-                    with open(node_modules_lockfile_path, 'r') as lockfile_in:
-                        lockfile_json = json.load(lockfile_in)
-                    shutil.rmtree(node_modules_path, ignore_errors=True)
-                    assert not os.path.exists(node_modules_path)
-                    os.mkdir(node_modules_path)
-                    with open(node_modules_lockfile_path, 'w') as lockfile_out:
-                        json.dump(lockfile_json, lockfile_out)
-
                 write_json(output_status_path,
                     { 'status': 'success', 'time': duration })
                 return None
@@ -426,10 +431,20 @@ class Run(object):
              })
             return f'[{os.uname().nodename}] Failed: {pkg_path}'
         except subprocess.TimeoutExpired:
+
+            shutil.rmtree(node_modules_path, ignore_errors=True)
+            if os.path.exists(lockfile_path):
+                os.remove(lockfile_path)
+
             err_str = traceback.format_exc()
             write_json(error_status_path, { 'status': 'timeout', 'err': err_str })
             return f'[{os.uname().nodename}] Timeout: {pkg_path}'
         except BaseException as e:
+
+            shutil.rmtree(node_modules_path, ignore_errors=True)
+            if os.path.exists(lockfile_path):
+                os.remove(lockfile_path)
+
             write_json(error_status_path, {
                 'status': 'unexpected',
                 'detail': e.__str__()
