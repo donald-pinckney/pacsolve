@@ -109,7 +109,7 @@ class Gather(object):
             for mode_configuration in self.mode_configurations:
                 mode_dir = mode_configuration_target(self.directory, mode_configuration)
                 print(f'Processing a mode ...', mode_dir)
-                with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+                with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
                     for (p, eval_result) in executor.map(lambda p: (p, self.project_result_evaluation(os.path.join(mode_dir, p))),  self.projects_for_solver(mode_dir)):
                         assert eval_result is not None
 
