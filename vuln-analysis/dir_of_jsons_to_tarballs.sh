@@ -3,9 +3,9 @@
 set -e
 
 # keep track of the last executed command
-trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+# trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # echo an error message before exiting
-trap 'echo "\"${last_command}\" command filed with exit code $?."; rm -rf $tmp_dir' EXIT
+# trap 'echo "\"${last_command}\" command filed with exit code $?."; rm -rf $tmp_dir' EXIT
 
 jsons_dir=${1%/}
 tarballs_dir=${2%/}
