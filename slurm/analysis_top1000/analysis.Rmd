@@ -522,7 +522,7 @@ shrinkage_table <- group_counts %>%
   select(Configuration, '# Shrunk (of 477)', '# Enlarged (of 477)')
 shrinkage_table
 
-print(xtable(as.data.frame(shrinkage_table), type="latex"), include.rownames=FALSE, file=str_c(tables_dir, "/", "shinkage_combos.tex"))
+print(xtable(as.data.frame(shrinkage_table), type="latex"), include.rownames=FALSE, file=str_c(tables_dir, "/", "shrinkage_combos.tex"))
 knitr::kable(shrinkage_table)
 ```
 
@@ -778,8 +778,8 @@ write(
 
 write(
   str_c("\\newcommand{\\dataFSShrinkageQuartileFirst}{", 
-        round(100 * fs_shrinkage$Quantile25, digits=2),
-        "}\n"),
+        round(100 * fs_shrinkage$Quantile25, digits=0),
+        "\\%}\n"),
   results_tex, append=TRUE)
 
 ```
