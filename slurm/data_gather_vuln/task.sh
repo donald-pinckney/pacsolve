@@ -17,6 +17,12 @@ CSVPATH="$LOCKPATH.csv"
 
 echo "Starting task. LOCKPATH=$LOCKPATH, CSVPATH=$CSVPATH"
 
+if [ ! -f "$LOCKPATH" ]; then
+    echo "LOCKPATH $LOCKPATH does not exist!"
+    echo "Nothing to evaluate"
+    exit 0
+fi
+
 if [ ! -f "$CSVPATH" ]; then
     echo "Running Python (1)"
     python3 lockfile_metrics.py "$LOCKPATH" > "$CSVPATH"
