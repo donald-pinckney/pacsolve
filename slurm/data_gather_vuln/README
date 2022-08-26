@@ -1,0 +1,21 @@
+Slow way:
+---------
+
+$ ./gen_array_arg_files.sh /scratch/a.guha/exp arjun_exp_gather
+
+$ wc -l arjun*
+  1000 arjun_exp_gather_array_jobs.chunk.00
+  1000 arjun_exp_gather_array_jobs.chunk.01
+  1000 arjun_exp_gather_array_jobs.chunk.02
+  1000 arjun_exp_gather_array_jobs.chunk.03
+  4000 total
+
+$ ./launch_simple_array_task.sh arjun_exp_gather_array_jobs.chunk.00
+...
+(wait for email in your @northeastern.edu email)
+
+$ ./launch_simple_array_task.sh arjun_exp_gather_array_jobs.chunk.01
+...
+(wait for email in your @northeastern.edu email)
+
+$ ./preprocess_vuln_exp.py /scratch/a.guha/exp/ > arjun_exp_gather.csv
