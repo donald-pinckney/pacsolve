@@ -1,0 +1,11 @@
+Slow way:
+---------
+
+$ ls -d /scratch/a.guha/exp/*/package > arjun_exp_array_jobs
+
+$ wc -l arjun_exp_array_jobs
+1000
+
+$ ./launch_simple_array_task.sh arjun_exp_array_jobs
+
+(wait for email in your @northeastern.edu email)
