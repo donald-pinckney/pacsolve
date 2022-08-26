@@ -25,6 +25,7 @@
 (if z3-debug-dir (output-smt z3-debug-dir) (void))
 
 
+(require "query.rkt")
 (require "load-query.rkt")
 (require "solution.rkt")
 (require "write-solution.rkt")
@@ -45,13 +46,14 @@
       (error "Incorrect number of command line arguments")))
 
 (define QUERY (read-input-query INPUT-SOURCE))
+(define IS-PIP (is-pip QUERY))
 
 ;;; -------------------------------------------
 ;;; Actually doing the solve!
 ;;; -------------------------------------------
 
 
-(define G (generate-graph QUERY))
+(define G (generate-graph QUERY IS-PIP))
 
 (define (rosette-sol->solution sol)
   (if (sat? sol)
@@ -63,7 +65,7 @@
 (define sol
   (optimize
    #:minimize (optimize-graph QUERY G)
-   #:guarantee (check-graph QUERY G)))
+   #:guarantee (check-graph QUERY G IS-PIP)))
 
 (write-solution OUTPUT-PATH QUERY (rosette-sol->solution sol))
 

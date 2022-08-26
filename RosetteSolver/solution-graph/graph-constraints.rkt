@@ -122,11 +122,11 @@
 
 
 ;;; *** Final constraint generation
-(define (check-graph query g)
+(define (check-graph query g pip-mode)
   (define (consistency-rel v1 v2) (evaluate-consistency query v1 v2))
   (define check-acyclic (options-check-acyclic (query-options query)))
 
   (check-graph-sat-deps query g)
   (if check-acyclic (check-graph-acyclic query g) #t)
-  (check-graph-consistent query g consistency-rel)
+  (if pip-mode #t (check-graph-consistent query g consistency-rel))
 )

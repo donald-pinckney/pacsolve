@@ -178,14 +178,14 @@
     (hash-ref PIP-GLOBAL-VAR-HASH p-idx)
   ))
 
-(define (generate-edge query p-idx)
+(define (generate-edge query p-idx pip-mode)
   (edge
     p-idx
-    (if (is-pip query) 
+    (if pip-mode 
         (generate-edge-var-pip-global query p-idx) 
         (generate-edge-var query p-idx))))
 
-(define (generate-node query deps)
+(define (generate-node query deps pip-mode)
   (define-symbolic* active boolean?) ;; TODO: play with representation
   (define-symbolic* ts integer?) ;; TODO: play with representation
   (node
@@ -194,18 +194,18 @@
     (lambda (dep)
       (match (package-index query (dep-package dep))
         [-1 (void)]
-        [pkg-idx (generate-edge query pkg-idx)]
+        [pkg-idx (generate-edge query pkg-idx pip-mode)]
         ))
     deps)
    ts))
 
-(define (generate-version-node query version cost-values deps)
+(define (generate-version-node query version cost-values deps pip-mode)
   (version-node
    version
    cost-values
-   (generate-node query deps)))
+   (generate-node query deps pip-mode)))
 
-(define (generate-package-group query package)
+(define (generate-package-group query package pip-mode)
   (define p-idx (package-index query package))
   (define version-idxs (range (registry-num-versions query p-idx)))
   (define cost-values (registry-package-cost-values query p-idx))
@@ -218,7 +218,8 @@
         query
         (parsed-package-version-version parsed-pv)
         (parsed-package-version-cost-values parsed-pv)
-        (parsed-package-version-dep-vec parsed-pv)))
+        (parsed-package-version-dep-vec parsed-pv)
+        pip-mode))
      version-idxs))
 
   (package-group
@@ -227,13 +228,13 @@
    (vector->immutable-vector (list->vector version-nodes))))
 
 ;; graph* : Query -> Graph
-(define (generate-graph query)
-  (define context-node (generate-node query (context-deps query)))
+(define (generate-graph query pip-mode)
+  (define context-node (generate-node query (context-deps query) pip-mode))
   (define p-idxs (range (registry-num-packages query)))
   (define package-groups
     (map
      (lambda (p-idx)
-       (generate-package-group query (registry-package-name query p-idx)))
+       (generate-package-group query (registry-package-name query p-idx) pip-mode))
      p-idxs))
 
   (graph context-node package-groups))
