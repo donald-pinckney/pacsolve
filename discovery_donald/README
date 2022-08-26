@@ -1,11 +1,14 @@
 Slow way:
 ---------
 
-$ ls -d /scratch/a.guha/exp/*/package > arjun_exp_array_jobs
+$ ./gen_array_arg_files.sh /scratch/a.guha/exp arjun_exp
 
-$ wc -l arjun_exp_array_jobs
-1000
+$ wc -l arjun*
+  1000 arjun_exp_array_jobs_vanilla
+  ...
 
-$ ./launch_simple_array_task.sh arjun_exp_array_jobs
-
+$ ./launch_simple_array_task.sh arjun_exp_array_jobs_vanilla
+...
 (wait for email in your @northeastern.edu email)
+
+... repeat with the others ...
