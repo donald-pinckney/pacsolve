@@ -12,8 +12,10 @@ $ wc -l arjun*
 
 $ ./launch_simple_array_task.sh arjun_exp_gather_array_jobs.chunk.00
 ...
+(wait for email in your @northeastern.edu email)
 
 $ ./launch_simple_array_task.sh arjun_exp_gather_array_jobs.chunk.01
 ...
+(wait for email in your @northeastern.edu email)
 
 $ ./preprocess_vuln_exp.py /scratch/a.guha/exp/ > arjun_exp_gather.csv
