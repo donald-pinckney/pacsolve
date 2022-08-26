@@ -2,6 +2,7 @@
 
 (provide parse-function)
 (provide eval-dsl-function)
+(provide is-pip-function)
 
 ;; ComplexExpr
 (struct LetExpr (varName bindValue rest) #:transparent)
@@ -202,3 +203,31 @@
   (define nParams (hash-ref j 'numParams))
   (define rules (map parse-rule (hash-ref j 'rules)))
   (FunctionDef nParams rules))
+
+
+
+(define (is-pip-function f)
+  (define rs (FunctionDef-rules f))
+  (if (= (length rs) 1)
+      (is-pip-rule (list-ref rs 0))
+      #f))
+
+(define (is-pip-rule r) 
+  (and
+    (= (length (FunctionRule-patterns r)) 2)
+    (equal? (list-ref (FunctionRule-patterns r) 0) (VectorPattern (vector (BindingPattern "v1.major") (BindingPattern "v1.minor") (BindingPattern "v1.bug") (BindingPattern "v1.pre"))))
+    (equal? (list-ref (FunctionRule-patterns r) 1) (VectorPattern (vector (BindingPattern "v2.major") (BindingPattern "v2.minor") (BindingPattern "v2.bug") (BindingPattern "v2.pre"))))
+    (is-pip-rhs (FunctionRule-rhs r))
+  )
+)
+
+(define (is-pip-rhs r)
+  (equal? 
+    r
+    (PrimitiveOpExpr "&&" (list 
+      (PrimitiveOpExpr "==" (list (VarExpr "v1.major") (VarExpr "v2.major"))) 
+      (PrimitiveOpExpr "==" (list (VarExpr "v1.minor") (VarExpr "v2.minor"))) 
+      (PrimitiveOpExpr "==" (list (VarExpr "v1.bug") (VarExpr "v2.bug"))) 
+      (PrimitiveOpExpr "==" (list (VarExpr "v1.pre") (VarExpr "v2.pre")))))      
+  )
+)

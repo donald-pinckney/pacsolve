@@ -164,10 +164,26 @@
 ; (apply choose* (range n))) ;; TODO: play with representation
 
 
+(define (generate-edge-var query p-idx)
+  (generate-fin (registry-num-versions query p-idx)))
+
+
+(define PIP-GLOBAL-VAR-HASH (make-hash))
+
+(define (generate-edge-var-pip-global query p-idx)
+  (begin
+    (if (hash-has-key? PIP-GLOBAL-VAR-HASH p-idx)
+        (void) ;; no-op
+        (hash-set! PIP-GLOBAL-VAR-HASH p-idx (generate-edge-var query p-idx)))
+    (hash-ref PIP-GLOBAL-VAR-HASH p-idx)
+  ))
+
 (define (generate-edge query p-idx)
   (edge
-   p-idx
-   (generate-fin (registry-num-versions query p-idx))))
+    p-idx
+    (if (is-pip query) 
+        (generate-edge-var-pip-global query p-idx) 
+        (generate-edge-var query p-idx))))
 
 (define (generate-node query deps)
   (define-symbolic* active boolean?) ;; TODO: play with representation

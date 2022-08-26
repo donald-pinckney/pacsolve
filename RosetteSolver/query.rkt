@@ -13,6 +13,7 @@
 
 (provide serialize-version)
 (provide evaluate-consistency)
+(provide is-pip)
 
 (struct dep (package constraint) #:transparent)
 
@@ -45,3 +46,7 @@
     (query-functions-hash query)
     "consistency"
     (list v1 v2)))
+
+(define (is-pip query)
+  (define f (hash-ref (query-functions-hash query) "consistency"))
+  (is-pip-function f))
