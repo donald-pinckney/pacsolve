@@ -18,6 +18,7 @@ for F in $exp_dir/*; do
     echo "$F/package/auditfix-lockfile.json" >> "$unchunked_array_jobs"
     echo "$F/package/auditfixforce-lockfile.json" >> "$unchunked_array_jobs"
     echo "$F/package/maxnpmcveoldness-lockfile.json" >> "$unchunked_array_jobs"
+    echo "$F/package/maxnpmcveoldness_pip-else-npm-lockfile.json" >> "$unchunked_array_jobs"
 done
 
 split -d -l1000 --verbose "$unchunked_array_jobs" "$unchunked_array_jobs.chunk."

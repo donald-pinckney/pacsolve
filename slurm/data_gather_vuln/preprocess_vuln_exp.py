@@ -42,12 +42,14 @@ def process_package_dir(p_dir, name, commit):
     audit_fix_path = p_dir / "auditfix-lockfile.json"
     audit_force_path = p_dir / "auditfixforce-lockfile.json"
     maxnpm_cve_oldness_path = p_dir / "maxnpmcveoldness-lockfile.json"
+    maxnpm_pip_else_npm_path = p_dir / "maxnpmcveoldness_pip-else-npm-lockfile.json"
 
     return [
         process_lockfile_csv(vanilla_path, name, commit, 'vanilla'),
         process_lockfile_csv(audit_fix_path, name, commit, 'audit fix'),
         process_lockfile_csv(audit_force_path, name, commit, 'audit fix force'),
-        process_lockfile_csv(maxnpm_cve_oldness_path, name, commit, 'maxnpm_cve_oldness')
+        process_lockfile_csv(maxnpm_cve_oldness_path, name, commit, 'maxnpm_cve_oldness'),
+        process_lockfile_csv(maxnpm_pip_else_npm_path, name, commit, 'maxnpm_cve_oldness_pip_else_npm')
     ]
 
 def process_lockfile_csv(lockfile_path, name, commit, solver_name):
