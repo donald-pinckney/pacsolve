@@ -1,0 +1,7167 @@
+{
+	"registry": [
+		{
+			"package": "glob",
+			"versions": [
+				{
+					"version": {
+						"major": 3,
+						"minor": 2,
+						"bug": 7,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "minimatch",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 2,
+											"bug": 11,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "inherits",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6761904761904762,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 2,
+						"bug": 8,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "minimatch",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 2,
+											"bug": 11,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "inherits",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6666666666666666,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 2,
+						"bug": 9,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "minimatch",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 2,
+											"bug": 11,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "inherits",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6571428571428571,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 2,
+						"bug": 10,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "inherits",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "minimatch",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6476190476190476,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 2,
+						"bug": 11,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "inherits",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "minimatch",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.638095238095238,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "optionator",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "prelude-ls",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "deep-is",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 2,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 1,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "wordwrap",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "type-check",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "levn",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 2,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "levenshtein-damerau",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 2,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.9375,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "esprima",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 7,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 1,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 8,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.9777777777777777,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 8,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.9555555555555556,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 8,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.9333333333333333,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 9,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.9111111111111111,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 9,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8888888888888888,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 9,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8666666666666667,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 9,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8444444444444444,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 9,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8222222222222222,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 9,
+						"bug": 5,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 9,
+						"bug": 6,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.7777777777777778,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 9,
+						"bug": 7,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.7555555555555555,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 9,
+						"bug": 8,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.7333333333333333,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 9,
+						"bug": 9,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.7111111111111111,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6888888888888889,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6666666666666666,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6444444444444445,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6222222222222222,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5777777777777777,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5555555555555556,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5333333333333333,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5111111111111111,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.4888888888888889,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.4666666666666667,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.4444444444444444,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.4,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 5,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.4222222222222222,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.37777777777777777,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 2,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.35555555555555557,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 3,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.3333333333333333,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 4,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.3111111111111111,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 4,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.28888888888888886,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 5,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.26666666666666666,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 6,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.24444444444444444,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 7,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.2222222222222222,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 7,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.2,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 7,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.17777777777777778,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 7,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.15555555555555556,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.13333333333333333,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.1111111111111111,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.08888888888888889,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 1,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.06666666666666667,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 1,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.044444444444444446,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 4,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.022222222222222223,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 4,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "escope",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "estraverse",
+							"constraint": {
+								"op": ">=",
+								"version": {
+									"major": 0,
+									"minor": 0,
+									"bug": 2,
+									"prerelease": 0
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5428571428571428,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "text-table",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 2,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "doctrine",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 5,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.71875,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 5,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6875,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 5,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.65625,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "chalk",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 4,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "has-color",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 2,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "ansi-styles",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "strip-ansi",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 2,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.84375,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "strip-json-comments",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.9375,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.875,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8125,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "estraverse",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 3,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.7272727272727273,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 3,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.696969696969697,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 3,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6666666666666666,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.9696969696969697,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.9393939393939394,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.9090909090909091,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8787878787878788,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8484848484848485,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8181818181818182,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 2,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.7575757575757576,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 4,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6363636363636364,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 5,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6060606060606061,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 5,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5757575757575758,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 6,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5454545454545454,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 7,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5151515151515151,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 7,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.48484848484848486,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 8,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.45454545454545453,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 9,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.42424242424242425,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 9,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.3939393939393939,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 9,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.36363636363636365,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.3333333333333333,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.30303030303030304,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.2727272727272727,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 4,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.24242424242424243,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 4,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.21212121212121213,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 4,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.18181818181818182,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 4,
+						"minor": 2,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.15151515151515152,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 4,
+						"minor": 3,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.12121212121212122,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 5,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.09090909090909091,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 5,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.06060606060606061,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 5,
+						"minor": 2,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.030303030303030304,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 5,
+						"minor": 3,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "js-yaml",
+			"versions": [
+				{
+					"version": {
+						"major": 3,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "argparse",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 2,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 1,
+											"bug": 11,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "esprima",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6338028169014085,
+						"version_cve_badness": 13.850000000000001
+					}
+				},
+				{
+					"version": {
+						"major": 3,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "argparse",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 2,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 1,
+											"bug": 11,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "esprima",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6197183098591549,
+						"version_cve_badness": 13.850000000000001
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "minimatch",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 2,
+						"bug": 11,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "lru-cache",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "sigmund",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6545454545454545,
+						"version_cve_badness": 7.5
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 2,
+						"bug": 12,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "lru-cache",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "sigmund",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6363636363636364,
+						"version_cve_badness": 7.5
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 2,
+						"bug": 13,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "lru-cache",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "sigmund",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6181818181818182,
+						"version_cve_badness": 7.5
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 2,
+						"bug": 14,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "lru-cache",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "sigmund",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6,
+						"version_cve_badness": 7.5
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 3,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "lru-cache",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 3,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "sigmund",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5818181818181818,
+						"version_cve_badness": 7.5
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "inherits",
+			"versions": [
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.3333333333333333,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.16666666666666666,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "prelude-ls",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.38461538461538464,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.3076923076923077,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.23076923076923078,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 1,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.15384615384615385,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "levn",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 2,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "prelude-ls",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "type-check",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.7777777777777778,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 2,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "prelude-ls",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "type-check",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6666666666666666,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 2,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "prelude-ls",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "type-check",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5555555555555556,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 2,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "prelude-ls",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 2,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "type-check",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.4444444444444444,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 2,
+						"bug": 5,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "prelude-ls",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 2,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "type-check",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 0,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 0,
+											"minor": 3,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.3333333333333333,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "deep-is",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.25,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "wordwrap",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6666666666666666,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.3333333333333333,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "levenshtein-damerau",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "type-check",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 3,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "prelude-ls",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 0,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 3,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "prelude-ls",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 2,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.4,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 3,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "prelude-ls",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 2,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 1,
+											"bug": 2,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.2,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "has-color",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 1,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.875,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.75,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.625,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 5,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.375,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 6,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.25,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 7,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.125,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "strip-ansi",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 1,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.9444444444444444,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "ansi-styles",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8260869565217391,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "argparse",
+			"versions": [
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 11,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "underscore",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 5,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 4,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "underscore.string",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 3,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.6206896551724138,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 12,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "underscore",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 5,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 4,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "underscore.string",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 3,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5862068965517241,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 13,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "underscore",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 5,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 4,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "underscore.string",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 3,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5517241379310345,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 14,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "underscore",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 5,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 4,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "underscore.string",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 3,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.5172413793103449,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 15,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "underscore",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 5,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 4,
+											"bug": 3,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "underscore.string",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 3,
+											"bug": 1,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.4827586206896552,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 0,
+						"minor": 1,
+						"bug": 16,
+						"prerelease": 0
+					},
+					"dependencies": [
+						{
+							"packageToDependOn": "underscore",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 1,
+											"minor": 8,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 1,
+											"minor": 7,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						},
+						{
+							"packageToDependOn": "underscore.string",
+							"constraint": {
+								"&&": {
+									"lhs": {
+										"op": "<",
+										"version": {
+											"major": 2,
+											"minor": 5,
+											"bug": 0,
+											"prerelease": 1
+										}
+									},
+									"rhs": {
+										"op": ">=",
+										"version": {
+											"major": 2,
+											"minor": 4,
+											"bug": 0,
+											"prerelease": 0
+										}
+									}
+								}
+							}
+						}
+					],
+					"cost_values": {
+						"version_oldness": 0.4482758620689655,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "lru-cache",
+			"versions": [
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.92,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.91,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.9,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.89,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 0,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.88,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 1,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.87,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 2,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.86,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 2,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.85,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 2,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.84,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 2,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.83,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 3,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.82,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 3,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.81,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 5,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.8,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 5,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.79,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 5,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.78,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 6,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.77,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 6,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.76,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 6,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.75,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 6,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.74,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 6,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.73,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 6,
+						"bug": 5,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.72,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 7,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.71,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 7,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.7,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 7,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.69,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 7,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.68,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "sigmund",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 1,
+						"version_cve_badness": 0
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 0,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0,
+						"version_cve_badness": 0
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "underscore",
+			"versions": [
+				{
+					"version": {
+						"major": 1,
+						"minor": 4,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.56,
+						"version_cve_badness": 9.8
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 4,
+						"bug": 4,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.54,
+						"version_cve_badness": 9.8
+					}
+				},
+				{
+					"version": {
+						"major": 1,
+						"minor": 7,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.44,
+						"version_cve_badness": 9.8
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		},
+		{
+			"package": "underscore.string",
+			"versions": [
+				{
+					"version": {
+						"major": 2,
+						"minor": 3,
+						"bug": 1,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.6129032258064516,
+						"version_cve_badness": 5.45
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 3,
+						"bug": 2,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5806451612903226,
+						"version_cve_badness": 5.45
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 3,
+						"bug": 3,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5483870967741935,
+						"version_cve_badness": 5.45
+					}
+				},
+				{
+					"version": {
+						"major": 2,
+						"minor": 4,
+						"bug": 0,
+						"prerelease": 0
+					},
+					"dependencies": [],
+					"cost_values": {
+						"version_oldness": 0.5161290322580645,
+						"version_cve_badness": 5.45
+					}
+				}
+			],
+			"cost_values": {
+				"_unused": 0
+			}
+		}
+	],
+	"context_dependencies": [
+		{
+			"packageToDependOn": "optionator",
+			"constraint": {
+				"&&": {
+					"lhs": {
+						"op": "<",
+						"version": {
+							"major": 0,
+							"minor": 2,
+							"bug": 0,
+							"prerelease": 1
+						}
+					},
+					"rhs": {
+						"op": ">=",
+						"version": {
+							"major": 0,
+							"minor": 1,
+							"bug": 1,
+							"prerelease": 0
+						}
+					}
+				}
+			}
+		},
+		{
+			"packageToDependOn": "estraverse",
+			"constraint": {
+				"&&": {
+					"lhs": {
+						"op": "<",
+						"version": {
+							"major": 1,
+							"minor": 4,
+							"bug": 0,
+							"prerelease": 1
+						}
+					},
+					"rhs": {
+						"op": ">=",
+						"version": {
+							"major": 1,
+							"minor": 3,
+							"bug": 0,
+							"prerelease": 0
+						}
+					}
+				}
+			}
+		},
+		{
+			"packageToDependOn": "esprima",
+			"constraint": {
+				"any": null
+			}
+		},
+		{
+			"packageToDependOn": "escope",
+			"constraint": {
+				"op": "=",
+				"version": {
+					"major": 1,
+					"minor": 0,
+					"bug": 0,
+					"prerelease": 0
+				}
+			}
+		},
+		{
+			"packageToDependOn": "glob",
+			"constraint": {
+				"&&": {
+					"lhs": {
+						"op": "<",
+						"version": {
+							"major": 3,
+							"minor": 3,
+							"bug": 0,
+							"prerelease": 1
+						}
+					},
+					"rhs": {
+						"op": ">=",
+						"version": {
+							"major": 3,
+							"minor": 2,
+							"bug": 7,
+							"prerelease": 0
+						}
+					}
+				}
+			}
+		},
+		{
+			"packageToDependOn": "text-table",
+			"constraint": {
+				"&&": {
+					"lhs": {
+						"op": "<",
+						"version": {
+							"major": 0,
+							"minor": 3,
+							"bug": 0,
+							"prerelease": 1
+						}
+					},
+					"rhs": {
+						"op": ">=",
+						"version": {
+							"major": 0,
+							"minor": 2,
+							"bug": 0,
+							"prerelease": 0
+						}
+					}
+				}
+			}
+		},
+		{
+			"packageToDependOn": "chalk",
+			"constraint": {
+				"&&": {
+					"lhs": {
+						"op": "<",
+						"version": {
+							"major": 0,
+							"minor": 5,
+							"bug": 0,
+							"prerelease": 1
+						}
+					},
+					"rhs": {
+						"op": ">=",
+						"version": {
+							"major": 0,
+							"minor": 4,
+							"bug": 0,
+							"prerelease": 0
+						}
+					}
+				}
+			}
+		},
+		{
+			"packageToDependOn": "strip-json-comments",
+			"constraint": {
+				"&&": {
+					"lhs": {
+						"op": "<",
+						"version": {
+							"major": 0,
+							"minor": 2,
+							"bug": 0,
+							"prerelease": 1
+						}
+					},
+					"rhs": {
+						"op": ">=",
+						"version": {
+							"major": 0,
+							"minor": 1,
+							"bug": 1,
+							"prerelease": 0
+						}
+					}
+				}
+			}
+		},
+		{
+			"packageToDependOn": "js-yaml",
+			"constraint": {
+				"&&": {
+					"lhs": {
+						"op": "<",
+						"version": {
+							"major": 3,
+							"minor": 1,
+							"bug": 0,
+							"prerelease": 1
+						}
+					},
+					"rhs": {
+						"op": ">=",
+						"version": {
+							"major": 3,
+							"minor": 0,
+							"bug": 1,
+							"prerelease": 0
+						}
+					}
+				}
+			}
+		},
+		{
+			"packageToDependOn": "doctrine",
+			"constraint": {
+				"&&": {
+					"lhs": {
+						"op": "<",
+						"version": {
+							"major": 0,
+							"minor": 6,
+							"bug": 0,
+							"prerelease": 1
+						}
+					},
+					"rhs": {
+						"op": ">=",
+						"version": {
+							"major": 0,
+							"minor": 5,
+							"bug": 0,
+							"prerelease": 0
+						}
+					}
+				}
+			}
+		}
+	],
+	"options": {
+		"check_acyclic": false,
+		"minimization_criteria": [
+			"min_cve",
+			"min_oldness"
+		]
+	},
+	"functions": {
+		"matchAssumePrereleaseOk": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"&&": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_match",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_match",
+									"bindValue": {
+										"CallExpr": {
+											"name": "matchAssumePrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "&&",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "lhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "rhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": ">"
+										}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"BindingPattern": {
+														"name": "major"
+													}
+												},
+												"minor": {
+													"BindingPattern": {
+														"name": "minor"
+													}
+												},
+												"bug": {
+													"BindingPattern": {
+														"name": "bug"
+													}
+												},
+												"prerelease": {
+													"BindingPattern": {
+														"name": "prerelease"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.major",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "v*.minor",
+											"bindValue": {
+												"PrimitiveOpExpr": {
+													"op": "vector-ref",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "v*"
+															}
+														},
+														{
+															"ConstExpr": {
+																"value": 1
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "v*.bug",
+													"bindValue": {
+														"PrimitiveOpExpr": {
+															"op": "vector-ref",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v*"
+																	}
+																},
+																{
+																	"ConstExpr": {
+																		"value": 2
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"LetExpr": {
+															"varName": "v*.prerelease",
+															"bindValue": {
+																"PrimitiveOpExpr": {
+																	"op": "vector-ref",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "v*"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 3
+																			}
+																		}
+																	]
+																}
+															},
+															"rest": {
+																"PrimitiveOpExpr": {
+																	"op": "||",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "&&",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "<",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "major"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*.major"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"ConstExpr": {
+																							"value": true
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "&&",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "==",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "major"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*.major"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "||",
+																							"args": [
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "&&",
+																										"args": [
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": "<",
+																													"args": [
+																														{
+																															"VarExpr": {
+																																"varName": "minor"
+																															}
+																														},
+																														{
+																															"VarExpr": {
+																																"varName": "v*.minor"
+																															}
+																														}
+																													]
+																												}
+																											},
+																											{
+																												"ConstExpr": {
+																													"value": true
+																												}
+																											}
+																										]
+																									}
+																								},
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "&&",
+																										"args": [
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": "==",
+																													"args": [
+																														{
+																															"VarExpr": {
+																																"varName": "minor"
+																															}
+																														},
+																														{
+																															"VarExpr": {
+																																"varName": "v*.minor"
+																															}
+																														}
+																													]
+																												}
+																											},
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": "||",
+																													"args": [
+																														{
+																															"PrimitiveOpExpr": {
+																																"op": "&&",
+																																"args": [
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": "<",
+																																			"args": [
+																																				{
+																																					"VarExpr": {
+																																						"varName": "bug"
+																																					}
+																																				},
+																																				{
+																																					"VarExpr": {
+																																						"varName": "v*.bug"
+																																					}
+																																				}
+																																			]
+																																		}
+																																	},
+																																	{
+																																		"ConstExpr": {
+																																			"value": true
+																																		}
+																																	}
+																																]
+																															}
+																														},
+																														{
+																															"PrimitiveOpExpr": {
+																																"op": "&&",
+																																"args": [
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": "==",
+																																			"args": [
+																																				{
+																																					"VarExpr": {
+																																						"varName": "bug"
+																																					}
+																																				},
+																																				{
+																																					"VarExpr": {
+																																						"varName": "v*.bug"
+																																					}
+																																				}
+																																			]
+																																		}
+																																	},
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": "&&",
+																																			"args": [
+																																				{
+																																					"PrimitiveOpExpr": {
+																																						"op": "not",
+																																						"args": [
+																																							{
+																																								"PrimitiveOpExpr": {
+																																									"op": "==",
+																																									"args": [
+																																										{
+																																											"VarExpr": {
+																																												"varName": "prerelease"
+																																											}
+																																										},
+																																										{
+																																											"ConstExpr": {
+																																												"value": 0
+																																											}
+																																										}
+																																									]
+																																								}
+																																							}
+																																						]
+																																					}
+																																				},
+																																				{
+																																					"PrimitiveOpExpr": {
+																																						"op": "||",
+																																						"args": [
+																																							{
+																																								"PrimitiveOpExpr": {
+																																									"op": "==",
+																																									"args": [
+																																										{
+																																											"VarExpr": {
+																																												"varName": "v*.prerelease"
+																																											}
+																																										},
+																																										{
+																																											"ConstExpr": {
+																																												"value": 0
+																																											}
+																																										}
+																																									]
+																																								}
+																																							},
+																																							{
+																																								"PrimitiveOpExpr": {
+																																									"op": ">",
+																																									"args": [
+																																										{
+																																											"VarExpr": {
+																																												"varName": "v*.prerelease"
+																																											}
+																																										},
+																																										{
+																																											"VarExpr": {
+																																												"varName": "prerelease"
+																																											}
+																																										}
+																																									]
+																																								}
+																																							}
+																																						]
+																																					}
+																																				}
+																																			]
+																																		}
+																																	}
+																																]
+																															}
+																														},
+																														{
+																															"PrimitiveOpExpr": {
+																																"op": "&&",
+																																"args": [
+																																	{
+																																		"PrimitiveOpExpr": {
+																																			"op": ">",
+																																			"args": [
+																																				{
+																																					"VarExpr": {
+																																						"varName": "bug"
+																																					}
+																																				},
+																																				{
+																																					"VarExpr": {
+																																						"varName": "v*.bug"
+																																					}
+																																				}
+																																			]
+																																		}
+																																	},
+																																	{
+																																		"ConstExpr": {
+																																			"value": false
+																																		}
+																																	}
+																																]
+																															}
+																														}
+																													]
+																												}
+																											}
+																										]
+																									}
+																								},
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "&&",
+																										"args": [
+																											{
+																												"PrimitiveOpExpr": {
+																													"op": ">",
+																													"args": [
+																														{
+																															"VarExpr": {
+																																"varName": "minor"
+																															}
+																														},
+																														{
+																															"VarExpr": {
+																																"varName": "v*.minor"
+																															}
+																														}
+																													]
+																												}
+																											},
+																											{
+																												"ConstExpr": {
+																													"value": false
+																												}
+																											}
+																										]
+																									}
+																								}
+																							]
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "&&",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": ">",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "major"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*.major"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"ConstExpr": {
+																							"value": false
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": ">="
+										}
+									},
+									"version": {
+										"BindingPattern": {
+											"name": "version"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "gt_lambda",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"PrimitiveOpExpr": {
+												"op": "make-json-hash",
+												"args": [
+													{
+														"PrimitiveOpExpr": {
+															"op": "list",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "op"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": ">"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "version"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "version"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "eq_lambda",
+									"bindValue": {
+										"CallExpr": {
+											"name": "matchAssumePrereleaseOk",
+											"args": [
+												{
+													"PrimitiveOpExpr": {
+														"op": "make-json-hash",
+														"args": [
+															{
+																"PrimitiveOpExpr": {
+																	"op": "list",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "cons",
+																				"args": [
+																					{
+																						"ConstExpr": {
+																							"value": "op"
+																						}
+																					},
+																					{
+																						"ConstExpr": {
+																							"value": "="
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "cons",
+																				"args": [
+																					{
+																						"ConstExpr": {
+																							"value": "version"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "version"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "||",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "gt_lambda"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "eq_lambda"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": "="
+										}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"BindingPattern": {
+														"name": "major"
+													}
+												},
+												"minor": {
+													"BindingPattern": {
+														"name": "minor"
+													}
+												},
+												"bug": {
+													"BindingPattern": {
+														"name": "bug"
+													}
+												},
+												"prerelease": {
+													"BindingPattern": {
+														"name": "prerelease"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.major",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "v*.minor",
+											"bindValue": {
+												"PrimitiveOpExpr": {
+													"op": "vector-ref",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "v*"
+															}
+														},
+														{
+															"ConstExpr": {
+																"value": 1
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "v*.bug",
+													"bindValue": {
+														"PrimitiveOpExpr": {
+															"op": "vector-ref",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v*"
+																	}
+																},
+																{
+																	"ConstExpr": {
+																		"value": 2
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"LetExpr": {
+															"varName": "v*.prerelease",
+															"bindValue": {
+																"PrimitiveOpExpr": {
+																	"op": "vector-ref",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "v*"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 3
+																			}
+																		}
+																	]
+																}
+															},
+															"rest": {
+																"PrimitiveOpExpr": {
+																	"op": "&&",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.major"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "major"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.minor"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "minor"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.bug"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "bug"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "==",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "v*.prerelease"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "prerelease"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": "<="
+										}
+									},
+									"version": {
+										"BindingPattern": {
+											"name": "version"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "gt_lambda",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"PrimitiveOpExpr": {
+												"op": "make-json-hash",
+												"args": [
+													{
+														"PrimitiveOpExpr": {
+															"op": "list",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "op"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": ">"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "version"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "version"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LambdaExpr": {
+									"param": "v*",
+									"body": {
+										"PrimitiveOpExpr": {
+											"op": "not",
+											"args": [
+												{
+													"PrimitiveOpExpr": {
+														"op": "apply",
+														"args": [
+															{
+																"VarExpr": {
+																	"varName": "gt_lambda"
+																}
+															},
+															{
+																"VarExpr": {
+																	"varName": "v*"
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"ConstPattern": {
+											"value": "<"
+										}
+									},
+									"version": {
+										"BindingPattern": {
+											"name": "version"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "gte_lambda",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"PrimitiveOpExpr": {
+												"op": "make-json-hash",
+												"args": [
+													{
+														"PrimitiveOpExpr": {
+															"op": "list",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "op"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": ">="
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "cons",
+																		"args": [
+																			{
+																				"ConstExpr": {
+																					"value": "version"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "version"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LambdaExpr": {
+									"param": "v*",
+									"body": {
+										"PrimitiveOpExpr": {
+											"op": "not",
+											"args": [
+												{
+													"PrimitiveOpExpr": {
+														"op": "apply",
+														"args": [
+															{
+																"VarExpr": {
+																	"varName": "gte_lambda"
+																}
+															},
+															{
+																"VarExpr": {
+																	"varName": "v*"
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"checkPrereleaseOk": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"WildcardPattern": {}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"WildcardPattern": {}
+												},
+												"minor": {
+													"WildcardPattern": {}
+												},
+												"bug": {
+													"WildcardPattern": {}
+												},
+												"prerelease": {
+													"ConstPattern": {
+														"value": 0
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"ConstExpr": {
+									"value": false
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"op": {
+										"WildcardPattern": {}
+									},
+									"version": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"major": {
+													"BindingPattern": {
+														"name": "major"
+													}
+												},
+												"minor": {
+													"BindingPattern": {
+														"name": "minor"
+													}
+												},
+												"bug": {
+													"BindingPattern": {
+														"name": "bug"
+													}
+												},
+												"prerelease": {
+													"WildcardPattern": {}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.major",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "v*.minor",
+											"bindValue": {
+												"PrimitiveOpExpr": {
+													"op": "vector-ref",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "v*"
+															}
+														},
+														{
+															"ConstExpr": {
+																"value": 1
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "v*.bug",
+													"bindValue": {
+														"PrimitiveOpExpr": {
+															"op": "vector-ref",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v*"
+																	}
+																},
+																{
+																	"ConstExpr": {
+																		"value": 2
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"PrimitiveOpExpr": {
+															"op": "&&",
+															"args": [
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "==",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "major"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "v*.major"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "==",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "minor"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "v*.minor"
+																				}
+																			}
+																		]
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "==",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "bug"
+																				}
+																			},
+																			{
+																				"VarExpr": {
+																					"varName": "v*.bug"
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"&&": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_pre",
+							"bindValue": {
+								"CallExpr": {
+									"name": "checkPrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_pre",
+									"bindValue": {
+										"CallExpr": {
+											"name": "checkPrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "||",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "lhs_pre"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "rhs_pre"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"constraintInterpretation": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"unsolveable": {
+										"WildcardPattern": {}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"ConstExpr": {
+									"value": false
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"any": {
+										"WildcardPattern": {}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LambdaExpr": {
+							"param": "v*",
+							"body": {
+								"LetExpr": {
+									"varName": "v*.prerelease",
+									"bindValue": {
+										"PrimitiveOpExpr": {
+											"op": "vector-ref",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 3
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "==",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "v*.prerelease"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"&&": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_pre",
+							"bindValue": {
+								"CallExpr": {
+									"name": "checkPrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_pre",
+									"bindValue": {
+										"CallExpr": {
+											"name": "checkPrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LetExpr": {
+											"varName": "lhs_match",
+											"bindValue": {
+												"CallExpr": {
+													"name": "matchAssumePrereleaseOk",
+													"args": [
+														{
+															"VarExpr": {
+																"varName": "lhs"
+															}
+														}
+													]
+												}
+											},
+											"rest": {
+												"LetExpr": {
+													"varName": "rhs_match",
+													"bindValue": {
+														"CallExpr": {
+															"name": "matchAssumePrereleaseOk",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "rhs"
+																	}
+																}
+															]
+														}
+													},
+													"rest": {
+														"LambdaExpr": {
+															"param": "v*",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "&&",
+																	"args": [
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "apply",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "lhs_match"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "v*"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "apply",
+																				"args": [
+																					{
+																						"VarExpr": {
+																							"varName": "rhs_match"
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "v*"
+																						}
+																					}
+																				]
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "||",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "==",
+																							"args": [
+																								{
+																									"PrimitiveOpExpr": {
+																										"op": "vector-ref",
+																										"args": [
+																											{
+																												"VarExpr": {
+																													"varName": "v*"
+																												}
+																											},
+																											{
+																												"ConstExpr": {
+																													"value": 3
+																												}
+																											}
+																										]
+																									}
+																								},
+																								{
+																									"ConstExpr": {
+																										"value": 0
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "apply",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "lhs_pre"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*"
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "apply",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "rhs_pre"
+																									}
+																								},
+																								{
+																									"VarExpr": {
+																										"varName": "v*"
+																									}
+																								}
+																							]
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"||": {
+										"DictionaryPattern": {
+											"namesPatternsDict": {
+												"lhs": {
+													"BindingPattern": {
+														"name": "lhs"
+													}
+												},
+												"rhs": {
+													"BindingPattern": {
+														"name": "rhs"
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "lhs_match",
+							"bindValue": {
+								"CallExpr": {
+									"name": "constraintInterpretation",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "lhs"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "rhs_match",
+									"bindValue": {
+										"CallExpr": {
+											"name": "constraintInterpretation",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "rhs"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "||",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "lhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "rhs_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "c"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "c_match",
+							"bindValue": {
+								"CallExpr": {
+									"name": "matchAssumePrereleaseOk",
+									"args": [
+										{
+											"VarExpr": {
+												"varName": "c"
+											}
+										}
+									]
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "c_pre",
+									"bindValue": {
+										"CallExpr": {
+											"name": "checkPrereleaseOk",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "c"
+													}
+												}
+											]
+										}
+									},
+									"rest": {
+										"LambdaExpr": {
+											"param": "v*",
+											"body": {
+												"PrimitiveOpExpr": {
+													"op": "&&",
+													"args": [
+														{
+															"PrimitiveOpExpr": {
+																"op": "apply",
+																"args": [
+																	{
+																		"VarExpr": {
+																			"varName": "c_match"
+																		}
+																	},
+																	{
+																		"VarExpr": {
+																			"varName": "v*"
+																		}
+																	}
+																]
+															}
+														},
+														{
+															"PrimitiveOpExpr": {
+																"op": "||",
+																"args": [
+																	{
+																		"PrimitiveOpExpr": {
+																			"op": "==",
+																			"args": [
+																				{
+																					"PrimitiveOpExpr": {
+																						"op": "vector-ref",
+																						"args": [
+																							{
+																								"VarExpr": {
+																									"varName": "v*"
+																								}
+																							},
+																							{
+																								"ConstExpr": {
+																									"value": 3
+																								}
+																							}
+																						]
+																					}
+																				},
+																				{
+																					"ConstExpr": {
+																						"value": 0
+																					}
+																				}
+																			]
+																		}
+																	},
+																	{
+																		"PrimitiveOpExpr": {
+																			"op": "apply",
+																			"args": [
+																				{
+																					"VarExpr": {
+																						"varName": "c_pre"
+																					}
+																				},
+																				{
+																					"VarExpr": {
+																						"varName": "v*"
+																					}
+																				}
+																			]
+																		}
+																	}
+																]
+															}
+														}
+													]
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"versionDeserialize": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"DictionaryPattern": {
+								"namesPatternsDict": {
+									"major": {
+										"BindingPattern": {
+											"name": "major"
+										}
+									},
+									"minor": {
+										"BindingPattern": {
+											"name": "minor"
+										}
+									},
+									"bug": {
+										"BindingPattern": {
+											"name": "bug"
+										}
+									},
+									"prerelease": {
+										"BindingPattern": {
+											"name": "prerelease"
+										}
+									}
+								}
+							}
+						}
+					],
+					"rhs": {
+						"PrimitiveOpExpr": {
+							"op": "immutable-vector",
+							"args": [
+								{
+									"VarExpr": {
+										"varName": "major"
+									}
+								},
+								{
+									"VarExpr": {
+										"varName": "minor"
+									}
+								},
+								{
+									"VarExpr": {
+										"varName": "bug"
+									}
+								},
+								{
+									"VarExpr": {
+										"varName": "prerelease"
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"versionSerialize": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"VectorPattern": {
+								"patterns": [
+									{
+										"BindingPattern": {
+											"name": "major"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "minor"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "bug"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "prerelease"
+										}
+									}
+								]
+							}
+						}
+					],
+					"rhs": {
+						"PrimitiveOpExpr": {
+							"op": "make-json-hash",
+							"args": [
+								{
+									"PrimitiveOpExpr": {
+										"op": "list",
+										"args": [
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "major"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "major"
+															}
+														}
+													]
+												}
+											},
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "minor"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "minor"
+															}
+														}
+													]
+												}
+											},
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "bug"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "bug"
+															}
+														}
+													]
+												}
+											},
+											{
+												"PrimitiveOpExpr": {
+													"op": "cons",
+													"args": [
+														{
+															"ConstExpr": {
+																"value": "prerelease"
+															}
+														},
+														{
+															"VarExpr": {
+																"varName": "prerelease"
+															}
+														}
+													]
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"min_duplicates": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "g"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "p_group_fn",
+							"bindValue": {
+								"LambdaExpr": {
+									"param": "v_node",
+									"body": {
+										"LambdaExpr": {
+											"param": "v_active*",
+											"body": {
+												"LambdaExpr": {
+													"param": "v_acc",
+													"body": {
+														"PrimitiveOpExpr": {
+															"op": "+",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v_acc"
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "ite",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "v_active*"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 1
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 0
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "ps_fn",
+									"bindValue": {
+										"LambdaExpr": {
+											"param": "p_group",
+											"body": {
+												"LambdaExpr": {
+													"param": "p_group_cost",
+													"body": {
+														"LambdaExpr": {
+															"param": "p_acc",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "+",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "p_acc"
+																			}
+																		},
+																		{
+																			"PrimitiveOpExpr": {
+																				"op": "ite",
+																				"args": [
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": ">",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "p_group_cost"
+																									}
+																								},
+																								{
+																									"ConstExpr": {
+																										"value": 0
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"PrimitiveOpExpr": {
+																							"op": "-",
+																							"args": [
+																								{
+																									"VarExpr": {
+																										"varName": "p_group_cost"
+																									}
+																								},
+																								{
+																									"ConstExpr": {
+																										"value": 1
+																									}
+																								}
+																							]
+																						}
+																					},
+																					{
+																						"VarExpr": {
+																							"varName": "p_group_cost"
+																						}
+																					}
+																				]
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "foldl/graph",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "g"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "p_group_fn"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "ps_fn"
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"min_num_deps": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "g"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "p_group_fn",
+							"bindValue": {
+								"LambdaExpr": {
+									"param": "v_node",
+									"body": {
+										"LambdaExpr": {
+											"param": "v_active*",
+											"body": {
+												"LambdaExpr": {
+													"param": "v_acc",
+													"body": {
+														"PrimitiveOpExpr": {
+															"op": "+",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v_acc"
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "ite",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "v_active*"
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 1
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 0
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "ps_fn",
+									"bindValue": {
+										"LambdaExpr": {
+											"param": "p_group",
+											"body": {
+												"LambdaExpr": {
+													"param": "p_group_cost",
+													"body": {
+														"LambdaExpr": {
+															"param": "p_acc",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "+",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "p_acc"
+																			}
+																		},
+																		{
+																			"VarExpr": {
+																				"varName": "p_group_cost"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 0
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "foldl/graph",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "g"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "p_group_fn"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "ps_fn"
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"min_oldness": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "g"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "p_group_fn",
+							"bindValue": {
+								"LambdaExpr": {
+									"param": "v_node",
+									"body": {
+										"LambdaExpr": {
+											"param": "v_active*",
+											"body": {
+												"LambdaExpr": {
+													"param": "v_acc",
+													"body": {
+														"PrimitiveOpExpr": {
+															"op": "+",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v_acc"
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "ite",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "v_active*"
+																				}
+																			},
+																			{
+																				"PrimitiveOpExpr": {
+																					"op": "get-cost-val/version-node",
+																					"args": [
+																						{
+																							"VarExpr": {
+																								"varName": "v_node"
+																							}
+																						},
+																						{
+																							"ConstExpr": {
+																								"value": "version_oldness"
+																							}
+																						}
+																					]
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 0
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "ps_fn",
+									"bindValue": {
+										"LambdaExpr": {
+											"param": "p_group",
+											"body": {
+												"LambdaExpr": {
+													"param": "p_group_cost",
+													"body": {
+														"LambdaExpr": {
+															"param": "p_acc",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "+",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "p_acc"
+																			}
+																		},
+																		{
+																			"VarExpr": {
+																				"varName": "p_group_cost"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 0
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "foldl/graph",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "g"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "p_group_fn"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "ps_fn"
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"min_cve": {
+			"numParams": 1,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"BindingPattern": {
+								"name": "g"
+							}
+						}
+					],
+					"rhs": {
+						"LetExpr": {
+							"varName": "p_group_fn",
+							"bindValue": {
+								"LambdaExpr": {
+									"param": "v_node",
+									"body": {
+										"LambdaExpr": {
+											"param": "v_active*",
+											"body": {
+												"LambdaExpr": {
+													"param": "v_acc",
+													"body": {
+														"PrimitiveOpExpr": {
+															"op": "+",
+															"args": [
+																{
+																	"VarExpr": {
+																		"varName": "v_acc"
+																	}
+																},
+																{
+																	"PrimitiveOpExpr": {
+																		"op": "ite",
+																		"args": [
+																			{
+																				"VarExpr": {
+																					"varName": "v_active*"
+																				}
+																			},
+																			{
+																				"PrimitiveOpExpr": {
+																					"op": "get-cost-val/version-node",
+																					"args": [
+																						{
+																							"VarExpr": {
+																								"varName": "v_node"
+																							}
+																						},
+																						{
+																							"ConstExpr": {
+																								"value": "version_cve_badness"
+																							}
+																						}
+																					]
+																				}
+																			},
+																			{
+																				"ConstExpr": {
+																					"value": 0
+																				}
+																			}
+																		]
+																	}
+																}
+															]
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							},
+							"rest": {
+								"LetExpr": {
+									"varName": "ps_fn",
+									"bindValue": {
+										"LambdaExpr": {
+											"param": "p_group",
+											"body": {
+												"LambdaExpr": {
+													"param": "p_group_cost",
+													"body": {
+														"LambdaExpr": {
+															"param": "p_acc",
+															"body": {
+																"PrimitiveOpExpr": {
+																	"op": "+",
+																	"args": [
+																		{
+																			"VarExpr": {
+																				"varName": "p_acc"
+																			}
+																		},
+																		{
+																			"VarExpr": {
+																				"varName": "p_group_cost"
+																			}
+																		},
+																		{
+																			"ConstExpr": {
+																				"value": 0
+																			}
+																		}
+																	]
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									},
+									"rest": {
+										"PrimitiveOpExpr": {
+											"op": "foldl/graph",
+											"args": [
+												{
+													"VarExpr": {
+														"varName": "g"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "p_group_fn"
+													}
+												},
+												{
+													"ConstExpr": {
+														"value": 0
+													}
+												},
+												{
+													"VarExpr": {
+														"varName": "ps_fn"
+													}
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		},
+		"consistency": {
+			"numParams": 2,
+			"rules": [
+				{
+					"patterns": [
+						{
+							"VectorPattern": {
+								"patterns": [
+									{
+										"BindingPattern": {
+											"name": "v1.major"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "v1.minor"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "v1.bug"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "v1.pre"
+										}
+									}
+								]
+							}
+						},
+						{
+							"VectorPattern": {
+								"patterns": [
+									{
+										"BindingPattern": {
+											"name": "v2.major"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "v2.minor"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "v2.bug"
+										}
+									},
+									{
+										"BindingPattern": {
+											"name": "v2.pre"
+										}
+									}
+								]
+							}
+						}
+					],
+					"rhs": {
+						"PrimitiveOpExpr": {
+							"op": "&&",
+							"args": [
+								{
+									"PrimitiveOpExpr": {
+										"op": "==",
+										"args": [
+											{
+												"VarExpr": {
+													"varName": "v1.major"
+												}
+											},
+											{
+												"VarExpr": {
+													"varName": "v2.major"
+												}
+											}
+										]
+									}
+								},
+								{
+									"PrimitiveOpExpr": {
+										"op": "==",
+										"args": [
+											{
+												"VarExpr": {
+													"varName": "v1.minor"
+												}
+											},
+											{
+												"VarExpr": {
+													"varName": "v2.minor"
+												}
+											}
+										]
+									}
+								},
+								{
+									"PrimitiveOpExpr": {
+										"op": "==",
+										"args": [
+											{
+												"VarExpr": {
+													"varName": "v1.bug"
+												}
+											},
+											{
+												"VarExpr": {
+													"varName": "v2.bug"
+												}
+											}
+										]
+									}
+								},
+								{
+									"PrimitiveOpExpr": {
+										"op": "==",
+										"args": [
+											{
+												"VarExpr": {
+													"varName": "v1.pre"
+												}
+											},
+											{
+												"VarExpr": {
+													"varName": "v2.pre"
+												}
+											}
+										]
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	}
+}
