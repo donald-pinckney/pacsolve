@@ -15,7 +15,7 @@ memoized_cve_badness = dict()
 def lookup_cve_badness(module_path: str, name: str, pack: Dict[str, Any]) -> float:
     if 'version' not in pack:
         print(f'Error (ignored): no version for {module_path}', file=sys.stderr)
-        return 0
+        return 0, None
 
     version = pack['version']
     key = f'{name}:{version}'
@@ -34,7 +34,7 @@ def lookup_cve_badness(module_path: str, name: str, pack: Dict[str, Any]) -> flo
     else:
         # print('hit', key)
         pass
-    return memoized_cve_badness[key]
+    return memoized_cve_badness[key], key
 
 class SolveResultEvaluation(object):
     def __init__(self, time, status, lock_path: str) -> None:
@@ -79,14 +79,22 @@ class SolveResultEvaluation(object):
 
 
     def evaluate_cve_badness(self, lock_json: Dict[str, Any]):
-        return sum(process_map(cve_process_tuple, self.non_link_packages(lock_json), max_workers=24))
+        cves_keys = list(process_map(cve_process_tuple, self.non_link_packages(lock_json), max_workers=24))
+        cve_sum = sum(cve_val for (cve_val, k) in cves_keys)
+
+        for cve_val, k in cves_keys:
+            if cve_val > 0 and k is not None:
+                print(f'CVE: {k} has a CVE badness of {cve_val}', file=sys.stderr)
+
+        return cve_sum
 
         # return sum(cve_process_tuple(tup) for tup in tqdm(self.non_link_packages(lock_json), desc=" inner loop", position=1, leave=False))
 
 
 def cve_process_tuple(tup):
     module_path, pack = tup
-    return lookup_cve_badness(module_path, strip_node_modules_from_name(module_path), pack)
+    name = strip_node_modules_from_name(module_path)
+    return lookup_cve_badness(module_path, name, pack)
 
 def strip_node_modules_from_name(module_path: str) -> str:
     parts = module_path.split('/')
