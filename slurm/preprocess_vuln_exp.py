@@ -24,7 +24,7 @@ def main():
     print(df.to_csv())
 
 
-PACKAGE_DIR_RE = re.compile('package-(.*)-([^-].*)\\.tgz')
+PACKAGE_DIR_RE = re.compile('package-(.*)-([^-].*)\\.(tgz|json)')
 def process_child_dir(child):
     if not child.is_dir():
         return []
