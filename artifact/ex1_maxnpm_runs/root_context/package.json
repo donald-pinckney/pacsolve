@@ -1,7 +1,7 @@
 {
-  "name": "@maxnpm-artifact-examples/context",
+  "name": "@minnpm-artifact-examples/context",
   "version": "0.0.1",
   "dependencies": {
-    "@maxnpm-artifact-examples/ex1-a": "*"
+    "@minnpm-artifact-examples/ex1-a": "*"
   }
 }
