@@ -18,18 +18,17 @@
 To build the container image:
 
 1. Download Docker engine from https://docs.docker.com/engine/install/ or your package manager of choice
-2. Locate the Dockerfile in this directory (`artifact` directory in the pacsolve repository)
+2. Locate the Dockerfile in this directory (`artifact` directory in the PacSolve repository)
 3. Run `docker build -t pacsolve-artifact .` in the command line while being in the same directory as the Dockerfile
 
 ## Welcome
 
 Welcome to the virtual machine which we have prepared to illustrate the functionality of PacSolve and MaxNPM.
 
-**General layout of the artifact**: All of the code is in the directory `/home/pacsolve`. Within that directory, the following sub-directories are of interest:
+**General layout of the artifact**: All of the code is in the directory `/home/artifact`. Within that directory, the following sub-directories are of interest:
 
-- `artifact/` contains this document, as well as a series of examples illustrating the functionality of MaxNPM.
-- `arborist/` and `npm/` contain the source code of our fork of NPM, which have been modified to solve dependencies by invoking PacSolve.
-- `RosetteSolver/` contains the source code of PacSolve, which implements a flexible depenendency solving backend via translation to Max-SMT by using Rosette.
+- `pacsolve/arborist/` and `pacsolve/npm/` contain the source code of our fork of NPM, which have been modified to solve dependencies by invoking PacSolve.
+- `pacsolve/RosetteSolver/` contains the source code of PacSolve, which implements a flexible dependency solving backend via translation to Max-SMT by using Rosette.
 
 ### How to read this document
 
