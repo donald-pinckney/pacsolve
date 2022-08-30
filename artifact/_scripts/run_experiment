@@ -2,11 +2,21 @@
 
 timeout_sec=$1
 exp_type=$2
-tarball_dir="/home/artifact/pacsolve/slurm/top1000tarballs/"
+
+# depending on the exp type, set tarball dir
+if [ $exp_type == "top1000_comparisons" ]; then
+    tarball_dir="/home/artifact/pacsolve/slurm/top1000tarballs/"
+elif [ $exp_type == "vuln_tarballs" ]; then
+    tarball_dir="/home/artifact/pacsolve/slurm/vuln_tarballs1000/"
+else
+    echo "Invalid exp type: $exp_type"
+    exit 1
+fi
+
 target_dir="/home/artifact/experiment-dir"
 z3_dir="/usr/local/lib/node_modules/maxnpm/node_modules/@npmcli/arborist/bin/z3"
 
 mkdir -p $target_dir
 
 cd /home/artifact/pacsolve/slurm/
-./main.py run --tarball-dir $tarball_dir --z3-add-model-option True --target $target_dir --use-slurm False --cpus-per-task 1 --timeout $timeout_sec --z3-abs-path $z3_dir --which-experiment top1000_comparison
+./main.py run --tarball-dir $tarball_dir --z3-add-model-option True --target $target_dir --use-slurm False --cpus-per-task 1 --timeout $timeout_sec --z3-abs-path $z3_dir --which-experiment $exp_type
