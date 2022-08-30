@@ -397,9 +397,71 @@ Note that because we minimize `min_oldness` at second priority, we get a solutio
 popd
 ```
 
+## Example #7: MaxNPM can Minimize Number of Vulnerable Dependencies
+
+MaxNPM can be configured to minimize the total sum [CVSS](https://nvd.nist.gov/vuln-metrics/cvss) score of all dependencies in a solution graph.
+
+We take a version range of jQuery as an example: `"jquery": "jquery": "^1.8.3 || ^2.0"`  
+and we take a list of vulnerable version ranges with their CVSS "badness" score (taken from the [GitHub Advisory Database](https://github.com/advisories)):
+| Range | CVSS |
+| ------------ | ------ |
+| `>= 1.7.1 <= 1.8.3` | `7.95` |
+| `< 1.9.0` | `6.1` |
+| `>= 1.2 < 3.5.0` | `6.9` |
+| `>= 1.0.3 < 3.5.0` | `6.9` |
+| `< 3.4.0` | `6.1` |
+| `> 2.1.0, < 3.0.0` | `7.5` |
+| `< 3.0.0` | `6.1` |
+
+Given these ranges, the optimal solution in the required version range of `^1.8.3 || ^2.0` is some version in the range of `> 1.9.0 < 2.1.0`, as that would give us with a total CVSS score of `26.0`.  
+Vanilla npm would choose the latest version of the package in that range (`2.2.4`), and `npm audit` will show **1** non-fixable (unless `--force` is enabled) high severity vulnerability, despite having 5 vulnerabilities at a total CVSS score of `33.5`.  
+Meanwhile, MaxNPM is able to choose the optimal solution with the `min_cve` or `min_cve,min_oldness` minimization objective, and give us a total CVSS score of `26.0`.  
+
+**Step 23**
+
+```bash
+pushd ex7_min_cve/
+```
+
+**Step 24**
+```bash
+# first, we install with vanilla npm
+npm install
+
+# save the lockfile
+cp node_modules/.package-lock.json result-vanilla.json; rm -rf node_modules package-lock.json
+
+# then we install with maxnpm minimizing only min_cve
+maxnpm install --maxnpm --minimize min_cve
+
+# save the lockfile
+cp node_modules/.package-lock.json result-min_cve.json; rm -rf node_modules package-lock.json
+
+# finally, we install the package with both min_cve and min_oldness objectives
+maxnpm install --maxnpm --minimize min_cve,min_oldness
+
+# save the lockfile
+cp node_modules/.package-lock.json result-min_cve-min_oldness.json; rm -rf node_modules package-lock.json
+```
+
+**Step 25**
+```bash
+# now we check and compare the results for each installation
+get_cvss result-vanilla.json
+
+get_cvss result-min_cve.json
+
+get_cvss result-min_cve-min_oldness.json
+```
+
+**Step 26**
+```bash
+popd
+```
+
 ## Running the Experiments of the Evaluation Section
 
-Finallly, this container can also be used to reproduce the experimental results of evaluation section of the paper.
+Finally, this container can also be used to reproduce the experimental results of evaluation section of the paper.
 
 **Note: reproducing the experimental results within this container will take 3-10 days of compute. Proceed only if you wish!**
 
