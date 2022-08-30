@@ -422,7 +422,7 @@ a timeout of 600 seconds, but in order to get results sooner we decrease the tim
 
 ```bash
 # This takes about 2-3 days
-run_experiment 60
+run_experiment 60 top1000_comparison
 ```
 
 To verify that the experiments ran, you can check that the directory `~/experiment-dir` exists, and poke at the contents.
@@ -446,7 +446,7 @@ Now that all experiments have finished running, we perform some pre-analysis dat
 
 ```bash
 # This takes about 30-60 minutes
-prepare_analysis
+prepare_analysis top1000_comparisons
 ```
 
 To verify that this step succeeded, you can check that the following files / directories exist:
