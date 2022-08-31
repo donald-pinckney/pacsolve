@@ -73,15 +73,20 @@ def process_lockfile_csv(lockfile_path, name, commit, solver_name):
         
         if len(rows) != 1:
             print(f"FATAL: BROKEN CSV FILE: {csv_path}", file=sys.stderr)
-            sys.exit(1)
-        csvrow = rows[0]
-
-        record = {
-            'NDeps': np.float64(csvrow['NDeps']),
-            'CVE': np.float64(csvrow['CVE']),
-            'Time': np.float64(np.nan),
-            'Status': csvrow['Status']
-        }
+            record = {
+                'NDeps': 0,
+                'CVE': 0,
+                'Time': 0,
+                'Status': 'BAD'
+            }
+        else:
+            csvrow = rows[0]
+            record = {
+                'NDeps': np.float64(csvrow['NDeps']),
+                'CVE': np.float64(csvrow['CVE']),
+                'Time': np.float64(np.nan),
+                'Status': csvrow['Status']
+            }
 
     record['solver'] = solver_name
     record['name'] = name

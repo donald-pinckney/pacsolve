@@ -1,0 +1,7 @@
+/scratch/pinckney.d/top-vulns-rerun-aug-30/package-keystone-11c372f.json/package/auditfix-lockfile.json
+/scratch/pinckney.d/top-vulns-rerun-aug-30/package-lighthouse-ci-69c14fa.json/package/vanilla-lockfile.json
+/scratch/pinckney.d/top-vulns-rerun-aug-30/package-maf-7ce13d7.json/package/vanilla-lockfile.json
+/scratch/pinckney.d/top-vulns-rerun-aug-30/package-neo-030d37e.json/package/auditfix-lockfile.json
+/scratch/pinckney.d/top-vulns-rerun-aug-30/package-jupyterlab-4f518b9.json/package/vanilla-lockfile.json
+/scratch/pinckney.d/top-vulns-rerun-aug-30/package-jupyterlab-4f518b9.json/package/auditfix-lockfile.json
+/scratch/pinckney.d/top-vulns-rerun-aug-30/package-father-07307c0.json/package/vanilla-lockfile.json
