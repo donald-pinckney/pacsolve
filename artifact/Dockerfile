@@ -15,6 +15,7 @@ WORKDIR /home/artifact/pacsolve/version-oldness/
 RUN npm install
 
 RUN R -e "install.packages(\"kimisc\")"
+RUN R -e "install.packages(\"cli\")"
 
 WORKDIR /home/artifact
 
