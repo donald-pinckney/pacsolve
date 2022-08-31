@@ -4,6 +4,7 @@ set -e
 target_dir="/home/artifact/experiment-dir"
 oldness_dir="/home/artifact/experiment-dir-oldness"
 sizes_dir="/home/artifact/experiment-dir-sizes"
+exp_type=$1
 
 cd /home/artifact/pacsolve/slurm/
 
@@ -14,14 +15,18 @@ mkdir -p "$sizes_dir"
 ./main.py gather --which-experiment $1 $target_dir
 
 # Prepare oldness analysis
-python3 all_oldness.py "$target_dir"/vanilla > "$oldness_dir"/vanilla.csv 2> /dev/null
-python3 all_oldness.py "$target_dir"/rosette/npm/allow_cycles/min_oldness,min_num_deps > "$oldness_dir"/rosette-npm-allow_cycles-min_oldness-min_num_deps.csv 2> /dev/null
-python3 all_oldness.py "$target_dir"/rosette/npm/allow_cycles/min_num_deps,min_oldness > "$oldness_dir"/rosette-npm-allow_cycles-min_num_deps-min_oldness.csv 2> /dev/null
+if [ "$exp_type" == "top1000_comparison" ]; then
+  python3 all_oldness.py "$target_dir"/vanilla > "$oldness_dir"/vanilla.csv 2> /dev/null
+  python3 all_oldness.py "$target_dir"/rosette/npm/allow_cycles/min_oldness,min_num_deps > "$oldness_dir"/rosette-npm-allow_cycles-min_oldness-min_num_deps.csv 2> /dev/null
+  python3 all_oldness.py "$target_dir"/rosette/npm/allow_cycles/min_num_deps,min_oldness > "$oldness_dir"/rosette-npm-allow_cycles-min_num_deps-min_oldness.csv 2> /dev/null
 
-# Prepare size analysis
-./get_file_sizes.sh "$target_dir"/vanilla > "$sizes_dir"/vanilla.tsv
-./get_file_sizes.sh "$target_dir"/rosette/npm/allow_cycles/min_num_deps,min_oldness > "$sizes_dir"/npm_min_num_deps.tsv
-./get_file_sizes.sh "$target_dir"/rosette/npm/allow_cycles/min_oldness,min_num_deps > "$sizes_dir"/npm_min_oldness.tsv
-./get_file_sizes.sh "$target_dir"/rosette/npm/allow_cycles/min_duplicates,min_oldness > "$sizes_dir"/npm_min_duplicates.tsv
+  # Prepare size analysis
+  ./get_file_sizes.sh "$target_dir"/vanilla > "$sizes_dir"/vanilla.tsv
+  ./get_file_sizes.sh "$target_dir"/rosette/npm/allow_cycles/min_num_deps,min_oldness > "$sizes_dir"/npm_min_num_deps.tsv
+  ./get_file_sizes.sh "$target_dir"/rosette/npm/allow_cycles/min_oldness,min_num_deps > "$sizes_dir"/npm_min_oldness.tsv
+  ./get_file_sizes.sh "$target_dir"/rosette/npm/allow_cycles/min_duplicates,min_oldness > "$sizes_dir"/npm_min_duplicates.tsv
 
-Rscript get_analysis_script.R
+  Rscript get_analysis_script.R
+elif [ "$exp_type" == "vuln_tarballs" ]; then
+  echo "todo"
+fi
