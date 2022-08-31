@@ -392,15 +392,59 @@ mysave("shrinkage.pdf")
 
 
 ## -----------------------------------------------------------------------------
-# min_dep_analysis_shrinkage %>% 
-#   filter(Shrinkage <= 1.0) %>%
-#   filter(Comparison == 'NPM_NPM_MinDepsOldness_Shrinkage') %>%
-#   ggplot(aes(Shrinkage)) +
-#   geom_histogram(aes(y=..ndensity..),binwidth=0.1) +
-#   ylab("Count of packages") +
-#   xlab("Fraction of dependencies") +
-#   mytheme()
-# mysave("shrinkage_hist.pdf")
+min_dep_analysis_delta %>% 
+  # filter(Delta >= 0) %>%
+  filter(Comparison == "NPM_NPM_MinDepsOldness_Delta" | Comparison == "NPM_NPM_MinOldness_Delta") %>%
+  mutate(Comparison = recode(Comparison, 
+                             NPM_Cargo_MinOldness_Delta="Cargo",
+                             NPM_NPM_MinDepsOldness_Delta="Min Deps",
+                             NPM_NPM_MinDuplicatesOldness_Delta="MinDuplicates",
+                             NPM_NPM_MinOldness_Delta="Min Oldness",
+                             NPM_PIP_MinOldness_Delta="PIP vs. NPM")) %>%
+  ggplot(aes(Delta, colour=Comparison)) +
+  stat_ecdf() +
+  ylab("Percentange of packages") +
+  xlab("Number of fewer dependencies with MaxNPM") +
+  mytheme()
+mysave("shrinkage_delta.pdf")
+
+
+## -----------------------------------------------------------------------------
+min_dep_analysis_shrinkage %>% 
+  filter(Shrinkage <= 1.0) %>%
+  filter(Comparison == "NPM_NPM_MinDepsOldness_Shrinkage" | Comparison == "NPM_NPM_MinOldness_Shrinkage") %>%
+  mutate(Comparison = recode(Comparison, 
+                             NPM_Cargo_MinOldness_Shrinkage="Cargo",
+                             NPM_NPM_MinDepsOldness_Shrinkage="Min Deps",
+                             NPM_NPM_MinDuplicatesOldness_Shrinkage="MinDuplicates",
+                             NPM_NPM_MinOldness_Shrinkage="Min Oldness",
+                             NPM_PIP_MinOldness_Shrinkage="PIP vs. NPM")) %>%
+  ggplot(aes(Shrinkage, fill=Comparison)) +
+  geom_histogram(alpha=0.7, position="identity") +
+  # coord_trans(x="log2") +
+  # scale_x_continuous(trans='log2') + 
+  ylab("Percentange of packages") +
+  xlab("Fraction of dependencies") +
+  mytheme()
+mysave("shrinkage_hist.pdf")
+
+
+## -----------------------------------------------------------------------------
+min_dep_analysis_delta %>% 
+  # filter(Delta >= 0) %>%
+  filter(Comparison == "NPM_NPM_MinDepsOldness_Delta" | Comparison == "NPM_NPM_MinOldness_Delta") %>%
+  mutate(Comparison = recode(Comparison, 
+                             NPM_Cargo_MinOldness_Delta="Cargo",
+                             NPM_NPM_MinDepsOldness_Delta="Min Deps",
+                             NPM_NPM_MinDuplicatesOldness_Delta="MinDuplicates",
+                             NPM_NPM_MinOldness_Delta="Min Oldness",
+                             NPM_PIP_MinOldness_Delta="PIP vs. NPM")) %>%
+  ggplot(aes(Delta, fill=Comparison)) +
+  geom_histogram(alpha=0.7, position="identity") +
+  ylab("Percentange of packages") +
+  xlab("Number of fewer dependencies with MaxNPM") +
+  mytheme()
+mysave("shrinkage_delta_hist.pdf")
 
 
 ## -----------------------------------------------------------------------------
@@ -622,7 +666,12 @@ mysave("oldness_ecdf.pdf")
 
 
 ## -----------------------------------------------------------------------------
-ggplot(oldness_minold_comparison_df, aes(x= MinOldness - NPM)) + mytheme() + geom_histogram() + xlab('Oldness difference, minimizing oldness') + ylab('Count')
+ggplot(oldness_minold_comparison_df, aes(x= MinOldness - NPM)) + 
+  mytheme() + 
+  geom_histogram() + 
+  xlab('Oldness difference, minimizing oldness') + 
+  ylab('Count')
+  # scale_x_continuous(trans='log10')
 mysave('oldness_hist.pdf')
 
 
@@ -669,6 +718,17 @@ mean(size_shrinkage$ShrinkageMinDuplicates)
 
 
 ## -----------------------------------------------------------------------------
+size_delta <- size_per_project_solver %>%
+  mutate(DeltaMinDeps = NPM - MinDeps,
+         DeltaMinOldness = NPM - MinOldness,
+         DeltaMinDuplicates = NPM - MinDuplicates) 
+           
+mean(size_delta$DeltaMinDeps)
+mean(size_delta$DeltaMinOldness)
+mean(size_delta$DeltaMinDuplicates)
+
+
+## -----------------------------------------------------------------------------
 min_dep_analysis_shrinkage %>% filter(Comparison == "NPM_NPM_MinDepsOldness_Shrinkage") %>% inner_join(size_shrinkage) %>% select(Project, Shrinkage, ShrinkageMinDeps) %>% rename(NumDepsShrink = Shrinkage, FSShrink = ShrinkageMinDeps)
 
 
@@ -680,6 +740,44 @@ size_shrinkage %>%
   ggplot(aes(x=Shrinkage)) + stat_ecdf() + mytheme() + xlab("Fraction of size on disk") + ylab("Percentage of packages")
 
 mysave("disk_shrinkage_ecdf.pdf")
+
+
+## -----------------------------------------------------------------------------
+size_shrinkage %>% 
+  select(Project,ShrinkageMinDeps,ShrinkageMinOldness,ShrinkageMinDuplicates) %>%
+  pivot_longer(cols = starts_with("Shrinkage"), names_to="Config", values_to="Shrinkage") %>%
+  filter(Config=="ShrinkageMinDeps") %>%
+  ggplot(aes(x=Shrinkage)) + 
+  geom_histogram() + 
+  mytheme() + 
+  xlab("Fraction of size on disk") + 
+  ylab("Percentage of packages")
+
+mysave("disk_shrinkage_hist.pdf")
+
+
+## -----------------------------------------------------------------------------
+size_delta %>% 
+  select(Project,DeltaMinDeps,DeltaMinOldness,DeltaMinDuplicates) %>%
+  pivot_longer(cols = starts_with("Delta"), names_to="Config", values_to="Delta") %>%
+  filter(Config=="DeltaMinDeps") %>%
+  ggplot(aes(x=Delta)) + stat_ecdf() + mytheme() + xlab("Saved bytes") + ylab("Percentage of packages")
+
+mysave("disk_delta_ecdf.pdf")
+
+
+## -----------------------------------------------------------------------------
+size_delta %>% 
+  select(Project,DeltaMinDeps,DeltaMinOldness,DeltaMinDuplicates) %>%
+  pivot_longer(cols = starts_with("Delta"), names_to="Config", values_to="Delta") %>%
+  filter(Config=="DeltaMinDeps") %>%
+  ggplot(aes(x=Delta)) + 
+  geom_histogram() + 
+  mytheme() + 
+  xlab("Saved bytes") + 
+  ylab("Percentage of packages")
+
+mysave("disk_delta_hist.pdf")
 
 
 ## -----------------------------------------------------------------------------
@@ -766,6 +864,9 @@ mysave("slowdown_ecdf_no_outliers.pdf")
 
 
 ## -----------------------------------------------------------------------------
+min_slowdown <- round(min(na.omit(slowdowns$Slowdown)), digits = 1)
+quantile_1st <- round(quantile(na.omit(slowdowns$Slowdown), 0.25), digits = 1)
+quantile_3rd <- round(quantile(na.omit(slowdowns$Slowdown), 0.75), digits = 1)
 mean_slowdown <- round(mean(na.omit(slowdowns$Slowdown)), digits = 1)
 median_slowdown <- round(median(na.omit(slowdowns$Slowdown)), digits = 1)
 max_slowdown <- round(max(na.omit(slowdowns$Slowdown)), digits = 1)
@@ -785,6 +886,24 @@ write(
         max_slowdown,
         "s}\n"),
   results_tex, append=TRUE)
+
+write(
+str_c("\\newcommand{\\dataMinSlowdown}{", 
+      min_slowdown,
+      "s}\n"),
+results_tex, append=TRUE)
+
+write(
+str_c("\\newcommand{\\dataFirstQuantileSlowdown}{", 
+      quantile_1st,
+      "s}\n"),
+results_tex, append=TRUE)
+
+write(
+str_c("\\newcommand{\\dataThirdQuantileSlowdown}{", 
+      quantile_3rd,
+      "s}\n"),
+results_tex, append=TRUE)
 
 mean_slowdown
 median_slowdown
