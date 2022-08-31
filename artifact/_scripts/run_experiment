@@ -4,7 +4,7 @@ timeout_sec=$1
 exp_type=$2
 
 # depending on the exp type, set tarball dir
-if [ $exp_type == "top1000_comparisons" ]; then
+if [ $exp_type == "top1000_comparison" ]; then
     tarball_dir="/home/artifact/pacsolve/slurm/top1000tarballs/"
 elif [ $exp_type == "vuln_tarballs" ]; then
     tarball_dir="/home/artifact/pacsolve/slurm/vuln_tarballs1000/"
