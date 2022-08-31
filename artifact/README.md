@@ -527,9 +527,9 @@ save_analysis top1000_comparison
 
 Then, the following directories contain the topline numbers, plots, and tables corresponding to what is reported in the paper:
 
-- `/home/artifact/experiment-dir-number-results/`
-- `/home/artifact/experiment-dir-number-plots/`
-- `/home/artifact/experiment-dir-number-tables/`
+- `/home/artifact/number-results/`
+- `/home/artifact/plots/`
+- `/home/artifact/tables/`
 
 
 Note that some differences are expected: 1) some results, in particular the performance results and the number of timeouts will be different, as explained above. 2) the tables are formatted a bit differently, with some re-arranged out commented-out rows in the verbatim paper tables.  

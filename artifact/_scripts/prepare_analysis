@@ -28,5 +28,7 @@ if [ "$exp_type" == "top1000_comparison" ]; then
 
   Rscript get_analysis_script.R
 elif [ "$exp_type" == "vuln_tarballs" ]; then
-  echo "todo"
+  temp=$(mktemp -d)
+  cp "$target_dir/results.csv" "$temp"
+  python3 convert_csv.py "$temp/results.csv" > "$target_dir/results.csv"
 fi
