@@ -14,6 +14,19 @@ rm -f "$unchunked_array_jobs"
 touch "$unchunked_array_jobs"
 
 for F in $exp_dir/*; do
+    #rm "$F/package/vanilla-lockfile.json"
+    #rm "$F/package/auditfix-lockfile.json"
+    #rm "$F/package/auditfixforce-lockfile.json"
+    #rm "$F/package/maxnpmcveoldness-lockfile.json"
+    #rm "$F/package/maxnpmcveoldness_pip-else-npm-lockfile.json"
+   
+ 
+    #rm "$F/package/vanilla-lockfile.json.csv"
+    #rm "$F/package/auditfix-lockfile.json.csv"
+    #rm "$F/package/auditfixforce-lockfile.json.csv"
+    #rm "$F/package/maxnpmcveoldness-lockfile.json.csv"
+    #rm "$F/package/maxnpmcveoldness_pip-else-npm-lockfile.json.csv"
+ 
     echo "$F/package/vanilla-lockfile.json" >> "$unchunked_array_jobs"
     echo "$F/package/auditfix-lockfile.json" >> "$unchunked_array_jobs"
     echo "$F/package/auditfixforce-lockfile.json" >> "$unchunked_array_jobs"
