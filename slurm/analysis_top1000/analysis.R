@@ -612,7 +612,7 @@ oldness_by_pkg_success_non_trivial %>%
   ggplot(aes(MinNumDeps - NPM)) +
   stat_ecdf() +
   ylab("Percentange of packages") +
-  xlab("Difference in oldness, minimizing #deps") +
+  xlab("Difference in oldness, minimizing # dependencies") +
   mytheme()
 mysave("oldness_ecdf_minimzing_num_deps.pdf")
 
@@ -761,7 +761,7 @@ size_delta %>%
   select(Project,DeltaMinDeps,DeltaMinOldness,DeltaMinDuplicates) %>%
   pivot_longer(cols = starts_with("Delta"), names_to="Config", values_to="Delta") %>%
   filter(Config=="DeltaMinDeps") %>%
-  ggplot(aes(x=Delta)) + stat_ecdf() + mytheme() + xlab("Saved bytes") + ylab("Percentage of packages")
+  ggplot(aes(x=Delta)) + stat_ecdf() + mytheme() + xlab("Saved bytes using MaxNPM") + ylab("Percentage of packages")
 
 mysave("disk_delta_ecdf.pdf")
 
@@ -774,7 +774,7 @@ size_delta %>%
   ggplot(aes(x=Delta)) + 
   geom_histogram() + 
   mytheme() + 
-  xlab("Saved bytes") + 
+  xlab("Saved bytes using MaxNPM") + 
   ylab("Percentage of packages")
 
 mysave("disk_delta_hist.pdf")
@@ -846,7 +846,7 @@ new_slows
 ## -----------------------------------------------------------------------------
 slowdowns %>% ggplot(aes(x=Slowdown)) + 
   stat_ecdf() +
-  xlab("Additional time taken with MinNPM (s)") +
+  xlab("Additional time taken with MaxNPM (s)") +
   ylab("Percentage of packages") +
   mytheme()
 
@@ -856,7 +856,7 @@ mysave("slowdown_ecdf.pdf")
 ## -----------------------------------------------------------------------------
 slowdowns %>% ggplot(aes(x=Slowdown)) + 
   stat_ecdf() +
-  xlab("Additional time taken with MinNPM (s)") +
+  xlab("Additional time taken with MaxNPM (s)") +
   ylab("Percentage of packages") +
   mytheme() + xlim(0, 20)
 
