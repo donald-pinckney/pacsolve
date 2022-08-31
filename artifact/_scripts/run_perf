@@ -3,9 +3,19 @@ set -e
 
 target_dir="/home/artifact/experiment-dir"
 perf_dir="/home/artifact/experiment-dir-perf"
+exp_type="$1"
 
 mkdir -p $perf_dir
 
+
 cd /home/artifact/pacsolve/slurm/
 ./performance.py --target "$target_dir"/vanilla/no > "$perf_dir"/vanilla-perf.csv
-./performance.py --target "$target_dir"/rosette/npm/allow_cycles/min_oldness,min_num_deps > "$perf_dir"/rosette-perf.csv
+# depending on the experiment type, we run different experiments
+if [ "$exp_type" == "top1000_comparison" ]; then
+    ./performance.py --target "$target_dir"/rosette/npm/allow_cycles/min_oldness,min_num_deps > "$perf_dir"/rosette-perf.csv
+elif [ "$exp_type" == "vuln_tarballs" ]; then
+    ./performance.py --target "$target_dir"/rosette/npm/allow_cycles/min_cve,min_oldness > "$perf_dir"/rosette-perf.csv
+else
+    echo "Unknown experiment type: $exp_type"
+    exit 1
+fi
