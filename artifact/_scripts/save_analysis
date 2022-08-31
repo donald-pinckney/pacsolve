@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd ~/Desktop/pacsolve/slurm/
+cd /home/artifact/pacsolve/slurm/analysis_top1000/
 
 Rscript analysis.R

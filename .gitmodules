@@ -11,3 +11,6 @@
 	path = z3
 	url = https://github.com/Z3Prover/z3
 	ignore = untracked
+[submodule "artifact/pacsolve-blinded"]
+	path = artifact/pacsolve
+	url = https://github.com/cassanof/pacsolve-blinded

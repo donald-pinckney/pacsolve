@@ -112,7 +112,7 @@ class Gather(object):
 
     def gather(self):
         num_workers = 16 if self.on_ripley else 100
-
+        num_workers = 16
         output_path = os.path.join(self.directory, 'results.csv') 
         with open(output_path, 'w', newline='') as f:
             writer = csv.writer(f)

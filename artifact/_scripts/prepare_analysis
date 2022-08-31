@@ -5,13 +5,13 @@ target_dir="/home/artifact/experiment-dir"
 oldness_dir="/home/artifact/experiment-dir-oldness"
 sizes_dir="/home/artifact/experiment-dir-sizes"
 
-cd ~/Desktop/pacsolve/slurm/
+cd /home/artifact/pacsolve/slurm/
 
 mkdir -p "$oldness_dir"
 mkdir -p "$sizes_dir"
 
 # Gather main results
-./main.py gather $target_dir
+./main.py gather --which-experiment $1 $target_dir
 
 # Prepare oldness analysis
 python3 all_oldness.py "$target_dir"/vanilla > "$oldness_dir"/vanilla.csv 2> /dev/null

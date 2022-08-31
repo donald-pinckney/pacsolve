@@ -13,7 +13,7 @@ env_data_root <- Sys.getenv("ANALYSIS_DATA_ROOT")
 if (env_data_root != "") {
   data_root <- env_data_root
 } else {
-  data_root <- "../permanently_saved_results/apr-10-more-combos"
+  data_root <- "slurm/permanently_saved_results/apr-10-more-combos"
 }
 
 perf_root <- str_c(data_root, "/perf")
@@ -43,7 +43,7 @@ mytheme <- function() {
            theme(
              # NOTE: UNCOMMENT WHEN RENDING PLOTS FOR THE PAPER
              # (can't get the CM fonts to work in artifact VM...)
-             text = element_text(family = "CM Roman", size=10),
+             text = element_text(family = "Times", size=10),
               panel.grid.major = element_blank(),
              # panel.grid.minor = element_blank(),
              # panel.grid.major = element_line(colour="gray", size=0.1),
@@ -425,7 +425,7 @@ shrinkage_table <- group_counts %>%
   select(Configuration, '# Shrunk (of 477)', '# Enlarged (of 477)')
 shrinkage_table
 
-print(xtable(as.data.frame(shrinkage_table), type="latex"), include.rownames=FALSE, file=str_c(tables_dir, "/", "shinkage_combos.tex"))
+print(xtable(as.data.frame(shrinkage_table), type="latex"), include.rownames=FALSE, file=str_c(tables_dir, "/", "shrinkage_combos.tex"))
 knitr::kable(shrinkage_table)
 
 
@@ -545,6 +545,13 @@ worse_oldness_min_deps
 
 
 ## -----------------------------------------------------------------------------
+change_cat <- function(x) {
+    ifelse(is.na(x), NA, ifelse(x == 0, "same", ifelse(x > 0, "better", "worse")))
+}
+
+oldness_minnum_comparison_df <- oldness_by_pkg_success_non_trivial %>%
+  mutate(CompCat=change_cat(MinNumDeps - NPM))
+
 oldness_by_pkg_success_non_trivial %>%
   ggplot(aes(x=NPM,y=MinNumDeps)) + 
   geom_point(shape=4, size=1.5) + 
@@ -554,6 +561,21 @@ oldness_by_pkg_success_non_trivial %>%
   mytheme()
 
 mysave("oldness_scatterplot_minimzing_num_deps.pdf")
+
+
+## -----------------------------------------------------------------------------
+oldness_by_pkg_success_non_trivial %>% 
+  ggplot(aes(MinNumDeps - NPM)) +
+  stat_ecdf() +
+  ylab("Percentange of packages") +
+  xlab("Difference in oldness, minimizing #deps") +
+  mytheme()
+mysave("oldness_ecdf_minimzing_num_deps.pdf")
+
+
+## -----------------------------------------------------------------------------
+ggplot(oldness_by_pkg_success_non_trivial, aes(x= MinNumDeps - NPM)) + mytheme() + geom_histogram() + xlab('Oldness difference, minimizing #deps') + ylab('Count')
+mysave('oldness_hist_minimzing_num_deps.pdf')
 
 
 ## -----------------------------------------------------------------------------
@@ -567,9 +589,18 @@ oldness_data %>%
 
 
 ## -----------------------------------------------------------------------------
-oldness_data %>%
-  filter(!is.nan(Oldness)) %>%
-  pivot_wider(names_from=Solver, values_from=Oldness) %>%
+oldness_by_pkg_success_non_trivial
+
+
+## -----------------------------------------------------------------------------
+# oldness_minold_comparison_df <- oldness_data %>%
+#   filter(!is.nan(Oldness)) %>%
+#   pivot_wider(names_from=Solver, values_from=Oldness) %>%
+#     mutate(CompCat=change_cat(MinOldness - NPM))
+
+oldness_minold_comparison_df <- oldness_by_pkg_success_non_trivial
+
+oldness_minold_comparison_df %>%
   ggplot(aes(x=NPM,y=MinOldness)) + 
   geom_point(shape=4, size=1.5) + 
   geom_segment(aes(x = 0, y = 0, xend = 1, yend = 1), size=0.02, color="red") +
@@ -579,6 +610,20 @@ oldness_data %>%
 
 mysave("oldness_scatterplot.pdf")
 
+
+## -----------------------------------------------------------------------------
+oldness_minold_comparison_df %>%
+  ggplot(aes(MinOldness - NPM)) +
+  stat_ecdf() +
+  ylab("Percentange of packages") +
+  xlab("Difference in oldness, minimizing oldness") +
+  mytheme()
+mysave("oldness_ecdf.pdf")
+
+
+## -----------------------------------------------------------------------------
+ggplot(oldness_minold_comparison_df, aes(x= MinOldness - NPM)) + mytheme() + geom_histogram() + xlab('Oldness difference, minimizing oldness') + ylab('Count')
+mysave('oldness_hist.pdf')
 
 
 ## -----------------------------------------------------------------------------
@@ -659,8 +704,8 @@ write(
 
 write(
   str_c("\\newcommand{\\dataFSShrinkageQuartileFirst}{", 
-        round(100 * fs_shrinkage$Quantile25, digits=2),
-        "}\n"),
+        round(100 * fs_shrinkage$Quantile25, digits=0),
+        "\\%}\n"),
   results_tex, append=TRUE)
 
 

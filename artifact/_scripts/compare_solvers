@@ -42,9 +42,9 @@ def delete_dir(p):
         return
 
 def run_config_command(name, npm_args):
-    npm_command = ['npm', 'install'] + npm_args
+    npm_command = ['maxnpm', 'install'] + npm_args
     print(f"========== ({name}) ==========\n\n Running the command:\n{npm_command}\n\n")
-    subprocess.run(['npm', 'install'] + npm_args)
+    subprocess.run(['maxnpm', 'install'] + npm_args)
     print(f"\n========== ({name}) ==========\n\n\n")
     package_lock = read_file('package-lock.json')
     package_lock_modules = read_file('node_modules/.package-lock.json')

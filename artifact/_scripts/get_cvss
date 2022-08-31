@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python3 /home/artifact/_scripts/lockfile_cvss/lockfile_metrics.py $1
