@@ -469,7 +469,7 @@ We will not perfectly reproduce the results, particularly performance results, d
 
 First, we clear any existing experimental data. This deletes all the directories `~/experiment-dir*/`:
 
-**Step 23:**
+**Step 27:**
 
 ```bash
 # Clear any existing experiment data
@@ -479,7 +479,7 @@ delete_experiment
 Now, we can run the main experiment, which will run NPM and MaxNPM (in many configurations) on 1000 packages. Note that the paper used
 a timeout of 600 seconds, but in order to get results sooner we decrease the timeout to 60 seconds:
 
-**Step 24:**
+**Step 28:**
 
 ```bash
 # This takes about 2-3 days
@@ -492,22 +492,22 @@ re-run `run_experiment 60`, and it will re-run only previously failed ones.
 
 Next, we can run the performance measurement experiment:
 
-**Step 25:**
+**Step 29:**
 
 ```bash
 # This takes about 4 hours
-run_perf
+run_perf top1000_comparison
 ```
 
 To verify that the performance experiments ran, you can check that the directory `~/experiment-dir-perf` exists and contains 2 `.csv` files.
 
 Now that all experiments have finished running, we perform some pre-analysis data collection:
 
-**Step 26:**
+**Step 30:**
 
 ```bash
 # This takes about 30-60 minutes
-prepare_analysis top1000_comparisons
+prepare_analysis top1000_comparison
 ```
 
 To verify that this step succeeded, you can check that the following files / directories exist:
@@ -518,11 +518,11 @@ To verify that this step succeeded, you can check that the following files / dir
 
 Finally, we can produce the figures and tables:
 
-**Step 27:**
+**Step 31:**
 
 ```bash
 # This is very fast
-save_analysis
+save_analysis top1000_comparison
 ```
 
 Then, the following directories contain the topline numbers, plots, and tables corresponding to what is reported in the paper:
@@ -537,4 +537,6 @@ For comparison, the verbatim topline numbers, plots, and tables in the paper are
 - `~/paper-number-plots/`
 - `~/paper-number-tables/`
 
-Note that some differences are expected: 1) some results, in particular the performance results and the number of timeouts will be different, as explained above. 2) the tables are formatted a bit differently, with some re-arranged out commented-out rows in the verbatim paper tables.
+Note that some differences are expected: 1) some results, in particular the performance results and the number of timeouts will be different, as explained above. 2) the tables are formatted a bit differently, with some re-arranged out commented-out rows in the verbatim paper tables.  
+
+To run the vulnerability analysis evaluation, re-run the commands in this section but substitute `top1000_comparison` with `vuln_tarballs`
