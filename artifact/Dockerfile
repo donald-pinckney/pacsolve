@@ -8,6 +8,15 @@ COPY . /home/artifact
 WORKDIR /home/artifact/pacsolve/slurm
 RUN pip install -r requirements.txt
 
+WORKDIR /home/artifact/pacsolve/version-cve-badness/
+RUN npm install
+
+WORKDIR /home/artifact/pacsolve/version-oldness/
+RUN npm install
+
+RUN R -e "install.packages(\"kimisc\")"
+RUN R -e "install.packages(\"cli\")"
+
 WORKDIR /home/artifact
 
 RUN echo "alias npm='maxnpm'" >> ~/.bashrc

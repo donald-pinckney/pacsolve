@@ -6,11 +6,11 @@ exp_type=$1
 
 if [ $exp_type == "top1000_comparison" ]; then
   cd /home/artifact/pacsolve/slurm/analysis_top1000/
-  Rscript analysis.R
 elif [ $exp_type == "vuln_tarballs" ]; then
-  cd /home/artifact/pacsolve/slurm/analysis_top1000/
+  cd /home/artifact/pacsolve/slurm/analysis_vuln/
 else
     echo "Invalid exp type: $exp_type"
     exit 1
 fi
 
+Rscript analysis.R

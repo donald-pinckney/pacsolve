@@ -467,7 +467,7 @@ Finally, this container can also be used to reproduce the experimental results o
 
 We will not perfectly reproduce the results, particularly performance results, due to limited time and compute resources and variation from the machines on which we ran the reported experiments.
 
-First, we clear any existing experimental data. This deletes all the directories `~/experiment-dir*/`:
+First, we clear any existing experimental data. This deletes all the directories `/home/artifact/experiment-dir*/`:
 
 **Step 27:**
 
@@ -486,7 +486,7 @@ a timeout of 600 seconds, but in order to get results sooner we decrease the tim
 run_experiment 60 top1000_comparison
 ```
 
-To verify that the experiments ran, you can check that the directory `~/experiment-dir` exists, and poke at the contents.
+To verify that the experiments ran, you can check that the directory `/home/artifact/experiment-dir` exists, and poke at the contents.
 If you believe that some of the experiments may have failed spuriously (for example due to a network disconnection), you can simply
 re-run `run_experiment 60`, and it will re-run only previously failed ones.
 
@@ -499,7 +499,7 @@ Next, we can run the performance measurement experiment:
 run_perf top1000_comparison
 ```
 
-To verify that the performance experiments ran, you can check that the directory `~/experiment-dir-perf` exists and contains 2 `.csv` files.
+To verify that the performance experiments ran, you can check that the directory `/home/artifact/experiment-dir-perf` exists and contains 2 `.csv` files.
 
 Now that all experiments have finished running, we perform some pre-analysis data collection:
 
@@ -512,9 +512,9 @@ prepare_analysis top1000_comparison
 
 To verify that this step succeeded, you can check that the following files / directories exist:
 
-- `~/experiment-dir/results.csv`
-- `~/experiment-dir-oldness/*.csv`
-- `~/experiment-dir-sizes/*.tsv`
+- `/home/artifact/experiment-dir/results.csv`
+- `/home/artifact/experiment-dir-oldness/*.csv`
+- `/home/artifact/experiment-dir-sizes/*.tsv`
 
 Finally, we can produce the figures and tables:
 
@@ -527,15 +527,10 @@ save_analysis top1000_comparison
 
 Then, the following directories contain the topline numbers, plots, and tables corresponding to what is reported in the paper:
 
-- `~/experiment-dir-number-results/`
-- `~/experiment-dir-number-plots/`
-- `~/experiment-dir-number-tables/`
+- `/home/artifact/number-results/`
+- `/home/artifact/plots/`
+- `/home/artifact/tables/`
 
-For comparison, the verbatim topline numbers, plots, and tables in the paper are in the directories:
-
-- `~/paper-number-results/`
-- `~/paper-number-plots/`
-- `~/paper-number-tables/`
 
 Note that some differences are expected: 1) some results, in particular the performance results and the number of timeouts will be different, as explained above. 2) the tables are formatted a bit differently, with some re-arranged out commented-out rows in the verbatim paper tables.  
 
