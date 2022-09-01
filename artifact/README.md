@@ -1,16 +1,17 @@
-# Artifact for Dependency Solvers à la Carte
+# Artifact
 
-- [Artifact for Dependency Solvers à la Carte](#artifact-for-dependency-solvers-à-la-carte)
-  - [Downloading and Running the Container for the Artifact](#downloading-and-running-the-vm-for-the-artifact)
+- [Artifact](#artifact)
+  - [Building the Container Image for the Artifact](#building-the-container-image-for-the-artifact)
   - [Welcome](#welcome)
     - [How to read this document](#how-to-read-this-document)
-  - [Getting to the Right Directory](#getting-to-the-right-directory)
+  - [Running the Docker Image](#running-the-docker-image)
   - [Example #1: Checking that MaxNPM Runs Correctly](#example-1-checking-that-maxnpm-runs-correctly)
   - [Example #2: Using MaxNPM With Different Consistency Criteria](#example-2-using-maxnpm-with-different-consistency-criteria)
   - [Example #3: MaxNPM can Allow or Disallow Cyclic Solutions](#example-3-maxnpm-can-allow-or-disallow-cyclic-solutions)
   - [Example #4: MaxNPM can Find Solutions when NPM Fails](#example-4-maxnpm-can-find-solutions-when-npm-fails)
   - [Example #5: MaxNPM can Minimize Oldness](#example-5-maxnpm-can-minimize-oldness)
   - [Example #6: MaxNPM can Minimize Number of Dependencies](#example-6-maxnpm-can-minimize-number-of-dependencies)
+  - [Example #7: MaxNPM can Minimize Number of Vulnerable Dependencies](#example-7-maxnpm-can-minimize-number-of-vulnerable-dependencies)
   - [Running the Experiments of the Evaluation Section](#running-the-experiments-of-the-evaluation-section)
 
 ## Building the Container Image for the Artifact
