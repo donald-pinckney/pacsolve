@@ -22,6 +22,7 @@ Press *Ctrl+Enter* to run a chunk.
 *You may want to change the directories below.*
 
 ```{r setup}
+knitr::opts_knit$set(root.dir = '/mnt/data/donald/pacsolve')
 .libPaths("/mnt/data/donald/R/x86_64-pc-linux-gnu-library/4.1")
 
 suppressMessages(library(tidyverse))
@@ -29,7 +30,9 @@ library(stringr)
 library(xtable)
 suppressMessages(library(extrafont))
 library(fontcm)
+library(lsr)
 ```
+
 
 ```{r dirs}
 env_data_root <- Sys.getenv("ANALYSIS_DATA_ROOT")
@@ -55,6 +58,8 @@ dir.create(plots_dir, showWarnings = FALSE)
 
 
 results_tex <- str_c(results_root, "/results.tex")
+
+getwd()
 
 write("% These are results from the R Notebook.", results_tex, append=FALSE)
 write("% Run the notebook from top to bottom", results_tex, append=TRUE)
@@ -570,6 +575,42 @@ print(xtable(as.data.frame(shrinkage_table), type="latex"), include.rownames=FAL
 knitr::kable(shrinkage_table)
 ```
 
+## Statistical Tests for Num Deps Shrinkage
+
+
+```{r}
+shapiro.test(min_dep_analysis_tmp$NPM)
+shapiro.test(min_dep_analysis_tmp$NPM_MinDepsOldness)
+```
+They aren't normally distributed, so we do Wilcoxon signed rank test
+
+```{r}
+min_dep_analysis_tmp
+```
+```{r}
+wilcox.test(min_dep_analysis_tmp$NPM, min_dep_analysis_tmp$NPM_MinDepsOldness, paired = TRUE, alternative = "greater")
+```
+So, `min_dep_analysis_tmp$NPM_MinDepsOldness` is statistically smaller!
+
+```{r}
+cohensD(min_dep_analysis_tmp$NPM, min_dep_analysis_tmp$NPM_MinDepsOldness)
+```
+
+```{r}
+nrow(one_comparison %>% filter(Shrinkage < 1))
+```
+
+```{r}
+nrow(one_comparison)
+```
+
+```{r}
+mean(1 - one_comparison$Shrinkage) * 100
+```
+
+## Main Results for Num Deps Shrinkage
+
+
 ```{r}
 one_comparison <- min_dep_analysis_shrinkage %>% filter(Comparison == 'NPM_NPM_MinDepsOldness_Shrinkage')
 
@@ -581,6 +622,8 @@ write(
   results_tex, append=TRUE)
 fraction_shrinking
 ```
+
+
 
 
 
@@ -659,6 +702,42 @@ all_success_non_trivial <- npm_success_non_trivial %>% inner_join(min_oldenss_su
 oldness_by_pkg_success_non_trivial <- oldness_by_pkg %>% inner_join(all_success_non_trivial)
 ```
 
+## Statistical Tests for Oldness
+
+```{r}
+oldness_by_pkg_success_non_trivial
+```
+
+```{r}
+shapiro.test(oldness_by_pkg_success_non_trivial$NPM)
+shapiro.test(oldness_by_pkg_success_non_trivial$MinOldness)
+```
+They aren't normally distributed, so we do Wilcoxon signed rank test
+
+```{r}
+wilcox.test(oldness_by_pkg_success_non_trivial$NPM, oldness_by_pkg_success_non_trivial$MinOldness, paired = TRUE, alternative = "greater")
+```
+So, `oldness_by_pkg_success_non_trivial$MinOldness` is statistically smaller!
+
+```{r}
+cohensD(oldness_by_pkg_success_non_trivial$NPM, oldness_by_pkg_success_non_trivial$MinOldness)
+```
+
+```{r}
+improvement_percs <- (oldness_by_pkg_success_non_trivial$NPM - oldness_by_pkg_success_non_trivial$MinOldness) / oldness_by_pkg_success_non_trivial$NPM
+improvement_percs[is.na(improvement_percs)] = 0
+mean(improvement_percs) * 100
+```
+
+```{r}
+nrow(one_comparison %>% filter(Shrinkage < 1))
+```
+
+```{r}
+nrow(one_comparison)
+```
+
+## Main Results for Oldness
 
 ```{r}
 better_oldness <- nrow(oldness_by_pkg_success_non_trivial  %>% filter(MinOldness < NPM)) /
@@ -901,7 +980,9 @@ size_delta %>%
 mysave("disk_delta_hist.pdf")
 ```
 
-
+```{r}
+size_shrinkage %>% filter(ShrinkageMinDeps < 0.25)
+```
 
 ```{r}
 fs_shrinkage <- size_shrinkage %>% 
@@ -945,7 +1026,7 @@ write(
 
 
 ```{r}
-slowdowns <- read_csv(paste(perf_root,"/vanilla-perf.csv",sep=""),
+slowdowns_paired <- read_csv(paste(perf_root,"/vanilla-perf.csv",sep=""),
          col_names = c("Project", "Time"),
          col_types = cols(Project = col_factor(), Time = col_double()),
          show_col_types = FALSE) %>%
@@ -960,7 +1041,12 @@ slowdowns <- read_csv(paste(perf_root,"/vanilla-perf.csv",sep=""),
         group_by(Project) %>%
       summarise(MinNPM = mean(Time)) %>%
       ungroup()) %>%
-  mutate(Slowdown = MinNPM - NPM) %>%
+  mutate(Slowdown = MinNPM - NPM)
+```
+
+
+```{r}
+slowdowns <- slowdowns_paired %>%
   select(Project, Slowdown)
 ```
 
@@ -990,6 +1076,40 @@ slowdowns %>% ggplot(aes(x=Slowdown)) +
 
 mysave("slowdown_ecdf_no_outliers.pdf")
 ```
+
+
+
+
+## Statistical Tests for Slowdown
+
+```{r}
+slowdowns_paired
+```
+
+
+```{r}
+shapiro.test(slowdowns_paired$NPM)
+shapiro.test(slowdowns_paired$MinNPM)
+```
+They aren't normally distributed, so we do Wilcoxon signed rank test
+
+```{r}
+wilcox.test(slowdowns_paired$NPM, slowdowns_paired$MinNPM, paired = TRUE, alternative = "less")
+```
+So, `oldness_by_pkg_success_non_trivial$MinOldness` is statistically smaller!
+
+```{r}
+cohensD(slowdowns_paired$NPM, slowdowns_paired$MinNPM)
+```
+
+```{r}
+improvement_percs <- (slowdowns_paired$MinNPM - slowdowns_paired$NPM) / slowdowns_paired$NPM
+#improvement_percs
+#improvement_percs[is.na(improvement_percs)] = 0
+mean(improvement_percs, na.rm=T) * 100
+```
+
+## Main results for paper
 
 Reported in paper:
 
