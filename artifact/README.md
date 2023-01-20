@@ -14,13 +14,14 @@
   - [Example #7: MaxNPM can Minimize Number of Vulnerable Dependencies](#example-7-maxnpm-can-minimize-number-of-vulnerable-dependencies)
   - [Running the Experiments of the Evaluation Section](#running-the-experiments-of-the-evaluation-section)
 
-## Building the Container Image for the Artifact
+## Building and Loing to the Container Image for the Artifact
 
 To build the container image:
 
 1. Download Docker engine from https://docs.docker.com/engine/install/ or your package manager of choice
 2. Locate the Dockerfile in this directory (`artifact` directory in the PacSolve repository)
 3. Run `docker build -t pacsolve-artifact .` in the command line while being in the same directory as the Dockerfile
+4. Run `docker exec -it pacsolve-artifact bash` to log into the container
 
 ## Welcome
 
