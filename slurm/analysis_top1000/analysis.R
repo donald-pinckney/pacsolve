@@ -408,6 +408,7 @@ min_dep_analysis_delta %>%
                              NPM_PIP_MinOldness_Delta="PIP vs. NPM")) %>%
   ggplot(aes(Delta, colour=Comparison)) +
   stat_ecdf() +
+  scale_y_continuous(labels = scales::percent) +
   ylab("Percentange of packages") +
   xlab("Number of fewer dependencies with MaxNPM") +
   mytheme()
@@ -496,18 +497,6 @@ cohensD(min_dep_analysis_tmp$NPM, min_dep_analysis_tmp$NPM_MinDepsOldness)
 
 
 ## -----------------------------------------------------------------------------
-nrow(one_comparison %>% filter(Shrinkage < 1))
-
-
-## -----------------------------------------------------------------------------
-nrow(one_comparison)
-
-
-## -----------------------------------------------------------------------------
-mean(1 - one_comparison$Shrinkage) * 100
-
-
-## -----------------------------------------------------------------------------
 one_comparison <- min_dep_analysis_shrinkage %>% filter(Comparison == 'NPM_NPM_MinDepsOldness_Shrinkage')
 
 fraction_shrinking <- nrow(one_comparison %>% filter(Shrinkage < 1)) / nrow(one_comparison)
@@ -517,6 +506,18 @@ write(
         "\\%}\n"),
   results_tex, append=TRUE)
 fraction_shrinking
+
+
+## -----------------------------------------------------------------------------
+nrow(one_comparison %>% filter(Shrinkage < 1))
+
+
+## -----------------------------------------------------------------------------
+nrow(one_comparison)
+
+
+## -----------------------------------------------------------------------------
+mean(1 - one_comparison$Shrinkage) * 100
 
 
 ## -----------------------------------------------------------------------------
@@ -676,6 +677,7 @@ mysave("oldness_scatterplot_minimzing_num_deps.pdf")
 oldness_by_pkg_success_non_trivial %>% 
   ggplot(aes(MinNumDeps - NPM)) +
   stat_ecdf() +
+  scale_y_continuous(labels = scales::percent) +
   ylab("Percentange of packages") +
   xlab("Difference in oldness, minimizing # dependencies") +
   mytheme()
@@ -724,6 +726,7 @@ mysave("oldness_scatterplot.pdf")
 oldness_minold_comparison_df %>%
   ggplot(aes(MinOldness - NPM)) +
   stat_ecdf() +
+  scale_y_continuous(labels = scales::percent) +
   ylab("Percentange of packages") +
   xlab("Difference in oldness, minimizing oldness") +
   mytheme()
@@ -802,7 +805,7 @@ size_shrinkage %>%
   select(Project,ShrinkageMinDeps,ShrinkageMinOldness,ShrinkageMinDuplicates) %>%
   pivot_longer(cols = starts_with("Shrinkage"), names_to="Config", values_to="Shrinkage") %>%
   filter(Config=="ShrinkageMinDeps") %>%
-  ggplot(aes(x=Shrinkage)) + stat_ecdf() + mytheme() + xlab("Fraction of size on disk") + ylab("Percentage of packages")
+  ggplot(aes(x=Shrinkage)) + stat_ecdf() + scale_y_continuous(labels = scales::percent) + mytheme() + xlab("Fraction of size on disk") + ylab("Percentage of packages")
 
 mysave("disk_shrinkage_ecdf.pdf")
 
@@ -826,7 +829,7 @@ size_delta %>%
   select(Project,DeltaMinDeps,DeltaMinOldness,DeltaMinDuplicates) %>%
   pivot_longer(cols = starts_with("Delta"), names_to="Config", values_to="Delta") %>%
   filter(Config=="DeltaMinDeps") %>%
-  ggplot(aes(x=Delta)) + stat_ecdf() + mytheme() + xlab("Saved bytes using MaxNPM") + ylab("Percentage of packages")
+  ggplot(aes(x=Delta)) + stat_ecdf() + scale_y_continuous(labels = scales::percent) + mytheme() + xlab("Saved bytes using MaxNPM") + ylab("Percentage of packages")
 
 mysave("disk_delta_ecdf.pdf")
 
@@ -919,6 +922,7 @@ new_slows
 ## -----------------------------------------------------------------------------
 slowdowns %>% ggplot(aes(x=Slowdown)) + 
   stat_ecdf() +
+  scale_y_continuous(labels = scales::percent) +
   xlab("Additional time taken with MaxNPM (s)") +
   ylab("Percentage of packages") +
   mytheme()
@@ -929,6 +933,7 @@ mysave("slowdown_ecdf.pdf")
 ## -----------------------------------------------------------------------------
 slowdowns %>% ggplot(aes(x=Slowdown)) + 
   stat_ecdf() +
+  scale_y_continuous(labels = scales::percent) +
   xlab("Additional time taken with MaxNPM (s)") +
   ylab("Percentage of packages") +
   mytheme() + xlim(0, 20)
