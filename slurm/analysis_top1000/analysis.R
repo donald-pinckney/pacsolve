@@ -1,4 +1,5 @@
 ## ----setup--------------------------------------------------------------------
+knitr::opts_knit$set(root.dir = '/mnt/data/donald/pacsolve')
 .libPaths("/mnt/data/donald/R/x86_64-pc-linux-gnu-library/4.1")
 
 suppressMessages(library(tidyverse))
@@ -6,6 +7,7 @@ library(stringr)
 library(xtable)
 suppressMessages(library(extrafont))
 library(fontcm)
+library(lsr)
 
 
 ## ----dirs---------------------------------------------------------------------
@@ -32,6 +34,8 @@ dir.create(plots_dir, showWarnings = FALSE)
 
 
 results_tex <- str_c(results_root, "/results.tex")
+
+getwd()
 
 write("% These are results from the R Notebook.", results_tex, append=FALSE)
 write("% Run the notebook from top to bottom", results_tex, append=TRUE)
@@ -385,6 +389,7 @@ min_dep_analysis_shrinkage %>%
                              NPM_PIP_MinOldness_Shrinkage="PIP vs. NPM")) %>%
   ggplot(aes(Shrinkage, colour=Comparison)) +
   stat_ecdf() +
+  scale_y_continuous(labels = scales::percent) +
   ylab("Percentange of packages") +
   xlab("Fraction of dependencies") +
   mytheme()
@@ -423,6 +428,7 @@ min_dep_analysis_shrinkage %>%
   geom_histogram(alpha=0.7, position="identity") +
   # coord_trans(x="log2") +
   # scale_x_continuous(trans='log2') + 
+  scale_y_continuous(labels = scales::percent) +
   ylab("Percentange of packages") +
   xlab("Fraction of dependencies") +
   mytheme()
@@ -471,6 +477,34 @@ shrinkage_table
 
 print(xtable(as.data.frame(shrinkage_table), type="latex"), include.rownames=FALSE, file=str_c(tables_dir, "/", "shrinkage_combos.tex"))
 knitr::kable(shrinkage_table)
+
+
+## -----------------------------------------------------------------------------
+shapiro.test(min_dep_analysis_tmp$NPM)
+shapiro.test(min_dep_analysis_tmp$NPM_MinDepsOldness)
+
+
+## -----------------------------------------------------------------------------
+min_dep_analysis_tmp
+
+## -----------------------------------------------------------------------------
+wilcox.test(min_dep_analysis_tmp$NPM, min_dep_analysis_tmp$NPM_MinDepsOldness, paired = TRUE, alternative = "greater")
+
+
+## -----------------------------------------------------------------------------
+cohensD(min_dep_analysis_tmp$NPM, min_dep_analysis_tmp$NPM_MinDepsOldness)
+
+
+## -----------------------------------------------------------------------------
+nrow(one_comparison %>% filter(Shrinkage < 1))
+
+
+## -----------------------------------------------------------------------------
+nrow(one_comparison)
+
+
+## -----------------------------------------------------------------------------
+mean(1 - one_comparison$Shrinkage) * 100
 
 
 ## -----------------------------------------------------------------------------
@@ -548,6 +582,37 @@ min_num_deps_success_non_trivial <- raw_data %>%
 all_success_non_trivial <- npm_success_non_trivial %>% inner_join(min_oldenss_success_non_trivial) %>% inner_join(min_num_deps_success_non_trivial)
 
 oldness_by_pkg_success_non_trivial <- oldness_by_pkg %>% inner_join(all_success_non_trivial)
+
+
+## -----------------------------------------------------------------------------
+oldness_by_pkg_success_non_trivial
+
+
+## -----------------------------------------------------------------------------
+shapiro.test(oldness_by_pkg_success_non_trivial$NPM)
+shapiro.test(oldness_by_pkg_success_non_trivial$MinOldness)
+
+
+## -----------------------------------------------------------------------------
+wilcox.test(oldness_by_pkg_success_non_trivial$NPM, oldness_by_pkg_success_non_trivial$MinOldness, paired = TRUE, alternative = "greater")
+
+
+## -----------------------------------------------------------------------------
+cohensD(oldness_by_pkg_success_non_trivial$NPM, oldness_by_pkg_success_non_trivial$MinOldness)
+
+
+## -----------------------------------------------------------------------------
+improvement_percs <- (oldness_by_pkg_success_non_trivial$NPM - oldness_by_pkg_success_non_trivial$MinOldness) / oldness_by_pkg_success_non_trivial$NPM
+improvement_percs[is.na(improvement_percs)] = 0
+mean(improvement_percs) * 100
+
+
+## -----------------------------------------------------------------------------
+nrow(one_comparison %>% filter(Shrinkage < 1))
+
+
+## -----------------------------------------------------------------------------
+nrow(one_comparison)
 
 
 ## -----------------------------------------------------------------------------
@@ -781,6 +846,10 @@ mysave("disk_delta_hist.pdf")
 
 
 ## -----------------------------------------------------------------------------
+size_shrinkage %>% filter(ShrinkageMinDeps < 0.25)
+
+
+## -----------------------------------------------------------------------------
 fs_shrinkage <- size_shrinkage %>% 
   select(Project,ShrinkageMinDeps,ShrinkageMinOldness,ShrinkageMinDuplicates) %>%
   pivot_longer(cols = starts_with("Shrinkage"), names_to="Config", values_to="Shrinkage") %>%
@@ -819,7 +888,7 @@ write(
 
 
 ## -----------------------------------------------------------------------------
-slowdowns <- read_csv(paste(perf_root,"/vanilla-perf.csv",sep=""),
+slowdowns_paired <- read_csv(paste(perf_root,"/vanilla-perf.csv",sep=""),
          col_names = c("Project", "Time"),
          col_types = cols(Project = col_factor(), Time = col_double()),
          show_col_types = FALSE) %>%
@@ -834,7 +903,11 @@ slowdowns <- read_csv(paste(perf_root,"/vanilla-perf.csv",sep=""),
         group_by(Project) %>%
       summarise(MinNPM = mean(Time)) %>%
       ungroup()) %>%
-  mutate(Slowdown = MinNPM - NPM) %>%
+  mutate(Slowdown = MinNPM - NPM)
+
+
+## -----------------------------------------------------------------------------
+slowdowns <- slowdowns_paired %>%
   select(Project, Slowdown)
 
 
@@ -861,6 +934,30 @@ slowdowns %>% ggplot(aes(x=Slowdown)) +
   mytheme() + xlim(0, 20)
 
 mysave("slowdown_ecdf_no_outliers.pdf")
+
+
+## -----------------------------------------------------------------------------
+slowdowns_paired
+
+
+## -----------------------------------------------------------------------------
+shapiro.test(slowdowns_paired$NPM)
+shapiro.test(slowdowns_paired$MinNPM)
+
+
+## -----------------------------------------------------------------------------
+wilcox.test(slowdowns_paired$NPM, slowdowns_paired$MinNPM, paired = TRUE, alternative = "less")
+
+
+## -----------------------------------------------------------------------------
+cohensD(slowdowns_paired$NPM, slowdowns_paired$MinNPM)
+
+
+## -----------------------------------------------------------------------------
+improvement_percs <- (slowdowns_paired$MinNPM - slowdowns_paired$NPM) / slowdowns_paired$NPM
+#improvement_percs
+#improvement_percs[is.na(improvement_percs)] = 0
+mean(improvement_percs, na.rm=T) * 100
 
 
 ## -----------------------------------------------------------------------------

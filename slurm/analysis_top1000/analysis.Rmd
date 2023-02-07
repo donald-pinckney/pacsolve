@@ -17,6 +17,14 @@ https://ood.discovery.neu.edu/pun/sys/dashboard/batch_connect/sys/RStudio/sessio
 
 Press *Ctrl+Enter* to run a chunk.
 
+# Converting to R script
+
+In R, run:
+
+```r
+knitr::purl("analysis.Rmd")
+```
+
 # Initialization
 
 *You may want to change the directories below.*
@@ -483,6 +491,7 @@ min_dep_analysis_shrinkage %>%
                              NPM_PIP_MinOldness_Shrinkage="PIP vs. NPM")) %>%
   ggplot(aes(Shrinkage, colour=Comparison)) +
   stat_ecdf() +
+  scale_y_continuous(labels = scales::percent) +
   ylab("Percentange of packages") +
   xlab("Fraction of dependencies") +
   mytheme()
@@ -523,6 +532,7 @@ min_dep_analysis_shrinkage %>%
   geom_histogram(alpha=0.7, position="identity") +
   # coord_trans(x="log2") +
   # scale_x_continuous(trans='log2') + 
+  scale_y_continuous(labels = scales::percent) +
   ylab("Percentange of packages") +
   xlab("Fraction of dependencies") +
   mytheme()
