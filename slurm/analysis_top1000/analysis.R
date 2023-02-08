@@ -972,6 +972,7 @@ quantile_3rd <- round(quantile(na.omit(slowdowns$Slowdown), 0.75), digits = 1)
 mean_slowdown <- round(mean(na.omit(slowdowns$Slowdown)), digits = 1)
 median_slowdown <- round(median(na.omit(slowdowns$Slowdown)), digits = 1)
 max_slowdown <- round(max(na.omit(slowdowns$Slowdown)), digits = 1)
+std_slowdown <- round(sd(na.omit(slowdowns$Slowdown)), digits = 1)
 
 write(
   str_c("\\newcommand{\\dataMeanSlowdown}{", 
@@ -1004,6 +1005,12 @@ results_tex, append=TRUE)
 write(
 str_c("\\newcommand{\\dataThirdQuantileSlowdown}{", 
       quantile_3rd,
+      "s}\n"),
+results_tex, append=TRUE)
+
+write(
+str_c("\\newcommand{\\dataStdSlowdown}{", 
+      std_slowdown,
       "s}\n"),
 results_tex, append=TRUE)
 
